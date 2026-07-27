@@ -23,3 +23,19 @@
 - Two-player delivery architecture.
 - Terminal node classification.
 - Release 0.2 review request.
+
+## [0.3.0] - 2026-07-27
+
+### Added
+
+- Formal compile-time and play-time execution boundaries.
+- Compiler and Book Formatter responsibility rules.
+- Public condition tag requirements.
+- Narrative variant merging rules to control node growth.
+- Two-player synchronization windows and shared world-time rules.
+- Private and shared player knowledge transfer rules.
+- Prototype scope, complexity budget, and playtest exit criteria.
+- Soft-lock prevention and authored fallback event requirements.
+- Minimal schema versioning policy.
+- Response to the external Gemini architecture review.
+- Prototype brief for The Last Witness.
