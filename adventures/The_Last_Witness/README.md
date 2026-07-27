@@ -26,3 +26,7 @@ Alpha 0.2a converts the case foundation into a deterministic world-state model. 
 - pre-logic audit resolutions.
 
 The release does not yet contain finished player prose. It is the logical layer from which the investigation flow will be compiled.
+
+## Prototype Alpha 0.2b
+
+This release adds the detailed investigation graph, location state machine, clue-dependency graph, split/regroup flow, and ending trigger matrix.

@@ -73,3 +73,18 @@
 - Updated adventure README to Alpha 0.2a status.
 - Converted critical deductions from single-clue assumptions into redundant conclusion gates.
 - Separated personal knowledge, preserved evidence, authenticated evidence, and public disclosure.
+## Prototype Alpha 0.2b - 2026-07-27
+
+### Added
+
+- Detailed investigation node graph from opening through final resolution.
+- Time-aware location state machine.
+- Explicit clue dependency graph with redundancy gates.
+- Two-player split, communication, regroup, and final-role logic.
+- Evidence-gated ending trigger matrix.
+- External-review disposition rules that reject non-canonical boilerplate findings.
+
+### Changed
+
+- Adventure logic is now ready for narrative compilation.
+- Failure paths consistently transform time, certainty, trust, or antagonist awareness instead of producing dead ends.
