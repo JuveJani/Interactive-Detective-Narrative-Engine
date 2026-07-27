@@ -52,3 +52,24 @@
 - Multi-variable ending framework.
 - Prototype build plan for the next adventure-logic release.
 - Spoiler-free placeholder player README.
+
+## Prototype Alpha 0.2a - Core Logic - 2026-07-27
+
+### Added
+
+- Immutable entity key table for characters, locations, items, conclusions, and events.
+- Compiler-ready world-state variables and location state models.
+- Explicit item state and transit matrix.
+- NPC knowledge-ingestion and staged disclosure rules.
+- Realistic travel and investigation time-cost matrix.
+- Core event graph covering opening through ending resolution.
+- Off-screen NPC schedules and conflict priority rules.
+- Evidence validation thresholds and wrong-accusation handling.
+- Two-player split, communication, regroup, and final-act rules.
+- Pre-logic audit resolution record.
+
+### Changed
+
+- Updated adventure README to Alpha 0.2a status.
+- Converted critical deductions from single-clue assumptions into redundant conclusion gates.
+- Separated personal knowledge, preserved evidence, authenticated evidence, and public disclosure.

@@ -1,32 +1,28 @@
 # The Last Witness
 
-**Prototype Alpha 0.1**  
-**Engine:** IDNE 0.3  
+**Prototype Alpha 0.2a: Core Logic**  
+**Engine baseline:** IDNE 0.3  
 **Target playtime:** approximately 2 hours  
 **Players:** 2  
-**Genre:** modern investigative thriller  
-**Status:** objective-reality foundation
+**Status:** objective reality plus compiler-ready core logic
 
-## Repository warning
+## Spoiler warning
 
-The `DO_NOT_READ` directory contains the complete truth of the case, including the culprit, hidden motives, background events, false leads, planned endings, and information that players must not know.
+Everything inside `DO_NOT_READ` contains the solution and implementation logic. Players must use only the future `PLAYER` package.
 
-Players should use only the files inside `PLAYER`.
+## What this release adds
 
-## Current prototype phase
+Alpha 0.2a converts the case foundation into a deterministic world-state model. It adds:
 
-This release establishes the authoritative reality of the adventure:
+- immutable entity identifiers;
+- global and local state variables;
+- explicit item movement records;
+- NPC knowledge-ingestion paths;
+- standardized travel and action costs;
+- a core event graph;
+- off-screen NPC schedules and priority rules;
+- evidence validation requirements for accusation and rescue;
+- split-party safety constraints;
+- pre-logic audit resolutions.
 
-- case solution;
-- world rules and fixed facts;
-- full background timeline;
-- principal character records;
-- location states;
-- first clue architecture;
-- ending framework.
-
-The playable books are intentionally not included in this phase. They will be compiled from this material after the objective reality has been checked for contradictions.
-
-## Design target
-
-The finished prototype must allow two players to investigate separately or together, exchange information, make time-sensitive choices, and reach several fair endings. The mystery must remain solvable even after failed checks or missed optional clues.
+The release does not yet contain finished player prose. It is the logical layer from which the investigation flow will be compiled.
