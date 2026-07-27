@@ -39,3 +39,16 @@
 - Minimal schema versioning policy.
 - Response to the external Gemini architecture review.
 - Prototype brief for The Last Witness.
+## Prototype Alpha 0.1 - 2026-07-27
+
+### Added
+
+- Complete case overview for `The Last Witness`.
+- Authoritative World Bible and immutable case facts.
+- Full background and playable-night master timeline.
+- Character database covering ten principal NPCs.
+- Location database covering ten investigation and ending locations.
+- Conclusion-level clue architecture and soft-lock prevention rules.
+- Multi-variable ending framework.
+- Prototype build plan for the next adventure-logic release.
+- Spoiler-free placeholder player README.
