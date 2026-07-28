@@ -212,6 +212,22 @@ The compiler must select a rebuttal based on missing proof:
 - evidence showing protective rather than initiating conduct;
 - confession scope smaller than accusation scope.
 
+### Accusation target → rebuttal category mapping
+
+Authoritative wiring for `EVT_440_FINAL_PUBLIC_POSITION` accusation options. When an accusation is unsupported or contradicted, `EVAL_ENDING` selects the rebuttal category from this table for `EVT_907_END_WRONG_ACCUSATION` variant dispatch.
+
+| Accusation target | Primary rebuttal category | Secondary category (if applicable) | Source |
+|---|---|---|---|
+| `NPC_ROOK` | missing physical presence | inability to explain police manipulation | `07` § 3; `CONTENT_GENERATION_SPEC.md` § 6.5 |
+| `NPC_KRELL`, `NPC_VALE` | inability to explain financial architecture | — | `07` § 3; `14` § 5 |
+| `NPC_MARCUS` | inability to explain police manipulation | confession scope smaller than accusation scope | `07` § 3 |
+| `NPC_REED` | confession scope smaller than accusation scope | inability to explain financial architecture | `07` § 3 |
+| `NPC_LENA` | evidence showing protective rather than initiating conduct | — | `07` § 3; `14` § 5 |
+| `NPC_NADIA` | evidence showing protective rather than initiating conduct | wrong timeline | `07` § 3; `14` § 5 |
+| unsupported / arbitrary | wrong timeline | — | `05_CORE_EVENT_GRAPH.md` `ARC_440` |
+
+Per-target rebuttal facts remain owned by `07_EVIDENCE_VALIDATION.md` § 3. Rebuttal prose is not authored in this milestone.
+
 ## 8. Partial-success modifiers
 
 Possible modifiers:

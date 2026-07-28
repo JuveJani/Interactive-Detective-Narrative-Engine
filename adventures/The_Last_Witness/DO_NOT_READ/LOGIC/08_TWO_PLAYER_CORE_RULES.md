@@ -87,3 +87,17 @@ Before compilation, every major block must record:
 - final-act responsibility.
 
 Balancing exact skill-check counts can wait for playtesting; eliminating passive stretches cannot.
+
+### Participation audit table
+
+Authoritative per-block metrics are populated in `13_SPLIT_AND_REGROUP_FLOW.md` § 9. Summary:
+
+| Block | Status | Notes |
+|---|---|---|
+| Opening / Split One | **Partial** | P1/P2 decision and clue maximums derived; physical challenge count = 1 (`CHK_115_PERCEPTION`, DC blocked) |
+| Regroup One | **Partial** | Joint decisions counted; clue transfer only |
+| Midgame / Split Two | **BLOCKED** | Track assignment at `EVT_150` not bound to nodes |
+| Regroup Two | **Partial** | Joint assignment decision; final-act role responsibility **BLOCKED** |
+| Final act | **BLOCKED** | Role-pair patterns exist; P1/P2 binding undefined |
+
+**Waiting time** and **inactive reading time** per block: **BLOCKED** — no authored per-block values exist.

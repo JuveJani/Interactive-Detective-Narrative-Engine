@@ -24,6 +24,7 @@ Every identifier in this adventure uses one of the prefixes below. The registry 
 | `CLK_` | Clock-threshold trigger | `01_WORLD_STATE_VARIABLES.md` § 1 |
 | `TR_` | State-machine transition | `11_LOCATION_STATE_MACHINE.md` |
 | `EVAL_` | Gate evaluator | `07_EVIDENCE_VALIDATION.md`, `14_ENDING_TRIGGER_MATRIX.md` |
+| `CHK_` | Skill check | `17_CHECK_REGISTER.md` |
 
 ## Ownership rules
 
@@ -146,3 +147,7 @@ Two namespaces occupy the event numbering space. Backbone arcs in `05_CORE_EVENT
 - `EVT_500-799`: unallocated
 - `EVT_800-899`: off-screen resolution events
 - `EVT_900-999`: ending resolution
+
+### Checks
+
+- `CHK_100-199`: opening and first investigation block checks

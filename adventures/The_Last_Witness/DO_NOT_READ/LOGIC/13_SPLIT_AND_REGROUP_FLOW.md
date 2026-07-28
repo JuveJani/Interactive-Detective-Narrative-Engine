@@ -48,6 +48,16 @@ Neither branch contains a code, lock, or immediate decision requiring the other 
 
 After both players complete one major node or when the shared clock reaches approximately 21:30.
 
+### Synchronization window (Split One)
+
+| Field | Value | Status |
+|---|---|---|
+| Start | `EVT_100_SHARED_BRIEFING` complete (~20:10) | declared |
+| Maximum duration | — | **BLOCKED** — see `04_TIME_COST_MATRIX.md` § 3a |
+| Regroup target | `EVT_150_REGROUP_ONE` | declared |
+| Regroup availability | 21:20–21:40 | declared (`08` § 5) |
+| Leftover-time rule | — | **BLOCKED** — see `04` § 3b |
+
 ---
 
 ## 3. Regroup One
@@ -135,6 +145,16 @@ The player books must never assume unrestricted table conversation during a decl
 
 Recommended deadline: 23:15.
 
+### Synchronization window (Split Two)
+
+| Field | Value | Status |
+|---|---|---|
+| Start | `EVT_150_REGROUP_ONE` track assignment complete | declared |
+| Maximum duration | — | **BLOCKED** — see `04_TIME_COST_MATRIX.md` § 3a |
+| Regroup target | `EVT_300_REGROUP_TWO` | declared |
+| Deadline | 23:15 | declared |
+| Leftover-time rule | — | **BLOCKED** — see `04` § 3b |
+
 ### Mandatory planning outputs
 
 The team assigns responsibility for:
@@ -219,3 +239,17 @@ Every compiled chapter block must record:
 - final-act responsibility.
 
 Exact numerical parity can be tuned after playtesting, but no player may have a passive middle third.
+
+### Participation audit table
+
+Derived from `10_INVESTIGATION_NODE_GRAPH.md`, `12_CLUE_DEPENDENCY_GRAPH.md`, and `13` § 2–§ 7. Counts are **maximums** along canonical split routes unless noted.
+
+| Block | P1 decisions (min–max) | P2 decisions (min–max) | P1 unique clues (max) | P2 unique clues (max) | Social challenges | Technical challenges | Physical challenges | Inactive reading time | Communication opportunities | Final-act responsibility |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Opening / Split One | 3–8 (`EVT_111`–`EVT_115`) | 2–5 (`EVT_121`, `EVT_123`) | 4 (`EVT_113`×2, `EVT_114`, `EVT_115`) | 5 (`EVT_121`, `EVT_123`×4) | 2 (`EVT_111`, `EVT_121` approach choices) | **BLOCKED** (`EVT_123` technical check undefined) | 1 (`CHK_115_PERCEPTION` on `EVT_115`; DC **BLOCKED**) | **BLOCKED** — no per-block values authored | phone (5 min), message (1 clue) per `§ 5`; regroup not yet reached | n/a |
+| Regroup One | 1 (`EVT_150` track choice, joint) | 1 (joint) | 0 (transfer only) | 0 (transfer only) | 0 | 0 | 0 | **BLOCKED** | all modes legal per `08` § 4 | n/a |
+| Midgame / Split Two | **BLOCKED** — track-dependent | **BLOCKED** — track-dependent | **BLOCKED** — track-dependent | **BLOCKED** — track-dependent | **BLOCKED** — no `CHK_*` social registry | **BLOCKED** | **BLOCKED** | **BLOCKED** | phone, message per `§ 5` | n/a |
+| Regroup Two | 1 (`EVT_300` assignment, joint) | 1 (joint) | 0 (transfer only) | 0 (transfer only) | 0 | 0 | 0 | **BLOCKED** | all modes legal per `08` § 4 | **BLOCKED** — role pairs in `§ 7` do not assign P1 vs P2 |
+| Final act | **BLOCKED** — role-dependent | **BLOCKED** — role-dependent | **BLOCKED** — role-dependent | **BLOCKED** — role-dependent | **BLOCKED** | **BLOCKED** | **BLOCKED** | **BLOCKED** | emergency broadcast per `§ 5`; no phone in Signal Room 4B | **BLOCKED** — four role-pair patterns in `§ 7`; player assignment at `EVT_300` |
+
+**Audit status:** Opening block partially populated. Midgame and final-act blocks **BLOCKED** on scene-mode and track assignment resolution. Challenge distribution **BLOCKED** on `CHK_*` registry completion (ER-02).
