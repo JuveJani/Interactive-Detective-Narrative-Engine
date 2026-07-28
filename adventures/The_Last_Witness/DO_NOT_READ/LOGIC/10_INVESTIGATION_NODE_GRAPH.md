@@ -5,6 +5,8 @@
 Each node has:
 
 - immutable event key;
+- `NODE_TYPE`, either `INTERMEDIATE` or `TERMINAL`;
+- `TERMINAL_TYPE`, on terminal nodes only;
 - availability window;
 - location;
 - player eligibility;
@@ -13,7 +15,9 @@ Each node has:
 - information gained;
 - state changes;
 - failure transformation;
-- outgoing routes.
+- `Outgoing`.
+
+`NODE_TYPE` and `Outgoing` are mandatory on every node. A node declares `Outgoing` as a list of node identifiers, or `Outgoing: None` when it is terminal. An `INTERMEDIATE` node with no outgoing target is a structural defect. A `TERMINAL` node declares exactly one `TERMINAL_TYPE` drawn from `engine/03_ARCHITECTURE.md` § 3.18 and never declares a target.
 
 The graph is not final prose. It is the authoritative gameplay skeleton from which player-facing nodes will later be compiled.
 
@@ -42,9 +46,7 @@ The graph is not final prose. It is the authoritative gameplay skeleton from whi
 
 - `T_NADIA` remains 0;
 - `P1_LOCATION = LOC_START`;
-- `P2_LOCATION = LOC_START`;
-- unlocks `EVT_110_P1_APARTMENT_APPROACH`;
-- unlocks `EVT_120_P2_NEWSROOM_ENTRY`.
+- `P2_LOCATION = LOC_START`.
 
 **Decision**
 
@@ -59,6 +61,12 @@ The canonical two-player route is a split.
 
 ## 3. Player 1 opening branch
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_110_P1_APARTMENT_APPROACH`;
+- `EVT_120_P2_NEWSROOM_ENTRY`.
 ### `EVT_110_P1_APARTMENT_APPROACH`
 
 **Window:** 20:10-20:25  
@@ -75,11 +83,12 @@ The canonical two-player route is a split.
 - `P1_LOCATION = LOC_ELIAS_APT`;
 - Mina is still present if arrival is no later than 20:30.
 
+**Node type:** `INTERMEDIATE`
+
 **Outgoing**
 
 - `EVT_111_MINA_FIRST_CONTACT`;
-- late arrival goes to `EVT_112_RESTRICTED_APARTMENT`.
-
+- `EVT_112_RESTRICTED_APARTMENT`.
 ### `EVT_111_MINA_FIRST_CONTACT`
 
 **Window:** before 20:30  
@@ -104,12 +113,13 @@ Player 1 chooses approach:
 - Mina's initial impression did not match a violent abduction;
 - Rook took control unusually quickly.
 
+**Node type:** `INTERMEDIATE`
+
 **Outgoing**
 
 - `EVT_113_APARTMENT_SEARCH`;
 - `EVT_114_NEIGHBOUR_INTERVIEW`;
 - `EVT_115_SERVICE_CORRIDOR`.
-
 ### `EVT_112_RESTRICTED_APARTMENT`
 
 **Window:** after 20:30  
@@ -129,6 +139,14 @@ Late-access fallback.
 
 This node never permanently removes apartment evidence. It changes cost and antagonist awareness.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_113_APARTMENT_SEARCH`;
+- `EVT_114_NEIGHBOUR_INTERVIEW`;
+- `EVT_115_SERVICE_CORRIDOR`;
+- `EVT_150_REGROUP_ONE`.
 ### `EVT_113_APARTMENT_SEARCH`
 
 **Cost:** 20 minutes  
@@ -148,6 +166,13 @@ A failed or rushed search reveals one suspicious category and costs an additiona
 - `GRANT_CLUE` for two of `CLUE_APT_MEDICATION_MISSING`, `CLUE_APT_BLOOD_OLD`, `CLUE_APT_PASSPORT_MISSING` on a successful careful search, one on a failed or rushed search;
 - may unlock `CON_STAGED_DISAPPEARANCE` later.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_114_NEIGHBOUR_INTERVIEW`;
+- `EVT_115_SERVICE_CORRIDOR`;
+- `EVT_150_REGROUP_ONE`.
 ### `EVT_114_NEIGHBOUR_INTERVIEW`
 
 **Cost:** 10 minutes
@@ -163,6 +188,13 @@ A failed or rushed search reveals one suspicious category and costs an additiona
 - `GRANT_CLUE(CLUE_NEIGHBOUR_EXIT_BEFORE_CRASH)`;
 - grants nothing toward `P_HARBOR` until combined with transit evidence.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_113_APARTMENT_SEARCH`;
+- `EVT_115_SERVICE_CORRIDOR`;
+- `EVT_150_REGROUP_ONE`.
 ### `EVT_115_SERVICE_CORRIDOR`
 
 **Cost:** 15 minutes
@@ -191,18 +223,26 @@ A failed perception check still reveals that the corridor exists, but not the fi
 
 ## 4. Player 2 opening branch
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_113_APARTMENT_SEARCH`;
+- `EVT_114_NEIGHBOUR_INTERVIEW`;
+- `EVT_150_REGROUP_ONE`.
 ### `EVT_120_P2_NEWSROOM_ENTRY`
 
 **Window:** 20:10-20:25  
 **Location:** transit to `LOC_NEWSROOM`  
 **Cost:** 15 minutes
 
+**Node type:** `INTERMEDIATE`
+
 **Outgoing**
 
 - `EVT_121_NADIA_INTERVIEW`;
 - `EVT_122_MARCUS_OBSERVATION`;
 - `EVT_123_NEWSROOM_RECORDS`.
-
 ### `EVT_121_NADIA_INTERVIEW`
 
 **Cost:** 15 minutes
@@ -228,6 +268,13 @@ Nadia admits distrust of official protection but withholds her role in the disap
 - `GRANT_CLUE(CLUE_NADIA_HARBOR_RESEARCH)`;
 - full Signal Room disclosure remains locked.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_122_MARCUS_OBSERVATION`;
+- `EVT_123_NEWSROOM_RECORDS`;
+- `EVT_150_REGROUP_ONE`.
 ### `EVT_122_MARCUS_OBSERVATION`
 
 **Cost:** 10 minutes
@@ -242,6 +289,13 @@ Nadia admits distrust of official protection but withholds her role in the disap
 
 - no clue grant. The observable facts raise suspicion and gate `EVT_240` entry leverage; they do not prove the leak.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_121_NADIA_INTERVIEW`;
+- `EVT_123_NEWSROOM_RECORDS`;
+- `EVT_150_REGROUP_ONE`.
 ### `EVT_123_NEWSROOM_RECORDS`
 
 **Cost:** 20 minutes
@@ -274,6 +328,13 @@ Failure alerts Marcus or consumes time. At least the missing-photo gap remains o
 
 ## 5. First regroup
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_121_NADIA_INTERVIEW`;
+- `EVT_122_MARCUS_OBSERVATION`;
+- `EVT_150_REGROUP_ONE`.
 ### `EVT_150_REGROUP_ONE`
 
 **Recommended window:** 21:20-21:40  
@@ -313,6 +374,22 @@ Players may split again, but each branch is independently useful.
 
 ## 6. Harbor and archive branch
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_210_HARBOR_ARCHIVE_ENTRY`;
+- `EVT_211_CAFE_ORPHEUS`;
+- `EVT_212_TERMINAL_RECON`;
+- `EVT_220_MINA_REPORT_COMPARISON`;
+- `EVT_221_CAMERA_REQUEST_AUDIT`;
+- `EVT_222_PROTECTION_ORDER_AUDIT`;
+- `EVT_223_ROOK_INTERVIEW`;
+- `EVT_230_IRIS_WORKPLACE`;
+- `EVT_231_PREPAID_PHONE_TRACE`;
+- `EVT_232_MEDICAL_INTERPRETATION`;
+- `EVT_240_MARCUS_PRESSURE_STAGE_ONE`;
+- `EVT_242_REED_OFFICE_SEARCH`.
 ### `EVT_210_HARBOR_ARCHIVE_ENTRY`
 
 **Window:** before 23:20 normal access; later emergency access  
@@ -340,6 +417,13 @@ Players may split again, but each branch is independently useful.
 - `GRANT_CLUE(CLUE_ARCHIVE_WINDOW_NUMBERING)`;
 - unlocks cable-corridor access.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_211_CAFE_ORPHEUS`;
+- `EVT_212_TERMINAL_RECON`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_211_CAFE_ORPHEUS`
 
 **Window:** before 22:00 for full footage  
@@ -364,6 +448,13 @@ Players may split again, but each branch is independently useful.
 
 After footage overwrite, receipt, witness testimony, and tide note remain.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_210_HARBOR_ARCHIVE_ENTRY`;
+- `EVT_212_TERMINAL_RECON`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_212_TERMINAL_RECON`
 
 **Window:** 21:30 onward  
@@ -391,6 +482,13 @@ This node does not permit blind discovery of the room without at least one ident
 
 ## 7. Police corruption branch
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_210_HARBOR_ARCHIVE_ENTRY`;
+- `EVT_211_CAFE_ORPHEUS`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_220_MINA_REPORT_COMPARISON`
 
 **Window:** 21:30 onward  
@@ -412,6 +510,14 @@ This node does not permit blind discovery of the room without at least one ident
 - `GRANT_CLUE(CLUE_ROOK_REPORT_ALTERED)`;
 - `T_MINA +1` if her identity is protected.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_221_CAMERA_REQUEST_AUDIT`;
+- `EVT_222_PROTECTION_ORDER_AUDIT`;
+- `EVT_223_ROOK_INTERVIEW`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_221_CAMERA_REQUEST_AUDIT`
 
 **Cost:** 20 minutes
@@ -432,6 +538,14 @@ This node does not permit blind discovery of the room without at least one ident
 - `GRANT_CLUE(CLUE_ROOK_CAMERA_UNAUTHORIZED)`;
 - `A_ROOK_PLAYERS +1` if queried through police channels.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_220_MINA_REPORT_COMPARISON`;
+- `EVT_222_PROTECTION_ORDER_AUDIT`;
+- `EVT_223_ROOK_INTERVIEW`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_222_PROTECTION_ORDER_AUDIT`
 
 **Cost:** 20 minutes
@@ -446,6 +560,14 @@ This node does not permit blind discovery of the room without at least one ident
 - `GRANT_CLUE(CLUE_ROOK_PROTECTION_ORDER_FALSE)`;
 - combined with report comparison allows private operational conclusion.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_220_MINA_REPORT_COMPARISON`;
+- `EVT_221_CAMERA_REQUEST_AUDIT`;
+- `EVT_223_ROOK_INTERVIEW`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_223_ROOK_INTERVIEW`
 
 **Window:** after first contact or at Rook's initiative  
@@ -474,6 +596,14 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 
 ## 8. Medical trail branch
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_220_MINA_REPORT_COMPARISON`;
+- `EVT_221_CAMERA_REQUEST_AUDIT`;
+- `EVT_222_PROTECTION_ORDER_AUDIT`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_230_IRIS_WORKPLACE`
 
 **Window:** 21:30 onward  
@@ -494,6 +624,13 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 - `GRANT_CLUE(CLUE_MEDICAL_SUPPLY_TRAIL)`;
 - may increase Rook awareness if police records are used.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_231_PREPAID_PHONE_TRACE`;
+- `EVT_232_MEDICAL_INTERPRETATION`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_231_PREPAID_PHONE_TRACE`
 
 **Cost:** 20 minutes
@@ -516,6 +653,13 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 - `GRANT_CLUE(CLUE_ELIAS_ARRIVED_BEFORE_LENA)`;
 - does not reveal exact room by itself.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_230_IRIS_WORKPLACE`;
+- `EVT_232_MEDICAL_INTERPRETATION`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_232_MEDICAL_INTERPRETATION`
 
 **Cost:** 5-10 minutes
@@ -540,6 +684,13 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 
 ## 9. Marcus and Reed branch
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_230_IRIS_WORKPLACE`;
+- `EVT_231_PREPAID_PHONE_TRACE`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_240_MARCUS_PRESSURE_STAGE_ONE`
 
 **Cost:** 15 minutes
@@ -566,6 +717,13 @@ Marcus gives a partial admission only:
 - no clue grant. The partial admission opens `EVT_241` entry leverage;
 - possible `T_MARCUS +1` from -1 toward neutral.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_241_MARCUS_FULL_DISCLOSURE`;
+- `EVT_242_REED_OFFICE_SEARCH`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_241_MARCUS_FULL_DISCLOSURE`
 
 **Cost:** 20 minutes, the full structured interview cost in `04_TIME_COST_MATRIX.md` § 2
@@ -590,6 +748,13 @@ Marcus reveals the harbor-direction leak and transfer-time disclosure.
 - may expose route to Reed/Krell operations;
 - does not directly prove Rook's corruption.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_242_REED_OFFICE_SEARCH`;
+- `EVT_243_REED_NEGOTIATION`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_242_REED_OFFICE_SEARCH`
 
 **Window:** state-dependent  
@@ -618,6 +783,13 @@ Possible routes:
 
 If office has been searched by Krell's people, players still find residue, device traces, or deleted-message metadata. The strongest physical evidence may be gone, producing a weaker route rather than a dead end.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_240_MARCUS_PRESSURE_STAGE_ONE`;
+- `EVT_243_REED_NEGOTIATION`;
+- `EVT_300_REGROUP_TWO`.
 ### `EVT_243_REED_NEGOTIATION`
 
 **Window:** late midgame or terminal act  
@@ -651,6 +823,12 @@ No generic persuasion roll unlocks full disclosure.
 
 ## 10. Second regroup
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_300_REGROUP_TWO`;
+- `EVT_420_REED_OR_ROOK_CONFRONTATION`.
 ### `EVT_300_REGROUP_TWO`
 
 **Deadline:** recommended no later than 23:15  
@@ -685,6 +863,15 @@ Choose final-act assignments.
 
 ## 11. Terminal access nodes
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_310_CABLE_CORRIDOR_ENTRY`;
+- `EVT_311_NORTH_GATE_ENTRY`;
+- `EVT_312_DRAINAGE_ENTRY`;
+- `EVT_313_EMERGENCY_ENTRY`;
+- `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 ### `EVT_310_CABLE_CORRIDOR_ENTRY`
 
 **Entry**
@@ -699,6 +886,12 @@ Choose final-act assignments.
 - delayed communication;
 - possible separation.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_330_FIND_SIGNAL_4B`;
+- `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 ### `EVT_311_NORTH_GATE_ENTRY`
 
 **Entry**
@@ -714,6 +907,12 @@ Choose final-act assignments.
 - `GRANT_CLUE(CLUE_NORTH_GATE_RECORD)`;
 - `TERMINAL_ROUTES_KNOWN` gains `NORTH_GATE`.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_330_FIND_SIGNAL_4B`;
+- `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 ### `EVT_312_DRAINAGE_ENTRY`
 
 **Window:** only before 23:30  
@@ -727,6 +926,12 @@ Fast but weather-sensitive. Failure returns player to exterior with lost time, n
 
 - `GRANT_CLUE(CLUE_DRAINAGE_TIDE_WINDOW)`.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_330_FIND_SIGNAL_4B`;
+- `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 ### `EVT_313_EMERGENCY_ENTRY`
 
 **Entry**
@@ -745,6 +950,12 @@ May expose location to Rook unless his control is already challenged.
 - `GRANT_CLUE(CLUE_EMERGENCY_ENTRY_AUTH)`;
 - `TERMINAL_ROUTES_KNOWN` gains `EMERGENCY`.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_330_FIND_SIGNAL_4B`;
+- `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 ### `EVT_314_MAIN_ENTRY_CONFRONTATION`
 
 **Cost:** 10-20 minutes, the risky alternate access cost in `04_TIME_COST_MATRIX.md` § 2
@@ -763,6 +974,12 @@ This is the final anti-soft-lock access route.
 
 ## 12. Signal Room discovery
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_330_FIND_SIGNAL_4B`;
+- `EVT_420_REED_OR_ROOK_CONFRONTATION`.
 ### `EVT_330_FIND_SIGNAL_4B`
 
 **Entry**
@@ -788,6 +1005,14 @@ This is the final anti-soft-lock access route.
 - `CON_MEDICAL_EMERGENCY` automatic on entry, independent of `P_MEDICAL`;
 - unlocks rescue/evidence parallel tasks.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_331_LENA_IRIS_NEGOTIATION`;
+- `EVT_400_RESCUE_CONTROL`;
+- `EVT_410_LEDGER_RECOVERY`;
+- `EVT_420_REED_OR_ROOK_CONFRONTATION`.
 ### `EVT_331_LENA_IRIS_NEGOTIATION`
 
 **Cost:** 10 minutes
@@ -815,6 +1040,13 @@ No single social check overrides their core fear.
 
 ## 13. Final parallel tasks
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_400_RESCUE_CONTROL`;
+- `EVT_410_LEDGER_RECOVERY`;
+- `EVT_420_REED_OR_ROOK_CONFRONTATION`.
 ### `EVT_400_RESCUE_CONTROL`
 
 Possible routes:
@@ -830,6 +1062,15 @@ Possible routes:
 
 Depends on time, trust, and whether hostile actors control the exterior.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_410_LEDGER_RECOVERY`;
+- `EVT_420_REED_OR_ROOK_CONFRONTATION`;
+- `EVT_430_COMPLETE_TRANSFER`;
+- `EVT_440_FINAL_PUBLIC_POSITION`;
+- `EVT_900_RESOLVE_ENDING`.
 ### `EVT_410_LEDGER_RECOVERY`
 
 Tasks:
@@ -847,6 +1088,13 @@ Tasks:
 
 The complete transfer requires the correct key, code, and sufficient time.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_420_REED_OR_ROOK_CONFRONTATION`;
+- `EVT_430_COMPLETE_TRANSFER`;
+- `EVT_440_FINAL_PUBLIC_POSITION`.
 ### `EVT_420_REED_OR_ROOK_CONFRONTATION`
 
 Triggered by antagonist awareness and clock.
@@ -859,6 +1107,15 @@ Possible player roles:
 - conceal evacuation route;
 - preserve evidence copy.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_400_RESCUE_CONTROL`;
+- `EVT_410_LEDGER_RECOVERY`;
+- `EVT_430_COMPLETE_TRANSFER`;
+- `EVT_440_FINAL_PUBLIC_POSITION`;
+- `EVT_900_RESOLVE_ENDING`.
 ### `EVT_430_COMPLETE_TRANSFER`
 
 **Entry**
@@ -881,6 +1138,12 @@ Possible player roles:
 - intercepted attempt;
 - public leak fallback.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_440_FINAL_PUBLIC_POSITION`;
+- `EVT_900_RESOLVE_ENDING`.
 ### `EVT_440_FINAL_PUBLIC_POSITION`
 
 Players choose what they are prepared to assert publicly.
@@ -891,6 +1154,11 @@ A target-specific accusation option appears only if its evidence gate is met. Un
 
 ## 14. Ending dispatch
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_900_RESOLVE_ENDING`.
 ### `EVT_900_RESOLVE_ENDING`
 
 Reads:
@@ -903,7 +1171,80 @@ Reads:
 - public accusation;
 - ally states.
 
-Dispatches to ending variants defined in `06_ENDING_FRAMEWORK.md` and the later terminal matrix.
+Dispatches to the eight terminal nodes below. Trigger conditions and the priority order that selects between them are owned by `14_ENDING_TRIGGER_MATRIX.md`; narrative outcome text is owned by `../06_ENDING_FRAMEWORK.md`. This section owns node identity, type and edges only.
+
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_901_END_WITNESS_SPEAKS`;
+- `EVT_902_END_EVIDENCE_WITHOUT_WITNESS`;
+- `EVT_903_END_LIFE_SAVED_TRUTH_DELAYED`;
+- `EVT_904_END_PROTECTIVE_CUSTODY`;
+- `EVT_905_END_PUBLIC_LEAK`;
+- `EVT_906_END_SILENT_TERMINAL`;
+- `EVT_907_END_WRONG_ACCUSATION`;
+- `EVT_908_END_FRACTURED_TRUTH`.
+
+### `EVT_901_END_WITNESS_SPEAKS`
+
+**Node type:** `TERMINAL`
+**Terminal type:** `VICTORY`
+**Ending family:** `END_WITNESS_SPEAKS`
+**Outgoing:** None
+
+### `EVT_902_END_EVIDENCE_WITHOUT_WITNESS`
+
+**Node type:** `TERMINAL`
+**Terminal type:** `PARTIAL_SUCCESS`
+**Ending family:** `END_EVIDENCE_WITHOUT_WITNESS`
+**Outgoing:** None
+
+### `EVT_903_END_LIFE_SAVED_TRUTH_DELAYED`
+
+**Node type:** `TERMINAL`
+**Terminal type:** `PARTIAL_SUCCESS`
+**Ending family:** `END_LIFE_SAVED_TRUTH_DELAYED`
+**Outgoing:** None
+
+### `EVT_904_END_PROTECTIVE_CUSTODY`
+
+**Node type:** `TERMINAL`
+**Terminal type:** `NARRATIVE_FAILURE`
+**Ending family:** `END_PROTECTIVE_CUSTODY`
+**Outgoing:** None
+
+### `EVT_905_END_PUBLIC_LEAK`
+
+**Node type:** `TERMINAL`
+**Terminal type:** `PARTIAL_SUCCESS`
+**Ending family:** `END_PUBLIC_LEAK`
+**Outgoing:** None
+
+### `EVT_906_END_SILENT_TERMINAL`
+
+**Node type:** `TERMINAL`
+**Terminal type:** `TIME_EXPIRED`
+**Ending family:** `END_SILENT_TERMINAL`
+**Outgoing:** None
+
+The terminating condition is temporal: Elias is never located, or never rescued in time. A terminal type classifies why the branch terminates, not what happens to a character. Elias's death is narrative outcome, owned by `../06_ENDING_FRAMEWORK.md`, and his medical state is read from `ELIAS_STATE`.
+
+### `EVT_907_END_WRONG_ACCUSATION`
+
+**Node type:** `TERMINAL`
+**Terminal type:** `CASE_UNRESOLVED`
+**Ending family:** `END_WRONG_ACCUSATION`
+**Outgoing:** None
+
+### `EVT_908_END_FRACTURED_TRUTH`
+
+**Node type:** `TERMINAL`
+**Terminal type:** `PARTIAL_SUCCESS`
+**Ending family:** `END_FRACTURED_TRUTH`
+**Outgoing:** None
+
+Reachable only in two-player mode, because `../06_ENDING_FRAMEWORK.md` § END-08 requires two players to reach incompatible final decisions. Reachability is therefore evaluated per declared play mode.
 
 ## 15. Variable writes by node
 
@@ -941,9 +1282,22 @@ Nodes not listed write no variable other than the universal clock and availabili
 
 ## 16. Graph integrity rules
 
-- every mandatory conclusion has at least two independent routes;
-- every critical location retains a late fallback entry;
-- failed checks alter time, certainty, trust, or awareness;
-- no split player waits on information held only by the other player;
-- no NPC provides a high-risk confession through persuasion alone;
-- no player can earn the best ending through an unsupported guess.
+Stated as assertions over the explicit edge set above, so each is checkable rather than aspirational.
+
+| Assertion | How it is checked |
+|---|---|
+| Every node declares exactly one `NODE_TYPE` | 40 `INTERMEDIATE` plus 8 `TERMINAL`, 48 in total |
+| Every `TERMINAL` node declares one `TERMINAL_TYPE` and `Outgoing: None` | § 14, eight nodes |
+| No `INTERMEDIATE` node declares a `TERMINAL_TYPE` | § 14 is the only section declaring terminal types |
+| Every `INTERMEDIATE` node declares at least one target | 40 nodes, each with an `Outgoing` list |
+| Every `Outgoing` target resolves to a declared node | targets are drawn from the 48 declared identifiers |
+| Every terminal node is reachable from `EVT_100_SHARED_BRIEFING` | `EVT_900_RESOLVE_ENDING` targets all eight, and is reached from `EVT_400`, `EVT_420`, `EVT_430` and `EVT_440` |
+| No player-facing node is unreachable | every node is a target of at least one other node, except `EVT_100`, which is the entry |
+| Every mandatory conclusion has at least two independent routes | `12_CLUE_DEPENDENCY_GRAPH.md` § 12 |
+| Every critical location retains a late fallback entry | `EVT_314_MAIN_ENTRY_CONFRONTATION` is a target of every terminal-access node |
+| Failed checks alter time, certainty, trust or awareness | failure transformations per node |
+| No split player waits on information held only by the other player | `13_SPLIT_AND_REGROUP_FLOW.md` § 2 independence test |
+| No NPC provides a high-risk confession through persuasion alone | `03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` disclosure gates |
+| No player can earn the best ending through an unsupported guess | `EVT_901` requires `CON_ROOK_PUBLICLY_PROVABLE` and a full authenticated transfer |
+
+Off-screen nodes `EVT_801`–`EVT_804`, owned by `06_NPC_SCHEDULE_AND_PRIORITY.md` § 4, are not player-reachable and are excluded from reachability.

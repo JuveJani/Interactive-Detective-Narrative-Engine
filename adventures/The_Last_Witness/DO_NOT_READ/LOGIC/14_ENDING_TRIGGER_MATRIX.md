@@ -15,6 +15,25 @@ Endings are computed in this order:
 7. resolve secondary character consequences;
 8. select narrative ending family and modifiers.
 
+### Ending-family priority order
+
+The trigger conditions in § 6 overlap by construction, so exclusivity is unavailable. `END_SILENT_TERMINAL` and `END_EVIDENCE_WITHOUT_WITNESS` can both hold when Elias dies; `END_PUBLIC_LEAK` can hold alongside `END_LIFE_SAVED_TRUTH_DELAYED`; `END_WRONG_ACCUSATION` is a player act independent of rescue and transfer. A deterministic priority order resolves this.
+
+Families are tested top to bottom. The order follows the eight-step resolution order above: medical outcome, then transfer, then rescue controller, then proof, then accusation.
+
+| Rank | Family | Terminal node | Determination it belongs to |
+|---:|---|---|---|
+| 1 | `END_SILENT_TERMINAL` | `EVT_906` | medical: Elias never located or never rescued |
+| 2 | `END_EVIDENCE_WITHOUT_WITNESS` | `EVT_902` | medical and transfer: Elias lost, archive authenticated |
+| 3 | `END_FRACTURED_TRUTH` | `EVT_908` | rescue and evidence outcomes incompatible |
+| 4 | `END_PROTECTIVE_CUSTODY` | `EVT_904` | rescue controller: Rook holds rescue or evidence, unexposed |
+| 5 | `END_WITNESS_SPEAKS` | `EVT_901` | proof: full success on every axis |
+| 6 | `END_LIFE_SAVED_TRUTH_DELAYED` | `EVT_903` | transfer: Elias survives, full transfer failed |
+| 7 | `END_WRONG_ACCUSATION` | `EVT_907` | accusation: public claim unsupported or contradicted |
+| 8 | `END_PUBLIC_LEAK` | `EVT_905` | disclosure without full authentication |
+
+**Selection rule.** Ending families are tested in the priority order above. The first family whose conditions are satisfied is the ending. Any other family whose conditions were also satisfied is recorded as a partial-success modifier under § 8, never as a second ending. Every reachable combination therefore resolves to exactly one ending.
+
 ## 2. Medical outcome
 
 The medical outcome is read from `ELIAS_STATE`, owned by `01_WORLD_STATE_VARIABLES.md` § 5. It is not stored separately and is not inferred from prose. The seven values map onto the three outcome bands exhaustively.
@@ -125,6 +144,8 @@ Every gate in this section reads a conclusion, never a raw point total.
 
 ### `END_WITNESS_SPEAKS`
 
+**Terminal node:** `EVT_901_END_WITNESS_SPEAKS` — **Terminal type:** `VICTORY`
+
 - Elias survives;
 - full transfer;
 - Rook exposed before rescue control;
@@ -132,10 +153,14 @@ Every gate in this section reads a conclusion, never a raw point total.
 
 ### `END_EVIDENCE_WITHOUT_WITNESS`
 
+**Terminal node:** `EVT_902_END_EVIDENCE_WITHOUT_WITNESS` — **Terminal type:** `PARTIAL_SUCCESS`
+
 - Elias dies or cannot testify;
 - full authenticated transfer succeeds.
 
 ### `END_LIFE_SAVED_TRUTH_DELAYED`
+
+**Terminal node:** `EVT_903_END_LIFE_SAVED_TRUTH_DELAYED` — **Terminal type:** `PARTIAL_SUCCESS`
 
 - Elias survives;
 - full transfer fails;
@@ -143,24 +168,34 @@ Every gate in this section reads a conclusion, never a raw point total.
 
 ### `END_PROTECTIVE_CUSTODY`
 
+**Terminal node:** `EVT_904_END_PROTECTIVE_CUSTODY` — **Terminal type:** `NARRATIVE_FAILURE`
+
 - Rook controls rescue/evidence;
 - Rook not sufficiently exposed;
 - evidence is seized, lost, or manipulated.
 
 ### `END_PUBLIC_LEAK`
 
+**Terminal node:** `EVT_905_END_PUBLIC_LEAK` — **Terminal type:** `PARTIAL_SUCCESS`
+
 - public disclosure occurs without full official authentication.
 
 ### `END_SILENT_TERMINAL`
+
+**Terminal node:** `EVT_906_END_SILENT_TERMINAL` — **Terminal type:** `TIME_EXPIRED`
 
 - Elias not found or not rescued in time.
 
 ### `END_WRONG_ACCUSATION`
 
+**Terminal node:** `EVT_907_END_WRONG_ACCUSATION` — **Terminal type:** `CASE_UNRESOLVED`
+
 - players make a public unsupported or contradicted accusation;
 - target-specific rebuttal resolves why it fails.
 
 ### `END_FRACTURED_TRUTH`
+
+**Terminal node:** `EVT_908_END_FRACTURED_TRUTH` — **Terminal type:** `PARTIAL_SUCCESS`
 
 - player actions split rescue and evidence outcomes in incompatible ways.
 
