@@ -1,6 +1,6 @@
 ---
 title: Implementation Plan — Next Repository Revision
-version: 2.0
+version: 2.1
 status: In Review
 depends_on:
   - docs/STYLE_GUIDE.md
@@ -22,7 +22,7 @@ This document is the implementation specification for the next repository revisi
 
 This document does not implement anything. It contains no repository edits.
 
-**Status is `In Review`, not `Approved`.** Ten ratifications in § 14 remain unresolved. A document cannot be authoritative while simultaneously prohibiting the work it specifies. Status advances to `Approved` when § 14 is empty, and only then may P1 begin.
+**This document is authoritative for implementation at `status: In Review`.** Status records the review state of the specification, not permission to execute it. Phase entry is governed solely by the ratification gate in § 3.2. Status advances to `Approved` when § 14 contains no `OPEN` item; that advance is a bookkeeping act and is not a precondition for any phase.
 
 Where this document conflicts with an existing repository document, it governs **only for the duration of the migration**. On completion, every rule stated here must exist in its owning source document and this plan becomes a historical record, per `engine/03_ARCHITECTURE.md` § "3.10 Review Layer".
 
@@ -42,7 +42,7 @@ Where this document conflicts with an existing repository document, it governs *
 
 One location only: **frontmatter of `adventures/The_Last_Witness/README.md`**, which is the adventure root record required by `data_dictionary/SCHEMA_VERSIONING.md` § "2. Required Version Fields".
 
-No other adventure file gains frontmatter in this revision. The three fields are written once, in commit C9.
+No other adventure file gains frontmatter in this revision. The location is fixed by this section and requires no repository edit; the three fields are written once, in commit C9.
 
 ### 1.4 Defect classification
 
@@ -92,10 +92,10 @@ Phases are strictly ordered. No phase begins while its predecessor's required ga
 
 | Phase | Work | Decisions | Commit |
 |---|---|---|---|
-| **P0** | Resolve every ratification in § 14; decide duplicate-root-file policy | — | C0 (plan only) |
+| **P0** | Publish the ratification map in § 14; record any resolutions reached; confirm the phases that are clear to enter | — | C0 (plan only) |
 | **P1** | Canonical ownership rules; World Bible passphrase facts | 7, 8 (registry), 1 (facts) | C1, C2 |
 | **P2** | Complete migration manifests; full variable, clue and node registers | 4, 6, 8 | C0 (plan only) |
-| **P3** | Mechanical identifier rename only | 8 | C3 |
+| **P3** | Mechanical identifier rename only; identifier status declaration | 8 | C3 |
 | **P4** | Non-progress state-variable cleanup and writer/reader wiring | 4 | C4 |
 | **P5** | Clue classes and progress model atomically, including progress variables | 6, 7 | C5 |
 | **P6** | Passphrase routes and failure transformation | 1 | C6 |
@@ -106,32 +106,46 @@ Phases are strictly ordered. No phase begins while its predecessor's required ga
 
 Two ordering rules are load-bearing and must not be relaxed:
 
-- **P3 is behaviour-neutral.** No variable is deleted, no conclusion is split, no threshold moves, no semantic replacement occurs. P3 changes identifier spelling and nothing else, so it is independently revertible.
+- **P3 is behaviour-neutral.** No variable is deleted, no conclusion is split, no threshold moves, no semantic replacement occurs. P3 changes identifier spelling and assigns mechanically derived statuses, and nothing else, so it is independently revertible.
 - **P4 excludes progress variables.** Their readers are the conclusion evaluators, which do not exist until P5. Wiring them in P4 would fail gate `V4` by construction. Non-progress state is wired in P4; progress state is converted in P5.
 
 ### 3.1 Commit plan
 
 | Commit | Phase | Content | Revert impact |
 |---|---|---|---|
-| **C0** | P0, P2 | Ratification record and migration manifests, recorded in this plan | None on repository canon |
-| **C1** | P1 | Canonical ownership: clue-class vocabulary single-sourced; ending-ownership rule declared; prefix registry added to the entity key table; schema-metadata location fixed | Reverts to two class lists; no logic depends on it yet |
+| **C0** | P0, P2 | Ratification map, resolutions reached, and migration manifests, recorded in this plan | None on repository canon |
+| **C1** | P1 | Canonical ownership: clue-class vocabulary single-sourced; ending-ownership rule declared; prefix registry added to the entity key table | Reverts to two class lists; no logic depends on it yet |
 | **C2** | P1 | World Bible passphrase facts, with the version change its § 1 Authority requires | Reverts the canonical fact; P6 becomes ungrounded |
-| **C3** | P3 | Mechanical identifier migration: `C_*`→`CLUE_*`, `D_*`→`CON_*`, backbone `EVT_*`→`ARC_*` | Pure spelling revert; no semantics attached |
+| **C3** | P3 | Mechanical identifier migration: `C_*`→`CLUE_*`, `D_*`→`CON_*`, backbone `EVT_*`→`ARC_*`; identifier status declaration per § 8.7 | Pure spelling and status revert; no semantics attached |
 | **C4** | P4 | Non-progress state-variable cleanup and writer/reader wiring | Restores removed variables and unwires writers |
-| **C5** | P5 | Clue-class assignment and progress-model conversion, atomically | Restores point-award syntax and untagged clues |
+| **C5** | P5 | Clue-class assignment, class-diversity counting rule, and progress-model conversion, atomically | Restores point-award syntax and untagged clues |
 | **C6** | P6 | Passphrase routes, thresholds, failure transformation | Removes both routes; C2 facts remain |
 | **C7** | P7 | Node metadata, eight terminal nodes, complete outgoing graph | Removes all edges; graph returns to edgeless |
 | **C8** | P8 | Core-to-investigation mapping | Removes the mapping file |
 | **C9** | P9 | Release metadata, changelog, README, schema-version fields | Reverts release identity only |
 
+C0 is a plan-only commit and occurs twice, once in P0 and once in P2. It modifies no repository canon file.
+
+### 3.2 Ratification gating
+
+**Only the ratifications required by the phase being entered must be resolved. Ratifications required by a later phase do not block an earlier phase.**
+
+Before entering a phase, the implementer checks the ratification map in § 14 for items whose **Required by** column names that phase.
+
+- If every such item is `RESOLVED` or `DEFERRABLE`, the phase is entered.
+- If any such item is `OPEN`, implementation stops at that phase, the blocking item is reported, and no work from that phase or any later phase is performed.
+- Work already completed in earlier phases is not reverted by a later block. The chain halts forward, it does not unwind.
+
+An item marked `DEFERRABLE` is required by no phase in this revision. It does not block entry to any phase and may be carried into a later revision provided the deferral is recorded in C0.
+
 ---
 
 ## 4. Rollback strategy
 
-1. **One commit per implementation unit.** The nine repository commits in § 3.1 are the only permitted granularity. No commit spans two phases.
+1. **One commit per implementation unit.** The nine repository-canon commits C1–C9 in § 3.1 are the only permitted granularity, and none of them spans two phases. C0 is exempt because it touches no canon file.
 2. **Validation after every commit.** The gate subset named in each decision section must pass before the next commit is authored. A failing gate halts the phase; it is not deferred to P10.
 3. **No phase proceeds while its required checks fail.** P10 is a final confirmation, not the first time gates are run.
-4. **The mechanical rename must be independently reversible.** C3 must be revertible with a single `git revert` that restores the repository to its C2 state with no semantic residue. This is why variable deletion, conclusion splitting and alias replacement are all excluded from C3.
+4. **The mechanical rename must be independently reversible.** C3 must be revertible with a single `git revert` that restores the repository to its C2 state with no semantic residue. This is why variable deletion, conclusion splitting and alias replacement are all excluded from C3, and why the statuses C3 assigns are mechanically derived rather than judged.
 5. **Semantic changes never share a commit with bulk renaming.** If a semantic problem is discovered during C3, it is recorded and deferred to C4 or later. C3 does not fix it in place.
 6. **Reverting a commit reverts every commit after it.** The chain C1→C9 is linear and each commit assumes its predecessors. There is no partial-revert path.
 
@@ -141,7 +155,7 @@ Two ordering rules are load-bearing and must not be relaxed:
 
 ### 5.1 Objective
 
-The passphrase remains a mandatory authentication factor for the primary archive. Two independent routes reach primary-archive access, and every gate that governs the archive states the same requirement.
+The passphrase remains a mandatory authentication factor for the primary archive. Two independent routes reach primary-archive access: one acquires the passphrase, and one bypasses it at a cost. Every gate that governs the archive states the same requirement.
 
 ### 5.2 Route A — the exact operation
 
@@ -212,7 +226,7 @@ Neither route obtained means no primary-archive access. This must not deadlock. 
 - The best ending becomes strictly harder. `END_WITNESS_SPEAKS` now requires Route B specifically, because Route A caps authentication at partial. This is a difficulty change, not only a consistency fix.
 - Route B closes at 01:00, so late runs are capped at partial-authentication transfer even on perfect play thereafter. That is intended, but it must be visible to the maintainer before C6 lands.
 - `LOGIC/04_TIME_COST_MATRIX.md` § "2. Investigation action costs" has no entry for the reset workflow. C6 must add one, or `EVT_430` cannot cost it.
-- `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" lists four chains and does not mention the passphrase. Ratification § 14.4 decides whether it becomes a fifth chain.
+- `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" lists four chains and does not mention the passphrase. Ratification § 14.4 decides whether it gains a fifth. That section is a non-authoritative summary under `V10`, so the question gates only C6 and does not affect the canonical facts written in C2.
 
 ### 5.9 Validation
 
@@ -336,7 +350,7 @@ Mnemonic uppercase, full-word prefix, underscore separators. Identifiers are fro
 **Explicitly not renamed in this revision:**
 
 - All state variables keep their current names. `P_*`, `T_*`, `A_*`, `CLOCK`, `*_STATE`, `P1_*`, `P2_*`, `SHARED_KNOWLEDGE_SET` and the ending variables have no demonstrated collision. `P_STAGED` and `P1_LOCATION` are distinguishable under anchored search. A blanket `VAR_*` migration was considered and rejected as churn without a defect behind it.
-- `NPC-01`, `LOC-01`, `CON-01`, `END-01`, `RH-01` and `CLU-01` are display ordinals within numbered document sections, not declared identifiers, and are left alone. The `CLU-0n` references inside `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` § 3 are replaced by `CLUE_*` references in C5, when that section is reduced and its counting moves to the logic layer — not in C3, so the file is touched once.
+- `NPC-01`, `LOC-01`, `CON-01`, `END-01`, `RH-01` and `CLU-01` are display ordinals within numbered document sections, not declared identifiers, and are left alone. The `CLU-0n` references inside `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` § 3 are replaced by `CLUE_*` references in C5, when that section is reduced and its counting moves to the logic layer, not in C3.
 - `DEC_` and `CHK_` are not reserved. No such records exist.
 - No engine file is edited.
 
@@ -346,9 +360,9 @@ Eight `D_*` identifiers have an exact `CON_*` twin and merge cleanly: `STAGED_DI
 
 Five have no twin and become `CON_*` identifiers that the entity key table did not previously register: `CON_REED_CAUSED_CONFRONTATION`, `CON_MARCUS_LEAK_PARTIAL`, `CON_MARCUS_LEAK_PROVABLE`, `CON_ROOK_OPERATIONALLY_COMPROMISED`, `CON_ROOK_PUBLICLY_PROVABLE`. Registering them is documentation completion, not conceptual splitting: they already exist in `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` under the `D_` prefix with their thresholds intact. No threshold, tier or meaning changes in C3.
 
-Two existing `CON_*` identifiers have no `D_*` twin and are umbrella terms superseded by the tiered pair: `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED`. **They survive C3 unchanged.** Retiring or redefining them is semantic and is deferred to ratification § 14.9.
+Two existing `CON_*` identifiers have no `D_*` twin and are umbrella terms superseded by the tiered pair: `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED`. **They survive C3 unchanged**, and receive a mechanically derived status under § 8.7 rather than a judged one. Retiring or redefining them is semantic and is deferred to ratification § 14.9, which is required by C5.
 
-The conclusion namespace after C3 therefore holds 15 identifiers, two of which await a ratification decision.
+The conclusion namespace after C3 therefore holds 15 identifiers, two of which await a ratification decision that C5 needs and C3 does not.
 
 ### 8.4 Prefix registry
 
@@ -389,17 +403,42 @@ Longest-identifier-first, anchored on word boundaries, each replacement confirme
 
 The rename is executed once, in C3, and is revertible in isolation.
 
-### 8.7 Side effects
+### 8.7 Identifier status declaration
+
+Gate `V2` requires every declared identifier to carry exactly one status from `ACTIVE`, `DEFINITION_ONLY`, `RESERVED` and `DEPRECATED`. **C3 assigns these statuses.** The assignment is mechanical, so it introduces no judgement into a behaviour-neutral commit.
+
+**Derivation rule.** Status is computed from the occurrence manifest produced in P2, which gains a reference-count column for this purpose. No other input is used.
+
+| Manifest result | Status |
+|---|---|
+| Referenced at least once outside its own declaring row | `ACTIVE` |
+| Declared but never referenced | `DEFINITION_ONLY` |
+
+`RESERVED` is not assigned in C3, because no identifier is reserved in this revision. `DEPRECATED` is not assigned in C3, because deprecation is a semantic judgement; the only candidates are `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` and their disposition is ratification § 14.9, required by C5.
+
+**Where statuses are recorded.** All four documents are already in C3's file scope, so C3 gains no new file.
+
+| Family | Recorded in |
+|---|---|
+| `NPC_`, `LOC_`, `ITEM_`, `CON_` | `LOGIC/00_ENTITY_KEY_TABLE.md` |
+| `CLUE_` | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` |
+| `ARC_` | `LOGIC/05_CORE_EVENT_GRAPH.md` |
+| `END_` | `LOGIC/14_ENDING_TRIGGER_MATRIX.md` |
+
+**Coverage.** Statuses are declared as each family's owning document is edited: the four families above in C3; `FACT_` in C4; variables and `CLK_`, `TR_`, `EVAL_` in C4 and C5; `EVT_` in C7. `V2` is therefore evaluated over the migrated families after each commit, and over every family at P10. Full-coverage `V2` is a P10 requirement, not a C3 one.
+
+### 8.8 Side effects
 
 - Identifiers in external drafts and in-flight notes go stale in one commit. This is the cost of the single-pass rule and is preferable to a half-migrated repository.
 - `LOGIC/00_ENTITY_KEY_TABLE.md` § "Conclusions" gains five rows in C3 to register identifiers that already exist under `D_`.
 - `LOGIC/00_ENTITY_KEY_TABLE.md` § "Event key ranges" describes one numeric space and must be restated for two namespaces.
 - `LOGIC/05_CORE_EVENT_GRAPH.md` § `ARC_320` holds the only working cross-reference into `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md`. Verify it still resolves after the prefix change.
 - The ambiguous inline basename reference to `06_ENDING_FRAMEWORK.md` in `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` § 14 reads as if it points inside `LOGIC/`, where a different file occupies that number. Disambiguate in C7, when that section is rewritten, not in C3.
+- Status derivation depends entirely on the P2 manifest. If the manifest is incomplete, statuses are wrong in a way that looks correct. The manifest is therefore a hard prerequisite of C3, not a convenience.
 
-### 8.8 Validation
+### 8.9 Validation
 
-Gates `V1`, `V2` after C3. Additionally: a diff review confirming C3 changed no threshold, no variable, no edge and no prose meaning.
+Gates `V1`, `V2` after C3, with `V2` scoped per § 8.7. Additionally: a diff review confirming C3 changed no threshold, no variable, no edge and no prose meaning.
 
 ---
 
@@ -472,7 +511,7 @@ The three removals are safe because `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` �
 | `A_KRELL_TERMINAL` | 0–3 | `2` | `INIT` | none | none | — | REMOVE |
 | `A_REED_ROOM` | 0–3 | `0` | `INIT` | none | none | — | REMOVE |
 
-`A_REED_ROOM` changes disposition from the previous revision of this plan. No writer exists, and authoring one means inventing a scene in which Reed learns the room — a design act outside the accepted decisions. The narrative fact it was standing in for is already fixed prose in `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` § 4 ("Reed searches wrong upper rooms first because he lacks exact room number") and survives the removal unchanged.
+`A_REED_ROOM` has no writer, and authoring one means inventing a scene in which Reed learns the room — a design act outside the accepted decisions. The narrative fact it was standing in for is already fixed prose in `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` § 4 ("Reed searches wrong upper rooms first because he lacks exact room number") and survives the removal unchanged.
 
 The four off-screen resolution outcomes in `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` § 4 receive identifiers in C4, using the unallocated `EVT_8xx` range: `EVT_801` Reed reaches terminal first, `EVT_802` Rook reaches terminal first, `EVT_803` Reed and Rook meet, `EVT_804` Marcus meets the intermediary. This is required because `A_ROOK_TERMINAL`'s only writer lives there and `V4` forbids prose writers. `engine/03_ARCHITECTURE.md` § "3.17 Off-screen event architecture" already requires these to be events.
 
@@ -563,7 +602,7 @@ All four are semantic replacements, not spelling changes, because three of them 
 
 ### 9.6 Affected files
 
-`LOGIC/01_WORLD_STATE_VARIABLES.md` (register, all sections), `LOGIC/11_LOCATION_STATE_MACHINE.md` (transitions given `TR_*` identifiers; four machines bound to variables; archive trigger recorded), `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (writes declared per node), `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` (`EVT_8xx` identifiers for four off-screen outcomes), `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` (trust removals rewritten as evidence gates), `LOGIC/14_ENDING_TRIGGER_MATRIX.md` (medical outcome reads `ELIAS_STATE`), `LOGIC/02_ITEM_STATE_MATRIX.md` (item state as the source replacing `LEDGER_PRIMARY_STATUS`), `DO_NOT_READ/03_CHARACTER_DATABASE.md` (alias replaced), `DO_NOT_READ/06_ENDING_FRAMEWORK.md` (alias list replaced by a marked non-authoritative pointer). All in C4.
+`LOGIC/01_WORLD_STATE_VARIABLES.md` (register, all sections), `LOGIC/11_LOCATION_STATE_MACHINE.md` (transitions given `TR_*` identifiers; four machines bound to variables; archive trigger recorded), `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (writes declared per node), `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` (`EVT_8xx` identifiers for four off-screen outcomes), `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` (trust removals rewritten as evidence gates; `FACT_` statuses), `LOGIC/14_ENDING_TRIGGER_MATRIX.md` (medical outcome reads `ELIAS_STATE`), `LOGIC/02_ITEM_STATE_MATRIX.md` (item state as the source replacing `LEDGER_PRIMARY_STATUS`), `DO_NOT_READ/03_CHARACTER_DATABASE.md` (alias replaced), `DO_NOT_READ/06_ENDING_FRAMEWORK.md` (alias list replaced by a marked non-authoritative pointer). All in C4.
 
 ### 9.7 Side effects
 
@@ -614,7 +653,7 @@ This retires the hand-maintained ranges in `LOGIC/01_WORLD_STATE_VARIABLES.md` �
 
 | File | Section | Edit | Commit |
 |---|---|---|---|
-| `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` | § 1 and all groups | Restate as the clue register: identifier, class tags, point value, granting nodes, conclusion group, acquisition status | C5 |
+| `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` | § 1 and all groups | Restate as the clue register: identifier, class tags, point value, granting nodes, conclusion group, status | C5 |
 | `LOGIC/07_EVIDENCE_VALIDATION.md` | § "2. Conclusion thresholds" | Restate every threshold as point sum plus class diversity over the held clue set; supply the missing thresholds for room identification, code completion and Reed presence; declare `EVAL_*` identifiers | C5 |
 | `LOGIC/01_WORLD_STATE_VARIABLES.md` | § 2 | Replace the eight stored point variables with eleven derived totals and their computed maxima | C5 |
 | `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | every **State changes** block | Replace point awards with `GRANT_CLUE(...)` | C5 |
@@ -647,25 +686,40 @@ Six classes, owned by **`LOGIC/07_EVIDENCE_VALIDATION.md` § "1. Proof classes"*
 
 `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` § "2. Clue classes" currently declares five, omitting `DIGITAL` and folding "recording" into `PHYSICAL`. It is reduced to a marked non-authoritative pointer, and its `PHYSICAL` definition drops "recording". This lands in C1, as a canonical-ownership change.
 
-### 11.2 Tagging and the diversity rule
+**C1 declares the vocabulary only.** The class-diversity counting rule is a separate item and lands in C5; see § 11.2.
+
+### 11.2 The class-diversity counting rule lands in C5
+
+How a multi-class clue counts toward diversity determines whether a single clue can satisfy a three-class threshold alone. It is therefore a threshold rule, not a vocabulary rule, and it belongs to the commit that restates thresholds.
+
+The rule is written into `LOGIC/07_EVIDENCE_VALIDATION.md` § 1 in **C5**, alongside the threshold restatement in § 2. Ratification § 14.7 is required by C5 and does not gate C1.
+
+Multi-class clues are permitted, and the existing `procedural/digital` and `testimonial/procedural` tags are retained.
+
+### 11.3 Tagging work
 
 All 64 baseline clues plus the one new passphrase clue carry at least one class. Twenty-one are tagged today, across §§ 2, 3 and 8. Forty-three are untagged while §§ 5, 7 and 8 already state class-diversity thresholds that cannot be evaluated without them.
 
-Multi-class clues are permitted, and the existing `procedural/digital` and `testimonial/procedural` tags are retained. **How a multi-class clue counts toward diversity is ratification § 14.7**, because it determines whether a single clue can satisfy a three-class threshold alone. The counting rule must be stated explicitly in `LOGIC/07_EVIDENCE_VALIDATION.md` § 1 once ratified.
+### 11.4 Affected files
 
-### 11.3 Affected files
+| File | Section | Edit | Commit |
+|---|---|---|---|
+| `LOGIC/07_EVIDENCE_VALIDATION.md` | § 1 | Declare the six-class vocabulary as canonical | C1 |
+| `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` | § 2 | Reduce to a marked non-authoritative pointer; drop "recording" from `PHYSICAL` | C1 |
+| `LOGIC/07_EVIDENCE_VALIDATION.md` | § 1 | Add the class-diversity counting rule, per § 14.7 | C5 |
+| `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` | all groups | Tag 43 untagged clues | C5 |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | **State changes** blocks | Remove ad-hoc class labels with the point awards | C5 |
 
-`LOGIC/07_EVIDENCE_VALIDATION.md` § 1 (vocabulary and counting rule) in C1; `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` § 2 (pointer) in C1; `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` (43 clues tagged) in C5; `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (ad-hoc class labels removed with the point awards) in C5.
-
-### 11.4 Side effects
+### 11.5 Side effects
 
 - Class assignment is a design act. A careless pass can silently make a three-class threshold unsatisfiable.
 - Restoring `DIGITAL` moves some clues currently reasoned about as physical, which may reduce diversity in groups that relied on the five-class reading.
 - Tagging and progress conversion share commit C5 because a clue's class and its point value are recorded in the same register row. Splitting them would leave the register half-populated between commits.
+- `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` is edited twice, § 2 in C1 and § 3 in C5. The sections are disjoint, so the two edits do not conflict.
 
-### 11.5 Validation
+### 11.6 Validation
 
-Gate `V7` after C5.
+Gate `V7` after C5. C1 requires only `V10`, because no clue is tagged and no threshold is evaluated in C1.
 
 ---
 
@@ -729,7 +783,7 @@ Run after every commit, not only at P10. Each decision section names the subset 
 | Gate | Check | Pass criterion |
 |---|---|---|
 | `V1` | Identifier resolution | Every identifier matches the prefix registry and resolves to exactly one register entry. |
-| `V2` | Declaration status | Every declared identifier carries exactly one status: `ACTIVE`, `DEFINITION_ONLY`, `RESERVED` or `DEPRECATED`. Every `ACTIVE` identifier is referenced at least once. `DEFINITION_ONLY`, `RESERVED` and `DEPRECATED` identifiers may be unreferenced. No identifier is referenced without being declared. |
+| `V2` | Declaration status | Every declared identifier in a migrated family carries exactly one status: `ACTIVE`, `DEFINITION_ONLY`, `RESERVED` or `DEPRECATED`. Every `ACTIVE` identifier is referenced at least once. `DEFINITION_ONLY`, `RESERVED` and `DEPRECATED` identifiers may be unreferenced. No identifier is referenced without being declared. Family coverage follows § 8.7: the four families migrated in C3 after C3, additional families as their owning documents are edited, and every family at P10. |
 | `V3` | Node declaration | Every node has exactly one `NODE_TYPE`. Every `TERMINAL` node has exactly one `TERMINAL_TYPE` from the approved set. Every `TERMINAL` node declares `Outgoing: None`. No `INTERMEDIATE` node declares a `TERMINAL_TYPE`. Every `INTERMEDIATE` node declares at least one valid target. |
 | `V4` | Writer and reader resolution | Every variable has at least one writer that is not `INIT` and at least one reader. Every writer and reader resolves to a declared node (`EVT_*`), transition (`TR_*`, `CLK_*`), initialization source (`INIT`), or evaluator (`EVAL_*`). |
 | `V5` | Reachability | Every `Outgoing` target exists. Every terminal node is reachable from `EVT_100` in at least one declared play mode. No player-facing node is unreachable in every mode. Off-screen `EVT_8xx` nodes are excluded. |
@@ -744,18 +798,72 @@ Run after every commit, not only at P10. Each decision section names the subset 
 
 ## 14. Ratifications
 
-**Status remains `In Review` until this section is empty.** Each item must be resolved and recorded in commit C0 before P1 begins.
+Each item is required by a specific phase. Per § 3.2, an `OPEN` item blocks only the phase named in its **Required by** column and every phase after it. It does not block an earlier phase.
 
-1. **`END_SILENT_TERMINAL` terminal type.** `CHARACTER_DEATH` or `TIME_EXPIRED`. Turns on whether `CHARACTER_DEATH` covers a non-player character; Elias is an NPC in every configuration. `engine/03_ARCHITECTURE.md` § 3.18 calls the list "Recommended", so extension is permitted, but adding a type is an engine change and would reopen § 1.2.
-2. **Split-branch terminator vocabulary.** Whether `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT`, `TERMINAL_OUTCOME` are in scope for C7. Inferred from an existing engine MUST, not from the literal accepted decision.
-3. **Low and Medium confidence mapping rows.** `ARC_110`, `ARC_140`, `ARC_200`, `ARC_240`, `ARC_320`. The café relocation is the one with a content consequence.
-4. **Passphrase as a fifth solution chain.** Whether `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" gains a chain or the passphrase remains a sub-step of Chain B.
-5. **Point values.** All 64 baseline clues and the one new passphrase clue. These are design decisions that set difficulty, not transcriptions.
-6. **Duplicate-root-file policy.** Deduplicate, or mark the eight byte-identical root copies non-authoritative in place. **Urgency is now low:** this revision edits no engine file, so no root copy diverges. The decision is precautionary rather than forced, and may be deferred to a later revision if recorded as such.
-7. **Multi-class clue diversity behaviour.** Whether a clue tagged `procedural/digital` contributes one class or two toward a diversity threshold. Determines whether a single clue can satisfy a three-class gate alone.
-8. **Ending-trigger precedence.** Mutual exclusivity or a declared priority order. Required by `V11`.
-9. **Umbrella conclusion identifiers.** Whether `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` survive alongside their tiered pairs, are marked `DEPRECATED`, or are retired. They have no `D_*` twin, so C3 leaves them untouched and the question must be answered before C5 restates thresholds.
-10. **Route A classification.** Decision 1 requires "two independent acquisition routes". Route A unlocks a recovery workflow rather than acquiring the passphrase. Confirm that one acquisition plus one costed bypass satisfies the decision, or require Route A to be reclassified.
+**Ratification map.** Item numbering is unchanged from v2.0 so that every cross-reference elsewhere in this document remains valid.
+
+| § | Item | Required by | Status |
+|---|---|---|---|
+| 14.1 | `END_SILENT_TERMINAL` terminal type | P7 (C7) | OPEN |
+| 14.2 | Split-branch terminator vocabulary | P7 (C7) | OPEN |
+| 14.3 | Low and Medium confidence mapping rows | P8 (C8) | OPEN |
+| 14.4 | Passphrase as a fifth solution chain | P6 (C6) | OPEN |
+| 14.5 | Point values | P5 (C5) | OPEN |
+| 14.6 | Duplicate-root-file policy | none in this revision | DEFERRABLE |
+| 14.7 | Multi-class clue diversity behaviour | P5 (C5) | OPEN |
+| 14.8 | Ending-trigger precedence | P7 (C7) | OPEN |
+| 14.9 | Umbrella conclusion identifiers | P5 (C5) | OPEN |
+| 14.10 | Route A classification | — | RESOLVED |
+
+**Phases clear to enter: P0, P1, P2, P3, P4.** The first phase with an `OPEN` requirement is P5.
+
+### 14.1 `END_SILENT_TERMINAL` terminal type
+
+`CHARACTER_DEATH` or `TIME_EXPIRED`. Turns on whether `CHARACTER_DEATH` covers a non-player character; Elias is an NPC in every configuration. `engine/03_ARCHITECTURE.md` § 3.18 calls the list "Recommended", so extension is permitted, but adding a type is an engine change and would reopen § 1.2.
+
+### 14.2 Split-branch terminator vocabulary
+
+Whether `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT`, `TERMINAL_OUTCOME` are in scope for C7. Inferred from an existing engine MUST, not from the literal accepted decision.
+
+### 14.3 Low and Medium confidence mapping rows
+
+`ARC_110`, `ARC_140`, `ARC_200`, `ARC_240`, `ARC_320`. The café relocation is the one with a content consequence.
+
+### 14.4 Passphrase as a fifth solution chain
+
+Whether `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" gains a chain or the passphrase remains a sub-step of Chain B. That section is a non-authoritative summary under `V10`, so this affects only C6 and not the canonical facts written in C2.
+
+### 14.5 Point values
+
+All 64 baseline clues and the one new passphrase clue. These are design decisions that set difficulty, not transcriptions.
+
+### 14.6 Duplicate-root-file policy
+
+Deduplicate, or mark the eight byte-identical root copies non-authoritative in place.
+
+**Required by no phase in this revision.** No commit in C1–C9 edits any of the eight root copies or their canonical twins, because this revision edits no engine file. The decision is precautionary and may be carried forward, provided the deferral is recorded in C0.
+
+### 14.7 Multi-class clue diversity behaviour
+
+Whether a clue tagged `procedural/digital` contributes one class or two toward a diversity threshold. Determines whether a single clue can satisfy a three-class gate alone. Required by C5, where the counting rule is written and thresholds are restated. It does not gate C1, which declares the vocabulary only.
+
+### 14.8 Ending-trigger precedence
+
+Mutual exclusivity or a declared priority order. Required by `V11` after C7.
+
+### 14.9 Umbrella conclusion identifiers
+
+Whether `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` survive alongside their tiered pairs, are marked `DEPRECATED`, or are retired.
+
+Required by C5, where thresholds are restated. It does not gate C3: under § 8.7 both receive a mechanically derived status from the occurrence manifest, and `DEPRECATED` is not assignable in C3 at all.
+
+### 14.10 Route A classification — RESOLVED
+
+**Question.** Decision 1 requires "two independent acquisition routes". Route A unlocks a recovery workflow rather than acquiring the passphrase.
+
+**Resolution.** The recovery-workflow mechanism was authorised by the accepted-decision authority, which enumerated it as one of three permitted answers when it required Route A's exact operation to be defined: the instructions may "directly reconstruct it", "unlock a recovery workflow", or "point to another existing source". Route A implements the second option as authorised. The residual question was terminology only, and § 5.1 now states the position precisely: two independent routes reach primary-archive access, one acquiring the passphrase and one bypassing it at a cost, with the passphrase remaining mandatory for full authentication.
+
+**Effect.** No content changes. Required by no phase.
 
 ---
 
