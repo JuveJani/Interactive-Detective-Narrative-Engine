@@ -13,7 +13,7 @@ Each event record includes:
 - outgoing routes;
 - failure transformation.
 
-This file defines the backbone only. Alpha 0.2b will expand location-level nodes.
+This file defines the **backbone layer only**. It is retained alongside the playable investigation graph in `10_INVESTIGATION_NODE_GRAPH.md`, not folded into it. The backbone holds phase-level arcs, cross-document scheduling references, and the record of which backbone elements were never implemented. The authoritative mapping between `ARC_*` and `EVT_*` is owned by `16_EVENT_GRAPH_MAPPING.md`.
 
 ---
 
@@ -268,6 +268,6 @@ Ending variables are evaluated after rescue, transfer, confrontation, and accusa
 
 This document owns the `ARC_` namespace. Nineteen backbone identifiers are declared: `ARC_100`, `ARC_110`, `ARC_120`, `ARC_130`, `ARC_140`, `ARC_170`, `ARC_200`, `ARC_210`, `ARC_220`, `ARC_230`, `ARC_240`, `ARC_270`, `ARC_300`, `ARC_320`, `ARC_340`, `ARC_400`, `ARC_420`, `ARC_440`, `ARC_900`.
 
-Every one is `DEFINITION_ONLY`. Each appears only in its own declaring heading, because no document references a backbone identifier yet. None is `ACTIVE`, `RESERVED` or `DEPRECATED`.
+Every one is `ACTIVE`. Each is referenced from at least one investigation node in `10_INVESTIGATION_NODE_GRAPH.md` or from `16_EVENT_GRAPH_MAPPING.md`. None is `RESERVED` or `DEPRECATED`.
 
 The `ARC_` prefix distinguishes these backbone arcs from the playable and off-screen `EVT_` nodes in `10_INVESTIGATION_NODE_GRAPH.md`. A given number may appear in both namespaces and the two are not interchangeable.

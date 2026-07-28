@@ -25,6 +25,8 @@ The graph is not final prose. It is the authoritative gameplay skeleton from whi
 
 ### `EVT_100_SHARED_BRIEFING`
 
+
+**Backbone:** `ARC_100` (1:1)
 **Window:** 20:00-20:10  
 **Location:** `LOC_START`  
 **Players:** both  
@@ -69,6 +71,8 @@ The canonical two-player route is a split.
 - `EVT_120_P2_NEWSROOM_ENTRY`.
 ### `EVT_110_P1_APARTMENT_APPROACH`
 
+
+**Backbone:** `ARC_110`, `ARC_120` (absorbed split decision; apartment cluster)
 **Window:** 20:10-20:25  
 **Location:** transit to `LOC_ELIAS_APT`  
 **Players:** Player 1, or both if chosen  
@@ -91,6 +95,8 @@ The canonical two-player route is a split.
 - `EVT_112_RESTRICTED_APARTMENT`.
 ### `EVT_111_MINA_FIRST_CONTACT`
 
+
+**Backbone:** `ARC_120` (apartment cluster)
 **Window:** before 20:30  
 **Location:** `LOC_ELIAS_APT`  
 **Cost:** 10 minutes
@@ -122,6 +128,8 @@ Player 1 chooses approach:
 - `EVT_115_SERVICE_CORRIDOR`.
 ### `EVT_112_RESTRICTED_APARTMENT`
 
+
+**Backbone:** `ARC_120` (apartment cluster)
 **Window:** after 20:30  
 **Location:** `LOC_ELIAS_APT`  
 **Cost:** 10-20 minutes
@@ -149,6 +157,8 @@ This node never permanently removes apartment evidence. It changes cost and anta
 - `EVT_150_REGROUP_ONE`.
 ### `EVT_113_APARTMENT_SEARCH`
 
+
+**Backbone:** `ARC_120` (apartment cluster)
 **Cost:** 20 minutes  
 **Information routes**
 
@@ -175,6 +185,8 @@ A failed or rushed search reveals one suspicious category and costs an additiona
 - `EVT_150_REGROUP_ONE`.
 ### `EVT_114_NEIGHBOUR_INTERVIEW`
 
+
+**Backbone:** `ARC_120` (apartment cluster)
 **Cost:** 10 minutes
 
 **Reveals**
@@ -197,6 +209,8 @@ A failed or rushed search reveals one suspicious category and costs an additiona
 - `EVT_150_REGROUP_ONE`.
 ### `EVT_115_SERVICE_CORRIDOR`
 
+
+**Backbone:** `ARC_120` (apartment cluster)
 **Cost:** 15 minutes
 
 **Entry**
@@ -232,6 +246,8 @@ A failed perception check still reveals that the corridor exists, but not the fi
 - `EVT_150_REGROUP_ONE`.
 ### `EVT_120_P2_NEWSROOM_ENTRY`
 
+
+**Backbone:** `ARC_110`, `ARC_130` (absorbed split decision; newsroom cluster)
 **Window:** 20:10-20:25  
 **Location:** transit to `LOC_NEWSROOM`  
 **Cost:** 15 minutes
@@ -245,6 +261,8 @@ A failed perception check still reveals that the corridor exists, but not the fi
 - `EVT_123_NEWSROOM_RECORDS`.
 ### `EVT_121_NADIA_INTERVIEW`
 
+
+**Backbone:** `ARC_130` (newsroom cluster)
 **Cost:** 15 minutes
 
 **Core tension**
@@ -277,6 +295,8 @@ Nadia admits distrust of official protection but withholds her role in the disap
 - `EVT_150_REGROUP_ONE`.
 ### `EVT_122_MARCUS_OBSERVATION`
 
+
+**Backbone:** `ARC_130` (newsroom cluster)
 **Cost:** 10 minutes
 
 **Observable facts**
@@ -298,6 +318,8 @@ Nadia admits distrust of official protection but withholds her role in the disap
 - `EVT_150_REGROUP_ONE`.
 ### `EVT_123_NEWSROOM_RECORDS`
 
+
+**Backbone:** `ARC_130` (newsroom cluster)
 **Cost:** 20 minutes
 
 **Routes**
@@ -337,6 +359,8 @@ Failure alerts Marcus or consumes time. At least the missing-photo gap remains o
 - `EVT_150_REGROUP_ONE`.
 ### `EVT_150_REGROUP_ONE`
 
+
+**Backbone:** `ARC_170` (1:1)
 **Recommended window:** 21:20-21:40  
 **Location:** selected neutral meeting point  
 **Players:** both  
@@ -392,6 +416,8 @@ Players may split again, but each branch is independently useful.
 - `EVT_242_REED_OFFICE_SEARCH`.
 ### `EVT_210_HARBOR_ARCHIVE_ENTRY`
 
+
+**Backbone:** Addition — no `ARC_*` origin
 **Window:** before 23:20 normal access; later emergency access  
 **Location:** `LOC_HARBOR_ARCHIVE`  
 **Cost:** transit plus 20 minutes
@@ -426,6 +452,8 @@ Players may split again, but each branch is independently useful.
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_211_CAFE_ORPHEUS`
 
+
+**Backbone:** `ARC_140` (relocated to midgame)
 **Window:** before 22:00 for full footage  
 **Location:** `LOC_CAFE_ORPHEUS`  
 **Cost:** transit plus 20 minutes
@@ -457,6 +485,8 @@ After footage overwrite, receipt, witness testimony, and tide note remain.
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_212_TERMINAL_RECON`
 
+
+**Backbone:** Addition — no `ARC_*` origin
 **Window:** 21:30 onward  
 **Location:** `LOC_TERMINAL_EXT`  
 **Cost:** transit plus 15 minutes
@@ -491,6 +521,8 @@ This node does not permit blind discovery of the room without at least one ident
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_220_MINA_REPORT_COMPARISON`
 
+
+**Backbone:** `ARC_240` (Mina evidence preservation)
 **Window:** 21:30 onward  
 **Location:** remote, police annex, or secure meeting  
 **Cost:** 15 minutes
@@ -520,6 +552,8 @@ This node does not permit blind discovery of the room without at least one ident
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_221_CAMERA_REQUEST_AUDIT`
 
+
+**Backbone:** `ARC_240` (Mina evidence preservation)
 **Cost:** 20 minutes
 
 **Routes**
@@ -548,6 +582,8 @@ This node does not permit blind discovery of the room without at least one ident
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_222_PROTECTION_ORDER_AUDIT`
 
+
+**Backbone:** Addition — no `ARC_*` origin
 **Cost:** 20 minutes
 
 **Reveals**
@@ -570,6 +606,8 @@ This node does not permit blind discovery of the room without at least one ident
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_223_ROOK_INTERVIEW`
 
+
+**Backbone:** `ARC_200` (1:1 on content)
 **Window:** after first contact or at Rook's initiative  
 **Cost:** 15 minutes
 
@@ -606,6 +644,8 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_230_IRIS_WORKPLACE`
 
+
+**Backbone:** `ARC_220` (Iris trail)
 **Window:** 21:30 onward  
 **Location:** `LOC_IRIS_WORK`  
 **Cost:** transit plus 20 minutes
@@ -633,6 +673,8 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_231_PREPAID_PHONE_TRACE`
 
+
+**Backbone:** `ARC_220` (Iris trail)
 **Cost:** 20 minutes
 
 **Routes**
@@ -662,6 +704,8 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_232_MEDICAL_INTERPRETATION`
 
+
+**Backbone:** `ARC_220` (Iris trail)
 **Cost:** 5-10 minutes
 
 **Entry**
@@ -693,6 +737,8 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_240_MARCUS_PRESSURE_STAGE_ONE`
 
+
+**Backbone:** `ARC_230` (Marcus disclosure ladder)
 **Cost:** 15 minutes
 
 **Entry leverage**
@@ -726,6 +772,8 @@ Marcus gives a partial admission only:
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_241_MARCUS_FULL_DISCLOSURE`
 
+
+**Backbone:** `ARC_230` (Marcus disclosure ladder)
 **Cost:** 20 minutes, the full structured interview cost in `04_TIME_COST_MATRIX.md` § 2
 
 **Entry**
@@ -757,6 +805,8 @@ Marcus reveals the harbor-direction leak and transfer-time disclosure.
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_242_REED_OFFICE_SEARCH`
 
+
+**Backbone:** `ARC_210` (1:1)
 **Window:** state-dependent  
 **Location:** `LOC_REED_OFFICE`  
 **Cost:** transit plus 20 minutes
@@ -792,6 +842,8 @@ If office has been searched by Krell's people, players still find residue, devic
 - `EVT_300_REGROUP_TWO`.
 ### `EVT_243_REED_NEGOTIATION`
 
+
+**Backbone:** Addition — no `ARC_*` origin
 **Window:** late midgame or terminal act  
 **Cost:** 10-20 minutes
 
@@ -831,6 +883,8 @@ No generic persuasion roll unlocks full disclosure.
 - `EVT_420_REED_OR_ROOK_CONFRONTATION`.
 ### `EVT_300_REGROUP_TWO`
 
+
+**Backbone:** `ARC_270` (1:1)
 **Deadline:** recommended no later than 23:15  
 **Cost:** 10 minutes
 
@@ -874,6 +928,8 @@ Choose final-act assignments.
 - `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 ### `EVT_310_CABLE_CORRIDOR_ENTRY`
 
+
+**Backbone:** `ARC_300` (terminal route selection)
 **Entry**
 
 - route map or trusted guide.
@@ -894,6 +950,8 @@ Choose final-act assignments.
 - `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 ### `EVT_311_NORTH_GATE_ENTRY`
 
+
+**Backbone:** `ARC_300` (terminal route selection)
 **Entry**
 
 - maintenance record;
@@ -915,6 +973,8 @@ Choose final-act assignments.
 - `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 ### `EVT_312_DRAINAGE_ENTRY`
 
+
+**Backbone:** `ARC_300` (terminal route selection)
 **Window:** only before 23:30  
 **Cost:** 20 minutes
 
@@ -934,6 +994,8 @@ Fast but weather-sensitive. Failure returns player to exterior with lost time, n
 - `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 ### `EVT_313_EMERGENCY_ENTRY`
 
+
+**Backbone:** `ARC_300` (terminal route selection)
 **Entry**
 
 - Mina or trusted emergency support;
@@ -958,6 +1020,8 @@ May expose location to Rook unless his control is already challenged.
 - `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 ### `EVT_314_MAIN_ENTRY_CONFRONTATION`
 
+
+**Backbone:** `ARC_300` (terminal route selection)
 **Cost:** 10-20 minutes, the risky alternate access cost in `04_TIME_COST_MATRIX.md` § 2
 
 **Entry**
@@ -982,6 +1046,8 @@ This is the final anti-soft-lock access route.
 - `EVT_420_REED_OR_ROOK_CONFRONTATION`.
 ### `EVT_330_FIND_SIGNAL_4B`
 
+
+**Backbone:** `ARC_340` (Signal Room discovery)
 **Entry**
 
 - room identifier plus access route;
@@ -1015,6 +1081,8 @@ This is the final anti-soft-lock access route.
 - `EVT_420_REED_OR_ROOK_CONFRONTATION`.
 ### `EVT_331_LENA_IRIS_NEGOTIATION`
 
+
+**Backbone:** `ARC_340` (Signal Room discovery)
 **Cost:** 10 minutes
 
 **Entry**
@@ -1049,6 +1117,8 @@ No single social check overrides their core fear.
 - `EVT_420_REED_OR_ROOK_CONFRONTATION`.
 ### `EVT_400_RESCUE_CONTROL`
 
+
+**Backbone:** `ARC_240`, `ARC_400` (Mina evidence preservation; trusted rescue validation)
 Possible routes:
 
 - Mina-secured ambulance;
@@ -1073,6 +1143,8 @@ Depends on time, trust, and whether hostile actors control the exterior.
 - `EVT_900_RESOLVE_ENDING`.
 ### `EVT_410_LEDGER_RECOVERY`
 
+
+**Backbone:** `ARC_420` (evidence transfer)
 Tasks:
 
 - identify primary versus decoy;
@@ -1097,6 +1169,8 @@ The complete transfer requires the correct key, code, and sufficient time.
 - `EVT_440_FINAL_PUBLIC_POSITION`.
 ### `EVT_420_REED_OR_ROOK_CONFRONTATION`
 
+
+**Backbone:** `ARC_320` (off-screen hostile convergence)
 Triggered by antagonist awareness and clock.
 
 Possible player roles:
@@ -1118,6 +1192,8 @@ Possible player roles:
 - `EVT_900_RESOLVE_ENDING`.
 ### `EVT_430_COMPLETE_TRANSFER`
 
+
+**Backbone:** `ARC_420` (evidence transfer)
 **Entry**
 
 - primary key available;
@@ -1146,6 +1222,8 @@ Possible player roles:
 - `EVT_900_RESOLVE_ENDING`.
 ### `EVT_440_FINAL_PUBLIC_POSITION`
 
+
+**Backbone:** `ARC_440` (1:1)
 Players choose what they are prepared to assert publicly.
 
 A target-specific accusation option appears only if its evidence gate is met. Unsupported suspicion may be voiced, but cannot compile into a prosecution-victory ending.
@@ -1161,6 +1239,8 @@ A target-specific accusation option appears only if its evidence gate is met. Un
 - `EVT_900_RESOLVE_ENDING`.
 ### `EVT_900_RESOLVE_ENDING`
 
+
+**Backbone:** `ARC_900` (ending dispatch)
 Reads:
 
 - Elias medical outcome;
@@ -1188,6 +1268,8 @@ Dispatches to the eight terminal nodes below. Trigger conditions and the priorit
 
 ### `EVT_901_END_WITNESS_SPEAKS`
 
+
+**Backbone:** `ARC_900` (terminal node)
 **Node type:** `TERMINAL`
 **Terminal type:** `VICTORY`
 **Ending family:** `END_WITNESS_SPEAKS`
@@ -1195,6 +1277,8 @@ Dispatches to the eight terminal nodes below. Trigger conditions and the priorit
 
 ### `EVT_902_END_EVIDENCE_WITHOUT_WITNESS`
 
+
+**Backbone:** `ARC_900` (terminal node)
 **Node type:** `TERMINAL`
 **Terminal type:** `PARTIAL_SUCCESS`
 **Ending family:** `END_EVIDENCE_WITHOUT_WITNESS`
@@ -1202,6 +1286,8 @@ Dispatches to the eight terminal nodes below. Trigger conditions and the priorit
 
 ### `EVT_903_END_LIFE_SAVED_TRUTH_DELAYED`
 
+
+**Backbone:** `ARC_900` (terminal node)
 **Node type:** `TERMINAL`
 **Terminal type:** `PARTIAL_SUCCESS`
 **Ending family:** `END_LIFE_SAVED_TRUTH_DELAYED`
@@ -1209,6 +1295,8 @@ Dispatches to the eight terminal nodes below. Trigger conditions and the priorit
 
 ### `EVT_904_END_PROTECTIVE_CUSTODY`
 
+
+**Backbone:** `ARC_900` (terminal node)
 **Node type:** `TERMINAL`
 **Terminal type:** `NARRATIVE_FAILURE`
 **Ending family:** `END_PROTECTIVE_CUSTODY`
@@ -1216,6 +1304,8 @@ Dispatches to the eight terminal nodes below. Trigger conditions and the priorit
 
 ### `EVT_905_END_PUBLIC_LEAK`
 
+
+**Backbone:** `ARC_900` (terminal node)
 **Node type:** `TERMINAL`
 **Terminal type:** `PARTIAL_SUCCESS`
 **Ending family:** `END_PUBLIC_LEAK`
@@ -1223,6 +1313,8 @@ Dispatches to the eight terminal nodes below. Trigger conditions and the priorit
 
 ### `EVT_906_END_SILENT_TERMINAL`
 
+
+**Backbone:** `ARC_900` (terminal node)
 **Node type:** `TERMINAL`
 **Terminal type:** `TIME_EXPIRED`
 **Ending family:** `END_SILENT_TERMINAL`
@@ -1232,6 +1324,8 @@ The terminating condition is temporal: Elias is never located, or never rescued 
 
 ### `EVT_907_END_WRONG_ACCUSATION`
 
+
+**Backbone:** `ARC_900` (terminal node)
 **Node type:** `TERMINAL`
 **Terminal type:** `CASE_UNRESOLVED`
 **Ending family:** `END_WRONG_ACCUSATION`
@@ -1239,6 +1333,8 @@ The terminating condition is temporal: Elias is never located, or never rescued 
 
 ### `EVT_908_END_FRACTURED_TRUTH`
 
+
+**Backbone:** `ARC_900` (terminal node)
 **Node type:** `TERMINAL`
 **Terminal type:** `PARTIAL_SUCCESS`
 **Ending family:** `END_FRACTURED_TRUTH`
