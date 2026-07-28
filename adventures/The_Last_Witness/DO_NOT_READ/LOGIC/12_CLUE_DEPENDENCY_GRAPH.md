@@ -1,35 +1,57 @@
 # DO NOT READ: Clue Dependency Graph
 
-## 1. Notation
+## 1. Notation and the progress model
 
-- `C:` clue
-- `D:` deduction
-- `G:` gameplay gate
-- `E:` ending proof
+This document is the clue register. It owns the `CLUE_` namespace.
 
-A clue may support multiple deductions. A deduction becomes available only when its threshold and class requirements are satisfied.
+The canonical progression is:
+
+```text
+Node outcome
+     ↓
+  Points
+     ↓
+  Clues
+     ↓
+Conclusions
+```
+
+`GRANT_CLUE(clue_identifier)` is the only operation a node may perform on investigative progress.
+
+- A clue carries its own point value and class tags. There is no separate point award.
+- **Every clue is worth 1 point.** Point totals are derived from the held clue set and are never stored as mutable state. No document may increment or decrement a total.
+- **Clue acquisition is idempotent.** `GRANT_CLUE` on an already-held clue is a no-op with respect to points and classes. A clue reachable through several routes awards its value exactly once.
+- `GRANT_CLUE` writes to the acting player's private knowledge set. A joint-scene node writes to `SHARED_KNOWLEDGE_SET`. Regroup nodes `EVT_150` and `EVT_300` move clues from private sets into the shared set.
+- A conclusion evaluator reads the union of `SHARED_KNOWLEDGE_SET` and the evaluating player's private set.
+
+A clue may support multiple conclusions. `CLUE_PHOTO_WINDOW_MARKS` belongs to both § 4 and § 11: it is one clue contributing one point to each group, not two clues.
+
+Class tags are drawn from the closed set owned by `07_EVIDENCE_VALIDATION.md` § 1. A multi-class tag records which classes a clue is eligible to fill; under the counting rule in that section a clue contributes exactly one class to any diversity count.
+
+`Status` is `ACTIVE` where at least one node grants the clue, and `DEFINITION_ONLY` where no node grants it yet.
 
 ## 2. Staged disappearance
 
-### Clues
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_APT_BLOOD_OLD` | `PHYSICAL` | 1 | `EVT_113` | `ACTIVE` |
+| `CLUE_APT_MEDICATION_MISSING` | `PHYSICAL`, `CONTEXTUAL` | 1 | `EVT_113` | `ACTIVE` |
+| `CLUE_APT_PASSPORT_MISSING` | `PHYSICAL`, `CONTEXTUAL` | 1 | `EVT_113` | `ACTIVE` |
+| `CLUE_APT_SERVICE_LATCH` | `PHYSICAL` | 1 | `EVT_115` | `ACTIVE` |
+| `CLUE_APT_TIMED_DEVICE` | `PHYSICAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_NEIGHBOUR_EXIT_BEFORE_CRASH` | `TESTIMONIAL` | 1 | `EVT_114` | `ACTIVE` |
+| `CLUE_NADIA_PLAN_ADMISSION` | `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
 
-- `CLUE_APT_BLOOD_OLD` — physical
-- `CLUE_APT_MEDICATION_MISSING` — physical/contextual
-- `CLUE_APT_PASSPORT_MISSING` — physical/contextual
-- `CLUE_APT_SERVICE_LATCH` — physical
-- `CLUE_APT_TIMED_DEVICE` — physical/technical
-- `CLUE_NEIGHBOUR_EXIT_BEFORE_CRASH` — testimonial
-- `CLUE_NADIA_PLAN_ADMISSION` — testimonial
+**Group maximum:** 7.
 
 ### Deduction
 
 `CON_STAGED_DISAPPEARANCE`
 
-Requires:
+Requires either:
 
-- 3 points;
-- at least 2 clue classes;
-- or Nadia admission plus one corroborating physical clue.
+- 3 points and at least 2 distinct classes; or
+- `CLUE_NADIA_PLAN_ADMISSION` plus one corroborating `PHYSICAL` clue.
 
 ### Gates unlocked
 
@@ -42,20 +64,22 @@ Requires:
 
 ## 3. Harbor destination
 
-### Clues
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_TRANSIT_HARBOR_STOP` | `PROCEDURAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_CAFE_TIDE_NOTE` | `PHYSICAL` | 1 | `EVT_211` | `ACTIVE` |
+| `CLUE_CAFE_OLD_LINE_QUESTION` | `TESTIMONIAL` | 1 | `EVT_211` | `ACTIVE` |
+| `CLUE_CAFE_FOOTAGE` | `DIGITAL` | 1 | `EVT_211` | `ACTIVE` |
+| `CLUE_NADIA_HARBOR_RESEARCH` | `TESTIMONIAL`, `CONTEXTUAL` | 1 | `EVT_121` | `ACTIVE` |
+| `CLUE_IRIS_DIRECTION_HARBOR` | `TESTIMONIAL`, `PROCEDURAL` | 1 | `EVT_230` | `ACTIVE` |
 
-- `CLUE_TRANSIT_HARBOR_STOP` — procedural
-- `CLUE_CAFE_TIDE_NOTE` — physical
-- `CLUE_CAFE_OLD_LINE_QUESTION` — testimonial
-- `CLUE_CAFE_FOOTAGE` — digital
-- `CLUE_NADIA_HARBOR_RESEARCH` — testimonial/contextual
-- `CLUE_IRIS_DIRECTION_HARBOR` — testimonial/procedural
+**Group maximum:** 6.
 
 ### Deduction
 
 `CON_HARBOR_DESTINATION`
 
-Requires 3 points across 2 classes.
+Requires 3 points and at least 2 distinct classes.
 
 ### Gates unlocked
 
@@ -69,26 +93,36 @@ Requires 3 points across 2 classes.
 
 ### Identifier clues
 
-- `CLUE_PHOTO_WINDOW_MARKS`
-- `CLUE_ARCHIVE_ROOM_INDEX`
-- `CLUE_ELIAS_FRAGMENT_4B`
-- `CLUE_LENA_ROOM_DISCLOSURE`
-- `CLUE_IRIS_ROOM_DISCLOSURE`
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_PHOTO_WINDOW_MARKS` | `PHYSICAL` | 1 | `EVT_123` | `ACTIVE` |
+| `CLUE_ARCHIVE_ROOM_INDEX` | `PROCEDURAL` | 1 | `EVT_210` | `ACTIVE` |
+| `CLUE_ELIAS_FRAGMENT_4B` | `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_LENA_ROOM_DISCLOSURE` | `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_IRIS_ROOM_DISCLOSURE` | `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
 
 ### Route clues
 
-- `CLUE_CABLE_CORRIDOR_MAP`
-- `CLUE_NORTH_GATE_RECORD`
-- `CLUE_DRAINAGE_TIDE_WINDOW`
-- `CLUE_EMERGENCY_ENTRY_AUTH`
-- `CLUE_GENERATOR_TRACE`
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_CABLE_CORRIDOR_MAP` | `PHYSICAL` | 1 | `EVT_210` | `ACTIVE` |
+| `CLUE_NORTH_GATE_RECORD` | `PROCEDURAL` | 1 | `EVT_311` | `ACTIVE` |
+| `CLUE_DRAINAGE_TIDE_WINDOW` | `CONTEXTUAL` | 1 | `EVT_312` | `ACTIVE` |
+| `CLUE_EMERGENCY_ENTRY_AUTH` | `PROCEDURAL` | 1 | `EVT_313` | `ACTIVE` |
+| `CLUE_GENERATOR_TRACE` | `PHYSICAL` | 1 | `EVT_212` | `ACTIVE` |
+
+**Group maximum:** 10, being 5 identifier and 5 route.
 
 ### Deduction and gate
 
-`CON_SIGNAL_4B` requires:
+`CON_SIGNAL_4B`
 
-- one identifier clue;
-- one route clue.
+Requires:
+
+- at least 1 point from the identifier clues; and
+- at least 1 point from the route clues.
+
+Class diversity is not required. The gate is structural, because an identifier without a route and a route without an identifier are each insufficient regardless of class.
 
 Late failsafe:
 
@@ -98,20 +132,22 @@ Late failsafe:
 
 ## 5. Lena's role
 
-### Clues
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_ELIAS_ARRIVED_BEFORE_LENA` | `PROCEDURAL` | 1 | `EVT_231` | `ACTIVE` |
+| `CLUE_LENA_CALLED_IRIS_AFTER_INJURY` | `PROCEDURAL`, `DIGITAL` | 1 | `EVT_231` | `ACTIVE` |
+| `CLUE_MEDICAL_SUPPLY_TRAIL` | `PHYSICAL` | 1 | `EVT_212`, `EVT_230` | `ACTIVE` |
+| `CLUE_REED_CONFRONTATION_ADMISSION` | `TESTIMONIAL` | 1 | `EVT_243` | `ACTIVE` |
+| `CLUE_LENA_VERIFIABLE_FALL_DETAIL` | `TESTIMONIAL`, `BEHAVIOURAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_NO_RANSOM_OR_DEMAND` | `BEHAVIOURAL` | 1 | none | `DEFINITION_ONLY` |
 
-- `CLUE_ELIAS_ARRIVED_BEFORE_LENA`
-- `CLUE_LENA_CALLED_IRIS_AFTER_INJURY`
-- `CLUE_MEDICAL_SUPPLY_TRAIL`
-- `CLUE_REED_CONFRONTATION_ADMISSION`
-- `CLUE_LENA_VERIFIABLE_FALL_DETAIL`
-- `CLUE_NO_RANSOM_OR_DEMAND`
+**Group maximum:** 6.
 
 ### Deduction
 
 `CON_LENA_PROTECTING`
 
-Requires 3 points across testimonial/procedural/behavioural classes.
+Requires 3 points and at least 2 distinct classes drawn from `TESTIMONIAL`, `PROCEDURAL` and `BEHAVIOURAL`.
 
 This deduction does not declare Lena legally innocent. It establishes that “kidnapper” is an incomplete and misleading model.
 
@@ -119,21 +155,23 @@ This deduction does not declare Lena legally innocent. It establishes that “ki
 
 ## 6. Reed's presence
 
-### Clues
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_REED_DECOY_KEY` | `PHYSICAL` | 1 | `EVT_242` | `ACTIVE` |
+| `CLUE_REED_HARBOR_RESIDUE` | `PHYSICAL` | 1 | `EVT_242` | `ACTIVE` |
+| `CLUE_REED_BLOOD_TRACE` | `PHYSICAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_KRELL_RECOVERY_MESSAGE` | `DIGITAL` | 1 | `EVT_242` | `ACTIVE` |
+| `CLUE_TERMINAL_ACCESS_TRACE` | `PHYSICAL` | 1 | `EVT_212` | `ACTIVE` |
+| `CLUE_LENA_OR_IRIS_TESTIMONY` | `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_REED_PARTIAL_ADMISSION` | `TESTIMONIAL` | 1 | `EVT_243` | `ACTIVE` |
 
-- `CLUE_REED_DECOY_KEY`
-- `CLUE_REED_HARBOR_RESIDUE`
-- `CLUE_REED_BLOOD_TRACE`
-- `CLUE_KRELL_RECOVERY_MESSAGE`
-- `CLUE_TERMINAL_ACCESS_TRACE`
-- `CLUE_LENA_OR_IRIS_TESTIMONY`
-- `CLUE_REED_PARTIAL_ADMISSION`
+**Group maximum:** 7.
 
 ### Deduction
 
 `CON_REED_PRESENT`
 
-Requires two independent routes, at least one not purely testimonial.
+Requires 2 points, of which at least 1 is from a clue not tagged `TESTIMONIAL`.
 
 ### Stronger deduction
 
@@ -141,29 +179,36 @@ Requires two independent routes, at least one not purely testimonial.
 
 Requires:
 
-- presence;
-- physical or testimonial account of struggle;
+- `CON_REED_PRESENT`;
+- 1 further point from a `PHYSICAL` or `TESTIMONIAL` account of the struggle;
 - no contradictory evidence of deliberate planned killing.
 
 ---
 
 ## 7. Marcus leak
 
-### Clues
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_MARCUS_ACCOUNT_ACCESS` | `PROCEDURAL` | 1 | `EVT_123` | `ACTIVE` |
+| `CLUE_MARCUS_DELETED_CALL` | `DIGITAL`, `PROCEDURAL` | 1 | `EVT_123` | `ACTIVE` |
+| `CLUE_CARRIER_CALL_RECORD` | `PROCEDURAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_PAYMENT_RECORD` | `PROCEDURAL`, `CONTEXTUAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_INTERMEDIARY_VOICEMAIL` | `DIGITAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_REED_SOURCE_REFERENCE` | `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_MARCUS_CONFESSION` | `TESTIMONIAL` | 1 | `EVT_241` | `ACTIVE` |
 
-- `CLUE_MARCUS_ACCOUNT_ACCESS`
-- `CLUE_MARCUS_DELETED_CALL`
-- `CLUE_CARRIER_CALL_RECORD`
-- `CLUE_PAYMENT_RECORD`
-- `CLUE_INTERMEDIARY_VOICEMAIL`
-- `CLUE_REED_SOURCE_REFERENCE`
-- `CLUE_MARCUS_CONFESSION`
+**Group maximum:** 7.
 
-### Deduction
+### Deductions
 
-`CON_MARCUS_LEAK_PARTIAL` at 2 points.
+`CON_MARCUS_LEAK_PARTIAL`
 
-`CON_MARCUS_LEAK_PROVABLE` at 3 points, 2 classes.
+- 2 points.
+
+`CON_MARCUS_LEAK_PROVABLE`
+
+- 3 points;
+- at least 2 distinct classes.
 
 ### Narrative resolution requirement
 
@@ -173,29 +218,31 @@ If the leak is exposed, the player-facing ending must clarify that Marcus transm
 
 ## 8. Rook compromised
 
-### Clues
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_ROOK_CAMERA_UNAUTHORIZED` | `PROCEDURAL` | 1 | `EVT_221` | `ACTIVE` |
+| `CLUE_ROOK_REPORT_ALTERED` | `PROCEDURAL`, `DIGITAL` | 1 | `EVT_220` | `ACTIVE` |
+| `CLUE_ROOK_PROTECTION_ORDER_FALSE` | `PROCEDURAL` | 1 | `EVT_222` | `ACTIVE` |
+| `CLUE_ROOK_KRELL_CONTACT` | `DIGITAL`, `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_ROOK_LENA_BULLETIN_FALSE` | `PROCEDURAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_REED_NAMES_ROOK_LINK` | `TESTIMONIAL` | 1 | `EVT_243` | `ACTIVE` |
+| `CLUE_MINA_AUTHENTICATES_REPORT` | `TESTIMONIAL`, `PROCEDURAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_EVIDENCE_ROOM_PHOTO_PATH` | `PROCEDURAL` | 1 | none | `DEFINITION_ONLY` |
 
-- `CLUE_ROOK_CAMERA_UNAUTHORIZED` — procedural
-- `CLUE_ROOK_REPORT_ALTERED` — procedural/digital
-- `CLUE_ROOK_PROTECTION_ORDER_FALSE` — procedural
-- `CLUE_ROOK_KRELL_CONTACT` — digital/testimonial
-- `CLUE_ROOK_LENA_BULLETIN_FALSE` — procedural
-- `CLUE_REED_NAMES_ROOK_LINK` — testimonial
-- `CLUE_MINA_AUTHENTICATES_REPORT` — testimonial/procedural
-- `CLUE_EVIDENCE_ROOM_PHOTO_PATH` — procedural
+**Group maximum:** 8.
 
 ### Deductions
 
 `CON_ROOK_OPERATIONALLY_COMPROMISED`
 
-- threshold 3;
-- must include one procedural clue.
+- 3 points;
+- at least 1 point from a clue tagged `PROCEDURAL`.
 
 `CON_ROOK_PUBLICLY_PROVABLE`
 
-- threshold 4;
-- at least 3 classes or preserved direct-contact evidence;
-- at least one authenticated/preserved copy.
+- 4 points;
+- at least 3 distinct classes, or preserved direct-contact evidence;
+- at least one `AUTHENTICATED` or `PRESERVED_COPY` record under § 4 of `07_EVIDENCE_VALIDATION.md`.
 
 ### Gates
 
@@ -208,20 +255,22 @@ If the leak is exposed, the player-facing ending must clarify that Marcus transm
 
 ## 9. Medical emergency
 
-### Clues
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_IRIS_SUPPLY_SELECTION` | `PHYSICAL` | 1 | `EVT_230` | `ACTIVE` |
+| `CLUE_IRIS_ASSESSMENT` | `TESTIMONIAL` | 1 | `EVT_232` | `ACTIVE` |
+| `CLUE_ELIAS_VOMITING_CONFUSION` | `BEHAVIOURAL` | 1 | `EVT_330` | `ACTIVE` |
+| `CLUE_ELIAS_UNEQUAL_PUPILS` | `PHYSICAL` | 1 | `EVT_330` | `ACTIVE` |
+| `CLUE_MEDICAL_REFERENCE` | `CONTEXTUAL` | 1 | `EVT_232` | `ACTIVE` |
 
-- `CLUE_IRIS_SUPPLY_SELECTION`
-- `CLUE_IRIS_ASSESSMENT`
-- `CLUE_ELIAS_VOMITING_CONFUSION`
-- `CLUE_ELIAS_UNEQUAL_PUPILS`
-- `CLUE_MEDICAL_REFERENCE`
+**Group maximum:** 5.
 
 ### Deduction
 
 `CON_MEDICAL_EMERGENCY`
 
 - 2 points before discovery;
-- automatic after observing definitive late symptoms.
+- automatic on entering `EVT_330`, which sets `P_MEDICAL` to its threshold directly.
 
 ### Gate
 
@@ -231,19 +280,21 @@ Unlocks rescue-priority decisions and prevents the narrative from treating furth
 
 ## 10. Primary vs decoy ledger
 
-### Clues
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_DECOY_LIMITED_CONTENT` | `DIGITAL` | 1 | `EVT_242` | `ACTIVE` |
+| `CLUE_DECOY_TRACKER` | `DIGITAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_ELIAS_FRAGMENT_BLACK_FALSE` | `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_HASH_MISMATCH` | `DIGITAL` | 1 | `EVT_410` | `ACTIVE` |
+| `CLUE_NADIA_DECOY_KNOWLEDGE` | `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
 
-- `CLUE_DECOY_LIMITED_CONTENT`
-- `CLUE_DECOY_TRACKER`
-- `CLUE_ELIAS_FRAGMENT_BLACK_FALSE`
-- `CLUE_HASH_MISMATCH`
-- `CLUE_NADIA_DECOY_KNOWLEDGE`
+**Group maximum:** 5.
 
 ### Deduction
 
 `CON_DECOY_KEY`
 
-Requires two routes, unless tracker and content mismatch are directly observed together.
+- 2 points, unless `CLUE_DECOY_TRACKER` and `CLUE_DECOY_LIMITED_CONTENT` are both held, which satisfies the gate on its own.
 
 ### Gate
 
@@ -253,13 +304,15 @@ Prevents complete-transfer option from accepting the wrong hardware key.
 
 ## 11. Recovery code
 
-### Clues
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_NADIA_FIRST_THREE` | `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_PHOTO_WINDOW_MARKS` | `PHYSICAL` | 1 | `EVT_123` | `ACTIVE` |
+| `CLUE_ARCHIVE_WINDOW_NUMBERING` | `PROCEDURAL` | 1 | `EVT_210` | `ACTIVE` |
+| `CLUE_ELIAS_FRAGMENT_WINDOWS` | `TESTIMONIAL` | 1 | none | `DEFINITION_ONLY` |
+| `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS` | `DIGITAL` | 1 | `EVT_123` | `ACTIVE` |
 
-- `CLUE_NADIA_FIRST_THREE`
-- `CLUE_PHOTO_WINDOW_MARKS`
-- `CLUE_ARCHIVE_WINDOW_NUMBERING`
-- `CLUE_ELIAS_FRAGMENT_WINDOWS`
-- `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS`
+**Group maximum:** 5. `CLUE_PHOTO_WINDOW_MARKS` is also a § 4 identifier clue and contributes one point to each group.
 
 ### Deduction
 
@@ -267,8 +320,8 @@ Prevents complete-transfer option from accepting the wrong hardware key.
 
 Requires:
 
-- Nadia fragment or upload instructions;
-- photo/window interpretation route.
+- 1 point from `CLUE_NADIA_FIRST_THREE` or `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS`; and
+- 1 point from `CLUE_PHOTO_WINDOW_MARKS` or `CLUE_ARCHIVE_WINDOW_NUMBERING` or `CLUE_ELIAS_FRAGMENT_WINDOWS`.
 
 ### Fallback
 
@@ -278,16 +331,21 @@ If Nadia remains hostile, players may preserve the primary key and achieve rescu
 
 ## 12. Critical-route audit
 
-| Critical objective | Independent routes |
-|---|---:|
-| infer staging | 4+ |
-| identify harbor | 4+ |
-| identify room | 5 identifier / 5 route |
-| identify Reed | 5+ |
-| challenge Rook | 6+ |
-| recognize medical danger | 4+ |
-| distinguish decoy | 4+ |
-| complete code | 4+ |
+Independent routes counts the clues in each group that at least one node grants. `DEFINITION_ONLY` clues are excluded, because a clue no node grants is not a route.
+
+| Critical objective | Group maximum | Routes with a granting node | Threshold | Satisfiable |
+|---|---:|---:|---|---|
+| infer staging | 7 | 5 | 3 points, 2 classes | Yes |
+| identify harbor | 6 | 5 | 3 points, 2 classes | Yes |
+| identify room | 10 | 7, being 2 identifier and 5 route | 1 identifier, 1 route | Yes |
+| identify Lena's role | 6 | 4 | 3 points, 2 classes | Yes |
+| identify Reed | 7 | 5 | 2 points, 1 non-testimonial | Yes |
+| provable Marcus leak | 7 | 3 | 3 points, 2 classes | Yes |
+| challenge Rook privately | 8 | 4 | 3 points, 1 procedural | Yes |
+| challenge Rook publicly | 8 | 4 | 4 points, 3 classes | Yes |
+| recognize medical danger | 5 | 5 | 2 points | Yes |
+| distinguish decoy | 5 | 2 | 2 points | Yes |
+| complete code | 5 | 3 | 1 fragment, 1 interpretation | Yes |
 
 No single locked container, technical check, or NPC confession is a mandatory single point of failure.
 
@@ -295,13 +353,13 @@ No single locked container, technical check, or NPC confession is a mandatory si
 
 ## 13. Identifier status
 
-Every `CLUE_` identifier declared in this document carries exactly one status. Status is derived from reference count: an identifier referenced somewhere other than its own declaring row is `ACTIVE`; an identifier that appears only in its declaring row is `DEFINITION_ONLY`.
+Every `CLUE_` identifier declared in this document carries exactly one status, recorded in its group table. `ACTIVE` means at least one node grants the clue. `DEFINITION_ONLY` means no node grants it yet.
 
-| Status | Count | Identifiers |
-|---|---:|---|
-| `ACTIVE` | 1 | `CLUE_PHOTO_WINDOW_MARKS`, declared in § 4 and referenced again in § 11. It is one clue contributing to two conclusion groups, not two clues. |
-| `DEFINITION_ONLY` | 64 | Every other clue identifier declared in §§ 2–11. |
+| Status | Count |
+|---|---:|
+| `ACTIVE` | 42 |
+| `DEFINITION_ONLY` | 23 |
 
 No clue identifier is `RESERVED` or `DEPRECATED`.
 
-Sixty-five distinct identifiers appear across sixty-six listings. The sixty-four `DEFINITION_ONLY` clues are declared and not yet referenced because no node grants a clue yet; that changes when clue grants are authored.
+Sixty-five distinct identifiers appear across sixty-six listings. Total available points across all groups is 66, because `CLUE_PHOTO_WINDOW_MARKS` contributes one point to each of two groups.

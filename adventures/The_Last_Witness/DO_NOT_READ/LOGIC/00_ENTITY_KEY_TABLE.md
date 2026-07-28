@@ -105,19 +105,23 @@ Every authoritative fact has exactly one owner. Summaries and cross-references a
 | `CON_HARBOR_DESTINATION` | Elias travelled voluntarily to harbor | `ACTIVE` |
 | `CON_SIGNAL_4B` | Signal Room 4B is the destination | `ACTIVE` |
 | `CON_LENA_PROTECTING` | Lena protects rather than abducts Elias | `ACTIVE` |
-| `CON_REED_PRESENT` | Reed caused the confrontation | `ACTIVE` |
-| `CON_REED_CAUSED_CONFRONTATION` | Reed caused the confrontation | `DEFINITION_ONLY` |
-| `CON_MARCUS_LEAK` | Marcus leaked partial plan | `DEFINITION_ONLY` |
-| `CON_MARCUS_LEAK_PARTIAL` | Marcus leak, partial conclusion | `DEFINITION_ONLY` |
-| `CON_MARCUS_LEAK_PROVABLE` | Marcus leak, provable accusation | `DEFINITION_ONLY` |
-| `CON_ROOK_COMPROMISED` | Rook is compromised | `DEFINITION_ONLY` |
-| `CON_ROOK_OPERATIONALLY_COMPROMISED` | Rook compromised, private operational conclusion | `DEFINITION_ONLY` |
+| `CON_REED_PRESENT` | Reed was present at the confrontation | `ACTIVE` |
+| `CON_REED_CAUSED_CONFRONTATION` | Reed caused the confrontation | `ACTIVE` |
+| `CON_MARCUS_LEAK` | superseded umbrella; use the tiered pair | `DEPRECATED` |
+| `CON_MARCUS_LEAK_PARTIAL` | Marcus leak, partial conclusion | `ACTIVE` |
+| `CON_MARCUS_LEAK_PROVABLE` | Marcus leak, provable accusation | `ACTIVE` |
+| `CON_ROOK_COMPROMISED` | superseded umbrella; use the tiered pair | `DEPRECATED` |
+| `CON_ROOK_OPERATIONALLY_COMPROMISED` | Rook compromised, private operational conclusion | `ACTIVE` |
 | `CON_ROOK_PUBLICLY_PROVABLE` | Rook compromised, publicly provable | `ACTIVE` |
 | `CON_MEDICAL_EMERGENCY` | Elias needs immediate hospital care | `ACTIVE` |
 | `CON_DECOY_KEY` | black key is a decoy | `ACTIVE` |
 | `CON_WINDOW_CODE` | final code digits are hidden in window numbers | `ACTIVE` |
 
-Fifteen identifiers. Five were registered when the `D_*` namespace was merged into `CON_*`; they already existed in `12_CLUE_DEPENDENCY_GRAPH.md` with their thresholds intact, so registering them changed no threshold, tier or meaning. The relationship between the two umbrella keys `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` and their tiered pairs is not yet settled.
+Fifteen identifiers. Five were registered when the `D_*` namespace was merged into `CON_*`; they already existed in `12_CLUE_DEPENDENCY_GRAPH.md` with their thresholds intact, so registering them changed no threshold, tier or meaning.
+
+`CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` are `DEPRECATED`. They are umbrella identifiers superseded by their tiered pairs, they carry no threshold, and no document may gate on them. They are retained rather than deleted so the migration record stays legible.
+
+`CON_REED_PRESENT` covers presence at the confrontation. `CON_REED_CAUSED_CONFRONTATION` is the stronger tier covering causation. The two were previously glossed identically, which misdescribed the first.
 
 ## Event key ranges
 

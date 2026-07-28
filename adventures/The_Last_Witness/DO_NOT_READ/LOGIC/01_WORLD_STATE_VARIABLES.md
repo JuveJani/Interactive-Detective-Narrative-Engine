@@ -53,20 +53,30 @@ Every time-driven state change is a declared trigger. A trigger fires once, when
 - `01:45`: final reliable complete-transfer opportunity.
 - `02:00`: scheduled transfer closes.
 
-## 2. Case progress variables
+## 2. Case progress totals
 
-| Variable | Type | Initial | Meaning |
+**These are derived quantities, not stored variables.** A total is computed from the held clue set and is never independently mutable. No document may store, increment or decrement one. The only operation that changes a total is `GRANT_CLUE`, which adds a clue to a knowledge set; the total is then recomputed.
+
+Every clue is worth 1 point, so a total equals the number of held clues in its group. Each maximum below is computed from the group size in `12_CLUE_DEPENDENCY_GRAPH.md` and is not hand-maintained.
+
+| Total | Clue group | Maximum | Read by |
 |---|---|---:|---|
-| `P_STAGED` | 0-3 | 0 | proof strength for staged disappearance |
-| `P_HARBOR` | 0-3 | 0 | proof strength for harbor destination |
-| `P_ROOM_4B` | 0-3 | 0 | ability to identify Signal Room 4B |
-| `P_ROOK` | 0-5 | 0 | evidence strength against Rook |
-| `P_MARCUS` | 0-4 | 0 | evidence strength against Marcus |
-| `P_REED` | 0-4 | 0 | evidence strength for Reed's presence |
-| `P_MEDICAL` | 0-2 | 0 | recognition of medical urgency |
-| `P_CODE` | 0-3 | 0 | recovery-code completion |
+| `P_STAGED` | § 2 Staged disappearance | 7 | `EVAL_CON_STAGED_DISAPPEARANCE` |
+| `P_HARBOR` | § 3 Harbor destination | 6 | `EVAL_CON_HARBOR_DESTINATION` |
+| `P_ROOM_4B` | § 4 Signal Room 4B | 10 | `EVAL_CON_SIGNAL_4B` |
+| `P_LENA_PROTECTING` | § 5 Lena's role | 6 | `EVAL_CON_LENA_PROTECTING` |
+| `P_REED` | § 6 Reed's presence | 7 | `EVAL_CON_REED_PRESENT`, `EVAL_CON_REED_CAUSED_CONFRONTATION` |
+| `P_MARCUS` | § 7 Marcus leak | 7 | `EVAL_CON_MARCUS_LEAK_PARTIAL`, `EVAL_CON_MARCUS_LEAK_PROVABLE` |
+| `P_ROOK` | § 8 Rook compromised | 8 | `EVAL_CON_ROOK_OPERATIONALLY_COMPROMISED`, `EVAL_CON_ROOK_PUBLICLY_PROVABLE` |
+| `P_MEDICAL` | § 9 Medical emergency | 5 | `EVAL_CON_MEDICAL_EMERGENCY` |
+| `P_DECOY` | § 10 Primary vs decoy ledger | 5 | `EVAL_CON_DECOY_KEY` |
+| `P_CODE` | § 11 Recovery code | 5 | `EVAL_CON_WINDOW_CODE` |
 
-A conclusion is unlocked by thresholds defined in `07_EVIDENCE_VALIDATION.md`; no single binary clue automatically proves a major conclusion.
+Group maxima sum to 66 across 65 distinct clues, because `CLUE_PHOTO_WINDOW_MARKS` belongs to both § 4 and § 11 and contributes one point to each.
+
+Section references are to `12_CLUE_DEPENDENCY_GRAPH.md`. Clue class tags and granting nodes are owned there.
+
+A conclusion is unlocked by the thresholds in `07_EVIDENCE_VALIDATION.md` § 2; no single binary clue automatically proves a major conclusion.
 
 ## 3. Trust variables
 

@@ -145,7 +145,7 @@ A failed or rushed search reveals one suspicious category and costs an additiona
 
 **State changes**
 
-- `P_STAGED +1` or `+2`;
+- `GRANT_CLUE` for two of `CLUE_APT_MEDICATION_MISSING`, `CLUE_APT_BLOOD_OLD`, `CLUE_APT_PASSPORT_MISSING` on a successful careful search, one on a failed or rushed search;
 - may unlock `CON_STAGED_DISAPPEARANCE` later.
 
 ### `EVT_114_NEIGHBOUR_INTERVIEW`
@@ -160,8 +160,8 @@ A failed or rushed search reveals one suspicious category and costs an additiona
 
 **State changes**
 
-- `P_STAGED +1`;
-- `P_HARBOR +0` until combined with transit evidence.
+- `GRANT_CLUE(CLUE_NEIGHBOUR_EXIT_BEFORE_CRASH)`;
+- grants nothing toward `P_HARBOR` until combined with transit evidence.
 
 ### `EVT_115_SERVICE_CORRIDOR`
 
@@ -180,7 +180,7 @@ A failed or rushed search reveals one suspicious category and costs an additiona
 
 **State changes**
 
-- `P_STAGED +1`;
+- `GRANT_CLUE(CLUE_APT_SERVICE_LATCH)`;
 - if combined with either missing medication or neighbour timing, unlocks staged-disappearance deduction.
 
 **Failure transformation**
@@ -225,7 +225,7 @@ Nadia admits distrust of official protection but withholds her role in the disap
 
 **State changes**
 
-- `P_HARBOR +1`;
+- `GRANT_CLUE(CLUE_NADIA_HARBOR_RESEARCH)`;
 - full Signal Room disclosure remains locked.
 
 ### `EVT_122_MARCUS_OBSERVATION`
@@ -240,8 +240,7 @@ Nadia admits distrust of official protection but withholds her role in the disap
 
 **State changes**
 
-- `P_MARCUS +1` contextual;
-- does not prove the leak.
+- no clue grant. The observable facts raise suspicion and gate `EVT_240` entry leverage; they do not prove the leak.
 
 ### `EVT_123_NEWSROOM_RECORDS`
 
@@ -262,9 +261,10 @@ Nadia admits distrust of official protection but withholds her role in the disap
 
 **State changes**
 
-- `P_MARCUS +1` or `+2`;
-- `P_ROOM_4B +1` if missing-photo significance identified;
-- `P_CODE +1` if upload instructions recovered.
+- `GRANT_CLUE(CLUE_MARCUS_ACCOUNT_ACCESS)` if the server log is read;
+- `GRANT_CLUE(CLUE_MARCUS_DELETED_CALL)` if the deleted office-call entry is recovered;
+- `GRANT_CLUE(CLUE_PHOTO_WINDOW_MARKS)` if missing-photo significance is identified;
+- `GRANT_CLUE(CLUE_UPLOAD_RECOVERY_INSTRUCTIONS)` if upload instructions are recovered.
 
 **Failure transformation**
 
@@ -335,8 +335,9 @@ Players may split again, but each branch is independently useful.
 
 **State changes**
 
-- `P_ROOM_4B +2`;
-- `P_CODE +1`;
+- `GRANT_CLUE(CLUE_ARCHIVE_ROOM_INDEX)`;
+- `GRANT_CLUE(CLUE_CABLE_CORRIDOR_MAP)`;
+- `GRANT_CLUE(CLUE_ARCHIVE_WINDOW_NUMBERING)`;
 - unlocks cable-corridor access.
 
 ### `EVT_211_CAFE_ORPHEUS`
@@ -354,7 +355,9 @@ Players may split again, but each branch is independently useful.
 
 **State changes**
 
-- `P_HARBOR +1` or `+2`;
+- `GRANT_CLUE(CLUE_CAFE_TIDE_NOTE)`;
+- `GRANT_CLUE(CLUE_CAFE_OLD_LINE_QUESTION)`;
+- `GRANT_CLUE(CLUE_CAFE_FOOTAGE)` while `CAFE_STATE` is `OPEN_FULL_RECORDS`;
 - `T_NADIA` may fall if players interpret the meeting as betrayal without confronting her.
 
 **Fallback**
@@ -377,8 +380,9 @@ After footage overwrite, receipt, witness testimony, and tide note remain.
 
 **State changes**
 
-- `P_ROOM_4B +1`;
-- `P_REED +1` if vehicle/trace linked;
+- `GRANT_CLUE(CLUE_GENERATOR_TRACE)`;
+- `GRANT_CLUE(CLUE_MEDICAL_SUPPLY_TRAIL)` if medical packaging is found;
+- `GRANT_CLUE(CLUE_TERMINAL_ACCESS_TRACE)` if vehicle or access trace is linked;
 - may expose players to Reed or Rook later.
 
 This node does not permit blind discovery of the room without at least one identifier or route clue.
@@ -405,7 +409,7 @@ This node does not permit blind discovery of the room without at least one ident
 
 **State changes**
 
-- `P_ROOK +1 procedural`;
+- `GRANT_CLUE(CLUE_ROOK_REPORT_ALTERED)`;
 - `T_MINA +1` if her identity is protected.
 
 ### `EVT_221_CAMERA_REQUEST_AUDIT`
@@ -425,7 +429,7 @@ This node does not permit blind discovery of the room without at least one ident
 
 **State changes**
 
-- `P_ROOK +1 procedural`;
+- `GRANT_CLUE(CLUE_ROOK_CAMERA_UNAUTHORIZED)`;
 - `A_ROOK_PLAYERS +1` if queried through police channels.
 
 ### `EVT_222_PROTECTION_ORDER_AUDIT`
@@ -439,7 +443,7 @@ This node does not permit blind discovery of the room without at least one ident
 
 **State changes**
 
-- `P_ROOK +1 procedural`;
+- `GRANT_CLUE(CLUE_ROOK_PROTECTION_ORDER_FALSE)`;
 - combined with report comparison allows private operational conclusion.
 
 ### `EVT_223_ROOK_INTERVIEW`
@@ -485,8 +489,9 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 
 **State changes**
 
-- `P_MEDICAL +1`;
-- `P_HARBOR +1`;
+- `GRANT_CLUE(CLUE_IRIS_SUPPLY_SELECTION)`;
+- `GRANT_CLUE(CLUE_IRIS_DIRECTION_HARBOR)`;
+- `GRANT_CLUE(CLUE_MEDICAL_SUPPLY_TRAIL)`;
 - may increase Rook awareness if police records are used.
 
 ### `EVT_231_PREPAID_PHONE_TRACE`
@@ -507,8 +512,8 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 
 **State changes**
 
-- `P_LENA_PROTECTING` represented through conclusion tags;
-- `P_MEDICAL +1`;
+- `GRANT_CLUE(CLUE_LENA_CALLED_IRIS_AFTER_INJURY)`;
+- `GRANT_CLUE(CLUE_ELIAS_ARRIVED_BEFORE_LENA)`;
 - does not reveal exact room by itself.
 
 ### `EVT_232_MEDICAL_INTERPRETATION`
@@ -527,7 +532,9 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 
 **State changes**
 
-- `CON_MEDICAL_EMERGENCY` unlocks at `P_MEDICAL >= 2`, or automatically upon observing Elias's late symptoms.
+- `GRANT_CLUE(CLUE_IRIS_ASSESSMENT)`;
+- `GRANT_CLUE(CLUE_MEDICAL_REFERENCE)`;
+- `CON_MEDICAL_EMERGENCY` unlocks at `P_MEDICAL >= 2`, or automatically on entering `EVT_330`.
 
 ---
 
@@ -556,7 +563,7 @@ Marcus gives a partial admission only:
 
 **State changes**
 
-- `P_MARCUS +1`;
+- no clue grant. The partial admission opens `EVT_241` entry leverage;
 - possible `T_MARCUS +1` from -1 toward neutral.
 
 ### `EVT_241_MARCUS_FULL_DISCLOSURE`
@@ -578,7 +585,8 @@ Marcus reveals the harbor-direction leak and transfer-time disclosure.
 
 **State changes**
 
-- `P_MARCUS` reaches full threshold;
+- `GRANT_CLUE(CLUE_MARCUS_CONFESSION)`;
+- `MARCUS_CONFESSED` set true;
 - may expose route to Reed/Krell operations;
 - does not directly prove Rook's corruption.
 
@@ -600,8 +608,10 @@ Possible routes:
 
 **State changes**
 
-- `P_REED +2` possible;
-- `P_DECOY` represented through conclusion state;
+- `GRANT_CLUE(CLUE_REED_DECOY_KEY)`;
+- `GRANT_CLUE(CLUE_REED_HARBOR_RESIDUE)`;
+- `GRANT_CLUE(CLUE_KRELL_RECOVERY_MESSAGE)`;
+- `GRANT_CLUE(CLUE_DECOY_LIMITED_CONTENT)` if the failed decryption attempt is read;
 - unlocks Reed leverage.
 
 **Failure transformation**
@@ -627,6 +637,13 @@ At least two of:
 - no leverage: denial and flight;
 - moderate leverage: admits terminal confrontation;
 - strong leverage: identifies Krell instruction and Rook connection known to him.
+
+**State changes**
+
+- `GRANT_CLUE(CLUE_REED_CONFRONTATION_ADMISSION)` at moderate leverage or better;
+- `GRANT_CLUE(CLUE_REED_PARTIAL_ADMISSION)` at moderate leverage or better;
+- `GRANT_CLUE(CLUE_REED_NAMES_ROOK_LINK)` at strong leverage;
+- `REED_COOPERATED` set true at strong leverage.
 
 No generic persuasion roll unlocks full disclosure.
 
@@ -692,6 +709,11 @@ Choose final-act assignments.
 
 **Cost:** 15-25 minutes depending on hostile presence.
 
+**State changes**
+
+- `GRANT_CLUE(CLUE_NORTH_GATE_RECORD)`;
+- `TERMINAL_ROUTES_KNOWN` gains `NORTH_GATE`.
+
 ### `EVT_312_DRAINAGE_ENTRY`
 
 **Window:** only before 23:30  
@@ -700,6 +722,10 @@ Choose final-act assignments.
 **Risk**
 
 Fast but weather-sensitive. Failure returns player to exterior with lost time, not permanent entrapment.
+
+**State changes**
+
+- `GRANT_CLUE(CLUE_DRAINAGE_TIDE_WINDOW)`.
 
 ### `EVT_313_EMERGENCY_ENTRY`
 
@@ -713,6 +739,11 @@ Fast but weather-sensitive. Failure returns player to exterior with lost time, n
 **Risk**
 
 May expose location to Rook unless his control is already challenged.
+
+**State changes**
+
+- `GRANT_CLUE(CLUE_EMERGENCY_ENTRY_AUTH)`;
+- `TERMINAL_ROUTES_KNOWN` gains `EMERGENCY`.
 
 ### `EVT_314_MAIN_ENTRY_CONFRONTATION`
 
@@ -751,8 +782,9 @@ This is the final anti-soft-lock access route.
 **State changes**
 
 - `ROOM_4B_STATE = FOUND_SECURE` or `FOUND_CONTESTED`;
-- `P_MEDICAL = 2`;
-- `CON_MEDICAL_EMERGENCY` automatic;
+- `GRANT_CLUE(CLUE_ELIAS_VOMITING_CONFUSION)`;
+- `GRANT_CLUE(CLUE_ELIAS_UNEQUAL_PUPILS)`;
+- `CON_MEDICAL_EMERGENCY` automatic on entry, independent of `P_MEDICAL`;
 - unlocks rescue/evidence parallel tasks.
 
 ### `EVT_331_LENA_IRIS_NEGOTIATION`
@@ -805,6 +837,10 @@ Tasks:
 - retrieve passphrase information;
 - combine code fragments;
 - preserve authenticated copy.
+
+**State changes**
+
+- `GRANT_CLUE(CLUE_HASH_MISMATCH)` when primary and decoy are compared.
 
 **No instant success**
 

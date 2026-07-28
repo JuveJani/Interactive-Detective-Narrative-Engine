@@ -81,7 +81,7 @@ Primary key seized/destroyed and no adequate external copy.
 
 ### Operationally exposed
 
-Players know and can act on corruption, but public proof is incomplete.
+`CON_ROOK_OPERATIONALLY_COMPROMISED` holds. Players know and can act on corruption, but public proof is incomplete.
 
 ### Publicly exposed
 
@@ -89,29 +89,33 @@ Requires `CON_ROOK_PUBLICLY_PROVABLE` and preserved evidence.
 
 ### Unexposed
 
-Suspicion exists without sufficient authenticated support.
+Neither Rook conclusion holds. Suspicion exists without sufficient authenticated support.
+
+Every outcome in this section is read from a conclusion, never from a raw point total.
 
 ## 5. Accusation gates
 
 ### Rook
 
-Public prosecution-style accusation appears only when public-proof threshold is met.
+Requires `CON_ROOK_PUBLICLY_PROVABLE`. The public prosecution-style accusation option appears only when that conclusion holds.
 
 ### Krell/Vale
 
-Requires full ledger or multiple authenticated financial/contact routes.
+Requires `FULL_LEDGER_TRANSFERRED`, or multiple authenticated financial and contact routes.
 
 ### Marcus
 
-Requires provable leak threshold. Even then, the ending must distinguish betrayal from masterminding the full scheme.
+Requires `CON_MARCUS_LEAK_PROVABLE`. Even then, the ending must distinguish betrayal from masterminding the full scheme.
 
 ### Reed
 
-Requires presence and confrontation proof. The ending must distinguish unlawful coercion from intentional murder.
+Requires `CON_REED_CAUSED_CONFRONTATION`. The ending must distinguish unlawful coercion from intentional murder.
 
 ### Lena/Nadia
 
-Players may accuse them of obstruction or reckless conduct if supported, but not as sole architect of the corruption scheme without contradictory failure text.
+Players may accuse them of obstruction or reckless conduct if supported, but not as sole architect of the corruption scheme without contradictory failure text. `CON_LENA_PROTECTING` is the conclusion that contradicts a sole-architect claim against Lena.
+
+Every gate in this section reads a conclusion, never a raw point total.
 
 ## 6. Ending families
 
