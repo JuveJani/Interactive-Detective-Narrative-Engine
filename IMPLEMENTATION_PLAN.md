@@ -953,7 +953,9 @@ Derived by the § 8.7 rule. An identifier with a single occurrence appears only 
 | Family | `ACTIVE` | `DEFINITION_ONLY` | Notes |
 |---|---:|---:|---|
 | `CLUE_` | 1 | 64 | Only `CLUE_PHOTO_WINDOW_MARKS` is referenced twice, in groups 4 and 11. The other 64 are declared and not yet referenced because no node grants a clue until C5. |
-| `CON_` (after merge) | 4 | 11 | `ACTIVE`: `CON_STAGED_DISAPPEARANCE`, `CON_HARBOR_DESTINATION`, `CON_MEDICAL_EMERGENCY`, `CON_ROOK_PUBLICLY_PROVABLE`. |
+| `CON_` (after merge) | 9 | 6 | Measured after the merge, not before it. `ACTIVE`: `CON_STAGED_DISAPPEARANCE`, `CON_HARBOR_DESTINATION`, `CON_SIGNAL_4B`, `CON_LENA_PROTECTING`, `CON_REED_PRESENT`, `CON_MEDICAL_EMERGENCY`, `CON_DECOY_KEY`, `CON_WINDOW_CODE`, `CON_ROOK_PUBLICLY_PROVABLE`. `DEFINITION_ONLY`: `CON_MARCUS_LEAK`, `CON_MARCUS_LEAK_PARTIAL`, `CON_MARCUS_LEAK_PROVABLE`, `CON_REED_CAUSED_CONFRONTATION`, `CON_ROOK_COMPROMISED`, `CON_ROOK_OPERATIONALLY_COMPROMISED`. |
+
+The `CON_` row was first recorded as 4 `ACTIVE` and 11 `DEFINITION_ONLY`, computed from pre-merge counts. That was wrong: the `D_*`→`CON_*` merge adds the two families' occurrence counts, so eight identifiers that were single-occurrence under each prefix separately become two-occurrence after the merge. The corrected figures above are measured on the post-merge file state and are the values C3 applies. Both umbrella identifiers, `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED`, are `DEFINITION_ONLY`, which is a mechanically derived result and not a judgement about their fate under § 14.9.
 | `ARC_` | 0 | 19 | Each backbone entry appears once, in its own heading. |
 | `END_` | 1 | 7 | `ACTIVE`: `END_PROTECTIVE_CUSTODY`, referenced from `05_CORE_EVENT_GRAPH.md` § `ARC_400`. |
 | `NPC_` | 8 | 8 | `ACTIVE`: `NPC_ELIAS`, `NPC_NADIA`, `NPC_LENA`, `NPC_IRIS`, `NPC_REED`, `NPC_MARCUS`, `NPC_MINA`, `NPC_ROOK_NETWORK` after registration. |
