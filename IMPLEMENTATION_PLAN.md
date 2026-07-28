@@ -1,7 +1,7 @@
 ---
 title: Implementation Plan — Next Repository Revision
-version: 2.3
-status: In Review
+version: 2.4
+status: Approved
 depends_on:
   - docs/STYLE_GUIDE.md
   - engine/03_ARCHITECTURE.md
@@ -22,7 +22,7 @@ This document is the implementation specification for the next repository revisi
 
 This document does not implement anything. It contains no repository edits.
 
-**This document is authoritative for implementation at `status: In Review`.** Status records the review state of the specification, not permission to execute it. Phase entry is governed solely by the ratification gate in § 3.2. Status advances to `Approved` when § 14 contains no `OPEN` item; that advance is a bookkeeping act and is not a precondition for any phase.
+**Status is `Approved`.** § 14 contains no `OPEN` item, which is the condition for the advance. Status records the review state of the specification, not permission to execute it; phase entry is governed solely by the ratification gate in § 3.2, and that gate is now satisfied for every phase.
 
 Where this document conflicts with an existing repository document, it governs **only for the duration of the migration**. On completion, every rule stated here must exist in its owning source document and this plan becomes a historical record, per `engine/03_ARCHITECTURE.md` § "3.10 Review Layer".
 
@@ -739,24 +739,24 @@ The core graph is retained as a backbone layer, not retired. `LOGIC/05_CORE_EVEN
 
 ### 12.2 Draft mapping
 
-Ratification § 14.3 covers every row below High confidence and is still `OPEN`, which is why P8 cannot be entered. It is the only remaining open item in the plan.
+Ratification § 14.3 resolved every row that was below High confidence. All nineteen rows are now High. The five resolutions and their rationale are in § 14.3.
 
 | Backbone | Investigation nodes | Relationship | Confidence |
 |---|---|---|---|
 | `ARC_100` Nadia's briefing | `EVT_100` | 1:1 | High |
-| `ARC_110` First split decision | Absorbed into the **Decision** block of `EVT_100`; realised by `EVT_110`, `EVT_120` | Absorbed | Medium |
+| `ARC_110` First split decision | Absorbed into the **Decision** block of `EVT_100`; realised by `EVT_110`, `EVT_120` | Absorbed; one option unimplemented | High |
 | `ARC_120` Apartment cluster | `EVT_110`, `EVT_111`, `EVT_112`, `EVT_113`, `EVT_114`, `EVT_115` | Expanded 1:6 | High |
 | `ARC_130` Newsroom cluster | `EVT_120`, `EVT_121`, `EVT_122`, `EVT_123` | Expanded 1:4 | High |
-| `ARC_140` Café cluster | `EVT_211` | Relocated, opening block to midgame | Low — § 12.4 |
+| `ARC_140` Café cluster | `EVT_211` | Relocated, opening block to midgame; timeline corrected in C8 | High |
 | `ARC_170` First synchronization gate | `EVT_150` | 1:1, renumbered | High |
-| `ARC_200` Rook pressure | `EVT_223` | Partial | Medium |
+| `ARC_200` Rook pressure | `EVT_223` | 1:1 on content; trigger partly unimplemented | High |
 | `ARC_210` Reed office opportunity | `EVT_242` | 1:1 | High |
 | `ARC_220` Iris trail | `EVT_230`, `EVT_231`, `EVT_232` | Expanded 1:3 | High |
 | `ARC_230` Marcus disclosure ladder | `EVT_240`, `EVT_241` | Expanded 1:2 | High |
-| `ARC_240` Mina evidence preservation | `EVT_220`, partly `EVT_400` | Partial, split | Medium |
+| `ARC_240` Mina evidence preservation | `EVT_220`, `EVT_221`, `EVT_400` | Expanded 1:3 | High |
 | `ARC_270` Second synchronization gate | `EVT_300` | 1:1, renumbered | High |
 | `ARC_300` Terminal route selection | `EVT_310`–`EVT_314` | Expanded 1:5 | High |
-| `ARC_320` Off-screen hostile convergence | `EVT_420`, `EVT_801`–`EVT_804` | Split across documents | Medium |
+| `ARC_320` Off-screen hostile convergence | `EVT_420`, `EVT_801`–`EVT_804` | Expanded 1:5 across two documents | High |
 | `ARC_340` Signal Room discovery | `EVT_330`, `EVT_331` | Expanded 1:2, renumbered | High |
 | `ARC_400` Trusted rescue validation | `EVT_400` | 1:1 | High |
 | `ARC_420` Evidence transfer | `EVT_410`, `EVT_430` | Expanded 1:2 | High |
@@ -765,15 +765,15 @@ Ratification § 14.3 covers every row below High confidence and is still `OPEN`,
 
 Additions with no backbone origin: `EVT_210`, `EVT_212`, `EVT_221`, `EVT_222`, `EVT_243`.
 
-Unimplemented backbone elements, recorded with a reason: the fixed no-later-than-22:10 trigger of `ARC_200`; the 21:45 Nadia ferry-infrastructure failsafe inside `ARC_170`.
+Unimplemented backbone elements, recorded with a reason: the fixed no-later-than-22:10 trigger of `ARC_200`; the 21:45 Nadia ferry-infrastructure failsafe inside `ARC_170`; the "contact police first" option of `ARC_110`, which `EVT_100`'s Decision block does not offer.
 
 ### 12.3 Affected files
 
-New `LOGIC/16_EVENT_GRAPH_MAPPING.md`; `LOGIC/05_CORE_EVENT_GRAPH.md` (purpose statement; the prefix change itself lands in C3); `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (back-reference per node). All in C8.
+New `LOGIC/16_EVENT_GRAPH_MAPPING.md`; `LOGIC/05_CORE_EVENT_GRAPH.md` (purpose statement; the prefix change itself lands in C3); `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (back-reference per node); `DO_NOT_READ/02_MASTER_TIMELINE.md` § `### 20:05` (remove Café Orpheus from Player 2's starting leads, per § 14.3). All in C8.
 
 ### 12.4 Side effects
 
-- The `ARC_140` row records a semantic change, not a clean expansion. `DO_NOT_READ/02_MASTER_TIMELINE.md` § `### 20:05` assigns Café Orpheus to Player 2 as a starting lead; the investigation graph moves it to the midgame harbor branch. The mapping must not paper over this. Either the timeline changes or the node moves back.
+- The `ARC_140` row records a semantic change, not a clean expansion. § 14.3 resolves it in favour of the midgame placement and assigns the timeline correction to C8, so the mapping does not paper over it. `02_MASTER_TIMELINE.md` § `### 20:05` is the one repository edit the resolution produces.
 - Formalising "unimplemented" turns previously invisible gaps into tracked debt the next revision must implement or delete. That is the intent.
 
 ### 12.5 Validation
@@ -812,7 +812,7 @@ Each item is required by a specific phase. Per § 3.2, an `OPEN` item blocks onl
 |---|---|---|---|
 | 14.1 | `END_SILENT_TERMINAL` terminal type | P7 (C7) | RESOLVED |
 | 14.2 | Split-branch terminator vocabulary | P7 (C7) | RESOLVED |
-| 14.3 | Low and Medium confidence mapping rows | P8 (C8) | OPEN |
+| 14.3 | Low and Medium confidence mapping rows | P8 (C8) | RESOLVED |
 | 14.4 | Passphrase as a fifth solution chain | P6 (C6) | RESOLVED |
 | 14.5 | Point values | P5 (C5) | RESOLVED |
 | 14.6 | Duplicate-root-file policy | none in this revision | DEFERRABLE |
@@ -821,7 +821,7 @@ Each item is required by a specific phase. Per § 3.2, an `OPEN` item blocks onl
 | 14.9 | Umbrella conclusion identifiers | P5 (C5) | RESOLVED |
 | 14.10 | Route A classification | — | RESOLVED |
 
-**Phases clear to enter: P0 through P7, plus P9 and P10, which have no ratification requirement.** The only phase with an `OPEN` requirement is **P8**, blocked by § 14.3. Because P10 runs after P8, the chain halts at P8 until § 14.3 is resolved.
+**Every phase, P0 through P10, is clear to enter.** No item is `OPEN`. Nine are `RESOLVED` and § 14.6 is `DEFERRABLE`, required by no phase.
 
 ### 14.1 `END_SILENT_TERMINAL` terminal type — RESOLVED
 
@@ -851,9 +851,49 @@ Each item is required by a specific phase. Per § 3.2, an `OPEN` item blocks onl
 
 **Consequence.** The conditional row for `LOGIC/13_SPLIT_AND_REGROUP_FLOW.md` in § 7.4 is removed; its condition resolved false. C7 therefore touches three files: `LOGIC/10_INVESTIGATION_NODE_GRAPH.md`, `LOGIC/14_ENDING_TRIGGER_MATRIX.md` and `DO_NOT_READ/06_ENDING_FRAMEWORK.md`.
 
-### 14.3 Low and Medium confidence mapping rows
+### 14.3 Low and Medium confidence mapping rows — RESOLVED
 
-`ARC_110`, `ARC_140`, `ARC_200`, `ARC_240`, `ARC_320`. The café relocation is the one with a content consequence.
+Five rows, resolved individually. All five reach High confidence. One carries a content consequence and one adds an entry to the unimplemented list.
+
+#### `ARC_140` Café cluster — the café stays in the midgame
+
+**Decision.** `ARC_140` maps to `EVT_211_CAFE_ORPHEUS` in the midgame harbor branch. The node does **not** move back to the opening block. `DO_NOT_READ/02_MASTER_TIMELINE.md` § `### 20:05` is corrected in C8 to drop Café Orpheus from Player 2's starting leads.
+
+**Rationale.** Five documents already place the café outside Split One, against two that place it inside.
+
+Outside Split One: `13_SPLIT_AND_REGROUP_FLOW.md` § 2 lists Player 2's Split One locations as newsroom, Nadia, Marcus and archive or server material, with no café; § 4 Pair A puts "harbor archive/café research" in Split Two; `10_INVESTIGATION_NODE_GRAPH.md` § 4 gives Player 2's opening branch four newsroom nodes and no café node; § 6 places `EVT_211` in the harbor and archive branch; and `08_TWO_PLAYER_CORE_RULES.md` § 2 lists Player 2's focus without the café.
+
+Inside Split One: only `02_MASTER_TIMELINE.md` § `### 20:05`, and the `ARC_140` number falling in the `ARC_100-199` opening range.
+
+The timeline is also arithmetically unable to hold both. Player 2's opening branch costs 15 minutes of transit plus 15, 10 and 20 at `EVT_121`, `EVT_122` and `EVT_123`, ending at 21:10 from a 20:10 start. `EVT_211` costs transit plus 20 minutes, and the cheapest transit in `04_TIME_COST_MATRIX.md` § 1 is 10 minutes for the same district, which reaches 21:40 before any travel to the regroup point. Regroup One opens at 21:20. The café cannot be a Split One lead and leave the newsroom cluster intact.
+
+The relocation costs nothing in play. `11_LOCATION_STATE_MACHINE.md` § 4 keeps the café in `OPEN_FULL_RECORDS` until 22:00 and `EVT_211` declares "before 22:00 for full footage", so a visit early in Split Two, which `13` § 6 runs to 23:15, still reaches full records.
+
+**Consequence.** One repository edit, assigned to C8: remove Café Orpheus from the Player 2 line in `02_MASTER_TIMELINE.md` § `### 20:05`. This removes a stale lead rather than introducing a canonical fact, and it aligns the timeline with the five logic documents that already exclude it. The `ARC_140` number stays in the opening range, because § 8.1 freezes identifiers at creation and a number is not a claim about phase.
+
+#### `ARC_110` First split decision — Absorbed, with one option unimplemented
+
+**Decision.** Absorbed into the **Decision** block of `EVT_100_SHARED_BRIEFING`, realised by `EVT_110` and `EVT_120`. No separate node is created. The third option in the backbone entry, "contact police first", has no implementation and is added to the unimplemented list.
+
+**Rationale.** `10` § 2 gives `EVT_100` a Decision block offering an immediate split or a joint branch, and states "The canonical two-player route is a split", which is the substance of `05` § `ARC_110`. Creating a node for it would duplicate a decision that already exists. The backbone entry offers three options and the node offers two, so the gap is recorded rather than silently mapped.
+
+#### `ARC_200` Rook pressure — Partial on trigger only
+
+**Decision.** Content maps 1:1 to `EVT_223_ROOK_INTERVIEW`. The unimplemented part is the trigger, which is already on the unimplemented list.
+
+**Rationale.** `05` § `ARC_200` has two parts. Its behaviour — Rook offers cooperation, frames Lena, demands evidence, asks what players know — appears verbatim as the tactics list in `10` § 7 `EVT_223`. Its trigger, "Triggered by `A_ROOK_PLAYERS >= 2` or fixed no later than 22:10", is half implemented: awareness is wired, and the fixed 22:10 alternative is the entry already recorded as unimplemented. Splitting the row this way makes the mapping exact without adding work.
+
+#### `ARC_240` Mina evidence preservation — Expanded 1:3
+
+**Decision.** Maps to `EVT_220_MINA_REPORT_COMPARISON`, `EVT_221_CAMERA_REQUEST_AUDIT` and `EVT_400_RESCUE_CONTROL`.
+
+**Rationale.** The backbone entry lists three things Mina may do. Preserving her report version is `EVT_220`. Identifying the camera authorization problem is `EVT_221`, which lists "Mina's help" as its first route. Creating a trusted rescue route later is `EVT_400`, which lists "Mina-secured ambulance" first. The previous row named only two of the three and marked one "partly", which understated a clean three-way expansion.
+
+#### `ARC_320` Off-screen hostile convergence — Expanded 1:5 across two documents
+
+**Decision.** Maps to `EVT_420_REED_OR_ROOK_CONFRONTATION` plus `EVT_801`–`EVT_804`. The split across two documents is correct by design, not a defect.
+
+**Rationale.** The backbone entry covers both the off-screen advance of Reed and Rook and the player-facing encounter. The off-screen half is now four identified events in `06_NPC_SCHEDULE_AND_PRIORITY.md` § 4, assigned in C4; the player-facing half is `EVT_420`. `engine/03_ARCHITECTURE.md` § 3.17 requires off-screen interactions to be represented as events, and `06` owns them, so a mapping that spans two documents is what the engine rule produces. Both halves now carry identifiers, which is what the row was waiting for.
 
 ### 14.4 Passphrase as a fifth solution chain — RESOLVED
 
@@ -999,18 +1039,17 @@ The ratification map in § 14 is published with a **Required by** and a **Status
 | 14.2 | Split-branch terminator vocabulary | RESOLVED | Out of scope for C7 and deferred to § 15. It is an inference rather than part of decision 3, and it belongs to the same two-player cluster as the scene-mode, window-duration and `V8` items already deferred. |
 | 14.4 | Passphrase as a fifth solution chain | RESOLVED | No fifth chain and no Chain B sub-step. The four chains are deductions; the passphrase is an access factor, like the hardware key, which is also absent. Zero repository edits follow. |
 | 14.8 | Ending-trigger precedence | RESOLVED | Deterministic priority order, first match wins, declared in `14_ENDING_TRIGGER_MATRIX.md` § 1 by C7. Exclusivity is unavailable because the § 6 conditions overlap by construction. |
+| 14.3 | Low and Medium confidence mapping rows | RESOLVED | All five rows reach High confidence. The café stays in the midgame, against five documents that already exclude it from Split One and two that include it, and because the opening block cannot hold both the café and the newsroom cluster within the Regroup One window. `02_MASTER_TIMELINE.md` § 20:05 is corrected in C8. `ARC_110`'s "contact police first" option joins the unimplemented list. |
 
 ### 16.3 Items remaining OPEN
 
-| § | Item | Required by |
-|---|---|---|
-| 14.3 | Low and Medium confidence mapping rows | P8 (C8) |
+**None.** Every ratification is `RESOLVED` except § 14.6, which is `DEFERRABLE` and required by no phase.
 
-No `OPEN` item names P0 through P7, nor P9 or P10. One item, § 14.3, names P8.
+Status advanced from `In Review` to `Approved` on this revision, per the condition in § 1.
 
 ### 16.4 Phases clear to enter
 
-**P0 through P7**, and P9 and P10 have no ratification requirement. The only phase with an `OPEN` requirement is **P8**, blocked by § 14.3.
+**Every phase, P0 through P10.** No ratification is `OPEN`.
 
 ### 16.5 Phase readiness audit
 
@@ -1026,9 +1065,9 @@ Every phase, against its ratification requirements.
 | P5 | § 14.5, § 14.7, § 14.9 | all RESOLVED | Yes |
 | P6 | § 14.4 | RESOLVED | Yes |
 | P7 | § 14.1, § 14.2, § 14.8 | all RESOLVED | Yes |
-| P8 | § 14.3 | **OPEN** | **No** |
+| P8 | § 14.3 | RESOLVED | Yes |
 | P9 | — | — | Yes |
-| P10 | — | — | Yes, but runs after P8 |
+| P10 | — | — | Yes |
 
 § 14.6 is `DEFERRABLE` and required by no phase.
 
@@ -1054,7 +1093,7 @@ Every gate has an assigned phase except `V8`, which is deliberately deferred and
 
 ### 16.7 Unresolved dependency audit
 
-No phase depends on an unresolved decision except **P8**, which requires § 14.3. P10 inherits that block only because it runs last; it has no requirement of its own.
+**No phase depends on an unresolved decision.** Every ratification a phase requires is `RESOLVED`, and the one `DEFERRABLE` item, § 14.6, is required by no phase.
 
 ---
 

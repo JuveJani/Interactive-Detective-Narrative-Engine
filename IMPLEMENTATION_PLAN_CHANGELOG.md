@@ -6,6 +6,78 @@ This is a separate file rather than an entry in the repository's `CHANGELOG.md`,
 
 ---
 
+## v2.4 — 2026-07-28
+
+Specification update. Resolves the last remaining ratification. **No ratification is now `OPEN`, so status advances from `In Review` to `Approved` and every phase P0 through P10 is clear to enter.**
+
+No architecture redesigned, no completed implementation changed, no repository file touched, no scope expanded. Only § 14.3 was resolved.
+
+### § 14.3 Low and Medium confidence mapping rows — RESOLVED
+
+Five rows, resolved individually. All five reach High confidence, so all nineteen rows in § 12.2 are now High.
+
+#### `ARC_140` Café cluster — the café stays in the midgame
+
+**Decision.** `ARC_140` maps to `EVT_211_CAFE_ORPHEUS` in the midgame harbor branch. The node does not move back. `DO_NOT_READ/02_MASTER_TIMELINE.md` § `### 20:05` is corrected in C8 to drop Café Orpheus from Player 2's starting leads.
+
+**Rationale.** Five documents already place the café outside Split One against two that place it inside. Outside: `13_SPLIT_AND_REGROUP_FLOW.md` § 2 omits it from Player 2's Split One locations, § 4 Pair A puts it in Split Two, `10_INVESTIGATION_NODE_GRAPH.md` § 4 gives Player 2 four newsroom nodes and no café node, § 6 places `EVT_211` in the harbor branch, and `08_TWO_PLAYER_CORE_RULES.md` § 2 omits it from Player 2's focus. Inside: only `02_MASTER_TIMELINE.md` § 20:05, plus the `ARC_140` number falling in the opening range.
+
+The timeline also cannot hold both. Player 2's opening branch runs 20:10 to 21:10 on the declared costs, and `EVT_211` adds transit plus 20 minutes, reaching 21:40 before any travel to the regroup point, against a Regroup One window that opens at 21:20. The relocation costs nothing in play, because `11_LOCATION_STATE_MACHINE.md` § 4 keeps the café in `OPEN_FULL_RECORDS` until 22:00 and Split Two runs to 23:15.
+
+#### The other four rows
+
+| Row | Decision | Rationale |
+|---|---|---|
+| `ARC_110` | Absorbed, with one option unimplemented | `EVT_100`'s Decision block already carries the split choice, so a separate node would duplicate it. The backbone entry offers three options and the node offers two, so "contact police first" joins the unimplemented list rather than being silently mapped |
+| `ARC_200` | 1:1 on content, partial on trigger | The tactics list in `EVT_223` reproduces the backbone behaviour verbatim; only the fixed 22:10 trigger alternative is unimplemented, and it was already on the list |
+| `ARC_240` | Expanded 1:3 | The backbone entry lists three Mina actions, mapping to `EVT_220`, `EVT_221` and `EVT_400`. The old row named two and marked one "partly", understating a clean three-way expansion |
+| `ARC_320` | Expanded 1:5 across two documents | Both halves now carry identifiers: `EVT_801`–`EVT_804` for the off-screen advance and `EVT_420` for the encounter. `engine/03_ARCHITECTURE.md` § 3.17 requires off-screen interactions to be events, so a two-document mapping is what the engine rule produces, not a defect |
+
+| # | Section | Modification | Reason |
+|---|---|---|---|
+| 1 | § 14.3 | Replaced the open question with five decisions and their rationale | — |
+| 2 | § 12.2 | Preamble rewritten: § 14.3 resolved every sub-High row; all nineteen rows now High | The line said § 14.3 was open and blocking P8 |
+| 3 | § 12.2 | Five rows updated: `ARC_110`, `ARC_140`, `ARC_200`, `ARC_240`, `ARC_320`, each to High with a corrected relationship | `ARC_240` and `ARC_320` also had understated mappings |
+| 4 | § 12.2 | Unimplemented list gains `ARC_110`'s "contact police first" option | The resolution found one option with no implementation |
+| 5 | § 12.3 | C8's file list gains `DO_NOT_READ/02_MASTER_TIMELINE.md` § `### 20:05` | The one repository edit the resolution produces needs a commit |
+| 6 | § 12.4 | `ARC_140` side effect restated as resolved, naming C8 as the home of the timeline correction | It described an unmade decision |
+
+### Map, record and status updates
+
+| # | Section | Modification | Reason |
+|---|---|---|---|
+| 7 | § 14 map | § 14.3 changed from `OPEN` to `RESOLVED` | — |
+| 8 | § 14 map | "Phases clear to enter" rewritten: every phase P0 through P10 | The § 3.2 gate reads this line |
+| 9 | § 1 | Third paragraph rewritten: status is `Approved`, the § 14 condition is met, and the gate is satisfied for every phase | The paragraph described the document as authoritative at `In Review` |
+| 10 | § 16.2 | Added a row recording the § 14.3 resolution | § 16.2 is the C0 ratification record |
+| 11 | § 16.3 | Replaced the open-items table with a statement that none remain, noting § 14.6 stays `DEFERRABLE` | — |
+| 12 | § 16.4 | Updated to every phase P0 through P10 | — |
+| 13 | § 16.5 | P8 row changed to RESOLVED and clear; P10 row no longer carries the "runs after P8" caveat | The audit recorded the block |
+| 14 | § 16.7 | Rewritten: no phase depends on an unresolved decision | — |
+| 15 | Frontmatter | `version` 2.3 → 2.4; `status` `In Review` → **`Approved`** | § 14 contains no `OPEN` item, which § 1 makes the condition for the advance |
+
+### Verification performed on v2.4
+
+| Check | Result |
+|---|---|
+| No ratification is `OPEN` | Pass. Nine `RESOLVED`, one `DEFERRABLE`. Remaining occurrences of the word are rule text in § 1, § 3.2 and § 14, plus the § 16.3 heading |
+| Every phase P5–P10 has its ratifications resolved | Pass. § 16.5 shows all eleven phases clear |
+| No phase depends on an unresolved decision | Pass. § 16.7 |
+| Every validation gate has an assigned phase | Pass except `V8`, deliberately `DEFERRED` and not a pass requirement for any phase. § 16.6 unchanged |
+| § 12.2 has no row below High confidence | Pass. All nineteen High |
+| § 14 map, § 16.2, § 16.3, § 16.4 and § 16.5 agree | Pass |
+| Status matches the § 1 condition | Pass. `Approved` |
+
+### Not changed
+
+- Any completed implementation. No repository file was touched.
+- The nine other ratifications, including § 14.6, which stays `DEFERRABLE`.
+- The eight accepted decisions, the phase order, the nine canon commits and their boundaries.
+- The variable register in § 9.4, `GRANT_CLUE` semantics in § 10.2, the rename scope in § 8.2.
+- Gates `V1`–`V11`, including the `V8` deferral and the § 15 out-of-scope list.
+
+---
+
 ## v2.3 — 2026-07-28
 
 Specification update. Resolves the four ratifications that blocked P6 and P7. No architecture redesigned, no completed implementation changed, no repository file touched, no implementation work added.
