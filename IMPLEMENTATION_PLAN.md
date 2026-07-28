@@ -915,3 +915,90 @@ No `OPEN` item names P0, P1, P2, P3 or P4.
 ### 16.4 Phases clear to enter
 
 **P0, P1, P2, P3, P4.** The first phase with an `OPEN` requirement is **P5**, blocked by § 14.5, § 14.7 and § 14.9.
+
+---
+
+## 17. C0 — Migration manifests and registers (P2)
+
+Recorded at P2. This section is the authoritative occurrence manifest referred to by § 8.5 and the authoritative status input referred to by § 8.7.
+
+### 17.1 Correction to the § 2 baseline
+
+The manifest supersedes two counts in § 2. Per § 8.5, "the manifest wins".
+
+| Quantity | § 2 baseline | Manifest | Effect |
+|---|---:|---:|---|
+| Distinct clue identifiers | 64 | **65** | 66 listings, one identifier declared in two groups. Downstream: 44 clues require class tags in C5, not 43; 66 point values are required in C5, not 65. |
+| Clue listings | 65 | **66** | Section tally: §2 = 7, §3 = 6, §4 = 10, §5 = 6, §6 = 7, §7 = 7, §8 = 8, §9 = 5, §10 = 5, §11 = 5. |
+
+No other § 2 count changed. Nodes 40, backbone entries 19, deduction identifiers 13, conclusion identifiers 10, declared state variables 47 all confirmed.
+
+### 17.2 Occurrence manifest — rename families
+
+| Family | Distinct identifiers | Total occurrences | Files containing occurrences |
+|---|---:|---:|---|
+| `C_*` → `CLUE_*` | 65 | 66 | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` only |
+| `D_*` → `CON_*` | 13 | 14 | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md`, `LOGIC/14_ENDING_TRIGGER_MATRIX.md` |
+| Backbone `EVT_nnn` → `ARC_nnn` | 19 | 19 | `LOGIC/05_CORE_EVENT_GRAPH.md` |
+| Event key ranges (`EVT_000-099` … `EVT_900-999`) | 6 range labels | 6 | `LOGIC/00_ENTITY_KEY_TABLE.md` § "Event key ranges" |
+
+The § 8.5 expected file set is confirmed with no additions. `C_*` occurs in one file only; the expected entries for `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` and `LOGIC/07_EVIDENCE_VALIDATION.md` are not present, so those files are outside C3's scope.
+
+**C3 file scope, confirmed:** `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md`, `LOGIC/14_ENDING_TRIGGER_MATRIX.md`, `LOGIC/05_CORE_EVENT_GRAPH.md`, `LOGIC/00_ENTITY_KEY_TABLE.md`.
+
+### 17.3 Reference counts and derived statuses for C3
+
+Derived by the § 8.7 rule. An identifier with a single occurrence appears only in its declaring row and is `DEFINITION_ONLY`; two or more occurrences means at least one reference and is `ACTIVE`.
+
+| Family | `ACTIVE` | `DEFINITION_ONLY` | Notes |
+|---|---:|---:|---|
+| `CLUE_` | 1 | 64 | Only `CLUE_PHOTO_WINDOW_MARKS` is referenced twice, in groups 4 and 11. The other 64 are declared and not yet referenced because no node grants a clue until C5. |
+| `CON_` (after merge) | 4 | 11 | `ACTIVE`: `CON_STAGED_DISAPPEARANCE`, `CON_HARBOR_DESTINATION`, `CON_MEDICAL_EMERGENCY`, `CON_ROOK_PUBLICLY_PROVABLE`. |
+| `ARC_` | 0 | 19 | Each backbone entry appears once, in its own heading. |
+| `END_` | 1 | 7 | `ACTIVE`: `END_PROTECTIVE_CUSTODY`, referenced from `05_CORE_EVENT_GRAPH.md` § `ARC_400`. |
+| `NPC_` | 8 | 8 | `ACTIVE`: `NPC_ELIAS`, `NPC_NADIA`, `NPC_LENA`, `NPC_IRIS`, `NPC_REED`, `NPC_MARCUS`, `NPC_MINA`, `NPC_ROOK_NETWORK` after registration. |
+| `LOC_` | 10 | 2 | `DEFINITION_ONLY`: `LOC_HARBOR_STREETS`, `LOC_HOSPITAL`. |
+| `ITEM_` | 11 | 7 | `DEFINITION_ONLY`: `ITEM_AMBULANCE_ROUTE`, `ITEM_CARRIER_LOG`, `ITEM_FERRY_PHOTO_ARCHIVE`, `ITEM_PAYMENT_RECORD`, `ITEM_RECOVERY_FRAGMENT_ELIAS`, `ITEM_RECOVERY_FRAGMENT_NADIA`, `ITEM_TRANSIT_CARD_ELIAS`. |
+
+`RESERVED` and `DEPRECATED` are assigned to no identifier in C3, per § 8.7.
+
+### 17.4 Referenced-but-undeclared identifier
+
+The manifest found one identifier that `V2` would reject: **`NPC_ROOK_NETWORK`**, referenced once in `LOGIC/11_LOCATION_STATE_MACHINE.md` § "2. Elias apartment" as `SEIZED_BY(NPC_ROOK_NETWORK)` and absent from `LOGIC/00_ENTITY_KEY_TABLE.md` § "Characters".
+
+It is registered in C3 as registry completion, by exact analogy with the five `CON_*` rows § 8.8 already requires C3 to add for identifiers that exist under `D_`. The operation is behaviour-neutral: the identifier already exists in use, and registering it changes no state, threshold or edge.
+
+No other family contains a referenced-but-undeclared identifier.
+
+### 17.5 Clue register
+
+Sixty-five identifiers, grouped by declaring section of `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md`. Class tags and point values are populated in C5; this register fixes identity and group membership only.
+
+| Group | Count | Identifiers |
+|---|---:|---|
+| § 2 Staged disappearance | 7 | `APT_BLOOD_OLD`, `APT_MEDICATION_MISSING`, `APT_PASSPORT_MISSING`, `APT_SERVICE_LATCH`, `APT_TIMED_DEVICE`, `NEIGHBOUR_EXIT_BEFORE_CRASH`, `NADIA_PLAN_ADMISSION` |
+| § 3 Harbor destination | 6 | `TRANSIT_HARBOR_STOP`, `CAFE_TIDE_NOTE`, `CAFE_OLD_LINE_QUESTION`, `CAFE_FOOTAGE`, `NADIA_HARBOR_RESEARCH`, `IRIS_DIRECTION_HARBOR` |
+| § 4 Signal Room 4B | 10 | identifier: `PHOTO_WINDOW_MARKS`, `ARCHIVE_ROOM_INDEX`, `ELIAS_FRAGMENT_4B`, `LENA_ROOM_DISCLOSURE`, `IRIS_ROOM_DISCLOSURE`; route: `CABLE_CORRIDOR_MAP`, `NORTH_GATE_RECORD`, `DRAINAGE_TIDE_WINDOW`, `EMERGENCY_ENTRY_AUTH`, `GENERATOR_TRACE` |
+| § 5 Lena's role | 6 | `ELIAS_ARRIVED_BEFORE_LENA`, `LENA_CALLED_IRIS_AFTER_INJURY`, `MEDICAL_SUPPLY_TRAIL`, `REED_CONFRONTATION_ADMISSION`, `LENA_VERIFIABLE_FALL_DETAIL`, `NO_RANSOM_OR_DEMAND` |
+| § 6 Reed's presence | 7 | `REED_DECOY_KEY`, `REED_HARBOR_RESIDUE`, `REED_BLOOD_TRACE`, `KRELL_RECOVERY_MESSAGE`, `TERMINAL_ACCESS_TRACE`, `LENA_OR_IRIS_TESTIMONY`, `REED_PARTIAL_ADMISSION` |
+| § 7 Marcus leak | 7 | `MARCUS_ACCOUNT_ACCESS`, `MARCUS_DELETED_CALL`, `CARRIER_CALL_RECORD`, `PAYMENT_RECORD`, `INTERMEDIARY_VOICEMAIL`, `REED_SOURCE_REFERENCE`, `MARCUS_CONFESSION` |
+| § 8 Rook compromised | 8 | `ROOK_CAMERA_UNAUTHORIZED`, `ROOK_REPORT_ALTERED`, `ROOK_PROTECTION_ORDER_FALSE`, `ROOK_KRELL_CONTACT`, `ROOK_LENA_BULLETIN_FALSE`, `REED_NAMES_ROOK_LINK`, `MINA_AUTHENTICATES_REPORT`, `EVIDENCE_ROOM_PHOTO_PATH` |
+| § 9 Medical emergency | 5 | `IRIS_SUPPLY_SELECTION`, `IRIS_ASSESSMENT`, `ELIAS_VOMITING_CONFUSION`, `ELIAS_UNEQUAL_PUPILS`, `MEDICAL_REFERENCE` |
+| § 10 Primary vs decoy ledger | 5 | `DECOY_LIMITED_CONTENT`, `DECOY_TRACKER`, `ELIAS_FRAGMENT_BLACK_FALSE`, `HASH_MISMATCH`, `NADIA_DECOY_KNOWLEDGE` |
+| § 11 Recovery code | 5 | `NADIA_FIRST_THREE`, `PHOTO_WINDOW_MARKS` (also § 4), `ARCHIVE_WINDOW_NUMBERING`, `ELIAS_FRAGMENT_WINDOWS`, `UPLOAD_RECOVERY_INSTRUCTIONS` |
+
+Listings 66, distinct identifiers 65. All carry the `CLUE_` prefix after C3.
+
+### 17.6 Node register
+
+Forty playable nodes in `LOGIC/10_INVESTIGATION_NODE_GRAPH.md`, unchanged by C3 and C4. `NODE_TYPE`, `TERMINAL_TYPE` and `Outgoing` are populated in C7.
+
+`EVT_100_SHARED_BRIEFING`, `EVT_110_P1_APARTMENT_APPROACH`, `EVT_111_MINA_FIRST_CONTACT`, `EVT_112_RESTRICTED_APARTMENT`, `EVT_113_APARTMENT_SEARCH`, `EVT_114_NEIGHBOUR_INTERVIEW`, `EVT_115_SERVICE_CORRIDOR`, `EVT_120_P2_NEWSROOM_ENTRY`, `EVT_121_NADIA_INTERVIEW`, `EVT_122_MARCUS_OBSERVATION`, `EVT_123_NEWSROOM_RECORDS`, `EVT_150_REGROUP_ONE`, `EVT_210_HARBOR_ARCHIVE_ENTRY`, `EVT_211_CAFE_ORPHEUS`, `EVT_212_TERMINAL_RECON`, `EVT_220_MINA_REPORT_COMPARISON`, `EVT_221_CAMERA_REQUEST_AUDIT`, `EVT_222_PROTECTION_ORDER_AUDIT`, `EVT_223_ROOK_INTERVIEW`, `EVT_230_IRIS_WORKPLACE`, `EVT_231_PREPAID_PHONE_TRACE`, `EVT_232_MEDICAL_INTERPRETATION`, `EVT_240_MARCUS_PRESSURE_STAGE_ONE`, `EVT_241_MARCUS_FULL_DISCLOSURE`, `EVT_242_REED_OFFICE_SEARCH`, `EVT_243_REED_NEGOTIATION`, `EVT_300_REGROUP_TWO`, `EVT_310_CABLE_CORRIDOR_ENTRY`, `EVT_311_NORTH_GATE_ENTRY`, `EVT_312_DRAINAGE_ENTRY`, `EVT_313_EMERGENCY_ENTRY`, `EVT_314_MAIN_ENTRY_CONFRONTATION`, `EVT_330_FIND_SIGNAL_4B`, `EVT_331_LENA_IRIS_NEGOTIATION`, `EVT_400_RESCUE_CONTROL`, `EVT_410_LEDGER_RECOVERY`, `EVT_420_REED_OR_ROOK_CONFRONTATION`, `EVT_430_COMPLETE_TRANSFER`, `EVT_440_FINAL_PUBLIC_POSITION`, `EVT_900_RESOLVE_ENDING`.
+
+Backbone register, nineteen entries in `LOGIC/05_CORE_EVENT_GRAPH.md`, `ARC_` prefix after C3: `ARC_100`, `ARC_110`, `ARC_120`, `ARC_130`, `ARC_140`, `ARC_170`, `ARC_200`, `ARC_210`, `ARC_220`, `ARC_230`, `ARC_240`, `ARC_270`, `ARC_300`, `ARC_320`, `ARC_340`, `ARC_400`, `ARC_420`, `ARC_440`, `ARC_900`.
+
+Off-screen nodes `EVT_801`–`EVT_804` are assigned in C4 per § 9.4.4.
+
+### 17.7 Variable register
+
+The variable register in § 9.4 is complete: 47 baseline declared variables, 2 undeclared-but-used, 1 alias in the character database, 3 aliases in the ending framework, and 7 created, with a disposition on every row. No additional variable was found by the manifest scan. It is the authoritative input to C4 and C5.
