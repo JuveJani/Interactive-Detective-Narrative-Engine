@@ -6,7 +6,10 @@ This document defines conclusion-level redundancy. It is not yet the final node 
 
 ## 2. Clue classes
 
-- **Physical:** object, trace, document, recording.
+**Non-authoritative summary.** The clue-class vocabulary is owned by `LOGIC/07_EVIDENCE_VALIDATION.md` § "1. Proof classes". That section is canonical. The gloss below is a convenience summary and must not be treated as a declaration.
+
+- **Physical:** object, trace, document.
+- **Digital:** recording, file, metadata payload, transmitted data.
 - **Testimonial:** statement from an NPC.
 - **Procedural:** metadata, logs, authorization records.
 - **Contextual:** motive, history, financial pressure.

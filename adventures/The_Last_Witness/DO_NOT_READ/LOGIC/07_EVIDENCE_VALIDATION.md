@@ -2,12 +2,16 @@
 
 ## 1. Proof classes
 
-- `PHYSICAL`
-- `DIGITAL`
-- `TESTIMONIAL`
-- `PROCEDURAL`
-- `CONTEXTUAL`
-- `BEHAVIOURAL`
+**This section is the canonical owner of the clue-class vocabulary.** The set is closed. Every clue carries at least one class drawn from it. No other document may declare, extend or redefine the set; other documents may summarise it only when the summary is explicitly marked non-authoritative.
+
+| Class | Meaning |
+|---|---|
+| `PHYSICAL` | object, trace or document |
+| `DIGITAL` | recording, file, metadata payload or transmitted data |
+| `TESTIMONIAL` | statement from an NPC |
+| `PROCEDURAL` | log, authorization record or process artefact |
+| `CONTEXTUAL` | motive, history or financial pressure |
+| `BEHAVIOURAL` | contradiction or action observed by players |
 
 A major accusation requires multiple independent classes.
 

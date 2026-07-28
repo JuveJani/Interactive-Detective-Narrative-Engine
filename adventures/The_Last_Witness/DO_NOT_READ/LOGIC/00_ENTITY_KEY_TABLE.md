@@ -4,6 +4,38 @@
 
 All logic-layer documents reference immutable keys rather than display names. Display names may change during editing; keys must not.
 
+Identifiers are frozen at creation and survive display-name changes. A key may become a historical misnomer if a character is renamed; that is accepted.
+
+## Prefix registry
+
+Every identifier in this adventure uses one of the prefixes below. The registry is closed and extensible only by amendment.
+
+| Prefix | Entity | Owner |
+|---|---|---|
+| `NPC_` | Character | `00_ENTITY_KEY_TABLE.md` |
+| `LOC_` | Location | `00_ENTITY_KEY_TABLE.md` |
+| `ITEM_` | Item or evidence object | `00_ENTITY_KEY_TABLE.md` |
+| `CLUE_` | Clue | `12_CLUE_DEPENDENCY_GRAPH.md` |
+| `CON_` | Conclusion | `00_ENTITY_KEY_TABLE.md` |
+| `FACT_` | NPC-knowledge fact | `03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` |
+| `ARC_` | Backbone arc | `05_CORE_EVENT_GRAPH.md` |
+| `EVT_` | Playable or off-screen event node | `10_INVESTIGATION_NODE_GRAPH.md` |
+| `END_` | Ending family | `14_ENDING_TRIGGER_MATRIX.md` |
+| `CLK_` | Clock-threshold trigger | `01_WORLD_STATE_VARIABLES.md` § 1 |
+| `TR_` | State-machine transition | `11_LOCATION_STATE_MACHINE.md` |
+| `EVAL_` | Gate evaluator | `07_EVIDENCE_VALIDATION.md`, `14_ENDING_TRIGGER_MATRIX.md` |
+
+## Ownership rules
+
+Every authoritative fact has exactly one owner. Summaries and cross-references are permitted and must be explicitly marked non-authoritative.
+
+| Fact | Authoritative owner |
+|---|---|
+| Ending trigger conditions | `14_ENDING_TRIGGER_MATRIX.md` |
+| Ending node identity and graph edges | `10_INVESTIGATION_NODE_GRAPH.md` |
+| Ending narrative outcome text | `../06_ENDING_FRAMEWORK.md` |
+| Clue-class vocabulary | `07_EVIDENCE_VALIDATION.md` § 1 |
+
 ## Characters
 
 | Key | Display name | Type | Initial location/state |
