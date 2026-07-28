@@ -1,6 +1,6 @@
 ---
 title: Implementation Plan — Next Repository Revision
-version: 2.1
+version: 2.2
 status: In Review
 depends_on:
   - docs/STYLE_GUIDE.md
@@ -74,7 +74,7 @@ Counts verified at commit `0923366cd3f1302a849f072dedc5b9be1d4e19a1`. These are 
 | Nodes declaring successors as "unlocks" inside **State changes** | 1 | `EVT_100_SHARED_BRIEFING` |
 | Nodes declaring `NODE_TYPE` | 0 | — |
 | Backbone entries in the core graph | 19 | `LOGIC/05_CORE_EVENT_GRAPH.md` |
-| Distinct clue identifiers | 64 | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` (65 listings; `C_PHOTO_WINDOW_MARKS` in §§ 4 and 11) |
+| Distinct clue identifiers | 65 | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` (66 listings; `C_PHOTO_WINDOW_MARKS` in §§ 4 and 11). Measured by the § 17.2 manifest, which § 8.5 makes authoritative. |
 | Clue groups carrying class tags | 3 of 10 | §§ 2, 3, 8 |
 | Deduction identifiers (`D_*`) | 13 | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` |
 | Conclusion identifiers (`CON_*`) | 10 | `LOGIC/00_ENTITY_KEY_TABLE.md` § "Conclusions" |
@@ -114,7 +114,7 @@ Two ordering rules are load-bearing and must not be relaxed:
 | Commit | Phase | Content | Revert impact |
 |---|---|---|---|
 | **C0** | P0, P2 | Ratification map, resolutions reached, and migration manifests, recorded in this plan | None on repository canon |
-| **C1** | P1 | Canonical ownership: clue-class vocabulary single-sourced; ending-ownership rule declared; prefix registry added to the entity key table | Reverts to two class lists; no logic depends on it yet |
+| **C1** | P1 | Canonical ownership: clue-class vocabulary single-sourced in `LOGIC/07_EVIDENCE_VALIDATION.md` § 1; prefix registry and ownership rules added to `LOGIC/00_ENTITY_KEY_TABLE.md` | Reverts to two class lists; no logic depends on it yet |
 | **C2** | P1 | World Bible passphrase facts, with the version change its § 1 Authority requires | Reverts the canonical fact; P6 becomes ungrounded |
 | **C3** | P3 | Mechanical identifier migration: `C_*`→`CLUE_*`, `D_*`→`CON_*`, backbone `EVT_*`→`ARC_*`; identifier status declaration per § 8.7 | Pure spelling and status revert; no semantics attached |
 | **C4** | P4 | Non-progress state-variable cleanup and writer/reader wiring | Restores removed variables and unwires writers |
@@ -343,7 +343,7 @@ Mnemonic uppercase, full-word prefix, underscore separators. Identifiers are fro
 
 | Family | From | To | Reason | Count |
 |---|---|---|---|---:|
-| Clues | `C_*` | `CLUE_*` | Inconsistent scheme against every other entity prefix; single-letter prefix is unsafe for anchored search | 64 distinct |
+| Clues | `C_*` | `CLUE_*` | Inconsistent scheme against every other entity prefix; single-letter prefix is unsafe for anchored search | 65 distinct |
 | Conclusions | `D_*` | `CON_*` | Two live namespaces for one concept, used in different documents | 13 |
 | Backbone | `EVT_nnn` in `05` | `ARC_nnn` | Shared stem with playable nodes; eight stems carry different meanings in each file | 19 |
 
@@ -360,7 +360,7 @@ Eight `D_*` identifiers have an exact `CON_*` twin and merge cleanly: `STAGED_DI
 
 Five have no twin and become `CON_*` identifiers that the entity key table did not previously register: `CON_REED_CAUSED_CONFRONTATION`, `CON_MARCUS_LEAK_PARTIAL`, `CON_MARCUS_LEAK_PROVABLE`, `CON_ROOK_OPERATIONALLY_COMPROMISED`, `CON_ROOK_PUBLICLY_PROVABLE`. Registering them is documentation completion, not conceptual splitting: they already exist in `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` under the `D_` prefix with their thresholds intact. No threshold, tier or meaning changes in C3.
 
-Two existing `CON_*` identifiers have no `D_*` twin and are umbrella terms superseded by the tiered pair: `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED`. **They survive C3 unchanged**, and receive a mechanically derived status under § 8.7 rather than a judged one. Retiring or redefining them is semantic and is deferred to ratification § 14.9, which is required by C5.
+Two existing `CON_*` identifiers have no `D_*` twin and are umbrella terms superseded by the tiered pair: `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED`. **They survive C3 unchanged**, and receive a mechanically derived status under § 8.7 rather than a judged one. Retiring or redefining them is semantic and is deferred to ratification § 14.9, which is resolved: both are marked `DEPRECATED` in C5.
 
 The conclusion namespace after C3 therefore holds 15 identifiers, two of which await a ratification decision that C5 needs and C3 does not.
 
@@ -414,7 +414,7 @@ Gate `V2` requires every declared identifier to carry exactly one status from `A
 | Referenced at least once outside its own declaring row | `ACTIVE` |
 | Declared but never referenced | `DEFINITION_ONLY` |
 
-`RESERVED` is not assigned in C3, because no identifier is reserved in this revision. `DEPRECATED` is not assigned in C3, because deprecation is a semantic judgement; the only candidates are `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` and their disposition is ratification § 14.9, required by C5.
+`RESERVED` is not assigned in C3, because no identifier is reserved in this revision. `DEPRECATED` is not assigned in C3, because deprecation is a semantic judgement; the only candidates are `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED`, which § 14.9 marks `DEPRECATED` in C5.
 
 **Where statuses are recorded.** All four documents are already in C3's file scope, so C3 gains no new file.
 
@@ -431,6 +431,7 @@ Gate `V2` requires every declared identifier to carry exactly one status from `A
 
 - Identifiers in external drafts and in-flight notes go stale in one commit. This is the cost of the single-pass rule and is preferable to a half-migrated repository.
 - `LOGIC/00_ENTITY_KEY_TABLE.md` § "Conclusions" gains five rows in C3 to register identifiers that already exist under `D_`.
+- `LOGIC/00_ENTITY_KEY_TABLE.md` § "Characters" gains one row in C3 for `NPC_ROOK_NETWORK`, which `11_LOCATION_STATE_MACHINE.md` already references as `SEIZED_BY(NPC_ROOK_NETWORK)` and which the entity table did not declare. This is the same registry completion as the five `CON_*` rows and is equally behaviour-neutral. Without it `V2` rejects a referenced-but-undeclared identifier.
 - `LOGIC/00_ENTITY_KEY_TABLE.md` § "Event key ranges" describes one numeric space and must be restated for two namespaces.
 - `LOGIC/05_CORE_EVENT_GRAPH.md` § `ARC_320` holds the only working cross-reference into `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md`. Verify it still resolves after the prefix change.
 - The ambiguous inline basename reference to `06_ENDING_FRAMEWORK.md` in `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` § 14 reads as if it points inside `LOGIC/`, where a different file occupies that number. Disambiguate in C7, when that section is rewritten, not in C3.
@@ -487,6 +488,8 @@ Every current and proposed variable appears below. Dispositions are `KEEP`, `REM
 | *(new)* passphrase total | derived | — | — | `GRANT_CLUE` over group PASSPHRASE | `EVAL_CON_PASSPHRASE_ACCESS` | — | derived, created in C6 |
 
 Eleven derived totals replace eight declared variables and two undeclared pseudo-variables. **No new stored point variable is created**, because under § 10 a total is computed from the held clue set and is not independently mutable.
+
+Each total's computed maximum is given in § 14.5 and is not repeated here.
 
 #### 9.4.3 Trust
 
@@ -602,7 +605,7 @@ All four are semantic replacements, not spelling changes, because three of them 
 
 ### 9.6 Affected files
 
-`LOGIC/01_WORLD_STATE_VARIABLES.md` (register, all sections), `LOGIC/11_LOCATION_STATE_MACHINE.md` (transitions given `TR_*` identifiers; four machines bound to variables; archive trigger recorded), `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (writes declared per node), `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` (`EVT_8xx` identifiers for four off-screen outcomes), `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` (trust removals rewritten as evidence gates; `FACT_` statuses), `LOGIC/14_ENDING_TRIGGER_MATRIX.md` (medical outcome reads `ELIAS_STATE`), `LOGIC/02_ITEM_STATE_MATRIX.md` (item state as the source replacing `LEDGER_PRIMARY_STATUS`), `DO_NOT_READ/03_CHARACTER_DATABASE.md` (alias replaced), `DO_NOT_READ/06_ENDING_FRAMEWORK.md` (alias list replaced by a marked non-authoritative pointer). All in C4.
+`LOGIC/01_WORLD_STATE_VARIABLES.md` (register, all sections), `LOGIC/11_LOCATION_STATE_MACHINE.md` (transitions given `TR_*` identifiers; four machines bound to variables; archive trigger recorded), `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (writes declared per node), `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` (`EVT_8xx` identifiers for four off-screen outcomes), `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` (trust removals rewritten as evidence gates; `FACT_` statuses), `LOGIC/14_ENDING_TRIGGER_MATRIX.md` (medical outcome reads `ELIAS_STATE`), `LOGIC/02_ITEM_STATE_MATRIX.md` (item state as the source replacing `LEDGER_PRIMARY_STATUS`), `LOGIC/07_EVIDENCE_VALIDATION.md` (declares the `EVAL_*` identifiers the register names as writers and readers, per the § 8.4 ownership rule), `DO_NOT_READ/03_CHARACTER_DATABASE.md` (alias replaced), `DO_NOT_READ/06_ENDING_FRAMEWORK.md` (alias list replaced by a marked non-authoritative pointer). All in C4.
 
 ### 9.7 Side effects
 
@@ -659,11 +662,12 @@ This retires the hand-maintained ranges in `LOGIC/01_WORLD_STATE_VARIABLES.md` �
 | `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | every **State changes** block | Replace point awards with `GRANT_CLUE(...)` | C5 |
 | `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` | § 3 | Reduce to conclusion-level narrative rationale; replace `CLU-0n` references with `CLUE_*`; move all counting to the logic layer | C5 |
 | `LOGIC/14_ENDING_TRIGGER_MATRIX.md` | §§ 4, 5 | Confirm accusation gates read conclusions, never raw totals | C5 |
+| `LOGIC/00_ENTITY_KEY_TABLE.md` | § "Conclusions" | Mark `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` `DEPRECATED` per § 14.9; reglose `CON_REED_PRESENT` to "Reed was present at the confrontation" | C5 |
 
 ### 10.5 Side effects
 
 - Computing maxima will change reachable ceilings and may invalidate thresholds in either direction. The Rook public threshold of 4 against three granting nodes is the known case.
-- Assigning a point value to 65 clues is a set of new design decisions that directly control difficulty. Ratification § 14.5.
+- Point values are uniform at 1 per clue, resolved in § 14.5, so C5 transcribes them rather than deciding them. The computed maxima in § 14.5 supersede the hand-declared ranges in `LOGIC/01_WORLD_STATE_VARIABLES.md` § 2.
 - `LOGIC/07_EVIDENCE_VALIDATION.md` § 2 currently mixes point gates and category gates. Unifying them changes at least the room-identification gate from a category rule to a numeric one, altering when it unlocks.
 - The medical conclusion is the only gate consistent across both systems today. Verify it survives unchanged, so the conversion can be demonstrated behaviour-preserving in at least one case.
 - Idempotence interacts with multi-route clues. `CLUE_PHOTO_WINDOW_MARKS` belongs to two conclusion groups; the register must make clear that it is one clue contributing to two groups, not two clues.
@@ -692,13 +696,15 @@ Six classes, owned by **`LOGIC/07_EVIDENCE_VALIDATION.md` § "1. Proof classes"*
 
 How a multi-class clue counts toward diversity determines whether a single clue can satisfy a three-class threshold alone. It is therefore a threshold rule, not a vocabulary rule, and it belongs to the commit that restates thresholds.
 
-The rule is written into `LOGIC/07_EVIDENCE_VALIDATION.md` § 1 in **C5**, alongside the threshold restatement in § 2. Ratification § 14.7 is required by C5 and does not gate C1.
+The rule is written into `LOGIC/07_EVIDENCE_VALIDATION.md` § 1 in **C5**, alongside the threshold restatement in § 2. It does not gate C1, which declares the vocabulary only.
 
-Multi-class clues are permitted, and the existing `procedural/digital` and `testimonial/procedural` tags are retained.
+Ratification § 14.7 is resolved: a clue contributes exactly one class to a diversity count, assigned across the held set to maximise the number of distinct classes, so a requirement for N classes cannot be met by fewer than N clues. The rule text C5 writes is given in § 14.7.
+
+Multi-class clues are permitted, and the existing `procedural/digital` and `testimonial/procedural` tags are retained. A tag list records which classes a clue is eligible to fill, not how many it contributes at once.
 
 ### 11.3 Tagging work
 
-All 64 baseline clues plus the one new passphrase clue carry at least one class. Twenty-one are tagged today, across §§ 2, 3 and 8. Forty-three are untagged while §§ 5, 7 and 8 already state class-diversity thresholds that cannot be evaluated without them.
+All 65 baseline clues plus the one new passphrase clue carry at least one class. Twenty-one are tagged today, across §§ 2, 3 and 8. Forty-four are untagged while §§ 5, 7 and 8 already state class-diversity thresholds that cannot be evaluated without them.
 
 ### 11.4 Affected files
 
@@ -707,7 +713,7 @@ All 64 baseline clues plus the one new passphrase clue carry at least one class.
 | `LOGIC/07_EVIDENCE_VALIDATION.md` | § 1 | Declare the six-class vocabulary as canonical | C1 |
 | `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` | § 2 | Reduce to a marked non-authoritative pointer; drop "recording" from `PHYSICAL` | C1 |
 | `LOGIC/07_EVIDENCE_VALIDATION.md` | § 1 | Add the class-diversity counting rule, per § 14.7 | C5 |
-| `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` | all groups | Tag 43 untagged clues | C5 |
+| `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` | all groups | Tag 44 untagged clues; record 1 point per clue | C5 |
 | `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | **State changes** blocks | Remove ad-hoc class labels with the point awards | C5 |
 
 ### 11.5 Side effects
@@ -719,7 +725,7 @@ All 64 baseline clues plus the one new passphrase clue carry at least one class.
 
 ### 11.6 Validation
 
-Gate `V7` after C5. C1 requires only `V10`, because no clue is tagged and no threshold is evaluated in C1.
+Gate `V7` after C5. C1 requires only `V10`, because no clue is tagged and no threshold is evaluated in C1. `V10` after C1 is scoped to the facts C1 declares an owner for: clue-class ownership is enforced immediately, and the three ending rows are enforced at C7, when `06_ENDING_FRAMEWORK.md` is reduced to narrative text.
 
 ---
 
@@ -791,7 +797,7 @@ Run after every commit, not only at P10. Each decision section names the subset 
 | `V7` | Clue integrity | Every clue has at least one class from the single canonical set, a point value, and at least one granting node or a `DEFINITION_ONLY` status. Clue acquisition is idempotent: a clue reachable by several routes contributes its value exactly once, and no document stores a mutable point total. |
 | `V8` | Time integrity | **DEFERRED.** Its blockers — the leftover-time conflict between `LOGIC/04_TIME_COST_MATRIX.md` § 3 and `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 4, and the absence of declared maximum split-window durations — are out of scope for this revision. Recorded as deferred, not passed. Promoting it to a required gate requires moving those blockers into scope. |
 | `V9` | Solvability | Every conclusion threshold is satisfiable from clues reachable without circularity, **and remains satisfiable after class assignment**. Every mandatory factor has at least two independent routes or an authored degraded outcome. Independent routes share no mandatory predecessor node. The passphrase has two routes, one obtainable before 01:00. |
-| `V10` | Single source | Every fact has exactly one authoritative owner. Summaries and cross-references are permitted and must be explicitly marked non-authoritative. Ending triggers are owned by `14`; node identity and edges by `10`; narrative outcome by `06`; clue classes by `07` § 1. |
+| `V10` | Single source | Every fact has exactly one authoritative owner. Summaries and cross-references are permitted and must be explicitly marked non-authoritative. Ending triggers are owned by `14`; node identity and edges by `10`; narrative outcome by `06`; clue classes by `07` § 1. Evaluated over the facts whose owner has been declared at the point of evaluation: clue classes from C1, ending node identity from C7, ending narrative from C7. Full coverage is a P10 requirement. |
 | `V11` | Ending-trigger precedence | The trigger conditions of the eight ending families are either provably mutually exclusive, or a deterministic priority order is declared in `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § 1 and every reachable combination resolves to exactly one ending. |
 
 ---
@@ -808,14 +814,14 @@ Each item is required by a specific phase. Per § 3.2, an `OPEN` item blocks onl
 | 14.2 | Split-branch terminator vocabulary | P7 (C7) | OPEN |
 | 14.3 | Low and Medium confidence mapping rows | P8 (C8) | OPEN |
 | 14.4 | Passphrase as a fifth solution chain | P6 (C6) | OPEN |
-| 14.5 | Point values | P5 (C5) | OPEN |
+| 14.5 | Point values | P5 (C5) | RESOLVED |
 | 14.6 | Duplicate-root-file policy | none in this revision | DEFERRABLE |
-| 14.7 | Multi-class clue diversity behaviour | P5 (C5) | OPEN |
+| 14.7 | Multi-class clue diversity behaviour | P5 (C5) | RESOLVED |
 | 14.8 | Ending-trigger precedence | P7 (C7) | OPEN |
-| 14.9 | Umbrella conclusion identifiers | P5 (C5) | OPEN |
+| 14.9 | Umbrella conclusion identifiers | P5 (C5) | RESOLVED |
 | 14.10 | Route A classification | — | RESOLVED |
 
-**Phases clear to enter: P0, P1, P2, P3, P4.** The first phase with an `OPEN` requirement is P5.
+**Phases clear to enter: P0, P1, P2, P3, P4, P5.** The first phase with an `OPEN` requirement is **P6**, blocked by § 14.4. P7 is blocked by § 14.1, § 14.2 and § 14.8. P8 is blocked by § 14.3.
 
 ### 14.1 `END_SILENT_TERMINAL` terminal type
 
@@ -833,9 +839,33 @@ Whether `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT`, `T
 
 Whether `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" gains a chain or the passphrase remains a sub-step of Chain B. That section is a non-authoritative summary under `V10`, so this affects only C6 and not the canonical facts written in C2.
 
-### 14.5 Point values
+### 14.5 Point values — RESOLVED
 
-All 64 baseline clues and the one new passphrase clue. These are design decisions that set difficulty, not transcriptions.
+**Decision.** Every clue is worth exactly **1 point**. There is no per-clue tuning in this revision.
+
+**Rationale.** The multi-point awards already in the node graph are multi-clue grants, not single clues of higher value. `EVT_113_APARTMENT_SEARCH` awards `P_STAGED +1 or +2` and its text reads "A successful careful search reveals **two of**" four listed findings. The same pattern holds at `EVT_123_NEWSROOM_RECORDS`, `EVT_210_HARBOR_ARCHIVE_ENTRY`, `EVT_211_CAFE_ORPHEUS` and `EVT_242_REED_OFFICE_SEARCH`: each lists several findings and awards a range. Under `GRANT_CLUE` those become several clue grants of one point each, which reproduces the existing award ranges exactly.
+
+A uniform value also preserves every threshold already written. `07_EVIDENCE_VALIDATION.md` § 2 and `12_CLUE_DEPENDENCY_GRAPH.md` state their gates as small integers — 2, 3 and 4 — which were authored against a de-facto unit-value model. Any non-uniform assignment would silently move all of them.
+
+**Computed maxima.** Under § 10.3 the maximum of a derived total equals the sum of the point values of the clues in its group, which with a uniform value is the group's size.
+
+| Derived total | Group | Clues | Maximum | Existing threshold |
+|---|---|---:|---:|---|
+| `P_STAGED` | § 2 Staged disappearance | 7 | 7 | 3 |
+| `P_HARBOR` | § 3 Harbor destination | 6 | 6 | 3 |
+| `P_ROOM_4B` | § 4 Signal Room 4B | 10 | 10 | structural in `12` § 4, one identifier plus one route; numeric restatement in C5 |
+| `P_LENA_PROTECTING` | § 5 Lena's role | 6 | 6 | 3 |
+| `P_REED` | § 6 Reed's presence | 7 | 7 | structural in `12` § 6, two independent routes; numeric restatement in C5 |
+| `P_MARCUS` | § 7 Marcus leak | 7 | 7 | 2 partial, 3 provable |
+| `P_ROOK` | § 8 Rook compromised | 8 | 8 | 3 private, 4 public |
+| `P_MEDICAL` | § 9 Medical emergency | 5 | 5 | 2 |
+| `P_DECOY` | § 10 Primary vs decoy | 5 | 5 | structural in `12` § 10, two routes; numeric restatement in C5 |
+| `P_CODE` | § 11 Recovery code | 5 | 5 | structural in `12` § 11, fragment plus interpretation route; numeric restatement in C5 |
+| passphrase total | Passphrase access, C6 | 2 | 2 | authored in C6 |
+
+Group memberships sum to 66 across 65 distinct clues, because `CLUE_PHOTO_WINDOW_MARKS` belongs to both § 4 and § 11. It contributes one point to `P_ROOM_4B` and one to `P_CODE`. That is not a double award: § 10.2 idempotence forbids a clue contributing twice **within** one group, not contributing once to each of two groups.
+
+The declared range `0-5` on `P_ROOK` is superseded by the computed maximum of 8. Whether four points are reachable through authored nodes is a separate question, settled by `V9` after edges exist.
 
 ### 14.6 Duplicate-root-file policy
 
@@ -843,19 +873,34 @@ Deduplicate, or mark the eight byte-identical root copies non-authoritative in p
 
 **Required by no phase in this revision.** No commit in C1–C9 edits any of the eight root copies or their canonical twins, because this revision edits no engine file. The decision is precautionary and may be carried forward, provided the deferral is recorded in C0.
 
-### 14.7 Multi-class clue diversity behaviour
+### 14.7 Multi-class clue diversity behaviour — RESOLVED
 
-Whether a clue tagged `procedural/digital` contributes one class or two toward a diversity threshold. Determines whether a single clue can satisfy a three-class gate alone. Required by C5, where the counting rule is written and thresholds are restated. It does not gate C1, which declares the vocabulary only.
+**Decision.** A clue contributes **exactly one class** to a diversity count. Multi-class tags record which classes a clue is *eligible* to be counted as; when a threshold is evaluated, each held clue is assigned to exactly one of its tagged classes, and the assignment across the held set is chosen to maximise the number of distinct classes.
+
+Two consequences follow, and both are intended:
+
+- N distinct classes require at least N distinct clues. A single clue can never satisfy a two-class or three-class gate alone.
+- Multi-class tags remain useful, because they let a clue fill whichever class slot is still empty.
+
+**Rationale.** Both class documents require classes to be *independent*. `07_EVIDENCE_VALIDATION.md` § 1 states "A major accusation requires multiple independent classes" and `05_CLUE_ARCHITECTURE.md` § 2 states "Critical conclusions require at least two independent classes". Independence holds between evidence items, so one item cannot supply two independent classes. Counting all tags would let two clues clear the three-class bar on `CON_ROOK_PUBLICLY_PROVABLE`, which is the strongest gate in the case and is explicitly the one § 14.7 was raised to protect.
+
+**Rule text for C5.** Written into `LOGIC/07_EVIDENCE_VALIDATION.md` § 1:
+
+> Class diversity counts distinct classes across the held clue set. Each held clue is assigned to exactly one of its tagged classes, and the assignment is chosen to maximise the count. A clue therefore contributes one class, never two, and a requirement for N classes cannot be met by fewer than N clues.
 
 ### 14.8 Ending-trigger precedence
 
 Mutual exclusivity or a declared priority order. Required by `V11` after C7.
 
-### 14.9 Umbrella conclusion identifiers
+### 14.9 Umbrella conclusion identifiers — RESOLVED
 
-Whether `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` survive alongside their tiered pairs, are marked `DEPRECATED`, or are retired.
+**Decision.** `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` are **retired by marking them `DEPRECATED`** in C5. They are not deleted and they are not given thresholds. All gating uses the tiered identifiers: `CON_MARCUS_LEAK_PARTIAL`, `CON_MARCUS_LEAK_PROVABLE`, `CON_ROOK_OPERATIONALLY_COMPROMISED`, `CON_ROOK_PUBLICLY_PROVABLE`.
 
-Required by C5, where thresholds are restated. It does not gate C3: under § 8.7 both receive a mechanically derived status from the occurrence manifest, and `DEPRECATED` is not assignable in C3 at all.
+**Rationale.** Only the tiered forms carry thresholds. `12_CLUE_DEPENDENCY_GRAPH.md` § 7 defines a partial and a provable tier for the Marcus leak, and § 8 defines an operational and a publicly provable tier for Rook; neither umbrella has a threshold of its own, and the C3 manifest measured both as unreferenced. Retaining them as live identifiers would give one concept two names, which `V10` forbids.
+
+Marking rather than deleting follows the repository's own idiom. `docs/STYLE_GUIDE.md` § "Status values" defines Deprecated as "retained temporarily but should not be used in new material", and `DEPRECATED` is already in the `V2` status vocabulary, where a deprecated identifier may be unreferenced. Deletion would also make the C3 registry rows disappear one commit after they were added, which obscures the migration record.
+
+**Also settled here.** The duplicate gloss the C3 diff left behind is corrected in the same commit. `CON_REED_PRESENT` and `CON_REED_CAUSED_CONFRONTATION` both read "Reed caused the confrontation" in the entity key table, because the pre-existing gloss for the first described causation while `12_CLUE_DEPENDENCY_GRAPH.md` § 6 defines it as presence. In C5, `CON_REED_PRESENT` is reglossed to "Reed was present at the confrontation". Both identifiers stay `ACTIVE` and `DEFINITION_ONLY` respectively; this is a description fix, not a tier change.
 
 ### 14.10 Route A classification — RESOLVED
 
@@ -896,6 +941,9 @@ The ratification map in § 14 is published with a **Required by** and a **Status
 |---|---|---|---|
 | 14.10 | Route A classification | RESOLVED | The recovery-workflow mechanism was authorised by the accepted-decision authority, which enumerated it as one of three permitted answers when it required Route A's exact operation to be defined. § 5.1 states the position precisely. No content change follows. Required by no phase. |
 | 14.6 | Duplicate-root-file policy | DEFERRABLE — **deferral recorded** | No commit in C1–C9 edits any of the eight byte-identical root copies or their canonical twins, because this revision edits no engine file. The item is required by no phase in this revision and is carried forward. This entry satisfies the recording requirement in § 3.2 and § 14.6. |
+| 14.5 | Point values | RESOLVED | Every clue is worth 1 point. Multi-point node awards are multi-clue grants, so a uniform value reproduces the existing award ranges and preserves every threshold already written. Computed maxima recorded in § 14.5. |
+| 14.7 | Multi-class clue diversity behaviour | RESOLVED | A clue contributes exactly one class, assigned to maximise diversity. N classes require at least N clues. Both class documents require classes to be *independent*, and independence holds between evidence items. |
+| 14.9 | Umbrella conclusion identifiers | RESOLVED | `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` are marked `DEPRECATED` in C5. Only the tiered identifiers carry thresholds. The `CON_REED_PRESENT` gloss is corrected in the same commit. |
 
 ### 16.3 Items remaining OPEN
 
@@ -905,16 +953,13 @@ The ratification map in § 14 is published with a **Required by** and a **Status
 | 14.2 | Split-branch terminator vocabulary | P7 (C7) |
 | 14.3 | Low and Medium confidence mapping rows | P8 (C8) |
 | 14.4 | Passphrase as a fifth solution chain | P6 (C6) |
-| 14.5 | Point values | P5 (C5) |
-| 14.7 | Multi-class clue diversity behaviour | P5 (C5) |
 | 14.8 | Ending-trigger precedence | P7 (C7) |
-| 14.9 | Umbrella conclusion identifiers | P5 (C5) |
 
-No `OPEN` item names P0, P1, P2, P3 or P4.
+No `OPEN` item names P0, P1, P2, P3, P4 or P5.
 
 ### 16.4 Phases clear to enter
 
-**P0, P1, P2, P3, P4.** The first phase with an `OPEN` requirement is **P5**, blocked by § 14.5, § 14.7 and § 14.9.
+**P0, P1, P2, P3, P4, P5.** The first phase with an `OPEN` requirement is **P6**, blocked by § 14.4. P7 is blocked by § 14.1, § 14.2 and § 14.8. P8 is blocked by § 14.3.
 
 ---
 
@@ -924,7 +969,7 @@ Recorded at P2. This section is the authoritative occurrence manifest referred t
 
 ### 17.1 Correction to the § 2 baseline
 
-The manifest supersedes two counts in § 2. Per § 8.5, "the manifest wins".
+The manifest superseded two counts in § 2, which have since been corrected to the measured values. Per § 8.5, "the manifest wins". The table below is retained as the record of the correction.
 
 | Quantity | § 2 baseline | Manifest | Effect |
 |---|---:|---:|---|
