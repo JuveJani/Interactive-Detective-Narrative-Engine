@@ -4,6 +4,43 @@
 
 This file defines how investigation locations change over time and through off-screen actions. A compiled player node must select the correct location variant from current state, not assume the first-visit description remains valid forever.
 
+## 1a. Variable bindings
+
+Each machine below holds its state in exactly one variable, declared in `01_WORLD_STATE_VARIABLES.md` § 7.
+
+| Machine | Section | Variable |
+|---|---|---|
+| Elias apartment | § 2 | `APT_STATE` |
+| Newsroom | § 3 | `NEWS_STATE` |
+| Café Orpheus | § 4 | `CAFE_STATE` |
+| Police annex | § 5 | `ANNEX_STATE` |
+| Reed office | § 6 | `REED_OFFICE_STATE` |
+| Iris workplace | § 7 | `IRIS_WORK_STATE` |
+| Harbor archive | § 8 | `ARCHIVE_STATE` |
+| Terminal exterior, weather | § 9 | `TERMINAL_WEATHER` |
+| Terminal exterior, hostile presence | § 9 | `TERMINAL_HOSTILE` |
+| Terminal exterior, known routes | § 9 | `TERMINAL_ROUTES_KNOWN` |
+| Signal Room 4B | § 10 | `ROOM_4B_STATE` |
+
+## 1b. Transition register
+
+Every state change in this document is a declared transition. Clock-driven transitions are fired by the `CLK_*` triggers in `01_WORLD_STATE_VARIABLES.md` § 1. Condition-driven transitions carry a `TR_*` identifier.
+
+| Transition | Variable | From | To | Fired by |
+|---|---|---|---|---|
+| `TR_APT_A_TO_B` | `APT_STATE` | `SEALED_ACCESSIBLE_WITH_MINA` | `RESTRICTED_BY_ROOK` | `A_ROOK_PLAYERS >= 2`, or Mina's departure to file her report |
+| `TR_APT_B_TO_C` | `APT_STATE` | `RESTRICTED_BY_ROOK` | `EVIDENCE_PARTIALLY_REMOVED` | completion of `TR_DEVICE_SEIZED` |
+| `TR_APT_C_TO_D` | `APT_STATE` | `EVIDENCE_PARTIALLY_REMOVED` | `INACCESSIBLE` | late-game closure of lawful access |
+| `TR_DEVICE_SEIZED` | state of `ITEM_TIMED_CRASH_DEVICE` | discoverable | `SEIZED_BY(NPC_ROOK_NETWORK)` | `CLK_2215`, when the device is undiscovered and `A_ROOK_PLAYERS >= 2` |
+| `TR_ANNEX_A_TO_B` | `ANNEX_STATE` | `NORMAL_ACCESS` | `CONTROLLED_ACCESS` | `A_ROOK_PLAYERS >= 2` |
+| `TR_ANNEX_B_TO_C` | `ANNEX_STATE` | `CONTROLLED_ACCESS` | `HOSTILE_PROCEDURAL` | `A_ROOK_PLAYERS >= 3` |
+| `TR_ANNEX_TO_D` | `ANNEX_STATE` | any | `ROOK_CHALLENGED` | `ROOK_EXPOSED_PRIVATE` or `ROOK_EXPOSED_PUBLIC` |
+| `TR_IRISWORK_SEIZED` | `IRIS_WORK_STATE` | `INCIDENT_REPORTED` | `ROOK_SEIZED_RECORDS` | Rook seizes the facility records |
+| `TR_ARCHIVE_EMERGENCY` | `ARCHIVE_STATE` | `CLOSING_ARCHIVIST_PRESENT` | `CLOSED_EMERGENCY` | archivist departs and no after-hours request is open |
+| `TR_TERMINAL_HOSTILE_ROOK` | `TERMINAL_HOSTILE` | `NONE` or `REED` | `ROOK_TEAM` or `REED_AND_ROOK` | `CLK_0120`, when terminal exposure is reached and `A_ROOK_TERMINAL` is sufficient |
+
+Clock-driven transitions, with no separate `TR_` identifier: `CLK_2035` and `CLK_2320` and `CLK_0000` advance `NEWS_STATE`; `CLK_2130`, `CLK_2205` and `CLK_2300` advance `REED_OFFICE_STATE`; `CLK_2200` and `CLK_2230` advance `CAFE_STATE`; `CLK_2200` advances `IRIS_WORK_STATE`; `CLK_2320` advances `ARCHIVE_STATE`; `CLK_2245` and `CLK_2330` advance `TERMINAL_WEATHER`; `CLK_0020` advances `TERMINAL_HOSTILE`.
+
 ## 2. Elias apartment
 
 ### State A: `SEALED_ACCESSIBLE_WITH_MINA`
@@ -261,9 +298,11 @@ Normal access.
 
 ### State B: `CLOSING_ARCHIVIST_PRESENT`
 
-Requires persuasion or urgency.
+Entered at `CLK_2320`, when normal access ends. Requires persuasion or urgency.
 
 ### State C: `CLOSED_EMERGENCY`
+
+Entered by `TR_ARCHIVE_EMERGENCY`.
 
 Access through:
 

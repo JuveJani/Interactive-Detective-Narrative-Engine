@@ -2,22 +2,9 @@
 
 ## Ending variables
 
-The final ending is derived from five primary variables:
+**Non-authoritative pointer.** Ending variables are declared and owned by `LOGIC/01_WORLD_STATE_VARIABLES.md` § 9, and the medical outcome is read from `ELIAS_STATE` in § 5 of that document. Trigger conditions are owned by `LOGIC/14_ENDING_TRIGGER_MATRIX.md`. This document owns narrative outcome text only.
 
-- `ELIAS_SURVIVAL`
-- `FULL_LEDGER_TRANSFERRED`
-- `ROOK_EXPOSED`
-- `KRELL_VALE_EXPOSED`
-- `RESCUE_CONTROLLED_BY_TRUSTED_PARTY`
-
-Secondary variables:
-
-- `MARCUS_CONFESSED`
-- `LENA_STATUS`
-- `IRIS_STATUS`
-- `REED_COOPERATED`
-- `NADIA_TRUST`
-- `PUBLIC_ACCUSATION_CORRECT`
+The variables this section previously listed are superseded by the owning declarations in `LOGIC/01_WORLD_STATE_VARIABLES.md` §§ 5 and 9. Rook exposure is held in two variables, private and public, rather than one. Public accusation is held as a target and a support level, rather than a correctness flag. Rescue control and Elias's survival are named and derived there.
 
 ## END-01: The Witness Speaks
 

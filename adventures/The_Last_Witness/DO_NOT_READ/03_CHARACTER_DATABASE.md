@@ -122,7 +122,7 @@ Reason: admitting involvement could make her an accessory and cause the players 
 
 ### Trust variable
 
-`NADIA_TRUST` ranges from -2 to +2.
+Nadia's trust is held in `T_NADIA`, declared in `LOGIC/01_WORLD_STATE_VARIABLES.md` § 3. It ranges from -2 to +2.
 
 High trust grants:
 

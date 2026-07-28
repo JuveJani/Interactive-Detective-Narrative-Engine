@@ -2,6 +2,8 @@
 
 ## 1. Resolution order
 
+The ending resolver is `EVAL_ENDING`, declared here. It reads `CLOCK`, `CLK_0200`, `ELIAS_STATE`, `ROOM_4B_STATE`, `A_PUBLIC`, `T_NADIA`, and every ending variable in `01_WORLD_STATE_VARIABLES.md` § 9. It writes no variable.
+
 Endings are computed in this order:
 
 1. determine Elias medical outcome;
@@ -14,6 +16,18 @@ Endings are computed in this order:
 8. select narrative ending family and modifiers.
 
 ## 2. Medical outcome
+
+The medical outcome is read from `ELIAS_STATE`, owned by `01_WORLD_STATE_VARIABLES.md` § 5. It is not stored separately and is not inferred from prose. The seven values map onto the three outcome bands exhaustively.
+
+| `ELIAS_STATE` | Outcome band |
+|---|---|
+| `SURVIVED` | High survival state |
+| `IN_SURGERY` | High survival state, pending |
+| `EVACUATING` | Conditional survival state |
+| `CRITICAL_RESPONSIVE` | Conditional survival state, if evacuation is still reachable |
+| `CRITICAL_CONFUSED` | Conditional survival state, if evacuation is still reachable |
+| `CRITICAL_UNRESPONSIVE` | Conditional survival state, degraded |
+| `DIED` | Death state |
 
 ### High survival state
 

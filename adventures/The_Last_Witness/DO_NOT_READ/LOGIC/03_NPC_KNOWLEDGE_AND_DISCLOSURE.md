@@ -80,9 +80,11 @@ Mina cannot name the full conspiracy merely because she distrusts Rook.
 ### Disclosure stages
 
 - hostile: denies location and contact;
-- pressured without trust: supplies misleading route;
+- pressured without supporting evidence: supplies misleading route;
 - shown proof against Rook plus rescue plan: confirms Elias alive;
 - trusted rescue control: opens Signal Room 4B.
+
+Lena has no trust variable. Every stage above is gated on evidence presented and on the credibility of the rescue plan, never on an accumulated trust score.
 
 ## 5. Iris Bell
 
@@ -176,3 +178,7 @@ condition: system_checked OR player_provides_versions
 ```
 
 No dialogue node may introduce a fact without a matching initial state or update record.
+
+### Identifier status
+
+This document owns the `FACT_` namespace. One identifier is declared: `FACT_REPORT_ALTERED`, status `DEFINITION_ONLY`, appearing only in the record above. No `FACT_` identifier is `ACTIVE`, `RESERVED` or `DEPRECATED`.

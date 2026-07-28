@@ -25,6 +25,8 @@ Possible branch changes:
 
 It cannot be destroyed accidentally by ordinary scene failure. Destruction requires an explicit terminal event.
 
+The state of `ITEM_LEDGER_PRIMARY` recorded here is the authoritative status of the primary ledger. Ending resolution reads it directly. No separate ledger-status variable exists.
+
 ## Decoy ledger
 
 ### `ITEM_LEDGER_DECOY`

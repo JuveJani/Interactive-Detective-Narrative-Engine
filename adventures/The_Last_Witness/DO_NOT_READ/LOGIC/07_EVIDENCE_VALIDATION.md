@@ -166,3 +166,16 @@ At least three rescue-control routes exist:
 ### Code recovery
 
 If photograph is lost, archive duplicate plus Nadia fragment remains. If Nadia is hostile, partial transfer or later Elias testimony remains possible, producing a weaker ending rather than deadlock.
+
+## 7. Gate evaluators
+
+This document owns the `EVAL_` namespace jointly with `14_ENDING_TRIGGER_MATRIX.md`, which declares `EVAL_ENDING`. The evaluators below are declared here.
+
+| Evaluator | Gate | Reads | Writes |
+|---|---|---|---|
+| `EVAL_CON_ROOK_OPERATIONALLY_COMPROMISED` | § 2 "Rook compromised", private operational conclusion | `P_ROOK`, procedural clue presence | `ROOK_EXPOSED_PRIVATE` |
+| `EVAL_NADIA_DISCLOSURE` | Nadia's disclosure stages in `03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` § 2 | `T_NADIA`, `P_HARBOR` | none |
+| `EVAL_MARCUS_DISCLOSURE` | Marcus's confession gate in `03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` § 8 | `T_MARCUS`, `P_MARCUS` | none |
+| `EVAL_RESCUE_CONTROL` | trusted-rescue requirements in § 6 "Medical rescue" | `T_MINA`, `A_PUBLIC`, `ROOK_EXPOSED_PRIVATE` | none |
+
+Each evaluator has status `ACTIVE`. The conclusion evaluators for the remaining clue groups are declared when the thresholds in § 2 are restated against the clue register.

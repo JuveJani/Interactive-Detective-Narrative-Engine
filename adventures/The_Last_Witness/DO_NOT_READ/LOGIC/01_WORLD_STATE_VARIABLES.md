@@ -1,8 +1,43 @@
 # DO NOT READ: World State Variables
 
+This document is the sole owner of every state variable. A variable that does not appear here is not declared.
+
+**Initialization is not a writer.** Each variable records its initialization source as `INIT`. A variable whose only mutation is its initial assignment is a constant, not state, and is not declared here. Every variable below has at least one writer that is not `INIT`, and at least one reader.
+
+Writers and readers are identifiers. They resolve to a node (`EVT_*`), a clock trigger (`CLK_*`), a state-machine transition (`TR_*`), an initialization source (`INIT`), or a gate evaluator (`EVAL_*`).
+
 ## 1. Global clock
 
 `CLOCK` stores absolute local time. The playable start is `20:00`. All actions consume explicit time. The compiler may display time in blocks, but the underlying state remains minute-based.
+
+| Variable | Domain | Initial | Init source | Writers | Readers | Owning state machine |
+|---|---|---|---|---|---|---|
+| `CLOCK` | minutes, 20:00 onward | `20:00` | `INIT` | every `EVT_*` time cost | every `CLK_*`, every node availability window, `EVAL_ENDING` | Global clock |
+
+### Clock triggers
+
+Every time-driven state change is a declared trigger. A trigger fires once, when `CLOCK` reaches its time and its stated condition holds.
+
+| Trigger | Time | Condition | Writes |
+|---|---|---|---|
+| `CLK_2035` | 20:35 | none | `NEWS_STATE` |
+| `CLK_2130` | 21:30 | none | `REED_OFFICE_STATE` |
+| `CLK_2200` | 22:00 | none | `IRIS_WORK_STATE`, `CAFE_STATE` |
+| `CLK_2205` | 22:05 | none | `REED_OFFICE_STATE` |
+| `CLK_2215` | 22:15 | timed device undiscovered and `A_ROOK_PLAYERS >= 2` | fires `TR_DEVICE_SEIZED` |
+| `CLK_2230` | 22:30 | none | `CAFE_STATE` |
+| `CLK_2245` | 22:45 | none | `TERMINAL_WEATHER` |
+| `CLK_2300` | 23:00 | none | `REED_OFFICE_STATE` |
+| `CLK_2320` | 23:20 | none | `ARCHIVE_STATE`, `NEWS_STATE` |
+| `CLK_2330` | 23:30 | none | `TERMINAL_WEATHER` |
+| `CLK_2340` | 23:40 | none | `ELIAS_STATE` |
+| `CLK_0000` | 00:00 | none | `NEWS_STATE` |
+| `CLK_0020` | 00:20 | Reed not delayed or turned | `TERMINAL_HOSTILE` |
+| `CLK_0100` | 01:00 | no definitive evacuation initiated | `ELIAS_STATE` |
+| `CLK_0115` | 01:15 | no hospital transfer | `ELIAS_STATE` |
+| `CLK_0120` | 01:20 | terminal exposure threshold reached | fires `TR_TERMINAL_HOSTILE_ROOK` |
+| `CLK_0145` | 01:45 | none | read by `EVT_430` |
+| `CLK_0200` | 02:00 | none | read by `EVAL_ENDING` |
 
 ### Hard thresholds
 
@@ -37,24 +72,23 @@ A conclusion is unlocked by thresholds defined in `07_EVIDENCE_VALIDATION.md`; n
 
 Range: `-2` hostile, `-1` guarded, `0` neutral, `+1` cooperative, `+2` committed ally.
 
-- `T_NADIA = 0`
-- `T_MINA = 0`
-- `T_LENA = -1`
-- `T_IRIS = -1`
-- `T_REED = -2`
-- `T_MARCUS = -1`
+| Variable | Domain | Initial | Init source | Writers | Readers | Owning state machine |
+|---|---|---:|---|---|---|---|
+| `T_NADIA` | −2…+2 | `0` | `INIT` | `EVT_121`, `EVT_211` | `EVAL_NADIA_DISCLOSURE`, `EVAL_ENDING` | Nadia trust |
+| `T_MINA` | −2…+2 | `0` | `INIT` | `EVT_111`, `EVT_220` | `EVT_112`, `EVT_220`, `EVAL_RESCUE_CONTROL` | Mina trust |
+| `T_MARCUS` | −2…+2 | `−1` | `INIT` | `EVT_240` | `EVAL_MARCUS_DISCLOSURE` | Marcus trust |
 
 Trust changes require recorded causes. Repeated generic persuasion checks cannot farm trust.
 
+Lena, Iris and Reed have no trust variable. Their cooperation is gated on evidence and leverage, defined in `03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` §§ 4, 5 and 7, not on a trust scalar.
+
 ## 4. Antagonist awareness
 
-| Variable | Range | Initial | Meaning |
-|---|---:|---:|---|
-| `A_ROOK_PLAYERS` | 0-4 | 0 | Rook's awareness of player progress |
-| `A_ROOK_TERMINAL` | 0-3 | 1 | confidence terminal is relevant |
-| `A_KRELL_TERMINAL` | 0-3 | 2 | confidence terminal is relevant |
-| `A_REED_ROOM` | 0-3 | 0 | Reed's knowledge of exact room |
-| `A_PUBLIC` | 0-3 | 0 | public visibility of case |
+| Variable | Domain | Initial | Init source | Writers | Readers | Owning state machine |
+|---|---|---:|---|---|---|---|
+| `A_ROOK_PLAYERS` | 0-4 | `0` | `INIT` | `EVT_111`, `EVT_112`, `EVT_221`, `EVT_223` | `TR_APT_A_TO_B`, `TR_ANNEX_A_TO_B`, `TR_ANNEX_B_TO_C`, `TR_DEVICE_SEIZED` | Rook awareness of players |
+| `A_ROOK_TERMINAL` | 0-3 | `1` | `INIT` | `EVT_803` | `TR_TERMINAL_HOSTILE_ROOK` | Rook terminal confidence |
+| `A_PUBLIC` | 0-3 | `0` | `INIT` | `EVT_440` | `EVAL_RESCUE_CONTROL`, `EVAL_ENDING` | Public awareness |
 
 ### Awareness effects
 
@@ -63,7 +97,13 @@ Trust changes require recorded causes. Repeated generic persuasion checks cannot
 - Rook awareness `4`: rapid terminal deployment.
 - Public awareness `2+`: Rook loses freedom to quietly disappear evidence.
 
+Krell's terminal confidence and Reed's knowledge of the exact room are not variables. Krell is remote throughout and his confidence never gates a resolvable event. Reed's ignorance of the room number is a fixed authored outcome, stated in `06_NPC_SCHEDULE_AND_PRIORITY.md` § 4.
+
 ## 5. Elias medical state
+
+| Variable | Domain | Initial | Init source | Writers | Readers | Owning state machine |
+|---|---|---|---|---|---|---|
+| `ELIAS_STATE` | 7-value enum below | `CRITICAL_RESPONSIVE` | `INIT` | `CLK_2340`, `CLK_0100`, `CLK_0115`, `EVT_330`, `EVT_400` | `EVT_331`, `EVT_400`, `EVAL_ENDING` | Elias medical |
 
 `ELIAS_STATE` is one of:
 
@@ -76,6 +116,8 @@ Trust changes require recorded causes. Repeated generic persuasion checks cannot
 7. `DIED`
 
 State changes depend on both clock and actions. Iris stabilization delays one deterioration transition by up to 20 minutes if her supplies remain intact. It never removes the requirement for hospital care.
+
+Survival is read from `ELIAS_STATE`. It is not stored separately.
 
 ## 6. Evidence object states
 
@@ -103,9 +145,27 @@ Allowed digital states:
 
 No event may assign two simultaneous physical states.
 
+The status of the primary ledger is the state of `ITEM_LEDGER_PRIMARY`, owned by `02_ITEM_STATE_MATRIX.md`. It is not duplicated as a separate variable.
+
 ## 7. Location state variables
 
-### Elias apartment
+Each location state machine has exactly one variable.
+
+| Variable | Domain | Initial | Init source | Writers | Readers | Owning state machine |
+|---|---|---|---|---|---|---|
+| `APT_STATE` | 4-value enum | `SEALED_ACCESSIBLE_WITH_MINA` | `INIT` | `TR_APT_A_TO_B`, `TR_APT_B_TO_C`, `TR_APT_C_TO_D` | `EVT_111`, `EVT_112`, `EVT_113` | Elias apartment |
+| `NEWS_STATE` | 4-value enum | `OPEN_SUPERVISED` | `INIT` | `CLK_2035`, `CLK_2320`, `CLK_0000` | `EVT_121`, `EVT_122`, `EVT_123`, `EVT_240`, `EVT_430` | Newsroom |
+| `CAFE_STATE` | 3-value enum | `OPEN_FULL_RECORDS` | `INIT` | `CLK_2200`, `CLK_2230` | `EVT_211` | Café Orpheus |
+| `ANNEX_STATE` | 4-value enum | `NORMAL_ACCESS` | `INIT` | `TR_ANNEX_A_TO_B`, `TR_ANNEX_B_TO_C`, `TR_ANNEX_TO_D` | `EVT_220`, `EVT_221`, `EVT_222`, `EVT_223` | Police annex |
+| `REED_OFFICE_STATE` | 4-value enum | `EMPTY_INTACT` | `INIT` | `CLK_2130`, `CLK_2205`, `CLK_2300` | `EVT_242` | Reed office |
+| `IRIS_WORK_STATE` | 3-value enum | `SHIFT_ACTIVE` | `INIT` | `CLK_2200`, `TR_IRISWORK_SEIZED` | `EVT_230` | Iris workplace |
+| `ARCHIVE_STATE` | 3-value enum | `OPEN_PUBLIC` | `INIT` | `CLK_2320`, `TR_ARCHIVE_EMERGENCY` | `EVT_210` | Harbor archive |
+| `TERMINAL_WEATHER` | 3-value enum | `DRY` | `INIT` | `CLK_2245`, `CLK_2330` | `EVT_312` | Terminal weather |
+| `TERMINAL_HOSTILE` | 4-value enum | `NONE` | `INIT` | `CLK_0020`, `TR_TERMINAL_HOSTILE_ROOK` | `EVT_314`, `EVT_420` | Terminal hostile presence |
+| `TERMINAL_ROUTES_KNOWN` | subset of 5 route tokens | empty | `INIT` | `EVT_210`, `EVT_212`, `EVT_311`, `EVT_313` | `EVT_310`, `EVT_311`, `EVT_312`, `EVT_313`, `EVT_314` | Terminal known routes |
+| `ROOM_4B_STATE` | 6-value enum | `HIDDEN_STABLE` | `INIT` | `EVT_330`, `EVT_400`, `EVT_420` | `EVAL_ENDING` | Signal Room 4B |
+
+### Domains
 
 `APT_STATE`:
 
@@ -114,8 +174,6 @@ No event may assign two simultaneous physical states.
 - `EVIDENCE_PARTIALLY_REMOVED`
 - `INACCESSIBLE`
 
-### Newsroom
-
 `NEWS_STATE`:
 
 - `OPEN_SUPERVISED`
@@ -123,7 +181,18 @@ No event may assign two simultaneous physical states.
 - `MARCUS_ABSENT`
 - `UPLOAD_ACTIVE`
 
-### Reed office
+`CAFE_STATE`:
+
+- `OPEN_FULL_RECORDS`
+- `CLOSING_LIMITED`
+- `CLOSED`
+
+`ANNEX_STATE`:
+
+- `NORMAL_ACCESS`
+- `CONTROLLED_ACCESS`
+- `HOSTILE_PROCEDURAL`
+- `ROOK_CHALLENGED`
 
 `REED_OFFICE_STATE`:
 
@@ -132,15 +201,38 @@ No event may assign two simultaneous physical states.
 - `ABANDONED`
 - `SEARCHED_BY_KRELL`
 
-### Terminal exterior
+`IRIS_WORK_STATE`:
 
-`TERMINAL_STATE` combines:
+- `SHIFT_ACTIVE`
+- `INCIDENT_REPORTED`
+- `ROOK_SEIZED_RECORDS`
 
-- weather: `DRY`, `SURGE`, `DRAINAGE_CLOSED`;
-- hostile presence: none, Reed, police, both;
-- access discovered: main, north gate, drainage, cable corridor, roof.
+`ARCHIVE_STATE`:
 
-### Signal Room 4B
+- `OPEN_PUBLIC`
+- `CLOSING_ARCHIVIST_PRESENT`
+- `CLOSED_EMERGENCY`
+
+`TERMINAL_WEATHER`:
+
+- `DRY`
+- `SURGE`
+- `DRAINAGE_CLOSED`
+
+`TERMINAL_HOSTILE`:
+
+- `NONE`
+- `REED`
+- `ROOK_TEAM`
+- `REED_AND_ROOK`
+
+`TERMINAL_ROUTES_KNOWN` is a subset of:
+
+- `MAIN`
+- `NORTH_GATE`
+- `DRAINAGE`
+- `CABLE_CORRIDOR`
+- `ROOF`
 
 `ROOM_4B_STATE`:
 
@@ -151,33 +243,40 @@ No event may assign two simultaneous physical states.
 - `EVACUATED`
 - `OVERRUN`
 
+The terminal exterior is three independent state machines, not one. Weather, hostile presence and known access routes change on separate triggers and are held in three variables.
+
 ## 8. Player synchronization variables
 
-- `P1_LOCATION`
-- `P2_LOCATION`
-- `P1_AVAILABLE_AT`
-- `P2_AVAILABLE_AT`
-- `SHARED_KNOWLEDGE_SET`
-- `P1_PRIVATE_KNOWLEDGE_SET`
-- `P2_PRIVATE_KNOWLEDGE_SET`
-- `REGROUP_REQUIRED`
+| Variable | Domain | Initial | Init source | Writers | Readers | Owning state machine |
+|---|---|---|---|---|---|---|
+| `P1_LOCATION` | `LOC_*` | `LOC_START` | `INIT` | `EVT_100`, `EVT_110`, every P1-eligible node declaring a Location | node entry conditions | Player 1 position |
+| `P2_LOCATION` | `LOC_*` | `LOC_START` | `INIT` | `EVT_100`, `EVT_120`, every P2-eligible node declaring a Location | node entry conditions | Player 2 position |
+| `P1_AVAILABLE_AT` | time | `20:00` | `INIT` | every P1-eligible node declaring a time cost | `EVT_150`, `EVT_300` | Player 1 availability |
+| `P2_AVAILABLE_AT` | time | `20:00` | `INIT` | every P2-eligible node declaring a time cost | `EVT_150`, `EVT_300` | Player 2 availability |
+| `SHARED_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | `EVT_150`, `EVT_300` | conclusion evaluators | Shared knowledge |
+| `P1_PRIVATE_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | P1-eligible clue-granting nodes | `EVT_150`, `EVT_300` | Player 1 private knowledge |
+| `P2_PRIVATE_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | P2-eligible clue-granting nodes | `EVT_150`, `EVT_300` | Player 2 private knowledge |
 
 A private clue may influence only the receiving player's choices until a legal communication or regroup event transfers it into `SHARED_KNOWLEDGE_SET`.
 
+Whether a regroup is outstanding is read from `P1_AVAILABLE_AT`, `P2_AVAILABLE_AT` and the authored gates `EVT_150` and `EVT_300`. It is not stored as a flag.
+
 ## 9. Ending variables
 
-- `ELIAS_SURVIVAL`
-- `LEDGER_PRIMARY_STATUS`
-- `FULL_LEDGER_TRANSFERRED`
-- `ROOK_EXPOSED_PRIVATE`
-- `ROOK_EXPOSED_PUBLIC`
-- `KRELL_VALE_EXPOSED`
-- `TRUSTED_RESCUE_CONTROL`
-- `PUBLIC_ACCUSATION_TARGET`
-- `PUBLIC_ACCUSATION_SUPPORT`
-- `MARCUS_CONFESSED`
-- `REED_COOPERATED`
-- `LENA_STATUS`
-- `IRIS_STATUS`
+| Variable | Domain | Initial | Init source | Writers | Readers | Owning state machine |
+|---|---|---|---|---|---|---|
+| `FULL_LEDGER_TRANSFERRED` | boolean | `false` | `INIT` | `EVT_430` | `EVAL_ENDING` | Transfer outcome |
+| `ROOK_EXPOSED_PRIVATE` | boolean | `false` | `INIT` | `EVAL_CON_ROOK_OPERATIONALLY_COMPROMISED` | `EVT_400`, `EVAL_ENDING` | Rook exposure |
+| `ROOK_EXPOSED_PUBLIC` | boolean | `false` | `INIT` | `EVT_440` | `EVAL_ENDING` | Rook exposure |
+| `KRELL_VALE_EXPOSED` | boolean | `false` | `INIT` | `EVT_430`, `EVT_440` | `EVAL_ENDING` | Conspiracy exposure |
+| `TRUSTED_RESCUE_CONTROL` | boolean | `false` | `INIT` | `EVT_400` | `EVAL_ENDING` | Rescue control |
+| `PUBLIC_ACCUSATION_TARGET` | `NPC_*` or none | none | `INIT` | `EVT_440` | `EVAL_ENDING` | Accusation |
+| `PUBLIC_ACCUSATION_SUPPORT` | 0…n | `0` | `INIT` | `EVT_440` | `EVAL_ENDING` | Accusation |
+| `MARCUS_CONFESSED` | boolean | `false` | `INIT` | `EVT_241` | `EVAL_ENDING` | Marcus outcome |
+| `REED_COOPERATED` | boolean | `false` | `INIT` | `EVT_243` | `EVAL_ENDING` | Reed outcome |
+| `LENA_STATUS` | enum | `concealed` | `INIT` | `EVT_331`, `EVT_420` | `EVAL_ENDING` | Lena outcome |
+| `IRIS_STATUS` | enum | `concealed` | `INIT` | `EVT_331`, `EVT_400` | `EVAL_ENDING` | Iris outcome |
 
 Ending resolution uses these variables rather than a single branch label.
+
+Elias's survival and the primary ledger's status are not listed. Both are derived: survival from `ELIAS_STATE` in § 5, ledger status from the state of `ITEM_LEDGER_PRIMARY` in `02_ITEM_STATE_MATRIX.md`.

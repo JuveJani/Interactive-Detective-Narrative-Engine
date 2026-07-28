@@ -561,6 +561,8 @@ Marcus gives a partial admission only:
 
 ### `EVT_241_MARCUS_FULL_DISCLOSURE`
 
+**Cost:** 20 minutes, the full structured interview cost in `04_TIME_COST_MATRIX.md` § 2
+
 **Entry**
 
 Requires two independent leverage classes and one self-preservation trigger:
@@ -714,6 +716,8 @@ May expose location to Rook unless his control is already challenged.
 
 ### `EVT_314_MAIN_ENTRY_CONFRONTATION`
 
+**Cost:** 10-20 minutes, the risky alternate access cost in `04_TIME_COST_MATRIX.md` § 2
+
 **Entry**
 
 Always available in late final act.
@@ -858,7 +862,41 @@ Reads:
 
 Dispatches to ending variants defined in `06_ENDING_FRAMEWORK.md` and the later terminal matrix.
 
-## 15. Graph integrity rules
+## 15. Variable writes by node
+
+Every non-progress variable write performed by a node is declared here. Variables are owned by `01_WORLD_STATE_VARIABLES.md`; this table is the node-side declaration of the writers that document lists.
+
+Every node writes `CLOCK` through its declared time cost, and writes `P1_AVAILABLE_AT` or `P2_AVAILABLE_AT` according to the eligible player. Those two writes are universal and are not repeated per row.
+
+| Node | Writes |
+|---|---|
+| `EVT_100_SHARED_BRIEFING` | `P1_LOCATION`, `P2_LOCATION` |
+| `EVT_110_P1_APARTMENT_APPROACH` | `P1_LOCATION` |
+| `EVT_111_MINA_FIRST_CONTACT` | `T_MINA`, `A_ROOK_PLAYERS` |
+| `EVT_112_RESTRICTED_APARTMENT` | `A_ROOK_PLAYERS` |
+| `EVT_120_P2_NEWSROOM_ENTRY` | `P2_LOCATION` |
+| `EVT_121_NADIA_INTERVIEW` | `T_NADIA` |
+| `EVT_210_HARBOR_ARCHIVE_ENTRY` | `TERMINAL_ROUTES_KNOWN` |
+| `EVT_211_CAFE_ORPHEUS` | `T_NADIA` |
+| `EVT_212_TERMINAL_RECON` | `TERMINAL_ROUTES_KNOWN` |
+| `EVT_220_MINA_REPORT_COMPARISON` | `T_MINA` |
+| `EVT_221_CAMERA_REQUEST_AUDIT` | `A_ROOK_PLAYERS` |
+| `EVT_223_ROOK_INTERVIEW` | `A_ROOK_PLAYERS` |
+| `EVT_240_MARCUS_PRESSURE_STAGE_ONE` | `T_MARCUS` |
+| `EVT_241_MARCUS_FULL_DISCLOSURE` | `MARCUS_CONFESSED` |
+| `EVT_243_REED_NEGOTIATION` | `REED_COOPERATED` |
+| `EVT_311_NORTH_GATE_ENTRY` | `TERMINAL_ROUTES_KNOWN` |
+| `EVT_313_EMERGENCY_ENTRY` | `TERMINAL_ROUTES_KNOWN` |
+| `EVT_330_FIND_SIGNAL_4B` | `ELIAS_STATE`, `ROOM_4B_STATE` |
+| `EVT_331_LENA_IRIS_NEGOTIATION` | `LENA_STATUS`, `IRIS_STATUS` |
+| `EVT_400_RESCUE_CONTROL` | `ELIAS_STATE`, `ROOM_4B_STATE`, `TRUSTED_RESCUE_CONTROL`, `IRIS_STATUS` |
+| `EVT_420_REED_OR_ROOK_CONFRONTATION` | `ROOM_4B_STATE`, `LENA_STATUS` |
+| `EVT_430_COMPLETE_TRANSFER` | `FULL_LEDGER_TRANSFERRED`, `KRELL_VALE_EXPOSED` |
+| `EVT_440_FINAL_PUBLIC_POSITION` | `A_PUBLIC`, `ROOK_EXPOSED_PUBLIC`, `KRELL_VALE_EXPOSED`, `PUBLIC_ACCUSATION_TARGET`, `PUBLIC_ACCUSATION_SUPPORT` |
+
+Nodes not listed write no variable other than the universal clock and availability writes. Clue grants and progress totals are declared separately when the progress model is converted.
+
+## 16. Graph integrity rules
 
 - every mandatory conclusion has at least two independent routes;
 - every critical location retains a late fallback entry;
