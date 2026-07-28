@@ -44,7 +44,9 @@ Elias knows:
 - the signal-room route;
 - that Lena followed him;
 - that Reed caused the struggle;
-- the final three recovery-code digits.
+- the final three recovery-code digits;
+- the primary archive passphrase, which he set and which no one else knows;
+- that he configured a documented recovery procedure whose written instructions Nadia holds.
 
 ### Incorrect beliefs
 
@@ -63,6 +65,7 @@ Potential fragments:
 - “Not Rook.”
 - “The black one is false.”
 - “Nadia has three.”
+- “The phrase. Listen.”
 
 ### Branch states
 
@@ -92,7 +95,10 @@ Nadia knows:
 - the first three recovery-code digits;
 - the evidence-transfer time;
 - the ferry photograph contains a hidden code;
-- Rook may be compromised.
+- Rook may be compromised;
+- she holds the written instructions for Elias's documented archive-recovery procedure, filed with the encrypted upload.
+
+She does not know the passphrase itself. She holds the instructions, not the secret.
 
 She does not know:
 

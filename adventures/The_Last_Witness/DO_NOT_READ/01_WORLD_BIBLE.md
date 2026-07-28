@@ -2,7 +2,16 @@
 
 ## 1. Authority
 
+**World Bible version:** 1.1
+
 This document defines objective reality for `The Last Witness`. Player narration, NPC testimony, clues, and endings may reveal only portions of these facts. No later document may contradict this file without an explicit version change.
+
+### Version history
+
+| Version | Change |
+|---|---|
+| 1.0 | Initial objective reality, Prototype Alpha 0.1. |
+| 1.1 | Added passphrase custody and the documented recovery procedure to § 4, and the corresponding immutable fact to § 14. |
 
 ## 2. Setting
 
@@ -76,6 +85,19 @@ The primary key requires:
 - a six-digit recovery code split between Nadia and Elias.
 
 Nadia knows the first three digits. Elias hid the last three in a ferry photograph using marked window numbers.
+
+### Passphrase custody and recovery
+
+Elias set the passphrase himself and is the only person who knows it.
+
+Elias also configured a documented recovery procedure against the primary archive. Nadia holds the written instructions for that procedure alongside the encrypted upload in her newsroom account. With the hardware key present and the complete six-digit recovery code entered, the procedure permits a passphrase reset in place of passphrase entry.
+
+The reset is not equivalent to knowing the passphrase:
+
+- it takes additional time to complete;
+- it is logged by the archive, which downgrades the authentication of anything subsequently extracted.
+
+Nadia holds the instructions, not the passphrase. No other named character knows either.
 
 ## 5. Elias's disappearance plan
 
@@ -259,6 +281,7 @@ The following facts must not change between branches:
 - The primary ledger is in Signal Room 4B.
 - Hospital intervention is required for Elias's best survival chance.
 - The evidence transfer deadline is 02:00.
+- The passphrase, or its logged reset through Elias's documented recovery procedure, is required to open the primary archive. Neither is recoverable from the decoy.
 
 ## 15. Branch-variable facts
 
