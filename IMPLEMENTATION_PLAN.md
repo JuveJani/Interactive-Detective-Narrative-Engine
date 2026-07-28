@@ -1,10 +1,9 @@
 ---
 title: Implementation Plan — Next Repository Revision
-version: 1.0
-status: Approved
+version: 2.0
+status: In Review
 depends_on:
   - docs/STYLE_GUIDE.md
-  - engine/00_ENGINE_SPECIFICATION_2.0.md
   - engine/03_ARCHITECTURE.md
   - engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md
   - data_dictionary/SCHEMA_VERSIONING.md
@@ -19,33 +18,35 @@ reviewer:
 
 ## 1. Purpose and authority
 
-This document is the authoritative implementation specification for the next repository revision. It converts eight accepted decisions into per-file edit instructions, a single global migration order, a side-effect register, and a validation gate.
+This document is the implementation specification for the next repository revision. It converts eight accepted decisions into per-file edit instructions, a phase order, a commit plan, a complete variable register, a rollback strategy, and a validation gate.
 
-This document does not implement anything. It contains no repository edits. Every instruction below is a specification for a future revision.
+This document does not implement anything. It contains no repository edits.
 
-Where this document conflicts with an existing repository document, this document governs **only for the duration of the migration**. On completion, every rule stated here must exist in its owning source document, and this plan becomes a historical record. This follows `engine/03_ARCHITECTURE.md` § "3.10 Review Layer": "Reviews MUST NOT become hidden authoritative specifications. Accepted corrections MUST be incorporated into the responsible source document."
+**Status is `In Review`, not `Approved`.** Ten ratifications in § 14 remain unresolved. A document cannot be authoritative while simultaneously prohibiting the work it specifies. Status advances to `Approved` when § 14 is empty, and only then may P1 begin.
+
+Where this document conflicts with an existing repository document, it governs **only for the duration of the migration**. On completion, every rule stated here must exist in its owning source document and this plan becomes a historical record, per `engine/03_ARCHITECTURE.md` § "3.10 Review Layer".
 
 ### 1.1 Target release
 
-The next revision is **Prototype Alpha 0.2c**, not Alpha 0.3.
-
-`adventures/The_Last_Witness/DO_NOT_READ/07_PROTOTYPE_BUILD_PLAN.md` § "Required before player-book compilation" reserves Alpha 0.3 for the narrative compiler pass. This revision performs no narrative compilation; it consolidates the logic layer delivered in Alpha 0.2b. Claiming 0.3 would misrepresent the build plan.
+**Prototype Alpha 0.2c**, not Alpha 0.3. `DO_NOT_READ/07_PROTOTYPE_BUILD_PLAN.md` § "Required before player-book compilation" reserves Alpha 0.3 for the narrative compiler pass. This revision performs no narrative compilation.
 
 ### 1.2 Schema version impact
 
-Per `data_dictionary/SCHEMA_VERSIONING.md` § "3. Semantic Version Meaning", `MAJOR` changes may break existing adventure data.
-
 | Field | Before | After | Reason |
 |---|---|---|---|
-| `engine_spec_version` | `2.0` | `2.1` | Decision 8 adds a normative prefix registry to `engine/03_ARCHITECTURE.md` § 3.14. Additive clarification, not a break. |
-| `data_dictionary_version` | `0.3` | `0.3` | No schema records exist yet to change. |
-| `adventure_schema_version` | `0.1` | `1.0` | Decision 8 renames every identifier in the adventure. Existing adventure data does not survive. |
+| `engine_spec_version` | `2.0` | `2.0` | **No engine file is edited in this revision.** The prefix registry moves to the adventure layer and the clue-class requirement is not promoted to the engine. |
+| `data_dictionary_version` | `0.3` | `0.3` | No schema records exist to change. |
+| `adventure_schema_version` | `0.1` | `1.0` | Three identifier families are renamed. Existing adventure data does not survive. |
 
-These three fields are currently declared nowhere. Decision 8 introduces them as required frontmatter on the logic layer.
+### 1.3 Schema-version metadata location
 
-### 1.3 Defect classification
+One location only: **frontmatter of `adventures/The_Last_Witness/README.md`**, which is the adventure root record required by `data_dictionary/SCHEMA_VERSIONING.md` § "2. Required Version Fields".
 
-Each decision is classified using the vocabulary in `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § "9. Post-Playtest Review".
+No other adventure file gains frontmatter in this revision. The three fields are written once, in commit C9.
+
+### 1.4 Defect classification
+
+Using `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § "9. Post-Playtest Review":
 
 | Decision | Classification |
 |---|---|
@@ -56,15 +57,15 @@ Each decision is classified using the vocabulary in `engine/06_PROTOTYPE_SCOPE_A
 | 5 — Graph mapping | `ADVENTURE_LOGIC_DEFECT` |
 | 6 — Progress model | `ADVENTURE_LOGIC_DEFECT` |
 | 7 — Clue classes | `ADVENTURE_LOGIC_DEFECT` |
-| 8 — Namespaces | `ENGINE_RULE_DEFECT` + `ADVENTURE_LOGIC_DEFECT` |
+| 8 — Namespaces | `ADVENTURE_LOGIC_DEFECT` |
 
-No decision is classified `ENGINE_RULE_DEFECT` except Decision 8, because in every other case the engine rule is already correct and only the adventure fails to implement it.
+Every engine rule involved is already correct. Only the adventure fails to implement it, so no decision is an `ENGINE_RULE_DEFECT` in this revision.
 
 ---
 
 ## 2. Baseline inventory
 
-All counts below were verified against the repository at commit `0923366cd3f1302a849f072dedc5b9be1d4e19a1`. They are the denominators for the validation gate in § 12.
+Counts verified at commit `0923366cd3f1302a849f072dedc5b9be1d4e19a1`. These are the denominators for § 13.
 
 | Quantity | Count | Source |
 |---|---:|---|
@@ -73,8 +74,8 @@ All counts below were verified against the repository at commit `0923366cd3f1302
 | Nodes declaring successors as "unlocks" inside **State changes** | 1 | `EVT_100_SHARED_BRIEFING` |
 | Nodes declaring `NODE_TYPE` | 0 | — |
 | Backbone entries in the core graph | 19 | `LOGIC/05_CORE_EVENT_GRAPH.md` |
-| Distinct clue identifiers | 64 | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` (65 listings; `C_PHOTO_WINDOW_MARKS` appears in §§ 4 and 11) |
-| Clue groups carrying class tags | 3 of 10 | §§ 2, 3, 8 only |
+| Distinct clue identifiers | 64 | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` (65 listings; `C_PHOTO_WINDOW_MARKS` in §§ 4 and 11) |
+| Clue groups carrying class tags | 3 of 10 | §§ 2, 3, 8 |
 | Deduction identifiers (`D_*`) | 13 | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` |
 | Conclusion identifiers (`CON_*`) | 10 | `LOGIC/00_ENTITY_KEY_TABLE.md` § "Conclusions" |
 | Declared state variables | 47 | `LOGIC/01_WORLD_STATE_VARIABLES.md` §§ 1–9 |
@@ -83,336 +84,503 @@ All counts below were verified against the repository at commit `0923366cd3f1302
 | Ending families | 8 | `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § 6 |
 | Ending families with a node identity | 0 | — |
 
-The 13-to-10 deduction/conclusion relationship is not a discrepancy in count. Three conclusions each carry two strength tiers: `CON_REED_PRESENT` covers `D_REED_PRESENT` and `D_REED_CAUSED_CONFRONTATION`; `CON_MARCUS_LEAK` covers `D_MARCUS_LEAK_PARTIAL` and `D_MARCUS_LEAK_PROVABLE`; `CON_ROOK_COMPROMISED` covers `D_ROOK_OPERATIONALLY_COMPROMISED` and `D_ROOK_PUBLICLY_PROVABLE`. Seven single-tier conclusions plus three double-tier conclusions equals thirteen.
+---
+
+## 3. Global phase order
+
+Phases are strictly ordered. No phase begins while its predecessor's required gates fail.
+
+| Phase | Work | Decisions | Commit |
+|---|---|---|---|
+| **P0** | Resolve every ratification in § 14; decide duplicate-root-file policy | — | C0 (plan only) |
+| **P1** | Canonical ownership rules; World Bible passphrase facts | 7, 8 (registry), 1 (facts) | C1, C2 |
+| **P2** | Complete migration manifests; full variable, clue and node registers | 4, 6, 8 | C0 (plan only) |
+| **P3** | Mechanical identifier rename only | 8 | C3 |
+| **P4** | Non-progress state-variable cleanup and writer/reader wiring | 4 | C4 |
+| **P5** | Clue classes and progress model atomically, including progress variables | 6, 7 | C5 |
+| **P6** | Passphrase routes and failure transformation | 1 | C6 |
+| **P7** | `NODE_TYPE`, terminal nodes, and all `Outgoing` edges atomically | 2, 3 | C7 |
+| **P8** | Core-to-investigation graph mapping | 5 | C8 |
+| **P9** | Version, changelog, README, release metadata | — | C9 |
+| **P10** | Final validation | all | none |
+
+Two ordering rules are load-bearing and must not be relaxed:
+
+- **P3 is behaviour-neutral.** No variable is deleted, no conclusion is split, no threshold moves, no semantic replacement occurs. P3 changes identifier spelling and nothing else, so it is independently revertible.
+- **P4 excludes progress variables.** Their readers are the conclusion evaluators, which do not exist until P5. Wiring them in P4 would fail gate `V4` by construction. Non-progress state is wired in P4; progress state is converted in P5.
+
+### 3.1 Commit plan
+
+| Commit | Phase | Content | Revert impact |
+|---|---|---|---|
+| **C0** | P0, P2 | Ratification record and migration manifests, recorded in this plan | None on repository canon |
+| **C1** | P1 | Canonical ownership: clue-class vocabulary single-sourced; ending-ownership rule declared; prefix registry added to the entity key table; schema-metadata location fixed | Reverts to two class lists; no logic depends on it yet |
+| **C2** | P1 | World Bible passphrase facts, with the version change its § 1 Authority requires | Reverts the canonical fact; P6 becomes ungrounded |
+| **C3** | P3 | Mechanical identifier migration: `C_*`→`CLUE_*`, `D_*`→`CON_*`, backbone `EVT_*`→`ARC_*` | Pure spelling revert; no semantics attached |
+| **C4** | P4 | Non-progress state-variable cleanup and writer/reader wiring | Restores removed variables and unwires writers |
+| **C5** | P5 | Clue-class assignment and progress-model conversion, atomically | Restores point-award syntax and untagged clues |
+| **C6** | P6 | Passphrase routes, thresholds, failure transformation | Removes both routes; C2 facts remain |
+| **C7** | P7 | Node metadata, eight terminal nodes, complete outgoing graph | Removes all edges; graph returns to edgeless |
+| **C8** | P8 | Core-to-investigation mapping | Removes the mapping file |
+| **C9** | P9 | Release metadata, changelog, README, schema-version fields | Reverts release identity only |
 
 ---
 
-## 3. Decision 1 — The ledger passphrase
+## 4. Rollback strategy
 
-### 3.1 Objective
+1. **One commit per implementation unit.** The nine repository commits in § 3.1 are the only permitted granularity. No commit spans two phases.
+2. **Validation after every commit.** The gate subset named in each decision section must pass before the next commit is authored. A failing gate halts the phase; it is not deferred to P10.
+3. **No phase proceeds while its required checks fail.** P10 is a final confirmation, not the first time gates are run.
+4. **The mechanical rename must be independently reversible.** C3 must be revertible with a single `git revert` that restores the repository to its C2 state with no semantic residue. This is why variable deletion, conclusion splitting and alias replacement are all excluded from C3.
+5. **Semantic changes never share a commit with bulk renaming.** If a semantic problem is discovered during C3, it is recorded and deferred to C4 or later. C3 does not fix it in place.
+6. **Reverting a commit reverts every commit after it.** The chain C1→C9 is linear and each commit assumes its predecessors. There is no partial-revert path.
 
-The passphrase remains a mandatory authentication factor. It gains at least two independent acquisition routes, and every document that gates on ledger access states the same three-factor requirement.
+---
 
-### 3.2 Canonical rule to be established
+## 5. Decision 1 — The ledger passphrase
 
-`adventures/The_Last_Witness/DO_NOT_READ/01_WORLD_BIBLE.md` § "4. The ledger" > "Access" already requires three factors: the hardware key, Elias's passphrase, and the six-digit recovery code. That requirement is correct and does not change. What changes is that the passphrase acquires declared sources, and the two transfer gates that currently omit it are corrected.
+### 5.1 Objective
 
-### 3.3 Route design and rejected candidates
+The passphrase remains a mandatory authentication factor for the primary archive. Two independent routes reach primary-archive access, and every gate that governs the archive states the same requirement.
 
-Routes were selected only from actors the repository already places in a position to hold the fact. Rejected candidates are recorded so the decision is not silently revisited.
+### 5.2 Route A — the exact operation
+
+Route A does **not** hand the players the passphrase. It unlocks a recovery workflow.
+
+`DO_NOT_READ/01_WORLD_BIBLE.md` § "4. The ledger" > "Access" already establishes three factors: hardware key, passphrase, six-digit recovery code. The C2 fact addition states that Elias configured a documented passphrase-recovery procedure and that Nadia holds the written instructions alongside the encrypted upload. With the hardware key present and the complete six-digit code entered, the workflow permits a passphrase **reset** in place of passphrase **entry**.
+
+The reset is not free, and this is what keeps the passphrase mandatory rather than decorative:
+
+- it consumes additional time at `EVT_430_COMPLETE_TRANSFER`;
+- it is logged, which downgrades authentication.
+
+`LOGIC/14_ENDING_TRIGGER_MATRIX.md` § "3. Evidence outcome" already distinguishes "Full authenticated transfer", which requires "preserved authentication", from "Partial official evidence". Route A therefore yields access at partial-authentication quality. Route B yields access with authentication intact.
+
+No new item identifier is created. The instructions are content of the existing encrypted upload and are delivered as a clue, not tracked as physical custody, because nothing in the accepted decisions turns on who physically holds them.
+
+### 5.3 Route B — the exact operation
+
+Elias states the passphrase as a fragment. `DO_NOT_READ/03_CHARACTER_DATABASE.md` § `NPC-01` > "Statements while conscious" already establishes a fragment mechanism from 21:15. Route B is post-discovery and closes when `ELIAS_STATE` reaches `CRITICAL_UNRESPONSIVE`, which `LOGIC/01_WORLD_STATE_VARIABLES.md` § "1. Global clock" places at 01:00.
+
+Route B being post-discovery is not circular for this factor. The passphrase is only needed once the primary key is held, and `DO_NOT_READ/01_WORLD_BIBLE.md` § "14. Immutable facts" fixes the primary key inside Signal Room 4B. This reasoning is recorded in the clue register so a later audit does not misread Route B as circular.
+
+### 5.4 Clue and conclusion additions
+
+| Identifier | Status | Note |
+|---|---|---|
+| `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS` | **Existing** — already declared in `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` § 11 as `C_UPLOAD_RECOVERY_INSTRUCTIONS` | Route A. Reused, not created. |
+| `CLUE_ELIAS_FRAGMENT_PASSPHRASE` | **New** | Route B. One new clue. |
+| `CON_PASSPHRASE_ACCESS` | **New** | One new conclusion, with two tiers of quality rather than two tiers of strength. |
+
+Decision 1 therefore adds exactly one clue and one conclusion.
+
+### 5.5 Rejected candidates
+
+Recorded so the decision is not silently revisited.
 
 | Candidate | Verdict | Basis |
 |---|---|---|
-| Nadia — recovery instructions held with the upload | **Accept as Route A** | `04_LOCATION_DATABASE.md` § `LOC-02` clue 7 already lists "Recovery-code instructions"; `01_WORLD_BIBLE.md` § "4. The ledger" > "Copies" item 2 places the encrypted upload in her newsroom account; `EVT_123_NEWSROOM_RECORDS` already grants a code point for recovering upload instructions. |
-| Elias — spoken fragment | **Accept as Route B** | `03_CHARACTER_DATABASE.md` § `NPC-01` > "Statements while conscious" already establishes a fragment mechanism from 21:15. |
-| Signal Room 4B — physical mnemonic | **Reject as a counted route** | Co-located with the primary key. It would add no independence, exactly the flaw identified for the room-identifier chain. May be authored as an in-room confirmation that grants no independent point. |
-| Lena | **Reject** | `03_CHARACTER_DATABASE.md` § `NPC-03` > "Knowledge": "She does not understand the full ledger or upload process." |
-| Marcus | **Reject** | `01_WORLD_BIBLE.md` § "11. The newspaper betrayal": "Marcus does not know the exact hiding room or the ledger passphrase." |
-| Reed's laptop | **Reject** | `01_WORLD_BIBLE.md` § "4. The ledger" > "Copies" item 3 makes the decoy a separate archive. A failed decoy decryption cannot expose the primary passphrase. |
+| Signal Room 4B physical mnemonic | Reject as a counted route | Co-located with the primary key; adds no independence. |
+| Lena | Reject | `03_CHARACTER_DATABASE.md` § `NPC-03`: "She does not understand the full ledger or upload process." |
+| Marcus | Reject | `01_WORLD_BIBLE.md` § 11: "Marcus does not know the exact hiding room or the ledger passphrase." |
+| Reed's laptop | Reject | `01_WORLD_BIBLE.md` § "4. The ledger" > "Copies" item 3 makes the decoy a separate archive. |
 
-Route A is pre-discovery, Player 2, newsroom, digital or procedural class. Route B is post-discovery, testimonial class, and is time-limited because `01_WORLD_STATE_VARIABLES.md` § "1. Global clock" places Elias at unresponsive from 01:00.
+### 5.6 Failure transformation
 
-Route B being post-discovery is acceptable for this factor specifically, and only for this factor. The passphrase is required only once the primary key is in hand, and `01_WORLD_BIBLE.md` § "14. Immutable facts" fixes the primary key inside Signal Room 4B. A route that unlocks at room discovery is therefore not circular with respect to the thing it gates. This reasoning must be recorded in the clue register so a later audit does not mistake Route B for a circular source.
+Neither route obtained means no primary-archive access. This must not deadlock. It routes to `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § "3. Evidence outcome" > "Evidence lost" or "Public leak" depending on whether an external copy exists, satisfying the "degraded but still solvable outcome" clause of `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § "5. Soft-Lock Prevention".
 
-Because Route B expires at 01:00, the two routes alone do not satisfy `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § "5. Soft-Lock Prevention" in the late-arrival case. A third element is mandatory: an authored failure transformation, not a third route.
+### 5.7 Affected files
 
-### 3.4 Failure transformation
+| File | Section | Edit | Commit |
+|---|---|---|---|
+| `DO_NOT_READ/01_WORLD_BIBLE.md` | § "4. The ledger" > "Access" | Add "Passphrase custody and recovery": Elias set the passphrase; a documented reset workflow exists; Nadia holds the written instructions with the upload; the reset is logged and downgrades authentication | C2 |
+| `DO_NOT_READ/01_WORLD_BIBLE.md` | § "14. Immutable facts" | One line: the passphrase or its logged reset is required for the primary archive, and neither is recoverable from the decoy | C2 |
+| `DO_NOT_READ/03_CHARACTER_DATABASE.md` | § `NPC-01` > "Knowledge" and "Statements while conscious" | Add the passphrase to Elias's knowledge; add one fragment; keep the ambiguity constraint | C2 |
+| `DO_NOT_READ/03_CHARACTER_DATABASE.md` | § `NPC-02` > "Knowledge" | Nadia holds the instructions, not the secret | C2 |
+| `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` | § "2. Nadia Soren" > "Disclosure stages" | Attach the instructions to an existing stage; create no new stage | C6 |
+| `LOGIC/00_ENTITY_KEY_TABLE.md` | § "Conclusions" | Add `CON_PASSPHRASE_ACCESS`. No item row is added | C6 |
+| `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` | new § "Passphrase access"; § "12. Critical-route audit" | Add the group with both clues classed and point-valued; audit row states 2 independent routes | C6 |
+| `LOGIC/07_EVIDENCE_VALIDATION.md` | § "2. Conclusion thresholds"; § "6. Soft-lock audit" | Add the threshold and the two-route soft-lock subsection | C6 |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | `EVT_123`, `EVT_410`, `EVT_430` | `GRANT_CLUE(CLUE_UPLOAD_RECOVERY_INSTRUCTIONS)` at `EVT_123`; replace the unsourced "retrieve passphrase information" line in `EVT_410` with a reference to `CON_PASSPHRASE_ACCESS`; add the conclusion to `EVT_430` entry conditions with the two quality tiers | C6 |
+| `LOGIC/14_ENDING_TRIGGER_MATRIX.md` | § "3. Evidence outcome" | Full transfer requires Route B quality; Route A yields partial | C6 |
+| `LOGIC/05_CORE_EVENT_GRAPH.md` | § `ARC_420` | Add the passphrase to "Complete transfer requires" | C6 |
+| `DO_NOT_READ/06_ENDING_FRAMEWORK.md` | § "END-03" | Confirm the wording covers passphrase failure; adjust only if it excludes it | C6 |
+| `DO_NOT_READ/02_MASTER_TIMELINE.md` | § `### 01:45` | Verify only. Already names all three factors | C6 |
 
-Failing to obtain the passphrase must not deadlock. It must route to an outcome that already exists: `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § "3. Evidence outcome" > "Partial official evidence". This satisfies the "degraded but still solvable outcome" clause of `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § "5. Soft-Lock Prevention" and preserves the distinction the ending framework already draws between rescue and exposure.
+### 5.8 Side effects
 
-### 3.5 Affected files and exact edits
+- The best ending becomes strictly harder. `END_WITNESS_SPEAKS` now requires Route B specifically, because Route A caps authentication at partial. This is a difficulty change, not only a consistency fix.
+- Route B closes at 01:00, so late runs are capped at partial-authentication transfer even on perfect play thereafter. That is intended, but it must be visible to the maintainer before C6 lands.
+- `LOGIC/04_TIME_COST_MATRIX.md` § "2. Investigation action costs" has no entry for the reset workflow. C6 must add one, or `EVT_430` cannot cost it.
+- `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" lists four chains and does not mention the passphrase. Ratification § 14.4 decides whether it becomes a fifth chain.
 
-| File | Section | Edit |
-|---|---|---|
-| `DO_NOT_READ/01_WORLD_BIBLE.md` | § "4. The ledger" > "Access" | Add a subsection "Passphrase custody" declaring that Elias set the passphrase, that Nadia holds written recovery instructions with the upload, and that no other named character knows it. This is a canonical-fact addition and requires the explicit version change demanded by § "1. Authority". |
-| `DO_NOT_READ/01_WORLD_BIBLE.md` | § "14. Immutable facts" | Add one line: the passphrase is required for the primary archive and is not recoverable from the decoy. |
-| `DO_NOT_READ/03_CHARACTER_DATABASE.md` | § `NPC-01` > "Knowledge"; § `NPC-01` > "Statements while conscious" | Add the passphrase to Elias's knowledge list. Add one fragment to the potential-fragment list. Keep the existing constraint that fragments are ambiguous without supporting clues. |
-| `DO_NOT_READ/03_CHARACTER_DATABASE.md` | § `NPC-02` > "Knowledge" | Add that Nadia holds recovery instructions. Do not add the passphrase itself to her knowledge; she holds the instructions, not the secret. |
-| `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` | § "2. Nadia Soren" > "Disclosure stages" | Attach the recovery instructions to an existing disclosure stage. Do not create a new stage. |
-| `LOGIC/00_ENTITY_KEY_TABLE.md` | § "Items and evidence objects"; § "Conclusions" | Add one item key for the recovery instructions. Add one conclusion key for passphrase possession. |
-| `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` | new § "Passphrase"; § "12. Critical-route audit" | Add the clue group with both routes classed and point-valued per Decisions 6 and 7. Add a row to the audit table with the honest independent-route count of 2. |
-| `LOGIC/07_EVIDENCE_VALIDATION.md` | § "2. Conclusion thresholds"; § "6. Soft-lock audit" | Add the passphrase threshold. Add a soft-lock subsection stating the two routes and the degraded outcome. |
-| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § 4 `EVT_123_NEWSROOM_RECORDS`; § 13 `EVT_410_LEDGER_RECOVERY`, `EVT_430_COMPLETE_TRANSFER` | Add the Route A grant to `EVT_123`. Replace the unsourced task line "retrieve passphrase information" in `EVT_410` with a reference to the conclusion. Add the passphrase to the entry conditions of `EVT_430`. |
-| `LOGIC/14_ENDING_TRIGGER_MATRIX.md` | § "3. Evidence outcome" > "Full authenticated transfer" and "Partial official evidence" | Add the passphrase to the full-transfer requirement list. Add passphrase failure to the partial list. |
-| `DO_NOT_READ/06_ENDING_FRAMEWORK.md` | § "END-03: A Life Saved, Truth Delayed" | Confirm the wording covers passphrase failure as one cause of transfer failure. Adjust only if it excludes it. |
-| `LOGIC/05_CORE_EVENT_GRAPH.md` | § `EVT_420: Evidence transfer` | Add the passphrase to the "Complete transfer requires" list. |
-| `DO_NOT_READ/02_MASTER_TIMELINE.md` | § `### 01:45` | Verify only. This entry already names all three factors and is the model the other documents must match. |
+### 5.9 Validation
 
-### 3.6 Migration order position
-
-Phase 1 for the World Bible fact. Phase 6 for all logic wiring. The split is mandatory: `engine/03_ARCHITECTURE.md` § "3.12 Dependency direction" requires the World Bible to settle before Adventure Logic consumes it.
-
-### 3.7 Side effects
-
-- Adding a mandatory factor makes the best ending strictly harder. `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § "6. Ending families" > `END_WITNESS_SPEAKS` becomes gated on one more chain. Confirm this is intended before implementing; it is a difficulty change, not only a consistency fix.
-- Route B interacts with the medical clock. If a group finds the room after 01:00, Route B is closed and only Route A remains, which makes Route A load-bearing for late runs. The failure transformation in § 3.4 is what prevents this from becoming a soft lock, so it is not optional.
-- `LOGIC/04_TIME_COST_MATRIX.md` § "2. Investigation action costs" has no entry for the `EVT_410` sub-tasks. Adding a factor to a node with no declared cost compounds the missing-cost problem recorded in § 11.
-- The World Bible version change cascades: `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" lists four chains and does not mention the passphrase. Decide whether the passphrase becomes a fifth chain or remains a sub-step of Chain B.
-
-### 3.8 Validation
-
-Gates `V1`, `V4`, `V6`, `V7`, `V9` in § 12. Specifically: the passphrase conclusion must be reachable by two routes that share no granting node, no source actor, and no location; at least one route must be obtainable before 01:00; and the failure path must terminate in a declared ending node rather than an absent edge.
+Gates `V1`, `V7`, `V9` after C6. Two routes sharing no granting node, no source actor and no location; at least one obtainable before 01:00; the failure path terminating in a declared ending node.
 
 ---
 
-## 4. Decision 2 — `NODE_TYPE` and `TERMINAL_TYPE`
+## 6. Decision 2 — `NODE_TYPE` and `TERMINAL_TYPE`
 
-### 4.1 Objective
+### 6.1 Objective
 
-Every node declares `NODE_TYPE`. Every terminal node additionally declares `TERMINAL_TYPE`. This implements a rule the engine already states twice and the adventure implements zero times.
+Every node declares `NODE_TYPE`. Every terminal node additionally declares `TERMINAL_TYPE` drawn from the list in `engine/03_ARCHITECTURE.md` § "3.18 Terminal architecture": `VICTORY`, `PARTIAL_SUCCESS`, `NARRATIVE_FAILURE`, `CHARACTER_DEATH`, `TIME_EXPIRED`, `CASE_UNRESOLVED`, `CAMPAIGN_CONTINUATION`.
 
-### 4.2 Canonical rule
+`templates/EVENT_TEMPLATE.md` already carries `node_type` and `terminal_type`, so no template change is needed.
 
-`engine/00_ENGINE_SPECIFICATION_2.0.md` § "3.8 Terminal nodes" and `engine/03_ARCHITECTURE.md` § "3.18 Terminal architecture" both require the declaration. `templates/EVENT_TEMPLATE.md` already carries `node_type` and `terminal_type` fields, so no template change is needed. The recommended type list in § 3.18 is `VICTORY`, `PARTIAL_SUCCESS`, `NARRATIVE_FAILURE`, `CHARACTER_DEATH`, `TIME_EXPIRED`, `CASE_UNRESOLVED`, `CAMPAIGN_CONTINUATION`.
+### 6.2 The eight ending families become nodes
 
-### 4.3 The eight ending families must become nodes
+The eight families in `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § 6 have no node identity, so there is nothing to declare a type on. Eight terminal nodes are created in `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` § 14.
 
-This is the substantive part of Decision 2. The eight families in `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § "6. Ending families" currently have no node identity, so there is nothing to declare a terminal type on. Eight terminal nodes must be created in `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` § 14.
-
-`EVT_900_RESOLVE_ENDING` is a dispatcher with successors and is therefore `INTERMEDIATE`, not terminal.
-
-Proposed mapping, to be ratified before implementation:
+`EVT_900_RESOLVE_ENDING` is a dispatcher with successors and is `INTERMEDIATE`.
 
 | Ending family | Proposed `TERMINAL_TYPE` | Confidence |
 |---|---|---|
 | `END_WITNESS_SPEAKS` | `VICTORY` | High |
-| `END_EVIDENCE_WITHOUT_WITNESS` | `PARTIAL_SUCCESS` | Medium — Elias dies in this family |
+| `END_EVIDENCE_WITHOUT_WITNESS` | `PARTIAL_SUCCESS` | Medium |
 | `END_LIFE_SAVED_TRUTH_DELAYED` | `PARTIAL_SUCCESS` | High |
 | `END_PROTECTIVE_CUSTODY` | `NARRATIVE_FAILURE` | High |
 | `END_PUBLIC_LEAK` | `PARTIAL_SUCCESS` | High |
-| `END_SILENT_TERMINAL` | `CHARACTER_DEATH` or `TIME_EXPIRED` | **Low — requires ratification** |
+| `END_SILENT_TERMINAL` | `CHARACTER_DEATH` or `TIME_EXPIRED` | Low — ratification § 14.1 |
 | `END_WRONG_ACCUSATION` | `CASE_UNRESOLVED` | High |
 | `END_FRACTURED_TRUTH` | `PARTIAL_SUCCESS` | High |
 
-Two questions must be answered by the maintainer, not by the implementer:
+### 6.3 Affected files
 
-1. `CHARACTER_DEATH` is undefined as to whether it covers a non-player character. Elias is an NPC in every configuration. If the type is player-character-only, `END_SILENT_TERMINAL` is `TIME_EXPIRED` and `END_EVIDENCE_WITHOUT_WITNESS` is `PARTIAL_SUCCESS` on evidence grounds alone.
-2. § 3.18 calls the list "Recommended terminal types", so extension is permitted. If neither existing type fits, adding one is an engine change and must be made in `engine/03_ARCHITECTURE.md`, not improvised in the adventure.
+| File | Section | Edit | Commit |
+|---|---|---|---|
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § "1. Graph conventions" | Add `NODE_TYPE` and `TERMINAL_TYPE` to the field list | C7 |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | all 40 nodes | Add `NODE_TYPE: INTERMEDIATE` | C7 |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § "14. Ending dispatch" | Add eight terminal nodes with ratified types | C7 |
+| `LOGIC/14_ENDING_TRIGGER_MATRIX.md` | § 6 | Add node identifier and terminal type per family; triggers stay here | C7 |
+| `DO_NOT_READ/06_ENDING_FRAMEWORK.md` | `END-01`…`END-08` | Reduce to narrative outcome text plus a marked non-authoritative pointer to the trigger owner | C7 |
 
-### 4.4 Affected files
+### 6.4 Side effects
 
-| File | Section | Edit |
-|---|---|---|
-| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § "1. Graph conventions" | Add `NODE_TYPE` and `TERMINAL_TYPE` to the field list, which currently has ten fields and omits both. |
-| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | all 40 nodes | Add `NODE_TYPE: INTERMEDIATE`. |
-| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § "14. Ending dispatch" | Add eight terminal nodes, each with `NODE_TYPE: TERMINAL` and a ratified `TERMINAL_TYPE`. |
-| `LOGIC/14_ENDING_TRIGGER_MATRIX.md` | § "6. Ending families" | Add the node identifier and terminal type to each family. Trigger conditions stay here; node identity moves to the graph. |
-| `DO_NOT_READ/06_ENDING_FRAMEWORK.md` | `END-01` … `END-08` | Reduce to narrative outcome text plus a pointer. Remove any restatement of trigger conditions. |
-| `engine/03_ARCHITECTURE.md` | § "3.18 Terminal architecture" | Edit only if question 1 or 2 above forces a type-list change. |
+- Ending content lives in three files. Ownership is fixed in C1 and enforced by `V10`: triggers in `14`, node identity and edges in `10`, narrative outcome in `06`. Summaries and cross-references remain permitted provided they are marked non-authoritative.
+- `END_FRACTURED_TRUTH` requires two players per `06_ENDING_FRAMEWORK.md` § "END-08". Once it is a node, reachability is mode-dependent, which is why `V5` is evaluated per declared play mode.
+- Declaring 40 nodes `INTERMEDIATE` asserts every one has a successor. That is false until the edges land, which is why Decisions 2 and 3 share commit C7.
+- Eight terminal nodes make overlapping ending triggers reachable simultaneously. Ratification § 14.8 and gate `V11` address precedence.
 
-### 4.5 Migration order position
+### 6.5 Validation
 
-Phase 7, after the namespace migration so the eight new nodes are authored in final identifiers.
-
-### 4.6 Side effects
-
-- Ending logic will exist in three files at once: `06_ENDING_FRAMEWORK.md` (narrative), `14_ENDING_TRIGGER_MATRIX.md` (triggers), `10_INVESTIGATION_NODE_GRAPH.md` (node identity and edges). Without the ownership split stated in § 4.4, this creates a third source of truth and violates `engine/03_ARCHITECTURE.md` § "3.13 Single source of truth". The ownership split is mandatory, not stylistic.
-- `END_FRACTURED_TRUTH` is defined in `06_ENDING_FRAMEWORK.md` § "END-08" as requiring two players. Once it is a node, reachability validation will report it unreachable in any single-player configuration. Solo mode is out of scope for this revision, so validation gate `V5` must be evaluated per play mode rather than globally.
-- Declaring `NODE_TYPE: INTERMEDIATE` on all 40 existing nodes asserts every one has a successor. That assertion is untrue until Decision 3 completes, so Decisions 2 and 3 must ship in the same revision or the repository is left in a state that fails its own rule more visibly than before.
-
-### 4.7 Validation
-
-Gates `V3` and `V5`. Every node carries exactly one `NODE_TYPE`; every `TERMINAL` carries exactly one `TERMINAL_TYPE` drawn from the ratified list; no `INTERMEDIATE` node carries a `TERMINAL_TYPE`.
+Gates `V3`, `V5`, `V11` after C7.
 
 ---
 
-## 5. Decision 3 — `Outgoing` declarations
-
-### 5.1 Objective
-
-Every node declares `Outgoing`. Terminal nodes declare `Outgoing: None`. This closes the structural defect named in `engine/00_ENGINE_SPECIFICATION_2.0.md` § "3.8 Terminal nodes": "A non-terminal node without a valid outgoing route is a structural defect."
-
-### 5.2 Scope of work
-
-Of 40 nodes, 3 declare `Outgoing`, 1 declares successors in the wrong field, and 36 declare nothing. Total edits: 37 existing nodes plus 8 new terminal nodes.
-
-`EVT_100_SHARED_BRIEFING` requires a specific correction rather than an addition. Its two successors are currently expressed as "unlocks" lines inside **State changes**. Move them into an `Outgoing` block. A successor is a graph edge, not a state mutation, and leaving it in **State changes** will corrupt the writer/reader analysis required by Decision 4.
-
-### 5.3 Split-branch terminators
-
-`engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § "5. No Free Asynchronous Drift" requires every split branch to terminate in one of `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT`, `TERMINAL_OUTCOME`. None of these appears anywhere in the adventure.
-
-Nodes inside a split phase must therefore declare their `Outgoing` using this vocabulary in addition to node targets. This is an inference from an existing engine MUST rather than part of the literal accepted decision, and it should be ratified explicitly. It is included because writing edges for split-phase nodes without it produces edges that cannot be validated against § 5.
-
-### 5.4 Affected files
-
-| File | Section | Edit |
-|---|---|---|
-| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § "1. Graph conventions" | Promote "outgoing routes" from a listed convention to a mandatory field with a stated format. |
-| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | `EVT_100_SHARED_BRIEFING` | Move the two "unlocks" lines from **State changes** to `Outgoing`. |
-| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | 36 nodes from `EVT_112_RESTRICTED_APARTMENT` onward | Author `Outgoing`. |
-| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | 8 new terminal nodes | `Outgoing: None`. |
-| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § "15. Graph integrity rules" | Restate as checkable assertions over the now-explicit edge set instead of prose claims. |
-| `LOGIC/13_SPLIT_AND_REGROUP_FLOW.md` | § "2. Split One", § "4. Split Two", § "7. Final-act split" | Declare which nodes belong to which split phase, so § 5.3 terminators can be assigned. |
-
-### 5.5 Migration order position
-
-Phase 7, immediately after Decision 2 and in the same revision.
-
-### 5.6 Side effects
-
-This is the highest-yield and highest-risk item in the plan.
-
-- **Authoring edges forces reachability decisions that are currently unmade.** Two known problems will surface immediately and must be resolved during authoring rather than deferred. First, the room-identifier chain: three of five identifier clues in `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` § "4. Signal Room 4B" come from Elias, Lena and Iris, all of whom `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` § "3. Fixed schedules" places inside Signal Room 4B, so those edges cannot precede room discovery. Second, the Rook proof chain: the three nodes that award Rook points reach a maximum of 3, and `LOGIC/07_EVIDENCE_VALIDATION.md` § "2. Conclusion thresholds" requires 4 for public accusation, so either new granting nodes are authored or the threshold moves. Neither problem is created by this decision; both become undeniable once edges exist.
-- Five clues in `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` § "8. Rook compromised" have no granting node at all: `C_ROOK_KRELL_CONTACT`, `C_ROOK_LENA_BULLETIN_FALSE`, `C_REED_NAMES_ROOK_LINK`, `C_MINA_AUTHENTICATES_REPORT`, `C_EVIDENCE_ROOM_PHOTO_PATH`. Edge authoring will expose them as orphans requiring either a node or deletion.
-- The failsafe in `LOGIC/05_CORE_EVENT_GRAPH.md` § `EVT_170` — Nadia revealing the ferry infrastructure at 21:45 — has no node in the investigation graph. It will surface as an unmapped backbone element in Decision 5 and as a missing edge here.
-- Edge authoring interacts with the parallel-action model. `LOGIC/04_TIME_COST_MATRIX.md` § "3. Parallel action model" and `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § "4. Synchronization Windows" disagree about leftover time, and `LOGIC/13_SPLIT_AND_REGROUP_FLOW.md` declares no maximum window durations. Edges crossing a split boundary cannot be validated for timing until that is settled. This is out of accepted scope; record it as a blocker on gate `V8` rather than fixing it silently.
-
-### 5.7 Validation
-
-Gates `V3`, `V5`, `V8`. Every `INTERMEDIATE` node has at least one `Outgoing` target; every target resolves to a declared node; every terminal node is reachable from `EVT_100_SHARED_BRIEFING` in at least one play mode; no node is unreachable in every mode.
-
----
-
-## 6. Decision 4 — State variable system
-
-### 6.1 Objective
-
-Every declared state variable has at least one writer and at least one reader, or it is removed. Every state machine has exactly one declared state variable.
-
-### 6.2 The Variable Register
-
-`LOGIC/01_WORLD_STATE_VARIABLES.md` becomes the sole owner of every variable and gains a register with these columns:
-
-`Variable | Domain | Initial | Writers | Readers | Owning state machine`
-
-Writers and readers are identifier lists, not prose. A variable with an empty writer list or an empty reader list fails validation and must be removed in the same revision that reports it.
-
-### 6.3 Disposition table
-
-Every one of the 47 declared variables, 2 undeclared-but-used variables, 1 duplicate alias and 4 undeclared state machines receives an explicit disposition. Removals are listed with their justification because each one deletes an authored concept.
-
-**Remove — no writer, no reader, and no prose dependency:**
-
-| Variable | Justification |
-|---|---|
-| `A_KRELL_TERMINAL` | No writer and no reader. `03_CHARACTER_DATABASE.md` § `NPC-06` makes Krell's presence optional and remote; his terminal confidence never affects a resolvable event. |
-| `REGROUP_REQUIRED` | No writer and no reader. Regroups are authored gates (`EVT_150`, `EVT_300`), not a state flag. |
-
-**Remove — redundant with a better-owned representation:**
-
-| Variable | Justification |
-|---|---|
-| `T_LENA`, `T_IRIS`, `T_REED` | No writer exists. `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` §§ 4, 5 and 7 already gate all three on evidence and leverage, not on a trust scalar. Removing them makes the documents agree instead of maintaining an unused parallel mechanism. The prose in § 4 that reads "pressured without trust" must be rewritten in evidence terms in the same edit. |
-| `ELIAS_SURVIVAL` | Derivable from the medical state machine once that machine has writers. Keeping both invites drift. |
-| `LEDGER_PRIMARY_STATUS` | Duplicates the item state of `ITEM_LEDGER_PRIMARY` owned by `LOGIC/02_ITEM_STATE_MATRIX.md`. Derive, do not store. |
-| `NADIA_TRUST` in `DO_NOT_READ/03_CHARACTER_DATABASE.md` § `NPC-02` | An alias of `T_NADIA` with the same range. Replace with a reference to the canonical variable. |
-| `ROOK_EXPOSED`, `RESCUE_CONTROLLED_BY_TRUSTED_PARTY`, `PUBLIC_ACCUSATION_CORRECT` in `DO_NOT_READ/06_ENDING_FRAMEWORK.md` § "Ending variables" | Divergent names for variables already owned by `LOGIC/01_WORLD_STATE_VARIABLES.md` § 9. Delete the list and reference the owner. |
-
-**Keep and wire — reader exists, writer must be authored:**
-
-| Variable | Writer to author | Reader that already exists |
-|---|---|---|
-| `A_PUBLIC` | `EVT_440_FINAL_PUBLIC_POSITION`, Nadia publication | `01_WORLD_STATE_VARIABLES.md` § 4 "Public awareness 2+"; `05_CORE_EVENT_GRAPH.md` § `EVT_400`; `14_ENDING_TRIGGER_MATRIX.md` § 3 |
-| `A_REED_ROOM` | An off-screen event or `EVT_243` outcome | `06_NPC_SCHEDULE_AND_PRIORITY.md` § 4 "Reed searches wrong upper rooms first because he lacks exact room number" |
-| `ELIAS_STATE` | Clock thresholds at 23:40, 01:00, 01:15; `EVT_330`; `EVT_400` | `14_ENDING_TRIGGER_MATRIX.md` § "2. Medical outcome" — which must be rewritten to read the variable instead of its current prose categories |
-| `APT_STATE`, `NEWS_STATE`, `REED_OFFICE_STATE` | The transitions in `11_LOCATION_STATE_MACHINE.md` §§ 2, 3, 6, restated as writes | Node entry conditions |
-| `P1_AVAILABLE_AT`, `P2_AVAILABLE_AT` | Every node's time cost | Synchronization gates |
-| `P1_PRIVATE_KNOWLEDGE_SET`, `P2_PRIVATE_KNOWLEDGE_SET` | Every clue grant | `EVT_150`, `EVT_300`; `08_TWO_PLAYER_CORE_RULES.md` § 7 |
-| `P_ROOM_4B`, `P_CODE`, `P_REED` | Already written | No reader exists. Decision 6 supplies thresholds in `07_EVIDENCE_VALIDATION.md`. |
-
-**Declare — currently used without declaration:**
-
-`P_LENA_PROTECTING` and `P_DECOY` are used in `EVT_231_PREPAID_PHONE_TRACE` and `EVT_242_REED_OFFICE_SEARCH` with hedging text. Under Decision 6 every conclusion is point-gated, so both become real declared variables. The hedging text is deleted.
-
-**Split — one state machine, three dimensions:**
-
-`TERMINAL_STATE` violates the one-variable-per-state-machine rule. `LOGIC/01_WORLD_STATE_VARIABLES.md` § 7 says it "combines" weather, hostile presence and access-discovery, and `LOGIC/11_LOCATION_STATE_MACHINE.md` § 9 confirms three independent dimensions. These are three state machines and require three variables: weather, hostile presence, known access routes.
-
-**Create — state machines with no variable:**
-
-`LOGIC/11_LOCATION_STATE_MACHINE.md` §§ 4, 5, 7 and 8 define state machines for Café Orpheus, the police annex, Iris's workplace and the harbor archive with named states and no variable. Four variables must be declared in `LOGIC/01_WORLD_STATE_VARIABLES.md` § 7.
-
-Net arithmetic: 47 declared, minus 7 removed, plus 4 new location variables, plus 2 from the terminal split, plus 3 new point variables from Decisions 1 and 6, giving 49 canonical variables, each with a non-empty writer list and a non-empty reader list.
-
-### 6.4 Affected files
-
-`LOGIC/01_WORLD_STATE_VARIABLES.md` (register, all sections), `LOGIC/11_LOCATION_STATE_MACHINE.md` (transitions restated as writes; four new variables bound), `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (writes declared per node), `LOGIC/02_ITEM_STATE_MATRIX.md` (item states as the source for the removed ledger-status variable), `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` (off-screen writes, including the existing `A_ROOK_TERMINAL +1`), `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` (trust removals rewritten as evidence gates), `LOGIC/14_ENDING_TRIGGER_MATRIX.md` (reads the medical variable), `DO_NOT_READ/03_CHARACTER_DATABASE.md` (alias removed), `DO_NOT_READ/06_ENDING_FRAMEWORK.md` (divergent list removed).
-
-### 6.5 Migration order position
-
-Analysis and disposition in Phase 2. Removals executed with the rename in Phase 3. Writer and reader wiring in Phase 4.
-
-### 6.6 Side effects
-
-- Removing three trust variables changes the feel of Lena, Iris and Reed from graduated relationship tracking to binary evidence gates. That is what the knowledge matrix already specifies, but it is a design consequence and should be confirmed, not assumed.
-- Rewriting `14_ENDING_TRIGGER_MATRIX.md` § 2 to read a variable rather than prose categories changes how medical outcomes are computed. The three prose categories must map onto the seven-value medical state exactly, or endings shift.
-- Wiring `P1_AVAILABLE_AT` and `P2_AVAILABLE_AT` will expose the contradiction between `LOGIC/04_TIME_COST_MATRIX.md` § "3. Parallel action model", whose worked example grants a free extra action, and `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 4, which forbids it. The variables cannot be given consistent semantics until that is resolved.
-- Two nodes declare no time cost at all — `EVT_241_MARCUS_FULL_DISCLOSURE` and `EVT_314_MAIN_ENTRY_CONFRONTATION` — so they cannot write the availability variables. Costs must be authored as part of this work.
-
-### 6.7 Validation
-
-Gates `V2` and `V4`. Zero variables with an empty writer or reader list; zero state machines without exactly one variable; zero variables referenced outside the register.
-
----
-
-## 7. Decision 5 — Core-to-investigation graph mapping
+## 7. Decision 3 — `Outgoing` declarations
 
 ### 7.1 Objective
 
-Publish an explicit mapping between `LOGIC/05_CORE_EVENT_GRAPH.md` and `LOGIC/10_INVESTIGATION_NODE_GRAPH.md`, documenting expansion where it occurred.
+Every node declares `Outgoing`. Terminal nodes declare `Outgoing: None`. This closes the defect named in `engine/00_ENGINE_SPECIFICATION_2.0.md` § "3.8 Terminal nodes".
 
-### 7.2 Deliverable
+### 7.2 Scope of work
 
-A new file, `adventures/The_Last_Witness/DO_NOT_READ/LOGIC/16_EVENT_GRAPH_MAPPING.md`, taking the next free number in the sequence.
+**All 40 existing nodes are reviewed and normalised, not only the 37 that lack an `Outgoing` block.** The three that already have one — `EVT_110`, `EVT_111`, `EVT_120` — are re-authored to the declared format and their targets validated against the final node set. Their current blocks predate the terminal nodes and the passphrase work and cannot be assumed correct.
 
-The core graph is retained as a backbone layer rather than retired. `LOGIC/05_CORE_EVENT_GRAPH.md` § "Graph conventions" already frames itself that way, and it holds the only cross-reference into `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md`.
+`EVT_100_SHARED_BRIEFING` requires a correction rather than an addition: its two successors sit in **State changes** as "unlocks" lines. A successor is a graph edge, not a state mutation, and leaving it there corrupts the writer/reader analysis in § 9.
 
-### 7.3 Namespace separation
+Total: 40 existing nodes normalised, 8 new terminal nodes authored.
 
-Backbone entries migrate from `EVT_` to `ARC_` under Decision 8. Both files currently use `EVT_` stems, and several stems carry different meanings in each file: `EVT_120` is the apartment cluster in the core graph and the newsroom entry in the investigation graph, and the same inversion affects `EVT_110`, `EVT_210`, `EVT_220`, `EVT_230`, `EVT_240`, `EVT_300` and `EVT_420`. These are distinct strings and not literal duplicate identifiers, so this is a traceability defect rather than a collision, but the shared stem makes the mapping unreadable and invites misreference. Separating the namespaces removes the ambiguity permanently.
+### 7.3 Split-branch terminators
 
-The alternative — retire `05_CORE_EVENT_GRAPH.md` and fold its content into `10` — was considered and rejected. It would discard the backbone view, orphan the schedule cross-reference, and lose the record of which backbone elements were never implemented.
+`engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § "5. No Free Asynchronous Drift" requires every split branch to terminate in `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT` or `TERMINAL_OUTCOME`. None appears in the adventure.
 
-### 7.4 Draft mapping
+This is an inference from an existing engine MUST, not part of the literal accepted decision. Ratification § 14.2 decides whether it is in scope for C7.
 
-To be ratified before implementation. Confidence is stated because several rows are judgement calls.
+### 7.4 Affected files
 
-| Backbone | Investigation nodes | Relationship | Confidence |
+| File | Section | Edit | Commit |
 |---|---|---|---|
-| `ARC_100` Nadia's briefing | `EVT_100_SHARED_BRIEFING` | 1:1 | High |
-| `ARC_110` First split decision | Absorbed into the **Decision** block of `EVT_100`, realised by `EVT_110` and `EVT_120` | Absorbed | Medium |
-| `ARC_120` Apartment cluster | `EVT_110`, `EVT_111`, `EVT_112`, `EVT_113`, `EVT_114`, `EVT_115` | Expanded 1:6 | High |
-| `ARC_130` Newsroom cluster | `EVT_120`, `EVT_121`, `EVT_122`, `EVT_123` | Expanded 1:4 | High |
-| `ARC_140` Café cluster | `EVT_211_CAFE_ORPHEUS` | Relocated from opening block to midgame | **Low — see § 7.6** |
-| `ARC_170` First synchronization gate | `EVT_150_REGROUP_ONE` | 1:1, renumbered | High |
-| `ARC_200` Rook pressure | `EVT_223_ROOK_INTERVIEW` | Partial | Medium |
-| `ARC_210` Reed office opportunity | `EVT_242_REED_OFFICE_SEARCH` | 1:1 | High |
-| `ARC_220` Iris trail | `EVT_230`, `EVT_231`, `EVT_232` | Expanded 1:3 | High |
-| `ARC_230` Marcus disclosure ladder | `EVT_240`, `EVT_241` | Expanded 1:2 | High |
-| `ARC_240` Mina evidence preservation | `EVT_220_MINA_REPORT_COMPARISON`, partly `EVT_400` | Partial, split | Medium |
-| `ARC_270` Second synchronization gate | `EVT_300_REGROUP_TWO` | 1:1, renumbered | High |
-| `ARC_300` Terminal route selection | `EVT_310`–`EVT_314` | Expanded 1:5 | High |
-| `ARC_320` Off-screen hostile convergence | `EVT_420_REED_OR_ROOK_CONFRONTATION` plus `06_NPC_SCHEDULE_AND_PRIORITY.md` § 4 | Split across documents | Medium |
-| `ARC_340` Signal Room discovery | `EVT_330`, `EVT_331` | Expanded 1:2, renumbered | High |
-| `ARC_400` Trusted rescue validation | `EVT_400_RESCUE_CONTROL` | 1:1 | High |
-| `ARC_420` Evidence transfer | `EVT_410`, `EVT_430` | Expanded 1:2 | High |
-| `ARC_440` Final accusation | `EVT_440_FINAL_PUBLIC_POSITION` | 1:1 | High |
-| `ARC_900` Ending resolution | `EVT_900` plus eight new terminal nodes | Expanded 1:9 | High |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § "1. Graph conventions" | Promote outgoing routes to a mandatory field with a stated format | C7 |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | `EVT_100` | Move the two "unlocks" lines into `Outgoing` | C7 |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | `EVT_110`, `EVT_111`, `EVT_120` | Re-author existing blocks to format; validate targets | C7 |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | 36 remaining nodes | Author `Outgoing` | C7 |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | 8 terminal nodes | `Outgoing: None` | C7 |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § "15. Graph integrity rules" | Restate as checkable assertions over the explicit edge set | C7 |
+| `LOGIC/13_SPLIT_AND_REGROUP_FLOW.md` | §§ 2, 4, 7 | Declare node membership per split phase, if § 14.2 is ratified in scope | C7 |
 
-Investigation nodes with no backbone origin, to be recorded as additions: `EVT_210_HARBOR_ARCHIVE_ENTRY`, `EVT_212_TERMINAL_RECON`, `EVT_221_CAMERA_REQUEST_AUDIT`, `EVT_222_PROTECTION_ORDER_AUDIT`, `EVT_243_REED_NEGOTIATION`.
+### 7.5 Side effects
 
-Backbone elements with no implementation, to be recorded as unimplemented with a reason: the fixed no-later-than-22:10 trigger of `ARC_200`, and the 21:45 Nadia ferry-infrastructure failsafe inside `ARC_170`.
+This is the highest-yield and highest-risk commit.
 
-### 7.5 Affected files
+- **Authoring edges forces reachability decisions that are currently unmade.** Two known problems surface immediately. The room-identifier chain: three of five identifier clues in `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` § 4 come from Elias, Lena and Iris, all placed inside Signal Room 4B by `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` § 3, so those edges cannot precede room discovery. The Rook proof chain: three nodes award Rook points to a maximum of 3 against a public-accusation threshold of 4. Neither is created by this decision; both become undeniable once edges exist.
+- Five clues in `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` § 8 have no granting node: `CLUE_ROOK_KRELL_CONTACT`, `CLUE_ROOK_LENA_BULLETIN_FALSE`, `CLUE_REED_NAMES_ROOK_LINK`, `CLUE_MINA_AUTHENTICATES_REPORT`, `CLUE_EVIDENCE_ROOM_PHOTO_PATH`. C7 exposes them as orphans requiring a node or a `DEFINITION_ONLY` status.
+- The 21:45 Nadia ferry-infrastructure failsafe in `ARC_170` has no node. It surfaces here as a missing edge and in C8 as an unimplemented backbone element.
+- Edges crossing a split boundary cannot be timing-validated while `LOGIC/04_TIME_COST_MATRIX.md` § 3 and `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 4 disagree about leftover time and no maximum window duration is declared. Gate `V8` is `DEFERRED` for this reason.
 
-New `LOGIC/16_EVENT_GRAPH_MAPPING.md`; `LOGIC/05_CORE_EVENT_GRAPH.md` (prefix migration, purpose statement); `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (back-reference per node); `LOGIC/00_ENTITY_KEY_TABLE.md` § "Event key ranges" (restate for two namespaces).
+### 7.6 Validation
 
-### 7.6 Side effects
-
-- The `ARC_140` row records a real semantic change, not a clean expansion. `DO_NOT_READ/02_MASTER_TIMELINE.md` § `### 20:05` assigns Café Orpheus to Player 2 as a starting lead, and `LOGIC/05_CORE_EVENT_GRAPH.md` places the café cluster in the opening block per the ranges in `00_ENTITY_KEY_TABLE.md`. The investigation graph moves it to the midgame harbor branch. The mapping must not paper over this; either the timeline changes or the node moves back.
-- Renaming the backbone prefix touches the only working cross-reference between logic documents. Verify `LOGIC/05_CORE_EVENT_GRAPH.md` § `ARC_320` still resolves to `06_NPC_SCHEDULE_AND_PRIORITY.md` after the edit.
-- Once "unimplemented" is a formal status, it becomes a backlog the next revision must either implement or delete. That is the intent, but it makes previously invisible gaps into tracked debt.
-
-### 7.7 Validation
-
-Gate `V6`. Every `ARC_` maps to at least one `EVT_` or carries an explicit unimplemented status with a reason; every `EVT_` maps to an `ARC_` or carries an explicit addition status; no identifier appears in both namespaces.
+Gates `V3`, `V5` after C7. `V8` is recorded as `DEFERRED`.
 
 ---
 
-## 8. Decision 6 — Progress model
+## 8. Decision 8 — Identifier namespaces
 
-### 8.1 Canonical progression
+Presented before Decision 4 because the rename in P3 precedes the variable work in P4.
+
+### 8.1 Canonical scheme
+
+Mnemonic uppercase, full-word prefix, underscore separators. Identifiers are frozen at creation and survive display-name changes. A key may become a historical misnomer if a character is renamed; that is accepted and needs no engine amendment.
+
+### 8.2 Rename scope
+
+**Only identifiers with a demonstrated collision, ambiguity, alias or inconsistent scheme are renamed.** Three families qualify.
+
+| Family | From | To | Reason | Count |
+|---|---|---|---|---:|
+| Clues | `C_*` | `CLUE_*` | Inconsistent scheme against every other entity prefix; single-letter prefix is unsafe for anchored search | 64 distinct |
+| Conclusions | `D_*` | `CON_*` | Two live namespaces for one concept, used in different documents | 13 |
+| Backbone | `EVT_nnn` in `05` | `ARC_nnn` | Shared stem with playable nodes; eight stems carry different meanings in each file | 19 |
+
+**Explicitly not renamed in this revision:**
+
+- All state variables keep their current names. `P_*`, `T_*`, `A_*`, `CLOCK`, `*_STATE`, `P1_*`, `P2_*`, `SHARED_KNOWLEDGE_SET` and the ending variables have no demonstrated collision. `P_STAGED` and `P1_LOCATION` are distinguishable under anchored search. A blanket `VAR_*` migration was considered and rejected as churn without a defect behind it.
+- `NPC-01`, `LOC-01`, `CON-01`, `END-01`, `RH-01` and `CLU-01` are display ordinals within numbered document sections, not declared identifiers, and are left alone. The `CLU-0n` references inside `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` § 3 are replaced by `CLUE_*` references in C5, when that section is reduced and its counting moves to the logic layer — not in C3, so the file is touched once.
+- `DEC_` and `CHK_` are not reserved. No such records exist.
+- No engine file is edited.
+
+### 8.3 The `D_*` to `CON_*` merge is 1:1
+
+Eight `D_*` identifiers have an exact `CON_*` twin and merge cleanly: `STAGED_DISAPPEARANCE`, `HARBOR_DESTINATION`, `SIGNAL_4B`, `LENA_PROTECTING`, `REED_PRESENT`, `MEDICAL_EMERGENCY`, `DECOY_KEY`, `WINDOW_CODE`.
+
+Five have no twin and become `CON_*` identifiers that the entity key table did not previously register: `CON_REED_CAUSED_CONFRONTATION`, `CON_MARCUS_LEAK_PARTIAL`, `CON_MARCUS_LEAK_PROVABLE`, `CON_ROOK_OPERATIONALLY_COMPROMISED`, `CON_ROOK_PUBLICLY_PROVABLE`. Registering them is documentation completion, not conceptual splitting: they already exist in `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` under the `D_` prefix with their thresholds intact. No threshold, tier or meaning changes in C3.
+
+Two existing `CON_*` identifiers have no `D_*` twin and are umbrella terms superseded by the tiered pair: `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED`. **They survive C3 unchanged.** Retiring or redefining them is semantic and is deferred to ratification § 14.9.
+
+The conclusion namespace after C3 therefore holds 15 identifiers, two of which await a ratification decision.
+
+### 8.4 Prefix registry
+
+Added to `LOGIC/00_ENTITY_KEY_TABLE.md` § "Purpose" in C1. Adventure-local, so no engine edit and no reverse-dependency question.
+
+| Prefix | Entity | Owner |
+|---|---|---|
+| `NPC_` | Character | `LOGIC/00_ENTITY_KEY_TABLE.md` |
+| `LOC_` | Location | `LOGIC/00_ENTITY_KEY_TABLE.md` |
+| `ITEM_` | Item or evidence object | `LOGIC/00_ENTITY_KEY_TABLE.md` |
+| `CLUE_` | Clue | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` |
+| `CON_` | Conclusion | `LOGIC/00_ENTITY_KEY_TABLE.md` |
+| `FACT_` | NPC-knowledge fact | `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` |
+| `ARC_` | Backbone arc | `LOGIC/05_CORE_EVENT_GRAPH.md` |
+| `EVT_` | Playable or off-screen event node | `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` |
+| `END_` | Ending family | `LOGIC/14_ENDING_TRIGGER_MATRIX.md` |
+| `CLK_` | Clock-threshold trigger | `LOGIC/01_WORLD_STATE_VARIABLES.md` § 1 |
+| `TR_` | State-machine transition | `LOGIC/11_LOCATION_STATE_MACHINE.md` |
+| `EVAL_` | Gate evaluator | `LOGIC/07_EVIDENCE_VALIDATION.md`, `LOGIC/14_ENDING_TRIGGER_MATRIX.md` |
+
+`CLK_`, `TR_` and `EVAL_` are not cosmetic additions. Gate `V4` requires every writer and reader to resolve to a declared node, transition, initialization source or evaluator, and clock thresholds, location transitions and conclusion gates are currently anonymous prose. They are declared in C1 and populated in C4 and C5.
+
+### 8.5 File scope
+
+C3 edits only files that contain an affected identifier. The occurrence manifest produced in P2 is authoritative. The expected set, to be confirmed by that manifest rather than assumed:
+
+| Family | Expected files |
+|---|---|
+| `C_*` → `CLUE_*` | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` |
+| `D_*` → `CON_*` | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md`, `LOGIC/14_ENDING_TRIGGER_MATRIX.md` |
+| Backbone `EVT_*` → `ARC_*` | `LOGIC/05_CORE_EVENT_GRAPH.md`, `LOGIC/00_ENTITY_KEY_TABLE.md` § "Event key ranges" |
+
+If the manifest finds occurrences outside this set, the manifest wins and this table is corrected before C3.
+
+### 8.6 Execution method
+
+Longest-identifier-first, anchored on word boundaries, each replacement confirmed against the manifest rather than applied as free-text substitution. `C_` is the dangerous case: it is short and appears inside ordinary words.
+
+The rename is executed once, in C3, and is revertible in isolation.
+
+### 8.7 Side effects
+
+- Identifiers in external drafts and in-flight notes go stale in one commit. This is the cost of the single-pass rule and is preferable to a half-migrated repository.
+- `LOGIC/00_ENTITY_KEY_TABLE.md` § "Conclusions" gains five rows in C3 to register identifiers that already exist under `D_`.
+- `LOGIC/00_ENTITY_KEY_TABLE.md` § "Event key ranges" describes one numeric space and must be restated for two namespaces.
+- `LOGIC/05_CORE_EVENT_GRAPH.md` § `ARC_320` holds the only working cross-reference into `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md`. Verify it still resolves after the prefix change.
+- The ambiguous inline basename reference to `06_ENDING_FRAMEWORK.md` in `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` § 14 reads as if it points inside `LOGIC/`, where a different file occupies that number. Disambiguate in C7, when that section is rewritten, not in C3.
+
+### 8.8 Validation
+
+Gates `V1`, `V2` after C3. Additionally: a diff review confirming C3 changed no threshold, no variable, no edge and no prose meaning.
+
+---
+
+## 9. Decision 4 — State variable system
+
+### 9.1 Objective
+
+Every variable has at least one writer and at least one reader, or it is removed. Every state machine has exactly one declared variable.
+
+### 9.2 Initialization is not a writer
+
+**An initialization source does not satisfy the writer requirement.** A variable whose only mutation is its initial assignment is a constant, not state, and must be removed or reclassified.
+
+Initialization is recorded in its own column as `INIT`. Gate `V4` requires at least one writer that is not `INIT`.
+
+### 9.3 Phase split
+
+Non-progress variables are cleaned up and wired in C4. Progress variables are handled in C5, because their only readers are the conclusion evaluators created by Decision 6. Wiring them in C4 would fail `V4` by construction.
+
+### 9.4 Complete variable register
+
+Every current and proposed variable appears below. Dispositions are `KEEP`, `REMOVE`, `REPLACE`, `SPLIT`, `CREATE`. Writers and readers are identifiers, never prose.
+
+#### 9.4.1 Global clock
+
+| Identifier | Domain | Initial | Init source | Writers | Readers | State machine | Disposition |
+|---|---|---|---|---|---|---|---|
+| `CLOCK` | minutes, 20:00 onward | `20:00` | `INIT` | all `EVT_*` time costs | all `CLK_*`, all node availability windows, `EVAL_ENDING` | Global clock | KEEP |
+
+`CLK_*` triggers declared in C1 and populated in C4: `CLK_2035`, `CLK_2130`, `CLK_2200`, `CLK_2205`, `CLK_2215`, `CLK_2230`, `CLK_2245`, `CLK_2300`, `CLK_2320`, `CLK_2330`, `CLK_2340`, `CLK_0000`, `CLK_0020`, `CLK_0100`, `CLK_0115`, `CLK_0120`, `CLK_0145`, `CLK_0200`.
+
+#### 9.4.2 Progress points — all become derived quantities in C5
+
+| Identifier | Domain | Initial | Init source | Writers | Readers | State machine | Disposition |
+|---|---|---|---|---|---|---|---|
+| `P_STAGED` | derived | — | — | `GRANT_CLUE` over group STAGED | `EVAL_CON_STAGED_DISAPPEARANCE` | — | REPLACE → derived |
+| `P_HARBOR` | derived | — | — | `GRANT_CLUE` over group HARBOR | `EVAL_CON_HARBOR_DESTINATION` | — | REPLACE → derived |
+| `P_ROOM_4B` | derived | — | — | `GRANT_CLUE` over group ROOM | `EVAL_CON_SIGNAL_4B` | — | REPLACE → derived |
+| `P_ROOK` | derived | — | — | `GRANT_CLUE` over group ROOK | `EVAL_CON_ROOK_OPERATIONALLY_COMPROMISED`, `EVAL_CON_ROOK_PUBLICLY_PROVABLE` | — | REPLACE → derived |
+| `P_MARCUS` | derived | — | — | `GRANT_CLUE` over group MARCUS | `EVAL_CON_MARCUS_LEAK_PARTIAL`, `EVAL_CON_MARCUS_LEAK_PROVABLE` | — | REPLACE → derived |
+| `P_REED` | derived | — | — | `GRANT_CLUE` over group REED | `EVAL_CON_REED_PRESENT`, `EVAL_CON_REED_CAUSED_CONFRONTATION` | — | REPLACE → derived |
+| `P_MEDICAL` | derived | — | — | `GRANT_CLUE` over group MEDICAL | `EVAL_CON_MEDICAL_EMERGENCY` | — | REPLACE → derived |
+| `P_CODE` | derived | — | — | `GRANT_CLUE` over group CODE | `EVAL_CON_WINDOW_CODE` | — | REPLACE → derived |
+| `P_LENA_PROTECTING` | derived | — | — | `GRANT_CLUE` over group LENA | `EVAL_CON_LENA_PROTECTING` | — | REPLACE → derived (never declared) |
+| `P_DECOY` | derived | — | — | `GRANT_CLUE` over group DECOY | `EVAL_CON_DECOY_KEY` | — | REPLACE → derived (never declared) |
+| *(new)* passphrase total | derived | — | — | `GRANT_CLUE` over group PASSPHRASE | `EVAL_CON_PASSPHRASE_ACCESS` | — | derived, created in C6 |
+
+Eleven derived totals replace eight declared variables and two undeclared pseudo-variables. **No new stored point variable is created**, because under § 10 a total is computed from the held clue set and is not independently mutable.
+
+#### 9.4.3 Trust
+
+| Identifier | Domain | Initial | Init source | Writers | Readers | State machine | Disposition |
+|---|---|---|---|---|---|---|---|
+| `T_NADIA` | −2…+2 | `0` | `INIT` | `EVT_121`, `EVT_211` | `EVAL_NADIA_DISCLOSURE`, `EVAL_ENDING` | Nadia trust | KEEP |
+| `T_MINA` | −2…+2 | `0` | `INIT` | `EVT_111`, `EVT_220` | `EVT_112`, `EVT_220`, `EVAL_RESCUE_CONTROL` | Mina trust | KEEP |
+| `T_MARCUS` | −2…+2 | `−1` | `INIT` | `EVT_240` | `EVAL_MARCUS_DISCLOSURE` | Marcus trust | KEEP |
+| `T_LENA` | −2…+2 | `−1` | `INIT` | none | none | — | REMOVE |
+| `T_IRIS` | −2…+2 | `−1` | `INIT` | none | none | — | REMOVE |
+| `T_REED` | −2…+2 | `−2` | `INIT` | none | none | — | REMOVE |
+
+The three removals are safe because `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` §§ 4, 5 and 7 already gate Lena, Iris and Reed on evidence and leverage. C4 rewrites the § 4 phrase "pressured without trust" in evidence terms in the same commit.
+
+#### 9.4.4 Antagonist awareness
+
+| Identifier | Domain | Initial | Init source | Writers | Readers | State machine | Disposition |
+|---|---|---|---|---|---|---|---|
+| `A_ROOK_PLAYERS` | 0–4 | `0` | `INIT` | `EVT_111`, `EVT_112`, `EVT_221`, `EVT_223` | `TR_ANNEX_A_TO_B`, `TR_ANNEX_B_TO_C`, `TR_APT_A_TO_B`, `TR_DEVICE_SEIZED` | Rook awareness of players | KEEP |
+| `A_ROOK_TERMINAL` | 0–3 | `1` | `INIT` | `EVT_803` | `TR_TERMINAL_HOSTILE_ROOK` | Rook terminal confidence | KEEP |
+| `A_PUBLIC` | 0–3 | `0` | `INIT` | `EVT_440` | `EVAL_ENDING`, `EVAL_RESCUE_CONTROL` | Public awareness | KEEP |
+| `A_KRELL_TERMINAL` | 0–3 | `2` | `INIT` | none | none | — | REMOVE |
+| `A_REED_ROOM` | 0–3 | `0` | `INIT` | none | none | — | REMOVE |
+
+`A_REED_ROOM` changes disposition from the previous revision of this plan. No writer exists, and authoring one means inventing a scene in which Reed learns the room — a design act outside the accepted decisions. The narrative fact it was standing in for is already fixed prose in `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` § 4 ("Reed searches wrong upper rooms first because he lacks exact room number") and survives the removal unchanged.
+
+The four off-screen resolution outcomes in `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` § 4 receive identifiers in C4, using the unallocated `EVT_8xx` range: `EVT_801` Reed reaches terminal first, `EVT_802` Rook reaches terminal first, `EVT_803` Reed and Rook meet, `EVT_804` Marcus meets the intermediary. This is required because `A_ROOK_TERMINAL`'s only writer lives there and `V4` forbids prose writers. `engine/03_ARCHITECTURE.md` § "3.17 Off-screen event architecture" already requires these to be events.
+
+#### 9.4.5 Elias medical state
+
+| Identifier | Domain | Initial | Init source | Writers | Readers | State machine | Disposition |
+|---|---|---|---|---|---|---|---|
+| `ELIAS_STATE` | 7-value enum | `CRITICAL_RESPONSIVE` | `INIT` | `CLK_2340`, `CLK_0100`, `CLK_0115`, `EVT_330`, `EVT_400` | `EVT_331`, `EVT_400`, `EVAL_ENDING` | Elias medical | KEEP |
+| `ELIAS_SURVIVAL` | — | — | — | none | `EVAL_ENDING` | — | REMOVE — derived from `ELIAS_STATE` |
+
+C4 rewrites `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § "2. Medical outcome" to read `ELIAS_STATE` instead of its three prose categories. The mapping from three categories to seven enum values must be exhaustive or endings shift.
+
+#### 9.4.6 Location state machines
+
+| Identifier | Domain | Initial | Init source | Writers | Readers | State machine | Disposition |
+|---|---|---|---|---|---|---|---|
+| `APT_STATE` | 4-value enum | `SEALED_ACCESSIBLE_WITH_MINA` | `INIT` | `TR_APT_A_TO_B`, `TR_APT_B_TO_C`, `TR_APT_C_TO_D` | `EVT_111`, `EVT_112`, `EVT_113` | Elias apartment | KEEP |
+| `NEWS_STATE` | 4-value enum | `OPEN_SUPERVISED` | `INIT` | `CLK_2035`, `CLK_2320`, `CLK_0000` | `EVT_121`, `EVT_122`, `EVT_123`, `EVT_240`, `EVT_430` | Newsroom | KEEP |
+| `REED_OFFICE_STATE` | 4-value enum | `EMPTY_INTACT` | `INIT` | `CLK_2130`, `CLK_2205`, `CLK_2300` | `EVT_242` | Reed office | KEEP |
+| `ROOM_4B_STATE` | 6-value enum | `HIDDEN_STABLE` | `INIT` | `EVT_330`, `EVT_400`, `EVT_420` | `EVAL_ENDING` | Signal Room 4B | KEEP |
+| `TERMINAL_STATE` | — | — | — | — | — | — | SPLIT into the three below |
+| `TERMINAL_WEATHER` | `DRY`/`SURGE`/`DRAINAGE_CLOSED` | `DRY` | `INIT` | `CLK_2245`, `CLK_2330` | `EVT_312` | Terminal weather | CREATE |
+| `TERMINAL_HOSTILE` | `NONE`/`REED`/`ROOK_TEAM`/`REED_AND_ROOK` | `NONE` | `INIT` | `CLK_0020`, `TR_TERMINAL_HOSTILE_ROOK` | `EVT_314`, `EVT_420` | Terminal hostile presence | CREATE |
+| `TERMINAL_ROUTES_KNOWN` | subset of 5 route tokens | empty | `INIT` | `EVT_210`, `EVT_212`, `EVT_311`, `EVT_313` | `EVT_310`–`EVT_314` | Terminal known routes | CREATE |
+| `CAFE_STATE` | 3-value enum | `OPEN_FULL_RECORDS` | `INIT` | `CLK_2200`, `CLK_2230` | `EVT_211` | Café Orpheus | CREATE |
+| `ANNEX_STATE` | 4-value enum | `NORMAL_ACCESS` | `INIT` | `TR_ANNEX_A_TO_B`, `TR_ANNEX_B_TO_C`, `TR_ANNEX_TO_D` | `EVT_220`, `EVT_221`, `EVT_222`, `EVT_223` | Police annex | CREATE |
+| `IRIS_WORK_STATE` | 3-value enum | `SHIFT_ACTIVE` | `INIT` | `CLK_2200`, `TR_IRISWORK_SEIZED` | `EVT_230` | Iris workplace | CREATE |
+| `ARCHIVE_STATE` | 3-value enum | `OPEN_PUBLIC` | `INIT` | `CLK_2320`, `TR_ARCHIVE_EMERGENCY` | `EVT_210` | Harbor archive | CREATE |
+
+`TERMINAL_STATE` is split because `LOGIC/01_WORLD_STATE_VARIABLES.md` § 7 describes it as combining three dimensions and `LOGIC/11_LOCATION_STATE_MACHINE.md` § 9 confirms three independent ones. Three machines require three variables.
+
+`ARCHIVE_STATE` uses `CLK_2320` because `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` § `EVT_210` is the only place a closing time appears ("before 23:20 normal access; later emergency access"). `LOGIC/11_LOCATION_STATE_MACHINE.md` § 8 declares no times and `DO_NOT_READ/04_LOCATION_DATABASE.md` § `LOC-09` has no time-changes section. C4 must record the trigger in the state-machine document, or the variable cannot be wired.
+
+#### 9.4.7 Player synchronization
+
+| Identifier | Domain | Initial | Init source | Writers | Readers | State machine | Disposition |
+|---|---|---|---|---|---|---|---|
+| `P1_LOCATION` | `LOC_*` | `LOC_START` | `INIT` | `EVT_100`, `EVT_110`, every P1-eligible node with a Location | node entry conditions | Player 1 position | KEEP |
+| `P2_LOCATION` | `LOC_*` | `LOC_START` | `INIT` | `EVT_100`, `EVT_120`, every P2-eligible node with a Location | node entry conditions | Player 2 position | KEEP |
+| `P1_AVAILABLE_AT` | time | `20:00` | `INIT` | every P1-eligible node with a time cost | `EVT_150`, `EVT_300` | Player 1 availability | KEEP |
+| `P2_AVAILABLE_AT` | time | `20:00` | `INIT` | every P2-eligible node with a time cost | `EVT_150`, `EVT_300` | Player 2 availability | KEEP |
+| `SHARED_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | `EVT_150`, `EVT_300`, joint-scene `GRANT_CLUE` | every `EVAL_CON_*` | Shared knowledge | KEEP |
+| `P1_PRIVATE_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | `GRANT_CLUE` at P1-eligible nodes | `EVT_150`, `EVT_300` | Player 1 private knowledge | KEEP |
+| `P2_PRIVATE_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | `GRANT_CLUE` at P2-eligible nodes | `EVT_150`, `EVT_300` | Player 2 private knowledge | KEEP |
+| `REGROUP_REQUIRED` | boolean | `false` | `INIT` | none | none | — | REMOVE |
+
+The three knowledge sets are wired in C5 alongside `GRANT_CLUE`, not C4, because their writers are the clue-grant operation.
+
+#### 9.4.8 Ending variables
+
+| Identifier | Domain | Initial | Init source | Writers | Readers | State machine | Disposition |
+|---|---|---|---|---|---|---|---|
+| `FULL_LEDGER_TRANSFERRED` | boolean | `false` | `INIT` | `EVT_430` | `EVAL_ENDING` | Transfer outcome | KEEP |
+| `ROOK_EXPOSED_PRIVATE` | boolean | `false` | `INIT` | `EVAL_CON_ROOK_OPERATIONALLY_COMPROMISED` | `EVT_400`, `EVAL_ENDING` | Rook exposure | KEEP |
+| `ROOK_EXPOSED_PUBLIC` | boolean | `false` | `INIT` | `EVT_440` | `EVAL_ENDING` | Rook exposure | KEEP |
+| `KRELL_VALE_EXPOSED` | boolean | `false` | `INIT` | `EVT_430`, `EVT_440` | `EVAL_ENDING` | Conspiracy exposure | KEEP |
+| `TRUSTED_RESCUE_CONTROL` | boolean | `false` | `INIT` | `EVT_400` | `EVAL_ENDING` | Rescue control | KEEP |
+| `PUBLIC_ACCUSATION_TARGET` | `NPC_*` or none | none | `INIT` | `EVT_440` | `EVAL_ENDING` | Accusation | KEEP |
+| `PUBLIC_ACCUSATION_SUPPORT` | 0…n | `0` | `INIT` | `EVT_440` | `EVAL_ENDING` | Accusation | KEEP |
+| `MARCUS_CONFESSED` | boolean | `false` | `INIT` | `EVT_241` | `EVAL_ENDING` | Marcus outcome | KEEP |
+| `REED_COOPERATED` | boolean | `false` | `INIT` | `EVT_243` | `EVAL_ENDING` | Reed outcome | KEEP |
+| `LENA_STATUS` | enum | `concealed` | `INIT` | `EVT_331`, `EVT_420` | `EVAL_ENDING` | Lena outcome | KEEP |
+| `IRIS_STATUS` | enum | `concealed` | `INIT` | `EVT_331`, `EVT_400` | `EVAL_ENDING` | Iris outcome | KEEP |
+| `LEDGER_PRIMARY_STATUS` | — | — | — | none | `EVAL_ENDING` | — | REMOVE — duplicates the item state of `ITEM_LEDGER_PRIMARY` |
+
+#### 9.4.9 Aliases outside the owning document
+
+| Identifier | Location | Disposition | Replaced by |
+|---|---|---|---|
+| `NADIA_TRUST` | `DO_NOT_READ/03_CHARACTER_DATABASE.md` § `NPC-02` | REPLACE | `T_NADIA` |
+| `ROOK_EXPOSED` | `DO_NOT_READ/06_ENDING_FRAMEWORK.md` § "Ending variables" | REPLACE | `ROOK_EXPOSED_PRIVATE` + `ROOK_EXPOSED_PUBLIC` |
+| `RESCUE_CONTROLLED_BY_TRUSTED_PARTY` | same | REPLACE | `TRUSTED_RESCUE_CONTROL` |
+| `PUBLIC_ACCUSATION_CORRECT` | same | REPLACE | `PUBLIC_ACCUSATION_TARGET` + `PUBLIC_ACCUSATION_SUPPORT` |
+
+All four are semantic replacements, not spelling changes, because three of them map one name onto a pair. They land in C4, never in C3.
+
+### 9.5 Register arithmetic
+
+| Step | Count |
+|---|---:|
+| Declared variables at baseline | 47 |
+| − `REMOVE` (`T_LENA`, `T_IRIS`, `T_REED`, `A_KRELL_TERMINAL`, `A_REED_ROOM`, `REGROUP_REQUIRED`, `ELIAS_SURVIVAL`, `LEDGER_PRIMARY_STATUS`) | −8 → 39 |
+| − `REPLACE` to derived (eight `P_*`) | −8 → 31 |
+| − `SPLIT` parent (`TERMINAL_STATE`) | −1 → 30 |
+| + `CREATE` (3 terminal dimensions, 4 location machines) | +7 → **37** |
+
+**37 stored variables, each with a non-`INIT` writer and at least one reader, plus 11 derived totals.**
+
+### 9.6 Affected files
+
+`LOGIC/01_WORLD_STATE_VARIABLES.md` (register, all sections), `LOGIC/11_LOCATION_STATE_MACHINE.md` (transitions given `TR_*` identifiers; four machines bound to variables; archive trigger recorded), `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (writes declared per node), `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md` (`EVT_8xx` identifiers for four off-screen outcomes), `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` (trust removals rewritten as evidence gates), `LOGIC/14_ENDING_TRIGGER_MATRIX.md` (medical outcome reads `ELIAS_STATE`), `LOGIC/02_ITEM_STATE_MATRIX.md` (item state as the source replacing `LEDGER_PRIMARY_STATUS`), `DO_NOT_READ/03_CHARACTER_DATABASE.md` (alias replaced), `DO_NOT_READ/06_ENDING_FRAMEWORK.md` (alias list replaced by a marked non-authoritative pointer). All in C4.
+
+### 9.7 Side effects
+
+- Removing three trust variables converts Lena, Iris and Reed from graduated relationship tracking to binary evidence gates. That is what the knowledge matrix already specifies, but it is a design consequence.
+- Rewriting the medical outcome to read an enum changes how endings are computed. The three-to-seven mapping must be exhaustive.
+- `EVT_241` and `EVT_314` declare no time cost, so they cannot write the availability variables. C4 must author costs for both.
+- Giving the four off-screen outcomes `EVT_8xx` identifiers makes them nodes for the first time. They are not player-reachable and must be excluded from `V5` reachability, or marked with an off-screen flag so the gate does not report them unreachable.
+
+### 9.8 Validation
+
+Gates `V2`, `V4` after C4.
+
+---
+
+## 10. Decision 6 — Progress model
+
+### 10.1 Canonical progression
 
 ```text
 Node outcome
@@ -424,255 +592,182 @@ Node outcome
 Conclusions
 ```
 
-Definitions, to be stated once in `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` § 1 and referenced elsewhere:
+### 10.2 The single atomic operation
 
-- **Points** are the scalar award declared on a node outcome. They are the raw signal of investigative progress and the only quantity a node may grant.
-- **Clues** are named, classed evidence units. A clue declares its identifier, its class or classes, its point value, its granting node or nodes, and its conclusion group. A point is realised only by instantiating a clue.
-- **Conclusions** are gates evaluated over the held clue set, using point sum and class diversity.
+**`GRANT_CLUE(clue_identifier)` is the only operation a node may perform on investigative progress.**
 
-### 8.2 The governing invariant
+- A clue carries its own point value and class tags. There is no separate point award.
+- **Point totals are derived from the held clue set and are not independently mutable state.** No document may store, increment or decrement a point total.
+- **Clue acquisition is idempotent.** `GRANT_CLUE` on an already-held clue is a no-op with respect to points and classes. A clue reachable through several routes awards its value exactly once.
+- `GRANT_CLUE` writes to the acting player's private knowledge set. A joint-scene node writes to `SHARED_KNOWLEDGE_SET`. Regroup nodes `EVT_150` and `EVT_300` move clues from private sets into the shared set.
+- A conclusion evaluator reads the union of `SHARED_KNOWLEDGE_SET` and the evaluating player's private set.
 
-**A point may only be awarded by instantiating a clue.**
+This invariant does the work of four separate fixes: it eliminates the `P_ROOK +1 procedural` syntax that mixes an increment with an untracked class label; it makes every total auditable back to clue identifiers; it removes the need for a class-tracking variable, since diversity is read from the held set; and it makes duplicate awarding structurally impossible rather than a rule someone must remember.
 
-This single rule does most of the work:
+### 10.3 Maxima are computed, not declared
 
-- It eliminates the free-floating `P_ROOK +1 procedural` syntax used in `EVT_220`, `EVT_221` and `EVT_222`, which currently mixes an increment on a bounded integer with an untracked class label.
-- It makes every point total auditable back to a clue identifier, so the reachable maximum of any variable is computable rather than hand-maintained.
-- It removes the need for a separate class-tracking variable, because class diversity is read from the held clue set. This is why Decision 7 requires no new state.
+The maximum of a derived total equals the sum of the point values of all clues in its group. It is recorded in the register as a computed figure. Any mismatch between a declared threshold and the computed maximum is a validation failure rather than a silent inconsistency.
 
-### 8.3 Replacing declared ranges with computed maxima
+This retires the hand-maintained ranges in `LOGIC/01_WORLD_STATE_VARIABLES.md` § 2, at least three of which the node graph already appears to exceed.
 
-`LOGIC/01_WORLD_STATE_VARIABLES.md` § "2. Case progress variables" declares fixed ranges such as `0-3`. Those ranges are hand-maintained and at least three of them are already exceeded by the sum of the awards in the node graph: the staged, harbor and room-identification variables can each reach 4 against a declared maximum of 3, assuming their granting nodes are mutually reachable. Whether they are mutually reachable is currently unknowable because the graph has no edges, which is why this is stated as a potential overflow rather than a proven one.
+### 10.4 Affected files
 
-Under the new model the declared maximum of a point variable equals the sum of the point values of all clues in its group. It is a computed figure recorded in the register, and any mismatch is a validation failure rather than a silent inconsistency.
+| File | Section | Edit | Commit |
+|---|---|---|---|
+| `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` | § 1 and all groups | Restate as the clue register: identifier, class tags, point value, granting nodes, conclusion group, acquisition status | C5 |
+| `LOGIC/07_EVIDENCE_VALIDATION.md` | § "2. Conclusion thresholds" | Restate every threshold as point sum plus class diversity over the held clue set; supply the missing thresholds for room identification, code completion and Reed presence; declare `EVAL_*` identifiers | C5 |
+| `LOGIC/01_WORLD_STATE_VARIABLES.md` | § 2 | Replace the eight stored point variables with eleven derived totals and their computed maxima | C5 |
+| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | every **State changes** block | Replace point awards with `GRANT_CLUE(...)` | C5 |
+| `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` | § 3 | Reduce to conclusion-level narrative rationale; replace `CLU-0n` references with `CLUE_*`; move all counting to the logic layer | C5 |
+| `LOGIC/14_ENDING_TRIGGER_MATRIX.md` | §§ 4, 5 | Confirm accusation gates read conclusions, never raw totals | C5 |
 
-### 8.4 Affected files
+### 10.5 Side effects
 
-| File | Section | Edit |
-|---|---|---|
-| `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` | § 1 and all clue groups | Restate as the clue register: one row per clue with identifier, class or classes, point value, granting nodes, conclusion group. |
-| `LOGIC/07_EVIDENCE_VALIDATION.md` | § "2. Conclusion thresholds" | Restate every threshold as point sum plus class diversity over the clue set. Supply the missing thresholds for room identification, code completion and Reed presence. |
-| `LOGIC/01_WORLD_STATE_VARIABLES.md` | § 2 | Replace hand-declared ranges with computed maxima; add the three new point variables. |
-| `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | every node with a **State changes** block | Replace bare point awards with clue grants that carry point values. |
-| `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` | § 3 | Reduce to conclusion-level narrative rationale; move all counting to the logic layer. |
-| `LOGIC/14_ENDING_TRIGGER_MATRIX.md` | §§ 4, 5 | Confirm accusation gates read conclusions, never raw points. |
+- Computing maxima will change reachable ceilings and may invalidate thresholds in either direction. The Rook public threshold of 4 against three granting nodes is the known case.
+- Assigning a point value to 65 clues is a set of new design decisions that directly control difficulty. Ratification § 14.5.
+- `LOGIC/07_EVIDENCE_VALIDATION.md` § 2 currently mixes point gates and category gates. Unifying them changes at least the room-identification gate from a category rule to a numeric one, altering when it unlocks.
+- The medical conclusion is the only gate consistent across both systems today. Verify it survives unchanged, so the conversion can be demonstrated behaviour-preserving in at least one case.
+- Idempotence interacts with multi-route clues. `CLUE_PHOTO_WINDOW_MARKS` belongs to two conclusion groups; the register must make clear that it is one clue contributing to two groups, not two clues.
 
-### 8.5 Migration order position
+### 10.6 Validation
 
-Phase 5, after classes exist and after the variable register exists.
-
-### 8.6 Side effects
-
-- Recomputing maxima will change the reachable ceiling of several variables and may invalidate existing thresholds in either direction. The Rook public-accusation threshold of 4 against three declared granting nodes is the known case; there may be others that only appear once maxima are computed.
-- Converting 65 clue listings into a register with point values means assigning a point value to every clue for the first time. Those values are new design decisions, not transcriptions, and they directly control difficulty.
-- `LOGIC/07_EVIDENCE_VALIDATION.md` § 2 currently expresses some gates in points and others in clue categories. Unifying them will change at least the room-identification gate from a category rule to a numeric one, which alters when the conclusion unlocks.
-- The medical conclusion is the only gate currently consistent across both systems. Verify it survives the rewrite unchanged so the rewrite can be shown to be behaviour-preserving in at least one case.
-
-### 8.7 Validation
-
-Gates `V4`, `V7`, `V9`. Every point award traces to a clue; every clue has a point value; every declared maximum equals the computed sum; every conclusion threshold is satisfiable from clues that are reachable without circularity.
+Gates `V4`, `V7`, `V9` after C5.
 
 ---
 
-## 9. Decision 7 — Clue classes
+## 11. Decision 7 — Clue classes
 
-### 9.1 Canonical class set
+### 11.1 Canonical vocabulary and its single owner
 
-Six classes, taken from `LOGIC/07_EVIDENCE_VALIDATION.md` § "1. Proof classes", which is already correct and complete:
+Six classes, owned by **`LOGIC/07_EVIDENCE_VALIDATION.md` § "1. Proof classes"**, which is already correct and complete:
 
 `PHYSICAL`, `DIGITAL`, `TESTIMONIAL`, `PROCEDURAL`, `CONTEXTUAL`, `BEHAVIOURAL`
 
-### 9.2 Single ownership
+**No engine requirement is added and the engine version is not bumped.** Defining the vocabulary once in the adventure satisfies the accepted decision. Promoting it to the engine would edit `engine/00_ENGINE_SPECIFICATION_2.0.md`, force the duplicate-root-file question, and bump `engine_spec_version` — all churn the decision does not require.
 
-Two documents currently define the class list and disagree. `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` § "2. Clue classes" declares five and omits `DIGITAL`, while folding "recording" into `PHYSICAL`. `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` nevertheless tags clues as digital.
+`DO_NOT_READ/05_CLUE_ARCHITECTURE.md` § "2. Clue classes" currently declares five, omitting `DIGITAL` and folding "recording" into `PHYSICAL`. It is reduced to a marked non-authoritative pointer, and its `PHYSICAL` definition drops "recording". This lands in C1, as a canonical-ownership change.
 
-Ownership splits across two layers:
+### 11.2 Tagging and the diversity rule
 
-- The **engine** owns the requirement. `engine/00_ENGINE_SPECIFICATION_2.0.md` § "3.6 Clue redundancy" gains one sentence: an adventure MUST declare a closed clue-class set, and every clue MUST carry at least one class from it. The engine does not name the classes, because `engine/03_ARCHITECTURE.md` § "3.2 Engine Specification" forbids adventure content in the engine.
-- The **adventure** owns the vocabulary, in `LOGIC/07_EVIDENCE_VALIDATION.md` § 1. `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` § 2 is reduced to a pointer, and its definition of `PHYSICAL` drops "recording".
+All 64 baseline clues plus the one new passphrase clue carry at least one class. Twenty-one are tagged today, across §§ 2, 3 and 8. Forty-three are untagged while §§ 5, 7 and 8 already state class-diversity thresholds that cannot be evaluated without them.
 
-### 9.3 Tagging work
+Multi-class clues are permitted, and the existing `procedural/digital` and `testimonial/procedural` tags are retained. **How a multi-class clue counts toward diversity is ratification § 14.7**, because it determines whether a single clue can satisfy a three-class threshold alone. The counting rule must be stated explicitly in `LOGIC/07_EVIDENCE_VALIDATION.md` § 1 once ratified.
 
-All 64 distinct clues require at least one class. Currently only §§ 2, 3 and 8 of `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` carry tags, covering 21 clues. The remaining 43 are untagged while §§ 5, 7 and 8 already state class-diversity thresholds that cannot be evaluated without them.
+### 11.3 Affected files
 
-Multi-class clues are permitted; the existing `procedural/digital` and `testimonial/procedural` tags are retained. Class diversity counts distinct classes across the held set, and a multi-class clue contributes all of its classes. That counting rule must be stated explicitly, because it materially changes whether a three-class threshold is reachable.
+`LOGIC/07_EVIDENCE_VALIDATION.md` § 1 (vocabulary and counting rule) in C1; `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` § 2 (pointer) in C1; `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` (43 clues tagged) in C5; `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (ad-hoc class labels removed with the point awards) in C5.
 
-### 9.4 Affected files
+### 11.4 Side effects
 
-`LOGIC/07_EVIDENCE_VALIDATION.md` § 1 (canonical set, counting rule), `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` § 2 (reduced to a pointer), `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` (43 clues tagged), `engine/00_ENGINE_SPECIFICATION_2.0.md` § 3.6 (requirement added), `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (ad-hoc class labels removed from point awards).
+- Class assignment is a design act. A careless pass can silently make a three-class threshold unsatisfiable.
+- Restoring `DIGITAL` moves some clues currently reasoned about as physical, which may reduce diversity in groups that relied on the five-class reading.
+- Tagging and progress conversion share commit C5 because a clue's class and its point value are recorded in the same register row. Splitting them would leave the register half-populated between commits.
 
-### 9.5 Migration order position
+### 11.5 Validation
 
-Phase 1 for the vocabulary decision, Phase 5 for the tagging, because tags are recorded in the clue register that Decision 6 creates.
-
-### 9.6 Side effects
-
-- Editing `engine/00_ENGINE_SPECIFICATION_2.0.md` desynchronises the byte-identical root copy `00_ENGINE_SPECIFICATION_2.0.md`. See § 11.
-- Assigning classes to 43 clues is a design act. Class assignment determines which conclusions are reachable, so a careless tagging pass can silently make a three-class threshold unsatisfiable.
-- The `DIGITAL` restoration means some clues currently reasoned about as physical are digital, which may reduce class diversity in groups that relied on the five-class reading.
-
-### 9.7 Validation
-
-Gate `V7`. Exactly one class list exists in the repository; every clue carries at least one class from it; every class-diversity threshold is satisfiable by at least one reachable clue combination.
+Gate `V7` after C5.
 
 ---
 
-## 10. Decision 8 — Identifier namespaces
+## 12. Decision 5 — Core-to-investigation graph mapping
 
-### 10.1 Canonical scheme
+### 12.1 Deliverable
 
-**Mnemonic uppercase with a full-word prefix and underscore separators**, for example `CLUE_APT_SERVICE_LATCH`.
+A new file, `adventures/The_Last_Witness/DO_NOT_READ/LOGIC/16_EVENT_GRAPH_MAPPING.md`, in commit C8.
 
-Three schemes exist today: numeric-hyphen labels in the case documentation (`NPC-01`, `LOC-01`, `CLU-01`, `CON-01`, `RH-01`, `END-01`), mnemonic-underscore keys in the logic layer (`NPC_ELIAS`, `C_*`, `D_*`, `CON_*`, `END_*`), and numeric-underscore examples in the engine (`NPC_001`, `CLUE_008`, `DEC_103`, `CHK_022`, `END_005`).
+The core graph is retained as a backbone layer, not retired. `LOGIC/05_CORE_EVENT_GRAPH.md` § "Graph conventions" already frames itself that way and it holds the only cross-reference into `LOGIC/06_NPC_SCHEDULE_AND_PRIORITY.md`. Folding it into `10` would discard the backbone view and lose the record of which backbone elements were never implemented.
 
-Mnemonic wins on the criteria that apply to this repository. The entire Alpha 0.2b logic layer already uses it; the prototype is hand-authored, print-first and manually validated, with automated tooling explicitly deferred by `reviews/GEMINI_ARCHITECTURE_REVIEW_RESPONSE_0.3.md` § "CI/CD Graph Validation"; and migrating 64 clues plus every other identifier to opaque numbers before the first playtest is high-churn, high-error and low-value.
+### 12.2 Draft mapping
 
-One honest objection must be recorded. `engine/03_ARCHITECTURE.md` § "3.14 Internal IDs and public references" requires IDs to "survive renaming", and mnemonic keys embed display names, so `NPC_ELIAS` does not survive renaming the character. `LOGIC/00_ENTITY_KEY_TABLE.md` § "Purpose" justifies its keys on exactly the grounds its keys violate. The resolution is to amend § 3.14 to require that keys survive **display-name changes** and are frozen at creation, which is the property actually needed, and to accept that a key may become a historical misnomer if a character is renamed.
+Ratification § 14.3 covers every row below High confidence.
 
-Amending § 3.14 is not a reverse dependency. `engine/03_ARCHITECTURE.md` § "3.12 Dependency direction" prohibits engine rules from depending on adventure data; a generic prefix registry names no adventure content.
-
-### 10.2 Prefix registry
-
-To be added to `engine/03_ARCHITECTURE.md` § 3.14 as a closed, extensible-by-amendment list.
-
-| Prefix | Entity | Owner document |
-|---|---|---|
-| `NPC_` | Character | `LOGIC/00_ENTITY_KEY_TABLE.md` |
-| `LOC_` | Location | `LOGIC/00_ENTITY_KEY_TABLE.md` |
-| `ITEM_` | Item or evidence object | `LOGIC/00_ENTITY_KEY_TABLE.md` |
-| `CLUE_` | Clue | `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md` |
-| `CON_` | Conclusion | `LOGIC/00_ENTITY_KEY_TABLE.md` |
-| `RH_` | Red herring | `DO_NOT_READ/05_CLUE_ARCHITECTURE.md` |
-| `FACT_` | NPC-knowledge fact | `LOGIC/03_NPC_KNOWLEDGE_AND_DISCLOSURE.md` |
-| `ARC_` | Backbone arc | `LOGIC/05_CORE_EVENT_GRAPH.md` |
-| `EVT_` | Playable node | `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` |
-| `END_` | Ending family | `LOGIC/14_ENDING_TRIGGER_MATRIX.md` |
-| `VAR_` | State variable | `LOGIC/01_WORLD_STATE_VARIABLES.md` |
-| `DEC_`, `CHK_` | Decision, check | Reserved — no records exist yet |
-
-### 10.3 Complete migration table
-
-| Current form | Canonical form | Files | Count |
-|---|---|---|---:|
-| `C_*` | `CLUE_*` | `12`, `10`, `07` | 64 distinct |
-| `CLU-01`…`CLU-04` | merge into `CLUE_APT_*` | `05_CLUE_ARCHITECTURE.md` § `CON-01` | 4 |
-| `D_*` | `CON_*` | `12`, `14` | 13 |
-| `CON-01`…`CON-10` | `CON_*` | `05_CLUE_ARCHITECTURE.md` § 3 | 10 |
-| `CON_*` (10 existing) | `CON_*`, three split into tiers | `00_ENTITY_KEY_TABLE.md`, `05`, `10` | 10 → 13 |
-| `RH-01`…`RH-04` | `RH_*` | `05_CLUE_ARCHITECTURE.md` § 4 | 4 |
-| `NPC-01`…`NPC-10` | `NPC_*` | `03_CHARACTER_DATABASE.md` | 10 |
-| `LOC-01`…`LOC-10` | `LOC_*` | `04_LOCATION_DATABASE.md` | 10 |
-| `END-01`…`END-08` | `END_*` | `06_ENDING_FRAMEWORK.md` | 8 |
-| `EVT_nnn` (backbone) | `ARC_nnn` | `05` | 19 |
-| `EVT_nnn_NAME` | unchanged | `10` | 40 |
-| `P_*` | `VAR_PTS_*` | `01`, `05`, `07`, `10` | 8, plus 3 new |
-| `T_*` | `VAR_TRUST_*` | `01`, `10` | 6 → 3 after removals |
-| `NADIA_TRUST` | `VAR_TRUST_NADIA` | `03_CHARACTER_DATABASE.md` | 1 alias removed |
-| `A_*` | `VAR_AWARE_*` | `01`, `06`, `11` | 5 → 4 after removal |
-| `CLOCK` | `VAR_CLOCK` | `01`, `04` | 1 |
-| `*_STATE` | `VAR_STATE_*` | `01`, `10`, `11` | 5 → 11 after split and additions |
-| `P1_*`, `P2_*`, `SHARED_KNOWLEDGE_SET` | `VAR_SYNC_*` | `01`, `10`, `13` | 8 |
-| Ending variables | `VAR_END_*` | `01`, `06`, `14` | 13 → 11 after removals |
-
-The `VAR_` prefix with a domain segment resolves four defects at once: the collision between `P_` for progress and `P1_`/`P2_` for players; the `NADIA_TRUST` versus `T_NADIA` alias; the ending-variable name drift between `01` § 9 and `06`; and the un-prefixed `APT_STATE`, `ELIAS_STATE` and `CLOCK`.
-
-### 10.4 Execution method
-
-A single mechanical pass, longest-identifier-first to prevent partial-token corruption. `C_` and `D_` are dangerous: they are short, and `D_` is a substring of nothing but `C_` appears inside ordinary words. Every replacement must be anchored on a word boundary and confirmed against the published table rather than applied as a free-text substitution.
-
-Migration is executed once, in one revision. A partially migrated repository is worse than either endpoint because it looks consistent while being ambiguous.
-
-### 10.5 Affected files
-
-Every markdown file in `adventures/The_Last_Witness/`, plus `engine/03_ARCHITECTURE.md` § 3.14, plus `LOGIC/00_ENTITY_KEY_TABLE.md` throughout.
-
-### 10.6 Migration order position
-
-Phase 3, after the disposition tables from Decision 4 are agreed so that doomed identifiers are never renamed, and before Decisions 2, 3, 5 and 6 author new content, so all new content is written in final names.
-
-### 10.7 Side effects
-
-- Every identifier in every external draft, note or in-flight review becomes stale in one commit. This is unavoidable and is the reason for the single-pass rule.
-- Splitting three conclusions into tiers changes the conclusion count from 10 to 13 and requires `LOGIC/00_ENTITY_KEY_TABLE.md` § "Conclusions" to gain three rows.
-- `LOGIC/00_ENTITY_KEY_TABLE.md` § "Event key ranges" describes one numeric space for events; it must be restated for two namespaces.
-- The ambiguous inline reference to `06_ENDING_FRAMEWORK.md` in `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` § 14 is a basename that reads as if it points inside `LOGIC/`, where a different file occupies that number. Disambiguate it during this pass.
-- Twelve entity keys are referenced only in `LOGIC/00_ENTITY_KEY_TABLE.md`. Five of them are gameplay objects that the clue graph reasons about under other names, and those are worth reconciling during the rename: the archive photograph duplicate, the transit card, the carrier log, the payment record and the ambulance authorisation. The remaining unreferenced keys are secondary characters and abstract zones; leave them unless the register work shows they are needed.
-
-### 10.8 Validation
-
-Gates `V1` and `V2`. Every identifier matches the registry; no identifier from a superseded scheme survives; every identifier resolves to exactly one register entry; no register entry is unreferenced except where deliberately reserved.
-
----
-
-## 11. Global migration order
-
-Phases are strictly ordered. Each phase must pass its gates before the next begins.
-
-| Phase | Work | Decisions | Rationale for position |
+| Backbone | Investigation nodes | Relationship | Confidence |
 |---|---|---|---|
-| **P0** | Baseline inventory; record the counts in § 2; decide the handling of the eight byte-identical root duplicates | — | Read-only. Establishes denominators. |
-| **P1** | Upper-layer canon: engine prefix registry and § 3.14 amendment; clue-class requirement in engine § 3.6; World Bible passphrase fact with version change; clue-class vocabulary single-sourced | 7, 8, 1 (fact only) | `engine/03_ARCHITECTURE.md` § 3.12 requires upper layers to settle first. |
-| **P2** | Author the Variable Disposition Table and the Identifier Migration Table as specifications; skeleton the clue and node registers | 4, 8 | Paper exercise. Prevents renaming identifiers that are about to be deleted. |
-| **P3** | Execute the mechanical rename and the variable deletions in one pass | 8, 4 (removals) | Single-pass rule. All later authoring uses final names. |
-| **P4** | Wire writers and readers; bind one variable per state machine; split the terminal-exterior variable; create the four missing location variables | 4 | Requires final names. Precedes the progress model because points are variables. |
-| **P5** | Rebuild the progress model; tag all 64 clues; restate every threshold | 6, 7 | Requires classes and variables. |
-| **P6** | Author the passphrase routes, clues, conclusion, thresholds and failure transformation | 1 | Requires the clue register to exist. |
-| **P7** | Add `NODE_TYPE` to 40 nodes; author `Outgoing` for 37; create 8 terminal ending nodes | 2, 3 | Last authoring phase, because edges must point at a final node set including the passphrase nodes. |
-| **P8** | Publish the backbone mapping | 5 | Requires the final node set. |
-| **P9** | Consistency sweep and full validation gate | all | — |
-| **P10** | Version bump, changelog entry, README status correction | — | Records the revision. |
+| `ARC_100` Nadia's briefing | `EVT_100` | 1:1 | High |
+| `ARC_110` First split decision | Absorbed into the **Decision** block of `EVT_100`; realised by `EVT_110`, `EVT_120` | Absorbed | Medium |
+| `ARC_120` Apartment cluster | `EVT_110`, `EVT_111`, `EVT_112`, `EVT_113`, `EVT_114`, `EVT_115` | Expanded 1:6 | High |
+| `ARC_130` Newsroom cluster | `EVT_120`, `EVT_121`, `EVT_122`, `EVT_123` | Expanded 1:4 | High |
+| `ARC_140` Café cluster | `EVT_211` | Relocated, opening block to midgame | Low — § 12.4 |
+| `ARC_170` First synchronization gate | `EVT_150` | 1:1, renumbered | High |
+| `ARC_200` Rook pressure | `EVT_223` | Partial | Medium |
+| `ARC_210` Reed office opportunity | `EVT_242` | 1:1 | High |
+| `ARC_220` Iris trail | `EVT_230`, `EVT_231`, `EVT_232` | Expanded 1:3 | High |
+| `ARC_230` Marcus disclosure ladder | `EVT_240`, `EVT_241` | Expanded 1:2 | High |
+| `ARC_240` Mina evidence preservation | `EVT_220`, partly `EVT_400` | Partial, split | Medium |
+| `ARC_270` Second synchronization gate | `EVT_300` | 1:1, renumbered | High |
+| `ARC_300` Terminal route selection | `EVT_310`–`EVT_314` | Expanded 1:5 | High |
+| `ARC_320` Off-screen hostile convergence | `EVT_420`, `EVT_801`–`EVT_804` | Split across documents | Medium |
+| `ARC_340` Signal Room discovery | `EVT_330`, `EVT_331` | Expanded 1:2, renumbered | High |
+| `ARC_400` Trusted rescue validation | `EVT_400` | 1:1 | High |
+| `ARC_420` Evidence transfer | `EVT_410`, `EVT_430` | Expanded 1:2 | High |
+| `ARC_440` Final accusation | `EVT_440` | 1:1 | High |
+| `ARC_900` Ending resolution | `EVT_900` plus eight terminal nodes | Expanded 1:9 | High |
 
-Decisions 2 and 3 must ship in the same revision. Declaring every node `INTERMEDIATE` while 36 of them have no successor asserts something false more loudly than the current silence.
+Additions with no backbone origin: `EVT_210`, `EVT_212`, `EVT_221`, `EVT_222`, `EVT_243`.
 
-### 11.1 Cross-cutting side effect: the root duplicates
+Unimplemented backbone elements, recorded with a reason: the fixed no-later-than-22:10 trigger of `ARC_200`; the 21:45 Nadia ferry-infrastructure failsafe inside `ARC_170`.
 
-Eight root-level files are byte-identical to canonical files elsewhere: `README (1).md`, `README (2).md`, `README (3).md`, `DOCUMENT_TEMPLATE.md`, `EVENT_TEMPLATE.md`, `ISSUE_TEMPLATE.md`, `STYLE_GUIDE.md`, and `00_ENGINE_SPECIFICATION_2.0.md`. A ninth, `README (4).md`, is a stale non-identical fork.
+### 12.3 Affected files
 
-Phase 1 edits `engine/00_ENGINE_SPECIFICATION_2.0.md` for the clue-class requirement. The moment that edit lands, the root copy silently diverges and the repository has two engine specifications with different content and no marked precedence.
+New `LOGIC/16_EVENT_GRAPH_MAPPING.md`; `LOGIC/05_CORE_EVENT_GRAPH.md` (purpose statement; the prefix change itself lands in C3); `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` (back-reference per node). All in C8.
 
-Deduplication is not among the accepted decisions, so this plan does not mandate it. It does mandate a decision at P0: either deduplicate, or mark the root copies as non-authoritative in place. Doing neither is not available, because Phase 1 makes the divergence real.
+### 12.4 Side effects
+
+- The `ARC_140` row records a semantic change, not a clean expansion. `DO_NOT_READ/02_MASTER_TIMELINE.md` § `### 20:05` assigns Café Orpheus to Player 2 as a starting lead; the investigation graph moves it to the midgame harbor branch. The mapping must not paper over this. Either the timeline changes or the node moves back.
+- Formalising "unimplemented" turns previously invisible gaps into tracked debt the next revision must implement or delete. That is the intent.
+
+### 12.5 Validation
+
+Gate `V6` after C8.
 
 ---
 
-## 12. Validation gate
+## 13. Validation gates
 
-Every gate must pass before the revision is considered complete. Validation is manual for this revision; `reviews/GEMINI_ARCHITECTURE_REVIEW_RESPONSE_0.3.md` § "CI/CD Graph Validation" already defers automation until after the first adventure graph exists, which this revision produces.
+Run after every commit, not only at P10. Each decision section names the subset that must pass before the next commit is authored.
 
 | Gate | Check | Pass criterion |
 |---|---|---|
-| `V1` | Identifier resolution | Every identifier in the adventure matches the prefix registry and resolves to exactly one register entry. |
-| `V2` | Orphans | No identifier is declared and never referenced, except registry-reserved prefixes. No identifier is referenced and never declared. |
-| `V3` | Node declaration | All 48 nodes carry exactly one `NODE_TYPE`. Every `TERMINAL` carries exactly one `TERMINAL_TYPE`. No `INTERMEDIATE` carries one. |
-| `V4` | Variable wiring | Every variable has at least one writer and at least one reader. Every state machine has exactly one variable. |
-| `V5` | Reachability | Every `Outgoing` target exists. Every terminal node is reachable from `EVT_100_SHARED_BRIEFING` in at least one declared play mode. No node is unreachable in every mode. |
-| `V6` | Backbone mapping | Every `ARC_` maps to at least one `EVT_` or carries an explicit unimplemented status with a reason. Every `EVT_` maps to an `ARC_` or carries an addition status. |
-| `V7` | Clue integrity | Every clue has at least one class from the single canonical set, a point value, and at least one granting node. |
-| `V8` | Time integrity | Every node declares a time cost. No authored path exceeds its declared window. **This gate is currently blocked** by the unresolved conflict between `LOGIC/04_TIME_COST_MATRIX.md` § 3 and `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 4, and by the absence of declared maximum split-window durations. Record the block rather than passing the gate by assumption. |
-| `V9` | Solvability | Every conclusion threshold is satisfiable from clues reachable without circularity. Every mandatory factor has at least two independent routes or an authored degraded outcome. The passphrase specifically has two routes, one obtainable before 01:00. |
-| `V10` | Single source | No fact has two authoritative homes. Ending triggers exist only in `14`; node identity only in `10`; narrative outcome only in `06`; clue classes only in `07` § 1. |
+| `V1` | Identifier resolution | Every identifier matches the prefix registry and resolves to exactly one register entry. |
+| `V2` | Declaration status | Every declared identifier carries exactly one status: `ACTIVE`, `DEFINITION_ONLY`, `RESERVED` or `DEPRECATED`. Every `ACTIVE` identifier is referenced at least once. `DEFINITION_ONLY`, `RESERVED` and `DEPRECATED` identifiers may be unreferenced. No identifier is referenced without being declared. |
+| `V3` | Node declaration | Every node has exactly one `NODE_TYPE`. Every `TERMINAL` node has exactly one `TERMINAL_TYPE` from the approved set. Every `TERMINAL` node declares `Outgoing: None`. No `INTERMEDIATE` node declares a `TERMINAL_TYPE`. Every `INTERMEDIATE` node declares at least one valid target. |
+| `V4` | Writer and reader resolution | Every variable has at least one writer that is not `INIT` and at least one reader. Every writer and reader resolves to a declared node (`EVT_*`), transition (`TR_*`, `CLK_*`), initialization source (`INIT`), or evaluator (`EVAL_*`). |
+| `V5` | Reachability | Every `Outgoing` target exists. Every terminal node is reachable from `EVT_100` in at least one declared play mode. No player-facing node is unreachable in every mode. Off-screen `EVT_8xx` nodes are excluded. |
+| `V6` | Backbone mapping | Every `ARC_*` maps to at least one `EVT_*` or carries an explicit unimplemented status with a reason. Every `EVT_*` maps to an `ARC_*` or carries an addition status. No identifier appears in both namespaces. |
+| `V7` | Clue integrity | Every clue has at least one class from the single canonical set, a point value, and at least one granting node or a `DEFINITION_ONLY` status. Clue acquisition is idempotent: a clue reachable by several routes contributes its value exactly once, and no document stores a mutable point total. |
+| `V8` | Time integrity | **DEFERRED.** Its blockers — the leftover-time conflict between `LOGIC/04_TIME_COST_MATRIX.md` § 3 and `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 4, and the absence of declared maximum split-window durations — are out of scope for this revision. Recorded as deferred, not passed. Promoting it to a required gate requires moving those blockers into scope. |
+| `V9` | Solvability | Every conclusion threshold is satisfiable from clues reachable without circularity, **and remains satisfiable after class assignment**. Every mandatory factor has at least two independent routes or an authored degraded outcome. Independent routes share no mandatory predecessor node. The passphrase has two routes, one obtainable before 01:00. |
+| `V10` | Single source | Every fact has exactly one authoritative owner. Summaries and cross-references are permitted and must be explicitly marked non-authoritative. Ending triggers are owned by `14`; node identity and edges by `10`; narrative outcome by `06`; clue classes by `07` § 1. |
+| `V11` | Ending-trigger precedence | The trigger conditions of the eight ending families are either provably mutually exclusive, or a deterministic priority order is declared in `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § 1 and every reachable combination resolves to exactly one ending. |
 
 ---
 
-## 13. Out of scope
+## 14. Ratifications
 
-These are known open items that this revision does not address. They are listed so the next scope decision starts from a complete picture.
+**Status remains `In Review` until this section is empty.** Each item must be resolved and recorded in commit C0 before P1 begins.
 
-- **Solo mode.** Required by `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` §§ 1 and 8 and by `adventures/The_Last_Witness/PROTOTYPE_BRIEF.md`, implemented nowhere. Affects gate `V5`, which must be evaluated per mode.
-- **Split-window durations and the parallel-action conflict.** Blocks gate `V8`.
-- **Complexity budget overruns.** Locations, clue count and ending count exceed the targets in `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § 4. These are design targets, not MUST rules, and Decision 6 will make the clue count precise for the first time.
+1. **`END_SILENT_TERMINAL` terminal type.** `CHARACTER_DEATH` or `TIME_EXPIRED`. Turns on whether `CHARACTER_DEATH` covers a non-player character; Elias is an NPC in every configuration. `engine/03_ARCHITECTURE.md` § 3.18 calls the list "Recommended", so extension is permitted, but adding a type is an engine change and would reopen § 1.2.
+2. **Split-branch terminator vocabulary.** Whether `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT`, `TERMINAL_OUTCOME` are in scope for C7. Inferred from an existing engine MUST, not from the literal accepted decision.
+3. **Low and Medium confidence mapping rows.** `ARC_110`, `ARC_140`, `ARC_200`, `ARC_240`, `ARC_320`. The café relocation is the one with a content consequence.
+4. **Passphrase as a fifth solution chain.** Whether `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" gains a chain or the passphrase remains a sub-step of Chain B.
+5. **Point values.** All 64 baseline clues and the one new passphrase clue. These are design decisions that set difficulty, not transcriptions.
+6. **Duplicate-root-file policy.** Deduplicate, or mark the eight byte-identical root copies non-authoritative in place. **Urgency is now low:** this revision edits no engine file, so no root copy diverges. The decision is precautionary rather than forced, and may be deferred to a later revision if recorded as such.
+7. **Multi-class clue diversity behaviour.** Whether a clue tagged `procedural/digital` contributes one class or two toward a diversity threshold. Determines whether a single clue can satisfy a three-class gate alone.
+8. **Ending-trigger precedence.** Mutual exclusivity or a declared priority order. Required by `V11`.
+9. **Umbrella conclusion identifiers.** Whether `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` survive alongside their tiered pairs, are marked `DEPRECATED`, or are retired. They have no `D_*` twin, so C3 leaves them untouched and the question must be answered before C5 restates thresholds.
+10. **Route A classification.** Decision 1 requires "two independent acquisition routes". Route A unlocks a recovery workflow rather than acquiring the passphrase. Confirm that one acquisition plus one costed bypass satisfies the decision, or require Route A to be reclassified.
+
+---
+
+## 15. Out of scope
+
+Recorded so the next scope decision starts from a complete picture.
+
+- **Solo mode.** Required by `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` §§ 1 and 8 and by `PROTOTYPE_BRIEF.md`, implemented nowhere. `V5` is evaluated per declared mode because of this.
+- **Split-window durations and the parallel-action conflict.** The reason `V8` is deferred.
+- **Complexity budget overruns.** Location, clue and ending counts exceed the targets in `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § 4. Those are design targets, not MUST rules, and C5 makes the clue count precise for the first time.
 - **Two-player delivery model.** `engine/03_ARCHITECTURE.md` § 3.15 requires a declared model; none is declared.
 - **Scene-mode declarations.** `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 3 requires every scene to declare Joint, Split or Solo.
-- **Engine chapter plan divergence.** `engine/README.md` reserves chapters 4 and 5 for content that does not exist, while different content occupies those numbers.
-- **Root duplicate files.** A P0 decision is required, per § 11.1, but deduplication itself is not mandated here.
-- **Stale version statements.** `README.md`, `adventures/The_Last_Witness/README.md` and `PLAYER/README.md` all lag the changelog. P10 corrects only what this revision changes.
-
-## 14. Items requiring ratification before implementation
-
-Implementation must not begin on these until a decision is recorded.
-
-1. Terminal type for `END_SILENT_TERMINAL`, and whether `CHARACTER_DEATH` covers a non-player character (§ 4.3).
-2. Whether the split-branch terminator vocabulary from `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 5 is in scope for Decision 3 (§ 5.3).
-3. The backbone mapping rows marked Low or Medium confidence, in particular the café relocation (§ 7.4, § 7.6).
-4. Whether the passphrase becomes a fifth solution chain in `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" (§ 3.7).
-5. Point values for all 64 clues, which are new design decisions and control difficulty (§ 8.6).
-6. Handling of the root duplicate files (§ 11.1).
+- **Engine chapter plan divergence.** `engine/README.md` reserves chapters 4 and 5 for content that does not exist.
+- **All engine edits.** This revision touches no file under `engine/`. The prefix registry and the clue-class vocabulary are both adventure-local.
+- **Stale version statements beyond this revision.** C9 corrects only what this revision changes.
