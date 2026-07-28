@@ -6,6 +6,102 @@ This is a separate file rather than an entry in the repository's `CHANGELOG.md`,
 
 ---
 
+## v2.3 — 2026-07-28
+
+Specification update. Resolves the four ratifications that blocked P6 and P7. No architecture redesigned, no completed implementation changed, no repository file touched, no implementation work added.
+
+After this revision **one ratification remains open, § 14.3, which blocks P8 only.** It was not in the list this revision was scoped to resolve.
+
+### Ratifications resolved
+
+#### § 14.1 `END_SILENT_TERMINAL` terminal type — RESOLVED
+
+**Decision.** `TIME_EXPIRED`.
+
+**Governing rule.** A terminal type classifies why the branch terminates, not what happens to a character. A character's fate is narrative outcome, owned by `06_ENDING_FRAMEWORK.md`, and Elias's medical state is read from `ELIAS_STATE`.
+
+**Rationale.** Both owning documents state the trigger temporally: `14_ENDING_TRIGGER_MATRIX.md` § 6 gives "Elias not found or not rescued in time" and `06_ENDING_FRAMEWORK.md` § END-06 gives "players fail to locate Elias in time". `TIME_EXPIRED` names the cause the trigger tests; `CHARACTER_DEATH` names a consequence it does not test. `CHARACTER_DEATH` in a two-player investigator gamebook also reads as a player-character terminal, and `01_WORLD_BIBLE.md` § 13 casts both players as investigators with Elias as the witness, so spending the type on an NPC would make it ambiguous the first time a player character can die. Adding a seventh type is unavailable: `engine/03_ARCHITECTURE.md` § 3.18 permits extension but that is an engine edit, which § 15 excludes and § 1.2 forecloses.
+
+| # | Section | Modification | Reason |
+|---|---|---|---|
+| 1 | § 14.1 | Replaced the open question with the decision, the governing rule and the rationale | — |
+| 2 | § 6.2 | `END_SILENT_TERMINAL` row set to `TIME_EXPIRED`, confidence High | The table carried the unresolved alternatives |
+| 3 | § 6.2 | `END_EVIDENCE_WITHOUT_WITNESS` confidence Medium → High | The same governing rule discharges it. Its trigger is evidence-based, not temporal, and Elias's death is narrative outcome. No row in § 6.2 is now below High |
+
+#### § 14.2 Split-branch terminator vocabulary — RESOLVED
+
+**Decision.** Out of scope for C7. The five terminators are not declared in this revision; the item is deferred and recorded in § 15.
+
+**Rationale.** Accepted decision 3 requires `Outgoing` declarations and `Outgoing: None` on terminals, nothing more; § 7.3 already described the vocabulary as an inference from `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 5. It belongs to a cluster this revision already defers — scene-mode declarations, split-window durations and the `V8` blockers — and declaring one member while its siblings stay out would produce split-phase declarations that still cannot be validated end to end. C7 remains complete without it, since `V3` and `V5` test node type, terminal type, `Outgoing: None`, target existence and reachability, none of which reference the vocabulary.
+
+| # | Section | Modification | Reason |
+|---|---|---|---|
+| 4 | § 14.2 | Replaced the open question with the decision and rationale | — |
+| 5 | § 7.3 | Recorded the out-of-scope resolution and that `V3` and `V5` validate C7 without the vocabulary | § 7.3 described the item as an open decision |
+| 6 | § 7.4 | Removed the conditional `13_SPLIT_AND_REGROUP_FLOW.md` row | Its condition resolved false. C7 now touches three files |
+| 7 | § 15 | Added the terminator vocabulary as a deferred item, grouped with the three siblings it shares a cluster with | Deferral must be recorded, not silent |
+
+#### § 14.4 Passphrase as a fifth solution chain — RESOLVED
+
+**Decision.** No fifth chain and no Chain B sub-step. `00_CASE_OVERVIEW.md` § "Fair solution" is not edited and stays outside C6's scope.
+
+**Rationale.** The four chains are deduction chains — each names a conclusion the players must infer. The passphrase is an access factor obtained by a route, like the hardware key, which is also absent from that section. Chain B is specifically about locating the destination, so filing an access factor there would misdescribe it. The section is a non-authoritative summary under `V10` and the canonical facts already landed in C2. Omission also keeps the section's own sentence true: "at least three independent chains".
+
+| # | Section | Modification | Reason |
+|---|---|---|---|
+| 8 | § 14.4 | Replaced the open question with the decision and rationale | — |
+| 9 | § 5.8 | Fourth bullet restated as resolved, recording that the file is not edited | The bullet described an open decision gating C6 |
+
+#### § 14.8 Ending-trigger precedence — RESOLVED
+
+**Decision.** A deterministic priority order, declared in `14_ENDING_TRIGGER_MATRIX.md` § 1 by C7. Families are tested top to bottom, first match wins, and any other satisfied family is recorded as a § 8 modifier rather than a second ending.
+
+**Rationale.** Mutual exclusivity is not available: the § 6 conditions overlap by construction. `END_SILENT_TERMINAL` and `END_EVIDENCE_WITHOUT_WITNESS` can both hold when Elias dies; `END_PUBLIC_LEAK` can hold alongside `END_LIFE_SAVED_TRUTH_DELAYED`; `END_WRONG_ACCUSATION` is a player act independent of rescue and transfer. Proving exclusivity would mean rewriting eight trigger conditions, which is a redesign. The order chosen follows the eight-step resolution order already declared in § 1 of that document — medical, transfer, rescue controller, proof, accusation — so the ranking is derived rather than invented.
+
+| # | Section | Modification | Reason |
+|---|---|---|---|
+| 10 | § 14.8 | Replaced the open question with the decision, the reason exclusivity is unavailable, the eight-rank order and the rule text C7 writes | `V11` tests the final sentence of that rule text |
+| 11 | § 6.3 | Added a C7 row for `14_ENDING_TRIGGER_MATRIX.md` § 1 covering the priority order | C7's file table had no row for it |
+| 12 | § 6.4 | Side effect on overlapping triggers restated as resolved | It described the item as open |
+
+### Map, record and audit updates
+
+| # | Section | Modification | Reason |
+|---|---|---|---|
+| 13 | § 14 map | § 14.1, § 14.2, § 14.4 and § 14.8 changed from `OPEN` to `RESOLVED` | — |
+| 14 | § 14 map | "Phases clear to enter" rewritten: P0 through P7 plus P9 and P10; P8 the only blocked phase | The § 3.2 gate reads this line |
+| 15 | § 12.2 | Recorded that § 14.3 is still `OPEN`, that it is why P8 cannot be entered, and that it is the only remaining open item | The line previously read as one open item among several |
+| 16 | § 16.2 | Added four rows recording the resolutions and their one-line rationale | § 16.2 is the C0 ratification record |
+| 17 | § 16.3 | Open list reduced from five items to one, § 14.3 | — |
+| 18 | § 16.4 | Updated to P0 through P7 clear, P8 the only blocked phase | — |
+| 19 | § 16.5 | **New: phase readiness audit.** Every phase P0–P10 against its ratification requirements | Requested verification. Makes the single remaining block explicit per phase |
+| 20 | § 16.6 | **New: validation gate assignment audit.** Every gate `V1`–`V11` against the phase that runs it | Requested verification. Shows `V8` as the only gate with no phase, deliberately |
+| 21 | § 16.7 | **New: unresolved dependency audit.** Records that only P8 depends on an unresolved decision, and that P10 inherits the block only by running last | Requested verification |
+| 22 | Frontmatter | `version` 2.2 → 2.3 | `status` remains `In Review`; § 14.3 is still `OPEN`, so the § 1 condition for `Approved` is unmet |
+
+### Verification performed on v2.3
+
+| Check | Result |
+|---|---|
+| Map statuses match the ten subsection headings | Pass. Eight carry `— RESOLVED`; § 14.3 is `OPEN`; § 14.6 is `DEFERRABLE` |
+| § 14 map, § 16.2, § 16.3, § 16.4 and § 16.5 agree | Pass. One open item in every list, P8 the only blocked phase in every statement |
+| No section still describes § 14.1, § 14.2, § 14.4 or § 14.8 as open | Pass. Zero matches for the previous "Ratification § 14.x decides" phrasing |
+| § 6.2 has no row below High confidence | Pass. All eight rows High |
+| Remaining Low and Medium rows are confined to § 12.2 | Pass. Four Medium and one Low, all backbone mapping rows, all covered by the still-open § 14.3 |
+| Every phase has its ratifications resolved | Fail by design for P8 only. See § 16.5 |
+| Every gate has an assigned phase | Pass except `V8`, deliberately `DEFERRED`. See § 16.6 |
+| Section numbering sequential | Pass |
+
+### Not changed
+
+- Any completed implementation. No repository file was touched.
+- The eight accepted decisions, the phase order P0–P10, the nine canon commits and their boundaries.
+- The variable register in § 9.4, `GRANT_CLUE` semantics in § 10.2, the rename scope in § 8.2.
+- Gates `V1`–`V11`, including the `V8` deferral.
+- § 14.3, which this revision was not scoped to resolve, and § 14.6, which stays `DEFERRABLE`.
+
+---
+
 ## v2.2 — 2026-07-28
 
 Specification update. Resolves the three ratifications that blocked P5, and folds the documentation inconsistencies recorded in `IMPLEMENTATION_REPORT_P0_P4.md` back into the plan. No completed implementation work was modified, no architecture redesigned, no earlier phase changed, and no implementation work added.

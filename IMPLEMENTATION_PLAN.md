@@ -1,6 +1,6 @@
 ---
 title: Implementation Plan — Next Repository Revision
-version: 2.2
+version: 2.3
 status: In Review
 depends_on:
   - docs/STYLE_GUIDE.md
@@ -226,7 +226,7 @@ Neither route obtained means no primary-archive access. This must not deadlock. 
 - The best ending becomes strictly harder. `END_WITNESS_SPEAKS` now requires Route B specifically, because Route A caps authentication at partial. This is a difficulty change, not only a consistency fix.
 - Route B closes at 01:00, so late runs are capped at partial-authentication transfer even on perfect play thereafter. That is intended, but it must be visible to the maintainer before C6 lands.
 - `LOGIC/04_TIME_COST_MATRIX.md` § "2. Investigation action costs" has no entry for the reset workflow. C6 must add one, or `EVT_430` cannot cost it.
-- `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" lists four chains and does not mention the passphrase. Ratification § 14.4 decides whether it gains a fifth. That section is a non-authoritative summary under `V10`, so the question gates only C6 and does not affect the canonical facts written in C2.
+- `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" lists four chains and does not mention the passphrase. § 14.4 resolves this: no fifth chain and no sub-step of Chain B, because the four chains are deductions and the passphrase is an access factor. The file is not edited and stays outside C6's scope.
 
 ### 5.9 Validation
 
@@ -251,11 +251,11 @@ The eight families in `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § 6 have no node iden
 | Ending family | Proposed `TERMINAL_TYPE` | Confidence |
 |---|---|---|
 | `END_WITNESS_SPEAKS` | `VICTORY` | High |
-| `END_EVIDENCE_WITHOUT_WITNESS` | `PARTIAL_SUCCESS` | Medium |
+| `END_EVIDENCE_WITHOUT_WITNESS` | `PARTIAL_SUCCESS` | High — resolved by the governing rule in § 14.1 |
 | `END_LIFE_SAVED_TRUTH_DELAYED` | `PARTIAL_SUCCESS` | High |
 | `END_PROTECTIVE_CUSTODY` | `NARRATIVE_FAILURE` | High |
 | `END_PUBLIC_LEAK` | `PARTIAL_SUCCESS` | High |
-| `END_SILENT_TERMINAL` | `CHARACTER_DEATH` or `TIME_EXPIRED` | Low — ratification § 14.1 |
+| `END_SILENT_TERMINAL` | `TIME_EXPIRED` | High — resolved in § 14.1 |
 | `END_WRONG_ACCUSATION` | `CASE_UNRESOLVED` | High |
 | `END_FRACTURED_TRUTH` | `PARTIAL_SUCCESS` | High |
 
@@ -267,6 +267,7 @@ The eight families in `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § 6 have no node iden
 | `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | all 40 nodes | Add `NODE_TYPE: INTERMEDIATE` | C7 |
 | `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § "14. Ending dispatch" | Add eight terminal nodes with ratified types | C7 |
 | `LOGIC/14_ENDING_TRIGGER_MATRIX.md` | § 6 | Add node identifier and terminal type per family; triggers stay here | C7 |
+| `LOGIC/14_ENDING_TRIGGER_MATRIX.md` | § 1 | Declare the ending-family priority order and the first-match-wins rule from § 14.8 | C7 |
 | `DO_NOT_READ/06_ENDING_FRAMEWORK.md` | `END-01`…`END-08` | Reduce to narrative outcome text plus a marked non-authoritative pointer to the trigger owner | C7 |
 
 ### 6.4 Side effects
@@ -274,7 +275,7 @@ The eight families in `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § 6 have no node iden
 - Ending content lives in three files. Ownership is fixed in C1 and enforced by `V10`: triggers in `14`, node identity and edges in `10`, narrative outcome in `06`. Summaries and cross-references remain permitted provided they are marked non-authoritative.
 - `END_FRACTURED_TRUTH` requires two players per `06_ENDING_FRAMEWORK.md` § "END-08". Once it is a node, reachability is mode-dependent, which is why `V5` is evaluated per declared play mode.
 - Declaring 40 nodes `INTERMEDIATE` asserts every one has a successor. That is false until the edges land, which is why Decisions 2 and 3 share commit C7.
-- Eight terminal nodes make overlapping ending triggers reachable simultaneously. Ratification § 14.8 and gate `V11` address precedence.
+- Eight terminal nodes make overlapping ending triggers reachable simultaneously. § 14.8 resolves this with a deterministic priority order, written into `14_ENDING_TRIGGER_MATRIX.md` § 1 by C7 and tested by `V11`.
 
 ### 6.5 Validation
 
@@ -300,7 +301,7 @@ Total: 40 existing nodes normalised, 8 new terminal nodes authored.
 
 `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § "5. No Free Asynchronous Drift" requires every split branch to terminate in `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT` or `TERMINAL_OUTCOME`. None appears in the adventure.
 
-This is an inference from an existing engine MUST, not part of the literal accepted decision. Ratification § 14.2 decides whether it is in scope for C7.
+This is an inference from an existing engine MUST, not part of the literal accepted decision. § 14.2 resolves it **out of scope for C7**: the vocabulary is not declared in this revision, and the item is deferred and recorded in § 15. C7 therefore authors `Outgoing` without split-branch terminators, which `V3` and `V5` validate without reference to them.
 
 ### 7.4 Affected files
 
@@ -312,7 +313,6 @@ This is an inference from an existing engine MUST, not part of the literal accep
 | `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | 36 remaining nodes | Author `Outgoing` | C7 |
 | `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | 8 terminal nodes | `Outgoing: None` | C7 |
 | `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` | § "15. Graph integrity rules" | Restate as checkable assertions over the explicit edge set | C7 |
-| `LOGIC/13_SPLIT_AND_REGROUP_FLOW.md` | §§ 2, 4, 7 | Declare node membership per split phase, if § 14.2 is ratified in scope | C7 |
 
 ### 7.5 Side effects
 
@@ -739,7 +739,7 @@ The core graph is retained as a backbone layer, not retired. `LOGIC/05_CORE_EVEN
 
 ### 12.2 Draft mapping
 
-Ratification § 14.3 covers every row below High confidence.
+Ratification § 14.3 covers every row below High confidence and is still `OPEN`, which is why P8 cannot be entered. It is the only remaining open item in the plan.
 
 | Backbone | Investigation nodes | Relationship | Confidence |
 |---|---|---|---|
@@ -810,34 +810,63 @@ Each item is required by a specific phase. Per § 3.2, an `OPEN` item blocks onl
 
 | § | Item | Required by | Status |
 |---|---|---|---|
-| 14.1 | `END_SILENT_TERMINAL` terminal type | P7 (C7) | OPEN |
-| 14.2 | Split-branch terminator vocabulary | P7 (C7) | OPEN |
+| 14.1 | `END_SILENT_TERMINAL` terminal type | P7 (C7) | RESOLVED |
+| 14.2 | Split-branch terminator vocabulary | P7 (C7) | RESOLVED |
 | 14.3 | Low and Medium confidence mapping rows | P8 (C8) | OPEN |
-| 14.4 | Passphrase as a fifth solution chain | P6 (C6) | OPEN |
+| 14.4 | Passphrase as a fifth solution chain | P6 (C6) | RESOLVED |
 | 14.5 | Point values | P5 (C5) | RESOLVED |
 | 14.6 | Duplicate-root-file policy | none in this revision | DEFERRABLE |
 | 14.7 | Multi-class clue diversity behaviour | P5 (C5) | RESOLVED |
-| 14.8 | Ending-trigger precedence | P7 (C7) | OPEN |
+| 14.8 | Ending-trigger precedence | P7 (C7) | RESOLVED |
 | 14.9 | Umbrella conclusion identifiers | P5 (C5) | RESOLVED |
 | 14.10 | Route A classification | — | RESOLVED |
 
-**Phases clear to enter: P0, P1, P2, P3, P4, P5.** The first phase with an `OPEN` requirement is **P6**, blocked by § 14.4. P7 is blocked by § 14.1, § 14.2 and § 14.8. P8 is blocked by § 14.3.
+**Phases clear to enter: P0 through P7, plus P9 and P10, which have no ratification requirement.** The only phase with an `OPEN` requirement is **P8**, blocked by § 14.3. Because P10 runs after P8, the chain halts at P8 until § 14.3 is resolved.
 
-### 14.1 `END_SILENT_TERMINAL` terminal type
+### 14.1 `END_SILENT_TERMINAL` terminal type — RESOLVED
 
-`CHARACTER_DEATH` or `TIME_EXPIRED`. Turns on whether `CHARACTER_DEATH` covers a non-player character; Elias is an NPC in every configuration. `engine/03_ARCHITECTURE.md` § 3.18 calls the list "Recommended", so extension is permitted, but adding a type is an engine change and would reopen § 1.2.
+**Decision.** `TIME_EXPIRED`.
 
-### 14.2 Split-branch terminator vocabulary
+**Governing rule, which also settles the Medium row.** A terminal type classifies **why the branch terminates**, not what happens to any character. The fate of a character is narrative outcome, owned by `DO_NOT_READ/06_ENDING_FRAMEWORK.md`, and Elias's medical state is read from `ELIAS_STATE`.
 
-Whether `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT`, `TERMINAL_OUTCOME` are in scope for C7. Inferred from an existing engine MUST, not from the literal accepted decision.
+**Rationale.**
+
+1. Both owning documents state the trigger temporally. `14_ENDING_TRIGGER_MATRIX.md` § 6 gives the condition as "Elias not found or not rescued **in time**", and `06_ENDING_FRAMEWORK.md` § END-06 as "players fail to locate Elias **in time**". `TIME_EXPIRED` names the cause the trigger actually tests; `CHARACTER_DEATH` names a consequence the trigger does not test.
+2. `CHARACTER_DEATH` in a two-player investigator gamebook reads as a player-character terminal. `01_WORLD_BIBLE.md` § 13 casts both players as independent investigators and Elias as the missing witness, and no ending kills a player character. Spending the type on an NPC death would make it ambiguous the first time a player character can die.
+3. Adding a seventh type is unavailable. `engine/03_ARCHITECTURE.md` § 3.18 permits extension, but that is an engine edit, which § 15 places out of scope and § 1.2 forecloses by holding `engine_spec_version` at 2.0.
+4. Nothing is lost. Elias's death remains the narrative outcome in `06`, and `ELIAS_STATE` resolves to `DIED`.
+
+**Consequence for `END_EVIDENCE_WITHOUT_WITNESS`.** It stays `PARTIAL_SUCCESS`, and its Medium confidence is discharged by the same rule. Its trigger is evidence-based — "full authenticated transfer succeeds" — not temporal, and Elias's death is again the narrative outcome rather than the terminating condition. The § 6.2 table is updated accordingly and no row remains below High confidence.
+
+### 14.2 Split-branch terminator vocabulary — RESOLVED
+
+**Decision.** **Out of scope for C7.** `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT` and `TERMINAL_OUTCOME` are not declared in this revision. The item is deferred and recorded in § 15.
+
+**Rationale.**
+
+1. Accepted decision 3 requires that every node declare `Outgoing` and that terminal nodes declare `Outgoing: None`. It requires nothing further. As § 7.3 already states, the terminator vocabulary is an inference from `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 5, not part of the decision.
+2. It belongs to a cluster this revision already defers. `engine/05` § 3 scene-mode declarations and § 9 split-window durations are both in § 15, and gate `V8` is `DEFERRED` for the same reason. Declaring terminators while their siblings stay out would produce split-phase declarations that still cannot be validated end to end, which is worse than declaring none.
+3. C7 remains complete and validatable without them. `V3` tests node type, terminal type, `Outgoing: None` and target presence; `V5` tests target existence and reachability. Neither needs the vocabulary.
+4. Deferring is recorded rather than silent, so the next scope decision sees the item.
+
+**Consequence.** The conditional row for `LOGIC/13_SPLIT_AND_REGROUP_FLOW.md` in § 7.4 is removed; its condition resolved false. C7 therefore touches three files: `LOGIC/10_INVESTIGATION_NODE_GRAPH.md`, `LOGIC/14_ENDING_TRIGGER_MATRIX.md` and `DO_NOT_READ/06_ENDING_FRAMEWORK.md`.
 
 ### 14.3 Low and Medium confidence mapping rows
 
 `ARC_110`, `ARC_140`, `ARC_200`, `ARC_240`, `ARC_320`. The café relocation is the one with a content consequence.
 
-### 14.4 Passphrase as a fifth solution chain
+### 14.4 Passphrase as a fifth solution chain — RESOLVED
 
-Whether `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" gains a chain or the passphrase remains a sub-step of Chain B. That section is a non-authoritative summary under `V10`, so this affects only C6 and not the canonical facts written in C2.
+**Decision.** **No fifth chain, and no sub-step of Chain B.** `DO_NOT_READ/00_CASE_OVERVIEW.md` § "Fair solution" is not edited. C6 gains no work from this item and the file stays outside C6's scope.
+
+**Rationale.**
+
+1. The four chains are *deduction* chains. Each names a conclusion the players must infer: the disappearance was voluntary, the terminal is the destination, police protection is compromised, Elias is alive but injured. The passphrase is not a deduction. It is an access factor obtained by a route, like the hardware key — and the hardware key is likewise absent from § "Fair solution".
+2. Chain B is specifically about locating the destination. Its four bullets are the tide-chart notation, the photograph containing the signal-room number, the transit-card use, and the maintenance map. The passphrase locates nothing, so filing it under Chain B would misdescribe that chain.
+3. The section is a non-authoritative summary under `V10`, and the canonical facts already landed in C2 in `01_WORLD_BIBLE.md` § 4 and § 14. A summary that omits an access factor is not in conflict with its owner.
+4. Omission keeps the section's own claim true. It reads "A strong solution requires the players to combine at least three independent chains." A fifth item that is an access factor rather than a chain would break that sentence.
+
+**Consequence.** Zero repository edits follow. The fourth bullet of § 5.8 is restated as resolved.
 
 ### 14.5 Point values — RESOLVED
 
@@ -888,9 +917,30 @@ Two consequences follow, and both are intended:
 
 > Class diversity counts distinct classes across the held clue set. Each held clue is assigned to exactly one of its tagged classes, and the assignment is chosen to maximise the count. A clue therefore contributes one class, never two, and a requirement for N classes cannot be met by fewer than N clues.
 
-### 14.8 Ending-trigger precedence
+### 14.8 Ending-trigger precedence — RESOLVED
 
-Mutual exclusivity or a declared priority order. Required by `V11` after C7.
+**Decision.** A **deterministic priority order**, declared in `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § 1 by C7. Families are tested top to bottom and the first match wins. Mutual exclusivity is not available.
+
+**Why exclusivity is not available.** The conditions in § 6 overlap by construction. `END_SILENT_TERMINAL` and `END_EVIDENCE_WITHOUT_WITNESS` can both hold when Elias dies. `END_PUBLIC_LEAK` can hold alongside `END_LIFE_SAVED_TRUTH_DELAYED`, because disclosure without authentication does not exclude Elias surviving. `END_WRONG_ACCUSATION` can hold alongside several families, since an unsupported accusation is a player act independent of rescue and transfer. Proving exclusivity would require rewriting eight trigger conditions, which is a redesign.
+
+**Priority order.** The order follows the eight-step resolution order already declared in `14_ENDING_TRIGGER_MATRIX.md` § 1: medical outcome, then transfer, then rescue controller, then proof, then accusation.
+
+| Rank | Family | Determination it belongs to |
+|---:|---|---|
+| 1 | `END_SILENT_TERMINAL` | medical: Elias never located or never rescued |
+| 2 | `END_EVIDENCE_WITHOUT_WITNESS` | medical and transfer: Elias lost, archive authenticated |
+| 3 | `END_FRACTURED_TRUTH` | rescue and evidence outcomes incompatible |
+| 4 | `END_PROTECTIVE_CUSTODY` | rescue controller: Rook holds rescue or evidence, unexposed |
+| 5 | `END_WITNESS_SPEAKS` | proof: full success on every axis |
+| 6 | `END_LIFE_SAVED_TRUTH_DELAYED` | transfer: Elias survives, full transfer failed |
+| 7 | `END_WRONG_ACCUSATION` | accusation: public claim unsupported or contradicted |
+| 8 | `END_PUBLIC_LEAK` | disclosure without full authentication |
+
+**Rule text for C7.** Written into `14_ENDING_TRIGGER_MATRIX.md` § 1:
+
+> Ending families are tested in the priority order above. The first family whose conditions are satisfied is the ending. Any other family whose conditions were also satisfied is recorded as a partial-success modifier under § 8, never as a second ending. Every reachable combination therefore resolves to exactly one ending.
+
+The trailing sentence is what `V11` tests.
 
 ### 14.9 Umbrella conclusion identifiers — RESOLVED
 
@@ -921,6 +971,7 @@ Recorded so the next scope decision starts from a complete picture.
 - **Complexity budget overruns.** Location, clue and ending counts exceed the targets in `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § 4. Those are design targets, not MUST rules, and C5 makes the clue count precise for the first time.
 - **Two-player delivery model.** `engine/03_ARCHITECTURE.md` § 3.15 requires a declared model; none is declared.
 - **Scene-mode declarations.** `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 3 requires every scene to declare Joint, Split or Solo.
+- **Split-branch terminator vocabulary.** `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 5 requires every split branch to terminate in `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT` or `TERMINAL_OUTCOME`. Deferred by § 14.2, alongside the two scene and window items above and the `V8` blockers, because the four form one cluster.
 - **Engine chapter plan divergence.** `engine/README.md` reserves chapters 4 and 5 for content that does not exist.
 - **All engine edits.** This revision touches no file under `engine/`. The prefix registry and the clue-class vocabulary are both adventure-local.
 - **Stale version statements beyond this revision.** C9 corrects only what this revision changes.
@@ -944,22 +995,66 @@ The ratification map in § 14 is published with a **Required by** and a **Status
 | 14.5 | Point values | RESOLVED | Every clue is worth 1 point. Multi-point node awards are multi-clue grants, so a uniform value reproduces the existing award ranges and preserves every threshold already written. Computed maxima recorded in § 14.5. |
 | 14.7 | Multi-class clue diversity behaviour | RESOLVED | A clue contributes exactly one class, assigned to maximise diversity. N classes require at least N clues. Both class documents require classes to be *independent*, and independence holds between evidence items. |
 | 14.9 | Umbrella conclusion identifiers | RESOLVED | `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` are marked `DEPRECATED` in C5. Only the tiered identifiers carry thresholds. The `CON_REED_PRESENT` gloss is corrected in the same commit. |
+| 14.1 | `END_SILENT_TERMINAL` terminal type | RESOLVED | `TIME_EXPIRED`. A terminal type classifies why the branch terminates, not what happens to a character. Both owning documents state the trigger temporally, and adding a seventh type is an engine edit § 15 excludes. The same rule discharges the Medium row on `END_EVIDENCE_WITHOUT_WITNESS`. |
+| 14.2 | Split-branch terminator vocabulary | RESOLVED | Out of scope for C7 and deferred to § 15. It is an inference rather than part of decision 3, and it belongs to the same two-player cluster as the scene-mode, window-duration and `V8` items already deferred. |
+| 14.4 | Passphrase as a fifth solution chain | RESOLVED | No fifth chain and no Chain B sub-step. The four chains are deductions; the passphrase is an access factor, like the hardware key, which is also absent. Zero repository edits follow. |
+| 14.8 | Ending-trigger precedence | RESOLVED | Deterministic priority order, first match wins, declared in `14_ENDING_TRIGGER_MATRIX.md` § 1 by C7. Exclusivity is unavailable because the § 6 conditions overlap by construction. |
 
 ### 16.3 Items remaining OPEN
 
 | § | Item | Required by |
 |---|---|---|
-| 14.1 | `END_SILENT_TERMINAL` terminal type | P7 (C7) |
-| 14.2 | Split-branch terminator vocabulary | P7 (C7) |
 | 14.3 | Low and Medium confidence mapping rows | P8 (C8) |
-| 14.4 | Passphrase as a fifth solution chain | P6 (C6) |
-| 14.8 | Ending-trigger precedence | P7 (C7) |
 
-No `OPEN` item names P0, P1, P2, P3, P4 or P5.
+No `OPEN` item names P0 through P7, nor P9 or P10. One item, § 14.3, names P8.
 
 ### 16.4 Phases clear to enter
 
-**P0, P1, P2, P3, P4, P5.** The first phase with an `OPEN` requirement is **P6**, blocked by § 14.4. P7 is blocked by § 14.1, § 14.2 and § 14.8. P8 is blocked by § 14.3.
+**P0 through P7**, and P9 and P10 have no ratification requirement. The only phase with an `OPEN` requirement is **P8**, blocked by § 14.3.
+
+### 16.5 Phase readiness audit
+
+Every phase, against its ratification requirements.
+
+| Phase | Requires | Status | Clear |
+|---|---|---|---|
+| P0 | — | — | Yes |
+| P1 | — | — | Yes |
+| P2 | — | — | Yes |
+| P3 | — | — | Yes |
+| P4 | — | — | Yes |
+| P5 | § 14.5, § 14.7, § 14.9 | all RESOLVED | Yes |
+| P6 | § 14.4 | RESOLVED | Yes |
+| P7 | § 14.1, § 14.2, § 14.8 | all RESOLVED | Yes |
+| P8 | § 14.3 | **OPEN** | **No** |
+| P9 | — | — | Yes |
+| P10 | — | — | Yes, but runs after P8 |
+
+§ 14.6 is `DEFERRABLE` and required by no phase.
+
+### 16.6 Validation gate assignment audit
+
+Every gate, against the phase that runs it.
+
+| Gate | Assigned phase or phases | Source |
+|---|---|---|
+| `V1` | P3 (C3), P6 (C6) | § 8.9, § 5.9 |
+| `V2` | P3 (C3), P4 (C4), full coverage P10 | § 8.9, § 9.8, § 8.7 |
+| `V3` | P7 (C7) | § 6.5, § 7.6 |
+| `V4` | P4 (C4), P5 (C5) | § 9.8, § 10.6 |
+| `V5` | P7 (C7) | § 6.5, § 7.6 |
+| `V6` | P8 (C8) | § 12.5 |
+| `V7` | P5 (C5), P6 (C6) | § 11.6, § 5.9 |
+| `V8` | **none — `DEFERRED` by § 13** | § 13, § 15 |
+| `V9` | P5 (C5), P6 (C6) | § 10.6, § 5.9 |
+| `V10` | P1 (C1), staged to P7 (C7), full coverage P10 | § 11.6, § 13 |
+| `V11` | P7 (C7) | § 6.5 |
+
+Every gate has an assigned phase except `V8`, which is deliberately deferred and is recorded as such in § 13 and § 15. `V8` is not a pass requirement for any phase.
+
+### 16.7 Unresolved dependency audit
+
+No phase depends on an unresolved decision except **P8**, which requires § 14.3. P10 inherits that block only because it runs last; it has no requirement of its own.
 
 ---
 
