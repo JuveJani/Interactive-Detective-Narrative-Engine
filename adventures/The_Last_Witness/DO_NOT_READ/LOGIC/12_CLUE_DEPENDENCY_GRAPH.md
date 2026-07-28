@@ -13,17 +13,17 @@ A clue may support multiple deductions. A deduction becomes available only when 
 
 ### Clues
 
-- `C_APT_BLOOD_OLD` — physical
-- `C_APT_MEDICATION_MISSING` — physical/contextual
-- `C_APT_PASSPORT_MISSING` — physical/contextual
-- `C_APT_SERVICE_LATCH` — physical
-- `C_APT_TIMED_DEVICE` — physical/technical
-- `C_NEIGHBOUR_EXIT_BEFORE_CRASH` — testimonial
-- `C_NADIA_PLAN_ADMISSION` — testimonial
+- `CLUE_APT_BLOOD_OLD` — physical
+- `CLUE_APT_MEDICATION_MISSING` — physical/contextual
+- `CLUE_APT_PASSPORT_MISSING` — physical/contextual
+- `CLUE_APT_SERVICE_LATCH` — physical
+- `CLUE_APT_TIMED_DEVICE` — physical/technical
+- `CLUE_NEIGHBOUR_EXIT_BEFORE_CRASH` — testimonial
+- `CLUE_NADIA_PLAN_ADMISSION` — testimonial
 
 ### Deduction
 
-`D_STAGED_DISAPPEARANCE`
+`CON_STAGED_DISAPPEARANCE`
 
 Requires:
 
@@ -44,16 +44,16 @@ Requires:
 
 ### Clues
 
-- `C_TRANSIT_HARBOR_STOP` — procedural
-- `C_CAFE_TIDE_NOTE` — physical
-- `C_CAFE_OLD_LINE_QUESTION` — testimonial
-- `C_CAFE_FOOTAGE` — digital
-- `C_NADIA_HARBOR_RESEARCH` — testimonial/contextual
-- `C_IRIS_DIRECTION_HARBOR` — testimonial/procedural
+- `CLUE_TRANSIT_HARBOR_STOP` — procedural
+- `CLUE_CAFE_TIDE_NOTE` — physical
+- `CLUE_CAFE_OLD_LINE_QUESTION` — testimonial
+- `CLUE_CAFE_FOOTAGE` — digital
+- `CLUE_NADIA_HARBOR_RESEARCH` — testimonial/contextual
+- `CLUE_IRIS_DIRECTION_HARBOR` — testimonial/procedural
 
 ### Deduction
 
-`D_HARBOR_DESTINATION`
+`CON_HARBOR_DESTINATION`
 
 Requires 3 points across 2 classes.
 
@@ -69,23 +69,23 @@ Requires 3 points across 2 classes.
 
 ### Identifier clues
 
-- `C_PHOTO_WINDOW_MARKS`
-- `C_ARCHIVE_ROOM_INDEX`
-- `C_ELIAS_FRAGMENT_4B`
-- `C_LENA_ROOM_DISCLOSURE`
-- `C_IRIS_ROOM_DISCLOSURE`
+- `CLUE_PHOTO_WINDOW_MARKS`
+- `CLUE_ARCHIVE_ROOM_INDEX`
+- `CLUE_ELIAS_FRAGMENT_4B`
+- `CLUE_LENA_ROOM_DISCLOSURE`
+- `CLUE_IRIS_ROOM_DISCLOSURE`
 
 ### Route clues
 
-- `C_CABLE_CORRIDOR_MAP`
-- `C_NORTH_GATE_RECORD`
-- `C_DRAINAGE_TIDE_WINDOW`
-- `C_EMERGENCY_ENTRY_AUTH`
-- `C_GENERATOR_TRACE`
+- `CLUE_CABLE_CORRIDOR_MAP`
+- `CLUE_NORTH_GATE_RECORD`
+- `CLUE_DRAINAGE_TIDE_WINDOW`
+- `CLUE_EMERGENCY_ENTRY_AUTH`
+- `CLUE_GENERATOR_TRACE`
 
 ### Deduction and gate
 
-`D_SIGNAL_4B` requires:
+`CON_SIGNAL_4B` requires:
 
 - one identifier clue;
 - one route clue.
@@ -100,16 +100,16 @@ Late failsafe:
 
 ### Clues
 
-- `C_ELIAS_ARRIVED_BEFORE_LENA`
-- `C_LENA_CALLED_IRIS_AFTER_INJURY`
-- `C_MEDICAL_SUPPLY_TRAIL`
-- `C_REED_CONFRONTATION_ADMISSION`
-- `C_LENA_VERIFIABLE_FALL_DETAIL`
-- `C_NO_RANSOM_OR_DEMAND`
+- `CLUE_ELIAS_ARRIVED_BEFORE_LENA`
+- `CLUE_LENA_CALLED_IRIS_AFTER_INJURY`
+- `CLUE_MEDICAL_SUPPLY_TRAIL`
+- `CLUE_REED_CONFRONTATION_ADMISSION`
+- `CLUE_LENA_VERIFIABLE_FALL_DETAIL`
+- `CLUE_NO_RANSOM_OR_DEMAND`
 
 ### Deduction
 
-`D_LENA_PROTECTING`
+`CON_LENA_PROTECTING`
 
 Requires 3 points across testimonial/procedural/behavioural classes.
 
@@ -121,23 +121,23 @@ This deduction does not declare Lena legally innocent. It establishes that “ki
 
 ### Clues
 
-- `C_REED_DECOY_KEY`
-- `C_REED_HARBOR_RESIDUE`
-- `C_REED_BLOOD_TRACE`
-- `C_KRELL_RECOVERY_MESSAGE`
-- `C_TERMINAL_ACCESS_TRACE`
-- `C_LENA_OR_IRIS_TESTIMONY`
-- `C_REED_PARTIAL_ADMISSION`
+- `CLUE_REED_DECOY_KEY`
+- `CLUE_REED_HARBOR_RESIDUE`
+- `CLUE_REED_BLOOD_TRACE`
+- `CLUE_KRELL_RECOVERY_MESSAGE`
+- `CLUE_TERMINAL_ACCESS_TRACE`
+- `CLUE_LENA_OR_IRIS_TESTIMONY`
+- `CLUE_REED_PARTIAL_ADMISSION`
 
 ### Deduction
 
-`D_REED_PRESENT`
+`CON_REED_PRESENT`
 
 Requires two independent routes, at least one not purely testimonial.
 
 ### Stronger deduction
 
-`D_REED_CAUSED_CONFRONTATION`
+`CON_REED_CAUSED_CONFRONTATION`
 
 Requires:
 
@@ -151,19 +151,19 @@ Requires:
 
 ### Clues
 
-- `C_MARCUS_ACCOUNT_ACCESS`
-- `C_MARCUS_DELETED_CALL`
-- `C_CARRIER_CALL_RECORD`
-- `C_PAYMENT_RECORD`
-- `C_INTERMEDIARY_VOICEMAIL`
-- `C_REED_SOURCE_REFERENCE`
-- `C_MARCUS_CONFESSION`
+- `CLUE_MARCUS_ACCOUNT_ACCESS`
+- `CLUE_MARCUS_DELETED_CALL`
+- `CLUE_CARRIER_CALL_RECORD`
+- `CLUE_PAYMENT_RECORD`
+- `CLUE_INTERMEDIARY_VOICEMAIL`
+- `CLUE_REED_SOURCE_REFERENCE`
+- `CLUE_MARCUS_CONFESSION`
 
 ### Deduction
 
-`D_MARCUS_LEAK_PARTIAL` at 2 points.
+`CON_MARCUS_LEAK_PARTIAL` at 2 points.
 
-`D_MARCUS_LEAK_PROVABLE` at 3 points, 2 classes.
+`CON_MARCUS_LEAK_PROVABLE` at 3 points, 2 classes.
 
 ### Narrative resolution requirement
 
@@ -175,23 +175,23 @@ If the leak is exposed, the player-facing ending must clarify that Marcus transm
 
 ### Clues
 
-- `C_ROOK_CAMERA_UNAUTHORIZED` — procedural
-- `C_ROOK_REPORT_ALTERED` — procedural/digital
-- `C_ROOK_PROTECTION_ORDER_FALSE` — procedural
-- `C_ROOK_KRELL_CONTACT` — digital/testimonial
-- `C_ROOK_LENA_BULLETIN_FALSE` — procedural
-- `C_REED_NAMES_ROOK_LINK` — testimonial
-- `C_MINA_AUTHENTICATES_REPORT` — testimonial/procedural
-- `C_EVIDENCE_ROOM_PHOTO_PATH` — procedural
+- `CLUE_ROOK_CAMERA_UNAUTHORIZED` — procedural
+- `CLUE_ROOK_REPORT_ALTERED` — procedural/digital
+- `CLUE_ROOK_PROTECTION_ORDER_FALSE` — procedural
+- `CLUE_ROOK_KRELL_CONTACT` — digital/testimonial
+- `CLUE_ROOK_LENA_BULLETIN_FALSE` — procedural
+- `CLUE_REED_NAMES_ROOK_LINK` — testimonial
+- `CLUE_MINA_AUTHENTICATES_REPORT` — testimonial/procedural
+- `CLUE_EVIDENCE_ROOM_PHOTO_PATH` — procedural
 
 ### Deductions
 
-`D_ROOK_OPERATIONALLY_COMPROMISED`
+`CON_ROOK_OPERATIONALLY_COMPROMISED`
 
 - threshold 3;
 - must include one procedural clue.
 
-`D_ROOK_PUBLICLY_PROVABLE`
+`CON_ROOK_PUBLICLY_PROVABLE`
 
 - threshold 4;
 - at least 3 classes or preserved direct-contact evidence;
@@ -210,15 +210,15 @@ If the leak is exposed, the player-facing ending must clarify that Marcus transm
 
 ### Clues
 
-- `C_IRIS_SUPPLY_SELECTION`
-- `C_IRIS_ASSESSMENT`
-- `C_ELIAS_VOMITING_CONFUSION`
-- `C_ELIAS_UNEQUAL_PUPILS`
-- `C_MEDICAL_REFERENCE`
+- `CLUE_IRIS_SUPPLY_SELECTION`
+- `CLUE_IRIS_ASSESSMENT`
+- `CLUE_ELIAS_VOMITING_CONFUSION`
+- `CLUE_ELIAS_UNEQUAL_PUPILS`
+- `CLUE_MEDICAL_REFERENCE`
 
 ### Deduction
 
-`D_MEDICAL_EMERGENCY`
+`CON_MEDICAL_EMERGENCY`
 
 - 2 points before discovery;
 - automatic after observing definitive late symptoms.
@@ -233,15 +233,15 @@ Unlocks rescue-priority decisions and prevents the narrative from treating furth
 
 ### Clues
 
-- `C_DECOY_LIMITED_CONTENT`
-- `C_DECOY_TRACKER`
-- `C_ELIAS_FRAGMENT_BLACK_FALSE`
-- `C_HASH_MISMATCH`
-- `C_NADIA_DECOY_KNOWLEDGE`
+- `CLUE_DECOY_LIMITED_CONTENT`
+- `CLUE_DECOY_TRACKER`
+- `CLUE_ELIAS_FRAGMENT_BLACK_FALSE`
+- `CLUE_HASH_MISMATCH`
+- `CLUE_NADIA_DECOY_KNOWLEDGE`
 
 ### Deduction
 
-`D_DECOY_KEY`
+`CON_DECOY_KEY`
 
 Requires two routes, unless tracker and content mismatch are directly observed together.
 
@@ -255,15 +255,15 @@ Prevents complete-transfer option from accepting the wrong hardware key.
 
 ### Clues
 
-- `C_NADIA_FIRST_THREE`
-- `C_PHOTO_WINDOW_MARKS`
-- `C_ARCHIVE_WINDOW_NUMBERING`
-- `C_ELIAS_FRAGMENT_WINDOWS`
-- `C_UPLOAD_RECOVERY_INSTRUCTIONS`
+- `CLUE_NADIA_FIRST_THREE`
+- `CLUE_PHOTO_WINDOW_MARKS`
+- `CLUE_ARCHIVE_WINDOW_NUMBERING`
+- `CLUE_ELIAS_FRAGMENT_WINDOWS`
+- `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS`
 
 ### Deduction
 
-`D_WINDOW_CODE`
+`CON_WINDOW_CODE`
 
 Requires:
 
@@ -290,3 +290,18 @@ If Nadia remains hostile, players may preserve the primary key and achieve rescu
 | complete code | 4+ |
 
 No single locked container, technical check, or NPC confession is a mandatory single point of failure.
+
+---
+
+## 13. Identifier status
+
+Every `CLUE_` identifier declared in this document carries exactly one status. Status is derived from reference count: an identifier referenced somewhere other than its own declaring row is `ACTIVE`; an identifier that appears only in its declaring row is `DEFINITION_ONLY`.
+
+| Status | Count | Identifiers |
+|---|---:|---|
+| `ACTIVE` | 1 | `CLUE_PHOTO_WINDOW_MARKS`, declared in § 4 and referenced again in § 11. It is one clue contributing to two conclusion groups, not two clues. |
+| `DEFINITION_ONLY` | 64 | Every other clue identifier declared in §§ 2–11. |
+
+No clue identifier is `RESERVED` or `DEPRECATED`.
+
+Sixty-five distinct identifiers appear across sixty-six listings. The sixty-four `DEFINITION_ONLY` clues are declared and not yet referenced because no node grants a clue yet; that changes when clue grants are authored.

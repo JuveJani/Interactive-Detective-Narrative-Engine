@@ -17,7 +17,7 @@ This file defines the backbone only. Alpha 0.2b will expand location-level nodes
 
 ---
 
-## EVT_100: Nadia's briefing
+## ARC_100: Nadia's briefing
 
 **Time:** 20:00-20:10  
 **Participants:** both players, Nadia  
@@ -25,7 +25,7 @@ This file defines the backbone only. Alpha 0.2b will expand location-level nodes
 **Private split:** Player 1 receives Mina access route. Player 2 receives newsroom access route.  
 **Failure transformation:** refusing Nadia's framing still begins the case through Mina's official request and a public missing-person bulletin.
 
-## EVT_110: First split decision
+## ARC_110: First split decision
 
 Players may:
 
@@ -35,7 +35,7 @@ Players may:
 
 No time-critical puzzle depends on information held only by the other player during the split. Each branch yields an independent route toward `CON_STAGED_DISAPPEARANCE` or `CON_HARBOR_DESTINATION`.
 
-## EVT_120: Apartment cluster
+## ARC_120: Apartment cluster
 
 Potential gains:
 
@@ -56,7 +56,7 @@ Alternative if access denied:
 - laundry-service records;
 - Mina's original observations outside the scene.
 
-## EVT_130: Newsroom cluster
+## ARC_130: Newsroom cluster
 
 Potential gains:
 
@@ -77,7 +77,7 @@ Alternative if Marcus blocks access:
 - external carrier log route;
 - later Marcus meeting event.
 
-## EVT_140: Café cluster
+## ARC_140: Café cluster
 
 Potential gains:
 
@@ -92,7 +92,7 @@ Soft-lock prevention:
 - if owner refuses access, delivery driver supplies the reflection/timing clue;
 - no lockpicking is mandatory.
 
-## EVT_170: First synchronization gate
+## ARC_170: First synchronization gate
 
 **Recommended time:** 21:20-21:40.  
 Players regroup physically or perform a legal remote exchange. At least one piece of private information from each route enters shared knowledge.
@@ -106,7 +106,7 @@ The next-stage lead set is calculated:
 
 Failsafe: Nadia reveals that Elias had discussed old ferry infrastructure, at a cost of trust and time, if no harbor route has been formed by 21:45.
 
-## EVT_200: Rook pressure
+## ARC_200: Rook pressure
 
 Triggered by `A_ROOK_PLAYERS >= 2` or fixed no later than 22:10.
 
@@ -119,7 +119,7 @@ Rook offers cooperation and frames Lena as abductor. Players may:
 
 This event never proves Rook's corruption by itself.
 
-## EVT_210: Reed office opportunity
+## ARC_210: Reed office opportunity
 
 Available from 21:30.
 
@@ -139,7 +139,7 @@ Potential gains:
 
 No unique critical conclusion depends solely on forced entry.
 
-## EVT_220: Iris trail
+## ARC_220: Iris trail
 
 Triggered by missing supplies, Lena phone trace, or workplace witness.
 
@@ -152,7 +152,7 @@ Routes:
 
 Conclusion: someone is treating a concealed head injury near the harbor.
 
-## EVT_230: Marcus disclosure ladder
+## ARC_230: Marcus disclosure ladder
 
 Marcus can provide:
 
@@ -162,7 +162,7 @@ Marcus can provide:
 
 If he flees, the carrier record and intermediary meeting remain.
 
-## EVT_240: Mina evidence preservation
+## ARC_240: Mina evidence preservation
 
 Available after players provide at least one procedural inconsistency.
 
@@ -174,7 +174,7 @@ Mina may:
 
 At low trust she provides a hint but not direct operational help.
 
-## EVT_270: Second synchronization gate
+## ARC_270: Second synchronization gate
 
 **Latest recommended time:** 23:15.
 
@@ -188,7 +188,7 @@ Possible shared conclusions:
 - concealed injured person inferred;
 - trusted rescue option prepared or still missing.
 
-## EVT_300: Terminal route selection
+## ARC_300: Terminal route selection
 
 Available access routes:
 
@@ -200,7 +200,7 @@ Available access routes:
 
 At least two routes remain possible in every legal state. Losing one item never blocks the terminal completely.
 
-## EVT_320: Off-screen hostile convergence
+## ARC_320: Off-screen hostile convergence
 
 Reed and Rook advance according to awareness and schedules. Priority resolution is defined in `06_NPC_SCHEDULE_AND_PRIORITY.md`.
 
@@ -212,7 +212,7 @@ Players may encounter:
 - both hostile factions in sequence;
 - neither, if they moved quickly and quietly.
 
-## EVT_340: Signal Room discovery
+## ARC_340: Signal Room discovery
 
 Upon entry, `CON_MEDICAL_EMERGENCY` becomes apparent without a difficult diagnostic gate.
 
@@ -226,7 +226,7 @@ Immediate choices:
 
 One player can manage medical/rescue coordination while the other handles evidence or external threat. Neither should become a spectator.
 
-## EVT_400: Trusted rescue validation
+## ARC_400: Trusted rescue validation
 
 A safe rescue requires one of:
 
@@ -237,7 +237,7 @@ A safe rescue requires one of:
 
 Calling generic police without safeguards routes toward `END_PROTECTIVE_CUSTODY`.
 
-## EVT_420: Evidence transfer
+## ARC_420: Evidence transfer
 
 Complete transfer requires:
 
@@ -248,7 +248,7 @@ Complete transfer requires:
 
 Partial transfer remains possible without all components and should have meaningful consequences.
 
-## EVT_440: Final accusation or public statement
+## ARC_440: Final accusation or public statement
 
 The player may name a target, but result depends on evidence support, not selection alone.
 
@@ -257,6 +257,16 @@ The player may name a target, but result depends on evidence support, not select
 - wrong but evidence-linked: specific rebuttal scene;
 - arbitrary accusation: credibility collapse without pretending the case itself vanishes.
 
-## EVT_900+: Ending resolution
+## ARC_900+: Ending resolution
 
 Ending variables are evaluated after rescue, transfer, confrontation, and accusation. Multiple achievements can succeed or fail independently.
+
+---
+
+## Identifier status
+
+This document owns the `ARC_` namespace. Nineteen backbone identifiers are declared: `ARC_100`, `ARC_110`, `ARC_120`, `ARC_130`, `ARC_140`, `ARC_170`, `ARC_200`, `ARC_210`, `ARC_220`, `ARC_230`, `ARC_240`, `ARC_270`, `ARC_300`, `ARC_320`, `ARC_340`, `ARC_400`, `ARC_420`, `ARC_440`, `ARC_900`.
+
+Every one is `DEFINITION_ONLY`. Each appears only in its own declaring heading, because no document references a backbone identifier yet. None is `ACTIVE`, `RESERVED` or `DEPRECATED`.
+
+The `ARC_` prefix distinguishes these backbone arcs from the playable and off-screen `EVT_` nodes in `10_INVESTIGATION_NODE_GRAPH.md`. A given number may appear in both namespaces and the two are not interchangeable.

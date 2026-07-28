@@ -71,7 +71,7 @@ Players know and can act on corruption, but public proof is incomplete.
 
 ### Publicly exposed
 
-Requires `D_ROOK_PUBLICLY_PROVABLE` and preserved evidence.
+Requires `CON_ROOK_PUBLICLY_PROVABLE` and preserved evidence.
 
 ### Unexposed
 
@@ -169,3 +169,18 @@ Possible modifiers:
 - Krell flees but assets are frozen.
 
 These modifiers enrich the epilogue without replacing the main ending family.
+
+---
+
+## 9. Identifier status
+
+This document owns the `END_` namespace and is the authoritative owner of ending trigger conditions. Every `END_` identifier declared here carries exactly one status, derived from reference count.
+
+| Status | Count | Identifiers |
+|---|---:|---|
+| `ACTIVE` | 1 | `END_PROTECTIVE_CUSTODY`, referenced from `05_CORE_EVENT_GRAPH.md` § `ARC_400`. |
+| `DEFINITION_ONLY` | 7 | `END_WITNESS_SPEAKS`, `END_EVIDENCE_WITHOUT_WITNESS`, `END_LIFE_SAVED_TRUTH_DELAYED`, `END_PUBLIC_LEAK`, `END_SILENT_TERMINAL`, `END_WRONG_ACCUSATION`, `END_FRACTURED_TRUTH`. |
+
+No ending identifier is `RESERVED` or `DEPRECATED`. Node identity for these families is not yet assigned; it is owned by `10_INVESTIGATION_NODE_GRAPH.md`.
+
+`CON_ROOK_PUBLICLY_PROVABLE`, referenced in § 4, is declared and status-carried in `00_ENTITY_KEY_TABLE.md`.
