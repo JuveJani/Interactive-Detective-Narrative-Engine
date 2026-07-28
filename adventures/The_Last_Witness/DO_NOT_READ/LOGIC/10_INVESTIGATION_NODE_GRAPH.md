@@ -784,6 +784,7 @@ This is the final anti-soft-lock access route.
 - `ROOM_4B_STATE = FOUND_SECURE` or `FOUND_CONTESTED`;
 - `GRANT_CLUE(CLUE_ELIAS_VOMITING_CONFUSION)`;
 - `GRANT_CLUE(CLUE_ELIAS_UNEQUAL_PUPILS)`;
+- `GRANT_CLUE(CLUE_ELIAS_FRAGMENT_PASSPHRASE)` while `ELIAS_STATE` is not `CRITICAL_UNRESPONSIVE`;
 - `CON_MEDICAL_EMERGENCY` automatic on entry, independent of `P_MEDICAL`;
 - unlocks rescue/evidence parallel tasks.
 
@@ -834,7 +835,7 @@ Depends on time, trust, and whether hostile actors control the exterior.
 Tasks:
 
 - identify primary versus decoy;
-- retrieve passphrase information;
+- establish `CON_PASSPHRASE_ACCESS`, by the passphrase itself or by the documented reset;
 - combine code fragments;
 - preserve authenticated copy.
 
@@ -863,9 +864,15 @@ Possible player roles:
 **Entry**
 
 - primary key available;
+- `CON_PASSPHRASE_ACCESS` established;
 - recovery code complete;
 - Nadia upload accessible;
 - clock no later than 01:45 for reliable completion.
+
+**Quality tiers**
+
+- Route B of `CON_PASSPHRASE_ACCESS` preserves authentication and permits full authenticated transfer;
+- Route A performs a logged reset, costs 20 additional minutes, and caps the outcome at partial official evidence.
 
 **Outcomes**
 

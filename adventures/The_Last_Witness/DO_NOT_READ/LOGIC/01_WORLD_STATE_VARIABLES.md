@@ -71,8 +71,9 @@ Every clue is worth 1 point, so a total equals the number of held clues in its g
 | `P_MEDICAL` | § 9 Medical emergency | 5 | `EVAL_CON_MEDICAL_EMERGENCY` |
 | `P_DECOY` | § 10 Primary vs decoy ledger | 5 | `EVAL_CON_DECOY_KEY` |
 | `P_CODE` | § 11 Recovery code | 5 | `EVAL_CON_WINDOW_CODE` |
+| passphrase total | § 11a Passphrase access | 2 | `EVAL_CON_PASSPHRASE_ACCESS` |
 
-Group maxima sum to 66 across 65 distinct clues, because `CLUE_PHOTO_WINDOW_MARKS` belongs to both § 4 and § 11 and contributes one point to each.
+Group maxima sum to 68 across 66 distinct clues. `CLUE_PHOTO_WINDOW_MARKS` belongs to both § 4 and § 11, and `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS` to both § 11 and § 11a; each contributes one point to each of its groups.
 
 Section references are to `12_CLUE_DEPENDENCY_GRAPH.md`. Clue class tags and granting nodes are owned there.
 

@@ -242,6 +242,7 @@ Calling generic police without safeguards routes toward `END_PROTECTIVE_CUSTODY`
 Complete transfer requires:
 
 - primary archive accessible;
+- the passphrase, or its logged reset through the documented recovery procedure;
 - complete code;
 - Nadia or equivalent trusted endpoint;
 - sufficient remaining time.

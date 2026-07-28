@@ -116,8 +116,9 @@ Every authoritative fact has exactly one owner. Summaries and cross-references a
 | `CON_MEDICAL_EMERGENCY` | Elias needs immediate hospital care | `ACTIVE` |
 | `CON_DECOY_KEY` | black key is a decoy | `ACTIVE` |
 | `CON_WINDOW_CODE` | final code digits are hidden in window numbers | `ACTIVE` |
+| `CON_PASSPHRASE_ACCESS` | the primary archive can be opened, by passphrase or by logged reset | `ACTIVE` |
 
-Fifteen identifiers. Five were registered when the `D_*` namespace was merged into `CON_*`; they already existed in `12_CLUE_DEPENDENCY_GRAPH.md` with their thresholds intact, so registering them changed no threshold, tier or meaning.
+Sixteen identifiers. Five were registered when the `D_*` namespace was merged into `CON_*`; they already existed in `12_CLUE_DEPENDENCY_GRAPH.md` with their thresholds intact, so registering them changed no threshold, tier or meaning.
 
 `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` are `DEPRECATED`. They are umbrella identifiers superseded by their tiered pairs, they carry no threshold, and no document may gate on them. They are retained rather than deleted so the migration record stays legible.
 

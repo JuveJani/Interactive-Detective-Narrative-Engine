@@ -329,6 +329,34 @@ If Nadia remains hostile, players may preserve the primary key and achieve rescu
 
 ---
 
+## 11a. Passphrase access
+
+| Clue | Classes | Points | Granting nodes | Status |
+|---|---|---:|---|---|
+| `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS` | `DIGITAL` | 1 | `EVT_123` | `ACTIVE` |
+| `CLUE_ELIAS_FRAGMENT_PASSPHRASE` | `TESTIMONIAL` | 1 | `EVT_330` | `ACTIVE` |
+
+**Group maximum:** 2. `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS` is also a § 11 clue and contributes one point to each group.
+
+### Deduction
+
+`CON_PASSPHRASE_ACCESS`
+
+Requires 1 point. The two routes are not equivalent in quality:
+
+- **Route A**, `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS`, unlocks the documented recovery procedure. It does not reveal the passphrase. With the hardware key present and the complete recovery code entered, it permits a reset in place of entry. The reset costs 20 minutes and is logged, which downgrades authentication, so it reaches partial official evidence and never full authenticated transfer. It is granted at `EVT_123`, a Player 2 opening node in the 20:10-20:25 window, so it is available before discovery and well before 01:00.
+- **Route B**, `CLUE_ELIAS_FRAGMENT_PASSPHRASE`, is the passphrase itself, stated by Elias as a fragment. It is available from discovery until `ELIAS_STATE` reaches `CRITICAL_UNRESPONSIVE` at 01:00. It preserves authentication and is the only route to full authenticated transfer.
+
+Route B is post-discovery, which is not circular for this conclusion. The passphrase is needed only once the primary key is held, and the primary key is inside Signal Room 4B by `01_WORLD_BIBLE.md` § 14. A route that unlocks at room discovery therefore cannot gate the thing that reaches it.
+
+The routes share no granting node, no source actor and no location: Route A comes from Nadia's upload at `LOC_NEWSROOM` via `EVT_123`, Route B from Elias at `LOC_SIGNAL_4B` via `EVT_330`.
+
+### Failure transformation
+
+Neither route obtained means the archive never opens. This does not deadlock. It routes to "Evidence lost" or "Public leak" in `14_ENDING_TRIGGER_MATRIX.md` § 3, depending on whether an external copy exists.
+
+---
+
 ## 12. Critical-route audit
 
 Independent routes counts the clues in each group that at least one node grants. `DEFINITION_ONLY` clues are excluded, because a clue no node grants is not a route.
@@ -346,6 +374,7 @@ Independent routes counts the clues in each group that at least one node grants.
 | recognize medical danger | 5 | 5 | 2 points | Yes |
 | distinguish decoy | 5 | 2 | 2 points | Yes |
 | complete code | 5 | 3 | 1 fragment, 1 interpretation | Yes |
+| open the primary archive | 2 | 2 | 1 point | Yes, 2 independent routes |
 
 No single locked container, technical check, or NPC confession is a mandatory single point of failure.
 
@@ -357,9 +386,9 @@ Every `CLUE_` identifier declared in this document carries exactly one status, r
 
 | Status | Count |
 |---|---:|
-| `ACTIVE` | 42 |
+| `ACTIVE` | 43 |
 | `DEFINITION_ONLY` | 23 |
 
 No clue identifier is `RESERVED` or `DEPRECATED`.
 
-Sixty-five distinct identifiers appear across sixty-six listings. Total available points across all groups is 66, because `CLUE_PHOTO_WINDOW_MARKS` contributes one point to each of two groups.
+Sixty-six distinct identifiers appear across sixty-eight listings. Total available points across all groups is 68, because `CLUE_PHOTO_WINDOW_MARKS` contributes one point to each of §§ 4 and 11, and `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS` one point to each of §§ 11 and 11a.

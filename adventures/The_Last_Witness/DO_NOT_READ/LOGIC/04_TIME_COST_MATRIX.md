@@ -38,6 +38,7 @@ Weather after 22:45 adds:
 | attempt risky alternate access | 10-20 min |
 | regroup and exchange all notes | 10 min |
 | remote call sharing one clue | 5 min, where signal exists |
+| run the documented archive-recovery reset | 20 min, and the reset is logged |
 
 ## 3. Parallel action model
 

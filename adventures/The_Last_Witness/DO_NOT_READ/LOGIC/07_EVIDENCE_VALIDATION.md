@@ -42,6 +42,7 @@ Point totals are derived, never stored. `P_STAGED`, `P_HARBOR`, `P_ROOM_4B`, `P_
 | `CON_MEDICAL_EMERGENCY` | `P_MEDICAL` | 2 points, or automatic on `EVT_330` | none | 5 |
 | `CON_DECOY_KEY` | `P_DECOY` | 2 points, or `CLUE_DECOY_TRACKER` with `CLUE_DECOY_LIMITED_CONTENT` | none | 5 |
 | `CON_WINDOW_CODE` | `P_CODE` | 1 fragment point and 1 interpretation point | none; the gate is structural | 5 |
+| `CON_PASSPHRASE_ACCESS` | passphrase total | 1 point | none; the two routes differ in quality, not class | 2 |
 
 `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` carry no threshold. They are `DEPRECATED` umbrella identifiers superseded by the tiered pairs above.
 
@@ -125,6 +126,17 @@ At least three rescue-control routes exist:
 
 If photograph is lost, archive duplicate plus Nadia fragment remains. If Nadia is hostile, partial transfer or later Elias testimony remains possible, producing a weaker ending rather than deadlock.
 
+### Passphrase access
+
+Two independent routes reach `CON_PASSPHRASE_ACCESS`, sharing no granting node, no source actor and no location:
+
+- Route A, `CLUE_UPLOAD_RECOVERY_INSTRUCTIONS` from Nadia's upload at `EVT_123`, available before discovery;
+- Route B, `CLUE_ELIAS_FRAGMENT_PASSPHRASE` from Elias at `EVT_330`, available until `ELIAS_STATE` reaches `CRITICAL_UNRESPONSIVE` at 01:00.
+
+Route A is obtainable before 01:00 and before room discovery, so a late arrival is not stranded. The routes are not equal in quality: Route A's reset is logged and caps the outcome at partial official evidence, while Route B preserves authentication.
+
+Obtaining neither is a degraded outcome, not a deadlock. It routes to "Evidence lost" or "Public leak" in `14_ENDING_TRIGGER_MATRIX.md` § 3.
+
 ## 7. Gate evaluators
 
 This document owns the `EVAL_` namespace jointly with `14_ENDING_TRIGGER_MATRIX.md`, which declares `EVAL_ENDING`. The evaluators below are declared here.
@@ -155,6 +167,7 @@ One evaluator per conclusion threshold in § 2. Each reads the held clue set, wh
 | `EVAL_CON_MEDICAL_EMERGENCY` | `CON_MEDICAL_EMERGENCY` | § 9 medical clue group, plus `EVT_330` |
 | `EVAL_CON_DECOY_KEY` | `CON_DECOY_KEY` | § 10 decoy clue group |
 | `EVAL_CON_WINDOW_CODE` | `CON_WINDOW_CODE` | § 11 code clue group |
+| `EVAL_CON_PASSPHRASE_ACCESS` | `CON_PASSPHRASE_ACCESS` | § 11a passphrase clue group |
 
 Section references are to `12_CLUE_DEPENDENCY_GRAPH.md`.
 

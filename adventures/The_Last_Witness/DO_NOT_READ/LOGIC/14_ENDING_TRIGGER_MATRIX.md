@@ -54,11 +54,14 @@ The final text must never imply that Iris's field treatment alone cured the inju
 Requires:
 
 - primary key;
+- the passphrase itself, by Route B of `CON_PASSPHRASE_ACCESS`;
 - complete recovery code;
 - accessible upload route;
 - sufficient time;
 - transfer not successfully intercepted;
 - preserved authentication.
+
+Route A of `CON_PASSPHRASE_ACCESS` cannot reach this outcome. The reset it performs is logged, which downgrades authentication.
 
 ### Partial official evidence
 
@@ -67,7 +70,8 @@ One or more of:
 - incomplete archive;
 - missing code;
 - late upload;
-- decoy contamination detected after transfer.
+- decoy contamination detected after transfer;
+- archive opened through Route A of `CON_PASSPHRASE_ACCESS`, whose logged reset downgrades authentication.
 
 ### Public leak
 
@@ -75,7 +79,7 @@ Evidence released without full verification or through Nadia's emergency publica
 
 ### Evidence lost
 
-Primary key seized/destroyed and no adequate external copy.
+Primary key seized/destroyed and no adequate external copy, or neither route of `CON_PASSPHRASE_ACCESS` obtained so the archive never opens.
 
 ## 4. Rook proof outcome
 

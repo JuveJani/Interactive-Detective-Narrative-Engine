@@ -37,7 +37,7 @@ Does not know:
 
 **Stage 0, guarded:** says Elias distrusted the protection plan.  
 **Stage 1, evidence confronted or trust +1:** admits she helped him avoid pickup.  
-**Stage 2, trust +2 or proof of harbor:** reveals Signal Room 4B and her code fragment.  
+**Stage 2, trust +2 or proof of harbor:** reveals Signal Room 4B, her code fragment, and the written instructions for Elias's documented archive-recovery procedure, which she holds with the encrypted upload. She does not know the passphrase itself.  
 **Emergency override:** if credible evidence shows Elias is injured, she reveals all rescue-relevant information regardless of legal risk.
 
 No ordinary single persuasion roll produces Stage 2.
