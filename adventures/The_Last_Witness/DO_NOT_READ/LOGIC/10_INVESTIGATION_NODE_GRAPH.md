@@ -1397,3 +1397,19 @@ Stated as assertions over the explicit edge set above, so each is checkable rath
 | No player can earn the best ending through an unsupported guess | `EVT_901` requires `CON_ROOK_PUBLICLY_PROVABLE` and a full authenticated transfer |
 
 Off-screen nodes `EVT_801`–`EVT_804`, owned by `06_NPC_SCHEDULE_AND_PRIORITY.md` § 4, are not player-reachable and are excluded from reachability.
+
+## 17. Identifier status
+
+This document owns the playable `EVT_` namespace. Forty-eight identifiers are declared in §§ 2–14.
+
+Status is assigned per `IMPLEMENTATION_PLAN.md` § 8.7: an identifier referenced at least once outside its declaring heading is `ACTIVE`; one declared but never referenced is `DEFINITION_ONLY`.
+
+| Status | Count | Scope |
+|---|---:|---|
+| `ACTIVE` | 48 | playable nodes in §§ 2–14 |
+
+Every playable node is `ACTIVE`. Each is referenced from at least one other node's `Outgoing` block, `Entry conditions`, variable-write table, or cross-document pointer.
+
+Off-screen nodes `EVT_801`–`EVT_804` are declared in `06_NPC_SCHEDULE_AND_PRIORITY.md` § 4. All four are `ACTIVE`: `EVT_803` is referenced as a writer in `01_WORLD_STATE_VARIABLES.md`; `EVT_801`, `EVT_802` and `EVT_804` are referenced from `16_EVENT_GRAPH_MAPPING.md` and § 16 above.
+
+No `EVT_` identifier is `DEFINITION_ONLY`, `RESERVED` or `DEPRECATED`.
