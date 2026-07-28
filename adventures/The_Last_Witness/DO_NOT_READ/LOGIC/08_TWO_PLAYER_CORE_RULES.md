@@ -31,6 +31,10 @@ During a split:
 - each branch has an independent useful outcome;
 - one player's failure cannot trap the other in a waiting loop.
 
+### Split completion (MBD-03)
+
+Each player continues until they have no remaining legal actions. When finished, they **wait** — no forced movement, no automatic jump, no timer-based interruption, and no pressure on the other player. `WAIT_UNTIL_SYNC`, `REMOTE_CONTACT`, and `EMERGENCY_INTERRUPT` are window-level options (§ 4), not per-node rules.
+
 ## 4. Communication modes
 
 - **Physical regroup:** all chosen information may be shared; costs 10 minutes.
@@ -76,28 +80,44 @@ When players disagree at a shared decision:
 3. apply the branch that reflects actual actions, allowing objectives to diverge;
 4. do not use random coin flips unless the physical actions are mutually exclusive and simultaneous.
 
-## 9. Participation audit
+## 9. Participation audit (MBD-05)
 
-Before compilation, every major block must record:
+The participation audit is a **developer validation tool**. Players never see it. Its purpose is validating adventure balance before compilation.
 
-- number of decisions per player;
-- number of unique clues per player;
-- number of social/technical/physical challenges;
-- time spent waiting;
-- final-act responsibility.
+The audit evaluates **all valid story paths** — it does **not** use a single canonical reference path and does **not** privilege any one midgame pair (e.g. Pair A). It is **informational only** and must not modify gameplay.
 
-Balancing exact skill-check counts can wait for playtesting; eliminating passive stretches cannot.
+### Metrics per path
 
-### Participation audit table
+For each valid path, compare the two narrative roles regarding:
 
-Authoritative per-block metrics are populated in `13_SPLIT_AND_REGROUP_FLOW.md` § 9. Summary:
+- decisions;
+- clues;
+- locations visited;
+- challenges (`CHK_*` and approach-choice nodes);
+- gameplay time (action-cost sum along path);
+- communication opportunities;
+- overall participation.
+
+Small differences are acceptable. Large systematic imbalance across paths should fail validation.
+
+### Valid paths evaluated
+
+| Block | Paths | Source |
+|---|---|---|
+| Opening / Split One | apartment role vs newsroom role | `13` § 2 |
+| Midgame / Split Two | Pair A, Pair B, Pair C track assignments | `13` § 4 |
+| Final act | Rescue/Evidence; Interior/Exterior; Proof/Protection role pairs | `13` § 7 |
+
+### Audit summary
+
+Authoritative per-path tables are in `13_SPLIT_AND_REGROUP_FLOW.md` § 9.
 
 | Block | Status | Notes |
 |---|---|---|
-| Opening / Split One | **Partial** | P1/P2 decision and clue maximums derived; physical challenge count = 1 (`CHK_115_PERCEPTION`, DC blocked) |
-| Regroup One | **Partial** | Joint decisions counted; clue transfer only |
-| Midgame / Split Two | **BLOCKED** | Track assignment at `EVT_150` not bound to nodes |
-| Regroup Two | **Partial** | Joint assignment decision; final-act role responsibility **BLOCKED** |
-| Final act | **BLOCKED** | Role-pair patterns exist; P1/P2 binding undefined |
+| Opening / Split One | **Complete** | Two roles compared; physical challenge = 1 (`CHK_115_PERCEPTION`, DC 10) on apartment role |
+| Regroup One | **Complete** | Joint decisions; clue transfer only |
+| Midgame / Split Two | **Complete** | Three track pairs compared |
+| Regroup Two | **Complete** | Joint assignment; final-act role responsibility enumerated per path |
+| Final act | **Complete** | Three role-pair patterns compared |
 
-**Waiting time** and **inactive reading time** per block: **BLOCKED** — no authored per-block values exist.
+**Validation rule:** If any metric differs by more than 2× between roles on the same path, or if one role has zero decisions across an entire block, flag for author review. The audit does not auto-correct gameplay.

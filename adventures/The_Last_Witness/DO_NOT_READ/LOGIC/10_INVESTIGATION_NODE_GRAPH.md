@@ -43,55 +43,58 @@ Every playable `EVT_*` node must declare exactly one scene mode drawn from `engi
 |---|---|
 | `Joint` | Both players present; shared content unless separate choices are explicitly assigned |
 | `Split` | Separate player-facing content; private knowledge isolated; must end at a synchronization point |
-| `Solo` | One player acts; the other is temporarily inactive |
 
-Modes are assigned only when deterministically derivable from existing fields (`Players`, exclusive branch placement in `13_SPLIT_AND_REGROUP_FLOW.md`, or collective ending resolution). Nodes that cannot be classified without session-state assumptions are marked `UNCLASSIFIED` in § 1c.
+**MBD-02 (Alpha 0.2c):** Scene mode describes **narrative role**, not player identity. Nodes represent story roles or locations. Either player may occupy a role when the story permits. Scene mode is metadata for narrative structure. It is **not** permanently bound to Player 1 or Player 2.
+
+The `Solo` scene mode exists in `engine/05` § 3.3 but is **not used** in this adventure for Alpha 0.2c (`two_player` only; see § 18).
+
+Modes are assigned from narrative structure: regroup gates, split-window track placement in `13_SPLIT_AND_REGROUP_FLOW.md`, and collective ending resolution. Authoritative values are in § 1c.
 
 ## 1c. Scene mode registry
 
-Authoritative `Scene mode` for all forty-eight playable nodes.
+Authoritative `Scene mode` for all forty-eight playable nodes. Classification uses **narrative role or location**, not permanent player identity (MBD-02).
 
-| Node | `Scene mode` | Classification basis |
+| Node | `Scene mode` | Narrative role / basis |
 |---|---|---|
-| `EVT_100_SHARED_BRIEFING` | `Joint` | `Players: both` |
-| `EVT_110_P1_APARTMENT_APPROACH` | `UNCLASSIFIED` | `Players: Player 1, or both if chosen` — mode depends on `EVT_100` joint-path choice |
-| `EVT_111_MINA_FIRST_CONTACT` | `Split` | `13` § 2 Player 1 branch |
-| `EVT_112_RESTRICTED_APARTMENT` | `Split` | `13` § 2 Player 1 branch |
-| `EVT_113_APARTMENT_SEARCH` | `Split` | `13` § 2 Player 1 branch |
-| `EVT_114_NEIGHBOUR_INTERVIEW` | `Split` | `13` § 2 Player 1 branch |
-| `EVT_115_SERVICE_CORRIDOR` | `Split` | `13` § 2 Player 1 branch |
-| `EVT_120_P2_NEWSROOM_ENTRY` | `Split` | `13` § 2 Player 2 branch |
-| `EVT_121_NADIA_INTERVIEW` | `Split` | `13` § 2 Player 2 branch |
-| `EVT_122_MARCUS_OBSERVATION` | `Split` | `13` § 2 Player 2 branch |
-| `EVT_123_NEWSROOM_RECORDS` | `Split` | `13` § 2 Player 2 branch |
-| `EVT_150_REGROUP_ONE` | `Joint` | `Players: both`; `ARC_170` sync gate |
-| `EVT_210_HARBOR_ARCHIVE_ENTRY` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_211_CAFE_ORPHEUS` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_212_TERMINAL_RECON` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_220_MINA_REPORT_COMPARISON` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_221_CAMERA_REQUEST_AUDIT` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_222_PROTECTION_ORDER_AUDIT` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_223_ROOK_INTERVIEW` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_230_IRIS_WORKPLACE` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_231_PREPAID_PHONE_TRACE` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_232_MEDICAL_INTERPRETATION` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_240_MARCUS_PRESSURE_STAGE_ONE` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_241_MARCUS_FULL_DISCLOSURE` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_242_REED_OFFICE_SEARCH` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_243_REED_NEGOTIATION` | `UNCLASSIFIED` | midgame track assignment chosen at `EVT_150`; no `Players` field |
-| `EVT_300_REGROUP_TWO` | `Joint` | `ARC_270` sync gate; regroup function per `13` § 6 |
-| `EVT_310_CABLE_CORRIDOR_ENTRY` | `UNCLASSIFIED` | final-act route selection; no `Players` field |
-| `EVT_311_NORTH_GATE_ENTRY` | `UNCLASSIFIED` | final-act route selection; no `Players` field |
-| `EVT_312_DRAINAGE_ENTRY` | `UNCLASSIFIED` | final-act route selection; no `Players` field |
-| `EVT_313_EMERGENCY_ENTRY` | `UNCLASSIFIED` | final-act route selection; no `Players` field |
-| `EVT_314_MAIN_ENTRY_CONFRONTATION` | `UNCLASSIFIED` | final-act route selection; no `Players` field |
-| `EVT_330_FIND_SIGNAL_4B` | `UNCLASSIFIED` | `08` § 6 describes parallel roles but node has no `Players` field |
-| `EVT_331_LENA_IRIS_NEGOTIATION` | `UNCLASSIFIED` | `13` § 7 role-pair pattern; player assignment chosen at `EVT_300` |
-| `EVT_400_RESCUE_CONTROL` | `UNCLASSIFIED` | `13` § 7 role-pair pattern; player assignment chosen at `EVT_300` |
-| `EVT_410_LEDGER_RECOVERY` | `UNCLASSIFIED` | `13` § 7 role-pair pattern; player assignment chosen at `EVT_300` |
-| `EVT_420_REED_OR_ROOK_CONFRONTATION` | `UNCLASSIFIED` | `13` § 7 role-pair pattern; player assignment chosen at `EVT_300` |
-| `EVT_430_COMPLETE_TRANSFER` | `UNCLASSIFIED` | `13` § 7 role-pair pattern; player assignment chosen at `EVT_300` |
-| `EVT_440_FINAL_PUBLIC_POSITION` | `UNCLASSIFIED` | public accusation; no `Players` field; role assignment from `EVT_300` |
+| `EVT_100_SHARED_BRIEFING` | `Joint` | shared briefing; both players present |
+| `EVT_110_P1_APARTMENT_APPROACH` | `Split` | apartment-cluster approach during Split One |
+| `EVT_111_MINA_FIRST_CONTACT` | `Split` | apartment cluster — Mina contact role |
+| `EVT_112_RESTRICTED_APARTMENT` | `Split` | apartment cluster — restricted access role |
+| `EVT_113_APARTMENT_SEARCH` | `Split` | apartment cluster — search role |
+| `EVT_114_NEIGHBOUR_INTERVIEW` | `Split` | apartment cluster — neighbour interview role |
+| `EVT_115_SERVICE_CORRIDOR` | `Split` | apartment cluster — service corridor role |
+| `EVT_120_P2_NEWSROOM_ENTRY` | `Split` | newsroom-cluster entry during Split One |
+| `EVT_121_NADIA_INTERVIEW` | `Split` | newsroom cluster — Nadia interview role |
+| `EVT_122_MARCUS_OBSERVATION` | `Split` | newsroom cluster — Marcus observation role |
+| `EVT_123_NEWSROOM_RECORDS` | `Split` | newsroom cluster — records recovery role |
+| `EVT_150_REGROUP_ONE` | `Joint` | Regroup One; `ARC_170` sync gate |
+| `EVT_210_HARBOR_ARCHIVE_ENTRY` | `Split` | midgame harbor-archive track (`13` § 4) |
+| `EVT_211_CAFE_ORPHEUS` | `Split` | midgame café-research track (`13` § 4) |
+| `EVT_212_TERMINAL_RECON` | `Split` | midgame terminal-reconnaissance track (`13` § 4) |
+| `EVT_220_MINA_REPORT_COMPARISON` | `Split` | midgame police-procedure track (`13` § 4) |
+| `EVT_221_CAMERA_REQUEST_AUDIT` | `Split` | midgame police-procedure track (`13` § 4) |
+| `EVT_222_PROTECTION_ORDER_AUDIT` | `Split` | midgame police-procedure track (`13` § 4) |
+| `EVT_223_ROOK_INTERVIEW` | `Split` | midgame police-procedure track (`13` § 4) |
+| `EVT_230_IRIS_WORKPLACE` | `Split` | midgame medical-trail track (`13` § 4) |
+| `EVT_231_PREPAID_PHONE_TRACE` | `Split` | midgame medical-trail track (`13` § 4) |
+| `EVT_232_MEDICAL_INTERPRETATION` | `Split` | midgame medical-trail track (`13` § 4) |
+| `EVT_240_MARCUS_PRESSURE_STAGE_ONE` | `Split` | midgame newsroom-investigation track (`13` § 4) |
+| `EVT_241_MARCUS_FULL_DISCLOSURE` | `Split` | midgame newsroom-investigation track (`13` § 4) |
+| `EVT_242_REED_OFFICE_SEARCH` | `Split` | midgame Reed-office track (`13` § 4) |
+| `EVT_243_REED_NEGOTIATION` | `Split` | midgame Reed-office track (`13` § 4) |
+| `EVT_300_REGROUP_TWO` | `Joint` | Regroup Two; `ARC_270` sync gate |
+| `EVT_310_CABLE_CORRIDOR_ENTRY` | `Split` | final-act terminal entry — cable corridor role |
+| `EVT_311_NORTH_GATE_ENTRY` | `Split` | final-act terminal entry — north gate role |
+| `EVT_312_DRAINAGE_ENTRY` | `Split` | final-act terminal entry — drainage role |
+| `EVT_313_EMERGENCY_ENTRY` | `Split` | final-act terminal entry — emergency role |
+| `EVT_314_MAIN_ENTRY_CONFRONTATION` | `Split` | final-act terminal entry — main gate role |
+| `EVT_330_FIND_SIGNAL_4B` | `Split` | final-act interior location role (`13` § 7) |
+| `EVT_331_LENA_IRIS_NEGOTIATION` | `Split` | final-act negotiation role (`13` § 7) |
+| `EVT_400_RESCUE_CONTROL` | `Split` | final-act rescue-control role (`13` § 7) |
+| `EVT_410_LEDGER_RECOVERY` | `Split` | final-act evidence-recovery role (`13` § 7) |
+| `EVT_420_REED_OR_ROOK_CONFRONTATION` | `Split` | final-act exterior confrontation role (`13` § 7) |
+| `EVT_430_COMPLETE_TRANSFER` | `Split` | final-act evidence-transfer role (`13` § 7) |
+| `EVT_440_FINAL_PUBLIC_POSITION` | `Joint` | collective public accusation |
 | `EVT_900_RESOLVE_ENDING` | `Joint` | collective ending dispatch |
 | `EVT_901_END_WITNESS_SPEAKS` | `Joint` | terminal epilogue; collective outcome |
 | `EVT_902_END_EVIDENCE_WITHOUT_WITNESS` | `Joint` | terminal epilogue; collective outcome |
@@ -102,29 +105,49 @@ Authoritative `Scene mode` for all forty-eight playable nodes.
 | `EVT_907_END_WRONG_ACCUSATION` | `Joint` | terminal epilogue; collective outcome |
 | `EVT_908_END_FRACTURED_TRUTH` | `Joint` | terminal epilogue; collective outcome; two-player-only reachability per § 14 |
 
-**Summary:** 12 `Joint`, 9 `Split`, 27 `UNCLASSIFIED`, 0 `Solo`.
+**Summary:** 13 `Joint`, 35 `Split`, 0 `UNCLASSIFIED`, 0 `Solo`.
 
-## 1d. Split terminator registry
+## 1d. Split branch completion and terminators
 
-Split terminators are drawn from `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 5: `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT`, `TERMINAL_OUTCOME`.
+**MBD-03 (Alpha 0.2c):** During a split window, each player continues until they have no remaining legal actions. When a player has finished, they **wait** — no forced movement, no automatic jump, no timer-based interruption, and no pressure on the other player.
 
-Declared only where `Scene mode` is `Split` and the graph defines a regroup target in `Outgoing`.
+`WAIT_UNTIL_SYNC`, `REMOTE_CONTACT`, and `EMERGENCY_INTERRUPT` are **window-level mechanics** only (`08_TWO_PLAYER_CORE_RULES.md` § 4; `13_SPLIT_AND_REGROUP_FLOW.md` § 5–§ 6). They are **not** per-node metadata.
 
-| Node | `Split terminator` | `Regroup target` | Basis |
-|---|---|---|---|
-| `EVT_112_RESTRICTED_APARTMENT` | `REJOIN` | `EVT_150_REGROUP_ONE` | `Outgoing` includes `EVT_150`; `13` § 2 regroup trigger |
-| `EVT_113_APARTMENT_SEARCH` | `REJOIN` | `EVT_150_REGROUP_ONE` | `Outgoing` includes `EVT_150`; `13` § 2 regroup trigger |
-| `EVT_114_NEIGHBOUR_INTERVIEW` | `REJOIN` | `EVT_150_REGROUP_ONE` | `Outgoing` includes `EVT_150`; `13` § 2 regroup trigger |
-| `EVT_115_SERVICE_CORRIDOR` | `REJOIN` | `EVT_150_REGROUP_ONE` | `Outgoing` includes `EVT_150`; `13` § 2 regroup trigger |
-| `EVT_120_P2_NEWSROOM_ENTRY` | — | — | in-window; branch exit via child nodes |
-| `EVT_121_NADIA_INTERVIEW` | `REJOIN` | `EVT_150_REGROUP_ONE` | `Outgoing` includes `EVT_150`; `13` § 2 regroup trigger |
-| `EVT_122_MARCUS_OBSERVATION` | `REJOIN` | `EVT_150_REGROUP_ONE` | `Outgoing` includes `EVT_150`; `13` § 2 regroup trigger |
-| `EVT_123_NEWSROOM_RECORDS` | `REJOIN` | `EVT_150_REGROUP_ONE` | `Outgoing` includes `EVT_150`; `13` § 2 regroup trigger |
-| `EVT_111_MINA_FIRST_CONTACT` | — | — | in-window; branch exit via child nodes to `EVT_150` |
+### Node-level terminators
 
-Midgame and final-act split terminators toward `EVT_300_REGROUP_TWO` or `EVT_900_RESOLVE_ENDING` are **BLOCKED** until `Scene mode` is resolved for those nodes (see § 1c `UNCLASSIFIED` rows).
+Per `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 5, split branches that reach a regroup or convergence declare one node-level terminator from:
 
-Communication during any split window may use `REMOTE_CONTACT` per `08_TWO_PLAYER_CORE_RULES.md` § 4 and `13_SPLIT_AND_REGROUP_FLOW.md` § 5. That is a window-level option, not a per-node terminator declaration.
+| Terminator | Use |
+|---|---|
+| `REJOIN` | Branch exit lists a regroup or convergence target in `Outgoing` |
+| `TERMINAL_OUTCOME` | Branch resolves to a terminal ending without regroup |
+
+`REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, and `EMERGENCY_INTERRUPT` are excluded from this table.
+
+### Split One — `REJOIN` → `EVT_150_REGROUP_ONE`
+
+| Node | `Split terminator` | `Regroup target` |
+|---|---|---|
+| `EVT_112_RESTRICTED_APARTMENT` | `REJOIN` | `EVT_150_REGROUP_ONE` |
+| `EVT_113_APARTMENT_SEARCH` | `REJOIN` | `EVT_150_REGROUP_ONE` |
+| `EVT_114_NEIGHBOUR_INTERVIEW` | `REJOIN` | `EVT_150_REGROUP_ONE` |
+| `EVT_115_SERVICE_CORRIDOR` | `REJOIN` | `EVT_150_REGROUP_ONE` |
+| `EVT_121_NADIA_INTERVIEW` | `REJOIN` | `EVT_150_REGROUP_ONE` |
+| `EVT_122_MARCUS_OBSERVATION` | `REJOIN` | `EVT_150_REGROUP_ONE` |
+| `EVT_123_NEWSROOM_RECORDS` | `REJOIN` | `EVT_150_REGROUP_ONE` |
+
+In-window nodes (`EVT_110`, `EVT_111`, `EVT_120`) omit a terminator; branch completion flows through child nodes above.
+
+### Split Two — `REJOIN` → `EVT_300_REGROUP_TWO`
+
+Every midgame `Split` node (`EVT_210`–`EVT_243`) whose `Outgoing` includes `EVT_300_REGROUP_TWO` declares `REJOIN` → `EVT_300_REGROUP_TWO`.
+
+### Final act — `REJOIN` → convergence
+
+| Node | `Split terminator` | Convergence target(s) |
+|---|---|---|
+| `EVT_310`–`EVT_314` | `REJOIN` | `EVT_330_FIND_SIGNAL_4B` and/or `EVT_314_MAIN_ENTRY_CONFRONTATION` per `Outgoing` |
+| `EVT_330`–`EVT_430` | `REJOIN` | `EVT_440_FINAL_PUBLIC_POSITION` and/or `EVT_900_RESOLVE_ENDING` per `Outgoing` |
 
 ## 2. Opening nodes
 
@@ -356,7 +379,7 @@ A failed or rushed search reveals one suspicious category and costs an additiona
 
 A failed perception check still reveals that the corridor exists, but not the fibre trace. Mina can later confirm the latch direction.
 
-**Check:** `CHK_115_PERCEPTION` (`17_CHECK_REGISTER.md`) — compilation blocked on missing DC.
+**Check:** `CHK_115_PERCEPTION` (`17_CHECK_REGISTER.md`) — Medium (DC 10); see MBD-01 resolution procedure.
 
 **Variants**
 
@@ -1728,18 +1751,17 @@ Off-screen nodes `EVT_801`–`EVT_804` are declared in `06_NPC_SCHEDULE_AND_PRIO
 
 No `EVT_` identifier is `DEFINITION_ONLY`, `RESERVED` or `DEPRECATED`.
 
-## 18. Solo play mode
+## 18. Play modes (MBD-06)
 
-Solo mode is required by `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § 1 and `PROTOTYPE_BRIEF.md`, but a complete deterministic solo specification does not exist in this adventure logic.
+Alpha 0.2c officially supports **`two_player` only**. Solo mode is intentionally deferred to a post–Alpha 0.2c production phase per `IMPLEMENTATION_PLAN.md` § 15.
 
-| Requirement | Status |
+| Field | Value |
 |---|---|
-| Solo eligibility rules | **BLOCKED** — not authored |
-| Merged-player routing / route substitutions | **BLOCKED** — not authored |
-| Solo reachability graph | **BLOCKED** — not authored |
-| Solo artifact set | **BLOCKED** — not authored |
-| `EVT_908_END_FRACTURED_TRUTH` exclusion | **Declared** — reachable only in two-player mode (§ 14); solo artifacts must exclude or mark unreachable per `BOOK_COMPILER_SPEC.md` § 3 |
+| Declared `play_modes` | `[two_player]` (`adventures/The_Last_Witness/README.md`) |
+| Validation scope | Reachability and participation audits evaluate `two_player` only |
+| `EVT_908_END_FRACTURED_TRUTH` | Reachable only in `two_player` mode (§ 14); excluded from future solo artifacts |
+| `Scene mode` value `Solo` | Not used on any node (§ 1c) |
 
-**Declared play mode:** `two_player` only (`adventures/The_Last_Witness/README.md`). Engine exception documented pending solo graph authorship.
+**Engine note:** `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § 1 and `PROTOTYPE_BRIEF.md` describe long-term solo capability. That requirement remains a future engine goal; it does not block Alpha 0.2c logic closure under `ENGINE_READINESS_PLAN.md` C6 when `play_modes: [two_player]` is declared with this documented exception.
 
-No solo routes, player-merge rules, or solo `Scene mode` assignments are implemented. `Scene mode` value `Solo` does not appear on any node (§ 1c).
+Solo eligibility rules, merged-player routing, solo reachability graph, and solo artifact set are **not authored** and are out of scope for Milestone B.

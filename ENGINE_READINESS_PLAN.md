@@ -759,6 +759,23 @@ All COMPILER READY criteria, plus:
 
 ---
 
+## Appendix C — Milestone B design decisions (Alpha 0.2c)
+
+Owner-approved design decisions MBD-01 through MBD-06 are implemented in adventure logic per `MILESTONE_B_IMPLEMENTATION_V2_REPORT.md`.
+
+| ID | ER mapping | Resolution |
+|---|---|---|
+| MBD-01 | ER-02 | D20 check resolution; `CHK_115_PERCEPTION` DC 10 (Medium) |
+| MBD-02 | ER-03 | Scene mode as narrative-role metadata; 48/48 nodes classified |
+| MBD-03 | ER-04 | Split completion = wait until no legal actions; window-level sync mechanics |
+| MBD-04 | ER-05 | Single shared world clock; no per-player timeline math |
+| MBD-05 | ER-09 | Participation audit across all valid paths; developer-only |
+| MBD-06 | ER-10 | `two_player` only; solo deferred with documented exception (C6) |
+
+Milestone B validation gates V-CHK, V-SM, V-ST, V8, participation gate, and C6 are satisfied for declared `two_player` scope.
+
+---
+
 ## Appendix B — Document revision
 
 | Version | Change |

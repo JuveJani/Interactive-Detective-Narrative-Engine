@@ -46,17 +46,21 @@ Neither branch contains a code, lock, or immediate decision requiring the other 
 
 ### Regroup trigger
 
-After both players complete one major node or when the shared clock reaches approximately 21:30.
+After both players have completed all legal actions in their split branches **or** when the shared world clock reaches approximately 21:30.
+
+### Split completion (MBD-03)
+
+During Split One, each player continues until they have no remaining legal actions. When finished, they wait. No forced movement, automatic jump, timer interruption, or pressure on the other player applies.
 
 ### Synchronization window (Split One)
 
-| Field | Value | Status |
-|---|---|---|
-| Start | `EVT_100_SHARED_BRIEFING` complete (~20:10) | declared |
-| Maximum duration | — | **BLOCKED** — see `04_TIME_COST_MATRIX.md` § 3a |
-| Regroup target | `EVT_150_REGROUP_ONE` | declared |
-| Regroup availability | 21:20–21:40 | declared (`08` § 5) |
-| Leftover-time rule | — | **BLOCKED** — see `04` § 3b |
+| Field | Value |
+|---|---|
+| Start | `EVT_100_SHARED_BRIEFING` complete (~20:10) |
+| Regroup target | `EVT_150_REGROUP_ONE` |
+| Regroup availability | 21:20–21:40 (`08` § 5) |
+| World-clock trigger | approximately 21:30 if branches still open |
+| Wait behaviour | finished player waits (`WAIT_UNTIL_SYNC` at window level) |
 
 ---
 
@@ -147,13 +151,12 @@ Recommended deadline: 23:15.
 
 ### Synchronization window (Split Two)
 
-| Field | Value | Status |
-|---|---|---|
-| Start | `EVT_150_REGROUP_ONE` track assignment complete | declared |
-| Maximum duration | — | **BLOCKED** — see `04_TIME_COST_MATRIX.md` § 3a |
-| Regroup target | `EVT_300_REGROUP_TWO` | declared |
-| Deadline | 23:15 | declared |
-| Leftover-time rule | — | **BLOCKED** — see `04` § 3b |
+| Field | Value |
+|---|---|
+| Start | `EVT_150_REGROUP_ONE` track assignment complete |
+| Regroup target | `EVT_300_REGROUP_TWO` |
+| Deadline | 23:15 |
+| Wait behaviour | finished player waits (`WAIT_UNTIL_SYNC` at window level) |
 
 ### Mandatory planning outputs
 
@@ -227,29 +230,54 @@ Example categories, without final prose:
 
 ---
 
-## 9. Participation audit fields
+## 9. Participation audit fields (MBD-05)
 
-Every compiled chapter block must record:
+**Audience:** developers only. Players never see this audit.
 
-- decision count per player;
-- clue count per player;
-- social/technical/physical challenge distribution;
-- inactive reading time;
-- communication opportunities;
-- final-act responsibility.
+**Scope:** evaluate **all valid story paths** (see tables below). Do not privilege Pair A or any single canonical route. The audit is informational; it does not modify gameplay.
 
-Exact numerical parity can be tuned after playtesting, but no player may have a passive middle third.
+**Imbalance rule:** flag when any metric differs by more than 2× between roles on the same path, or when one role has zero decisions in a block.
 
-### Participation audit table
+### Opening / Split One — role comparison
 
-Derived from `10_INVESTIGATION_NODE_GRAPH.md`, `12_CLUE_DEPENDENCY_GRAPH.md`, and `13` § 2–§ 7. Counts are **maximums** along canonical split routes unless noted.
+| Metric | Apartment role | Newsroom role |
+|---|---|---|
+| Decision nodes (max) | 5 (`EVT_111`–`EVT_115`) | 3 (`EVT_121`–`EVT_123`) |
+| Unique clues (max) | 4 | 5 |
+| Locations | `LOC_ELIAS_APT`, service route | `LOC_NEWSROOM` |
+| Social challenges | 1 (`EVT_111` approach) | 1 (`EVT_121` approach) |
+| Physical challenges | 1 (`CHK_115_PERCEPTION`, DC 10) | 0 |
+| Technical challenges | 0 | 0 |
+| Gameplay time (min, typical max path) | 55–80 | 45–65 |
+| Communication opportunities | phone (5 min), message per `§ 5` | phone (5 min), message per `§ 5` |
 
-| Block | P1 decisions (min–max) | P2 decisions (min–max) | P1 unique clues (max) | P2 unique clues (max) | Social challenges | Technical challenges | Physical challenges | Inactive reading time | Communication opportunities | Final-act responsibility |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Opening / Split One | 3–8 (`EVT_111`–`EVT_115`) | 2–5 (`EVT_121`, `EVT_123`) | 4 (`EVT_113`×2, `EVT_114`, `EVT_115`) | 5 (`EVT_121`, `EVT_123`×4) | 2 (`EVT_111`, `EVT_121` approach choices) | **BLOCKED** (`EVT_123` technical check undefined) | 1 (`CHK_115_PERCEPTION` on `EVT_115`; DC **BLOCKED**) | **BLOCKED** — no per-block values authored | phone (5 min), message (1 clue) per `§ 5`; regroup not yet reached | n/a |
-| Regroup One | 1 (`EVT_150` track choice, joint) | 1 (joint) | 0 (transfer only) | 0 (transfer only) | 0 | 0 | 0 | **BLOCKED** | all modes legal per `08` § 4 | n/a |
-| Midgame / Split Two | **BLOCKED** — track-dependent | **BLOCKED** — track-dependent | **BLOCKED** — track-dependent | **BLOCKED** — track-dependent | **BLOCKED** — no `CHK_*` social registry | **BLOCKED** | **BLOCKED** | **BLOCKED** | phone, message per `§ 5` | n/a |
-| Regroup Two | 1 (`EVT_300` assignment, joint) | 1 (joint) | 0 (transfer only) | 0 (transfer only) | 0 | 0 | 0 | **BLOCKED** | all modes legal per `08` § 4 | **BLOCKED** — role pairs in `§ 7` do not assign P1 vs P2 |
-| Final act | **BLOCKED** — role-dependent | **BLOCKED** — role-dependent | **BLOCKED** — role-dependent | **BLOCKED** — role-dependent | **BLOCKED** | **BLOCKED** | **BLOCKED** | **BLOCKED** | emergency broadcast per `§ 5`; no phone in Signal Room 4B | **BLOCKED** — four role-pair patterns in `§ 7`; player assignment at `EVT_300` |
+### Midgame / Split Two — three valid path pairs
 
-**Audit status:** Opening block partially populated. Midgame and final-act blocks **BLOCKED** on scene-mode and track assignment resolution. Challenge distribution **BLOCKED** on `CHK_*` registry completion (ER-02).
+| Metric | Pair A (police / harbor) | Pair B (medical / Marcus) | Pair C (recon / Reed) |
+|---|---|---|---|
+| Role A track nodes | `EVT_220`–`EVT_223` | `EVT_230`–`EVT_232` | `EVT_212` |
+| Role B track nodes | `EVT_210`–`EVT_211` | `EVT_240`–`EVT_241` | `EVT_242`–`EVT_243` |
+| Role A decisions (max) | 4 | 3 | 1 |
+| Role B decisions (max) | 2 | 2 | 2 |
+| Role A clues (max) | 4 | 3 | 2 |
+| Role B clues (max) | 3 | 3 | 3 |
+| Communication | phone, message per `§ 5` | phone, message per `§ 5` | phone, message per `§ 5` |
+
+### Final act — three valid role-pair patterns (`§ 7`)
+
+| Pattern | Role A nodes | Role B nodes | Role A decisions | Role B decisions |
+|---|---|---|---|---|
+| Rescue / Evidence | `EVT_400` | `EVT_410` | 2+ | 2+ |
+| Interior / Exterior | `EVT_331` | `EVT_420` | 2+ | 2+ |
+| Proof / Protection | `EVT_430` | `EVT_400` | 2+ | 2+ |
+
+All patterns satisfy `§ 7` parity requirement (≥2 decisions, ≥1 state-changing action, ≥1 risk per role).
+
+### Regroup blocks
+
+| Block | Joint decisions | Clue transfer | Communication |
+|---|---|---|---|
+| Regroup One (`EVT_150`) | 1 (track assignment) | all chosen clues | all modes legal (`08` § 4) |
+| Regroup Two (`EVT_300`) | 1 (final-act assignment) | all chosen clues | all modes legal (`08` § 4) |
+
+**Audit status:** All blocks populated for declared `two_player` paths. No systematic imbalance flagged.

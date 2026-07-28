@@ -10,7 +10,7 @@ adventure_schema_version: "1.0"
 **Engine baseline:** IDNE 0.3 / Engine Specification 2.0  
 **Target playtime:** approximately 2 hours  
 **Players:** 2  
-**Play modes:** `two_player` (solo mode **BLOCKED** — see `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` § 18)  
+**Play modes:** `two_player` (solo deferred — see `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` § 18)  
 **Status:** compiler-ready core logic with normalized identifiers, progress model and complete node graph
 
 ## Spoiler warning
