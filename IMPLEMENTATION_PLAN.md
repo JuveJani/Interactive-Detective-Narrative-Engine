@@ -879,3 +879,39 @@ Recorded so the next scope decision starts from a complete picture.
 - **Engine chapter plan divergence.** `engine/README.md` reserves chapters 4 and 5 for content that does not exist.
 - **All engine edits.** This revision touches no file under `engine/`. The prefix registry and the clue-class vocabulary are both adventure-local.
 - **Stale version statements beyond this revision.** C9 corrects only what this revision changes.
+
+---
+
+## 16. C0 — Ratification record (P0)
+
+Recorded at P0 under § 3.2. This section is the C0 ratification record.
+
+### 16.1 Map published
+
+The ratification map in § 14 is published with a **Required by** and a **Status** column for all ten items. It is the authoritative input to the § 3.2 phase gate.
+
+### 16.2 Resolutions reached
+
+| § | Item | Status | Record |
+|---|---|---|---|
+| 14.10 | Route A classification | RESOLVED | The recovery-workflow mechanism was authorised by the accepted-decision authority, which enumerated it as one of three permitted answers when it required Route A's exact operation to be defined. § 5.1 states the position precisely. No content change follows. Required by no phase. |
+| 14.6 | Duplicate-root-file policy | DEFERRABLE — **deferral recorded** | No commit in C1–C9 edits any of the eight byte-identical root copies or their canonical twins, because this revision edits no engine file. The item is required by no phase in this revision and is carried forward. This entry satisfies the recording requirement in § 3.2 and § 14.6. |
+
+### 16.3 Items remaining OPEN
+
+| § | Item | Required by |
+|---|---|---|
+| 14.1 | `END_SILENT_TERMINAL` terminal type | P7 (C7) |
+| 14.2 | Split-branch terminator vocabulary | P7 (C7) |
+| 14.3 | Low and Medium confidence mapping rows | P8 (C8) |
+| 14.4 | Passphrase as a fifth solution chain | P6 (C6) |
+| 14.5 | Point values | P5 (C5) |
+| 14.7 | Multi-class clue diversity behaviour | P5 (C5) |
+| 14.8 | Ending-trigger precedence | P7 (C7) |
+| 14.9 | Umbrella conclusion identifiers | P5 (C5) |
+
+No `OPEN` item names P0, P1, P2, P3 or P4.
+
+### 16.4 Phases clear to enter
+
+**P0, P1, P2, P3, P4.** The first phase with an `OPEN` requirement is **P5**, blocked by § 14.5, § 14.7 and § 14.9.
