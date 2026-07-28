@@ -15,11 +15,23 @@ Each node has:
 - information gained;
 - state changes;
 - failure transformation;
-- `Outgoing`.
+- `Outgoing`;
+- `Variants`, when a node has materially distinct player-facing outcomes (see § 1a).
 
 `NODE_TYPE` and `Outgoing` are mandatory on every node. A node declares `Outgoing` as a list of node identifiers, or `Outgoing: None` when it is terminal. An `INTERMEDIATE` node with no outgoing target is a structural defect. A `TERMINAL` node declares exactly one `TERMINAL_TYPE` drawn from `engine/03_ARCHITECTURE.md` § 3.18 and never declares a target.
 
 The graph is not final prose. It is the authoritative gameplay skeleton from which player-facing nodes will later be compiled.
+
+## 1a. Variant conventions
+
+When a node admits materially distinct outcomes, it declares a `**Variants**` block. Each variant row has:
+
+- `variant_key` — stable snake-case identifier;
+- `condition` — the existing logic condition that selects the variant;
+- `grants` — clue or state effects for that variant only;
+- `cost` — only when it differs from the node default.
+
+Variant keys formalize outcomes already described in **State changes**, **Failure transformation**, **Outcome levels**, or equivalent fields. They do not add routes, clues, thresholds, or mechanics.
 
 ## 2. Opening nodes
 
@@ -114,6 +126,13 @@ Player 1 chooses approach:
 - cooperative or evidence-focused approach: `T_MINA +1`;
 - reckless accusation: `T_MINA -1`, `A_ROOK_PLAYERS +1`.
 
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `approach_cooperative` | procedural cooperation or private appeal to Mina | `T_MINA +1` |
+| `approach_reckless` | direct challenge to police narrative without proof | `T_MINA -1`, `A_ROOK_PLAYERS +1` |
+
 **Reveals**
 
 - Mina's initial impression did not match a violent abduction;
@@ -176,6 +195,17 @@ A failed or rushed search reveals one suspicious category and costs an additiona
 - `GRANT_CLUE` for two of `CLUE_APT_MEDICATION_MISSING`, `CLUE_APT_BLOOD_OLD`, `CLUE_APT_PASSPORT_MISSING` on a successful careful search, one on a failed or rushed search;
 - may unlock `CON_STAGED_DISAPPEARANCE` later.
 
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `careful_medication_blood` | successful careful search; categories medication and blood | `GRANT_CLUE(CLUE_APT_MEDICATION_MISSING)`, `GRANT_CLUE(CLUE_APT_BLOOD_OLD)` |
+| `careful_medication_passport` | successful careful search; categories medication and passport | `GRANT_CLUE(CLUE_APT_MEDICATION_MISSING)`, `GRANT_CLUE(CLUE_APT_PASSPORT_MISSING)` |
+| `careful_blood_passport` | successful careful search; categories blood and passport | `GRANT_CLUE(CLUE_APT_BLOOD_OLD)`, `GRANT_CLUE(CLUE_APT_PASSPORT_MISSING)` |
+| `rushed_medication` | failed or rushed search; one category medication | `GRANT_CLUE(CLUE_APT_MEDICATION_MISSING)` |
+| `rushed_blood` | failed or rushed search; one category blood | `GRANT_CLUE(CLUE_APT_BLOOD_OLD)` |
+| `rushed_passport` | failed or rushed search; one category passport | `GRANT_CLUE(CLUE_APT_PASSPORT_MISSING)` |
+
 **Node type:** `INTERMEDIATE`
 
 **Outgoing**
@@ -233,6 +263,21 @@ A failed or rushed search reveals one suspicious category and costs an additiona
 
 A failed perception check still reveals that the corridor exists, but not the fibre trace. Mina can later confirm the latch direction.
 
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `perception_success` | perception check succeeds | `GRANT_CLUE(CLUE_APT_SERVICE_LATCH)` including fibre trace |
+| `perception_failure` | perception check fails | corridor route known; latch direction confirmable later via Mina; no fibre trace |
+
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_113_APARTMENT_SEARCH`;
+- `EVT_114_NEIGHBOUR_INTERVIEW`;
+- `EVT_150_REGROUP_ONE`.
+
 ---
 
 ## 4. Player 2 opening branch
@@ -274,6 +319,13 @@ Nadia admits distrust of official protection but withholds her role in the disap
 - empathetic but evidence-focused: `T_NADIA +1`;
 - moral condemnation without proof: `T_NADIA -1`;
 - showing evidence of staging later unlocks fuller disclosure.
+
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `approach_empathetic` | empathetic but evidence-focused interview | `T_NADIA +1` |
+| `approach_condemnation` | moral condemnation without proof | `T_NADIA -1` |
 
 **Information**
 
@@ -346,6 +398,24 @@ Nadia admits distrust of official protection but withholds her role in the disap
 
 Failure alerts Marcus or consumes time. At least the missing-photo gap remains observable without a technical check.
 
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `grant_account_access` | server log is read | `GRANT_CLUE(CLUE_MARCUS_ACCOUNT_ACCESS)` |
+| `grant_deleted_call` | deleted office-call entry is recovered | `GRANT_CLUE(CLUE_MARCUS_DELETED_CALL)` |
+| `grant_photo_marks` | missing-photo significance is identified | `GRANT_CLUE(CLUE_PHOTO_WINDOW_MARKS)` |
+| `grant_upload_instructions` | upload instructions are recovered | `GRANT_CLUE(CLUE_UPLOAD_RECOVERY_INSTRUCTIONS)` |
+| `failure_alert` | failure transformation | missing-photo gap observable; Marcus may be alerted |
+
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_121_NADIA_INTERVIEW`;
+- `EVT_122_MARCUS_OBSERVATION`;
+- `EVT_150_REGROUP_ONE`.
+
 ---
 
 ## 5. First regroup
@@ -393,6 +463,23 @@ Choose two primary midgame tracks:
 4. Marcus/Reed operational link.
 
 Players may split again, but each branch is independently useful.
+
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_210_HARBOR_ARCHIVE_ENTRY`;
+- `EVT_211_CAFE_ORPHEUS`;
+- `EVT_212_TERMINAL_RECON`;
+- `EVT_220_MINA_REPORT_COMPARISON`;
+- `EVT_221_CAMERA_REQUEST_AUDIT`;
+- `EVT_222_PROTECTION_ORDER_AUDIT`;
+- `EVT_223_ROOK_INTERVIEW`;
+- `EVT_230_IRIS_WORKPLACE`;
+- `EVT_231_PREPAID_PHONE_TRACE`;
+- `EVT_232_MEDICAL_INTERPRETATION`;
+- `EVT_240_MARCUS_PRESSURE_STAGE_ONE`;
+- `EVT_242_REED_OFFICE_SEARCH`.
 
 ---
 
@@ -476,6 +563,13 @@ Players may split again, but each branch is independently useful.
 
 After footage overwrite, receipt, witness testimony, and tide note remain.
 
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `footage_full_records` | `CAFE_STATE` is `OPEN_FULL_RECORDS` | `GRANT_CLUE(CLUE_CAFE_FOOTAGE)` plus tide note and old-line question clues |
+| `footage_after_overwrite` | after footage overwrite | receipt, witness testimony, and tide note remain; no `CLUE_CAFE_FOOTAGE` |
+
 **Node type:** `INTERMEDIATE`
 
 **Outgoing**
@@ -507,6 +601,23 @@ After footage overwrite, receipt, witness testimony, and tide note remain.
 - may expose players to Reed or Rook later.
 
 This node does not permit blind discovery of the room without at least one identifier or route clue.
+
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `generator_only` | default reconnaissance | `GRANT_CLUE(CLUE_GENERATOR_TRACE)` |
+| `generator_and_medical` | medical packaging found | `GRANT_CLUE(CLUE_GENERATOR_TRACE)`, `GRANT_CLUE(CLUE_MEDICAL_SUPPLY_TRAIL)` |
+| `generator_and_access_trace` | vehicle or access trace linked | `GRANT_CLUE(CLUE_GENERATOR_TRACE)`, `GRANT_CLUE(CLUE_TERMINAL_ACCESS_TRACE)` |
+| `generator_medical_and_access` | medical packaging and access trace both found | `GRANT_CLUE(CLUE_GENERATOR_TRACE)`, `GRANT_CLUE(CLUE_MEDICAL_SUPPLY_TRAIL)`, `GRANT_CLUE(CLUE_TERMINAL_ACCESS_TRACE)` |
+
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_210_HARBOR_ARCHIVE_ENTRY`;
+- `EVT_211_CAFE_ORPHEUS`;
+- `EVT_300_REGROUP_TWO`.
 
 ---
 
@@ -630,6 +741,15 @@ Revealing the terminal or room raises antagonist awareness.
 
 Rook cannot be talked into confessing. Contradictions may strengthen player suspicion but require external evidence.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_220_MINA_REPORT_COMPARISON`;
+- `EVT_221_CAMERA_REQUEST_AUDIT`;
+- `EVT_222_PROTECTION_ORDER_AUDIT`;
+- `EVT_300_REGROUP_TWO`.
+
 ---
 
 ## 8. Medical trail branch
@@ -723,6 +843,14 @@ Rook cannot be talked into confessing. Contradictions may strengthen player susp
 - `GRANT_CLUE(CLUE_IRIS_ASSESSMENT)`;
 - `GRANT_CLUE(CLUE_MEDICAL_REFERENCE)`;
 - `CON_MEDICAL_EMERGENCY` unlocks at `P_MEDICAL >= 2`, or automatically on entering `EVT_330`.
+
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_230_IRIS_WORKPLACE`;
+- `EVT_231_PREPAID_PHONE_TRACE`;
+- `EVT_300_REGROUP_TWO`.
 
 ---
 
@@ -833,6 +961,13 @@ Possible routes:
 
 If office has been searched by Krell's people, players still find residue, device traces, or deleted-message metadata. The strongest physical evidence may be gone, producing a weaker route rather than a dead end.
 
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `search_intact` | office not yet searched by Krell's people | full clue set in **State changes** |
+| `search_after_krell` | office searched by Krell's people | residue, device traces, or deleted-message metadata only; strongest physical evidence may be absent |
+
 **Node type:** `INTERMEDIATE`
 
 **Outgoing**
@@ -870,6 +1005,22 @@ At least two of:
 - `REED_COOPERATED` set true at strong leverage.
 
 No generic persuasion roll unlocks full disclosure.
+
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `no_leverage` | fewer than two leverage factors | denial and flight |
+| `moderate_leverage` | at least two leverage factors | `GRANT_CLUE(CLUE_REED_CONFRONTATION_ADMISSION)`, `GRANT_CLUE(CLUE_REED_PARTIAL_ADMISSION)` |
+| `strong_leverage` | moderate leverage plus credible protection through Mina or equivalent | moderate grants plus `GRANT_CLUE(CLUE_REED_NAMES_ROOK_LINK)`, `REED_COOPERATED` set true |
+
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_241_MARCUS_FULL_DISCLOSURE`;
+- `EVT_242_REED_OFFICE_SEARCH`;
+- `EVT_300_REGROUP_TWO`.
 
 ---
 
@@ -912,6 +1063,16 @@ If one is absent, a late failsafe branch remains but costs time or ending qualit
 **Decision**
 
 Choose final-act assignments.
+
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_310_CABLE_CORRIDOR_ENTRY`;
+- `EVT_311_NORTH_GATE_ENTRY`;
+- `EVT_312_DRAINAGE_ENTRY`;
+- `EVT_313_EMERGENCY_ENTRY`;
+- `EVT_314_MAIN_ENTRY_CONFRONTATION`.
 
 ---
 
@@ -1034,6 +1195,12 @@ Guaranteed but dangerous route. It may trigger Reed, police, or both.
 
 This is the final anti-soft-lock access route.
 
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_330_FIND_SIGNAL_4B`.
+
 ---
 
 ## 12. Signal Room discovery
@@ -1071,6 +1238,13 @@ This is the final anti-soft-lock access route.
 - `CON_MEDICAL_EMERGENCY` automatic on entry, independent of `P_MEDICAL`;
 - unlocks rescue/evidence parallel tasks.
 
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `elias_responsive` | `ELIAS_STATE` is not `CRITICAL_UNRESPONSIVE` | includes `GRANT_CLUE(CLUE_ELIAS_FRAGMENT_PASSPHRASE)` |
+| `elias_critical_unresponsive` | `ELIAS_STATE` is `CRITICAL_UNRESPONSIVE` | medical and room clues only; no passphrase fragment |
+
 **Node type:** `INTERMEDIATE`
 
 **Outgoing**
@@ -1103,6 +1277,22 @@ Players need:
 - barricade if players demand immediate surrender to Rook.
 
 No single social check overrides their core fear.
+
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `cooperation` | credible Rook compromise and rescue plan not Rook-controlled | cooperation |
+| `partial_cooperation_delay` | partial trust only | partial cooperation with delay |
+| `barricade` | players demand immediate surrender to Rook | barricade |
+
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_400_RESCUE_CONTROL`;
+- `EVT_410_LEDGER_RECOVERY`;
+- `EVT_420_REED_OR_ROOK_CONFRONTATION`.
 
 ---
 
@@ -1214,6 +1404,15 @@ Possible player roles:
 - intercepted attempt;
 - public leak fallback.
 
+**Variants**
+
+| `variant_key` | `condition` | `grants` |
+|---|---|---|
+| `full_authenticated_transfer` | Route B passphrase access and complete requirements met | full authenticated transfer |
+| `partial_transfer` | logged reset or incomplete authentication | partial transfer |
+| `intercepted_attempt` | hostile interception succeeds | intercepted attempt |
+| `public_leak_fallback` | transfer blocked with public exposure route | public leak fallback |
+
 **Node type:** `INTERMEDIATE`
 
 **Outgoing**
@@ -1227,6 +1426,12 @@ Possible player roles:
 Players choose what they are prepared to assert publicly.
 
 A target-specific accusation option appears only if its evidence gate is met. Unsupported suspicion may be voiced, but cannot compile into a prosecution-victory ending.
+
+**Node type:** `INTERMEDIATE`
+
+**Outgoing**
+
+- `EVT_900_RESOLVE_ENDING`.
 
 ---
 

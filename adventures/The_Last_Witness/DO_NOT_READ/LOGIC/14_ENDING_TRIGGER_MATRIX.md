@@ -235,9 +235,8 @@ This document owns the `END_` namespace and is the authoritative owner of ending
 
 | Status | Count | Identifiers |
 |---|---:|---|
-| `ACTIVE` | 1 | `END_PROTECTIVE_CUSTODY`, referenced from `05_CORE_EVENT_GRAPH.md` § `ARC_400`. |
-| `DEFINITION_ONLY` | 7 | `END_WITNESS_SPEAKS`, `END_EVIDENCE_WITHOUT_WITNESS`, `END_LIFE_SAVED_TRUTH_DELAYED`, `END_PUBLIC_LEAK`, `END_SILENT_TERMINAL`, `END_WRONG_ACCUSATION`, `END_FRACTURED_TRUTH`. |
+| `ACTIVE` | 8 | `END_WITNESS_SPEAKS` (`EVT_901`), `END_EVIDENCE_WITHOUT_WITNESS` (`EVT_902`), `END_LIFE_SAVED_TRUTH_DELAYED` (`EVT_903`), `END_PROTECTIVE_CUSTODY` (`EVT_904`), `END_PUBLIC_LEAK` (`EVT_905`), `END_SILENT_TERMINAL` (`EVT_906`), `END_WRONG_ACCUSATION` (`EVT_907`), `END_FRACTURED_TRUTH` (`EVT_908`). |
 
-No ending identifier is `RESERVED` or `DEPRECATED`. Node identity for these families is not yet assigned; it is owned by `10_INVESTIGATION_NODE_GRAPH.md`.
+No ending identifier is `DEFINITION_ONLY`, `RESERVED` or `DEPRECATED`. Terminal node identity is owned by `10_INVESTIGATION_NODE_GRAPH.md` § 14; each `END_*` family is referenced from at least one terminal node and from `EVT_900_RESOLVE_ENDING`.
 
 `CON_ROOK_PUBLICLY_PROVABLE`, referenced in § 4, is declared and status-carried in `00_ENTITY_KEY_TABLE.md`.
