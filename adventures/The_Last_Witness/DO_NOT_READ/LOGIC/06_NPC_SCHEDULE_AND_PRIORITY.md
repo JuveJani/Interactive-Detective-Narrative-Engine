@@ -74,21 +74,30 @@ Remain in Signal Room 4B unless:
 
 ## 4. Off-screen conflict outcomes
 
-### Reed reaches terminal before players
+Each outcome below is an off-screen event with its own identifier, taken from the `EVT_800-899` range reserved for off-screen resolution. Off-screen events are not player-reachable and are excluded from graph reachability.
+
+| Identifier | Outcome |
+|---|---|
+| `EVT_801` | Reed reaches terminal before players |
+| `EVT_802` | Rook reaches terminal before players |
+| `EVT_803` | Reed and Rook meet without players |
+| `EVT_804` | Marcus meets intermediary without players |
+
+### `EVT_801` Reed reaches terminal before players
 
 - Reed searches wrong upper rooms first because he lacks exact room number.
 - He does not automatically discover 4B.
 - Lena detects noise and barricades.
 - After 25 minutes, Reed may find cable traces unless interrupted.
 
-### Rook reaches terminal before players
+### `EVT_802` Rook reaches terminal before players
 
 - Rook secures visible entrances.
 - He searches systematically but must still identify 4B.
 - If Reed is present, Rook attempts to detain and isolate him.
 - Rook's institutional authority outranks Reed in open conflict, but public visibility limits evidence destruction.
 
-### Reed and Rook meet without players
+### `EVT_803` Reed and Rook meet without players
 
 Default outcome:
 
@@ -97,7 +106,7 @@ Default outcome:
 - Rook gains `A_ROOK_TERMINAL +1`;
 - Reed may later cooperate if players reach him through Mina or legal contact.
 
-### Marcus meets intermediary without players
+### `EVT_804` Marcus meets intermediary without players
 
 - Marcus tries to return payment;
 - intermediary refuses and records the meeting;

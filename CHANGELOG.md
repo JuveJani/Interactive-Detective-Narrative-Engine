@@ -88,3 +88,25 @@
 
 - Adventure logic is now ready for narrative compilation.
 - Failure paths consistently transform time, certainty, trust, or antagonist awareness instead of producing dead ends.
+## Prototype Alpha 0.2c - Logic Revision - 2026-07-28
+
+### Added
+
+- Adventure-local prefix registry and canonical ownership rules in `LOGIC/00_ENTITY_KEY_TABLE.md`.
+- Canonical six-class clue vocabulary single-sourced in `LOGIC/07_EVIDENCE_VALIDATION.md`.
+- Clue register with class tags, point values and granting nodes in `LOGIC/12_CLUE_DEPENDENCY_GRAPH.md`.
+- Derived progress totals and `GRANT_CLUE` atomic operations replacing stored point variables.
+- Passphrase access routes with two independent acquisition paths and failure transformation.
+- `NODE_TYPE`, mandatory `Outgoing` edges and eight terminal ending nodes across the investigation graph.
+- Ending-family priority order with first-match-wins resolution.
+- Core-to-investigation backbone mapping in `LOGIC/16_EVENT_GRAPH_MAPPING.md`.
+- Schema-version frontmatter on the adventure root record (`adventure_schema_version: 1.0`).
+
+### Changed
+
+- Identifier namespaces: `C_*` → `CLUE_*`, `D_*` → `CON_*`, backbone `EVT_*` → `ARC_*`.
+- World Bible updated with passphrase custody and recovery facts (version 1.1).
+- Non-progress state variables wired with declared writers and readers.
+- `CON_MARCUS_LEAK` and `CON_ROOK_COMPROMISED` marked `DEPRECATED`; tiered identifiers carry thresholds.
+- `02_MASTER_TIMELINE.md` § 20:05 corrected to remove Café Orpheus from Player 2's Split One starting leads.
+- Adventure README advanced to Alpha 0.2c status.

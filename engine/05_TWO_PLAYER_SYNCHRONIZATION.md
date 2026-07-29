@@ -119,3 +119,17 @@ For the first two-hour prototype:
 - use separate Player 1 and Player 2 outputs during split scenes;
 - keep communication rules simple;
 - use one shared clock and one shared world-state record.
+
+## 10. Adventure-scoped profile — The Last Witness (Alpha 0.2c)
+
+For **Prototype Alpha 0.2c** logic (`adventures/The_Last_Witness/`), owner-approved Milestone B decisions (MBD-01–06) apply the following **adventure-scoped** interpretations. They do not amend this engine chapter globally.
+
+| Engine rule (this chapter) | Alpha 0.2c adventure interpretation |
+|---|---|
+| § 4 maximum duration and leftover-time micro-rules | **Not simulated**; pacing uses `04_TIME_COST_MATRIX.md` § 5 block targets (`MBD-04`) |
+| § 4 per-player action-cost synchronization example | **Not used**; single shared `CLOCK` only |
+| § 5 branch terminators `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT` | **Window-level only** (`08` § 4; `13` § 5); not per-node metadata (`MBD-03`) |
+| § 5 node-level terminators | `REJOIN` and `TERMINAL_OUTCOME` only (`10` § 1d) |
+| § 3.3 Solo scene mode | **Not used** in this adventure; `play_modes: [two_player]` only (`MBD-06`) |
+
+See `MILESTONE_B_IMPLEMENTATION_V2_REPORT.md` and `ENGINE_READINESS_PLAN.md` Appendix C.

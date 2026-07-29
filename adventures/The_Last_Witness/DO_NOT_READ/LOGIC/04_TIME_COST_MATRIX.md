@@ -38,19 +38,39 @@ Weather after 22:45 adds:
 | attempt risky alternate access | 10-20 min |
 | regroup and exchange all notes | 10 min |
 | remote call sharing one clue | 5 min, where signal exists |
+| run the documented archive-recovery reset | 20 min, and the reset is logged |
 
-## 3. Parallel action model
+## 3. Shared world clock (MBD-04)
 
-When players split, each advances independently. Global clock advances to the earliest next event for the active player, but synchronization occurs before any shared node.
+The adventure uses **one shared world clock**. The world clock controls world state, NPC schedules, events, and deadlines (`01_WORLD_STATE_VARIABLES.md`; `06_NPC_SCHEDULE_AND_PRIORITY.md`).
 
-Example:
+During a split window, each player progresses through their assigned narrative role independently **while separated**. Temporary split durations do **not** create independent world timelines. When players regroup, play continues on the single shared world clock.
 
-- Player 1 action ends 21:10.
-- Player 2 action ends 21:25.
-- Player 1 may take another action that ends no later than 21:25.
-- A shared event cannot begin before both are available.
+The engine does **not** maintain persistent per-player timelines and does **not** apply synchronization mathematics. Action costs advance the shared `CLOCK` when the adventure declares a time cost for a completed action.
 
-The compiler must avoid free extra turns created by one player's shorter action.
+`P1_AVAILABLE_AT` and `P2_AVAILABLE_AT` are **deprecated** (`01_WORLD_STATE_VARIABLES.md` § 8). They are not written during play and are not used for routing or regroup. Regroup gates depend on split-branch completion and player agreement (`13_SPLIT_AND_REGROUP_FLOW.md` § 2, § 6).
+
+### Split-window behaviour (MBD-03)
+
+During Split, each player continues until they have no remaining legal actions. A finished player waits. Regroup gates (`EVT_150`, `EVT_300`) become available when both players have completed their split branches **or** when a declared world-clock threshold is reached (see § 3a).
+
+### 3a. Synchronization windows
+
+Each split window has a start condition, regroup target, and optional world-clock trigger. Maximum durations and leftover-time micro-rules are **not** simulated; pacing follows § 5 block targets.
+
+| Window | Start condition | Regroup / sync target | World-clock trigger | Status |
+|---|---|---|---|---|
+| Split One (opening) | `EVT_100_SHARED_BRIEFING` complete (~20:10) | `EVT_150_REGROUP_ONE` | optional: clock approximately 21:30 makes regroup **available** if branches still open (`13` § 2) | declared |
+| Split Two (midgame) | `EVT_150_REGROUP_ONE` track assignment complete | `EVT_300_REGROUP_TWO` | optional: deadline 23:15 makes regroup **available** (`13` § 6) | declared |
+| Final-act parallel | `EVT_300_REGROUP_TWO` assignment complete | `EVT_440` / `EVT_900` convergence (`13` § 7) | role branches complete per assignment | declared |
+
+**Declared timing (authoritative for prose and gates):**
+
+- Regroup One availability window: 21:20–21:40 (`08_TWO_PLAYER_CORE_RULES.md` § 5; `EVT_150` **Recommended window**).
+- Regroup scene cost: 10 minutes (`§ 2` "regroup and exchange all notes"; `EVT_150` / `EVT_300` **Cost**).
+- Regroup Two deadline: no later than 23:15 (`13` § 6; `EVT_300` **Deadline**).
+
+**Window-level mechanics** (not per-node metadata): `WAIT_UNTIL_SYNC` (finished player waits), `REMOTE_CONTACT` (phone/message per `08` § 4), `EMERGENCY_INTERRUPT` (emergency broadcast per `08` § 4).
 
 ## 4. Time-cost consistency rules
 

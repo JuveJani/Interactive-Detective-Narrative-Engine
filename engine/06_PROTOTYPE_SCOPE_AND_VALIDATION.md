@@ -4,7 +4,7 @@
 
 The immediate objective is not to finish every possible future engine feature. It is to produce and test one complete, approximately two-hour detective adventure that supports:
 
-- one-player mode;
+- one-player mode (long-term engine goal);
 - two-player cooperative mode;
 - fair-play investigation;
 - meaningful choices;
@@ -13,6 +13,8 @@ The immediate objective is not to finish every possible future engine feature. I
 - a complete playable ending.
 
 The prototype is the next architecture test. Engine work that does not materially improve this prototype may be deferred.
+
+**Alpha 0.2c adventure logic revision:** `adventures/The_Last_Witness/` officially supports **`two_player` only** for this release (`MBD-06`). Solo mode remains a future engine goal; validation for Alpha 0.2c evaluates `two_player` paths only. See `LOGIC/10_INVESTIGATION_NODE_GRAPH.md` § 18.
 
 ## 2. Required Before Adventure Production
 
@@ -109,7 +111,7 @@ The primary culprit or core causal truth should remain fixed in Prototype 1 unle
 
 Prototype 1 is considered successful when:
 
-- both solo and two-player modes can reach valid endings;
+- both solo and two-player modes can reach valid endings (full prototype goal; **Alpha 0.2c logic evaluates `two_player` only** per `MBD-06`);
 - no player must inspect internal IDs or hidden state;
 - the shared clock remains consistent;
 - no split scene creates contradictory timing;

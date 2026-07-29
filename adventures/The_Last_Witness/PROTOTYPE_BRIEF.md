@@ -7,7 +7,7 @@ Planned as the first complete IDNE validation adventure.
 ## Target Experience
 
 - approximately two hours;
-- playable solo or cooperatively by two players;
+- playable cooperatively by two players (**Alpha 0.2c logic:** `two_player` only; solo deferred — see adventure `README.md`);
 - detective investigation with fair evidence;
 - limited bookkeeping;
 - meaningful time pressure;

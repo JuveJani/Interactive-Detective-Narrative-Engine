@@ -244,7 +244,7 @@ Public opening information:
 The players receive separate starting leads.
 
 - Player 1: access to Elias's apartment through Mina Cho.
-- Player 2: access to Nadia's newsroom records and Café Orpheus.
+- Player 2: access to Nadia's newsroom records.
 
 ### 20:12
 
