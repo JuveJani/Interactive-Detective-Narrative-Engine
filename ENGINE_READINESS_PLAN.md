@@ -60,7 +60,7 @@ MS-01, MS-02, and MS-03 describe distinct compiled artifacts but share one root 
 | **ER-02** | Check (`CHK_*`) record definitions | MS-04, AR-02 |
 | **ER-03** | Scene mode (`Joint` / `Split` / `Solo`) per playable node | MS-08, AR-04 |
 | **ER-04** | Split-branch terminator per split branch | MS-09, AR-03 |
-| **ER-05** | Synchronization window maximum durations and leftover-time rule | MS-11, AR-06 |
+| **ER-05** | Synchronization window model (shared clock) | MS-11, AR-06 |
 | **ER-06** | Multi-outcome variant enumeration for conditional clue grants | AR-07 |
 | **ER-07** | Correct `END_*` identifier status metadata | MS-16, AR-13 |
 | **ER-08** | Wrong-accusation accusation menu wiring at `EVT_440` | AR-15 |
@@ -125,16 +125,16 @@ MS-01, MS-02, and MS-03 describe distinct compiled artifacts but share one root 
 | **Gameplay impact** | Split branches lack declared end condition (`REJOIN`, `REMOTE_CONTACT`, etc.) |
 | **Implementation impact** | Temporal drift prevention cannot be validated |
 
-### ER-05 — Synchronization window durations and leftover-time rule
+### ER-05 — Synchronization window model (shared clock)
 
 | Field | Value |
 |---|---|
-| **Affected files** | `LOGIC/04_TIME_COST_MATRIX.md` § 3; `LOGIC/13_SPLIT_AND_REGROUP_FLOW.md`; possibly `engine/05` § 4 alignment note |
-| **Engine layer** | `engine/05` § 4 synchronization windows |
-| **Authoring layer** | Split-scene timing instructions cannot state window limits |
-| **Compiler layer** | Stage 2 V8 (deferred); Stage 6 timing instructions |
-| **Gameplay impact** | Maximum split-window duration undeclared; leftover-time handling conflicts between adventure and engine docs |
-| **Implementation impact** | V8 cannot pass; prose cannot cite authoritative window caps |
+| **Affected files** | `LOGIC/04_TIME_COST_MATRIX.md` § 3; `LOGIC/13_SPLIT_AND_REGROUP_FLOW.md`; `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 10 (adventure profile) |
+| **Engine layer** | `engine/05` § 2 shared world time; § 4 adventure-scoped override for Alpha 0.2c |
+| **Authoring layer** | Split-scene timing instructions use pacing blocks and regroup gates |
+| **Compiler layer** | Stage 2 V8; Stage 6 timing instructions |
+| **Gameplay impact** | Single shared `CLOCK`; regroup on branch completion and player agreement |
+| **Implementation impact** | **Resolved** for Alpha 0.2c per MBD-04 (`04` § 3; Appendix C) |
 
 ### ER-06 — Multi-outcome variant enumeration
 
@@ -289,7 +289,7 @@ MS-01, MS-02, and MS-03 describe distinct compiled artifacts but share one root 
 | **ER-02** | Declared `CHK_*` records binding skill, DC, pass outcome, fail outcome, and fallback route for every check referenced in logic |
 | **ER-03** | Explicit `scene_mode` field value on every playable `EVT_*` node |
 | **ER-04** | Explicit `split_terminator` value on every split-branch exit in logic |
-| **ER-05** | Per synchronization window: start condition, maximum duration, and single authoritative leftover-time resolution rule |
+| **ER-05** | Per synchronization window: start condition, regroup target, shared-clock optional availability; no per-player timeline math (`MBD-04`) |
 | **ER-06** | Named variant keys enumerating every distinct player-facing outcome for multi-result nodes (which clues, which costs, which failure states) |
 | **ER-07** | Accurate `ACTIVE` / `DEFINITION_ONLY` status for all eight `END_*` families consistent with terminal node references |
 | **ER-08** | Complete accusation-target → rebuttal-category mapping and `Outgoing` edges at `EVT_440` |
@@ -406,7 +406,7 @@ ER-18 (parallel monitor throughout)
 | **ER-16** | **Critical** | No narrative input exists; compilation cannot bind Stage 3 |
 | **ER-03** | **High** | Engine-mandated field missing on all nodes |
 | **ER-04** | **High** | Engine-mandated split terminator missing |
-| **ER-05** | **High** | Window caps and leftover-time rule unresolved |
+| **ER-05** | **High** | **Resolved** for Alpha 0.2c — shared clock model in `04` § 3 (MBD-04) |
 | **ER-08** | **High** | Final-act accusation routing incomplete |
 | **ER-11** | **High** | Condition-gated choices cannot compile |
 | **ER-17** | **High** | Terminal ending `EVT_907` lacks bindable prose |
@@ -460,9 +460,9 @@ For each blocker: files to modify, expected new sections, expected validation ch
 
 | Item | Description |
 |---|---|
-| **Files to modify** | `LOGIC/04_TIME_COST_MATRIX.md`; `LOGIC/13_SPLIT_AND_REGROUP_FLOW.md` |
-| **New sections** | Per-window maximum duration table; single leftover-time resolution rule reconciling `04` § 3 with `engine/05` § 4 |
-| **Validation changes** | V8 promoted from deferred to active |
+| **Files to modify** | `LOGIC/04_TIME_COST_MATRIX.md`; `LOGIC/13_SPLIT_AND_REGROUP_FLOW.md`; `engine/05` § 10 adventure profile |
+| **New sections** | Shared world clock (§ 3); synchronization windows (§ 3a); deprecated `P1_AVAILABLE_AT`/`P2_AVAILABLE_AT` |
+| **Validation changes** | V8 active for declared `two_player` scope |
 
 ### ER-06
 
@@ -759,25 +759,26 @@ All COMPILER READY criteria, plus:
 
 ---
 
-## Appendix C — Milestone B design decisions (Alpha 0.2c)
-
-Owner-approved design decisions MBD-01 through MBD-06 are implemented in adventure logic per `MILESTONE_B_IMPLEMENTATION_V2_REPORT.md`.
-
-| ID | ER mapping | Resolution |
-|---|---|---|
-| MBD-01 | ER-02 | D20 check resolution; `CHK_115_PERCEPTION` DC 10 (Medium) |
-| MBD-02 | ER-03 | Scene mode as narrative-role metadata; 48/48 nodes classified |
-| MBD-03 | ER-04 | Split completion = wait until no legal actions; window-level sync mechanics |
-| MBD-04 | ER-05 | Single shared world clock; no per-player timeline math |
-| MBD-05 | ER-09 | Participation audit across all valid paths; developer-only |
-| MBD-06 | ER-10 | `two_player` only; solo deferred with documented exception (C6) |
-
-Milestone B validation gates V-CHK, V-SM, V-ST, V8, participation gate, and C6 are satisfied for declared `two_player` scope.
-
----
-
 ## Appendix B — Document revision
 
 | Version | Change |
 |---|---|
 | 1.0 | Initial unified readiness plan merging MS-01–MS-16 and AR-01–AR-15 |
+| 1.1 | Appendix C — Milestone B MBD-01–06 resolution for Alpha 0.2c |
+
+---
+
+## Appendix C — Milestone B design decisions (Alpha 0.2c)
+
+Owner-approved design decisions MBD-01 through MBD-06 are implemented in adventure logic per `MILESTONE_B_IMPLEMENTATION_V2_REPORT.md` and consistency fixes per `MILESTONE_B_CONSISTENCY_FIX_REPORT.md`.
+
+| ID | ER mapping | Resolution |
+|---|---|---|
+| MBD-01 | ER-02 | D20 check resolution; `CHK_115_PERCEPTION` DC 10 (Medium); bands 5/10/15 |
+| MBD-02 | ER-03 | Scene mode as narrative-role metadata; 48/48 nodes classified; `_P1_`/`_P2_` IDs historical |
+| MBD-03 | ER-04 | Split completion = wait until no legal actions; window-level sync mechanics only |
+| MBD-04 | ER-05 | Single shared world clock; `P1_AVAILABLE_AT`/`P2_AVAILABLE_AT` deprecated; regroup on branch completion + agreement |
+| MBD-05 | ER-09 | Participation audit across all valid paths; developer-only; manual-review flags |
+| MBD-06 | ER-10 | `two_player` only; solo deferred with documented exception (C6) |
+
+Milestone B validation gates V-CHK, V-SM, V-ST, V8, participation gate, and C6 are satisfied for declared `two_player` scope.

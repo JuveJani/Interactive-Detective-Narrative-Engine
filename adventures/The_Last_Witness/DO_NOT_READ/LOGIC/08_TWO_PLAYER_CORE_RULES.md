@@ -6,21 +6,23 @@ Both players must make independent meaningful decisions, hold useful private inf
 
 ## 2. Starting asymmetry
 
-### Player 1 focus
+Default **role suggestions** at briefing (either player may take either role per MBD-02):
+
+### Apartment-cluster emphasis
 
 - field access;
 - physical scene interpretation;
 - Mina contact;
 - confrontation and route security.
 
-### Player 2 focus
+### Newsroom-cluster emphasis
 
 - newsroom/archive research;
 - digital/procedural evidence;
 - Nadia and Marcus interaction;
 - upload/code interpretation.
 
-These are emphasis areas, not exclusive skill locks.
+These are emphasis areas for character sheets, not exclusive locks or node ownership.
 
 ## 3. Split safety rule
 
@@ -33,9 +35,17 @@ During a split:
 
 ### Split completion (MBD-03)
 
-Each player continues until they have no remaining legal actions. When finished, they **wait** — no forced movement, no automatic jump, no timer-based interruption, and no pressure on the other player. `WAIT_UNTIL_SYNC`, `REMOTE_CONTACT`, and `EMERGENCY_INTERRUPT` are window-level options (§ 4), not per-node rules.
+Each player continues until they have no remaining legal actions. When finished, they **wait** — no forced movement, no automatic jump, no timer-based interruption, and no pressure on the other player. `WAIT_UNTIL_SYNC`, `REMOTE_CONTACT`, and `EMERGENCY_INTERRUPT` are window-level options (§ 4 below; `04` § 3a), not per-node rules.
 
 ## 4. Communication modes
+
+Window-level constant mapping (MBD-03):
+
+| Window constant | Player-facing mode |
+|---|---|
+| `REMOTE_CONTACT` | phone call; text message |
+| `EMERGENCY_INTERRUPT` | emergency broadcast |
+| `WAIT_UNTIL_SYNC` | finished player waits until partner completes branch or players agree to regroup |
 
 - **Physical regroup:** all chosen information may be shared; costs 10 minutes.
 - **Phone call:** one concise clue or decision; costs 5 minutes; unavailable in Signal Room 4B.
@@ -98,7 +108,7 @@ For each valid path, compare the two narrative roles regarding:
 - communication opportunities;
 - overall participation.
 
-Small differences are acceptable. Large systematic imbalance across paths should fail validation.
+Small differences are acceptable. Large systematic imbalance across paths should fail validation. Flags in `13` § 9 are for **manual author review only**; the audit does not auto-correct gameplay.
 
 ### Valid paths evaluated
 
@@ -114,10 +124,10 @@ Authoritative per-path tables are in `13_SPLIT_AND_REGROUP_FLOW.md` § 9.
 
 | Block | Status | Notes |
 |---|---|---|
-| Opening / Split One | **Complete** | Two roles compared; physical challenge = 1 (`CHK_115_PERCEPTION`, DC 10) on apartment role |
+| Opening / Split One | **Complete** | Two roles compared; two manual-review flags in `13` § 9 |
 | Regroup One | **Complete** | Joint decisions; clue transfer only |
-| Midgame / Split Two | **Complete** | Three track pairs compared |
-| Regroup Two | **Complete** | Joint assignment; final-act role responsibility enumerated per path |
-| Final act | **Complete** | Three role-pair patterns compared |
+| Midgame / Split Two | **Complete** | Pairs A, B, C compared with full metrics |
+| Regroup Two | **Complete** | Joint assignment; final-act role responsibility per path |
+| Final act | **Complete** | Three role-pair patterns compared with full metrics |
 
-**Validation rule:** If any metric differs by more than 2× between roles on the same path, or if one role has zero decisions across an entire block, flag for author review. The audit does not auto-correct gameplay.
+**Validation rule:** If any metric differs by more than 2× between roles on the same path, or if one role has zero decisions across an entire block, flag for author review in `13` § 9. The audit does not auto-correct gameplay.

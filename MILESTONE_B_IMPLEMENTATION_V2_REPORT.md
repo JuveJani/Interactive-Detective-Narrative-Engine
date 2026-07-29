@@ -81,7 +81,7 @@ Manual validation performed 2026-07-28 (no automated validator in repository).
 | **V8** | **PASS** | Shared clock model in `04` §3; no BLOCKED sync conflicts |
 | **Participation gate (A6)** | **PASS** | `08` §9 and `13` §9 populated for all valid paths |
 | **C6 (solo scope)** | **PASS** | `play_modes: [two_player]`; exception in `10` §18 |
-| **Contradiction scan** | **PASS** | No `BLOCKED` status in adventure logic except zero-count statements |
+| **Contradiction scan** | **PASS** | Adventure logic layer (`LOGIC/`); stale sibling specs marked superseded |
 | **Content freeze** | **PASS** | No route, clue, ending, or threshold edits |
 
 ---

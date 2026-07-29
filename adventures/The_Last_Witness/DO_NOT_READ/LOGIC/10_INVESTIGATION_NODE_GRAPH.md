@@ -16,7 +16,7 @@ Each node has:
 - state changes;
 - failure transformation;
 - `Outgoing`;
-- `Scene mode`, when deterministically classifiable (see § 1b–§ 1c);
+- `Scene mode` (authoritative values in § 1b–§ 1c);
 - `Split terminator`, when `Scene mode` is `Split` and the terminator is defined (see § 1d);
 - `Variants`, when a node has materially distinct player-facing outcomes (see § 1a).
 
@@ -45,6 +45,8 @@ Every playable `EVT_*` node must declare exactly one scene mode drawn from `engi
 | `Split` | Separate player-facing content; private knowledge isolated; must end at a synchronization point |
 
 **MBD-02 (Alpha 0.2c):** Scene mode describes **narrative role**, not player identity. Nodes represent story roles or locations. Either player may occupy a role when the story permits. Scene mode is metadata for narrative structure. It is **not** permanently bound to Player 1 or Player 2.
+
+**Historical identifiers:** `EVT_110_P1_*` and `EVT_120_P2_*` retain `_P1_` / `_P2_` suffixes from an earlier naming pass. These suffixes are **historical only** and do not assign node ownership or restrict which player may occupy the role.
 
 The `Solo` scene mode exists in `engine/05` § 3.3 but is **not used** in this adventure for Alpha 0.2c (`two_player` only; see § 18).
 
@@ -189,7 +191,7 @@ The canonical two-player route is a split.
 
 ---
 
-## 3. Player 1 opening branch
+## 3. Apartment-cluster opening branch
 
 **Node type:** `INTERMEDIATE`
 
@@ -203,7 +205,7 @@ The canonical two-player route is a split.
 **Backbone:** `ARC_110`, `ARC_120` (absorbed split decision; apartment cluster)
 **Window:** 20:10-20:25  
 **Location:** transit to `LOC_ELIAS_APT`  
-**Players:** Player 1, or both if chosen  
+**Role eligibility:** occupant of apartment-cluster role during Split One, or both players if joint path chosen at `EVT_100`  
 **Cost:** 15 minutes
 
 **Entry conditions**
@@ -231,7 +233,7 @@ The canonical two-player route is a split.
 
 **Core decision**
 
-Player 1 chooses approach:
+Occupant of apartment-cluster role chooses approach:
 
 - procedural cooperation;
 - direct challenge to police narrative;
@@ -398,7 +400,7 @@ A failed perception check still reveals that the corridor exists, but not the fi
 
 ---
 
-## 4. Player 2 opening branch
+## 4. Newsroom-cluster opening branch
 
 **Node type:** `INTERMEDIATE`
 
@@ -1683,7 +1685,7 @@ Reachable only in two-player mode, because `../06_ENDING_FRAMEWORK.md` § END-08
 
 Every non-progress variable write performed by a node is declared here. Variables are owned by `01_WORLD_STATE_VARIABLES.md`; this table is the node-side declaration of the writers that document lists.
 
-Every node writes `CLOCK` through its declared time cost, and writes `P1_AVAILABLE_AT` or `P2_AVAILABLE_AT` according to the eligible player. Those two writes are universal and are not repeated per row.
+Every node writes `CLOCK` through its declared time cost. `P1_AVAILABLE_AT` and `P2_AVAILABLE_AT` are **deprecated** and are not written (`01_WORLD_STATE_VARIABLES.md` § 8; MBD-04).
 
 | Node | Writes |
 |---|---|

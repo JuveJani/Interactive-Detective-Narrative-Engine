@@ -262,15 +262,15 @@ The terminal exterior is three independent state machines, not one. Weather, hos
 |---|---|---|---|---|---|---|
 | `P1_LOCATION` | `LOC_*` | `LOC_START` | `INIT` | `EVT_100`, `EVT_110`, every P1-eligible node declaring a Location | node entry conditions | Player 1 position |
 | `P2_LOCATION` | `LOC_*` | `LOC_START` | `INIT` | `EVT_100`, `EVT_120`, every P2-eligible node declaring a Location | node entry conditions | Player 2 position |
-| `P1_AVAILABLE_AT` | time | `20:00` | `INIT` | every P1-eligible node declaring a time cost | `EVT_150`, `EVT_300` | Player 1 availability |
-| `P2_AVAILABLE_AT` | time | `20:00` | `INIT` | every P2-eligible node declaring a time cost | `EVT_150`, `EVT_300` | Player 2 availability |
+| `P1_AVAILABLE_AT` | time | `20:00` | `INIT` | — | — | **DEPRECATED** — not used for routing or regroup (MBD-04). Retained in schema only; do not write. |
+| `P2_AVAILABLE_AT` | time | `20:00` | `INIT` | — | — | **DEPRECATED** — not used for routing or regroup (MBD-04). Retained in schema only; do not write. |
 | `SHARED_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | `EVT_150`, `EVT_300` | conclusion evaluators | Shared knowledge |
 | `P1_PRIVATE_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | P1-eligible clue-granting nodes | `EVT_150`, `EVT_300` | Player 1 private knowledge |
 | `P2_PRIVATE_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | P2-eligible clue-granting nodes | `EVT_150`, `EVT_300` | Player 2 private knowledge |
 
 A private clue may influence only the receiving player's choices until a legal communication or regroup event transfers it into `SHARED_KNOWLEDGE_SET`.
 
-Whether a regroup is outstanding is read from `P1_AVAILABLE_AT`, `P2_AVAILABLE_AT` and the authored gates `EVT_150` and `EVT_300`. It is not stored as a flag.
+Whether a regroup may occur is determined by **branch completion** (each role has no remaining legal actions in the current split window) **and player agreement** to enter `EVT_150` or `EVT_300`. Optional world-clock thresholds in `04_TIME_COST_MATRIX.md` § 3a may make regroup **available** but do not force branch exit. `P1_AVAILABLE_AT` and `P2_AVAILABLE_AT` are **deprecated** and are not read for regroup logic.
 
 ## 9. Ending variables
 

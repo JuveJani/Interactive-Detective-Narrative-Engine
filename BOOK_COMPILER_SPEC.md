@@ -476,9 +476,9 @@ If an entry condition references state that has no public tag mapping authored, 
 
 ### 4.4 Checks as choices
 
-`engine/01_INTRODUCTION_AND_SCOPE.md` § 1.2 expects a D20 resolution system. Logic references checks in **Failure transformation** prose (e.g. "failed perception check") but **no `CHK_*` records exist**.
+`engine/01_INTRODUCTION_AND_SCOPE.md` § 1.2 expects a D20 resolution system. Adventure logic defines check resolution in `adventures/The_Last_Witness/DO_NOT_READ/LOGIC/17_CHECK_REGISTER.md` (MBD-01): `roll = d20 + character_modifier`; success when `roll >= dc`; bands Easy 5 / Medium 10 / Hard 15. One `ACTIVE` record: `CHK_115_PERCEPTION` (DC 10).
 
-Check-gated branches are a **compiler dependency**. Without `CHK_*` definitions (DC, skill, pass/fail text, fallback route), the compiler cannot emit check instructions and must treat those branches as **blocked**.
+Check-gated branches without a complete `CHK_*` record in `17_CHECK_REGISTER.md` remain blocked at compile time.
 
 ---
 
@@ -848,7 +848,7 @@ Logic-layer structure (Alpha 0.2c) is unusually complete. The **narrative and pl
 |---|---|
 | **Missing information** | Check definitions (skill, DC, pass/fail outcomes, player instructions) for branches referenced in failure transformations |
 | **Affected stage** | Stage 3–4 (variant expansion) |
-| **Why deterministic compilation is impossible** | `engine/01` § 1.2 expects D20 checks; `templates/EVENT_TEMPLATE.md` defines a `checks:` field; no `CHK_*` identifiers exist in adventure logic |
+| **Why deterministic compilation is impossible** | Resolved for `CHK_115_PERCEPTION` via `17_CHECK_REGISTER.md` (MBD-01). Other failure transformations without `CHK_*` records remain blocked. |
 | **Issue type** | Engine/adventure gap |
 
 #### MS-05 — Public condition tag mapping
@@ -971,7 +971,7 @@ Logic-layer structure (Alpha 0.2c) is unusually complete. The **narrative and pl
 | Playable package (Alpha 0.4) | **Not started** (MS-06, MS-07) |
 | Two-player engine fields on nodes | **Missing** (MS-08, MS-09, MS-11) |
 | Solo mode | **Not implemented** (MS-10) |
-| Check system | **Not specified** (MS-04) |
+| Check system | **Specified** for `CHK_115_PERCEPTION` (`17_CHECK_REGISTER.md`; MBD-01) |
 | Output schema | **Deferred** (MS-15) |
 
 **Conclusion:** Compilation must be classified **NOT READY** until MS-01 through MS-16 are resolved. The compiler specification in this document is sufficient to guide implementation; the repository inputs are not yet sufficient to produce output without invention.

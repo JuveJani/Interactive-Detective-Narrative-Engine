@@ -1,3 +1,5 @@
+> **SUPERSEDED.** This report describes Milestone B v1 (partial implementation). Authoritative status: `MILESTONE_B_IMPLEMENTATION_V2_REPORT.md` and consistency fixes in `MILESTONE_B_CONSISTENCY_FIX_REPORT.md`.
+
 # Milestone B Implementation Report
 
 **Milestone:** Engine Required Logic Fields (ER-02, ER-03, ER-04, ER-05, ER-08, ER-09, ER-10)  

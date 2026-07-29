@@ -46,7 +46,9 @@ The adventure uses **one shared world clock**. The world clock controls world st
 
 During a split window, each player progresses through their assigned narrative role independently **while separated**. Temporary split durations do **not** create independent world timelines. When players regroup, play continues on the single shared world clock.
 
-The engine does **not** maintain persistent per-player timelines and does **not** apply synchronization mathematics. Action costs advance the shared clock when the adventure declares a time cost for a completed action.
+The engine does **not** maintain persistent per-player timelines and does **not** apply synchronization mathematics. Action costs advance the shared `CLOCK` when the adventure declares a time cost for a completed action.
+
+`P1_AVAILABLE_AT` and `P2_AVAILABLE_AT` are **deprecated** (`01_WORLD_STATE_VARIABLES.md` § 8). They are not written during play and are not used for routing or regroup. Regroup gates depend on split-branch completion and player agreement (`13_SPLIT_AND_REGROUP_FLOW.md` § 2, § 6).
 
 ### Split-window behaviour (MBD-03)
 
@@ -58,8 +60,8 @@ Each split window has a start condition, regroup target, and optional world-cloc
 
 | Window | Start condition | Regroup / sync target | World-clock trigger | Status |
 |---|---|---|---|---|
-| Split One (opening) | `EVT_100_SHARED_BRIEFING` complete (~20:10) | `EVT_150_REGROUP_ONE` | both branches complete **or** clock approximately 21:30 (`13` § 2) | declared |
-| Split Two (midgame) | `EVT_150_REGROUP_ONE` track assignment complete | `EVT_300_REGROUP_TWO` | both branches complete **or** deadline 23:15 (`13` § 6) | declared |
+| Split One (opening) | `EVT_100_SHARED_BRIEFING` complete (~20:10) | `EVT_150_REGROUP_ONE` | optional: clock approximately 21:30 makes regroup **available** if branches still open (`13` § 2) | declared |
+| Split Two (midgame) | `EVT_150_REGROUP_ONE` track assignment complete | `EVT_300_REGROUP_TWO` | optional: deadline 23:15 makes regroup **available** (`13` § 6) | declared |
 | Final-act parallel | `EVT_300_REGROUP_TWO` assignment complete | `EVT_440` / `EVT_900` convergence (`13` § 7) | role branches complete per assignment | declared |
 
 **Declared timing (authoritative for prose and gates):**

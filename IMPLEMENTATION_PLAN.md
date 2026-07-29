@@ -554,8 +554,8 @@ C4 rewrites `LOGIC/14_ENDING_TRIGGER_MATRIX.md` § "2. Medical outcome" to read 
 |---|---|---|---|---|---|---|---|
 | `P1_LOCATION` | `LOC_*` | `LOC_START` | `INIT` | `EVT_100`, `EVT_110`, every P1-eligible node with a Location | node entry conditions | Player 1 position | KEEP |
 | `P2_LOCATION` | `LOC_*` | `LOC_START` | `INIT` | `EVT_100`, `EVT_120`, every P2-eligible node with a Location | node entry conditions | Player 2 position | KEEP |
-| `P1_AVAILABLE_AT` | time | `20:00` | `INIT` | every P1-eligible node with a time cost | `EVT_150`, `EVT_300` | Player 1 availability | KEEP |
-| `P2_AVAILABLE_AT` | time | `20:00` | `INIT` | every P2-eligible node with a time cost | `EVT_150`, `EVT_300` | Player 2 availability | KEEP |
+| `P1_AVAILABLE_AT` | time | `20:00` | `INIT` | — | — | **DEPRECATED** (MBD-04) | DROP from active writes |
+| `P2_AVAILABLE_AT` | time | `20:00` | `INIT` | — | — | **DEPRECATED** (MBD-04) | DROP from active writes |
 | `SHARED_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | `EVT_150`, `EVT_300`, joint-scene `GRANT_CLUE` | every `EVAL_CON_*` | Shared knowledge | KEEP |
 | `P1_PRIVATE_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | `GRANT_CLUE` at P1-eligible nodes | `EVT_150`, `EVT_300` | Player 1 private knowledge | KEEP |
 | `P2_PRIVATE_KNOWLEDGE_SET` | set of `CLUE_*` | empty | `INIT` | `GRANT_CLUE` at P2-eligible nodes | `EVT_150`, `EVT_300` | Player 2 private knowledge | KEEP |
@@ -1006,12 +1006,14 @@ Marking rather than deleting follows the repository's own idiom. `docs/STYLE_GUI
 
 Recorded so the next scope decision starts from a complete picture.
 
-- **Solo mode.** Required by `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` §§ 1 and 8 and by `PROTOTYPE_BRIEF.md`, implemented nowhere. `V5` is evaluated per declared mode because of this.
-- **Split-window durations and the parallel-action conflict.** The reason `V8` is deferred.
+**Resolved in Milestone B (MBD-01–06):** scene-mode declarations, split-branch terminator vocabulary (`REJOIN`/`TERMINAL_OUTCOME` at node level), shared-clock synchronization model, check register, participation audit, and `two_player` scope. See `MILESTONE_B_IMPLEMENTATION_V2_REPORT.md` and `ENGINE_READINESS_PLAN.md` Appendix C.
+
+- **Solo mode.** Required by `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` §§ 1 and 8 and by `PROTOTYPE_BRIEF.md` as a long-term goal; **deferred for Alpha 0.2c** (`MBD-06`). `V5` is evaluated per declared `two_player` mode.
+- **Split-window per-player timeline math.** Resolved by MBD-04; `P1_AVAILABLE_AT`/`P2_AVAILABLE_AT` deprecated. `V8` active for shared-clock model.
 - **Complexity budget overruns.** Location, clue and ending counts exceed the targets in `engine/06_PROTOTYPE_SCOPE_AND_VALIDATION.md` § 4. Those are design targets, not MUST rules, and C5 makes the clue count precise for the first time.
 - **Two-player delivery model.** `engine/03_ARCHITECTURE.md` § 3.15 requires a declared model; none is declared.
-- **Scene-mode declarations.** `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 3 requires every scene to declare Joint, Split or Solo.
-- **Split-branch terminator vocabulary.** `engine/05_TWO_PLAYER_SYNCHRONIZATION.md` § 5 requires every split branch to terminate in `REJOIN`, `REMOTE_CONTACT`, `WAIT_UNTIL_SYNC`, `EMERGENCY_INTERRUPT` or `TERMINAL_OUTCOME`. Deferred by § 14.2, alongside the two scene and window items above and the `V8` blockers, because the four form one cluster.
+- **Scene-mode declarations.** Resolved in Milestone B (`10` § 1c).
+- **Split-branch terminator vocabulary.** Resolved in Milestone B (`10` § 1d; window-level vs node-level per MBD-03).
 - **Engine chapter plan divergence.** `engine/README.md` reserves chapters 4 and 5 for content that does not exist.
 - **All engine edits.** This revision touches no file under `engine/`. The prefix registry and the clue-class vocabulary are both adventure-local.
 - **Stale version statements beyond this revision.** C9 corrects only what this revision changes.
