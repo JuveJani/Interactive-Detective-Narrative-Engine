@@ -59,4 +59,4 @@ Correct accusation requires connecting:
 - 3 investigation hubs (diegetic menus, ≥4 actions each)
 - 2 split windows (People / Records)
 - 3 clock thresholds (T1 20:00, T2 21:00, T3 22:00)
-- 14 active clues, 3 infer beats, 4 checks, 5 terminals
+- 15 active clues, 3 infer beats, 4 checks, 5 terminals

@@ -46,6 +46,7 @@
 | CLUE_C12 | C-12 |
 | CLUE_C13 | C-13 |
 | CLUE_C14 | C-14 |
+| CLUE_C15 | C-15 |
 
 ## Infers
 

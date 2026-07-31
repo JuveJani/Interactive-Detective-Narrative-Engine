@@ -1,6 +1,7 @@
-# Harborview Arcade — v0.4 Benchmark Brief
+# Harborview Arcade — v0.4.1 Benchmark Brief
 
 **Engine:** IDNE v0.4  
+**Version:** 0.4.1 (pre-playtest revision)  
 **Source brief:** `/ADVENTURE_BRIEF.md`  
 **Status:** Generated benchmark adventure
 

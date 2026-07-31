@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Structural validation for CASE_BENCHMARK_v0.4 PLAYER package."""
+"""Structural validation for CASE_BENCHMARK_v0.4 PLAYER package (v0.4.1)."""
 from pathlib import Path
 import re
 import sys
@@ -36,13 +36,27 @@ def main():
 
     case = (ROOT / "SHARED/CASE_FILE.md").read_text()
     clues = CLUE_RE.findall(case)
-    if len(set(clues)) < 14:
-        errors.append(f"Expected 14 clue slots, found {len(set(clues))}")
+    if len(set(clues)) < 15:
+        errors.append(f"Expected 15 clue slots, found {len(set(clues))}")
+
+    dispatch = joint[joint.find("## J-600"):joint.find("## J-600") + 1200]
+    if re.search(r"Tomás Reyes", dispatch, re.I):
+        errors.append("Culprit name in J-600 dispatch")
+
+    if "(Accident" in joint or "accident without" in joint.lower():
+        errors.append("Answered infer parenthetical in joint scenes")
 
     for path in ["JOINT_SCENES.md", "BOOKLET_PEOPLE.md", "BOOKLET_RECORDS.md"]:
         text = (ROOT / path).read_text().lower()
         if "recommended" in text or "you should" in text:
             errors.append(f"Steering language in {path}")
+
+    records = (ROOT / "BOOKLET_RECORDS.md").read_text()
+    if "verbal claim" in records.lower():
+        errors.append("Phantom verbal claim in Records booklet")
+
+    if "gain it now" in joint.lower() or "faxed copy" in joint.lower():
+        errors.append("Soft bailout language in joint scenes")
 
     if errors:
         print("FAIL")

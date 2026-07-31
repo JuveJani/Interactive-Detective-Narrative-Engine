@@ -23,7 +23,7 @@
 | Variable | Set by | Readers |
 |---|---|---|
 | `PROOF_METHOD` | C01+C04 or C10 | I03, endings |
-| `PROOF_MOTIVE` | C05 or C11 | I02, I03, endings |
+| `PROOF_MOTIVE` | C05 or C11 or (MOTIVE_WITNESS and (C05 or C11 or C14)) | I02, I03, endings |
 | `PROOF_OPPORTUNITY` | C06 + (C12 or C13) | I03, endings |
 | `INFER_I01` | J-210 worksheet | Hub 2 |
 | `INFER_I02` | J-410 worksheet | Hub 3 |
@@ -41,6 +41,7 @@
 
 | Variable | Values | Writers |
 |---|---|---|
+| `MOTIVE_WITNESS` | set at P-112 | I02, endings |
 | `WITNESS_MIRA` | COOPERATIVE / SHUT_DOWN | P-111, CHK_MIRA_CALM |
 | `WITNESS_JAMES` | COOPERATIVE / SHUT_DOWN | P-211, CHK_JAMES_PRESS |
 

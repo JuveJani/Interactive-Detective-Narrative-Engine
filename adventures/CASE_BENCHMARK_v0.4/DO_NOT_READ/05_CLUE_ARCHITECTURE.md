@@ -1,7 +1,7 @@
 # Clue Architecture
 
 **Adventure:** CASE_BENCHMARK_v0.4  
-**Active clues:** 14  
+**Active clues:** 15  
 **Infer beats:** 3
 
 ---
@@ -23,7 +23,8 @@
 | CLUE_C11 | Elena draft complaint email | Earn | Motive | Records manager files |
 | CLUE_C12 | Okonkwo thump timing | Earn | Opportunity | People Okonkwo |
 | CLUE_C13 | Gym receipt timestamp | Earn | Opportunity | People James follow-up |
-| CLUE_C14 | Maintenance vendor phone log | Earn | Motive | Records basement file |
+| CLUE_C14 | Maintenance vendor phone log | Earn | Motive | Records invoice fail |
+| CLUE_C15 | Handyman stated early departure | Earn | Opportunity | People P-212 interview |
 
 **Auto major clues:** 0  
 **Orientation Auto (minor):** building map on J-100 only — not counted as major
@@ -35,7 +36,7 @@
 | Mode | Count |
 |---|---:|
 | Observe | 4 |
-| Earn | 10 |
+| Earn | 11 |
 | Infer | 3 (worksheet beats) |
 | Auto (major) | 0 |
 
