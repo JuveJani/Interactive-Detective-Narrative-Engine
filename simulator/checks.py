@@ -29,7 +29,5 @@ def apply_check_outcome(
         state.grant_clue(clue)
     for flag in branch.get("flags", []):
         state.grant_flag(flag)
-    extra += branch.get("extra_minutes", 0)
-    if not passed:
-        extra += spec.get("fail", {}).get("extra_minutes", 0)
+    extra = branch.get("extra_minutes", 0)
     return extra

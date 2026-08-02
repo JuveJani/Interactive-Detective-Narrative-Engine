@@ -54,8 +54,10 @@ class RunResult:
     joint_minutes: int
     split_minutes: int
     wall_minutes: int
+    fiction_minutes: int
     clues: list[str]
     flags: list[str]
     proof_tags: list[str]
     accused: str | None
     path: list[str] = field(default_factory=list)
+    split_segments: list[dict] = field(default_factory=list)

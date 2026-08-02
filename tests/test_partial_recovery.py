@@ -10,12 +10,12 @@ from simulator.models import Finding
 
 class TestPartialRecovery(unittest.TestCase):
     def test_output_folder_created(self):
-        out = make_output_dir(Path("simulation_output"))
+        out = make_output_dir(Path("simulation_output"), mode="partial_test")
         self.assertTrue(out.exists())
         self.assertTrue(str(out).startswith("simulation_output"))
 
     def test_partial_write(self):
-        out = make_output_dir(Path("simulation_output"))
+        out = make_output_dir(Path("simulation_output"), mode="partial_test")
         findings = [
             Finding(
                 id="T-1",

@@ -31,6 +31,8 @@ class GameState:
     steps: int = 0
     filed_without_accusation: bool = False
     rng_roll: int | None = None
+    entry_cost_prepaid: bool = False
+    pending_followup: str | None = None
 
     def clone(self) -> "GameState":
         return copy.deepcopy(self)
