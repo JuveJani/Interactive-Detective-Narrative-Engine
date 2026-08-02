@@ -6,6 +6,7 @@ import statistics
 from collections import Counter, defaultdict
 from typing import Any
 
+from simulator.config import DEFAULT_CONFIG, SimConfig
 from simulator.engine import SimulationEngine
 from simulator.endings import evaluate_ending
 from simulator.graph import build_edges, fake_choices, graph_stats
@@ -178,17 +179,18 @@ def analyze_simulation(
             )
 
     fake = fake_choices(adapter)
+    adventure_layer = "ADVENTURE" if trustworthy else "UNDETERMINED"
     for nid in fake:
         findings.append(
             Finding(
                 id=f"SIM-FAKE-{nid}",
                 severity="minor",
-                confidence="medium",
+                confidence="medium" if trustworthy else "low",
                 evidence=f"Low-impact or retry loop at {nid}",
                 file="sim_adapter.json",
                 identifier=nid,
                 expected_rule="Meaningful hub choices",
-                layer="ADVENTURE",
+                layer=adventure_layer,
                 auto_fix_possible=False,
                 human_approval_required=True,
             )
@@ -271,6 +273,7 @@ def run_batch(
     strategy_name: str,
     runs: int,
     seed: int,
+    config: SimConfig = DEFAULT_CONFIG,
 ) -> list[RunResult]:
     import random
 
@@ -278,7 +281,7 @@ def run_batch(
     for i in range(runs):
         rng = random.Random(seed + i)
         strat = get_strategy(strategy_name, rng, package["adapter"])
-        engine = SimulationEngine(package, rng)
+        engine = SimulationEngine(package, rng, config)
 
         def choose(state: GameState, options: list, role: str):
             return strat.choose(state, options, role)
@@ -302,6 +305,7 @@ def run_batch(
                 accused=final.accused,
                 path=final.path,
                 split_segments=list(final.split_segments),
+                states_explored=final.states_explored,
             )
         )
     return results

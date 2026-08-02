@@ -9,7 +9,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from simulator.models import Finding, RunResult
+from simulator.advisory_output import write_advisory_outputs
+from simulator.loader import load_adventure
 
 _OUTPUT_COUNTER = itertools.count()
 
@@ -132,6 +133,9 @@ def write_all_outputs(
     if trace:
         seed = trace.get("seed", 0)
         (out_dir / f"trace_{seed}.json").write_text(json.dumps(trace, indent=2), encoding="utf-8")
+    metrics_with_adapter = dict(metrics)
+    metrics_with_adapter["adapter_snapshot"] = adapter
+    write_advisory_outputs(out_dir, findings, metrics_with_adapter, adapter)
     return out_dir
 
 

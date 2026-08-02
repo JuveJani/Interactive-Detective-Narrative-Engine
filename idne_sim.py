@@ -9,6 +9,7 @@ from pathlib import Path
 
 from simulator.config import DEFAULT_CONFIG, SimConfig
 from simulator.runner import cmd_compare, cmd_simulate, cmd_trace, cmd_validate
+from simulator.commands import cmd_explain, cmd_export_ai_context, cmd_repair_plan
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -33,6 +34,18 @@ def build_parser() -> argparse.ArgumentParser:
     c.add_argument("--runs-per-strategy", type=int, default=100)
     c.add_argument("--seed", type=int, default=42)
 
+    e = sub.add_parser("explain", help="Explain findings from a prior run output folder")
+    e.add_argument("output_folder", type=str)
+    e.add_argument("--finding", type=str, default=None, dest="finding_id")
+
+    r = sub.add_parser("repair-plan", help="Generate repair options for findings")
+    r.add_argument("output_folder", type=str)
+    r.add_argument("--finding", type=str, default=None, dest="finding_id")
+
+    x = sub.add_parser("export-ai-context", help="Export compact AI context per finding")
+    x.add_argument("output_folder", type=str)
+    x.add_argument("--finding", type=str, default=None, dest="finding_id")
+
     p.add_argument("--timeout", type=int, default=DEFAULT_CONFIG.timeout_seconds)
     p.add_argument("--max-runs", type=int, default=DEFAULT_CONFIG.max_runs)
     return p
@@ -44,10 +57,12 @@ def main(argv: list[str] | None = None) -> int:
         timeout_seconds=args.timeout,
         max_runs=args.max_runs,
     )
-    adventure = args.adventure
-    if not Path(adventure).exists():
-        print(f"error: adventure not found: {adventure}", file=sys.stderr)
-        return 1
+    adventure = getattr(args, "adventure", None)
+    output_folder = getattr(args, "output_folder", None)
+    if args.command in ("validate", "simulate", "trace", "compare"):
+        if not adventure or not Path(adventure).exists():
+            print(f"error: adventure not found: {adventure}", file=sys.stderr)
+            return 1
     try:
         if args.command == "validate":
             out = cmd_validate(adventure, config)
@@ -57,6 +72,12 @@ def main(argv: list[str] | None = None) -> int:
             out = cmd_trace(adventure, args.seed, args.strategy)
         elif args.command == "compare":
             out = cmd_compare(adventure, args.runs_per_strategy, args.seed, config)
+        elif args.command == "explain":
+            out = cmd_explain(output_folder, getattr(args, "finding_id", None))
+        elif args.command == "repair-plan":
+            out = cmd_repair_plan(output_folder, getattr(args, "finding_id", None))
+        elif args.command == "export-ai-context":
+            out = cmd_export_ai_context(output_folder, getattr(args, "finding_id", None))
         else:
             return 1
         print(str(out))

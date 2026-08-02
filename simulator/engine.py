@@ -6,39 +6,73 @@ import random
 from typing import Any, Callable
 
 from simulator.checks import apply_check_outcome, roll_check
+from simulator.config import SimConfig, DEFAULT_CONFIG
 from simulator.endings import evaluate_ending
 from simulator.state import GameState
+
+
+class SimulationLimitError(Exception):
+    """Raised when max_states or path limits are exceeded."""
 
 
 ChoiceFn = Callable[[GameState, list[dict[str, Any]], str], dict[str, Any]]
 
 
 class SimulationEngine:
-    def __init__(self, package: dict[str, Any], rng: random.Random):
+    def __init__(
+        self,
+        package: dict[str, Any],
+        rng: random.Random,
+        config: SimConfig = DEFAULT_CONFIG,
+    ):
         self.root = package["root"]
         self.adapter = package["adapter"]
         self.nodes = self.adapter["nodes"]
         self.checks = self.adapter.get("checks", {})
         self.rng = rng
+        self.config = config
         self.hub_targets = self._build_hub_targets()
         self.cost_policy = self.adapter.get("cost_policy", "hub_authoritative")
+        self.follow_up_max = self.adapter.get("follow_up_max", 2)
+        self.follow_up_rules = self.adapter.get("follow_ups", [])
+        self._state_counter = 0
 
-    def _build_hub_targets(self) -> dict[str, dict[str, Any]]:
-        """Map hub destination node -> hub choice metadata."""
-        mapping: dict[str, dict[str, Any]] = {}
+    def _build_hub_targets(self) -> dict[tuple[int | str, str], dict[str, Any]]:
+        """Map (hub_id, destination node) -> hub choice metadata."""
+        mapping: dict[tuple[int | str, str], dict[str, Any]] = {}
         for nid, spec in self.nodes.items():
             if spec.get("type") != "hub":
                 continue
             hub_id = spec.get("hub_id", nid)
             for ch in spec.get("choices", []):
-                mapping[ch["target"]] = {
+                mapping[(hub_id, ch["target"])] = {
                     "hub_id": hub_id,
+                    "hub_node": nid,
                     "choice_id": ch.get("id", ""),
                     "minutes": ch.get("minutes", 0),
                     "additive_cost": ch.get("additive_cost", False),
                     "once_per_hub": ch.get("once_per_hub", False),
                 }
         return mapping
+
+    def _path_nodes(self, state: GameState) -> set[str]:
+        nodes: set[str] = set()
+        for p in state.path:
+            nodes.add(p.split(":")[-1] if ":" in p else p)
+        nodes.add(state.node)
+        return nodes
+
+    def _hub_target_meta(self, hub_id: int | str, target: str) -> dict[str, Any] | None:
+        return self.hub_targets.get((hub_id, target))
+
+    def _at_deadline(self, state: GameState) -> bool:
+        return state.clock >= self.adapter.get("deadline_clock", 1380)
+
+    def _tick_state_limit(self, state: GameState) -> None:
+        self._state_counter += 1
+        state.states_explored = self._state_counter
+        if self._state_counter > self.config.max_states:
+            raise SimulationLimitError(f"max_states exceeded ({self.config.max_states})")
 
     def new_state(self) -> GameState:
         st = GameState(
@@ -68,6 +102,8 @@ class SimulationEngine:
     def hub_options(self, state: GameState, spec: dict[str, Any]) -> list[dict[str, Any]]:
         hub_id = spec.get("hub_id", state.node)
         used = state.hub_visits.get(hub_id, set())
+        deadline = self.adapter.get("deadline_clock", 1380)
+        at_deadline = state.clock >= deadline
         options = []
         for ch in spec.get("choices", []):
             if ch.get("once_per_hub") and ch.get("id") in used:
@@ -75,19 +111,23 @@ class SimulationEngine:
             if ch.get("id") == "decline":
                 options.append(ch)
                 continue
-            if state.clock >= self.adapter.get("deadline_clock", 1380):
+            if at_deadline:
                 continue
             options.append(ch)
-        if not options:
-            options = list(spec.get("choices", []))
+        if at_deadline:
+            decline = [ch for ch in spec.get("choices", []) if ch.get("id") == "decline"]
+            options = decline
         return self.public_options(options)
 
     def advance_minutes(self, state: GameState, minutes: int, joint: bool = True) -> None:
         if minutes <= 0:
             return
-        state.clock += minutes
+        deadline = self.adapter.get("deadline_clock", 1380)
+        before = state.clock
+        state.clock = min(state.clock + minutes, deadline)
+        applied = state.clock - before
         if joint:
-            state.joint_minutes += minutes
+            state.joint_minutes += applied
         state.apply_thresholds(self.adapter)
 
     def apply_node_effects(
@@ -116,7 +156,8 @@ class SimulationEngine:
             if not passed:
                 fail_spec = self.checks[spec["check"]].get("fail", {})
                 follow = fail_spec.get("needs_followup")
-                if follow and follow not in state.path:
+                path_nodes = self._path_nodes(state)
+                if follow and follow not in path_nodes:
                     state.pending_followup = follow
         minutes = spec.get("minutes", 0) + extra
         if skip_entry_minutes and not spec.get("additive_entry_cost"):
@@ -125,6 +166,29 @@ class SimulationEngine:
             return minutes
         self.advance_minutes(state, minutes, joint=True)
         return minutes
+
+    def _resolve_follow_up(self, state: GameState, node: str) -> int:
+        """Apply keyword follow-up when slot available; returns minutes consumed."""
+        if state.follow_ups_used >= self.follow_up_max:
+            return 0
+        spec = self.nodes.get(node, {})
+        label = " ".join(
+            [
+                node,
+                spec.get("type", ""),
+                str(spec.get("check", "")),
+            ]
+        ).lower()
+        for rule in self.follow_up_rules:
+            keywords = rule.get("keywords", [])
+            if keywords == ["*"]:
+                continue
+            if any(kw.lower() in label for kw in keywords):
+                state.follow_ups_used += 1
+                for clue in rule.get("grants_if_missing", []):
+                    state.grant_clue(clue)
+                return rule.get("minutes", 5)
+        return 0
 
     def run_role_path(
         self,
@@ -139,7 +203,7 @@ class SimulationEngine:
         node = start
         window_minutes = 0
         depth = 0
-        while node != sync and depth < 500:
+        while node != sync and depth < self.config.max_path_steps:
             depth += 1
             spec = self.nodes[node]
             local.visited.add(node)
@@ -147,6 +211,13 @@ class SimulationEngine:
 
             if getattr(local, "pending_followup", None) == node:
                 local.pending_followup = None
+                local.follow_ups_used += 1
+
+            if getattr(local, "pending_followup", None) and node != local.pending_followup:
+                pending = local.pending_followup
+                if pending in self.nodes:
+                    node = pending
+                    continue
 
             gate = spec.get("gate")
             if gate:
@@ -168,6 +239,9 @@ class SimulationEngine:
                 break
 
             if "choices" in spec and spec.get("type") in ("people", "records"):
+                if getattr(local, "pending_followup", None):
+                    node = local.pending_followup
+                    continue
                 options = self.public_options(spec["choices"])
                 pick = choose(local, options, role)
                 node = pick["target"]
@@ -175,6 +249,7 @@ class SimulationEngine:
 
             added = self.apply_node_effects(local, spec, role)
             window_minutes += added
+            window_minutes += self._resolve_follow_up(local, node)
 
             if spec.get("type") == "ending":
                 break
@@ -275,8 +350,8 @@ class SimulationEngine:
                 self._complete_infer(state, infer_id)
             elif infer_id == "I-02":
                 if not self._complete_infer(state, infer_id):
-                    state.node = "J-300"
-                    state.path.append("J-300:blocked-I-02")
+                    state.node = spec.get("blocked_return", "J-300")
+                    state.path.append(f"{state.node}:blocked-I-02")
                     return state
             else:
                 self._complete_infer(state, infer_id)
@@ -292,7 +367,15 @@ class SimulationEngine:
             return state
 
         if ntype == "hub":
+            if self._at_deadline(state):
+                state.node = "J-600"
+                state.path.append("J-600:deadline")
+                return state
             options = self.hub_options(state, spec)
+            if not options:
+                state.node = "J-600"
+                state.path.append("J-600:deadline-no-options")
+                return state
             pick = choose(state, options, "joint")
             selected = pick
             for ch in spec.get("choices", []):
@@ -307,11 +390,16 @@ class SimulationEngine:
                 state.filed_without_accusation = True
             self.advance_minutes(state, selected.get("minutes", pick.get("minutes", 0)))
             target = pick["target"]
+            meta = self._hub_target_meta(hub_id, target)
             state.entry_cost_prepaid = (
                 self.cost_policy == "hub_authoritative"
-                and target in self.hub_targets
+                and meta is not None
                 and not selected.get("additive_cost", False)
             )
+            if selected.get("once_per_hub") and hub_id != 1:
+                state.return_hub = state.node
+            else:
+                state.return_hub = None
             state.node = target
             state.path.append(state.node)
             return state
@@ -328,6 +416,13 @@ class SimulationEngine:
         added = self.apply_node_effects(state, spec, role, skip_entry_minutes=skip)
         if role:
             state.role_minutes[role] = state.role_minutes.get(role, 0) + added
+
+        if state.return_hub and spec.get("next") and not spec.get("choices"):
+            ret = state.return_hub
+            state.return_hub = None
+            state.node = ret
+            state.path.append(ret)
+            return state
 
         nxt = spec.get("next")
         if nxt:
@@ -349,10 +444,16 @@ class SimulationEngine:
     def run(
         self,
         choose: ChoiceFn,
-        max_steps: int = 500,
+        max_steps: int | None = None,
     ) -> GameState:
+        limit = max_steps or self.config.max_path_steps
         state = self.new_state()
-        for _ in range(max_steps):
+        for _ in range(limit):
+            self._tick_state_limit(state)
+            if self._at_deadline(state) and not state.node.startswith("E-"):
+                if state.node != "J-600":
+                    state.node = "J-600"
+                    state.path.append("J-600:deadline-forced")
             spec = self.nodes.get(state.node, {})
             if spec.get("type") == "ending" or state.node.startswith("E-"):
                 break

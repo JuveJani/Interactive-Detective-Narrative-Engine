@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import random
+import resource
 import signal
 import sys
 import time
@@ -11,7 +12,7 @@ from typing import Any
 
 from simulator.config import DEFAULT_CONFIG, SimConfig
 from simulator.diagnostics import analyze_simulation, run_batch
-from simulator.engine import SimulationEngine
+from simulator.engine import SimulationEngine, SimulationLimitError
 from simulator.graph import build_edges, graph_stats
 from simulator.loader import load_adventure
 from simulator.output import make_output_dir, write_all_outputs
@@ -22,6 +23,25 @@ from simulator.validate import validate_static
 
 class RunInterrupted(Exception):
     pass
+
+
+class RunLimitExceeded(Exception):
+    pass
+
+
+def _memory_mb() -> float:
+    usage = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    if sys.platform == "darwin":
+        return usage / (1024 * 1024)
+    return usage / 1024
+
+
+def _check_limits(config: SimConfig, states: int = 0) -> None:
+    mem = _memory_mb()
+    if mem > config.memory_guard_mb:
+        raise RunLimitExceeded(f"memory guard exceeded ({mem:.0f} MB > {config.memory_guard_mb} MB)")
+    if states > config.max_states:
+        raise RunLimitExceeded(f"max_states exceeded ({states} > {config.max_states})")
 
 
 def _install_sigint() -> None:
@@ -63,12 +83,17 @@ def cmd_simulate(
             if time.time() - start > config.timeout_seconds:
                 log.append("timeout reached")
                 break
+            _check_limits(config)
             if i and i % config.progress_interval == 0:
                 print(f"progress {i}/{runs}", file=sys.stderr)
-            batch = run_batch(package, "random", 1, seed + i)
+            batch = run_batch(package, "random", 1, seed + i, config)
             results.extend(batch)
+            if results:
+                _check_limits(config, results[-1].states_explored if hasattr(results[-1], "states_explored") else 0)
     except RunInterrupted:
         log.append("interrupted — saving partial results")
+    except (RunLimitExceeded, SimulationLimitError) as exc:
+        log.append(f"limit reached: {exc}")
     findings, metrics = analyze_simulation(package, results, static)
     edges = build_edges(package["adapter"])
     write_all_outputs(out, findings, metrics, results, package["adapter"], edges, "simulate", log)
@@ -104,7 +129,7 @@ def cmd_compare(adventure_path: str, runs_per: int, seed: int, config: SimConfig
     all_results = []
     log = [f"compare runs_per_strategy={runs_per}"]
     for name in STRATEGIES:
-        all_results.extend(run_batch(package, name, min(runs_per, config.max_runs), seed))
+        all_results.extend(run_batch(package, name, min(runs_per, config.max_runs), seed, config))
     findings, metrics = analyze_simulation(package, all_results, static)
     metrics["per_strategy"] = {n: sum(1 for r in all_results if r.strategy == n) for n in STRATEGIES}
     edges = build_edges(package["adapter"])
