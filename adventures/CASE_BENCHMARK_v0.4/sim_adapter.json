@@ -100,7 +100,7 @@
     "J-302": {"type": "joint", "minutes": 10, "flags": ["ACCESS_MANAGER_KEY"], "next": "J-300"},
     "J-330": {"type": "split_launch", "split": "split2", "minutes": 0},
     "J-400": {"type": "regroup", "split": "split2", "minutes_overhead": 5, "next": "J-410"},
-    "J-410": {"type": "infer", "infer": "I-02", "minutes": 10, "blocked_return": "J-300", "blocked_minutes": 10, "blocked_cost_source": "PLAYER/JOINT_SCENES.md §J-410", "next": "J-500"},
+    "J-410": {"type": "infer", "infer": "I-02", "minutes": 10, "blocked_return": "J-300", "blocked_minutes": 10, "blocked_cost_source": "PLAYER/JOINT_SCENES.md §J-410", "minutes_cost_resolution": {"authoritative_minutes": 10, "authoritative_source": "PLAYER/JOINT_SCENES.md §J-410 (Advance +10 min after I-02 complete)", "conflicting_source": "DO_NOT_READ/LOGIC/00_ENTITY_KEY_TABLE.md lists 12 min", "resolution": "sim_adapter.json description establishes PLAYER as cross-checked authority; PLAYER 10 min used for simulation", "unresolved": false}, "next": "J-500"},
     "J-500": {"type": "hub", "hub_id": 3, "choices": [
       {"id": "accuse", "minutes": 15, "target": "J-510"},
       {"id": "decline", "minutes": 10, "target": "J-600", "sets": ["FILED_WITHOUT_ACCUSATION"]}
@@ -142,10 +142,10 @@
     "R-211b": {"type": "records", "role": "records", "split": "split2", "minutes": 10, "next_options": ["R-212", "R-214"]},
     "R-212": {"type": "records", "role": "records", "split": "split2", "choices": [
       {"id": "duplicates", "target": "R-212a"},
-      {"id": "skim", "target": "R-212b"}
+      {"id": "skim", "target": "R-212b", "once_per_role_path": true}
     ]},
     "R-212a": {"type": "records", "role": "records", "split": "split2", "minutes": 10, "check": "CHK_INVOICE", "next_options": ["R-213", "R-214"]},
-    "R-212b": {"type": "records", "role": "records", "split": "split2", "minutes": 5, "fake_choice": true, "next": "R-212"},
+    "R-212b": {"type": "records", "role": "records", "split": "split2", "minutes": 5, "fake_choice": true, "next_options": ["R-212", "R-214"]},
     "R-213": {"type": "records", "role": "records", "split": "split2", "minutes": 8, "clues": ["C-11"], "next_options": ["R-214", "J-400"]},
     "R-214": {"type": "records", "role": "records", "split": "split2", "minutes": 10, "early_finish": true, "sync": "J-400"},
     "E-901": {"type": "ending", "code": "E-901"},
@@ -158,7 +158,7 @@
     {"id": "AMB-J121", "topic": "J-121 return routing", "resolution": "next_options [J-120, J-130] models explicit player choice at hub return.", "authoritative_source": "sim_adapter.json nodes.J-121"},
     {"id": "AMB-P112", "topic": "P-112 manager key eligibility", "resolution": "ACCESS_MANAGER_KEY granted at split merge only when Records partner lacks the flag.", "authoritative_source": "PLAYER/BOOKLET_PEOPLE.md §P-112"},
     {"id": "AMB-P111", "topic": "Closed bakery phone follow-up", "resolution": "Gate branch_choices offer skip (0 min) vs phone follow-up (+15 min, partial C-07).", "authoritative_source": "PLAYER/BOOKLET_PEOPLE.md §P-111"},
-    {"id": "AMB-R212B", "topic": "R-212b skim retry loop", "resolution": "fake_choice marks low-value skim; engine does not loop.", "authoritative_source": "sim_adapter.json nodes.R-212b"}
+    {"id": "AMB-R212B", "topic": "R-212b skim retry loop", "resolution": "PLAYER next_options [R-212, R-214]; skim choice once_per_role_path prevents repeat skim burn.", "authoritative_source": "PLAYER/BOOKLET_RECORDS.md §R-212b"}
   ],
   "ambiguities": []
 }
