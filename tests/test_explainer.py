@@ -1,5 +1,6 @@
 """Tests for explainer, repair advisor, V2 blockers, and advisory CLI."""
 
+import copy
 import json
 import random
 import shutil
@@ -97,13 +98,24 @@ class TestTrustDowngrade(unittest.TestCase):
     def setUpClass(cls):
         cls.package = load_adventure("adventures/CASE_BENCHMARK_v0.4")
 
-    def test_simulator_not_trustworthy_with_ambiguities(self):
+    def test_simulator_trustworthy_when_adapter_canonical(self):
         ok, blockers = simulator_trustworthy(self.package["adapter"])
-        self.assertFalse(ok)
-        self.assertTrue(blockers)
+        self.assertTrue(ok, msg=f"Unexpected blockers: {blockers}")
+
+    def test_fake_findings_adventure_layer_when_trusted(self):
+        findings, metrics = analyze_simulation(self.package, [], validate_static(self.package))
+        self.assertTrue(metrics["simulator_trustworthy"])
+        fake = [f for f in findings if f.id.startswith("SIM-FAKE-")]
+        self.assertTrue(fake)
+        for f in fake:
+            self.assertEqual(f.layer, "ADVENTURE")
 
     def test_fake_findings_undetermined_when_untrusted(self):
-        findings, metrics = analyze_simulation(self.package, [], validate_static(self.package))
+        adapter = copy.deepcopy(self.package["adapter"])
+        adapter["ambiguities"] = ["forced ambiguity"]
+        pkg = dict(self.package)
+        pkg["adapter"] = adapter
+        findings, metrics = analyze_simulation(pkg, [], validate_static(pkg))
         fake = [f for f in findings if f.id.startswith("SIM-FAKE-")]
         self.assertTrue(fake)
         for f in fake:

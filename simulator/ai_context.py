@@ -48,6 +48,7 @@ def _node_excerpt(adapter: dict[str, Any], node_id: str) -> dict[str, Any]:
 def _trust_context(adapter: dict[str, Any]) -> dict[str, Any]:
     return {
         "ambiguities": list(adapter.get("ambiguities", [])),
+        "resolved_ambiguities": list(adapter.get("resolved_ambiguities", [])),
         "simulator_partial": list(adapter.get("simulator_partial", [])),
         "simulator_unsupported": list(adapter.get("simulator_unsupported", [])),
         "follow_up_actions": follow_up_actions(adapter),

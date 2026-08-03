@@ -86,21 +86,29 @@ class TestZeroWinDiagnostics(unittest.TestCase):
         cls.package = load_adventure("adventures/CASE_BENCHMARK_v0.4")
 
     def test_zero_success_untrusted_emits_finding(self):
+        adapter = dict(self.package["adapter"])
+        adapter["ambiguities"] = ["forced for untrusted test"]
+        pkg = dict(self.package)
+        pkg["adapter"] = adapter
         runs = [
             RunResult(0, "random", "E-904", 10, 200, 0, 200, 240, [], [], [], None, [], []),
         ] * 5
-        findings, _ = analyze_simulation(self.package, runs, validate_static(self.package))
+        findings, _ = analyze_simulation(pkg, runs, validate_static(pkg))
         ids = {f.id for f in findings}
         self.assertIn("SIM-NO-WIN-UNTRUSTED", ids)
         f = next(x for x in findings if x.id == "SIM-NO-WIN-UNTRUSTED")
         self.assertEqual(f.layer, "UNDETERMINED")
 
     def test_rare_win_untrusted_emits_info(self):
+        adapter = dict(self.package["adapter"])
+        adapter["ambiguities"] = ["forced for untrusted test"]
+        pkg = dict(self.package)
+        pkg["adapter"] = adapter
         runs = [
             RunResult(0, "random", "E-901", 10, 200, 0, 200, 240, [], [], [], None, [], []),
             RunResult(1, "random", "E-904", 10, 200, 0, 200, 240, [], [], [], None, [], []),
         ]
-        findings, _ = analyze_simulation(self.package, runs, validate_static(self.package))
+        findings, _ = analyze_simulation(pkg, runs, validate_static(pkg))
         self.assertIn("SIM-WIN-UNTRUSTED", {f.id for f in findings})
 
     def test_trusted_zero_win_layer_undetermined(self):
@@ -182,16 +190,21 @@ class TestAIContextSections(unittest.TestCase):
     def setUpClass(cls):
         cls.package = load_adventure("adventures/CASE_BENCHMARK_v0.4")
 
-    def test_trust_context_has_ambiguities(self):
+    def test_trust_context_has_resolved_ambiguities(self):
         findings, metrics = analyze_simulation(self.package, [], validate_static(self.package))
-        trust = next(f for f in findings if f.id == "SIM-TRUST-DOWNGRADE")
-        expl = explain_finding(trust, metrics, self.package["adapter"])
-        opts = all_repair_options(findings, [expl])
-        ctx = build_finding_context(trust, expl, opts, metrics, self.package["adapter"])
+        self.assertTrue(metrics["simulator_trustworthy"])
+        adapter = dict(self.package["adapter"])
+        adapter["ambiguities"] = ["forced ambiguity"]
+        pkg = dict(self.package)
+        pkg["adapter"] = adapter
+        findings2, metrics2 = analyze_simulation(pkg, [], validate_static(pkg))
+        trust = next(f for f in findings2 if f.id == "SIM-TRUST-DOWNGRADE")
+        expl = explain_finding(trust, metrics2, adapter)
+        opts = all_repair_options(findings2, [expl])
+        ctx = build_finding_context(trust, expl, opts, metrics2, adapter)
         self.assertIn("PROVEN_FACTS", ctx)
         self.assertIn("FORBIDDEN_CONCLUSIONS", ctx)
         self.assertTrue(ctx["AMBIGUITIES"])
-        self.assertTrue(ctx["node_excerpt"].get("ambiguities") or ctx["AMBIGUITIES"])
         self.assertNotIn("culprit", json.dumps(ctx).lower())
 
 

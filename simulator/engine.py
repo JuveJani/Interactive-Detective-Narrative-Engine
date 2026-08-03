@@ -19,6 +19,35 @@ class SimulationLimitError(Exception):
 ChoiceFn = Callable[[GameState, list[dict[str, Any]], str], dict[str, Any]]
 
 
+def _path_node_ids(path: list[str]) -> set[str]:
+    nodes: set[str] = set()
+    for entry in path:
+        nodes.add(entry.split(":")[-1] if ":" in entry else entry)
+    return nodes
+
+
+def _apply_partner_conditional_flags(
+    merged: GameState,
+    people: GameState,
+    records: GameState,
+    nodes: dict[str, Any],
+) -> None:
+    """Grant flags from partner_conditional_flags when partner lacks required state."""
+    for role_path, partner_flags in (
+        (_path_node_ids(people.path), records.flags),
+        (_path_node_ids(records.path), people.flags),
+    ):
+        for nid in role_path:
+            spec = nodes.get(nid, {})
+            for rule in spec.get("partner_conditional_flags", []):
+                flag = rule["flag"]
+                when_lacks = rule.get("when_partner_lacks", flag)
+                expected_partner = rule.get("partner_role", "records")
+                partner_state = records.flags if expected_partner == "records" else people.flags
+                if when_lacks not in partner_state and flag not in merged.flags:
+                    merged.grant_flag(flag)
+
+
 class SimulationEngine:
     def __init__(
         self,
@@ -204,6 +233,24 @@ class SimulationEngine:
             gate = spec.get("gate")
             if gate:
                 if gate.get("if_clock_gte") and local.clock >= gate["if_clock_gte"]:
+                    branch_choices = gate.get("branch_choices")
+                    if branch_choices:
+                        options = [
+                            {
+                                "id": c["id"],
+                                "target": c.get("skip_to", node),
+                                "minutes": c.get("minutes", 0),
+                                "label": c.get("label", c["id"]),
+                            }
+                            for c in branch_choices
+                        ]
+                        pick = choose(local, self.public_options(options), role)
+                        chosen = next(c for c in branch_choices if c["id"] == pick["id"])
+                        node = chosen["skip_to"]
+                        window_minutes += chosen.get("minutes", 0)
+                        for pc in chosen.get("partial_clues", chosen.get("alt_partial", [])):
+                            local.grant_clue(pc)
+                        continue
                     if "skip_to" in gate:
                         node = gate["skip_to"]
                         if gate.get("alt_minutes"):
@@ -273,6 +320,7 @@ class SimulationEngine:
         merged = state.clone()
         merged.clues |= people.clues | records.clues
         merged.flags |= people.flags | records.flags
+        _apply_partner_conditional_flags(merged, people, records, self.nodes)
         merged.hub_visits = {k: set(v) for k, v in state.hub_visits.items()}
         for hid, used in people.hub_visits.items():
             merged.hub_visits.setdefault(hid, set()).update(used)
@@ -332,6 +380,9 @@ class SimulationEngine:
                 self._complete_infer(state, infer_id)
             elif infer_id == "I-02":
                 if not self._complete_infer(state, infer_id):
+                    blocked_mins = spec.get("blocked_minutes")
+                    if blocked_mins is not None:
+                        self.advance_minutes(state, blocked_mins)
                     state.node = spec.get("blocked_return", "J-300")
                     state.path.append(f"{state.node}:blocked-I-02")
                     return state
