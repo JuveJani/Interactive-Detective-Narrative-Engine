@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "CASE_BENCHMARK_v0.4",
+  "player_version": "0.4.1",
+  "description": "Machine-readable adapter for Harborview Arcade. Authoritative for simulation; PLAYER markdown cross-checked by validator.",
+  "start_node": "J-100",
+  "start_clock": 1140,
+  "deadline_clock": 1380,
+  "regroup_overhead_minutes": 5,
+  "follow_up_max": 2,
+  "suspects": [
+    "Diane Marsh",
+    "James Holt",
+    "Mira Kwan",
+    "Tomás Reyes"
+  ],
+  "truth": {
+    "culprit": "Tomás Reyes",
+    "npc_key": "NPC_TOMAS",
+    "comment": "SIMULATOR ONLY — not exposed to strategies"
+  },
+  "thresholds": [
+    {"id": "THRESHOLD_T1", "clock_min": 1200, "effect": "bakery_evening_closed"},
+    {"id": "THRESHOLD_T2", "clock_min": 1260, "effect": "holt_lobby_closed"},
+    {"id": "THRESHOLD_T3", "clock_min": 1320, "effect": "basement_requires_key"}
+  ],
+  "proof_rules": {
+    "PROOF_METHOD": "(C-01 AND C-04) OR C-10",
+    "PROOF_MOTIVE": "C-05 OR C-11 OR (MOTIVE_WITNESS AND (C-05 OR C-11 OR C-14))",
+    "PROOF_OPPORTUNITY": "C-06 AND (C-12 OR C-13)"
+  },
+  "infer_requirements": {
+    "I-01": {"clues": ["C-01", "C-06"], "bailout_minutes": 15, "bailout_grants": ["C-06"]},
+    "I-02": {"min_of": ["C-05", "C-07", "C-11", "MOTIVE_WITNESS"], "count": 3},
+    "I-03": {"requires_proof_tags": ["PROOF_METHOD", "PROOF_MOTIVE", "PROOF_OPPORTUNITY"], "requires_accused": true}
+  },
+  "checks": {
+    "CHK_MIRA_CALM": {"dc": 10, "role": "people", "pass": {"clues": ["C-07"], "flags": ["WITNESS_MIRA_COOPERATIVE"]}, "fail": {"partial_clues": ["C-07"], "flags": ["WITNESS_MIRA_SHUT_DOWN"]}},
+    "CHK_JAMES_PRESS": {"dc": 11, "role": "people", "pass": {"clues": ["C-08", "C-13"]}, "fail": {"clues": ["C-08"], "needs_followup": "P-214"}},
+    "CHK_BOOT_MATCH": {"dc": 13, "role": "records", "pass": {"clues": ["C-10"]}, "fail": {"clues": []}},
+    "CHK_INVOICE": {"dc": 12, "role": "records", "pass": {"clues": ["C-05"]}, "fail": {"clues": ["C-14"], "flags": ["CERTAINTY_DEGRADED"], "extra_minutes": 15}}
+  },
+  "follow_ups": [
+    {"keywords": ["gym", "james alibi"], "grants_if_missing": ["C-13"], "minutes": 10},
+    {"keywords": ["vendor", "phone log"], "grants_if_missing": ["C-14"], "minutes": 10},
+    {"keywords": ["*"], "minutes": 5}
+  ],
+  "splits": {
+    "split1": {"launch": "J-130", "sync": "J-200", "people_start": "P-111", "records_start": "R-111"},
+    "split2": {"launch": "J-330", "sync": "J-400", "people_start": "P-211", "records_start": "R-211"}
+  },
+  "nodes": {
+    "J-100": {"type": "joint", "minutes": 0, "next": "J-120", "sets_clock": 1140},
+    "J-120": {"type": "hub", "hub_id": 1, "choices": [
+      {"id": "stairwell", "minutes": 15, "target": "J-110"},
+      {"id": "park", "minutes": 10, "target": "J-121"},
+      {"id": "split1", "minutes": 20, "target": "J-130"},
+      {"id": "notes", "minutes": 10, "target": "J-122"}
+    ]},
+    "J-110": {"type": "joint", "minutes": 15, "clues": ["C-01"], "flags": ["VISITED_STAIRWELL"], "next": "J-120"},
+    "J-121": {"type": "joint", "minutes": 10, "next_options": ["J-120", "J-130"]},
+    "J-122": {"type": "joint", "minutes": 10, "next": "J-120", "fake_choice": true},
+    "J-130": {"type": "split_launch", "split": "split1", "minutes": 0},
+    "J-200": {"type": "regroup", "split": "split1", "minutes_overhead": 5, "next": "J-210"},
+    "J-210": {"type": "infer", "infer": "I-01", "minutes": 10, "next": "J-300"},
+    "J-300": {"type": "hub", "hub_id": 2, "choices": [
+      {"id": "split2", "minutes": 25, "target": "J-330"},
+      {"id": "stairwell_revisit", "minutes": 15, "target": "J-110", "once_per_hub": true},
+      {"id": "manager_key", "minutes": 10, "target": "J-302"},
+      {"id": "timeline", "minutes": 10, "target": "J-301"}
+    ]},
+    "J-301": {"type": "joint", "minutes": 10, "next": "J-300", "requires_clues_for_value": ["C-02", "C-03", "C-06", "C-07", "C-09"]},
+    "J-302": {"type": "joint", "minutes": 10, "flags": ["ACCESS_MANAGER_KEY"], "next": "J-300"},
+    "J-330": {"type": "split_launch", "split": "split2", "minutes": 0},
+    "J-400": {"type": "regroup", "split": "split2", "minutes_overhead": 5, "next": "J-410"},
+    "J-410": {"type": "infer", "infer": "I-02", "minutes": 10, "next": "J-500"},
+    "J-500": {"type": "hub", "hub_id": 3, "choices": [
+      {"id": "accuse", "minutes": 15, "target": "J-510"},
+      {"id": "decline", "minutes": 10, "target": "J-600", "sets": ["FILED_WITHOUT_ACCUSATION"]}
+    ]},
+    "J-510": {"type": "infer", "infer": "I-03", "minutes": 0, "next": "J-600"},
+    "J-600": {"type": "ending_dispatch", "minutes": 0},
+    "P-111": {"type": "people", "role": "people", "split": "split1", "gate": {"if_clock_gte": 1200, "skip_to": "P-113", "alt_minutes": 15, "alt_partial": ["C-07"]}, "choices": [
+      {"id": "rent", "target": "P-111a"},
+      {"id": "whereabouts", "target": "P-111b"}
+    ]},
+    "P-111a": {"type": "people", "role": "people", "split": "split1", "minutes": 15, "clues": ["C-07"], "flags": ["WITNESS_MIRA_COOPERATIVE"], "next_options": ["P-112", "P-113"]},
+    "P-111b": {"type": "people", "role": "people", "split": "split1", "minutes": 15, "check": "CHK_MIRA_CALM", "next_options": ["P-112", "P-113"]},
+    "P-112": {"type": "people", "role": "people", "split": "split1", "minutes": 10, "clues": ["C-09"], "flags": ["MOTIVE_WITNESS", "ACCESS_MANAGER_KEY"], "next_options": ["P-113", "J-200"]},
+    "P-113": {"type": "people", "role": "people", "split": "split1", "minutes": 10, "early_finish": true, "sync": "J-200"},
+    "P-211": {"type": "people", "role": "people", "split": "split2", "choices": [
+      {"id": "press", "target": "P-211a"},
+      {"id": "relationship", "target": "P-211b"}
+    ]},
+    "P-211a": {"type": "people", "role": "people", "split": "split2", "minutes": 12, "check": "CHK_JAMES_PRESS", "next_options": ["P-212", "P-214"]},
+    "P-211b": {"type": "people", "role": "people", "split": "split2", "minutes": 10, "next": "P-212"},
+    "P-212": {"type": "people", "role": "people", "split": "split2", "minutes": 10, "clues": ["C-15"], "next_options": ["P-213", "P-214", "P-215"]},
+    "P-213": {"type": "people", "role": "people", "split": "split2", "minutes": 8, "clues": ["C-12"], "next_options": ["P-215", "J-400"]},
+    "P-214": {"type": "people", "role": "people", "split": "split2", "minutes": 15, "clues": ["C-13"], "next_options": ["P-212", "P-213", "J-400"]},
+    "P-215": {"type": "people", "role": "people", "split": "split2", "minutes": 10, "early_finish": true, "sync": "J-400"},
+    "R-111": {"type": "records", "role": "records", "split": "split1", "choices": [
+      {"id": "invoices", "target": "R-111a"},
+      {"id": "logs", "target": "R-111b"}
+    ]},
+    "R-111a": {"type": "records", "role": "records", "split": "split1", "minutes": 10, "next_options": ["R-112", "R-114"]},
+    "R-111b": {"type": "records", "role": "records", "split": "split1", "minutes": 8, "flags": ["ACCESS_MANAGER_KEY"], "next_options": ["R-112", "R-114"]},
+    "R-112": {"type": "records", "role": "records", "split": "split1", "minutes": 8, "clues": ["C-06"], "next_options": ["R-113", "R-114"]},
+    "R-113": {"type": "records", "role": "records", "split": "split1", "minutes": 8, "clues": ["C-03"], "next_options": ["R-114", "J-200"]},
+    "R-114": {"type": "records", "role": "records", "split": "split1", "minutes": 10, "early_finish": true, "sync": "J-200"},
+    "R-211": {"type": "records", "role": "records", "split": "split2", "gate": {"if_clock_gte": 1320, "requires_flag": "ACCESS_MANAGER_KEY", "penalty_minutes": 10, "penalty_target": "J-302"}, "minutes": 0, "clues": ["C-02", "C-04"], "flags": ["VISITED_BASEMENT"], "choices": [
+      {"id": "boot", "target": "R-211a"},
+      {"id": "invoice_box", "target": "R-211b"}
+    ]},
+    "R-211a": {"type": "records", "role": "records", "split": "split2", "minutes": 12, "check": "CHK_BOOT_MATCH", "next_options": ["R-212", "R-214"]},
+    "R-211b": {"type": "records", "role": "records", "split": "split2", "minutes": 10, "next_options": ["R-212", "R-214"]},
+    "R-212": {"type": "records", "role": "records", "split": "split2", "choices": [
+      {"id": "duplicates", "target": "R-212a"},
+      {"id": "skim", "target": "R-212b"}
+    ]},
+    "R-212a": {"type": "records", "role": "records", "split": "split2", "minutes": 10, "check": "CHK_INVOICE", "next_options": ["R-213", "R-214"]},
+    "R-212b": {"type": "records", "role": "records", "split": "split2", "minutes": 5, "fake_choice": true, "next": "R-212"},
+    "R-213": {"type": "records", "role": "records", "split": "split2", "minutes": 8, "clues": ["C-11"], "next_options": ["R-214", "J-400"]},
+    "R-214": {"type": "records", "role": "records", "split": "split2", "minutes": 10, "early_finish": true, "sync": "J-400"},
+    "E-901": {"type": "ending", "code": "E-901"},
+    "E-902": {"type": "ending", "code": "E-902"},
+    "E-903": {"type": "ending", "code": "E-903"},
+    "E-904": {"type": "ending", "code": "E-904"},
+    "E-905": {"type": "ending", "code": "E-905"}
+  },
+  "ambiguities": [
+    "J-121 allows continue to J-120 or J-130; adapter treats as player choice at hub return.",
+    "P-112 ACCESS_MANAGER_KEY only if Records partner lacks it; simulator grants when People path taken.",
+    "Phone follow-up at P-111 when bakery closed grants partial C-07 only (+15 min).",
+    "R-212b skim is low-value retry loop; marked fake_choice.",
+    "Hub revisit stairwell once_per_hub not tracked in v0.4.1 adapter (minor)."
+  ]
+}

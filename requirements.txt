@@ -1,0 +1,1 @@
+# IDNE simulator — stdlib only; no external runtime dependencies.
