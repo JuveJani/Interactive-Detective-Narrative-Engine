@@ -222,7 +222,6 @@ class SimulationEngine:
 
             if getattr(local, "pending_followup", None) == node:
                 local.pending_followup = None
-                local.follow_ups_used += 1
 
             if getattr(local, "pending_followup", None) and node != local.pending_followup:
                 pending = local.pending_followup
@@ -271,8 +270,18 @@ class SimulationEngine:
                 if getattr(local, "pending_followup", None):
                     node = local.pending_followup
                     continue
-                options = self.public_options(spec["choices"])
+                available = []
+                for ch in spec.get("choices", []):
+                    choice_key = (node, ch.get("id", ch["target"]))
+                    if ch.get("once_per_role_path") and choice_key in local.role_choices_used:
+                        continue
+                    available.append(ch)
+                if not available:
+                    break
+                options = self.public_options(available)
                 pick = choose(local, options, role)
+                choice_key = (node, pick.get("id", pick.get("target", "")))
+                local.role_choices_used.add(choice_key)
                 node = pick["target"]
                 continue
 
