@@ -7,7 +7,7 @@ Spoiler-safe scene list. Use with `HOW_TO_PLAY.md`.
 | Code | Title |
 |---|---|
 | J-100 | Arrival |
-| J-110 | Rear stairwell |
+| J-110 | Rear stairwell (choice) |
 | J-120 | Hub 1 |
 | J-121 | Officer Park |
 | J-122 | Case notes |
@@ -22,7 +22,6 @@ Spoiler-safe scene list. Use with `HOW_TO_PLAY.md`.
 | J-410 | Infer I-02 |
 | J-500 | Hub 3 |
 | J-510 | Accusation prep |
-| J-511 | Boot comparison |
 | J-600 | Ending dispatch |
 
 ## People (`BOOKLET_PEOPLE.md`)
@@ -31,10 +30,12 @@ Spoiler-safe scene list. Use with `HOW_TO_PLAY.md`.
 |---|---|
 | P-111 | Mira interview |
 | P-112 | Diane interview |
-| P-113 | Early finish |
+| P-113 | Early finish (split 1) |
 | P-211 | James interview |
-| P-212 | Tomás interview |
-| P-213 | Okonkwo / gym follow-up |
+| P-212 | Maintenance interview |
+| P-213 | Okonkwo |
+| P-214 | Gym receipt follow-up |
+| P-215 | Early finish (split 2) |
 
 ## Records (`BOOKLET_RECORDS.md`)
 
@@ -43,9 +44,11 @@ Spoiler-safe scene list. Use with `HOW_TO_PLAY.md`.
 | R-111 | Manager records |
 | R-112 | Tool board |
 | R-113 | Camera still |
+| R-114 | Early finish (split 1) |
 | R-211 | Basement search |
 | R-212 | Invoice analysis |
 | R-213 | Draft email |
+| R-214 | Early finish (split 2) |
 
 ## Endings (`ENDINGS.md` — sealed)
 

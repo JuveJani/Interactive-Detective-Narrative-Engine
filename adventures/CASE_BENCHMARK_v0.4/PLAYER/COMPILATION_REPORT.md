@@ -1,6 +1,7 @@
 # Compilation Report
 
 **Adventure:** Harborview Arcade (CASE_BENCHMARK_v0.4)  
+**Version:** 0.4.1  
 **Engine:** IDNE v0.4  
 **Validation:** PASS (structural)
 

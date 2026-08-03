@@ -1,6 +1,6 @@
 # Shared Case File
 
-**Adventure:** Harborview Arcade  
+**Adventure:** Harborview Arcade v0.4.1  
 **Start clock:** 19:00 Saturday  
 **Deadline:** 23:00
 
@@ -15,22 +15,25 @@
 | T2 (21:00) | ☐ |
 | T3 (22:00) | ☐ |
 
+**Split time tracker (optional):** write each role's minutes per split; advance by the longer total.
+
 ---
 
 ## Proof tags (check when earned)
 
-| Tag | Condition | ☐ |
+| Tag | When to check | ☐ |
 |---|---|---|
 | PROOF_METHOD | (C-01 and C-04) or C-10 | |
-| PROOF_MOTIVE | C-05 or C-11 | |
+| PROOF_MOTIVE | C-05 or C-11, **or** MOTIVE_WITNESS plus (C-05, C-11, or C-14) | |
 | PROOF_OPPORTUNITY | C-06 and (C-12 or C-13) | |
 
 ---
 
-## Access tags
+## Witness / access tags
 
 | Tag | ☐ |
 |---|---|
+| MOTIVE_WITNESS | |
 | ACCESS_MANAGER_KEY | |
 | THRESHOLD_T1 bakery closed | |
 | THRESHOLD_T2 Holt lobby closed | |
@@ -41,33 +44,36 @@
 
 ## Clue log
 
-| ID | Title | ☐ |
+_Write the title from the scene when you earn the clue._
+
+| ID | Your notes (title from scene) | ☐ |
 |---|---|---|
-| C-01 | Scuff and wet transfer pattern | |
-| C-02 | Broken storage latch | |
-| C-03 | Camera entry timestamp | |
-| C-04 | Mop bucket placement | |
-| C-05 | Duplicate vendor invoices | |
-| C-06 | Tool sign-out discrepancy | |
-| C-07 | Rent dispute timeline | |
-| C-08 | James visit admission | |
-| C-09 | Diane–Okonkwo alibi block | |
-| C-10 | Boot impression partial | |
-| C-11 | Elena draft complaint email | |
-| C-12 | Okonkwo thump timing | |
-| C-13 | Gym receipt timestamp | |
-| C-14 | Maintenance vendor phone log | |
+| C-01 | | |
+| C-02 | | |
+| C-03 | | |
+| C-04 | | |
+| C-05 | | |
+| C-06 | | |
+| C-07 | | |
+| C-08 | | |
+| C-09 | | |
+| C-10 | | |
+| C-11 | | |
+| C-12 | | |
+| C-13 | | |
+| C-14 | | |
+| C-15 | | |
 
 ---
 
 ## Infer worksheet I-01 (complete at J-210)
 
-**Facts to combine:** C-01 + C-06
+**Combine:** C-01 + C-06
 
 | Question | Your answer |
 |---|---|
-| Can a solo slip explain the scuff pattern if Tomás left at 19:30? | |
-| What theory does this rule out? | |
+| Does the landing scuff fit a lone slip if the tool board shows an early return time? | |
+| What theory does that weaken? | |
 
 ☐ I-01 complete
 
@@ -75,12 +81,12 @@
 
 ## Infer worksheet I-02 (complete at J-410)
 
-**Facts to combine:** C-05 + C-07 + C-11 (need at least three)
+**Combine at least three from:** C-05, C-07, C-11, MOTIVE_WITNESS
 
 | Question | Your answer |
 |---|---|
-| Does rent dispute alone explain Elena's draft email? | |
-| What motive line fits the invoices? | |
+| Does the rent dispute alone explain Elena's concern about maintenance accounts? | |
+| Which motive line fits — tenant conflict or fund irregularity? | |
 
 ☐ I-02 complete
 
@@ -88,15 +94,27 @@
 
 ## Infer worksheet I-03 (complete at J-510)
 
-**Facts to combine:** C-06 + C-10 or C-01/C-04 + C-12 or C-13 + motive line
+**Combine:** method facts + motive line + opportunity facts (use your clue log)
 
 | Question | Your answer |
 |---|---|
-| Who had basement access in the death window? | |
-| Method + motive + opportunity point to whom? | |
+| Who had access during the death window? | |
+| Which suspect fits method, motive, and opportunity together? | |
 
 ☐ I-03 complete  
 **Accused name:** _______________
+
+---
+
+## Accusation guide (J-600)
+
+| Situation | Ending |
+|---|---|
+| Clock ≥ 23:00 | E-904 |
+| Filed without accusation | E-905 |
+| I-03 done + all three proof tags + accused name | E-901 |
+| Accused name + partial proof / wrong theory | E-902 |
+| Accused name + missing proof tags | E-903 |
 
 ---
 
@@ -107,7 +125,7 @@
 
 ---
 
-## Witness tags
+## Witness cooperation
 
 | Witness | COOPERATIVE ☐ | SHUT_DOWN ☐ |
 |---|---|---|

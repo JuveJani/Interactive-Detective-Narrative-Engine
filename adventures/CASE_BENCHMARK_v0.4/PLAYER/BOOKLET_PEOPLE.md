@@ -46,9 +46,13 @@ Diane is formal, cites policy, straightens papers. She is worried about an inspe
 
 She confirms Elena came at **18:40** for association files. Diane was in her office with Mrs. Okonkwo from **19:30 to 20:10**.
 
-**Record C-09.** Mark **ACCESS_MANAGER_KEY** if Records partner lacks it.
+Elena also told Diane she was **troubled about maintenance account entries** she had been reviewing.
 
-Advance **+10 min**. **Go to J-200**.
+**Record C-09.** Mark **MOTIVE_WITNESS** on the case file (Elena voiced fund concerns to the manager).
+
+Mark **ACCESS_MANAGER_KEY** if Records partner lacks it.
+
+Advance **+10 min**. **Continue to P-113** or **Go to J-200**.
 
 ---
 
@@ -78,9 +82,9 @@ James is guarded. He admits he hates being questioned.
 Roll **CHK_JAMES_PRESS** (d20 + People focus, DC 11).
 
 **Pass:** James admits a **17:00** visit to another tenant — not Elena. Gives gym receipt reference. **C-08** and **C-13**.  
-**Fail:** **C-08** only; C-13 needs **P-213** follow-up (+15 min).
+**Fail:** **C-08** only; **Continue to P-214** for gym follow-up (+15 min) before **P-212**.
 
-Advance **+12 min**. **Continue to P-212**.
+Advance **+12 min**. **Continue to P-212** (or **P-214** first if you need C-13).
 
 ---
 
@@ -92,15 +96,15 @@ Advance **+10 min**. **Continue to P-212**.
 
 ---
 
-## P-212 — Interview Tomás Reyes
+## P-212 — Interview maintenance staff (Tomás Reyes)
 
-Tomás is the handyman. He speaks plainly. He says he warned about wet stairs. Claims he left the basement by **19:30** and found Elena at **19:55** on his rounds.
+Tomás speaks plainly. He says he warned about wet stairs. He states he left the basement by **19:30** and that maintenance reported the incident at **19:55**.
 
 He does not suggest where to investigate next. He answers what you ask.
 
-No clue granted here — compare his story to Records findings.
+**Record C-15** (handyman stated early departure — witness statement only).
 
-Advance **+10 min**. **Continue to P-213**.
+Advance **+10 min**. **Continue to P-213** or **P-214** (if needed) or **P-215**.
 
 ---
 
@@ -110,12 +114,18 @@ Mrs. Okonkwo heard a **thump** before 20:00 while she was with Diane. She cannot
 
 **Record C-12.**
 
-Advance **+8 min**. **Go to J-400**.
+Advance **+8 min**. **Continue to P-215** or **Go to J-400**.
 
 ---
 
-### P-213b — Gym receipt follow-up (if needed)
+## P-214 — Gym receipt follow-up
 
 James texts a gym check-in image: **19:40** at a gym across town.
 
-**Record C-13.** Advance **+15 min**. **Go to J-400**.
+**Record C-13.** Advance **+15 min**. **Continue to P-212** or **P-213** or **Go to J-400**.
+
+---
+
+## P-215 — Early finish (People, split 2)
+
+Review witness notes or coordinate by phone with your partner (+10 min world time if you call). **Go to J-400**.

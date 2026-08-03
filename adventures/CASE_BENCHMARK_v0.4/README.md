@@ -1,10 +1,11 @@
 # Harborview Arcade — IDNE v0.4 Benchmark Adventure
 
 **Codename:** `CASE_BENCHMARK_v0.4`  
+**Version:** 0.4.1  
 **Engine:** IDNE v0.4  
 **Players:** 2 cooperative  
 **Estimated wall-clock:** ~120 minutes  
-**Status:** v0.4 reference proof adventure
+**Status:** v0.4.1 — pre-playtest revision
 
 ## Package layout
 

@@ -21,7 +21,7 @@ Diane allows supervised access. Visitor log shows Elena at **18:40**.
 
 Binder is disorganized. You need time to compare entries.
 
-Advance **+10 min**. **Continue to R-112**.
+Advance **+10 min**. **Continue to R-112** or **R-114**.
 
 ---
 
@@ -29,17 +29,17 @@ Advance **+10 min**. **Continue to R-112**.
 
 Key sign-out sheet attached. Mark **ACCESS_MANAGER_KEY** if needed.
 
-Advance **+8 min**. **Continue to R-112**.
+Advance **+8 min**. **Continue to R-112** or **R-114**.
 
 ---
 
 ## R-112 — Tool sign-out board (basement entrance)
 
-The handyman board shows Tomás Reyes signed out ladder and mop kit until **20:15**. His verbal claim was **19:30**.
+The board shows the maintenance kit signed out until **20:15**. The return slot is blank.
 
 **Record C-06.**
 
-Advance **+8 min**. **Continue to R-113**.
+Advance **+8 min**. **Continue to R-113** or **R-114**.
 
 ---
 
@@ -49,13 +49,13 @@ Still image from hallway camera: Elena entered front door **18:41** — consiste
 
 **Record C-03.**
 
-Advance **+8 min**. **Go to J-200**.
+Advance **+8 min**. **Continue to R-114** or **Go to J-200**.
 
 ---
 
 ## R-114 — Early finish (split 1)
 
-Organize photos. Advance **+10 min**. **Go to J-200**.
+Organize photos and index the visitor log. Advance **+10 min**. **Go to J-200**.
 
 ---
 
@@ -80,18 +80,18 @@ Storage latch is **bent**. Mop bucket sits **two meters** from the stair door �
 
 Roll **CHK_BOOT_MATCH** (d20 + Records focus, DC 13).
 
-**Pass:** Partial boot match to maintenance issue boots. **C-10**; check **PROOF_METHOD** if C-04 held.  
+**Pass:** Partial impression matches a **standard work boot** from the building supply locker. **C-10**; check **PROOF_METHOD** if C-04 held.  
 **Fail:** Smudged print only; rely on C-01 + C-04 for METHOD.
 
-Advance **+12 min**. **Continue to R-212**.
+Advance **+12 min**. **Continue to R-212** or **R-214**.
 
 ---
 
 ### R-211b — Invoice box (destination)
 
-Box labeled association audit. No new numbered clue; supports C-11 later.
+Box labeled association audit. Supports later invoice work; no numbered clue alone.
 
-Advance **+10 min**. **Continue to R-212**.
+Advance **+10 min**. **Continue to R-212** or **R-214**.
 
 ---
 
@@ -111,9 +111,9 @@ Advance **+10 min**. **Continue to R-212**.
 Roll **CHK_INVOICE** (d20 + Records focus, DC 12).
 
 **Pass:** Two invoices, same vendor, same day, different PO numbers. **C-05**; **PROOF_MOTIVE** eligible.  
-**Fail:** Phone log shows repeated vendor calls instead. **C-14**; mark **CERTAINTY_DEGRADED**; +15 min.
+**Fail:** Phone log shows repeated vendor calls instead. **C-14**; mark **CERTAINTY_DEGRADED**; counts toward MOTIVE with partner witness facts for I-02; +15 min.
 
-Advance **+10 min**. **Continue to R-213**.
+Advance **+10 min**. **Continue to R-213** or **R-214**.
 
 ---
 
@@ -121,7 +121,7 @@ Advance **+10 min**. **Continue to R-213**.
 
 You notice paperwork stress but no numbered clue. +15 min to retry R-212a.
 
-Advance **+5 min**.
+Advance **+5 min**. **Continue to R-212** or **R-214**.
 
 ---
 
@@ -131,10 +131,10 @@ On manager PC archive (supervised): draft from Elena at **14:00** citing mainten
 
 **Record C-11**; **PROOF_MOTIVE** eligible.
 
-Advance **+8 min**. **Go to J-400**.
+Advance **+8 min**. **Continue to R-214** or **Go to J-400**.
 
 ---
 
 ## R-214 — Early finish (split 2)
 
-Re-index basement photos. Advance **+10 min**. **Go to J-400**.
+Re-index basement photos and log chain-of-custody notes. Advance **+10 min**. **Go to J-400**.
