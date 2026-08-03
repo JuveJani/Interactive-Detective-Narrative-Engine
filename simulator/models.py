@@ -61,3 +61,4 @@ class RunResult:
     accused: str | None
     path: list[str] = field(default_factory=list)
     split_segments: list[dict] = field(default_factory=list)
+    states_explored: int = 0

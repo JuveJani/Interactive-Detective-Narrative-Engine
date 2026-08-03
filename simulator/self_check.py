@@ -64,5 +64,9 @@ def simulator_trustworthy(adapter: dict[str, Any]) -> tuple[bool, list[str]]:
     if ambiguities:
         blockers.append(f"adapter documents {len(ambiguities)} unresolved ambiguities")
     unsupported = adapter.get("simulator_unsupported", [])
-    blockers.extend(unsupported)
+    for item in unsupported:
+        blockers.append(item)
+    partial = adapter.get("simulator_partial", [])
+    for item in partial:
+        blockers.append(f"partial support: {item}")
     return len(blockers) == 0, blockers

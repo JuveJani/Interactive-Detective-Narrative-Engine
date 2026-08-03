@@ -33,6 +33,8 @@ class GameState:
     rng_roll: int | None = None
     entry_cost_prepaid: bool = False
     pending_followup: str | None = None
+    return_hub: str | None = None
+    states_explored: int = 0
 
     def clone(self) -> "GameState":
         return copy.deepcopy(self)

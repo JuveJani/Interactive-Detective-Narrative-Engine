@@ -7,28 +7,36 @@ from typing import Any
 
 from simulator.state import GameState
 
-ACTION_PRIORITY = {
+ACTION_PRIORITY_DEFAULT = {
     "stairwell": 4,
     "split1": 6,
     "split2": 6,
     "park": 3,
-    "duplicates": 5,
-    "boot": 4,
-    "press": 3,
-    "rent": 3,
-    "logs": 3,
-    "invoices": 3,
     "accuse": 5,
     "decline": 0,
     "notes": 1,
     "timeline": 2,
     "manager_key": 4,
     "stairwell_revisit": 1,
-    "relationship": 1,
-    "whereabouts": 2,
-    "skim": 0,
-    "invoice_box": 2,
 }
+
+
+def _action_priority(adapter: dict[str, Any]) -> dict[str, int]:
+    hints = adapter.get("strategy_hints", {})
+    base = dict(ACTION_PRIORITY_DEFAULT)
+    base.update(hints.get("action_priority", {}))
+    for nid, spec in adapter.get("nodes", {}).items():
+        if spec.get("type") == "hub":
+            for ch in spec.get("choices", []):
+                cid = ch.get("id", "")
+                if cid and cid not in base:
+                    base[cid] = 2
+        elif "choices" in spec:
+            for ch in spec["choices"]:
+                cid = ch.get("id", "")
+                if cid and cid not in base:
+                    base[cid] = 2
+    return base
 
 
 def _pick(rng: random.Random, options: list[dict[str, Any]]) -> dict[str, Any]:
@@ -46,6 +54,7 @@ class Strategy:
         self.rng = rng
         self.adapter = adapter or {}
         self.suspects = list(self.adapter.get("suspects", []))
+        self.action_priority = _action_priority(self.adapter)
 
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
@@ -83,11 +92,11 @@ class ClueSeekingStrategy(Strategy):
             return {"target": state.node, "minutes": 0}
         scored = sorted(
             options,
-            key=lambda o: (ACTION_PRIORITY.get(o.get("id", ""), 1), -o.get("minutes", 0)),
+            key=lambda o: (self.action_priority.get(o.get("id", ""), 1), -o.get("minutes", 0)),
             reverse=True,
         )
-        top = ACTION_PRIORITY.get(scored[0].get("id", ""), 1)
-        best = [o for o in scored if ACTION_PRIORITY.get(o.get("id", ""), 1) == top]
+        top = self.action_priority.get(scored[0].get("id", ""), 1)
+        best = [o for o in scored if self.action_priority.get(o.get("id", ""), 1) == top]
         return _pick(self.rng, best)
 
 
@@ -169,10 +178,11 @@ class PoorDecisionsStrategy(Strategy):
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
             if len(self.suspects) > 1:
-                return {"target": self.rng.choice(self.suspects[:-1])}
+                return {"target": self.rng.choice(self.suspects[1:])}
             return {"target": self.pick_accused(state)}
-        bad = [o for o in options if o.get("id") in ("notes", "skim", "decline", "relationship", "invoice_box")]
-        return _pick(self.rng, bad or options)
+        low = sorted(options, key=lambda o: self.action_priority.get(o.get("id", ""), 1))
+        worst = [o for o in low if self.action_priority.get(o.get("id", ""), 1) <= 1]
+        return _pick(self.rng, worst or options)
 
 
 STRATEGIES = {
