@@ -175,7 +175,7 @@ class TestRepairAdvisor(unittest.TestCase):
             (out / "metrics.json").write_text(json.dumps(metrics), encoding="utf-8")
             write_ai_context(out, findings[:1], expl, opts, metrics, self.package["adapter"])
             ctx = json.loads((out / "local_ai_context" / f"finding_context_{findings[0].id}.json").read_text())
-            self.assertIn("do_not_invent", ctx)
+            self.assertIn("FORBIDDEN_CONCLUSIONS", ctx)
 
 
 class TestAdvisoryCLI(unittest.TestCase):

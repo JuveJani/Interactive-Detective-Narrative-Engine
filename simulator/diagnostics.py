@@ -7,6 +7,7 @@ from collections import Counter, defaultdict
 from typing import Any
 
 from simulator.config import DEFAULT_CONFIG, SimConfig
+from simulator.follow_ups import legacy_keyword_follow_ups
 from simulator.engine import SimulationEngine
 from simulator.endings import evaluate_ending
 from simulator.graph import build_edges, fake_choices, graph_stats
@@ -94,32 +95,97 @@ def analyze_simulation(
     ending_counts = Counter(r.ending for r in runs)
     total = max(len(runs), 1)
 
-    e901 = ending_counts.get("E-901", 0) / total
-    if runs and e901 == 0 and precheck_ok and engine_ok and trustworthy:
-        findings.append(
-            Finding(
-                id="SIM-NO-WIN",
-                severity="major",
-                confidence="medium",
-                evidence=f"0/{len(runs)} runs reached E-901 (simulator prechecks passed)",
-                file="sim_adapter.json",
-                identifier="E-901",
-                expected_rule="Correct ending reachable on legal paths",
-                layer="UNDETERMINED",
-                auto_fix_possible=False,
-                human_approval_required=True,
+    e901_count = ending_counts.get("E-901", 0)
+    e901 = e901_count / total
+    if runs and e901_count == 0:
+        if not engine_ok:
+            pass  # SIM-ENGINE-E901 already reported
+        elif not trustworthy:
+            findings.append(
+                Finding(
+                    id="SIM-NO-WIN-UNTRUSTED",
+                    severity="major",
+                    confidence="low",
+                    evidence=(
+                        f"Observed 0/{len(runs)} runs reached E-901 while simulator_trustworthy=false. "
+                        f"This is a simulation observation only, not proof of an adventure defect. "
+                        f"Blockers: {'; '.join(trust_blockers)}"
+                    ),
+                    file="simulator/diagnostics.py",
+                    identifier="E-901",
+                    expected_rule="Report zero success rate even when simulation is untrusted",
+                    layer="UNDETERMINED",
+                    auto_fix_possible=False,
+                    human_approval_required=True,
+                    extra={
+                        "classification": "observed_zero_untrusted",
+                        "possible_adventure_issue": True,
+                        "simulator_ambiguity": True,
+                    },
+                )
             )
-        )
-    elif runs and e901 == 0 and not (precheck_ok and engine_ok):
+        elif precheck_ok and engine_ok and trustworthy:
+            findings.append(
+                Finding(
+                    id="SIM-NO-WIN",
+                    severity="major",
+                    confidence="medium",
+                    evidence=f"0/{len(runs)} runs reached E-901 (trusted simulation; possible difficulty or strategy bias)",
+                    file="sim_adapter.json",
+                    identifier="E-901",
+                    expected_rule="Correct ending reachable on legal paths",
+                    layer="UNDETERMINED",
+                    auto_fix_possible=False,
+                    human_approval_required=True,
+                    extra={"classification": "observed_zero_trusted"},
+                )
+            )
+        else:
+            findings.append(
+                Finding(
+                    id="SIM-NO-WIN-SUPPRESSED",
+                    severity="info",
+                    confidence="high",
+                    evidence=f"0/{len(runs)} E-901 but simulator prechecks failed — not attributed to adventure",
+                    file="simulator/diagnostics.py",
+                    identifier="E-901",
+                    expected_rule="Do not blame adventure when simulator suspect",
+                    layer="SIMULATOR",
+                    auto_fix_possible=False,
+                    human_approval_required=False,
+                )
+            )
+    elif runs and e901 > 0 and not trustworthy:
         findings.append(
             Finding(
-                id="SIM-NO-WIN-SUPPRESSED",
+                id="SIM-WIN-UNTRUSTED",
                 severity="info",
-                confidence="high",
-                evidence=f"0/{len(runs)} E-901 but simulator prechecks failed — not attributed to adventure",
+                confidence="low",
+                evidence=(
+                    f"Observed {e901_count}/{len(runs)} E-901 while untrusted — win is possible in simulation "
+                    "but rates are not trustworthy for tuning"
+                ),
                 file="simulator/diagnostics.py",
                 identifier="E-901",
-                expected_rule="Do not blame adventure when simulator suspect",
+                expected_rule="Rare but reachable ending under untrusted simulation",
+                layer="UNDETERMINED",
+                auto_fix_possible=False,
+                human_approval_required=False,
+                extra={"classification": "rare_reachable_untrusted"},
+            )
+        )
+
+    legacy = legacy_keyword_follow_ups(adapter)
+    if legacy:
+        findings.append(
+            Finding(
+                id="SIM-LEGACY-FOLLOWUPS",
+                severity="info",
+                confidence="high",
+                evidence=f"{len(legacy)} legacy keyword follow_ups entries are documented but not simulated",
+                file="sim_adapter.json",
+                identifier="follow_ups",
+                expected_rule="Use follow_up_actions for simulation; legacy keywords are reported only",
                 layer="SIMULATOR",
                 auto_fix_possible=False,
                 human_approval_required=False,

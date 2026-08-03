@@ -21,6 +21,7 @@ class GameState:
     infers_done: set[str] = field(default_factory=set)
     accused: str | None = None
     follow_ups_used: int = 0
+    follow_up_use_counts: dict[str, int] = field(default_factory=dict)
     visited: set[str] = field(default_factory=set)
     hub_visits: dict[int, set[str]] = field(default_factory=dict)
     role_nodes: dict[str, str] = field(default_factory=dict)
