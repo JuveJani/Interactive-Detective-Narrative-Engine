@@ -10,7 +10,8 @@ from pathlib import Path
 from typing import Any
 
 from simulator.advisory_output import write_advisory_outputs
-from simulator.loader import load_adventure
+from simulator.atomic_io import atomic_write_json, atomic_write_text
+from simulator.models import Finding, RunResult
 
 _OUTPUT_COUNTER = itertools.count()
 
@@ -40,6 +41,7 @@ def write_findings_md(findings: list[Finding], path: Path) -> None:
 def write_summary(metrics: dict[str, Any], findings: list[Finding], path: Path, mode: str) -> None:
     crit = sum(1 for f in findings if f.severity == "critical")
     major = sum(1 for f in findings if f.severity == "major")
+    trustworthy = metrics.get("simulator_trustworthy", False)
     lines = [
         "# Simulation Summary\n",
         f"**Mode:** {mode}",
@@ -50,10 +52,24 @@ def write_summary(metrics: dict[str, Any], findings: list[Finding], path: Path, 
         f"**Path diversity:** {metrics.get('path_diversity', 0)}",
         f"**Impactful decisions %:** {metrics.get('impactful_decision_pct', 0)}",
         f"**Simulator precheck OK:** {metrics.get('simulator_precheck_ok', False)}",
-        f"**Simulator trustworthy:** {metrics.get('simulator_trustworthy', False)}",
-        f"**Fiction minutes avg:** {metrics.get('fiction_minutes_avg', metrics.get('avg_wall_minutes', 0))}",
-        "\n## Ending distribution\n",
+        f"**Simulator trustworthy:** {trustworthy}",
     ]
+    if not trustworthy:
+        lines.extend(
+            [
+                "",
+                "> **QUANTITATIVE RESULTS UNTRUSTED** — ending counts and fiction averages below are "
+                "simulation observations only. Do not use them for adventure tuning.",
+                "> **Trust blockers:** " + "; ".join(metrics.get("trust_blockers", [])),
+                "",
+            ]
+        )
+    lines.append(f"**Fiction minutes avg:** {metrics.get('fiction_minutes_avg', metrics.get('avg_wall_minutes', 0))}")
+    if not trustworthy:
+        lines.append("_(fiction average is untrusted)_")
+    lines.append("\n## Ending distribution\n")
+    if not trustworthy:
+        lines.append("_(untrusted — observations only)_\n")
     for k, v in sorted(metrics.get("ending_distribution", {}).items()):
         lines.append(f"- {k}: {v}")
     path.write_text("\n".join(lines), encoding="utf-8")

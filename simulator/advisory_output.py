@@ -2,29 +2,17 @@
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 from typing import Any
 
-from simulator.explainer import FindingExplanation, explain_all
+from simulator.atomic_io import atomic_write_json, atomic_write_text
+from simulator.explainer import FindingExplanation, explain_all, _is_proven_fact
 from simulator.models import Finding
 from simulator.repair_advisor import RepairOption, all_repair_options, build_repair_backlog
 
 
-LAYER_FILES = {
-    "ENGINE": "engine_findings.md",
-    "ADVENTURE": "adventure_findings.md",
-    "DELIVERY_ADAPTER": "delivery_findings.md",
-    "SIMULATOR": "simulator_findings.md",
-    "PLAYER_PACKAGE": "delivery_findings.md",
-    "VALIDATOR": "simulator_findings.md",
-    "UNDETERMINED": "adventure_findings.md",
-    "HUMAN_PLAYTEST": "human_playtest_questions.md",
-}
-
-
 def _layer_md(layer: str, explanations: list[FindingExplanation]) -> str:
-    items = [e for e in explanations if e.owning_layer == layer or (layer == "UNDETERMINED" and e.trust_affects_conclusion)]
+    items = [e for e in explanations if e.owning_layer == layer]
     lines = [f"# {layer} findings", ""]
     if not items:
         lines.append("No findings in this layer.")
@@ -43,9 +31,11 @@ def _executive_diagnostic(
     explanations: list[FindingExplanation],
     metrics: dict[str, Any],
 ) -> str:
+    trustworthy = metrics.get("simulator_trustworthy", False)
     critical = [f for f in findings if f.severity == "critical"]
-    proven = [e for e in explanations if not e.trust_affects_conclusion and e.confidence in ("high", "medium")]
-    suspected = [e for e in explanations if e.trust_affects_conclusion or e.confidence == "low"]
+    by_id = {f.id: f for f in findings}
+    proven = [e for e in explanations if _is_proven_fact(by_id[e.finding_id], metrics)]
+    suspected = [e for e in explanations if e not in proven]
     layers: dict[str, int] = {}
     for e in explanations:
         layers[e.owning_layer] = layers.get(e.owning_layer, 0) + 1
@@ -53,13 +43,14 @@ def _executive_diagnostic(
         findings,
         key=lambda f: {"critical": 0, "major": 1, "minor": 2, "info": 3}.get(f.severity, 9),
     )[:5]
-    do_not_change = []
-    if not metrics.get("simulator_trustworthy", True):
-        do_not_change.append("Adventure proof rules and ending thresholds until simulator ambiguities are resolved.")
-    do_not_change.append("IDNE engine specification (no engine change for one adventure unless engine rule violated).")
-    untrustworthy = metrics.get("trust_blockers", []) + (
-        ["Monte Carlo ending rates"] if not metrics.get("simulator_trustworthy") else []
-    )
+    do_not_change = [
+        "IDNE engine specification (no engine change for one adventure unless engine rule violated).",
+    ]
+    if not trustworthy:
+        do_not_change.insert(0, "Adventure proof rules, thresholds, and balance numbers from this run.")
+    untrustworthy = list(metrics.get("trust_blockers", []))
+    if not trustworthy:
+        untrustworthy.append("All Monte Carlo ending rates and fiction-minute averages")
     manual = [
         "Run one full two-player cooperative session on paper.",
         "Confirm hub revisit and deadline feel fair at the table.",
@@ -69,27 +60,29 @@ def _executive_diagnostic(
     lines = [
         "# Executive diagnostic",
         "",
-        "## 1. What is broken?",
+        "## Quantitative trust status",
         "",
+        f"- **Qualitative diagnosis available:** yes",
+        f"- **Repair planning scope:** suggestions only; no automatic file edits",
+        f"- **Quantitative results trusted:** {'yes' if trustworthy else 'no'}",
     ]
+    if not trustworthy:
+        lines.append("- **Exact blockers preventing trust:**")
+        for b in metrics.get("trust_blockers", []):
+            lines.append(f"  - {b}")
+    lines.extend(["", "## 1. What is broken?", ""])
     if critical:
         lines.extend(f"- **{f.id}** ({f.severity}): {f.evidence}" for f in critical)
     else:
         lines.append("- No critical findings. Review major and minor items below.")
-    lines.extend(
-        [
-            "",
-            "## 2. What is proven?",
-            "",
-        ]
-    )
+    lines.extend(["", "## 2. What is proven?", ""])
     if proven:
-        lines.extend(f"- {e.finding_id}: {e.evidence}" for e in proven[:10])
+        lines.extend(f"- {e.finding_id}: {e.evidence}" for e in proven[:12])
     else:
-        lines.append("- Little is proven while simulator trust is down.")
+        lines.append("- No proven findings in this batch.")
     lines.extend(["", "## 3. What is only suspected?", ""])
     if suspected:
-        lines.extend(f"- {e.finding_id}: {e.likely_root_cause}" for e in suspected[:10])
+        lines.extend(f"- {e.finding_id}: {e.likely_root_cause}" for e in suspected[:12])
     else:
         lines.append("- No suspected-only items.")
     lines.extend(["", "## 4. Which layer owns it?", ""])
@@ -137,27 +130,19 @@ def write_advisory_outputs(
     if options is None:
         options = all_repair_options(findings, explanations)
 
-    (out_dir / "executive_diagnostic.md").write_text(
-        _executive_diagnostic(findings, explanations, metrics), encoding="utf-8"
-    )
-    (out_dir / "repair_backlog.md").write_text(build_repair_backlog(options, findings), encoding="utf-8")
-    (out_dir / "repair_options.json").write_text(
-        json.dumps([o.to_dict() for o in options], indent=2), encoding="utf-8"
-    )
-    (out_dir / "engine_findings.md").write_text(_layer_md("ENGINE", explanations), encoding="utf-8")
-    (out_dir / "adventure_findings.md").write_text(
+    atomic_write_text(out_dir / "executive_diagnostic.md", _executive_diagnostic(findings, explanations, metrics))
+    atomic_write_text(out_dir / "repair_backlog.md", build_repair_backlog(options, findings))
+    atomic_write_json(out_dir / "repair_options.json", [o.to_dict() for o in options])
+    atomic_write_text(out_dir / "engine_findings.md", _layer_md("ENGINE", explanations))
+    atomic_write_text(
+        out_dir / "adventure_findings.md",
         _layer_md("ADVENTURE", explanations) + _layer_md("UNDETERMINED", explanations),
-        encoding="utf-8",
     )
-    (out_dir / "delivery_findings.md").write_text(
-        _layer_md("DELIVERY_ADAPTER", explanations), encoding="utf-8"
-    )
-    (out_dir / "simulator_findings.md").write_text(_layer_md("SIMULATOR", explanations), encoding="utf-8")
-    (out_dir / "human_playtest_questions.md").write_text(
-        _human_playtest_questions(explanations), encoding="utf-8"
-    )
+    atomic_write_text(out_dir / "delivery_findings.md", _layer_md("DELIVERY_ADAPTER", explanations))
+    atomic_write_text(out_dir / "simulator_findings.md", _layer_md("SIMULATOR", explanations))
+    atomic_write_text(out_dir / "human_playtest_questions.md", _human_playtest_questions(explanations))
 
     expl_dir = out_dir / "explanations"
     expl_dir.mkdir(exist_ok=True)
     for e in explanations:
-        (expl_dir / f"{e.finding_id}.md").write_text(e.to_markdown(), encoding="utf-8")
+        atomic_write_text(expl_dir / f"{e.finding_id}.md", e.to_markdown())

@@ -45,6 +45,40 @@
     {"keywords": ["vendor", "phone log"], "grants_if_missing": ["C-14"], "minutes": 10},
     {"keywords": ["*"], "minutes": 5}
   ],
+  "follow_up_actions": [
+    {
+      "id": "FU_GYM_ALIBI",
+      "label": "Phone follow-up: James gym alibi",
+      "source_hubs": ["J-300", "J-500"],
+      "eligible_when": {
+        "missing_clues": ["C-13"],
+        "requires_check_fail": "CHK_JAMES_PRESS"
+      },
+      "minutes": 10,
+      "grants_clues_if_missing": ["C-13"],
+      "max_uses": 1
+    },
+    {
+      "id": "FU_VENDOR_LOG",
+      "label": "Phone follow-up: vendor phone log",
+      "source_hubs": ["J-300", "J-500"],
+      "eligible_when": {"missing_clues": ["C-14"]},
+      "minutes": 10,
+      "grants_clues_if_missing": ["C-14"],
+      "max_uses": 1
+    },
+    {
+      "id": "FU_GENERAL_PHONE",
+      "label": "General phone follow-up",
+      "source_hubs": ["J-300", "J-500"],
+      "eligible_when": {},
+      "minutes": 5,
+      "max_uses": 99
+    }
+  ],
+  "simulator_unsupported": [
+    "Legacy follow_ups keyword array is not simulated; use follow_up_actions instead"
+  ],
   "splits": {
     "split1": {"launch": "J-130", "sync": "J-200", "people_start": "P-111", "records_start": "R-111"},
     "split2": {"launch": "J-330", "sync": "J-400", "people_start": "P-211", "records_start": "R-211"}
@@ -131,7 +165,6 @@
     "J-121 allows continue to J-120 or J-130; adapter treats as player choice at hub return.",
     "P-112 ACCESS_MANAGER_KEY only if Records partner lacks it; simulator grants when People path taken.",
     "Phone follow-up at P-111 when bakery closed grants partial C-07 only (+15 min).",
-    "R-212b skim is low-value retry loop; marked fake_choice.",
-    "Hub revisit stairwell once_per_hub not tracked in v0.4.1 adapter (minor)."
+    "R-212b skim is low-value retry loop; marked fake_choice."
   ]
 }

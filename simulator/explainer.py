@@ -113,10 +113,33 @@ class FindingExplanation:
 
 
 def _trust_affects(finding: Finding, metrics: dict[str, Any]) -> bool:
+    if finding.layer in ("SIMULATOR",):
+        return False
+    if finding.id in ("SIM-TRUST-DOWNGRADE", "SIM-LEGACY-FOLLOWUPS", "SIM-ENGINE-E901", "SIM-PRECHECK-FAIL"):
+        return False
+    if finding.layer == "UNDETERMINED" and finding.id.startswith("SIM-NO-WIN"):
+        return finding.id != "SIM-NO-WIN-UNTRUSTED"  # observation is proven; adventure blame is not
     if finding.layer == "UNDETERMINED":
         return True
     if not metrics.get("simulator_trustworthy", False):
         return finding.layer in ("ADVENTURE", "DELIVERY_ADAPTER", "PLAYER_PACKAGE")
+    return False
+
+
+def _is_proven_fact(finding: Finding, metrics: dict[str, Any]) -> bool:
+    if finding.id in (
+        "SIM-TRUST-DOWNGRADE",
+        "SIM-LEGACY-FOLLOWUPS",
+        "SIM-ENGINE-E901",
+        "SIM-PRECHECK-FAIL",
+        "SIM-NO-WIN-UNTRUSTED",
+        "SIM-WIN-UNTRUSTED",
+    ):
+        return True
+    if finding.layer == "SIMULATOR":
+        return True
+    if finding.id.startswith("SIM-NO-WIN") and metrics.get("simulator_trustworthy"):
+        return True
     return False
 
 
@@ -136,11 +159,18 @@ def _templates() -> dict[str, dict[str, str]]:
             "likely_root_cause": "Intentional filler choice or adapter marking.",
             "required_human_decision": "Confirm in playtest whether the choice should stay, be trimmed, or be relabeled.",
         },
+        "SIM-NO-WIN-UNTRUSTED": {
+            "plain_problem": "No simulated runs reached the correct ending, but the simulator is not fully trusted.",
+            "why_it_matters": "You should know wins were not observed, but you must not blame the adventure yet.",
+            "actual_behavior": "Zero correct endings in the batch; trust gate is down.",
+            "likely_root_cause": "Simulator gaps, adapter ambiguities, or hard strategies — not proven adventure defect.",
+            "required_human_decision": "Fix simulator ambiguities before changing adventure difficulty.",
+        },
         "SIM-NO-WIN": {
-            "plain_problem": "No simulated runs reached the correct ending even though the simulator passed its own checks.",
-            "why_it_matters": "Players may not be able to win on legal paths, or strategies are too weak.",
-            "actual_behavior": "Zero wins in the batch with trusted simulator.",
-            "likely_root_cause": "Proof requirements too tight, time too short, or strategy bias.",
+            "plain_problem": "No simulated runs reached the correct ending in a trusted simulation.",
+            "why_it_matters": "Winning may be too hard or strategies may be too weak. This is still not proof of an adventure defect.",
+            "actual_behavior": "Zero wins in a trusted batch.",
+            "likely_root_cause": "Time pressure, strategy bias, or adventure difficulty.",
             "required_human_decision": "Playtest a full cooperative run before changing proof rules.",
         },
         "VAL-": {
@@ -171,6 +201,13 @@ def explain_finding(
     trust = _trust_affects(finding, metrics)
     if trust and layer == "ADVENTURE":
         layer = "UNDETERMINED"
+
+    if trust:
+        confidence = "low"
+    elif finding.confidence == "high" and layer == "UNDETERMINED":
+        confidence = "medium"
+    else:
+        confidence = finding.confidence
 
     where = [finding.file]
     if finding.identifier:
@@ -211,8 +248,8 @@ def explain_finding(
         actual_behavior=base.get("actual_behavior", finding.evidence),
         likely_root_cause=base.get("likely_root_cause", f"See {finding.file} and {finding.identifier}"),
         owning_layer=layer,
-        confidence="low" if trust and finding.confidence != "high" else finding.confidence,
-        trust_affects_conclusion=trust,
+        confidence=confidence,
+        trust_affects_conclusion=trust and not _is_proven_fact(finding, metrics),
         where_to_look=where,
         safe_repair_options=repairs,
         repair_risks=risks,

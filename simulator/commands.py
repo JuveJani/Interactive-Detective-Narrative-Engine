@@ -4,12 +4,14 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Any
 
 from simulator.advisory_output import write_advisory_outputs
 from simulator.ai_context import write_ai_context
 from simulator.explainer import explain_all, load_run_context, write_explanations
 from simulator.loader import load_adventure
 from simulator.repair_advisor import all_repair_options, write_proposed_patch
+from simulator.repair_plan import ensure_global_backlog, write_finding_repair_plan
 
 
 def _resolve_output_folder(path: str) -> Path:
@@ -48,13 +50,19 @@ def cmd_repair_plan(output_folder: str, finding_id: str | None = None) -> Path:
     if not adapter:
         adapter = _load_adapter_for_run(out, metrics)
     explanations = explain_all(findings, metrics, adapter)
-    options = all_repair_options(findings, explanations)
+    all_options = all_repair_options(findings, explanations)
+    ensure_global_backlog(out, all_options, findings)
+
     if finding_id:
-        options = [o for o in options if o.finding_id == finding_id]
+        fopts = [o for o in all_options if o.finding_id == finding_id]
         expl = next((e for e in explanations if e.finding_id == finding_id), None)
-        if expl and options:
-            write_proposed_patch(out, options[0], expl)
-    write_advisory_outputs(out, findings, metrics, adapter, options)
+        if expl:
+            write_finding_repair_plan(out, finding_id, fopts, expl)
+            if fopts:
+                write_proposed_patch(out, fopts[0], expl)
+        return out
+
+    write_advisory_outputs(out, findings, metrics, adapter, all_options)
     return out
 
 

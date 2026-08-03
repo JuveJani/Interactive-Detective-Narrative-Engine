@@ -7,6 +7,7 @@ from typing import Any, Callable
 
 from simulator.checks import apply_check_outcome, roll_check
 from simulator.config import SimConfig, DEFAULT_CONFIG
+from simulator.follow_ups import apply_follow_up, eligible_follow_up_options
 from simulator.endings import evaluate_ending
 from simulator.state import GameState
 
@@ -34,7 +35,6 @@ class SimulationEngine:
         self.hub_targets = self._build_hub_targets()
         self.cost_policy = self.adapter.get("cost_policy", "hub_authoritative")
         self.follow_up_max = self.adapter.get("follow_up_max", 2)
-        self.follow_up_rules = self.adapter.get("follow_ups", [])
         self._state_counter = 0
 
     def _build_hub_targets(self) -> dict[tuple[int | str, str], dict[str, Any]]:
@@ -117,7 +117,8 @@ class SimulationEngine:
         if at_deadline:
             decline = [ch for ch in spec.get("choices", []) if ch.get("id") == "decline"]
             options = decline
-        return self.public_options(options)
+        follow_opts = [] if at_deadline else eligible_follow_up_options(state, state.node, self.adapter)
+        return self.public_options(options) + follow_opts
 
     def advance_minutes(self, state: GameState, minutes: int, joint: bool = True) -> None:
         if minutes <= 0:
@@ -155,6 +156,7 @@ class SimulationEngine:
             extra += apply_check_outcome(state, spec["check"], passed, self.checks)
             if not passed:
                 fail_spec = self.checks[spec["check"]].get("fail", {})
+                state.grant_flag(f"CHECK_FAIL_{spec['check']}")
                 follow = fail_spec.get("needs_followup")
                 path_nodes = self._path_nodes(state)
                 if follow and follow not in path_nodes:
@@ -168,26 +170,6 @@ class SimulationEngine:
         return minutes
 
     def _resolve_follow_up(self, state: GameState, node: str) -> int:
-        """Apply keyword follow-up when slot available; returns minutes consumed."""
-        if state.follow_ups_used >= self.follow_up_max:
-            return 0
-        spec = self.nodes.get(node, {})
-        label = " ".join(
-            [
-                node,
-                spec.get("type", ""),
-                str(spec.get("check", "")),
-            ]
-        ).lower()
-        for rule in self.follow_up_rules:
-            keywords = rule.get("keywords", [])
-            if keywords == ["*"]:
-                continue
-            if any(kw.lower() in label for kw in keywords):
-                state.follow_ups_used += 1
-                for clue in rule.get("grants_if_missing", []):
-                    state.grant_clue(clue)
-                return rule.get("minutes", 5)
         return 0
 
     def run_role_path(
@@ -377,6 +359,10 @@ class SimulationEngine:
                 state.path.append("J-600:deadline-no-options")
                 return state
             pick = choose(state, options, "joint")
+            if pick.get("type") == "follow_up" or pick.get("id", "").startswith("FU_"):
+                minutes = apply_follow_up(state, pick["id"], self.adapter)
+                self.advance_minutes(state, minutes)
+                return state
             selected = pick
             for ch in spec.get("choices", []):
                 if ch["target"] == pick.get("target") and ch.get("id") == pick.get("id"):

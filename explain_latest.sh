@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # Explain findings from the most recent simulation_output folder
 set -euo pipefail
 cd "$(dirname "$0")"
