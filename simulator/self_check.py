@@ -5,7 +5,6 @@ from __future__ import annotations
 from typing import Any
 
 from simulator.endings import evaluate_ending
-from simulator.follow_ups import legacy_keyword_follow_ups
 from simulator.models import Finding
 from simulator.state import GameState
 from simulator.trust_gate import validate_trust_invariants
