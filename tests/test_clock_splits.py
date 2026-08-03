@@ -30,10 +30,10 @@ class TestClockAndSplits(unittest.TestCase):
             )
 
     def test_shared_world_clock_advances(self):
-        results = run_batch(self.package, "clue-seeking", 5, 100)
+        results = run_batch(self.package, "random", 5, 100)
         for r in results:
-            self.assertGreater(r.wall_minutes, 0)
-            self.assertLess(r.wall_minutes, 400)
+            self.assertGreater(r.fiction_minutes, 0)
+            self.assertLess(r.fiction_minutes, 900)
 
     def test_deterministic_seed(self):
         a = run_batch(self.package, "random", 1, 42)[0]

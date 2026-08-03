@@ -7,8 +7,10 @@ from collections import Counter, defaultdict
 from typing import Any
 
 from simulator.engine import SimulationEngine
+from simulator.endings import evaluate_ending
 from simulator.graph import build_edges, fake_choices, graph_stats
 from simulator.models import Finding, RunResult
+from simulator.self_check import SimulatorSelfCheck, simulator_trustworthy
 from simulator.state import GameState
 from simulator.strategies import STRATEGIES, get_strategy
 
@@ -21,6 +23,26 @@ def _clue_grants(adapter: dict[str, Any]) -> dict[str, list[str]]:
     return grants
 
 
+def _engine_e901_reachable(package: dict[str, Any]) -> bool:
+    """Verify engine can mark I-03 and reach E-901 with valid play state."""
+    adapter = package["adapter"]
+    rng = __import__("random").Random(0)
+    engine = SimulationEngine(package, rng)
+    st = GameState(node="J-510", clock=1300)
+    st.clues = {"C-01", "C-04", "C-05", "C-06", "C-12"}
+    st.flags = {"MOTIVE_WITNESS"}
+    st.infers_done = {"I-01", "I-02"}
+
+    def accuse(s, o, r):
+        return {"target": adapter["truth"]["culprit"]}
+
+    st2 = engine.step(st, accuse)
+    if "I-03" not in st2.infers_done:
+        return False
+    st2.node = "J-600"
+    return evaluate_ending(st2, adapter) == "E-901"
+
+
 def analyze_simulation(
     package: dict[str, Any],
     runs: list[RunResult],
@@ -30,31 +52,82 @@ def analyze_simulation(
     findings = list(static_findings)
     stats = graph_stats(adapter)
 
-    ending_counts = Counter(r.ending for r in runs)
-    total = max(len(runs), 1)
+    precheck = SimulatorSelfCheck(package)
+    precheck_ok = precheck.run_all()
+    findings.extend(precheck.findings())
 
-    e901 = ending_counts.get("E-901", 0) / total
-    if runs and e901 == 0:
+    trustworthy, trust_blockers = simulator_trustworthy(adapter)
+    if not trustworthy:
         findings.append(
             Finding(
-                id="SIM-NO-WIN",
+                id="SIM-TRUST-DOWNGRADE",
                 severity="major",
-                confidence="medium",
-                evidence=f"0/{len(runs)} runs reached E-901",
+                confidence="high",
+                evidence="; ".join(trust_blockers),
                 file="sim_adapter.json",
-                identifier="E-901",
-                expected_rule="Correct ending reachable on legal paths",
-                layer="ADVENTURE",
+                identifier="ambiguities",
+                expected_rule="Monte Carlo metrics require resolved adapter semantics",
+                layer="UNDETERMINED",
                 auto_fix_possible=False,
                 human_approval_required=True,
             )
         )
 
-  # solo solve check
+    engine_ok = _engine_e901_reachable(package)
+    if not engine_ok:
+        findings.append(
+            Finding(
+                id="SIM-ENGINE-E901",
+                severity="critical",
+                confidence="high",
+                evidence="Engine cannot reach E-901 via J-510 step with valid proof state",
+                file="simulator/engine.py",
+                identifier="E-901",
+                expected_rule="Correct ending reachable when conditions satisfied",
+                layer="SIMULATOR",
+                auto_fix_possible=True,
+                human_approval_required=False,
+            )
+        )
+
+    ending_counts = Counter(r.ending for r in runs)
+    total = max(len(runs), 1)
+
+    e901 = ending_counts.get("E-901", 0) / total
+    if runs and e901 == 0 and precheck_ok and engine_ok and trustworthy:
+        findings.append(
+            Finding(
+                id="SIM-NO-WIN",
+                severity="major",
+                confidence="medium",
+                evidence=f"0/{len(runs)} runs reached E-901 (simulator prechecks passed)",
+                file="sim_adapter.json",
+                identifier="E-901",
+                expected_rule="Correct ending reachable on legal paths",
+                layer="UNDETERMINED",
+                auto_fix_possible=False,
+                human_approval_required=True,
+            )
+        )
+    elif runs and e901 == 0 and not (precheck_ok and engine_ok):
+        findings.append(
+            Finding(
+                id="SIM-NO-WIN-SUPPRESSED",
+                severity="info",
+                confidence="high",
+                evidence=f"0/{len(runs)} E-901 but simulator prechecks failed — not attributed to adventure",
+                file="simulator/diagnostics.py",
+                identifier="E-901",
+                expected_rule="Do not blame adventure when simulator suspect",
+                layer="SIMULATOR",
+                auto_fix_possible=False,
+                human_approval_required=False,
+            )
+        )
+
     people_only = _solo_role_clues(adapter, "people")
     records_only = _solo_role_clues(adapter, "records")
-    proof = adapter["proof_rules"]
-    if _can_solo_prove(people_only, proof):
+    if _can_solo_prove(people_only):
         findings.append(
             Finding(
                 id="SIM-SOLO-PEOPLE",
@@ -64,12 +137,12 @@ def analyze_simulation(
                 file="sim_adapter.json",
                 identifier="people",
                 expected_rule="One role should not solo-solve",
-                layer="ADVENTURE",
+                layer="UNDETERMINED" if not trustworthy else "ADVENTURE",
                 auto_fix_possible=False,
                 human_approval_required=True,
             )
         )
-    if _can_solo_prove(records_only, proof):
+    if _can_solo_prove(records_only):
         findings.append(
             Finding(
                 id="SIM-SOLO-RECORDS",
@@ -79,30 +152,13 @@ def analyze_simulation(
                 file="sim_adapter.json",
                 identifier="records",
                 expected_rule="Cooperative proof requires both roles",
-                layer="ADVENTURE",
+                layer="UNDETERMINED" if not trustworthy else "ADVENTURE",
                 auto_fix_possible=False,
                 human_approval_required=True,
             )
         )
 
     grants = _clue_grants(adapter)
-    for clue, sources in grants.items():
-        if len(sources) > 1:
-            findings.append(
-                Finding(
-                    id=f"SIM-DUP-{clue}",
-                    severity="minor",
-                    confidence="high",
-                    evidence=f"{clue} granted at {sources}",
-                    file="sim_adapter.json",
-                    identifier=clue,
-                    expected_rule="Clue idempotence — duplicate grant paths",
-                    layer="ADVENTURE",
-                    auto_fix_possible=False,
-                    human_approval_required=False,
-                )
-            )
-
     bottlenecks = [c for c, s in grants.items() if len(s) == 1]
     for c in bottlenecks:
         if c in {"C-06", "C-05", "C-12"}:
@@ -115,7 +171,7 @@ def analyze_simulation(
                     file="sim_adapter.json",
                     identifier=c,
                     expected_rule="Critical clues should have redundancy",
-                    layer="ADVENTURE",
+                    layer="UNDETERMINED" if not trustworthy else "ADVENTURE",
                     auto_fix_possible=False,
                     human_approval_required=True,
                 )
@@ -138,24 +194,28 @@ def analyze_simulation(
             )
         )
 
-    split_waits = []
-    for r in runs:
-        if r.split_minutes:
-            split_waits.append(abs(r.joint_minutes - r.wall_minutes))
     impactful_pct = _impactful_decision_pct(adapter)
+    split_deltas = []
+    for r in runs:
+        for seg in getattr(r, "split_segments", []) or []:
+            split_deltas.append(abs(seg.get("people_minutes", 0) - seg.get("records_minutes", 0)))
 
     metrics = {
         "graph": stats,
         "ending_distribution": dict(ending_counts),
         "ending_rates": {k: v / total for k, v in ending_counts.items()},
         "runs": len(runs),
-        "avg_wall_minutes": statistics.mean([r.wall_minutes for r in runs]) if runs else 0,
+        "fiction_minutes_avg": statistics.mean([r.fiction_minutes for r in runs]) if runs else 0,
         "avg_clues": statistics.mean([len(r.clues) for r in runs]) if runs else 0,
         "path_diversity": len({tuple(r.path) for r in runs}),
         "impactful_decision_pct": impactful_pct,
         "clue_bottlenecks": bottlenecks,
         "fake_choices": fake,
         "split_balance": _split_balance_stats(runs),
+        "simulator_precheck_ok": precheck_ok,
+        "simulator_engine_e901_ok": engine_ok,
+        "simulator_trustworthy": trustworthy,
+        "trust_blockers": trust_blockers,
     }
     return findings, metrics
 
@@ -168,7 +228,7 @@ def _solo_role_clues(adapter: dict[str, Any], role: str) -> set[str]:
     return clues
 
 
-def _can_solo_prove(clues: set[str], proof: dict[str, str]) -> bool:
+def _can_solo_prove(clues: set[str]) -> bool:
     method = ("C-01" in clues and "C-04" in clues) or "C-10" in clues
     motive = "C-05" in clues or "C-11" in clues
     opp = "C-06" in clues and ("C-12" in clues or "C-13" in clues)
@@ -195,9 +255,13 @@ def _impactful_decision_pct(adapter: dict[str, Any]) -> float:
 def _split_balance_stats(runs: list[RunResult]) -> dict[str, Any]:
     if not runs:
         return {}
-    people = [r.joint_minutes for r in runs]
+    deltas = []
+    for r in runs:
+        for seg in r.split_segments:
+            deltas.append(abs(seg.get("people_minutes", 0) - seg.get("records_minutes", 0)))
     return {
-        "avg_joint_minutes": statistics.mean(people),
+        "avg_role_delta_minutes": statistics.mean(deltas) if deltas else 0,
+        "max_role_delta_minutes": max(deltas) if deltas else 0,
         "sample_size": len(runs),
     }
 
@@ -231,11 +295,13 @@ def run_batch(
                 joint_minutes=final.joint_minutes,
                 split_minutes=parallel,
                 wall_minutes=final.joint_minutes,
+                fiction_minutes=final.clock - package["adapter"].get("start_clock", 1140),
                 clues=sorted(final.clues),
                 flags=sorted(final.flags),
                 proof_tags=tags,
                 accused=final.accused,
                 path=final.path,
+                split_segments=list(final.split_segments),
             )
         )
     return results

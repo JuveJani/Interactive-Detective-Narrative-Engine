@@ -12,7 +12,7 @@ from typing import Any
 from simulator.config import DEFAULT_CONFIG, SimConfig
 from simulator.diagnostics import analyze_simulation, run_batch
 from simulator.engine import SimulationEngine
-from simulator.graph import build_edges
+from simulator.graph import build_edges, graph_stats
 from simulator.loader import load_adventure
 from simulator.output import make_output_dir, write_all_outputs
 from simulator.state import GameState
@@ -24,7 +24,7 @@ class RunInterrupted(Exception):
     pass
 
 
-def _install_sigint(partial_cb):
+def _install_sigint() -> None:
     def handler(signum, frame):
         raise RunInterrupted()
 
@@ -36,8 +36,8 @@ def cmd_validate(adventure_path: str, config: SimConfig = DEFAULT_CONFIG) -> Pat
     package = load_adventure(adventure_path)
     findings = validate_static(package)
     edges = build_edges(package["adapter"])
-    metrics = {"graph": __import__("simulator.graph", fromlist=["graph_stats"]).graph_stats(package["adapter"]), "runs": 0}
-    out = make_output_dir()
+    metrics = {"graph": graph_stats(package["adapter"]), "runs": 0}
+    out = make_output_dir(mode="validate")
     write_all_outputs(out, findings, metrics, [], package["adapter"], edges, "validate", log)
     log.append(f"Validation complete: {len(findings)} findings")
     (out / "simulator_log.txt").write_text("\n".join(log), encoding="utf-8")
@@ -54,11 +54,11 @@ def cmd_simulate(
     package = load_adventure(adventure_path)
     static = validate_static(package)
     log = [f"simulate runs={runs} seed={seed}"]
-    out = make_output_dir()
+    out = make_output_dir(mode="simulate")
     results = []
     start = time.time()
     try:
-        _install_sigint(None)
+        _install_sigint()
         for i in range(runs):
             if time.time() - start > config.timeout_seconds:
                 log.append("timeout reached")
@@ -93,7 +93,7 @@ def cmd_trace(adventure_path: str, seed: int, strategy: str = "clue-seeking") ->
     results = run_batch(package, strategy, 1, seed)
     findings, metrics = analyze_simulation(package, results, static)
     edges = build_edges(package["adapter"])
-    out = make_output_dir()
+    out = make_output_dir(mode="trace")
     write_all_outputs(out, findings, metrics, results, package["adapter"], edges, "trace", [f"trace seed={seed}"], trace=trace)
     return out
 
@@ -108,6 +108,6 @@ def cmd_compare(adventure_path: str, runs_per: int, seed: int, config: SimConfig
     findings, metrics = analyze_simulation(package, all_results, static)
     metrics["per_strategy"] = {n: sum(1 for r in all_results if r.strategy == n) for n in STRATEGIES}
     edges = build_edges(package["adapter"])
-    out = make_output_dir()
+    out = make_output_dir(mode="compare")
     write_all_outputs(out, findings, metrics, all_results, package["adapter"], edges, "compare", log)
     return out

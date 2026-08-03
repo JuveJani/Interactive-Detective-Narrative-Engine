@@ -1,4 +1,4 @@
-"""Player strategies — no access to hidden truth."""
+"""Player strategies — blind to simulator truth and future clues."""
 
 from __future__ import annotations
 
@@ -7,9 +7,7 @@ from typing import Any
 
 from simulator.state import GameState
 
-SUSPECTS = ["Diane Marsh", "James Holt", "Mira Kwan", "Tomás Reyes"]
-
-CLUE_PRIORITY = {
+ACTION_PRIORITY = {
     "stairwell": 4,
     "split1": 6,
     "split2": 6,
@@ -37,34 +35,17 @@ def _pick(rng: random.Random, options: list[dict[str, Any]]) -> dict[str, Any]:
     return rng.choice(options) if options else {"target": "J-120", "id": "fallback", "minutes": 0}
 
 
-def _new_clue_score(state: GameState, option: dict[str, Any]) -> int:
-    clues = option.get("grants_clues", [])
-    return sum(1 for c in clues if c not in state.clues)
-
-
-def _filter_progress(state: GameState, options: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Drop options that only revisit exhausted leaf nodes."""
-    viable = []
-    for o in options:
-        grants = _new_clue_score(state, o)
-        if grants > 0 or o.get("id") in ("split1", "split2", "accuse", "decline", "manager_key"):
-            viable.append(o)
-        elif o.get("type") in ("split_launch", "infer"):
-            viable.append(o)
-        elif o.get("target", "").startswith("J-2") or o.get("target", "").startswith("J-4") or o.get("target", "").startswith("J-5"):
-            viable.append(o)
-        elif o.get("id") in ("park", "timeline", "rent", "logs", "invoices", "duplicates", "boot", "press"):
-            viable.append(o)
-    return viable or options
+def _proof_count(state: GameState, adapter: dict[str, Any]) -> int:
+    return sum(1 for v in state.compute_proof_tags(adapter).values() if v)
 
 
 class Strategy:
     name = "base"
-    adapter: dict[str, Any] | None = None
 
     def __init__(self, rng: random.Random, adapter: dict[str, Any] | None = None):
         self.rng = rng
-        self.adapter = adapter
+        self.adapter = adapter or {}
+        self.suspects = list(self.adapter.get("suspects", []))
 
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
@@ -74,14 +55,13 @@ class Strategy:
         return _pick(self.rng, options)
 
     def pick_accused(self, state: GameState) -> str:
-        tags = state.compute_proof_tags(self.adapter or {})
-        if tags.get("PROOF_OPPORTUNITY") and "C-15" in state.clues:
-            return "Tomás Reyes"
-        if tags.get("PROOF_MOTIVE") and "C-07" in state.clues and len(state.clues) < 6:
-            return "Mira Kwan"
-        if "C-08" in state.clues and "C-13" not in state.clues:
-            return "James Holt"
-        return self.rng.choice(SUSPECTS)
+        """Choose from public suspect list using proof tags only — no truth/culprit access."""
+        tags = state.compute_proof_tags(self.adapter)
+        if self.suspects:
+            if all(tags.values()):
+                return self.rng.choice(self.suspects)
+            return self.rng.choice(self.suspects)
+        return "Unknown"
 
 
 class RandomStrategy(Strategy):
@@ -90,7 +70,7 @@ class RandomStrategy(Strategy):
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
             return {"target": self.pick_accused(state)}
-        return _pick(self.rng, _filter_progress(state, options))
+        return _pick(self.rng, options)
 
 
 class ClueSeekingStrategy(Strategy):
@@ -99,16 +79,15 @@ class ClueSeekingStrategy(Strategy):
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
             return {"target": self.pick_accused(state)}
-        options = _filter_progress(state, options)
         if not options:
             return {"target": state.node, "minutes": 0}
         scored = sorted(
             options,
-            key=lambda o: (_new_clue_score(state, o), CLUE_PRIORITY.get(o.get("id", ""), 1)),
+            key=lambda o: (ACTION_PRIORITY.get(o.get("id", ""), 1), -o.get("minutes", 0)),
             reverse=True,
         )
-        top_score = (_new_clue_score(state, scored[0]), CLUE_PRIORITY.get(scored[0].get("id", ""), 1))
-        best = [o for o in scored if (_new_clue_score(state, o), CLUE_PRIORITY.get(o.get("id", ""), 1)) == top_score]
+        top = ACTION_PRIORITY.get(scored[0].get("id", ""), 1)
+        best = [o for o in scored if ACTION_PRIORITY.get(o.get("id", ""), 1) == top]
         return _pick(self.rng, best)
 
 
@@ -122,7 +101,6 @@ class BroadExplorationStrategy(Strategy):
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
             return {"target": self.pick_accused(state)}
-        options = _filter_progress(state, options)
         novel = [o for o in options if o.get("id") not in self.seen]
         pick = _pick(self.rng, novel or options)
         self.seen.add(pick.get("id", pick["target"]))
@@ -135,12 +113,12 @@ class TimeEfficientStrategy(Strategy):
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
             return {"target": self.pick_accused(state)}
-        options = _filter_progress(state, options)
-        if state.clock >= 1320:
+        deadline = self.adapter.get("deadline_clock", 1380)
+        if state.clock >= deadline - 60:
             acc = [o for o in options if o.get("id") == "accuse"]
             if acc:
                 return acc[0]
-        if state.clock >= 1260 and any(o.get("id") == "split2" for o in options):
+        if state.clock >= deadline - 120 and any(o.get("id") == "split2" for o in options):
             return next(o for o in options if o.get("id") == "split2")
         return min(options, key=lambda o: o.get("minutes", 0))
 
@@ -150,12 +128,13 @@ class CautiousStrategy(Strategy):
 
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
-            tags = state.compute_proof_tags(self.adapter or {})
+            tags = state.compute_proof_tags(self.adapter)
             if all(tags.values()):
                 return {"target": self.pick_accused(state)}
-            return {"target": "Diane Marsh"}
-        options = _filter_progress(state, options)
-        safe = [o for o in options if o.get("id") not in ("press", "skim")]
+            if self.suspects:
+                return {"target": self.suspects[0]}
+            return {"target": "Unknown"}
+        safe = [o for o in options if not o.get("risky")]
         return _pick(self.rng, safe or options)
 
 
@@ -164,9 +143,8 @@ class RiskyStrategy(Strategy):
 
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
-            return {"target": self.rng.choice(SUSPECTS)}
-        options = _filter_progress(state, options)
-        risky = [o for o in options if o.get("id") in ("press", "boot", "duplicates", "whereabouts")]
+            return {"target": self.pick_accused(state)}
+        risky = [o for o in options if o.get("risky")]
         return _pick(self.rng, risky or options)
 
 
@@ -176,7 +154,6 @@ class CooperationStrategy(Strategy):
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
             return {"target": self.pick_accused(state)}
-        options = _filter_progress(state, options)
         if role == "people":
             prefer = [o for o in options if o.get("id") in ("rent", "press", "relationship")]
         elif role == "records":
@@ -191,7 +168,9 @@ class PoorDecisionsStrategy(Strategy):
 
     def choose(self, state: GameState, options: list[dict[str, Any]], role: str) -> dict[str, Any]:
         if role == "accuse":
-            return {"target": self.rng.choice(["Mira Kwan", "James Holt", "Diane Marsh"])}
+            if len(self.suspects) > 1:
+                return {"target": self.rng.choice(self.suspects[:-1])}
+            return {"target": self.pick_accused(state)}
         bad = [o for o in options if o.get("id") in ("notes", "skim", "decline", "relationship", "invoice_box")]
         return _pick(self.rng, bad or options)
 

@@ -4,16 +4,20 @@ from __future__ import annotations
 
 import csv
 import json
+import itertools
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from simulator.models import Finding, RunResult
 
+_OUTPUT_COUNTER = itertools.count()
 
-def make_output_dir(base: Path = Path("simulation_output")) -> Path:
-    ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-    out = base / ts
+
+def make_output_dir(base: Path = Path("simulation_output"), mode: str = "run") -> Path:
+    ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S_%f")
+    n = next(_OUTPUT_COUNTER)
+    out = base / f"{ts}_{mode}_{n}"
     out.mkdir(parents=True, exist_ok=True)
     return out
 
@@ -44,6 +48,9 @@ def write_summary(metrics: dict[str, Any], findings: list[Finding], path: Path, 
         f"**Findings:** {len(findings)} (critical={crit}, major={major})",
         f"**Path diversity:** {metrics.get('path_diversity', 0)}",
         f"**Impactful decisions %:** {metrics.get('impactful_decision_pct', 0)}",
+        f"**Simulator precheck OK:** {metrics.get('simulator_precheck_ok', False)}",
+        f"**Simulator trustworthy:** {metrics.get('simulator_trustworthy', False)}",
+        f"**Fiction minutes avg:** {metrics.get('fiction_minutes_avg', metrics.get('avg_wall_minutes', 0))}",
         "\n## Ending distribution\n",
     ]
     for k, v in sorted(metrics.get("ending_distribution", {}).items()):
@@ -62,9 +69,10 @@ def write_csv_graph(edges: list[Any], path: Path) -> None:
 def write_paths_csv(runs: list[RunResult], path: Path) -> None:
     with path.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["seed", "strategy", "ending", "steps", "wall_minutes", "clues", "path"])
+        w.writerow(["seed", "strategy", "ending", "steps", "fiction_minutes", "clues", "path"])
         for r in runs:
-            w.writerow([r.seed, r.strategy, r.ending, r.steps, r.wall_minutes, ";".join(r.clues), "->".join(r.path)])
+            fm = getattr(r, "fiction_minutes", r.wall_minutes)
+            w.writerow([r.seed, r.strategy, r.ending, r.steps, fm, ";".join(r.clues), "->".join(r.path)])
 
 
 def write_endings_csv(runs: list[RunResult], path: Path) -> None:
@@ -130,17 +138,20 @@ def write_all_outputs(
 def _write_split_balance(runs: list[RunResult], path: Path) -> None:
     with path.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["seed", "strategy", "joint_minutes", "split_minutes", "wall_minutes"])
+        w.writerow(["seed", "strategy", "people_min", "records_min", "delta", "wall_min"])
         for r in runs:
-            w.writerow([r.seed, r.strategy, r.joint_minutes, r.split_minutes, r.wall_minutes])
+            for seg in getattr(r, "split_segments", []) or []:
+                p, rec = seg.get("people_minutes", 0), seg.get("records_minutes", 0)
+                w.writerow([r.seed, r.strategy, p, rec, abs(p - rec), seg.get("wall_minutes", 0)])
 
 
 def _write_time_analysis(runs: list[RunResult], path: Path) -> None:
     with path.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["seed", "strategy", "wall_minutes", "ending"])
+        w.writerow(["seed", "strategy", "fiction_minutes", "ending"])
         for r in runs:
-            w.writerow([r.seed, r.strategy, r.wall_minutes, r.ending])
+            fm = getattr(r, "fiction_minutes", r.wall_minutes)
+            w.writerow([r.seed, r.strategy, fm, r.ending])
 
 
 def _write_state_register(adapter: dict[str, Any], path: Path) -> None:
