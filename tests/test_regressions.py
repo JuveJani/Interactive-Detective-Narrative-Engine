@@ -213,9 +213,11 @@ class TestI02Block(unittest.TestCase):
         engine = SimulationEngine(self.package, random.Random(0))
         st = GameState(node="J-410", clock=1260)
         st.clues = {"C-07"}
+        clock_before = st.clock
         st2 = engine.step(st, lambda s, o, r: o[0] if o else {"target": s.node})
         self.assertEqual(st2.node, "J-300")
         self.assertNotIn("I-02", st2.infers_done)
+        self.assertEqual(st2.clock - clock_before, 10)
 
 
 if __name__ == "__main__":

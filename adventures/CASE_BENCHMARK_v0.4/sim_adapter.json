@@ -40,11 +40,6 @@
     "CHK_BOOT_MATCH": {"dc": 13, "role": "records", "pass": {"clues": ["C-10"]}, "fail": {"clues": []}},
     "CHK_INVOICE": {"dc": 12, "role": "records", "pass": {"clues": ["C-05"]}, "fail": {"clues": ["C-14"], "flags": ["CERTAINTY_DEGRADED"], "extra_minutes": 15}}
   },
-  "follow_ups": [
-    {"keywords": ["gym", "james alibi"], "grants_if_missing": ["C-13"], "minutes": 10},
-    {"keywords": ["vendor", "phone log"], "grants_if_missing": ["C-14"], "minutes": 10},
-    {"keywords": ["*"], "minutes": 5}
-  ],
   "follow_up_actions": [
     {
       "id": "FU_GYM_ALIBI",
@@ -76,9 +71,7 @@
       "max_uses": 99
     }
   ],
-  "simulator_unsupported": [
-    "Legacy follow_ups keyword array is not simulated; use follow_up_actions instead"
-  ],
+  "legacy_follow_ups_documentation": "Free-text keyword follow-ups from early adapter drafts are unsupported. Use follow_up_actions only.",
   "splits": {
     "split1": {"launch": "J-130", "sync": "J-200", "people_start": "P-111", "records_start": "R-111"},
     "split2": {"launch": "J-330", "sync": "J-400", "people_start": "P-211", "records_start": "R-211"}
@@ -107,20 +100,20 @@
     "J-302": {"type": "joint", "minutes": 10, "flags": ["ACCESS_MANAGER_KEY"], "next": "J-300"},
     "J-330": {"type": "split_launch", "split": "split2", "minutes": 0},
     "J-400": {"type": "regroup", "split": "split2", "minutes_overhead": 5, "next": "J-410"},
-    "J-410": {"type": "infer", "infer": "I-02", "minutes": 10, "next": "J-500"},
+    "J-410": {"type": "infer", "infer": "I-02", "minutes": 10, "blocked_return": "J-300", "blocked_minutes": 10, "blocked_cost_source": "PLAYER/JOINT_SCENES.md §J-410", "next": "J-500"},
     "J-500": {"type": "hub", "hub_id": 3, "choices": [
       {"id": "accuse", "minutes": 15, "target": "J-510"},
       {"id": "decline", "minutes": 10, "target": "J-600", "sets": ["FILED_WITHOUT_ACCUSATION"]}
     ]},
     "J-510": {"type": "infer", "infer": "I-03", "minutes": 0, "next": "J-600"},
     "J-600": {"type": "ending_dispatch", "minutes": 0},
-    "P-111": {"type": "people", "role": "people", "split": "split1", "gate": {"if_clock_gte": 1200, "skip_to": "P-113", "alt_minutes": 15, "alt_partial": ["C-07"]}, "choices": [
+    "P-111": {"type": "people", "role": "people", "split": "split1", "gate": {"if_clock_gte": 1200, "branch_choices": [{"id": "skip_closed", "skip_to": "P-113", "minutes": 0}, {"id": "phone_followup", "skip_to": "P-113", "minutes": 15, "partial_clues": ["C-07"]}]}, "choices": [
       {"id": "rent", "target": "P-111a"},
       {"id": "whereabouts", "target": "P-111b"}
     ]},
     "P-111a": {"type": "people", "role": "people", "split": "split1", "minutes": 15, "clues": ["C-07"], "flags": ["WITNESS_MIRA_COOPERATIVE"], "next_options": ["P-112", "P-113"]},
     "P-111b": {"type": "people", "role": "people", "split": "split1", "minutes": 15, "check": "CHK_MIRA_CALM", "next_options": ["P-112", "P-113"]},
-    "P-112": {"type": "people", "role": "people", "split": "split1", "minutes": 10, "clues": ["C-09"], "flags": ["MOTIVE_WITNESS", "ACCESS_MANAGER_KEY"], "next_options": ["P-113", "J-200"]},
+    "P-112": {"type": "people", "role": "people", "split": "split1", "minutes": 10, "clues": ["C-09"], "flags": ["MOTIVE_WITNESS"], "partner_conditional_flags": [{"flag": "ACCESS_MANAGER_KEY", "when_partner_lacks": "ACCESS_MANAGER_KEY", "partner_role": "records", "authoritative_source": "PLAYER/BOOKLET_PEOPLE.md §P-112"}], "next_options": ["P-113", "J-200"]},
     "P-113": {"type": "people", "role": "people", "split": "split1", "minutes": 10, "early_finish": true, "sync": "J-200"},
     "P-211": {"type": "people", "role": "people", "split": "split2", "choices": [
       {"id": "press", "target": "P-211a"},
@@ -161,10 +154,11 @@
     "E-904": {"type": "ending", "code": "E-904"},
     "E-905": {"type": "ending", "code": "E-905"}
   },
-  "ambiguities": [
-    "J-121 allows continue to J-120 or J-130; adapter treats as player choice at hub return.",
-    "P-112 ACCESS_MANAGER_KEY only if Records partner lacks it; simulator grants when People path taken.",
-    "Phone follow-up at P-111 when bakery closed grants partial C-07 only (+15 min).",
-    "R-212b skim is low-value retry loop; marked fake_choice."
-  ]
+  "resolved_ambiguities": [
+    {"id": "AMB-J121", "topic": "J-121 return routing", "resolution": "next_options [J-120, J-130] models explicit player choice at hub return.", "authoritative_source": "sim_adapter.json nodes.J-121"},
+    {"id": "AMB-P112", "topic": "P-112 manager key eligibility", "resolution": "ACCESS_MANAGER_KEY granted at split merge only when Records partner lacks the flag.", "authoritative_source": "PLAYER/BOOKLET_PEOPLE.md §P-112"},
+    {"id": "AMB-P111", "topic": "Closed bakery phone follow-up", "resolution": "Gate branch_choices offer skip (0 min) vs phone follow-up (+15 min, partial C-07).", "authoritative_source": "PLAYER/BOOKLET_PEOPLE.md §P-111"},
+    {"id": "AMB-R212B", "topic": "R-212b skim retry loop", "resolution": "fake_choice marks low-value skim; engine does not loop.", "authoritative_source": "sim_adapter.json nodes.R-212b"}
+  ],
+  "ambiguities": []
 }

@@ -51,10 +51,6 @@ def load_player_text(root: Path) -> dict[str, str]:
 def load_adventure(path: str | Path) -> dict[str, Any]:
     root = adventure_root(path)
     adapter = load_adapter(root)
-    if "simulator_partial" not in adapter:
-        adapter["simulator_partial"] = [
-            "P-112 manager key granted without Records partner state check",
-        ]
     player_text = load_player_text(root)
     logic_dir = root / "DO_NOT_READ" / "LOGIC"
     logic_text: dict[str, str] = {}
