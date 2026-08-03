@@ -6,9 +6,9 @@ from typing import Any
 
 from simulator.endings import evaluate_ending
 from simulator.follow_ups import legacy_keyword_follow_ups
-from simulator.graph import unreachable_nodes
 from simulator.models import Finding
 from simulator.state import GameState
+from simulator.trust_gate import validate_trust_invariants
 
 
 class SimulatorSelfCheck:
@@ -82,23 +82,6 @@ def _human_resolution_blockers(adapter: dict[str, Any]) -> list[str]:
     return blockers
 
 
-def _infer_retry_blockers(adapter: dict[str, Any]) -> list[str]:
-    blockers: list[str] = []
-    for nid, spec in adapter.get("nodes", {}).items():
-        if spec.get("type") != "infer":
-            continue
-        infer_id = spec.get("infer")
-        if infer_id != "I-02":
-            continue
-        if spec.get("blocked_return") and spec.get("blocked_minutes") is None:
-            blockers.append(
-                f"{nid} I-02 blocked retry has no canonical blocked_minutes in adapter"
-            )
-        if spec.get("infer_retry_unsupported"):
-            blockers.append(f"{nid} I-02 retry marked unsupported")
-    return blockers
-
-
 def simulator_trustworthy(adapter: dict[str, Any]) -> tuple[bool, list[str]]:
     """Return whether Monte Carlo metrics may be reported as trustworthy."""
     blockers: list[str] = []
@@ -108,10 +91,7 @@ def simulator_trustworthy(adapter: dict[str, Any]) -> tuple[bool, list[str]]:
         blockers.append(f"adapter documents {len(ambiguities)} unresolved ambiguities")
 
     blockers.extend(_human_resolution_blockers(adapter))
-    blockers.extend(_infer_retry_blockers(adapter))
-
-    if legacy_keyword_follow_ups(adapter):
-        blockers.append("legacy keyword follow_ups remain active in adapter")
+    blockers.extend(validate_trust_invariants(adapter))
 
     unsupported = adapter.get("simulator_unsupported", [])
     for item in unsupported:
@@ -120,9 +100,5 @@ def simulator_trustworthy(adapter: dict[str, Any]) -> tuple[bool, list[str]]:
     partial = adapter.get("simulator_partial", [])
     for item in partial:
         blockers.append(f"partial support: {item}")
-
-    unreachable = unreachable_nodes(adapter)
-    if unreachable:
-        blockers.append(f"deterministic reachability failed: {sorted(unreachable)}")
 
     return len(blockers) == 0, blockers

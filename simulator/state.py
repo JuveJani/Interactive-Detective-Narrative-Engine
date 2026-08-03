@@ -35,6 +35,7 @@ class GameState:
     entry_cost_prepaid: bool = False
     pending_followup: str | None = None
     return_hub: str | None = None
+    role_choices_used: set[tuple[str, str]] = field(default_factory=set)
     states_explored: int = 0
 
     def clone(self) -> "GameState":
