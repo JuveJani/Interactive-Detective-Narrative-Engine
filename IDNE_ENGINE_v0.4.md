@@ -175,6 +175,8 @@ INVESTIGATION CORE PACKAGE (Investigation Core — Milestone 5A)
         ↓
 NPC INVESTIGATION PACKAGE (NPC Investigation — Milestone 5B)
         ↓
+INVESTIGATION FLOW PACKAGE (Investigation Flow & Endings — Milestone 5C)
+        ↓
 WORLD BIBLE (objective adventure truth — human-readable summary)
         ↓
 ADVENTURE LOGIC (playable simulation structure)
@@ -199,6 +201,7 @@ Lower layers MUST NOT redefine facts owned by higher layers.
 | Object Interaction Package | Objects, actions, check bindings, result units (machine) | Creating evidence via checks; clue grants in scenes |
 | Investigation Core Package | Knowledge, proof, conclusions, relationships (machine) | Legacy clue-ID-driven investigation |
 | NPC Investigation Package | NPC static/dynamic state, trust, topics, conversation routes (machine) | Redefining Investigation Core knowledge or proof |
+| Investigation Flow Package | State-driven flow, scene chains, ending graph, accusation eval (machine) | Redefining Investigation Core proof or NPC conversation models |
 | World Bible | What actually happened; NPC knowledge/beliefs; fixed timeline (human summary) | Player wording |
 | Adventure Logic | Actions, conditions, costs, state updates, knowledge grants, endings triggers | Public page numbers as primary IDs |
 | Delivery Adapter | Viewpoint filtering, player wording, public conditions, layout | Invent consequences; change truth; expose internal IDs |
@@ -603,6 +606,8 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 **Milestone 5A (Investigation Core):** normative investigation data model replacing clue-driven logic; see `INVESTIGATION_CORE_SPEC.md` and `investigation_manifest.json`.
 
 **Milestone 5B (NPC Investigation System):** normative NPC graph, conversation graph, trust model, InformationKnown, topic unlocking, and relationship reactions; see `NPC_INVESTIGATION_SYSTEM_SPEC.md` and `npc_investigation_manifest.json`.
+
+**Milestone 5C (Investigation Flow & Ending System):** normative state-driven investigation flow and ending architecture; see `INVESTIGATION_FLOW_SPEC.md`, `ENDING_SYSTEM_SPEC.md`, and `investigation_flow_manifest.json`.
 
 ---
 

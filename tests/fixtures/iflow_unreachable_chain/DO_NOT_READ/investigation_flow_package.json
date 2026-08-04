@@ -1,0 +1,257 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "iflow_unreachable_chain",
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "state_model": {
+    "flags": [
+      "basement_open",
+      "office_searched",
+      "accusation_complete",
+      "ready_to_accuse",
+      "found_secret_diary"
+    ],
+    "counters": [
+      "investigation_phase"
+    ],
+    "initial_state": {
+      "basement_open": false,
+      "office_searched": false,
+      "accusation_complete": false,
+      "ready_to_accuse": false,
+      "found_secret_diary": false,
+      "investigation_phase": 0
+    }
+  },
+  "time_model": {
+    "clocks": [
+      "T0",
+      "T1",
+      "T2",
+      "T_DEADLINE"
+    ],
+    "deadline_clock": "T_DEADLINE",
+    "scene_time_cost_default_minutes": 15
+  },
+  "scene_chains": [
+    {
+      "chain_id": "CHAIN-MORNING",
+      "active_from_clock": "T0",
+      "active_until_clock": "T1",
+      "steps": [
+        {
+          "step_id": "SC-001",
+          "scene_unit_id": "J-101",
+          "requires_state": {
+            "ready_to_accuse": false
+          },
+          "requires_knowledge_ids": [
+            "KNOW-004"
+          ],
+          "allows_prior_acquisition": false
+        },
+        {
+          "step_id": "SC-002",
+          "scene_unit_id": "J-102",
+          "requires_knowledge_ids": [
+            "KNOW-001"
+          ],
+          "allows_prior_acquisition": true
+        }
+      ]
+    },
+    {
+      "chain_id": "CHAIN-AFTERNOON",
+      "active_from_clock": "T1",
+      "active_until_clock": "T_DEADLINE",
+      "steps": [
+        {
+          "step_id": "SC-003",
+          "scene_unit_id": "J-103",
+          "requires_state": {
+            "office_searched": true
+          }
+        }
+      ]
+    }
+  ],
+  "world_state_variants": [
+    {
+      "variant_id": "VAR-LOBBY",
+      "base_scene_unit_id": "J-100",
+      "variants": [
+        {
+          "when_state": {
+            "flag": "basement_open",
+            "value": true
+          },
+          "scene_unit_id": "J-100B"
+        },
+        {
+          "when_state": {
+            "flag": "basement_open",
+            "value": false
+          },
+          "scene_unit_id": "J-100A"
+        }
+      ]
+    }
+  ],
+  "location_revisits": [
+    {
+      "location_id": "LOC-OFFICE",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-001",
+          "when_knowledge_held": [
+            "KNOW-002"
+          ],
+          "unlocks_scene_unit_id": "J-201",
+          "state_updates": {
+            "office_searched": true
+          }
+        }
+      ]
+    }
+  ],
+  "deadline": {
+    "enabled": true,
+    "deadline_clock": "T_DEADLINE",
+    "deadline_ending_id": "END-TIMEOUT",
+    "blocks_accusation_after": true
+  },
+  "accusation_questionnaire": {
+    "questionnaire_id": "ACC-FINAL",
+    "required_before_ending_eval": true,
+    "questions": [
+      {
+        "question_id": "Q-CULPRIT",
+        "conclusion_id": "CONC-CULPRIT",
+        "answer_type": "npc_id"
+      },
+      {
+        "question_id": "Q-METHOD",
+        "conclusion_id": "CONC-METHOD",
+        "answer_type": "entity_id"
+      }
+    ]
+  },
+  "endings": [
+    {
+      "ending_id": "END-PERFECT",
+      "ending_type": "perfect",
+      "priority": 100,
+      "reveals_full_truth": true,
+      "hidden": false,
+      "truth_reveal_scope": "complete",
+      "trigger": {
+        "type": "state_driven",
+        "required_knowledge_ids": [
+          "KNOW-002",
+          "KNOW-004"
+        ],
+        "required_accusation": {
+          "Q-CULPRIT": "NPC-A",
+          "Q-METHOD": "METHOD-PUSH"
+        },
+        "required_state": {
+          "accusation_complete": true
+        },
+        "requires_full_proof": true
+      }
+    },
+    {
+      "ending_id": "END-PARTIAL",
+      "ending_type": "partial",
+      "priority": 50,
+      "reveals_full_truth": false,
+      "hidden": false,
+      "truth_reveal_scope": "partial",
+      "max_knowledge_revealed_ids": [
+        "KNOW-001",
+        "KNOW-003"
+      ],
+      "trigger": {
+        "type": "state_driven",
+        "min_knowledge_count": 2,
+        "wrong_accusation_allowed": true
+      }
+    },
+    {
+      "ending_id": "END-HIDDEN",
+      "ending_type": "hidden",
+      "priority": 90,
+      "reveals_full_truth": false,
+      "hidden": true,
+      "truth_reveal_scope": "hint",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "found_secret_diary": true
+        }
+      }
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "ending_type": "deadline",
+      "priority": 10,
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "none",
+      "trigger": {
+        "type": "deadline_expired"
+      }
+    }
+  ],
+  "ending_graph": {
+    "nodes": [
+      "END-PERFECT",
+      "END-PARTIAL",
+      "END-HIDDEN",
+      "END-TIMEOUT"
+    ],
+    "edges": [
+      {
+        "from": "FLOW-ACTIVE",
+        "to": "END-PERFECT",
+        "condition": "accusation_correct"
+      },
+      {
+        "from": "FLOW-ACTIVE",
+        "to": "END-PARTIAL",
+        "condition": "accusation_wrong"
+      },
+      {
+        "from": "FLOW-ACTIVE",
+        "to": "END-TIMEOUT",
+        "condition": "deadline"
+      },
+      {
+        "from": "FLOW-ACTIVE",
+        "to": "END-HIDDEN",
+        "condition": "secret_found"
+      }
+    ],
+    "evaluation_order": [
+      "END-PERFECT",
+      "END-HIDDEN",
+      "END-PARTIAL",
+      "END-TIMEOUT"
+    ]
+  },
+  "flow_states": [
+    {
+      "flow_state_id": "FLOW-ACTIVE",
+      "initial": true
+    },
+    {
+      "flow_state_id": "FLOW-ACCUSATION",
+      "requires": {
+        "flag": "ready_to_accuse"
+      }
+    }
+  ]
+}

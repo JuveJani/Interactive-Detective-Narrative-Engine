@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.dev/schemas/investigation_flow_package.schema.json",
+  "title": "IDNE Investigation Flow Package",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "adventure_id",
+    "state_model",
+    "time_model",
+    "endings",
+    "ending_graph"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "adventure_id": { "type": "string" },
+    "investigation_core_links": {
+      "type": "object",
+      "properties": { "package_path": { "type": "string" } }
+    },
+    "environment_links": {
+      "type": "object",
+      "properties": { "package_path": { "type": "string" } }
+    },
+    "state_model": { "$ref": "#/$defs/state_model" },
+    "time_model": { "$ref": "#/$defs/time_model" },
+    "scene_chains": { "type": "array", "items": { "$ref": "#/$defs/scene_chain" } },
+    "world_state_variants": { "type": "array", "items": { "$ref": "#/$defs/world_state_variant" } },
+    "location_revisits": { "type": "array", "items": { "$ref": "#/$defs/location_revisit" } },
+    "deadline": { "$ref": "#/$defs/deadline" },
+    "accusation_questionnaire": { "$ref": "#/$defs/accusation_questionnaire" },
+    "endings": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/ending" } },
+    "ending_graph": { "$ref": "#/$defs/ending_graph" },
+    "flow_states": { "type": "array", "items": { "$ref": "#/$defs/flow_state" } }
+  },
+  "$defs": {
+    "state_model": {
+      "type": "object",
+      "required": ["initial_state"],
+      "properties": {
+        "flags": { "type": "array" },
+        "counters": { "type": "array" },
+        "initial_state": { "type": "object" }
+      }
+    },
+    "time_model": {
+      "type": "object",
+      "properties": {
+        "clocks": { "type": "array", "items": { "type": "string" } },
+        "deadline_clock": { "type": "string" },
+        "scene_time_cost_default_minutes": { "type": "number" }
+      }
+    },
+    "scene_chain": {
+      "type": "object",
+      "required": ["chain_id", "steps"],
+      "properties": {
+        "chain_id": { "type": "string" },
+        "active_from_clock": { "type": "string" },
+        "active_until_clock": { "type": "string" },
+        "steps": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/chain_step" } }
+      }
+    },
+    "chain_step": {
+      "type": "object",
+      "required": ["step_id", "scene_unit_id"],
+      "properties": {
+        "step_id": { "type": "string" },
+        "scene_unit_id": { "type": "string" },
+        "requires_state": { "type": "object" },
+        "requires_knowledge_ids": { "type": "array", "items": { "type": "string" } },
+        "allows_prior_acquisition": { "type": "boolean" }
+      }
+    },
+    "world_state_variant": {
+      "type": "object",
+      "required": ["variant_id", "variants"],
+      "properties": {
+        "variant_id": { "type": "string" },
+        "base_scene_unit_id": { "type": "string" },
+        "variants": { "type": "array", "minItems": 1 }
+      }
+    },
+    "location_revisit": {
+      "type": "object",
+      "required": ["location_id", "revisit_rules"],
+      "properties": {
+        "location_id": { "type": "string" },
+        "revisit_rules": { "type": "array" }
+      }
+    },
+    "deadline": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "deadline_clock": { "type": "string" },
+        "deadline_ending_id": { "type": "string" },
+        "blocks_accusation_after": { "type": "boolean" }
+      }
+    },
+    "accusation_questionnaire": {
+      "type": "object",
+      "properties": {
+        "questionnaire_id": { "type": "string" },
+        "required_before_ending_eval": { "type": "boolean" },
+        "questions": { "type": "array" }
+      }
+    },
+    "ending": {
+      "type": "object",
+      "required": ["ending_id", "ending_type", "trigger"],
+      "properties": {
+        "ending_id": { "type": "string" },
+        "ending_type": {
+          "type": "string",
+          "enum": ["perfect", "partial", "hidden", "deadline", "failure", "narrative_failure"]
+        },
+        "priority": { "type": "number" },
+        "reveals_full_truth": { "type": "boolean" },
+        "hidden": { "type": "boolean" },
+        "truth_reveal_scope": { "type": "string" },
+        "max_knowledge_revealed_ids": { "type": "array", "items": { "type": "string" } },
+        "trigger": { "type": "object" }
+      }
+    },
+    "ending_graph": {
+      "type": "object",
+      "required": ["nodes"],
+      "properties": {
+        "nodes": { "type": "array", "items": { "type": "string" } },
+        "edges": { "type": "array" },
+        "evaluation_order": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "flow_state": {
+      "type": "object",
+      "required": ["flow_state_id"],
+      "properties": {
+        "flow_state_id": { "type": "string" },
+        "initial": { "type": "boolean" },
+        "requires": { "type": "object" }
+      }
+    }
+  }
+}

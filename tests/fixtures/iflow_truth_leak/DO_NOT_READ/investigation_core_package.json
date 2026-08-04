@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "iflow_truth_leak",
+  "world_facts": [
+    {
+      "fact_id": "WF-001",
+      "statement": "Victim fell",
+      "immutable": true
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "OBS-001",
+      "description": "Scuff",
+      "location_id": "LOC-OFFICE",
+      "acquisition": {
+        "via": "environment_visibility",
+        "ref": "on_arrival"
+      }
+    }
+  ],
+  "physical_evidence": [
+    {
+      "evidence_id": "EVD-001",
+      "description": "Wet mop",
+      "provenance": {
+        "world_fact_id": "WF-001"
+      },
+      "establishes_knowledge_ids": [
+        "KNOW-002"
+      ]
+    }
+  ],
+  "testimony": [
+    {
+      "testimony_id": "TEST-001",
+      "source_npc_id": "NPC-B",
+      "content_knowledge_id": "KNOW-003",
+      "dialogue_system": false
+    }
+  ],
+  "knowledge": [
+    {
+      "knowledge_id": "KNOW-001",
+      "statement": "Scuff fresh",
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-001",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-002",
+      "statement": "Mop wet",
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-001",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-003",
+      "statement": "Heard argument",
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-001",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-004",
+      "statement": "Custodian opportunity",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-001",
+        "interaction_required": true
+      }
+    }
+  ],
+  "hypotheses": [
+    {
+      "hypothesis_id": "HYP-001",
+      "statement": "Custodian present",
+      "requires_knowledge_ids": [
+        "KNOW-001",
+        "KNOW-002"
+      ],
+      "yields_knowledge_id": "KNOW-004",
+      "player_synthesis_required": true
+    }
+  ],
+  "conclusions": [
+    {
+      "conclusion_id": "CONC-CULPRIT",
+      "category": "culprit",
+      "answer_entity_id": "NPC-A",
+      "investigation_driven_by_clue": false
+    },
+    {
+      "conclusion_id": "CONC-METHOD",
+      "category": "method",
+      "answer_entity_id": "METHOD-PUSH",
+      "investigation_driven_by_clue": false
+    }
+  ],
+  "proofs": [
+    {
+      "proof_id": "PROOF-A",
+      "conclusion_id": "CONC-CULPRIT",
+      "required_knowledge_ids": [
+        "KNOW-002",
+        "KNOW-004"
+      ],
+      "claims_independence": true,
+      "independent_knowledge_subset": [
+        "KNOW-002"
+      ]
+    },
+    {
+      "proof_id": "PROOF-M",
+      "conclusion_id": "CONC-METHOD",
+      "required_knowledge_ids": [
+        "KNOW-001",
+        "KNOW-003"
+      ],
+      "claims_independence": false
+    }
+  ],
+  "relationships": [],
+  "compatibility_clue_map": []
+}

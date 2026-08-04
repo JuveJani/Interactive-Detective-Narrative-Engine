@@ -42,6 +42,10 @@ Normative spec: `INVESTIGATION_CORE_SPEC.md`. Validation: `python3 -m idne.inves
 
 Normative spec: `NPC_INVESTIGATION_SYSTEM_SPEC.md`. Validation: `python3 -m idne.npc_investigation_validate`.
 
+**Milestone 5C — Investigation Flow & Ending System** (complete).
+
+Normative specs: `INVESTIGATION_FLOW_SPEC.md`, `ENDING_SYSTEM_SPEC.md`. Validation: `python3 -m idne.investigation_flow_validate`.
+
 Later milestones (Capability Check Rewrite, etc.) are **not** started.
 
 ## First reference adventure

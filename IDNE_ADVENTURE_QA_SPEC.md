@@ -1168,6 +1168,54 @@ Harness: `python3 -m idne.npc_investigation_validate <adventure_root>`
 
 ---
 
+### 5.17 Investigation Flow & Ending System (Milestone 5C)
+
+Applies when `investigation_flow_manifest.json` declares `investigation_flow_method: canonical` (or `generation_manifest.investigation_flow.enabled`).
+
+Harness: `python3 -m idne.investigation_flow_validate <adventure_root>`
+
+#### FLOW-GATE-01 — Investigation flow package valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | State-driven flow replaces ending-condition tables |
+| **Failure condition** | Any FLOW automated check FAIL |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### FLOW-TRUTH-01 — Imperfect endings do not leak full solution
+
+| Field | Value |
+|---|---|
+| **Purpose** | Only perfect ending may reveal complete truth |
+| **Failure condition** | Partial/hidden/deadline ending with `reveals_full_truth` or `complete` scope |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### FLOW-ACCUSE-01 — Accusation questionnaire supported
+
+| Field | Value |
+|---|---|
+| **Purpose** | Final accusation maps to Investigation Core proofs |
+| **Failure condition** | Questionnaire conclusion without proof or perfect ending mismatch |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### FLOW-DEADLINE-01 — Deadline ending valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | Time pressure has declared deadline ending |
+| **Failure condition** | Deadline enabled without `deadline` type ending |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -1272,6 +1320,8 @@ When `object_interaction_method` is `canonical`, also run: `python3 -m idne.obje
 When `investigation_method` is `canonical`, also run: `python3 -m idne.investigation_core_validate` (covers INV-GATE-01, INV-LEGACY-01).
 
 When `npc_investigation_method` is `canonical`, also run: `python3 -m idne.npc_investigation_validate` (covers NPC-GATE-01, NPC-TRUST-01, NPC-ROUTE-01).
+
+When `investigation_flow_method` is `canonical`, also run: `python3 -m idne.investigation_flow_validate` (covers FLOW-GATE-01, FLOW-TRUTH-01, FLOW-ACCUSE-01, FLOW-DEADLINE-01).
 
 ### B. AI-reviewable
 

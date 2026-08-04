@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "iflow_deadline_missing",
+  "start_location_id": "LOC-LOBBY",
+  "locations": [
+    {
+      "location_id": "LOC-LOBBY",
+      "public_name": "Lobby",
+      "parent_location_id": null,
+      "location_type": "interior",
+      "description_source": "DESC-LOBBY",
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-OFFICE",
+      "public_name": "Office",
+      "parent_location_id": "LOC-LOBBY",
+      "location_type": "interior_room",
+      "description_source": "DESC-OFFICE",
+      "state_owner": "environment_package"
+    }
+  ],
+  "location_states": [],
+  "features": [],
+  "navigation": [],
+  "revisit_rules": []
+}
