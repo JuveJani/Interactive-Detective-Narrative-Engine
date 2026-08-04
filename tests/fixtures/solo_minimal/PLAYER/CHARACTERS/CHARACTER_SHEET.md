@@ -1,0 +1,3 @@
+# Investigator
+
+One player character.

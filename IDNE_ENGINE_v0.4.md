@@ -42,7 +42,9 @@ IDNE is not primarily:
 
 - realistic modern detective fiction;
 - no supernatural mechanics unless an adventure explicitly opts in and labels itself;
-- one or two investigators (two-player cooperative is the validated focus for 0.4);
+- one or two investigators depending on declared `play_modes` (see §0.5);
+- two-player cooperative is the validated focus for 0.4 reference adventures;
+- single-investigator mode is supported when explicitly declared and validated (see §6.8);
 - physical play without mandatory digital tools;
 - approximately one to three hours of **wall-clock** play for a short case (sizing is Category B).
 
@@ -58,6 +60,21 @@ Conflict resolution order:
 4. adventure-allowed extensions where this engine permits;
 5. more specific rule over general;
 6. unresolved conflict is a specification defect.
+
+### 0.5 Play modes
+
+Every adventure MUST declare supported play modes in `play_manifest.json` at the adventure root.
+
+| Mode ID | Meaning |
+|---|---|
+| `two_player` | Cooperative two-investigator play with split/regroup mechanics as defined in §6 |
+| `single_investigator` | One investigator, one knowledge state, no split/regroup (§6.8) |
+
+**MUST:** `play_modes` MUST list only modes the adventure actually supports.
+
+**MUST NOT:** Infer solo playability from a two-player adventure. Removing Player 2 content without a full solo routing package is not valid `single_investigator` support.
+
+**MAY:** Declare both modes only when the adventure provides complete, validated routing for each (`play_manifest.json` blocks `two_player` and `single_investigator`).
 
 ---
 
@@ -280,6 +297,22 @@ Reports MUST also state **longest individual branch** separately.
 
 **MUST NOT:** estimate session length by summing both players’ full path times.
 
+Applies when `play_modes` includes `two_player`.
+
+### 5.4.1 Wall-clock estimate — single investigator
+
+When `play_modes` includes `single_investigator`:
+
+```text
+estimated_wall_clock =
+    sum(sequential_scene_play_estimates_along_legal_paths)
+  + endgame_estimate
+```
+
+**MUST NOT:** use the cooperative split-window `max(role_A, role_B)` formula for solo adventures.
+
+Reports MUST state **longest legal path** separately.
+
 ### 5.5 Optional real-time pressure
 
 Real-time (wall-clock) pressure is OPTIONAL and MUST be disableable without making the adventure unplayable.
@@ -329,6 +362,29 @@ While split, communication is an action with cost and limits defined by the adve
 ### 6.7 Sync terminators
 
 Every split branch MUST end in a defined sync outcome (rejoin, remote contact, wait-until-sync, emergency interrupt, or terminal). Free asynchronous drift is forbidden.
+
+Applies only when `play_modes` includes `two_player`.
+
+### 6.8 Single Investigator Mode
+
+When `play_modes` includes `single_investigator`, the adventure MUST implement the following. This is **not** a two-player adventure with one booklet removed.
+
+| Requirement | Rule |
+|---|---|
+| Investigator count | Exactly one player character |
+| Knowledge state | One investigator knowledge state; no private role booklets |
+| Inventory | One inventory owned by the investigator |
+| World clock | One shared world clock (§5.1); sequential action costing only |
+| Split / regroup | **MUST NOT** use split windows, regroup scenes, parallel role paths, or wait-for-partner mechanics |
+| Navigation | Player-directed investigation among authored locations (Philosophy A5) |
+| Scarcity | Time and other declared scarce resources are primary limits (Philosophy A7) |
+| Checks | Same fixed-world check principle (§7); one investigator performs all checks |
+| Conclusions | Infer and ending evaluation use one investigator sheet |
+| Playtime | Wall-clock estimate uses §5.4.1 formula |
+
+**MUST NOT:** Require information, items, or conclusions only obtainable by an absent second role.
+
+**MUST:** Pass mandatory Single Investigator validation (`IDNE_ADVENTURE_QA_SPEC.md` §5.11; `SINGLE_INVESTIGATOR_MODE_SPEC.md`).
 
 ---
 
@@ -452,6 +508,16 @@ Adventures MUST declare one model:
 
 Private split content MUST remain spoiler-safe.
 
+### 10.5 Play manifest (Delivery Adapter)
+
+The Delivery Adapter MUST emit or preserve `play_manifest.json` declaring:
+
+- `play_modes[]`
+- `two_player` routing artifacts when applicable (joint scenes, role booklets)
+- `single_investigator` routing artifacts when applicable (§6.8; `SINGLE_INVESTIGATOR_MODE_SPEC.md`)
+
+Compilers MUST NOT emit `single_investigator` in `play_modes` unless solo validation prerequisites are satisfied.
+
 ---
 
 ## 12. Authoring separation
@@ -478,7 +544,7 @@ An adventure is **not Ready** for playtest release unless:
 
 | Gate | Requirement |
 |---|---|
-| Wall-clock estimate | Uses §5.4 formula; longest branch reported separately |
+| Wall-clock estimate | Uses §5.4 for `two_player`, §5.4.1 for `single_investigator`; longest branch reported separately |
 | Shared investigation | Meets §6.3 target or documents an approved waiver |
 | Split balance | Meets §6.4 or documents waiver with mitigation |
 | Decision isolation | No consequence spoilers on decision units |
@@ -501,11 +567,13 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 ## 14. Deferred beyond 0.4
 
 - Full digital DM runtime;
-- Mandatory solo mode implementation;
-- Full JSON Schema + CI automation;
+- Full JSON Schema + CI automation for all layers;
 - Multi-case campaigns;
 - Competitive / traitor modes;
-- Commercial print optimization.
+- Commercial print optimization;
+- World-First Generation, Environment System, Object Interaction, Investigation Rewrite (later milestones).
+
+**Milestone 1 (Single Investigator Mode):** normative rules and validation are defined in v0.4 via `SINGLE_INVESTIGATOR_MODE_SPEC.md` and §6.8. Reference solo adventures are not required for 0.4 closure.
 
 ---
 

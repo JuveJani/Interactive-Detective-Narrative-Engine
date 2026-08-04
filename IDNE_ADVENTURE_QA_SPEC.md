@@ -72,6 +72,7 @@ An adventure is **Pre-Playtest Ready** only if:
 4. Automated suite (Tier A) has been run and attached to the QA report.
 5. AI review (Tier B) has been completed for all B-class checks.
 6. QA report filed using `ADVENTURE_QA_REPORT_TEMPLATE.md`.
+7. When `play_modes` includes `single_investigator`: all Critical/Major §5.11 QA-SI checks PASS; validator JSON attached (`SKIP` is not PASS for solo).
 
 Human playtest (Tier C) is **not** required for Pre-Playtest Ready. It **is** required for full **Adventure Ready** under v0.4 §13.2.
 
@@ -710,6 +711,198 @@ Each check uses this schema:
 
 ---
 
+### 5.11 Single Investigator Mode
+
+Applies when `play_manifest.json` declares `single_investigator` in `play_modes`.
+
+Automated harness: `python3 -m idne.single_investigator_validate <adventure_root>`
+
+When `single_investigator` is **not** declared, all QA-SI checks are **N/A** (validator returns `SKIP` — not PASS).
+
+When declared, **all Critical and Major** QA-SI checks below are mandatory for Pre-Playtest Ready.
+
+#### QA-SI-01 — Play mode declared and artifacts present
+
+| Field | Value |
+|---|---|
+| **Purpose** | Prove solo is intentional, not inferred |
+| **Failure condition** | `single_investigator` in `play_modes` but manifest block incomplete or required PLAYER artifacts missing |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Required inputs** | `play_manifest.json`; manifest paths |
+| **Metric** | QA-SI-ART-* checks |
+| **False-positive risk** | Low |
+| **Human review** | None |
+| **Pass criteria** | All declared solo artifact paths exist |
+
+#### QA-SI-02 — No split/regroup mechanics
+
+| Field | Value |
+|---|---|
+| **Purpose** | Solo is not truncated two-player |
+| **Failure condition** | Split/regroup/private-booklet language in solo scene package **or** role-private scene codes (`P-*`, `R-*`) in solo package |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Required inputs** | Solo scene package |
+| **Metric** | QA-SI-NO-SPLIT-MECHANICS; QA-SI-NO-ROLE-PRIVATE-CODES |
+| **False-positive risk** | Low |
+| **Human review** | Optional |
+| **Pass criteria** | No forbidden language or codes |
+
+#### QA-SI-03 — No two-player private booklets
+
+| Field | Value |
+|---|---|
+| **Purpose** | One knowledge state |
+| **Failure condition** | `BOOKLET_PEOPLE.md` or `BOOKLET_RECORDS.md` present in PLAYER |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Required inputs** | PLAYER directory |
+| **Metric** | QA-SI-NO-BOOKLET_* |
+| **False-positive risk** | Low |
+| **Human review** | None |
+| **Pass criteria** | Role booklets absent (dual-mode: solo package must not depend on them) |
+
+#### QA-SI-04 — One-player navigation
+
+| Field | Value |
+|---|---|
+| **Purpose** | Complete solo routing |
+| **Failure condition** | Navigation index references two-player booklets **or** playable solo scenes lack inbound references from start |
+| **Severity** | Major |
+| **Automatable** | Partial |
+| **Tier** | A+B |
+| **Required inputs** | Navigation index; scene package; `start_scene` |
+| **Metric** | QA-SI-NAV-ONE-PLAYER; QA-SI-REACH |
+| **False-positive risk** | Medium — conditional edges need graph review |
+| **Human review** | Required if reachability partial |
+| **Pass criteria** | Nav solo-clean; all scenes reachable or conditional edges documented |
+
+#### QA-SI-05 — One knowledge state
+
+| Field | Value |
+|---|---|
+| **Purpose** | No second-player knowledge requirement |
+| **Failure condition** | Record sheet or solo scenes require partner-only knowledge |
+| **Severity** | Critical |
+| **Automatable** | Partial |
+| **Tier** | A+B |
+| **Required inputs** | Record sheet; scene package |
+| **Metric** | QA-SI-KNOWLEDGE |
+| **False-positive risk** | Medium |
+| **Human review** | Required for subtle gating |
+| **Pass criteria** | No mandatory partner-knowledge gates |
+
+#### QA-SI-06 — Inventory consistency
+
+| Field | Value |
+|---|---|
+| **Purpose** | One investigator owns items |
+| **Failure condition** | `inventory_owner` ≠ `investigator` **or** scenes require items only on absent role sheet |
+| **Severity** | Major |
+| **Automatable** | Partial |
+| **Tier** | A+B |
+| **Required inputs** | Manifest; character sheet; scene conditionals |
+| **Metric** | QA-SI-INVENTORY |
+| **False-positive risk** | Medium |
+| **Human review** | Required for item gates |
+| **Pass criteria** | Manifest correct; no absent-role item gates |
+
+#### QA-SI-07 — Clock consistency
+
+| Field | Value |
+|---|---|
+| **Purpose** | One world clock |
+| **Failure condition** | Invalid `clock_model` **or** parallel split-window timing in solo package |
+| **Severity** | Major |
+| **Automatable** | Partial |
+| **Tier** | A |
+| **Required inputs** | Manifest; scene package time costs |
+| **Metric** | QA-SI-CLOCK |
+| **False-positive risk** | Low |
+| **Human review** | Optional |
+| **Pass criteria** | `single_sequential` or `single_world_clock`; no split timing |
+
+#### QA-SI-08 — Solo wall-clock estimate
+
+| Field | Value |
+|---|---|
+| **Purpose** | One-player playtime target |
+| **Failure condition** | `wall_clock_target_minutes` missing or non-positive **or** compilation uses §5.4 two-player formula |
+| **Severity** | Major |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Required inputs** | Manifest; compilation report |
+| **Metric** | QA-SI-PLAYTIME; QA-SI-PLAYTIME-VALUE; QA-TM-04 (solo formula) |
+| **False-positive risk** | Medium |
+| **Human review** | Optional |
+| **Pass criteria** | Target declared; §5.4.1 used in reports |
+
+#### QA-SI-09 — Ending evaluation for one investigator
+
+| Field | Value |
+|---|---|
+| **Purpose** | No two-player-only ending dependency |
+| **Failure condition** | Endings require split completion, both roles, or partner flags |
+| **Severity** | Critical |
+| **Automatable** | Partial |
+| **Tier** | A+B |
+| **Required inputs** | Endings file; ending matrix |
+| **Metric** | QA-SI-ENDING |
+| **False-positive risk** | Medium |
+| **Human review** | Required |
+| **Pass criteria** | Endings evaluable on solo sheet alone |
+
+#### QA-SI-10 — Mandatory conclusions achievable
+
+| Field | Value |
+|---|---|
+| **Purpose** | Fair solo path to proof |
+| **Failure condition** | No valid solo path obtains all mandatory proof tags / conclusion requirements |
+| **Severity** | Critical |
+| **Automatable** | Partial |
+| **Tier** | A+B |
+| **Required inputs** | Logic graph; clue grants; solo scene package |
+| **Metric** | Proof dependency closure on solo graph |
+| **False-positive risk** | Medium |
+| **Human review** | Required |
+| **Pass criteria** | ≥1 fair path achieves all mandatory conclusions |
+
+#### QA-SI-11 — No false PASS on two-player content
+
+| Field | Value |
+|---|---|
+| **Purpose** | Prevent ignoring Player 2 |
+| **Failure condition** | Solo declared but only two-player booklets exist without unified scene package |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Required inputs** | PLAYER layout; manifest |
+| **Metric** | QA-SI-NO-FALSE-PASS |
+| **False-positive risk** | Low |
+| **Human review** | None |
+| **Pass criteria** | Unified solo package present and validated |
+
+#### QA-SI-12 — Dual-mode routing complete
+
+| Field | Value |
+|---|---|
+| **Purpose** | Both modes fully authored |
+| **Failure condition** | `play_modes` lists both modes but `two_player` routing incomplete |
+| **Severity** | Major |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Required inputs** | Manifest `two_player` block |
+| **Metric** | QA-SI-DUAL-MODE |
+| **False-positive risk** | Low |
+| **Human review** | None |
+| **Pass criteria** | Both routing blocks complete when both modes declared |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -803,12 +996,16 @@ Run as scripts/CI on every generation:
 `QA-SP-03`, `QA-NS-01`, `QA-NS-04`, `QA-ST-01`, `QA-FA-01`, `QA-IN-02`, `QA-CL-01`, `QA-CL-04`, `QA-RC-01`, `QA-RC-03`, `QA-NV-01`, `QA-NV-02`, `QA-NV-03`, `QA-TM-04`  
 Plus partial automation feeding B: `QA-SP-01`, `QA-FA-02`, `QA-CL-03`, `QA-RC-02`, `QA-NV-04`, `QA-TM-03`, `QA-FR-01`, `QA-FR-05`
 
+When `single_investigator` is declared, also run: `python3 -m idne.single_investigator_validate` (covers QA-SI-01–03, 04 partial, 06–08, 09 partial, 11, 12).
+
 ### B. AI-reviewable
 
 Structured prompts with mandatory evidence citations (file + quote). AI may **flag**, not waive:
 
 All Partial/No automatable checks above, especially:  
 `QA-SP-02`, `QA-SP-04`, `QA-NS-02`, `QA-NS-03`, `QA-ST-02`, `QA-ST-03`, `QA-ST-04`, `QA-FA-03`, `QA-IN-01`, `QA-IN-03`, `QA-CL-02`, `QA-RC-04`, `QA-NV-05`, `QA-TM-01`, `QA-TM-02`, `QA-FR-02`, `QA-FR-03`, `QA-FR-04`
+
+For solo adventures, also review: `QA-SI-04`, `QA-SI-05`, `QA-SI-06`, `QA-SI-09`, `QA-SI-10` (QA-SI-CONCLUSIONS).
 
 **AI review rule:** Every FAIL must quote player-facing text. Every PASS on Critical B-checks must state why the Harborview-class failure is absent.
 
@@ -842,7 +1039,8 @@ Minimum automated harness:
 5. **Clue mode auditor** — Auto ∩ proof-critical.  
 6. **Role grant auditor** — proof-critical %.  
 7. **Continuation linter** — missing Go-to / Continue.  
-8. **Estimate formula checker** — reject sum-of-roles.
+8. **Estimate formula checker** — reject sum-of-roles for solo; enforce §5.4.1 when `single_investigator` declared.  
+9. **Single investigator validator** — `idne.single_investigator_validate` on adventures declaring solo mode.
 
 Automations emit machine-readable JSON consumed by the QA report template.
 

@@ -18,7 +18,11 @@ A reusable specification for creating fair-play interactive detective gamebooks.
 
 ## Current milestone
 
-Build and review Engine Specification 2.0 before beginning the first complete adventure implementation.
+**Milestone 1 — Single Investigator Mode** (in progress on branch `cursor/single-investigator-mode-bad4`).
+
+Normative spec: `SINGLE_INVESTIGATOR_MODE_SPEC.md`. Engine §6.8 and §0.5. Validation: `python3 -m idne.single_investigator_validate`.
+
+Later milestones (World-First Generation, Environment System, Object Interaction, Investigation Rewrite) are **not** started.
 
 ## First reference adventure
 

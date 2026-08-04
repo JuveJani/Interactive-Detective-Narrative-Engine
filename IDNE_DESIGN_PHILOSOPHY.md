@@ -264,7 +264,7 @@ Important unknowns that philosophy should not pretend to settle:
 
 | Open question | Why it matters |
 |---|---|
-| Solo DM-simulation model | Two-player was tested; solo identity is still underspecified |
+| Solo DM-simulation model | **Specified** in Milestone 1 — `single_investigator` play mode (`SINGLE_INVESTIGATOR_MODE_SPEC.md`, Engine §6.8). Distinct from two-player cooperative play. |
 | How open is “open investigation”? | Full sandbox vs constrained action menus vs free text intent — unresolved |
 | Digital vs print primacy | Philosophy allows both; no playtest of a live simulator |
 | How much combat / coercion / illegality | Realism vs playable ethics boundaries untouched |
