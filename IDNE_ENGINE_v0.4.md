@@ -169,6 +169,8 @@ ENVIRONMENT PACKAGE (Environment System — Milestone 3)
         ↓
 OBJECT INTERACTION PACKAGE (Object Interaction — Milestone 4)
         ↓
+INVESTIGATION FLOW PACKAGE (Investigation Flow & Endings — Milestone 5C)
+        ↓
 WORLD BIBLE (objective adventure truth — human-readable summary)
         ↓
 ADVENTURE LOGIC (playable simulation structure)
@@ -191,6 +193,7 @@ Lower layers MUST NOT redefine facts owned by higher layers.
 | World Truth Package | Fixed truth, timeline, NPC knowledge, evidence provenance (machine) | Player wording |
 | Environment Package | Locations, states, features, navigation, revisit rules (machine) | Inventing location state at delivery |
 | Object Interaction Package | Objects, actions, check bindings, result units (machine) | Creating evidence via checks; clue grants in scenes |
+| Investigation Flow Package | State-driven flow, scene chains, ending graph, accusation eval (machine) | Redefining Investigation Core proof or NPC conversation models |
 | World Bible | What actually happened; NPC knowledge/beliefs; fixed timeline (human summary) | Player wording |
 | Adventure Logic | Actions, conditions, costs, state updates, knowledge grants, endings triggers | Public page numbers as primary IDs |
 | Delivery Adapter | Viewpoint filtering, player wording, public conditions, layout | Invent consequences; change truth; expose internal IDs |
@@ -591,6 +594,8 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 **Milestone 3 (Environment System):** normative location model, schema, and validation are defined via `ENVIRONMENT_SYSTEM_SPEC.md` and `environment_manifest.json`. Reference environment adventures are not required for closure.
 
 **Milestone 4 (Object Interaction System):** normative object model, schema, and validation are defined via `OBJECT_INTERACTION_SYSTEM_SPEC.md` and `object_interaction_manifest.json`. Reference object-interaction adventures are not required for closure.
+
+**Milestone 5C (Investigation Flow & Ending System):** normative state-driven investigation flow and ending architecture; see `INVESTIGATION_FLOW_SPEC.md`, `ENDING_SYSTEM_SPEC.md`, and `investigation_flow_manifest.json`.
 
 ---
 
