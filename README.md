@@ -26,7 +26,11 @@ Normative spec: `SINGLE_INVESTIGATOR_MODE_SPEC.md`. Engine §6.8 and §0.5. Vali
 
 Normative spec: `WORLD_FIRST_GENERATION_SPEC.md`. Validation: `python3 -m idne.world_first_validate`.
 
-Later milestones (Environment System, Object Interaction, Investigation Rewrite) are **not** started.
+**Milestone 3 — Environment System** (complete).
+
+Normative spec: `ENVIRONMENT_SYSTEM_SPEC.md`. Validation: `python3 -m idne.environment_validate`.
+
+Later milestones (Object Interaction, Investigation Rewrite) are **not** started.
 
 ## First reference adventure
 

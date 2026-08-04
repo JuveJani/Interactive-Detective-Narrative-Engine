@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "FIXTURE_ENV_VALID",
+  "start_location_id": "LOC-LOBBY",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "locations": [
+    {
+      "location_id": "LOC-BUILDING",
+      "public_name": "Harborview Arcade",
+      "parent_location_id": null,
+      "location_type": "building",
+      "description_source": "DESC-BUILDING",
+      "world_first_provenance": {
+        "event_ids": [],
+        "fact_ids": [],
+        "explicit_adventure_extension": true
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-LOBBY",
+      "public_name": "Ground-floor lobby",
+      "parent_location_id": "LOC-BUILDING",
+      "location_type": "interior",
+      "description_source": "DESC-LOBBY",
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-001"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-OFFICE",
+      "public_name": "Manager's office",
+      "parent_location_id": "LOC-LOBBY",
+      "location_type": "interior_room",
+      "description_source": "DESC-OFFICE",
+      "world_first_provenance": {
+        "event_ids": [],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-BASEMENT",
+      "public_name": "Basement storage",
+      "parent_location_id": "LOC-BUILDING",
+      "location_type": "interior",
+      "description_source": "DESC-BASEMENT",
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-002"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    }
+  ],
+  "location_states": [
+    {
+      "state_id": "LOC-LOBBY:default",
+      "location_id": "LOC-LOBBY",
+      "variant_label": "default",
+      "attributes": {
+        "access": "open",
+        "occupied": "staff_present",
+        "lighting": "lit"
+      },
+      "cause": {
+        "type": "initial",
+        "ref": "authoring"
+      }
+    },
+    {
+      "state_id": "LOC-BASEMENT:secured",
+      "location_id": "LOC-BASEMENT",
+      "variant_label": "secured",
+      "attributes": {
+        "access": "locked",
+        "evidence_present": "true"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-001"
+      },
+      "trigger_event_id": null
+    },
+    {
+      "state_id": "LOC-BASEMENT:open",
+      "location_id": "LOC-BASEMENT",
+      "variant_label": "open_after_key",
+      "attributes": {
+        "access": "open",
+        "evidence_present": "true"
+      },
+      "cause": {
+        "type": "world_time",
+        "ref": "T2"
+      },
+      "active_from_clock": "T2",
+      "trigger_event_id": null
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "FEAT-OFFICE-DOOR",
+      "location_id": "LOC-LOBBY",
+      "feature_type": "door",
+      "visibility": "on_arrival",
+      "broad_state": "closed",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": []
+      }
+    },
+    {
+      "feature_id": "FEAT-BASEMENT-DOOR",
+      "location_id": "LOC-LOBBY",
+      "feature_type": "door",
+      "visibility": "after_entering",
+      "broad_state": "secured",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-002"
+        ]
+      }
+    }
+  ],
+  "navigation": [
+    {
+      "nav_id": "NAV-LOBBY-OFFICE",
+      "source_location_id": "LOC-LOBBY",
+      "destination_location_id": "LOC-OFFICE",
+      "player_label": "Enter the manager's office.",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "location_state",
+        "location_id": "LOC-OFFICE",
+        "attribute": "access",
+        "value": "open"
+      },
+      "return_nav_id": "NAV-OFFICE-LOBBY",
+      "hidden_destination_id": "LOC-OFFICE"
+    },
+    {
+      "nav_id": "NAV-OFFICE-LOBBY",
+      "source_location_id": "LOC-OFFICE",
+      "destination_location_id": "LOC-LOBBY",
+      "player_label": "Return to the corridor.",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-LOBBY"
+    },
+    {
+      "nav_id": "NAV-LOBBY-BASEMENT",
+      "source_location_id": "LOC-LOBBY",
+      "destination_location_id": "LOC-BASEMENT",
+      "player_label": "Go down to the basement.",
+      "travel_cost_minutes": 5,
+      "access_condition": {
+        "type": "location_state",
+        "location_id": "LOC-BASEMENT",
+        "attribute": "access",
+        "value": "open"
+      },
+      "return_nav_id": "NAV-BASEMENT-LOBBY",
+      "hidden_destination_id": "LOC-BASEMENT"
+    },
+    {
+      "nav_id": "NAV-BASEMENT-LOBBY",
+      "source_location_id": "LOC-BASEMENT",
+      "destination_location_id": "LOC-LOBBY",
+      "player_label": "Climb back to the lobby.",
+      "travel_cost_minutes": 5,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-LOBBY"
+    }
+  ],
+  "state_transitions": [
+    {
+      "transition_id": "TR-BASEMENT-OPEN",
+      "location_id": "LOC-BASEMENT",
+      "from_state_id": "LOC-BASEMENT:secured",
+      "to_state_id": "LOC-BASEMENT:open",
+      "cause": {
+        "type": "world_time",
+        "ref": "T2"
+      },
+      "persists_on_revisit": true
+    }
+  ],
+  "revisit_rules": {
+    "persist_physical_changes": true,
+    "persist_acquired_objects": true,
+    "persist_open_access": true,
+    "suppress_repeat_one_time_observations": true,
+    "allow_time_variants": true,
+    "reset_to_initial_on_revisit": false
+  },
+  "mandatory_locations": [
+    {
+      "location_id": "LOC-BASEMENT",
+      "access": "impossible",
+      "reason": "proof_evidence"
+    }
+  ],
+  "player_content_refs": {
+    "files": [
+      "PLAYER/LOCATIONS.md"
+    ]
+  }
+}
