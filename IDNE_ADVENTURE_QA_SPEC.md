@@ -1490,6 +1490,64 @@ Harness: `python3 -m idne.story_validate <adventure_root>`
 
 ---
 
+### 5.21 Playtime Calibration (Milestone 9)
+
+Applies when `playtime_calibration_manifest.json` declares `playtime_calibration_method: canonical`.
+
+Harness: `python3 -m idne.playtime_validate <adventure_root>`
+
+#### PT-GATE-01 — Playtime package valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | Wall-clock estimate within target bands |
+| **Failure condition** | Any PT automated Tier A check FAIL or BLOCKED |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### PT-FORMULA-01 — Correct estimation formula
+
+| Field | Value |
+|---|---|
+| **Purpose** | Solo §5.4.1 sequential sum; two-player max-branch formula |
+| **Failure condition** | Parallel times summed; mutex content summed |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### PT-TARGET-01 — Target compliance
+
+| Field | Value |
+|---|---|
+| **Purpose** | Median expected path within authored target bands |
+| **Failure condition** | Hard fail outside 75–140% of target |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### PT-SCARCITY-01 — Time scarcity effective
+
+| Field | Value |
+|---|---|
+| **Purpose** | In-world deadline creates real trade-offs |
+| **Failure condition** | Exhaustive exploration fits when scarcity intended |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### PT-CAL-01 — Playtest calibration
+
+| Field | Value |
+|---|---|
+| **Purpose** | Prediction error tracked; no single-playtest default change |
+| **Failure condition** | Single observation alters defaults |
+| **Severity** | Major |
+| **Automatable** | Partial |
+| **Tier** | A+B |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -1602,6 +1660,8 @@ When `capability_check_method` is `canonical`, also run: `python3 -m idne.capabi
 When `investigation_validator_method` is `canonical`, also run: `python3 -m idne.investigation_validate` (covers IV-GATE-01, IV-CHAIN-01, IV-INFER-01, IV-RECOVERY-01, IV-ACCESS-01, IV-CHECK-01, IV-NPC-01, IV-TIME-01, IV-ENDING-01, IV-PLAYER-01, IV-GRAPH-01).
 
 When `story_validator_method` is `canonical`, also run: `python3 -m idne.story_validate` (covers SV-GATE-01, SV-TIMELINE-01, SV-CAUSAL-01, SV-INFO-01, SV-KNOWLEDGE-01, SV-PLAYER-01, SV-ENDING-01, SV-PLAIN-01).
+
+When `playtime_calibration_method` is `canonical`, also run: `python3 -m idne.playtime_validate` (covers PT-GATE-01, PT-FORMULA-01, PT-TARGET-01, PT-SCARCITY-01, PT-CAL-01).
 
 ### B. AI-reviewable
 

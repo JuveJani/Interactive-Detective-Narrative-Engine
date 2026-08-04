@@ -618,6 +618,8 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 
 **Milestone 8 (Story Validator):** story understandability and coherence validator; see `STORY_VALIDATOR_SPEC.md` and `story_validator_manifest.json`.
 
+**Milestone 9 (Playtime Calibration):** canonical wall-clock playtime estimation and validation; see `PLAYTIME_CALIBRATION_SPEC.md` and `playtime_calibration_manifest.json`.
+
 ---
 
 ## 15. Complexity budget (guidance, not identity)
