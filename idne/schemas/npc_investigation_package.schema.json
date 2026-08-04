@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.dev/schemas/npc_investigation_package.schema.json",
+  "title": "IDNE NPC Investigation Package",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "adventure_id",
+    "npcs",
+    "npc_graph",
+    "information_known_model",
+    "topics",
+    "conversation_graph",
+    "trust_model"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "adventure_id": { "type": "string" },
+    "investigation_core_links": {
+      "type": "object",
+      "properties": {
+        "package_path": { "type": "string" }
+      }
+    },
+    "npcs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/npc" }
+    },
+    "npc_graph": { "$ref": "#/$defs/npc_graph" },
+    "information_known_model": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/information_known_entry" }
+    },
+    "topics": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/topic" }
+    },
+    "conversation_graph": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/conversation" }
+    },
+    "trust_model": { "$ref": "#/$defs/trust_model" },
+    "relationship_reactions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/relationship_reaction" }
+    },
+    "testimony_links": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/testimony_link" }
+    }
+  },
+  "$defs": {
+    "npc": {
+      "type": "object",
+      "required": ["npc_id", "static_properties", "initial_dynamic_state"],
+      "properties": {
+        "npc_id": { "type": "string" },
+        "public_name": { "type": "string" },
+        "static_properties": { "$ref": "#/$defs/static_properties" },
+        "relationships": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/relationship" }
+        },
+        "initial_dynamic_state": { "$ref": "#/$defs/dynamic_state" }
+      }
+    },
+    "static_properties": {
+      "type": "object",
+      "required": [
+        "motivation",
+        "honesty",
+        "deception",
+        "manipulation",
+        "loyalty",
+        "fear"
+      ],
+      "properties": {
+        "motivation": { "type": "string" },
+        "honesty": { "type": "number", "minimum": 0, "maximum": 1 },
+        "deception": { "type": "number", "minimum": 0, "maximum": 1 },
+        "manipulation": { "type": "number", "minimum": 0, "maximum": 1 },
+        "loyalty": { "type": "string" },
+        "fear": { "type": "string" }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "required": ["target_npc_id", "relationship_type"],
+      "properties": {
+        "target_npc_id": { "type": "string" },
+        "relationship_type": { "type": "string" },
+        "strength": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "dynamic_state": {
+      "type": "object",
+      "required": [
+        "trust",
+        "information_known",
+        "revealed_topics",
+        "suspicion",
+        "pressure"
+      ],
+      "properties": {
+        "trust": { "type": "number" },
+        "information_known": { "type": "array", "items": { "type": "string" } },
+        "revealed_topics": { "type": "array", "items": { "type": "string" } },
+        "suspicion": { "type": "number" },
+        "pressure": { "type": "number" }
+      }
+    },
+    "npc_graph": {
+      "type": "object",
+      "required": ["nodes"],
+      "properties": {
+        "nodes": { "type": "array", "items": { "type": "string" } },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["from_npc_id", "to_npc_id", "relationship_type"],
+            "properties": {
+              "from_npc_id": { "type": "string" },
+              "to_npc_id": { "type": "string" },
+              "relationship_type": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "information_known_entry": {
+      "type": "object",
+      "required": ["info_id", "npc_id", "knowledge_id"],
+      "properties": {
+        "info_id": { "type": "string" },
+        "npc_id": { "type": "string" },
+        "knowledge_id": { "type": "string" },
+        "topic_id": { "type": "string" }
+      }
+    },
+    "topic": {
+      "type": "object",
+      "required": ["topic_id", "unlock_conditions"],
+      "properties": {
+        "topic_id": { "type": "string" },
+        "unlock_conditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/unlock_condition" }
+        }
+      }
+    },
+    "unlock_condition": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "trust_threshold",
+            "knowledge_held",
+            "player_action",
+            "world_state",
+            "world_time",
+            "object_discovered",
+            "information_known"
+          ]
+        },
+        "npc_id": { "type": "string" },
+        "min": { "type": "number" },
+        "knowledge_id": { "type": "string" },
+        "object_id": { "type": "string" },
+        "clock": { "type": "string" },
+        "info_id": { "type": "string" }
+      }
+    },
+    "conversation": {
+      "type": "object",
+      "required": [
+        "conversation_id",
+        "npc_id",
+        "route_conditions",
+        "nodes"
+      ],
+      "properties": {
+        "conversation_id": { "type": "string" },
+        "npc_id": { "type": "string" },
+        "entry_topic_id": { "type": "string" },
+        "route_conditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/route_condition" }
+        },
+        "nodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/conversation_node" }
+        }
+      }
+    },
+    "route_condition": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "trust",
+            "information",
+            "player_action",
+            "world_state",
+            "world_time",
+            "object_discovered"
+          ]
+        },
+        "npc_id": { "type": "string" },
+        "min": { "type": "number" },
+        "knowledge_id": { "type": "string" },
+        "object_id": { "type": "string" },
+        "clock": { "type": "string" }
+      }
+    },
+    "conversation_node": {
+      "type": "object",
+      "required": ["node_id", "player_label", "npc_response_unit"],
+      "properties": {
+        "node_id": { "type": "string" },
+        "player_label": { "type": "string", "minLength": 1 },
+        "npc_response_unit": { "type": "string" },
+        "unlocks_topic_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "requires": {
+          "type": "object",
+          "properties": {
+            "trust_min": { "type": "number" }
+          }
+        }
+      }
+    },
+    "trust_model": {
+      "type": "object",
+      "required": ["default_range"],
+      "properties": {
+        "default_range": {
+          "type": "object",
+          "required": ["min", "max"],
+          "properties": {
+            "min": { "type": "number" },
+            "max": { "type": "number" }
+          }
+        },
+        "not_globally_positive": { "type": "boolean" },
+        "negative_trust_documented": { "type": "boolean" },
+        "modifiers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/trust_modifier" }
+        }
+      }
+    },
+    "trust_modifier": {
+      "type": "object",
+      "required": ["modifier_id", "trigger"],
+      "properties": {
+        "modifier_id": { "type": "string" },
+        "trigger": { "type": "string" },
+        "target_npc_id": { "type": "string" },
+        "subject_npc_id": { "type": "string" },
+        "relationship_reaction": {
+          "type": "object",
+          "properties": {
+            "if_relationship": { "type": "string" },
+            "trust_delta": { "type": "number" }
+          }
+        }
+      }
+    },
+    "relationship_reaction": {
+      "type": "object",
+      "required": ["reaction_id", "actor_npc_id", "trigger", "target_npc_id"],
+      "properties": {
+        "reaction_id": { "type": "string" },
+        "actor_npc_id": { "type": "string" },
+        "trigger": { "type": "string" },
+        "target_npc_id": { "type": "string" },
+        "relationship_type": { "type": "string" },
+        "trust_delta": { "type": "number" },
+        "suspicion_delta": { "type": "number" }
+      }
+    },
+    "testimony_link": {
+      "type": "object",
+      "properties": {
+        "testimony_id": { "type": "string" },
+        "conversation_node_id": { "type": "string" },
+        "grants_knowledge_id": { "type": "string" }
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
 **Document type:** Official development lifecycle  
 **Applies to:** Every future IDNE adventure from idea to release  
 **Status:** Normative process (does not modify the engine, QA spec, or adventures)  
-**Aligned with:** `IDNE_ENGINE_v0.4.md`, `IDNE_DESIGN_PHILOSOPHY.md`, `IDNE_ADVENTURE_QA_SPEC.md`, `ADVENTURE_QA_REPORT_TEMPLATE.md`, `SINGLE_INVESTIGATOR_MODE_SPEC.md`, `WORLD_FIRST_GENERATION_SPEC.md`, `ENVIRONMENT_SYSTEM_SPEC.md`, `OBJECT_INTERACTION_SYSTEM_SPEC.md`
+**Aligned with:** `IDNE_ENGINE_v0.4.md`, `IDNE_DESIGN_PHILOSOPHY.md`, `IDNE_ADVENTURE_QA_SPEC.md`, `ADVENTURE_QA_REPORT_TEMPLATE.md`, `SINGLE_INVESTIGATOR_MODE_SPEC.md`, `WORLD_FIRST_GENERATION_SPEC.md`, `ENVIRONMENT_SYSTEM_SPEC.md`, `OBJECT_INTERACTION_SYSTEM_SPEC.md`, `INVESTIGATION_CORE_SPEC.md`
 
 ---
 
@@ -134,9 +134,11 @@ It exists to scale to **hundreds of adventures** without:
 1. Fixed Truth → … → Conclusions (gates G-WF1–G-WF6)  
 2. Environment Package (locations, states, navigation — `ENVIRONMENT_SYSTEM_SPEC.md`)  
 3. Object Interaction Package (objects, actions, checks — `OBJECT_INTERACTION_SYSTEM_SPEC.md`)  
-4. Investigation Flow Package (`INVESTIGATION_FLOW_SPEC.md`, `ENDING_SYSTEM_SPEC.md`) — when Investigation Core / NPC layers exist, link them; do not redesign  
-5. Adventure Logic (actions, costs, state updates)  
-6. Delivery Adapter → PLAYER (after World-First, environment, object, and flow gates when declared)
+4. Investigation Core Package (`INVESTIGATION_CORE_SPEC.md`)  
+5. NPC Investigation Package (`NPC_INVESTIGATION_SYSTEM_SPEC.md`)  
+6. Investigation Flow Package (`INVESTIGATION_FLOW_SPEC.md`, `ENDING_SYSTEM_SPEC.md`)  
+7. Adventure Logic (actions, costs, state updates)  
+8. Delivery Adapter → PLAYER (after World-First, environment, object, investigation, NPC, and flow gates when declared)
 
 **Order for legacy (non-World-First):**
 
@@ -153,7 +155,7 @@ It exists to scale to **hundreds of adventures** without:
 | Field | Value |
 |---|---|
 | **Purpose** | Prove structural completeness — necessary, **never sufficient** for release |
-| **Required inputs** | Generated package; hygiene validators; `world_first_validate`; `environment_validate`; `object_interaction_validate`; `investigation_flow_validate` when declared; `single_investigator_validate` when declared |
+| **Required inputs** | Generated package; hygiene validators; `world_first_validate`; `environment_validate`; `object_interaction_validate`; `investigation_core_validate`; `npc_investigation_validate`; `investigation_flow_validate` when declared; `single_investigator_validate` when declared |
 | **Expected outputs** | Hygiene report (identifiers, reachability, terminals, clue inventory, sheet fit) |
 | **Exit criteria** | Hygiene PASS (or documented non-play-blocking exceptions) |
 | **Responsible actor** | **Script** primary; **Human** reviews failures |
@@ -426,7 +428,8 @@ Maintain a small **regression fixture list** (not the entire library):
 - `tests/fixtures/solo_minimal` and `tests/fixtures/solo_invalid_split` for Single Investigator regression
 - `tests/fixtures/wf_valid_minimal` and failure-class WF fixtures for World-First regression
 - `tests/fixtures/env_valid_minimal` and failure-class ENV fixtures for Environment regression
-- `tests/fixtures/obj_valid_nested` and failure-class OBJ fixtures for Object Interaction regression
+- `tests/fixtures/obj_valid_nested` and failure-class OBJ fixtures
+- `tests/fixtures/inv_core_valid_minimal` and failure-class INV fixtures
 
 Generator or Engine changes must run fixtures before merge.
 

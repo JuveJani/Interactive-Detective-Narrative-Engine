@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.dev/schemas/investigation_core_package.schema.json",
+  "title": "IDNE Investigation Core Package",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "adventure_id",
+    "world_facts",
+    "knowledge",
+    "conclusions",
+    "proofs"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "adventure_id": { "type": "string" },
+    "world_facts": { "type": "array", "minItems": 1 },
+    "observations": { "type": "array" },
+    "physical_evidence": { "type": "array" },
+    "testimony": { "type": "array" },
+    "knowledge": { "type": "array", "minItems": 1 },
+    "relationships": { "type": "array" },
+    "hypotheses": { "type": "array" },
+    "conclusions": { "type": "array", "minItems": 1 },
+    "proofs": { "type": "array", "minItems": 1 },
+    "compatibility_clue_map": { "type": "array" },
+    "acquisition_rules": { "type": "array" },
+    "investigation_driven_by_clues": { "type": "boolean" }
+  }
+}

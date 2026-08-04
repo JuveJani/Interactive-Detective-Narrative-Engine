@@ -34,11 +34,19 @@ Normative spec: `ENVIRONMENT_SYSTEM_SPEC.md`. Validation: `python3 -m idne.envir
 
 Normative spec: `OBJECT_INTERACTION_SYSTEM_SPEC.md`. Validation: `python3 -m idne.object_interaction_validate`.
 
+**Milestone 5A — Investigation Core** (complete).
+
+Normative spec: `INVESTIGATION_CORE_SPEC.md`. Validation: `python3 -m idne.investigation_core_validate`.
+
+**Milestone 5B — NPC Investigation System** (complete).
+
+Normative spec: `NPC_INVESTIGATION_SYSTEM_SPEC.md`. Validation: `python3 -m idne.npc_investigation_validate`.
+
 **Milestone 5C — Investigation Flow & Ending System** (complete).
 
 Normative specs: `INVESTIGATION_FLOW_SPEC.md`, `ENDING_SYSTEM_SPEC.md`. Validation: `python3 -m idne.investigation_flow_validate`.
 
-Later milestones (Investigation Core 5A, NPC Investigation 5B, Capability Check Rewrite) may land on separate branches; this milestone uses Investigation Core links when present.
+Later milestones (Capability Check Rewrite, etc.) are **not** started.
 
 ## First reference adventure
 
