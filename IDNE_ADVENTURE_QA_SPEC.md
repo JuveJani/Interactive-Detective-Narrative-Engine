@@ -1102,6 +1102,34 @@ Harness: `python3 -m idne.object_interaction_validate <adventure_root>`
 
 ---
 
+### 5.15 Investigation Core (Milestone 5A)
+
+Applies when `investigation_manifest.json` declares `investigation_method: canonical`.
+
+Harness: `python3 -m idne.investigation_core_validate <adventure_root>`
+
+#### INV-GATE-01 — Investigation package valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | Knowledge/proof model replaces clue-driven logic |
+| **Failure condition** | Any INV automated check FAIL |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### INV-LEGACY-01 — Clues compatibility-only
+
+| Field | Value |
+|---|---|
+| **Purpose** | Legacy CLUE IDs do not drive investigation |
+| **Failure condition** | `investigation_driven_by_clues` or conclusion flagged clue-driven |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -1202,6 +1230,8 @@ When `generation_method` is `world_first`, also run: `python3 -m idne.world_firs
 When `environment_method` is `canonical`, also run: `python3 -m idne.environment_validate` (covers ENV-GATE-01, ENV-BARE-01 automated checks).
 
 When `object_interaction_method` is `canonical`, also run: `python3 -m idne.object_interaction_validate` (covers OBJ-GATE-01, OBJ-CHECK-01, OBJ-BARE-01).
+
+When `investigation_method` is `canonical`, also run: `python3 -m idne.investigation_core_validate` (covers INV-GATE-01, INV-LEGACY-01).
 
 ### B. AI-reviewable
 
