@@ -3,7 +3,7 @@
 **Document type:** Official development lifecycle  
 **Applies to:** Every future IDNE adventure from idea to release  
 **Status:** Normative process (does not modify the engine, QA spec, or adventures)  
-**Aligned with:** `IDNE_ENGINE_v0.4.md`, `IDNE_DESIGN_PHILOSOPHY.md`, `IDNE_ADVENTURE_QA_SPEC.md`, `ADVENTURE_QA_REPORT_TEMPLATE.md`, `SINGLE_INVESTIGATOR_MODE_SPEC.md`, `WORLD_FIRST_GENERATION_SPEC.md`
+**Aligned with:** `IDNE_ENGINE_v0.4.md`, `IDNE_DESIGN_PHILOSOPHY.md`, `IDNE_ADVENTURE_QA_SPEC.md`, `ADVENTURE_QA_REPORT_TEMPLATE.md`, `SINGLE_INVESTIGATOR_MODE_SPEC.md`, `WORLD_FIRST_GENERATION_SPEC.md`, `ENVIRONMENT_SYSTEM_SPEC.md`
 
 ---
 
@@ -131,9 +131,10 @@ It exists to scale to **hundreds of adventures** without:
 
 **Order inside generation (mandatory for World-First):**
 
-1. Fixed Truth → Causal Timeline → World States → NPC Knowledge → Evidence → Observable → Conclusions (gates G-WF1–G-WF6)  
-2. Adventure Logic (actions, costs, state, endings)  
-3. Delivery Adapter → PLAYER (only after G-WF7)
+1. Fixed Truth → … → Conclusions (gates G-WF1–G-WF6)  
+2. Environment Package (locations, states, navigation — `ENVIRONMENT_SYSTEM_SPEC.md`)  
+3. Adventure Logic (actions, costs, state, endings)  
+4. Delivery Adapter → PLAYER (only after G-WF7 and environment validation when declared)
 
 **Order for legacy (non-World-First):**
 
@@ -150,7 +151,7 @@ It exists to scale to **hundreds of adventures** without:
 | Field | Value |
 |---|---|
 | **Purpose** | Prove structural completeness — necessary, **never sufficient** for release |
-| **Required inputs** | Generated package; hygiene validators; `world_first_validate` when World-First declared; `single_investigator_validate` when solo declared |
+| **Required inputs** | Generated package; hygiene validators; `world_first_validate` when World-First declared; `environment_validate` when Environment declared; `single_investigator_validate` when solo declared |
 | **Expected outputs** | Hygiene report (identifiers, reachability, terminals, clue inventory, sheet fit) |
 | **Exit criteria** | Hygiene PASS (or documented non-play-blocking exceptions) |
 | **Responsible actor** | **Script** primary; **Human** reviews failures |
@@ -422,6 +423,7 @@ Maintain a small **regression fixture list** (not the entire library):
 - At least one known failure corpus snippet per Critical QA class (can be minimized excerpts)  
 - `tests/fixtures/solo_minimal` and `tests/fixtures/solo_invalid_split` for Single Investigator regression
 - `tests/fixtures/wf_valid_minimal` and failure-class WF fixtures for World-First regression
+- `tests/fixtures/env_valid_minimal` and failure-class ENV fixtures for Environment regression
 
 Generator or Engine changes must run fixtures before merge.
 

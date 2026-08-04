@@ -1010,6 +1010,49 @@ When World-First is **not** declared, all WF checks are **N/A** (validator `SKIP
 
 ---
 
+### 5.13 Environment System
+
+Applies when `environment_manifest.json` declares `environment_method: canonical`.
+
+Harness: `python3 -m idne.environment_validate <adventure_root>`
+
+#### ENV-GATE-01 — Environment package valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | Locations are canonical, not scene-invented |
+| **Failure condition** | Any ENV automated check FAIL |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Metric** | Validator check IDs |
+| **Pass criteria** | All ENV-* PASS |
+
+#### ENV-BARE-01 — No bare node codes in player choices
+
+| Field | Value |
+|---|---|
+| **Purpose** | Diegetic navigation |
+| **Failure condition** | Player-facing label is only `J-/P-/R-` code |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Metric** | ENV-BARE-CODE |
+| **Pass criteria** | No bare codes in scanned PLAYER files |
+
+#### ENV-B-01 — Neutral environment prose
+
+| Field | Value |
+|---|---|
+| **Purpose** | No solution spotlight in place descriptions |
+| **Failure condition** | Stylistic emphasis on solution-critical feature |
+| **Severity** | Critical |
+| **Automatable** | No |
+| **Tier** | B |
+| **Human review** | Required |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -1106,6 +1149,8 @@ Plus partial automation feeding B: `QA-SP-01`, `QA-FA-02`, `QA-CL-03`, `QA-RC-02
 When `single_investigator` is declared, also run: `python3 -m idne.single_investigator_validate` (covers QA-SI-01–03, 04 partial, 06–08, 09 partial, 11, 12).
 
 When `generation_method` is `world_first`, also run: `python3 -m idne.world_first_validate` (covers WF-GATE-01, WF-TIMELINE-01, WF-NPC-01, WF-EVIDENCE-01, WF-CONCLUSION-01 partial, WF-NARRATIVE-01 partial).
+
+When `environment_method` is `canonical`, also run: `python3 -m idne.environment_validate` (covers ENV-GATE-01, ENV-BARE-01 automated checks).
 
 ### B. AI-reviewable
 

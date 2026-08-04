@@ -206,7 +206,7 @@ Legacy adventures without this manifest are **not** World-First validated (valid
 | `single_investigator` | Supported — observable layer mode-independent |
 | `two_player` | Supported — split scenes compile from same truth package |
 | Harborview / Glass Alibi | Not modified — legacy generation |
-| Environment System | Not in scope (Milestone 3+) |
+| Environment System | **Specified** in Milestone 3 — `ENVIRONMENT_SYSTEM_SPEC.md` |
 | Object Interaction System | Not in scope (Milestone 4+) |
 
 ---
