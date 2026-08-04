@@ -1,0 +1,2 @@
+You arrive at the manager's office on Monday morning at nine o'clock. The police called you to investigate a theft that occurred yesterday evening at nineteen fifty-five. Your client needs answers before the deadline tonight.
+Cryptanalysis forensic spectrometry analysis required.

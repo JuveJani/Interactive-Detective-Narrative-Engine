@@ -616,6 +616,8 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 
 **Milestone 7 (Investigation Validator):** integrated end-to-end investigability validator; see `INVESTIGATION_VALIDATOR_SPEC.md` and `investigation_validator_manifest.json`.
 
+**Milestone 8 (Story Validator):** story understandability and coherence validator; see `STORY_VALIDATOR_SPEC.md` and `story_validator_manifest.json`.
+
 ---
 
 ## 15. Complexity budget (guidance, not identity)

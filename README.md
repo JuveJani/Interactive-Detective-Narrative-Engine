@@ -54,7 +54,11 @@ Normative spec: `CAPABILITY_CHECK_SYSTEM_SPEC.md`. Validation: `python3 -m idne.
 
 Normative spec: `INVESTIGATION_VALIDATOR_SPEC.md`. Validation: `python3 -m idne.investigation_validate`.
 
-Later milestones (Playtime Calibration, Story Validator) are **not** started.
+**Milestone 8 — Story Validator** (complete).
+
+Normative spec: `STORY_VALIDATOR_SPEC.md`. Validation: `python3 -m idne.story_validate`.
+
+Later milestones (Playtime Calibration) are **not** started.
 
 ## First reference adventure
 
