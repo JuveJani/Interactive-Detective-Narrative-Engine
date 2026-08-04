@@ -38,7 +38,11 @@ Normative spec: `OBJECT_INTERACTION_SYSTEM_SPEC.md`. Validation: `python3 -m idn
 
 Normative spec: `INVESTIGATION_CORE_SPEC.md`. Validation: `python3 -m idne.investigation_core_validate`.
 
-Later milestones (Investigation 5B+, Capability Check Rewrite) are **not** started.
+**Milestone 5B — NPC Investigation System** (complete).
+
+Normative spec: `NPC_INVESTIGATION_SYSTEM_SPEC.md`. Validation: `python3 -m idne.npc_investigation_validate`.
+
+Later milestones (Capability Check Rewrite, etc.) are **not** started.
 
 ## First reference adventure
 

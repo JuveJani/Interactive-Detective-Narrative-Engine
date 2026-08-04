@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "inv_core_valid_minimal",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "world_facts": [
+    {
+      "fact_id": "WF-001",
+      "statement": "Victim fell at stairwell",
+      "immutable": true
+    },
+    {
+      "fact_id": "WF-002",
+      "statement": "NPC-A pushed victim",
+      "immutable": true
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "OBS-001",
+      "description": "Fresh scuff on railing",
+      "location_id": "LOC-OFFICE",
+      "acquisition": {
+        "via": "environment_visibility",
+        "ref": "on_arrival"
+      }
+    }
+  ],
+  "physical_evidence": [
+    {
+      "evidence_id": "EVD-001",
+      "description": "Wet mop",
+      "provenance": {
+        "world_fact_id": "WF-002",
+        "source_event_id": "EVT-002"
+      },
+      "establishes_knowledge_ids": [
+        "KNOW-002"
+      ]
+    }
+  ],
+  "testimony": [
+    {
+      "testimony_id": "TEST-001",
+      "source_npc_id": "NPC-B",
+      "content_knowledge_id": "KNOW-003",
+      "asserts_world_fact_id": null,
+      "dialogue_system": false
+    }
+  ],
+  "knowledge": [
+    {
+      "knowledge_id": "KNOW-001",
+      "statement": "Scuff marks are fresh",
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-001",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-002",
+      "statement": "Mop wet after incident",
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-001",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-003",
+      "statement": "Witness heard argument",
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-001",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-004",
+      "statement": "NPC-A had opportunity",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-001",
+        "interaction_required": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "REL-001",
+      "type": "supports",
+      "from_id": "KNOW-002",
+      "to_id": "KNOW-004"
+    },
+    {
+      "relationship_id": "REL-002",
+      "type": "contradicts",
+      "from_id": "KNOW-003",
+      "to_id": "KNOW-ORPHAN-RED",
+      "resolution": "red_herring",
+      "allow_unresolved_red_herring": true
+    }
+  ],
+  "hypotheses": [
+    {
+      "hypothesis_id": "HYP-001",
+      "statement": "Custodian present at scene",
+      "requires_knowledge_ids": [
+        "KNOW-001",
+        "KNOW-002"
+      ],
+      "yields_knowledge_id": "KNOW-004",
+      "player_synthesis_required": true
+    }
+  ],
+  "conclusions": [
+    {
+      "conclusion_id": "CONC-CULPRIT",
+      "category": "culprit",
+      "answer_entity_id": "NPC-A",
+      "legacy_clue_id": "CLUE-C06",
+      "investigation_driven_by_clue": false
+    }
+  ],
+  "proofs": [
+    {
+      "proof_id": "PROOF-A",
+      "conclusion_id": "CONC-CULPRIT",
+      "required_knowledge_ids": [
+        "KNOW-002",
+        "KNOW-004"
+      ],
+      "claims_independence": true,
+      "independent_knowledge_subset": [
+        "KNOW-002"
+      ]
+    },
+    {
+      "proof_id": "PROOF-B",
+      "conclusion_id": "CONC-CULPRIT",
+      "required_knowledge_ids": [
+        "KNOW-001",
+        "KNOW-003",
+        "KNOW-004"
+      ],
+      "claims_independence": true,
+      "independent_knowledge_subset": [
+        "KNOW-001",
+        "KNOW-003"
+      ]
+    }
+  ],
+  "compatibility_clue_map": [
+    {
+      "legacy_clue_id": "CLUE-C06",
+      "knowledge_id": "KNOW-002",
+      "compatibility_only": true
+    }
+  ],
+  "acquisition_rules": [
+    {
+      "knowledge_id": "KNOW-001",
+      "requires_interaction": true,
+      "source_layer": "observation"
+    }
+  ],
+  "optional_knowledge": [
+    {
+      "knowledge_id": "KNOW-ORPHAN-RED",
+      "optional_flavour": true
+    }
+  ]
+}
