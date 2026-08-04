@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "cap_capability_mismatch",
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "npcs": [
+    {
+      "npc_id": "NPC-A",
+      "public_name": "Custodian",
+      "static_properties": {
+        "motivation": "job",
+        "honesty": 0.5,
+        "deception": 0.3,
+        "manipulation": 0.2,
+        "loyalty": "employer",
+        "fear": "arrest"
+      },
+      "relationships": [],
+      "initial_dynamic_state": {
+        "trust": 40,
+        "information_known": [
+          "INFO-NPC-B-1"
+        ],
+        "revealed_topics": [],
+        "suspicion": 10,
+        "pressure": 0
+      }
+    },
+    {
+      "npc_id": "NPC-B",
+      "public_name": "Witness",
+      "static_properties": {
+        "motivation": "safety",
+        "honesty": 0.8,
+        "deception": 0.1,
+        "manipulation": 0.1,
+        "loyalty": "family",
+        "fear": "retaliation"
+      },
+      "relationships": [],
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [
+          "INFO-NPC-B-1"
+        ],
+        "revealed_topics": [],
+        "suspicion": 5,
+        "pressure": 0
+      }
+    }
+  ],
+  "npc_graph": {
+    "nodes": [
+      "NPC-A",
+      "NPC-B"
+    ],
+    "edges": []
+  },
+  "information_known_model": [
+    {
+      "info_id": "INFO-NPC-B-1",
+      "npc_id": "NPC-B",
+      "knowledge_id": "KNOW-SECRET",
+      "topic_id": "TOPIC-1"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "TOPIC-1",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-B",
+          "min": 20
+        }
+      ]
+    }
+  ],
+  "conversation_graph": [],
+  "trust_model": {
+    "default_range": {
+      "min": 0,
+      "max": 100
+    },
+    "not_globally_positive": true,
+    "modifiers": []
+  },
+  "relationship_reactions": [],
+  "testimony_links": []
+}

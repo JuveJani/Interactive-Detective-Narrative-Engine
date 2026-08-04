@@ -133,12 +133,13 @@ It exists to scale to **hundreds of adventures** without:
 
 1. Fixed Truth → … → Conclusions (gates G-WF1–G-WF6)  
 2. Environment Package (locations, states, navigation — `ENVIRONMENT_SYSTEM_SPEC.md`)  
-3. Object Interaction Package (objects, actions, checks — `OBJECT_INTERACTION_SYSTEM_SPEC.md`)  
-4. Investigation Core Package (`INVESTIGATION_CORE_SPEC.md`)  
-5. NPC Investigation Package (`NPC_INVESTIGATION_SYSTEM_SPEC.md`)  
-6. Investigation Flow Package (`INVESTIGATION_FLOW_SPEC.md`, `ENDING_SYSTEM_SPEC.md`)  
-7. Adventure Logic (actions, costs, state updates)  
-8. Delivery Adapter → PLAYER (after World-First, environment, object, investigation, NPC, and flow gates when declared)
+3. Object Interaction Package (objects, actions — `OBJECT_INTERACTION_SYSTEM_SPEC.md`)  
+4. Capability Check Package (`CAPABILITY_CHECK_SYSTEM_SPEC.md`)  
+5. Investigation Core Package (`INVESTIGATION_CORE_SPEC.md`)  
+6. NPC Investigation Package (`NPC_INVESTIGATION_SYSTEM_SPEC.md`)  
+7. Investigation Flow Package (`INVESTIGATION_FLOW_SPEC.md`, `ENDING_SYSTEM_SPEC.md`)  
+8. Adventure Logic (actions, costs, state updates)  
+9. Delivery Adapter → PLAYER (after declared package gates)
 
 **Order for legacy (non-World-First):**
 
@@ -155,7 +156,7 @@ It exists to scale to **hundreds of adventures** without:
 | Field | Value |
 |---|---|
 | **Purpose** | Prove structural completeness — necessary, **never sufficient** for release |
-| **Required inputs** | Generated package; hygiene validators; `world_first_validate`; `environment_validate`; `object_interaction_validate`; `investigation_core_validate`; `npc_investigation_validate`; `investigation_flow_validate` when declared; `single_investigator_validate` when declared |
+| **Required inputs** | Generated package; hygiene validators; `world_first_validate`; `environment_validate`; `object_interaction_validate`; `capability_check_validate` when declared; `investigation_core_validate`; `npc_investigation_validate`; `investigation_flow_validate` when declared; `single_investigator_validate` when declared |
 | **Expected outputs** | Hygiene report (identifiers, reachability, terminals, clue inventory, sheet fit) |
 | **Exit criteria** | Hygiene PASS (or documented non-play-blocking exceptions) |
 | **Responsible actor** | **Script** primary; **Human** reviews failures |

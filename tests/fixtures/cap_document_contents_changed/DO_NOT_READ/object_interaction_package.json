@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "cap_document_contents_changed",
+  "objects": [
+    {
+      "object_id": "OBJ-DESK",
+      "parent_id": "LOC-OFFICE",
+      "parent_type": "location",
+      "initial_state": "unsearched",
+      "current_state": "unsearched"
+    },
+    {
+      "object_id": "OBJ-KEY-HIDDEN",
+      "parent_id": "OBJ-DESK",
+      "parent_type": "object",
+      "initial_state": "concealed",
+      "current_state": "concealed"
+    },
+    {
+      "object_id": "OBJ-CABINET",
+      "parent_id": "LOC-OFFICE",
+      "parent_type": "location",
+      "initial_state": "locked",
+      "current_state": "locked"
+    }
+  ],
+  "actions": [],
+  "result_units": []
+}
