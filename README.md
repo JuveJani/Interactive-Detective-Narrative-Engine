@@ -66,6 +66,10 @@ Normative spec: `PLAYTIME_CALIBRATION_SPEC.md`. Validation: `python3 -m idne.pla
 
 Normative spec: `DM_FEELING_VALIDATOR_SPEC.md`. Validation: `python3 -m idne.dm_feeling_validate`.
 
+**Milestone 11 — Adventure Generator v2** (complete).
+
+Normative spec: `ADVENTURE_GENERATOR_V2_SPEC.md`. Generation: `python3 -m idne.generate <brief>`. Integrated validation: `python3 -m idne.validate_adventure <adventure_root>`. Offline setup: `OFFLINE_SETUP_WINDOWS.md`.
+
 ## First reference adventure
 
 **The Last Witness**

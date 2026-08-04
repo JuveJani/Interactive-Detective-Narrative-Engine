@@ -125,8 +125,8 @@ It exists to scale to **hundreds of adventures** without:
 |---|---|
 | **Purpose** | Implement the brief as a fair mystery world + playable delivery |
 | **Required inputs** | Approved brief; engine v0.4; philosophy |
-| **Expected outputs** | `generation_manifest.json` + `world_truth_package.json` (World-First); `DO_NOT_READ/` World Bible + Logic; `PLAYER/` via Delivery Adapter; `play_manifest.json` when applicable; compilation report with §5.4 / §5.4.1 wall-clock |
-| **Exit criteria** | Package complete per brief; World-First gates G-WF1–G-WF7 PASS when declared; internal IDs stable; PLAYER spoiler-isolated |
+| **Expected outputs** | `generation_manifest.json` + `world_truth_package.json` (World-First); `DO_NOT_READ/` World Bible + Logic; `PLAYER/` via Delivery Adapter; `play_manifest.json` when applicable; compilation report with §5.4 / §5.4.1 wall-clock; optional `.idne` export (Milestone 11) |
+| **Exit criteria** | Package complete per brief; World-First gates G-WF1–G-WF7 PASS when declared; internal IDs stable; PLAYER spoiler-isolated; staged generator checkpoints resumable (`ADVENTURE_GENERATOR_V2_WORKFLOW.md`) |
 | **Responsible actor** | **AI** / generator primary; **Human** spot-checks scope drift |
 
 **Order inside generation (mandatory for World-First):**

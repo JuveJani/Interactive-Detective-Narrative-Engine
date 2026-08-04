@@ -1578,6 +1578,30 @@ Playtest questionnaire: `DM_FEELING_PLAYTEST_QUESTIONNAIRE.md` (Tier C).
 
 ---
 
+### 5.23 Adventure Generator v2 (Milestone 11)
+
+Integrated adventure validation harness:
+
+```bash
+python3 -m idne.validate_adventure <adventure_root>
+```
+
+#### AG-GATE-01 — Canonical adventure validation
+
+| Field | Value |
+|---|---|
+| **Purpose** | All mandatory Milestone 1–10 validators applicable to adventure |
+| **Failure condition** | Any mandatory validator FAIL or BLOCKED |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+Legacy adventures without canonical manifests MUST report SKIP (not PASS).
+
+Staged generation: `ADVENTURE_GENERATOR_V2_SPEC.md`, `python3 -m idne.generate`.
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
