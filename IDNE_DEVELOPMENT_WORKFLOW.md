@@ -3,7 +3,7 @@
 **Document type:** Official development lifecycle  
 **Applies to:** Every future IDNE adventure from idea to release  
 **Status:** Normative process (does not modify the engine, QA spec, or adventures)  
-**Aligned with:** `IDNE_ENGINE_v0.4.md`, `IDNE_DESIGN_PHILOSOPHY.md`, `IDNE_ADVENTURE_QA_SPEC.md`, `ADVENTURE_QA_REPORT_TEMPLATE.md`
+**Aligned with:** `IDNE_ENGINE_v0.4.md`, `IDNE_DESIGN_PHILOSOPHY.md`, `IDNE_ADVENTURE_QA_SPEC.md`, `ADVENTURE_QA_REPORT_TEMPLATE.md`, `SINGLE_INVESTIGATOR_MODE_SPEC.md`
 
 ---
 
@@ -112,7 +112,7 @@ It exists to scale to **hundreds of adventures** without:
 | **Purpose** | Lock design targets before content exists so generation is constrained, not freestyle |
 | **Required inputs** | Engine v0.4 complexity guidance; Design Philosophy Category A; product request (players, length, tone) |
 | **Expected outputs** | `ADVENTURE_BRIEF.md` (or adventure-scoped brief) — parameters only, **no story prose** |
-| **Exit criteria** | Human sign-off checklist complete; brief states players, wall-clock target, cast/location/clue budgets, cooperation/split targets, Infer/time gates to test |
+| **Exit criteria** | Brief states `play_modes`, player count, wall-clock target (§5.4 or §5.4.1 per mode), cast/location/clue budgets; cooperation/split targets when `two_player`; solo routing intent when `single_investigator` |
 | **Responsible actor** | **Human** owns approval; **AI** may draft |
 
 **Anti-mistake:** Do not generate World Bible or PLAYER before Brief Approved. Do not smuggle plot spoilers into the brief.
@@ -125,7 +125,7 @@ It exists to scale to **hundreds of adventures** without:
 |---|---|
 | **Purpose** | Implement the brief as a fair mystery world + playable delivery |
 | **Required inputs** | Approved brief; engine v0.4; philosophy |
-| **Expected outputs** | `DO_NOT_READ/` (World Bible + Logic); `PLAYER/` via Delivery Adapter; compilation report with §5.4 wall-clock formula |
+| **Expected outputs** | `DO_NOT_READ/` (World Bible + Logic); `PLAYER/` via Delivery Adapter; `play_manifest.json`; compilation report with §5.4 (two-player) or §5.4.1 (solo) wall-clock formula |
 | **Exit criteria** | Package complete per brief budget; internal IDs stable; PLAYER spoiler-isolated from DO_NOT_READ |
 | **Responsible actor** | **AI** / generator primary; **Human** spot-checks scope drift |
 
@@ -144,7 +144,7 @@ It exists to scale to **hundreds of adventures** without:
 | Field | Value |
 |---|---|
 | **Purpose** | Prove structural completeness — necessary, **never sufficient** for release |
-| **Required inputs** | Generated package; hygiene validators / scripts |
+| **Required inputs** | Generated package; hygiene validators / scripts; `single_investigator_validate` when manifest declares solo |
 | **Expected outputs** | Hygiene report (identifiers, reachability, terminals, clue inventory, sheet fit) |
 | **Exit criteria** | Hygiene PASS (or documented non-play-blocking exceptions) |
 | **Responsible actor** | **Script** primary; **Human** reviews failures |
@@ -414,6 +414,7 @@ Maintain a small **regression fixture list** (not the entire library):
 
 - Current reference / benchmark adventure(s)  
 - At least one known failure corpus snippet per Critical QA class (can be minimized excerpts)  
+- `tests/fixtures/solo_minimal` and `tests/fixtures/solo_invalid_split` for Single Investigator regression
 
 Generator or Engine changes must run fixtures before merge.
 

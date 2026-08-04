@@ -1,0 +1,3 @@
+# Nav
+
+See BOOKLET_PEOPLE.md

@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "FIXTURE_TWO_PLAYER_ONLY",
+  "play_modes": ["two_player"],
+  "two_player": {
+    "people_booklet": "PLAYER/BOOKLET_PEOPLE.md",
+    "records_booklet": "PLAYER/BOOKLET_RECORDS.md",
+    "joint_scenes": "PLAYER/JOINT_SCENES.md"
+  }
+}

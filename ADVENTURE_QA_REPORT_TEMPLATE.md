@@ -81,6 +81,11 @@ Paste machine summary or check boxes after script run.
 | QA-NV-02 | PASS / FAIL | | |
 | QA-NV-03 | PASS / FAIL | | |
 | QA-TM-04 | PASS / FAIL | | |
+| QA-SI-01 | PASS / FAIL / N/A | | Solo only — validator JSON |
+| QA-SI-02 | PASS / FAIL / N/A | | |
+| QA-SI-03 | PASS / FAIL / N/A | | |
+| QA-SI-04 | PASS / FAIL / N/A | | |
+| QA-SI-11 | PASS / FAIL / N/A | | |
 
 **Partial auto → escalate to Tier B:**
 
@@ -144,6 +149,10 @@ For each FAIL: quote player-facing text. For each Critical PASS: state why failu
 | QA-FR-02 | | Critical | | |
 | QA-FR-04 | | Major | | |
 | QA-FR-05 | | Critical | | |
+| QA-SI-05 | | Critical | | Solo only |
+| QA-SI-06 | | Major | | Solo only |
+| QA-SI-09 | | Critical | | Solo only |
+| QA-SI-10 | | Critical | | Solo only — conclusions path |
 
 ---
 
