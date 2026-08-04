@@ -1130,6 +1130,44 @@ Harness: `python3 -m idne.investigation_core_validate <adventure_root>`
 
 ---
 
+### 5.16 NPC Investigation System (Milestone 5B)
+
+Applies when `npc_investigation_manifest.json` declares `npc_investigation_method: canonical` (or `generation_manifest.npc_investigation.enabled`).
+
+Harness: `python3 -m idne.npc_investigation_validate <adventure_root>`
+
+#### NPC-GATE-01 — NPC investigation package valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | NPC trust, topics, and conversation routes are structurally complete |
+| **Failure condition** | Any NPC automated check FAIL |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### NPC-TRUST-01 — Trust not globally positive
+
+| Field | Value |
+|---|---|
+| **Purpose** | Relationship-conditioned trust deltas documented |
+| **Failure condition** | `not_globally_positive` without negative modifiers or `negative_trust_documented` |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### NPC-ROUTE-01 — Conversation routes declared
+
+| Field | Value |
+|---|---|
+| **Purpose** | Conversations open via trust, information, actions, world, time, or objects |
+| **Failure condition** | Conversation missing `route_conditions` or topic missing `unlock_conditions` |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -1232,6 +1270,8 @@ When `environment_method` is `canonical`, also run: `python3 -m idne.environment
 When `object_interaction_method` is `canonical`, also run: `python3 -m idne.object_interaction_validate` (covers OBJ-GATE-01, OBJ-CHECK-01, OBJ-BARE-01).
 
 When `investigation_method` is `canonical`, also run: `python3 -m idne.investigation_core_validate` (covers INV-GATE-01, INV-LEGACY-01).
+
+When `npc_investigation_method` is `canonical`, also run: `python3 -m idne.npc_investigation_validate` (covers NPC-GATE-01, NPC-TRUST-01, NPC-ROUTE-01).
 
 ### B. AI-reviewable
 

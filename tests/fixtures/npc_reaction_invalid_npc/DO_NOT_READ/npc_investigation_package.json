@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "npc_reaction_invalid_npc",
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "npcs": [
+    {
+      "npc_id": "NPC-A",
+      "public_name": "Custodian",
+      "static_properties": {
+        "motivation": "Protect job",
+        "honesty": 0.4,
+        "deception": 0.6,
+        "manipulation": 0.5,
+        "loyalty": "employer",
+        "fear": "arrest"
+      },
+      "relationships": [
+        {
+          "target_npc_id": "NPC-B",
+          "relationship_type": "rival",
+          "strength": 0.7
+        }
+      ],
+      "initial_dynamic_state": {
+        "trust": 40,
+        "information_known": [
+          "INFO-NPC-A-1"
+        ],
+        "revealed_topics": [],
+        "suspicion": 20,
+        "pressure": 10
+      }
+    },
+    {
+      "npc_id": "NPC-B",
+      "public_name": "Witness",
+      "static_properties": {
+        "motivation": "Avoid trouble",
+        "honesty": 0.8,
+        "deception": 0.2,
+        "manipulation": 0.1,
+        "loyalty": "family",
+        "fear": "retaliation"
+      },
+      "relationships": [
+        {
+          "target_npc_id": "NPC-A",
+          "relationship_type": "rival",
+          "strength": 0.6
+        }
+      ],
+      "initial_dynamic_state": {
+        "trust": 55,
+        "information_known": [
+          "INFO-NPC-B-1"
+        ],
+        "revealed_topics": [],
+        "suspicion": 5,
+        "pressure": 0
+      }
+    }
+  ],
+  "npc_graph": {
+    "nodes": [
+      "NPC-A",
+      "NPC-B"
+    ],
+    "edges": [
+      {
+        "from_npc_id": "NPC-A",
+        "to_npc_id": "NPC-B",
+        "relationship_type": "rival"
+      }
+    ]
+  },
+  "information_known_model": [
+    {
+      "info_id": "INFO-NPC-A-1",
+      "npc_id": "NPC-A",
+      "knowledge_id": "KNOW-002",
+      "topic_id": "TOPIC-MOP"
+    },
+    {
+      "info_id": "INFO-NPC-B-1",
+      "npc_id": "NPC-B",
+      "knowledge_id": "KNOW-003",
+      "topic_id": "TOPIC-ARGUMENT"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "TOPIC-ARGUMENT",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-B",
+          "min": 30
+        },
+        {
+          "type": "knowledge_held",
+          "knowledge_id": "KNOW-001"
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-MOP",
+      "unlock_conditions": [
+        {
+          "type": "object_discovered",
+          "object_id": "OBJ-DESK"
+        },
+        {
+          "type": "world_time",
+          "clock": "T1"
+        }
+      ]
+    }
+  ],
+  "conversation_graph": [
+    {
+      "conversation_id": "CONV-NPC-B-INTRO",
+      "npc_id": "NPC-B",
+      "entry_topic_id": "TOPIC-ARGUMENT",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-B",
+          "min": 30
+        }
+      ],
+      "nodes": [
+        {
+          "node_id": "CN-001",
+          "player_label": "Ask about the argument you heard.",
+          "npc_response_unit": "UNIT-RESP-001",
+          "unlocks_topic_ids": [
+            "TOPIC-MOP"
+          ],
+          "requires": {
+            "trust_min": 30
+          }
+        }
+      ]
+    }
+  ],
+  "trust_model": {
+    "default_range": {
+      "min": 0,
+      "max": 100
+    },
+    "not_globally_positive": true,
+    "modifiers": [
+      {
+        "modifier_id": "TRUST-ACCUSE-RIVAL",
+        "trigger": "player_accuses_npc",
+        "target_npc_id": "NPC-A",
+        "subject_npc_id": "NPC-B",
+        "relationship_reaction": {
+          "if_relationship": "rival",
+          "trust_delta": 15
+        }
+      },
+      {
+        "modifier_id": "TRUST-ACCUSE-ALLY",
+        "trigger": "player_accuses_npc",
+        "target_npc_id": "NPC-B",
+        "subject_npc_id": "NPC-A",
+        "relationship_reaction": {
+          "if_relationship": "ally",
+          "trust_delta": -20
+        }
+      }
+    ]
+  },
+  "relationship_reactions": [
+    {
+      "reaction_id": "REACT-ACCUSE-B",
+      "actor_npc_id": "NPC-Z",
+      "trigger": "accuse_npc",
+      "target_npc_id": "NPC-B",
+      "relationship_type": "rival",
+      "trust_delta": 10,
+      "suspicion_delta": 5
+    }
+  ],
+  "testimony_links": [
+    {
+      "testimony_id": "TEST-001",
+      "conversation_node_id": "CN-001",
+      "grants_knowledge_id": "KNOW-003"
+    }
+  ]
+}

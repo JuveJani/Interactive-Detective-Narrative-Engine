@@ -10,7 +10,7 @@
 
 Replace the legacy **clue-driven** investigation model with a canonical **investigation data model** linking world truth to player knowledge, hypotheses, conclusions, and proof.
 
-**Not in scope (5A):** NPC conversation systems, trust, InformationKnown, dialogue progression, ending evaluation, deadline endings, capability rewrite, inventory rewrite, retries, false checks.
+**Not in scope (5A):** NPC conversation systems, trust, InformationKnown, dialogue progression — deferred to **Milestone 5B** (`NPC_INVESTIGATION_SYSTEM_SPEC.md`). Ending evaluation, deadline endings, capability rewrite, inventory rewrite, retries, false checks remain out of scope.
 
 ---
 
@@ -91,7 +91,7 @@ Evidence existence is **not** check-dependent (Object Interaction Milestone 4 al
 
 Testimony records require `source_npc_id` and `content_knowledge_id` or `asserts_world_fact_id`.
 
-`dialogue_system: false` in 5A — no trust, branching dialogue, or InformationKnown.
+`dialogue_system: false` in 5A — testimony is structural only. Trust, branching dialogue, and InformationKnown are owned by **NPC Investigation (5B)**; Investigation Core IDs are referenced, not redefined.
 
 ---
 
@@ -143,4 +143,4 @@ Harborview-era clue registers remain for migration reference; new adventures use
 
 ## 13. Out of scope
 
-Ending evaluation, NPC conversation, capability rewrite, inventory, retries, false checks, adventure generation.
+Ending evaluation, capability rewrite, inventory, retries, false checks, adventure generation. NPC conversation/trust: see `NPC_INVESTIGATION_SYSTEM_SPEC.md` (5B).

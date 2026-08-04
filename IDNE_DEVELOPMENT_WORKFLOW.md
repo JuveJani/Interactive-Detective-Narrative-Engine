@@ -135,8 +135,9 @@ It exists to scale to **hundreds of adventures** without:
 2. Environment Package (locations, states, navigation — `ENVIRONMENT_SYSTEM_SPEC.md`)  
 3. Object Interaction Package  
 4. Investigation Core Package (`INVESTIGATION_CORE_SPEC.md`)  
-5. Adventure Logic  
-6. Delivery Adapter → PLAYER
+5. NPC Investigation Package (`NPC_INVESTIGATION_SYSTEM_SPEC.md`)  
+6. Adventure Logic  
+7. Delivery Adapter → PLAYER
 
 **Order for legacy (non-World-First):**
 
@@ -153,7 +154,7 @@ It exists to scale to **hundreds of adventures** without:
 | Field | Value |
 |---|---|
 | **Purpose** | Prove structural completeness — necessary, **never sufficient** for release |
-| **Required inputs** | Generated package; hygiene validators; `world_first_validate`; `environment_validate`; `object_interaction_validate`; `investigation_core_validate`; `single_investigator_validate` when declared |
+| **Required inputs** | Generated package; hygiene validators; `world_first_validate`; `environment_validate`; `object_interaction_validate`; `investigation_core_validate`; `npc_investigation_validate` when declared; `single_investigator_validate` when declared |
 | **Expected outputs** | Hygiene report (identifiers, reachability, terminals, clue inventory, sheet fit) |
 | **Exit criteria** | Hygiene PASS (or documented non-play-blocking exceptions) |
 | **Responsible actor** | **Script** primary; **Human** reviews failures |

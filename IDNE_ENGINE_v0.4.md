@@ -173,6 +173,8 @@ OBJECT INTERACTION PACKAGE (Object Interaction — Milestone 4)
         ↓
 INVESTIGATION CORE PACKAGE (Investigation Core — Milestone 5A)
         ↓
+NPC INVESTIGATION PACKAGE (NPC Investigation — Milestone 5B)
+        ↓
 WORLD BIBLE (objective adventure truth — human-readable summary)
         ↓
 ADVENTURE LOGIC (playable simulation structure)
@@ -196,6 +198,7 @@ Lower layers MUST NOT redefine facts owned by higher layers.
 | Environment Package | Locations, states, features, navigation, revisit rules (machine) | Inventing location state at delivery |
 | Object Interaction Package | Objects, actions, check bindings, result units (machine) | Creating evidence via checks; clue grants in scenes |
 | Investigation Core Package | Knowledge, proof, conclusions, relationships (machine) | Legacy clue-ID-driven investigation |
+| NPC Investigation Package | NPC static/dynamic state, trust, topics, conversation routes (machine) | Redefining Investigation Core knowledge or proof |
 | World Bible | What actually happened; NPC knowledge/beliefs; fixed timeline (human summary) | Player wording |
 | Adventure Logic | Actions, conditions, costs, state updates, knowledge grants, endings triggers | Public page numbers as primary IDs |
 | Delivery Adapter | Viewpoint filtering, player wording, public conditions, layout | Invent consequences; change truth; expose internal IDs |
@@ -598,6 +601,8 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 **Milestone 4 (Object Interaction System):** normative object model, schema, and validation are defined via `OBJECT_INTERACTION_SYSTEM_SPEC.md` and `object_interaction_manifest.json`. Reference object-interaction adventures are not required for closure.
 
 **Milestone 5A (Investigation Core):** normative investigation data model replacing clue-driven logic; see `INVESTIGATION_CORE_SPEC.md` and `investigation_manifest.json`.
+
+**Milestone 5B (NPC Investigation System):** normative NPC graph, conversation graph, trust model, InformationKnown, topic unlocking, and relationship reactions; see `NPC_INVESTIGATION_SYSTEM_SPEC.md` and `npc_investigation_manifest.json`.
 
 ---
 
