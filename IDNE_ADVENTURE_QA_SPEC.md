@@ -1392,6 +1392,104 @@ Harness: `python3 -m idne.investigation_validate <adventure_root>`
 
 ---
 
+### 5.20 Story Validator (Milestone 8)
+
+Applies when `story_validator_manifest.json` declares `story_validator_method: canonical`.
+
+Harness: `python3 -m idne.story_validate <adventure_root>`
+
+#### SV-GATE-01 — Story package valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | Mystery understandable and coherently communicated |
+| **Failure condition** | Any SV automated Tier A check FAIL or BLOCKED |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### SV-TIMELINE-01 — Timeline clarity
+
+| Field | Value |
+|---|---|
+| **Purpose** | Player-relevant events have unambiguous temporal frames |
+| **Failure condition** | Ambiguous day, contradictory times, unanchored relative references |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### SV-CAUSAL-01 — Causal coherence
+
+| Field | Value |
+|---|---|
+| **Purpose** | Important events have causes and supported consequences |
+| **Failure condition** | Missing cause, orphan consequence, disconnected motive/method |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### SV-INFO-01 — Information introduction
+
+| Field | Value |
+|---|---|
+| **Purpose** | Facts introduced before use with clear explanation |
+| **Failure condition** | Half-information, undefined entities, facts from nowhere |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### SV-KNOWLEDGE-01 — Knowledge order
+
+| Field | Value |
+|---|---|
+| **Purpose** | Scenes do not assume unavailable knowledge |
+| **Failure condition** | Dialogue or inference assumes undiscovered facts |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### SV-PLAYER-01 — PLAYER cross-check
+
+| Field | Value |
+|---|---|
+| **Purpose** | Story PASS requires actual PLAYER text |
+| **Failure condition** | PLAYER absent → BLOCKED; opening/frame mismatch |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### SV-ENDING-01 — Ending story coherence
+
+| Field | Value |
+|---|---|
+| **Purpose** | Endings follow causal chain and Fixed Truth |
+| **Failure condition** | Contradicts truth/timeline; imperfect leak |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### SV-PLAIN-01 — Plain-language clarity
+
+| Field | Value |
+|---|---|
+| **Purpose** | Measurable adult-readable prose |
+| **Failure condition** | Long sentences, undefined acronyms, excessive jargon, naming drift |
+| **Severity** | Major |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### SV-TIER-B — Mandatory semantic review
+
+| Field | Value |
+|---|---|
+| **Purpose** | Neutrality, engagement, believability, inference feel |
+| **Failure condition** | Unresolved `tier_b_mandatory` or Tier B findings |
+| **Severity** | Major |
+| **Automatable** | Partial |
+| **Tier** | B |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -1502,6 +1600,8 @@ When `investigation_flow_method` is `canonical`, also run: `python3 -m idne.inve
 When `capability_check_method` is `canonical`, also run: `python3 -m idne.capability_check_validate` (covers CAP-GATE-01, CAP-TRUTH-01, CAP-UNIT-01, CAP-FAIR-01).
 
 When `investigation_validator_method` is `canonical`, also run: `python3 -m idne.investigation_validate` (covers IV-GATE-01, IV-CHAIN-01, IV-INFER-01, IV-RECOVERY-01, IV-ACCESS-01, IV-CHECK-01, IV-NPC-01, IV-TIME-01, IV-ENDING-01, IV-PLAYER-01, IV-GRAPH-01).
+
+When `story_validator_method` is `canonical`, also run: `python3 -m idne.story_validate` (covers SV-GATE-01, SV-TIMELINE-01, SV-CAUSAL-01, SV-INFO-01, SV-KNOWLEDGE-01, SV-PLAYER-01, SV-ENDING-01, SV-PLAIN-01).
 
 ### B. AI-reviewable
 

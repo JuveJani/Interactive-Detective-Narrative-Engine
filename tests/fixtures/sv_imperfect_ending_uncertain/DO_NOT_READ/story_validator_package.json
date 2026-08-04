@@ -1,0 +1,264 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "sv_imperfect_ending_uncertain",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "story_frame": {
+    "investigation_starts_where": "manager's office",
+    "investigation_starts_when": "Monday morning nine o'clock",
+    "incident_description": "theft from the office",
+    "incident_when": "yesterday evening nineteen fifty-five",
+    "investigator_involvement": "police called you to investigate",
+    "deadline_or_constraint": "deadline tonight",
+    "reveals_culprit": false,
+    "reveals_motive": false,
+    "reveals_hidden_relationships": false,
+    "reveals_correct_priority": false
+  },
+  "timeline": {
+    "investigation_start": {
+      "label": "Monday 9am",
+      "anchor_id": "T-INV-START"
+    },
+    "incident_date": {
+      "label": "Sunday",
+      "anchor_id": "T-INCIDENT-DATE"
+    },
+    "incident_time": {
+      "label": "19:55",
+      "anchor_id": "T-INCIDENT-TIME"
+    },
+    "current_in_world_time": {
+      "label": "Monday 9am",
+      "anchor_id": "T-CURRENT"
+    },
+    "investigation_confused_with_incident": false,
+    "impossible_ordering": false,
+    "events": [
+      {
+        "event_id": "EVT-THEFT",
+        "label": "Office theft",
+        "anchor_id": "T-INCIDENT-DATE",
+        "ordering_index": 1,
+        "ambiguous_day": false,
+        "relative_without_anchor": false,
+        "silent_time_switch": false,
+        "contradicts": []
+      }
+    ],
+    "temporal_references": [
+      {
+        "ref_id": "REF-INCIDENT-TIME",
+        "text_fragment": "at nineteen fifty-five",
+        "maps_to_anchor": "T-INCIDENT-TIME",
+        "day_clear": true,
+        "contradictory": false
+      },
+      {
+        "ref_id": "REF-YESTERDAY",
+        "text_fragment": "yesterday evening",
+        "maps_to_anchor": "T-INCIDENT-DATE",
+        "day_clear": true,
+        "contradictory": false
+      }
+    ]
+  },
+  "causal_events": [
+    {
+      "event_id": "EVT-THEFT",
+      "cause_event_ids": [
+        "EVT-OFFICE-ENTRY"
+      ],
+      "consequences": [
+        "key hidden in desk"
+      ],
+      "actors": [
+        "NPC-A"
+      ],
+      "physical_traces": [
+        "OBS-KEY"
+      ],
+      "dependent_events": [
+        "EVT-SEARCH"
+      ],
+      "motive_connected": true,
+      "method_compatible_with_world": true,
+      "action_consistent_with_knowledge": true,
+      "ending_supported": true,
+      "missing_cause": false,
+      "orphan_consequence": false
+    }
+  ],
+  "information_facts": [
+    {
+      "fact_id": "FACT-KEY",
+      "term": "hidden key",
+      "first_mention_scene": "SCENE-OFFICE",
+      "explanation_scene": "SCENE-OFFICE",
+      "player_understandable_at_first_use": true,
+      "half_information": false,
+      "undefined_term": false,
+      "undefined_entity": false,
+      "used_before_introduction": false,
+      "explained_after_required_use": false,
+      "unexplained_pronoun": false,
+      "conflicting_duplicates": false,
+      "appears_from_nowhere": false
+    }
+  ],
+  "knowledge_order": [
+    {
+      "scene_id": "SCENE-OFFICE",
+      "unit_id": "UNIT-OFFICE",
+      "required_knowledge_ids": [
+        "KNOW-KEY"
+      ],
+      "possible_prior_knowledge_ids": [
+        "KNOW-KEY"
+      ],
+      "assumes_undiscovered_event": false,
+      "inference_terms_not_introduced": false,
+      "npc_assumes_unformulated_question": false,
+      "object_uses_hidden_background": false,
+      "ending_relies_on_unavailable_info": false
+    }
+  ],
+  "npc_consistency": [
+    {
+      "npc_id": "NPC-B",
+      "motivation_consistent": true,
+      "testimony_within_knowledge": true,
+      "actions_match_motivation": true,
+      "deception_has_motive": true,
+      "confession_has_pressure_or_evidence": true,
+      "suspicious_innocent_believable": true,
+      "guilty_not_highlighted_by_wording": true,
+      "trust_reaction_consistent": true,
+      "dialogue_within_knowledge": true,
+      "drama_only_behavior": false,
+      "sudden_cooperation_unexplained": false
+    }
+  ],
+  "location_object_continuity": [
+    {
+      "entity_id": "OBJ-DESK",
+      "entity_type": "object",
+      "introduced": true,
+      "moved_without_event": false,
+      "layout_changes_without_cause": false,
+      "removed_item_reappears": false,
+      "locked_described_open": false,
+      "references_inaccessible_area": false,
+      "revisit_ignores_changes": false,
+      "time_variant_not_reflected": false
+    }
+  ],
+  "narrative_neutrality": [
+    {
+      "entity_id": "SUSPECT-A",
+      "suspicious_quotation_marks": false,
+      "loaded_adjectives": false,
+      "loaded_description": false,
+      "asymmetric_detail": false,
+      "emphasis_spotlight": false,
+      "tier_b_review_required": false
+    }
+  ],
+  "inference_questions": [
+    {
+      "question_id": "INF-001",
+      "player_facing_text": "Where was the key hidden?",
+      "terms_defined": true,
+      "grammatically_clear": true,
+      "subject_explicit": true,
+      "facts_communicated_not_just_canonical": true,
+      "presupposes_answer": false,
+      "options_reveal_solution": false,
+      "understandable": true,
+      "undefined_terms": [],
+      "grammatically_unclear": false
+    }
+  ],
+  "opening_transitions": [
+    {
+      "transition_id": "OPEN-001",
+      "scene_id": "SCENE-OPEN",
+      "clear_purpose": true,
+      "player_knows_actions": true,
+      "causal_transition": true,
+      "unexplained_exposition": false,
+      "unexplained_jump": false,
+      "return_makes_sense": true,
+      "opening_lacks_incident_context": false,
+      "no_causal_explanation": false
+    }
+  ],
+  "ending_story": [
+    {
+      "ending_id": "END-PERFECT",
+      "ending_type": "perfect",
+      "causal_sequence": true,
+      "outcome_follows_actions": true,
+      "contradicts_fixed_truth": false,
+      "contradicts_timeline": false,
+      "imperfect_leaks_full_truth": false,
+      "claims_unsupported_certainty": false,
+      "coherently_explains_truth": true,
+      "intentionally_uncertain": false
+    },
+    {
+      "ending_id": "END-PARTIAL",
+      "ending_type": "imperfect",
+      "causal_sequence": true,
+      "outcome_follows_actions": true,
+      "contradicts_fixed_truth": false,
+      "contradicts_timeline": false,
+      "imperfect_leaks_full_truth": false,
+      "claims_unsupported_certainty": false,
+      "coherently_explains_truth": false,
+      "intentionally_uncertain": true
+    }
+  ],
+  "plain_language": {
+    "known_acronyms": [
+      "ID"
+    ],
+    "jargon_terms": [
+      "cryptanalysis",
+      "forensic",
+      "spectrometry"
+    ],
+    "entity_name_aliases": {
+      "Manager": [
+        "the manager",
+        "Mr. Hale"
+      ]
+    },
+    "entries": [
+      {
+        "source_ref": "PLAYER/OPENING.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      }
+    ]
+  },
+  "player_audit": {
+    "files": [
+      "PLAYER/OPENING.md",
+      "PLAYER/INVESTIGATION.md"
+    ],
+    "opening_file": "PLAYER/OPENING.md",
+    "story_frame_communicated": true,
+    "player_text_absent": false
+  },
+  "play_mode_constraints": {
+    "single_investigator_valid": true,
+    "two_player_valid": false
+  },
+  "tier_b_mandatory": []
+}
