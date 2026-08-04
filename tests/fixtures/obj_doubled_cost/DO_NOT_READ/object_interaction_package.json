@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "obj_doubled_cost",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "items_registry": [
+    {
+      "item_id": "ITEM-KEY",
+      "public_name": "Brass key"
+    }
+  ],
+  "objects": [
+    {
+      "object_id": "OBJ-DESK",
+      "parent_id": "LOC-OFFICE",
+      "parent_type": "location",
+      "public_name": "Desk",
+      "object_type": "furniture",
+      "initial_state": "unsearched",
+      "current_state": "unsearched",
+      "visible_description": "DESC-DESK",
+      "visibility_requirement": "after_entering",
+      "interaction_depth_required": "approached",
+      "world_first_source_event": "EVT-001",
+      "provenance": {
+        "event_ids": [
+          "EVT-001"
+        ]
+      }
+    },
+    {
+      "object_id": "OBJ-COMPUTER",
+      "parent_id": "OBJ-DESK",
+      "parent_type": "object",
+      "public_name": "Computer",
+      "object_type": "machine",
+      "initial_state": "powered",
+      "current_state": "powered",
+      "visible_description": "DESC-COMPUTER",
+      "visibility_requirement": "after_parent_approached"
+    },
+    {
+      "object_id": "OBJ-KEY-HIDDEN",
+      "parent_id": "OBJ-DESK",
+      "parent_type": "object",
+      "public_name": "Hidden key",
+      "object_type": "item_concealed",
+      "initial_state": "concealed",
+      "current_state": "concealed",
+      "visibility_requirement": "hidden_until_discovered",
+      "contains_information": [
+        "INFO-KEY-LOC"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-APPROACH-DESK",
+      "object_id": "OBJ-DESK",
+      "player_label": "Examine the desk.",
+      "interaction_depth": "approached",
+      "time_cost_minutes": 1,
+      "destination_unit": "UNIT-DESK-MENU",
+      "return_destination": "UNIT-OFFICE",
+      "requires_return": true,
+      "cost_applied_once": true
+    },
+    {
+      "action_id": "ACT-SEARCH-DESK",
+      "object_id": "OBJ-DESK",
+      "player_label": "Search the desk.",
+      "interaction_depth": "searched",
+      "time_cost_minutes": 2,
+      "return_destination": "UNIT-DESK-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "check_binding": {
+        "check_id": "CHK-PERCEPTION-DESK",
+        "capability": "perception",
+        "dc": 15,
+        "eligible_character": "investigator",
+        "one_attempt": true,
+        "success_destination": "UNIT-KEY-SUCCESS",
+        "failure_destination": "UNIT-KEY-FAIL",
+        "changes_world_truth": false,
+        "information_on_success": [
+          "INFO-KEY-LOC"
+        ],
+        "information_on_failure": []
+      },
+      "cost_applied_count": 2
+    },
+    {
+      "action_id": "ACT-LOGIN-COMPUTER",
+      "object_id": "OBJ-COMPUTER",
+      "player_label": "Attempt to log in to the computer.",
+      "interaction_depth": "accessed",
+      "time_cost_minutes": 2,
+      "destination_unit": "UNIT-COMPUTER-MENU",
+      "return_destination": "UNIT-DESK-MENU",
+      "requires_return": true,
+      "cost_applied_once": true
+    }
+  ],
+  "result_units": [
+    {
+      "unit_id": "UNIT-OFFICE",
+      "return_destination": "UNIT-OFFICE"
+    },
+    {
+      "unit_id": "UNIT-DESK-MENU",
+      "return_destination": "UNIT-OFFICE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-KEY-SUCCESS",
+      "reveals_information": [
+        "INFO-KEY-LOC"
+      ],
+      "reveals_child_objects": [
+        "OBJ-KEY-HIDDEN"
+      ],
+      "return_destination": "UNIT-DESK-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-KEY-FAIL",
+      "reveals_information": [],
+      "hints_missed_content": false,
+      "return_destination": "UNIT-DESK-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-COMPUTER-MENU",
+      "return_destination": "UNIT-DESK-MENU",
+      "requires_return": true
+    }
+  ],
+  "state_transitions": [
+    {
+      "transition_id": "TR-DESK-SEARCHED",
+      "object_id": "OBJ-DESK",
+      "cause": {
+        "type": "player_action",
+        "ref": "ACT-SEARCH-DESK"
+      },
+      "from_state": "unsearched",
+      "to_state": "searched",
+      "persists_on_revisit": true
+    }
+  ],
+  "revisit_rules": {
+    "persist_object_states": true,
+    "persist_discovered_information": true,
+    "reset_states_on_revisit": false
+  },
+  "mandatory_information": [
+    {
+      "info_id": "INFO-KEY-LOC",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    }
+  ],
+  "player_content_refs": {
+    "files": [
+      "PLAYER/OBJECTS.md"
+    ]
+  }
+}

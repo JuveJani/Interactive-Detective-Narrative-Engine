@@ -226,7 +226,7 @@ Legacy adventures without manifest: validator `SKIP`.
 | `two_player` | Supported — split scenes compile from same locations |
 | World-First Generation | Required linkage when truth package present |
 | Harborview / Glass Alibi | Not modified |
-| Object Interaction (M4) | Deferred |
+| Object Interaction (M4) | Specified in `OBJECT_INTERACTION_SYSTEM_SPEC.md` |
 
 ---
 

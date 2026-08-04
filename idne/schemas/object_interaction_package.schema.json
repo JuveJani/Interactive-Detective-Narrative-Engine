@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.dev/schemas/object_interaction_package.schema.json",
+  "title": "IDNE Object Interaction Package",
+  "type": "object",
+  "required": ["schema_version", "adventure_id", "objects", "actions", "result_units"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "adventure_id": { "type": "string" },
+    "objects": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/object" } },
+    "actions": { "type": "array", "items": { "$ref": "#/$defs/action" } },
+    "result_units": { "type": "array", "items": { "$ref": "#/$defs/result_unit" } },
+    "state_transitions": { "type": "array" },
+    "items_registry": { "type": "array" },
+    "mandatory_information": { "type": "array" },
+    "revisit_rules": { "type": "object" },
+    "world_first_links": { "type": "object" },
+    "environment_links": { "type": "object" },
+    "player_content_refs": { "type": "object" }
+  },
+  "$defs": {
+    "object": {
+      "type": "object",
+      "required": ["object_id", "parent_id", "parent_type", "public_name", "object_type"],
+      "properties": {
+        "object_id": { "type": "string" },
+        "parent_id": { "type": "string" },
+        "parent_type": { "enum": ["location", "object"] },
+        "public_name": { "type": "string" },
+        "object_type": { "type": "string" },
+        "initial_state": { "type": "string" },
+        "current_state": { "type": "string" },
+        "visibility_requirement": { "type": "string" },
+        "world_first_source_event": { "type": "string" },
+        "provenance": { "type": "object" }
+      }
+    },
+    "check_binding": {
+      "type": "object",
+      "required": ["check_id", "success_destination", "failure_destination"],
+      "properties": {
+        "check_id": { "type": "string" },
+        "capability": { "type": "string" },
+        "dc": { "type": "number" },
+        "eligible_character": { "type": "string" },
+        "one_attempt": { "type": "boolean" },
+        "success_destination": { "type": "string" },
+        "failure_destination": { "type": "string" },
+        "changes_world_truth": { "type": "boolean" },
+        "creates_evidence": { "type": "boolean" },
+        "determines_document_contents": { "type": "boolean" },
+        "information_on_success": { "type": "array" },
+        "information_on_failure": { "type": "array" }
+      }
+    },
+    "action": {
+      "type": "object",
+      "required": ["action_id", "object_id", "player_label"],
+      "properties": {
+        "action_id": { "type": "string" },
+        "object_id": { "type": "string" },
+        "player_label": { "type": "string" },
+        "time_cost_minutes": { "type": "number" },
+        "destination_unit": { "type": "string" },
+        "return_destination": { "type": "string" },
+        "check_binding": { "$ref": "#/$defs/check_binding" },
+        "cost_applied_once": { "type": "boolean" },
+        "inventory_requirement": { "type": "object" }
+      }
+    },
+    "result_unit": {
+      "type": "object",
+      "required": ["unit_id"],
+      "properties": {
+        "unit_id": { "type": "string" },
+        "reveals_information": { "type": "array" },
+        "return_destination": { "type": "string" },
+        "hints_missed_content": { "type": "boolean" }
+      }
+    }
+  }
+}

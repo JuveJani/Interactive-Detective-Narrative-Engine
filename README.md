@@ -30,7 +30,11 @@ Normative spec: `WORLD_FIRST_GENERATION_SPEC.md`. Validation: `python3 -m idne.w
 
 Normative spec: `ENVIRONMENT_SYSTEM_SPEC.md`. Validation: `python3 -m idne.environment_validate`.
 
-Later milestones (Object Interaction, Investigation Rewrite) are **not** started.
+**Milestone 4 — Object Interaction System** (complete).
+
+Normative spec: `OBJECT_INTERACTION_SYSTEM_SPEC.md`. Validation: `python3 -m idne.object_interaction_validate`.
+
+Later milestones (Investigation Rewrite, Capability Check Rewrite) are **not** started.
 
 ## First reference adventure
 
