@@ -171,6 +171,8 @@ ENVIRONMENT PACKAGE (Environment System — Milestone 3)
         ↓
 OBJECT INTERACTION PACKAGE (Object Interaction — Milestone 4)
         ↓
+CAPABILITY CHECK PACKAGE (Capability Check System — Milestone 6)
+        ↓
 INVESTIGATION CORE PACKAGE (Investigation Core — Milestone 5A)
         ↓
 NPC INVESTIGATION PACKAGE (NPC Investigation — Milestone 5B)
@@ -199,6 +201,7 @@ Lower layers MUST NOT redefine facts owned by higher layers.
 | World Truth Package | Fixed truth, timeline, NPC knowledge, evidence provenance (machine) | Player wording |
 | Environment Package | Locations, states, features, navigation, revisit rules (machine) | Inventing location state at delivery |
 | Object Interaction Package | Objects, actions, check bindings, result units (machine) | Creating evidence via checks; clue grants in scenes |
+| Capability Check Package | Check definitions, DC, destinations, fixed-world invariants (machine) | Changing Fixed Truth, document contents, or evidence existence |
 | Investigation Core Package | Knowledge, proof, conclusions, relationships (machine) | Legacy clue-ID-driven investigation |
 | NPC Investigation Package | NPC static/dynamic state, trust, topics, conversation routes (machine) | Redefining Investigation Core knowledge or proof |
 | Investigation Flow Package | State-driven flow, scene chains, ending graph, accusation eval (machine) | Redefining Investigation Core proof or NPC conversation models |
@@ -593,7 +596,7 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 - Multi-case campaigns;
 - Competitive / traitor modes;
 - Commercial print optimization;
-- Investigation Rewrite (5B+), Capability Check Rewrite, Playtime Calibration, Investigation Validator, Story Validator (later milestones);
+- Playtime Calibration, Investigation Validator, Story Validator (later milestones);
 
 **Milestone 1 (Single Investigator Mode):** normative rules and validation are defined in v0.4 via `SINGLE_INVESTIGATOR_MODE_SPEC.md` and §6.8. Reference solo adventures are not required for 0.4 closure.
 
@@ -608,6 +611,8 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 **Milestone 5B (NPC Investigation System):** normative NPC graph, conversation graph, trust model, InformationKnown, topic unlocking, and relationship reactions; see `NPC_INVESTIGATION_SYSTEM_SPEC.md` and `npc_investigation_manifest.json`.
 
 **Milestone 5C (Investigation Flow & Ending System):** normative state-driven investigation flow and ending architecture; see `INVESTIGATION_FLOW_SPEC.md`, `ENDING_SYSTEM_SPEC.md`, and `investigation_flow_manifest.json`.
+
+**Milestone 6 (Capability Check System):** normative capability-check model with fixed-world invariants; see `CAPABILITY_CHECK_SYSTEM_SPEC.md` and `capability_check_manifest.json`.
 
 ---
 

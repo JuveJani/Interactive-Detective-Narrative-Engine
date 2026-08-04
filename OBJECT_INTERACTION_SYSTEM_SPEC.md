@@ -13,6 +13,8 @@ Players interact with **persistent world objects** instead of receiving clues di
 
 Objects and hidden contents exist independently of check success. Checks determine perception, access, and understanding — never whether evidence exists.
 
+When `capability_check_method: canonical` is declared, full check definitions live in `CAPABILITY_CHECK_SYSTEM_SPEC.md`; Object Interaction `check_binding` references `check_id` only.
+
 **Mode-independent:** `single_investigator` and `two_player`.  
 **Adapter-compatible:** static book/PDF and future AI-DM.
 

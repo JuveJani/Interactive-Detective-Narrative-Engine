@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "cap_document_contents_changed",
+  "play_modes": [
+    "single_investigator",
+    "two_player"
+  ],
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "object_interaction_links": {
+    "package_path": "DO_NOT_READ/object_interaction_package.json"
+  },
+  "npc_investigation_links": {
+    "package_path": "DO_NOT_READ/npc_investigation_package.json"
+  },
+  "modifier_sources": [
+    {
+      "modifier_id": "MOD-PERCEPTION",
+      "capability_category": "perception_observation",
+      "source": "character_sheet.perception"
+    },
+    {
+      "modifier_id": "MOD-REASONING",
+      "capability_category": "reasoning_interpretation",
+      "source": "character_sheet.reasoning"
+    },
+    {
+      "modifier_id": "MOD-TECHNICAL",
+      "capability_category": "technical_operation",
+      "source": "character_sheet.technical"
+    },
+    {
+      "modifier_id": "MOD-STRENGTH",
+      "capability_category": "physical_strength",
+      "source": "character_sheet.strength"
+    },
+    {
+      "modifier_id": "MOD-PERSUADE",
+      "capability_category": "social_persuasion",
+      "source": "character_sheet.persuasion"
+    },
+    {
+      "modifier_id": "MOD-INTIMIDATE",
+      "capability_category": "social_intimidation",
+      "source": "character_sheet.intimidation"
+    }
+  ],
+  "resolution_model": {
+    "formula": "d20 + character_modifier",
+    "success_when": "result >= dc"
+  },
+  "difficulty_bands": {
+    "easy": 5,
+    "medium": 10,
+    "hard": 15
+  },
+  "destination_units": [
+    {
+      "unit_id": "UNIT-CHK-DECL",
+      "player_text": "Search the desk carefully.",
+      "exposes_success_content": false,
+      "exposes_failure_content": false
+    },
+    {
+      "unit_id": "UNIT-KEY-SUCCESS",
+      "player_text": "You notice something tucked beneath the papers.",
+      "reveals_hidden_object": false
+    },
+    {
+      "unit_id": "UNIT-KEY-FAIL",
+      "player_text": "You search the desk but find nothing useful.",
+      "hints_missed_content": false,
+      "reveals_hidden_object": false
+    },
+    {
+      "unit_id": "UNIT-LOGIN-SUCCESS",
+      "player_text": "The login succeeds."
+    },
+    {
+      "unit_id": "UNIT-LOGIN-FAIL",
+      "player_text": "The system rejects the attempt.",
+      "hints_missed_content": false
+    },
+    {
+      "unit_id": "UNIT-SOCIAL-SUCCESS",
+      "player_text": "She reluctantly answers."
+    },
+    {
+      "unit_id": "UNIT-SOCIAL-FAIL",
+      "player_text": "She refuses to discuss it.",
+      "hints_missed_content": false
+    },
+    {
+      "unit_id": "UNIT-COOP-SUCCESS",
+      "player_text": "Together you spot the detail."
+    },
+    {
+      "unit_id": "UNIT-COOP-FAIL",
+      "player_text": "Neither of you spots anything useful.",
+      "hints_missed_content": false
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "CHK-PERCEPTION-DESK",
+      "parent_action_id": "ACT-SEARCH-DESK",
+      "parent_action_layer": "object_interaction",
+      "parent_action_type": "search",
+      "player_action_label": "Search the desk carefully.",
+      "capability": "perception",
+      "capability_category": "perception_observation",
+      "modifier_source_id": "MOD-PERCEPTION",
+      "dc": 15,
+      "dc_justification": "Key concealed under loose papers; medium-hard perception",
+      "why_check_exists": "Concealed item may be missed",
+      "success_enables": "Notice key location",
+      "failure_consequence": "Key not found via this search",
+      "alternate_route_exists": true,
+      "alternate_route_id": "ALT-WITNESS-KEY",
+      "mandatory_for_fair_path": false,
+      "attempt_policy": {
+        "default": "one_attempt",
+        "retry_extension_point": "future_retry_policy"
+      },
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "cost_applied_count": 1,
+      "eligibility": {
+        "single_investigator": "active_investigator",
+        "two_player": "role_or_scene"
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": true,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "action_unit_id": "UNIT-CHK-DECL",
+        "success_destination": "UNIT-KEY-SUCCESS",
+        "failure_destination": "UNIT-KEY-FAIL"
+      },
+      "success_effects": {
+        "reveals_information_ids": [
+          "INFO-KEY-LOC"
+        ],
+        "grants_knowledge_ids": [
+          "KNOW-KEY"
+        ],
+        "npc_social_effects": []
+      },
+      "failure_effects": {
+        "reveals_information_ids": [],
+        "npc_social_effects": []
+      },
+      "information_trace": {
+        "fixed_truth_ref": "WF-KEY",
+        "source_layer": "object",
+        "source_id": "OBJ-KEY-HIDDEN",
+        "observation_id": "OBS-KEY"
+      }
+    },
+    {
+      "check_id": "CHK-TECH-LOGIN",
+      "parent_action_id": "ACT-LOGIN",
+      "parent_action_layer": "object_interaction",
+      "parent_action_type": "login",
+      "player_action_label": "Attempt to bypass the login screen.",
+      "capability": "technical",
+      "capability_category": "technical_operation",
+      "modifier_source_id": "MOD-TECHNICAL",
+      "dc": 10,
+      "dc_justification": "Standard office login; medium difficulty",
+      "why_check_exists": "Access may fail without technical skill",
+      "success_enables": "System access",
+      "failure_consequence": "Access denied; alternate witness route remains",
+      "alternate_route_exists": true,
+      "attempt_policy": {
+        "default": "one_attempt",
+        "retry_extension_point": "future_retry_policy"
+      },
+      "time_cost_minutes": 3,
+      "cost_applied_once": true,
+      "cost_applied_count": 1,
+      "eligibility": {
+        "single_investigator": "active_investigator"
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": false,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "action_unit_id": "UNIT-CHK-DECL",
+        "success_destination": "UNIT-LOGIN-SUCCESS",
+        "failure_destination": "UNIT-LOGIN-FAIL"
+      },
+      "success_effects": {
+        "grants_knowledge_ids": [
+          "KNOW-LOGIN"
+        ],
+        "npc_social_effects": []
+      },
+      "failure_effects": {
+        "npc_social_effects": []
+      },
+      "information_trace": {
+        "fixed_truth_ref": "WF-KEY",
+        "source_layer": "object",
+        "source_id": "OBJ-CABINET",
+        "observation_id": "OBS-LOGIN"
+      }
+    },
+    {
+      "check_id": "CHK-PERSUADE-WITNESS",
+      "parent_action_id": "ACT-TALK-B",
+      "parent_action_layer": "npc_interaction",
+      "parent_action_type": "persuade",
+      "player_action_label": "Press the witness gently for details.",
+      "capability": "persuasion",
+      "capability_category": "social_persuasion",
+      "modifier_source_id": "MOD-PERSUADE",
+      "dc": 10,
+      "dc_justification": "Witness is nervous but not hostile",
+      "why_check_exists": "Social leverage may open testimony",
+      "success_enables": "Witness shares held information",
+      "failure_consequence": "Witness stays guarded",
+      "alternate_route_exists": true,
+      "attempt_policy": {
+        "default": "one_attempt",
+        "retry_extension_point": "future_retry_policy"
+      },
+      "eligibility": {
+        "single_investigator": "active_investigator"
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": false,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "success_destination": "UNIT-SOCIAL-SUCCESS",
+        "failure_destination": "UNIT-SOCIAL-FAIL"
+      },
+      "success_effects": {
+        "grants_knowledge_ids": [
+          "KNOW-SECRET"
+        ],
+        "npc_social_effects": [
+          {
+            "npc_id": "NPC-B",
+            "trust_delta": 5
+          }
+        ]
+      },
+      "failure_effects": {
+        "npc_social_effects": [
+          {
+            "npc_id": "NPC-B",
+            "trust_delta": -2
+          }
+        ]
+      },
+      "information_trace": {
+        "fixed_truth_ref": "WF-KEY",
+        "source_layer": "npc",
+        "source_id": "NPC-B",
+        "knowledge_id": "KNOW-SECRET"
+      }
+    },
+    {
+      "check_id": "CHK-COOP-PERCEPTION",
+      "parent_action_id": "ACT-JOINT-SEARCH",
+      "parent_action_layer": "object_interaction",
+      "parent_action_type": "search",
+      "player_action_label": "Both investigators search the alcove together.",
+      "capability": "perception",
+      "capability_category": "perception_observation",
+      "modifier_source_id": "MOD-PERCEPTION",
+      "dc": 12,
+      "dc_justification": "Cooperative search; either may spot detail",
+      "why_check_exists": "Two investigators may cooperate",
+      "alternate_route_exists": true,
+      "attempt_policy": {
+        "default": "one_attempt",
+        "retry_extension_point": "future_retry_policy"
+      },
+      "eligibility": {
+        "two_player": "both_at_scene",
+        "cooperative_policy": {
+          "explicit_joint_attempt_allowed": true,
+          "higher_result_counts": true,
+          "free_second_player_retry": false
+        }
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": false,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "success_destination": "UNIT-COOP-SUCCESS",
+        "failure_destination": "UNIT-COOP-FAIL"
+      },
+      "success_effects": {
+        "grants_knowledge_ids": [
+          "KNOW-KEY"
+        ]
+      },
+      "failure_effects": {},
+      "information_trace": {
+        "fixed_truth_ref": "WF-KEY",
+        "source_id": "OBJ-KEY-HIDDEN",
+        "observation_id": "OBS-KEY"
+      }
+    }
+  ],
+  "player_content_refs": {
+    "files": [],
+    "action_units": []
+  }
+}

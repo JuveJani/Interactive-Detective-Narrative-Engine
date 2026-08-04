@@ -1216,6 +1216,54 @@ Harness: `python3 -m idne.investigation_flow_validate <adventure_root>`
 
 ---
 
+### 5.18 Capability Check System (Milestone 6)
+
+Applies when `capability_check_manifest.json` declares `capability_check_method: canonical`.
+
+Harness: `python3 -m idne.capability_check_validate <adventure_root>`
+
+#### CAP-GATE-01 — Capability check package valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | Checks respect fixed-world invariants |
+| **Failure condition** | Any CAP automated check FAIL |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### CAP-TRUTH-01 — Checks do not change Fixed Truth
+
+| Field | Value |
+|---|---|
+| **Purpose** | Evidence, documents, and truth remain fixed |
+| **Failure condition** | `changes_fixed_truth`, `changes_document_contents`, or `changes_evidence_existence` |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### CAP-UNIT-01 — Separate result units
+
+| Field | Value |
+|---|---|
+| **Purpose** | No pass/fail spoil in declaration unit |
+| **Failure condition** | Combined outcome prose or failure leaks hidden content |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### CAP-FAIR-01 — Failure remains fair
+
+| Field | Value |
+|---|---|
+| **Purpose** | Mandatory checks retain alternate routes |
+| **Failure condition** | `mandatory_for_fair_path` without `alternate_route_exists` |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -1322,6 +1370,8 @@ When `investigation_method` is `canonical`, also run: `python3 -m idne.investiga
 When `npc_investigation_method` is `canonical`, also run: `python3 -m idne.npc_investigation_validate` (covers NPC-GATE-01, NPC-TRUST-01, NPC-ROUTE-01).
 
 When `investigation_flow_method` is `canonical`, also run: `python3 -m idne.investigation_flow_validate` (covers FLOW-GATE-01, FLOW-TRUTH-01, FLOW-ACCUSE-01, FLOW-DEADLINE-01).
+
+When `capability_check_method` is `canonical`, also run: `python3 -m idne.capability_check_validate` (covers CAP-GATE-01, CAP-TRUTH-01, CAP-UNIT-01, CAP-FAIR-01).
 
 ### B. AI-reviewable
 
