@@ -1264,6 +1264,134 @@ Harness: `python3 -m idne.capability_check_validate <adventure_root>`
 
 ---
 
+### 5.19 Investigation Validator (Milestone 7)
+
+Applies when `investigation_validator_manifest.json` declares `investigation_validator_method: canonical`.
+
+Harness: `python3 -m idne.investigation_validate <adventure_root>`
+
+#### IV-GATE-01 — Integrated investigation valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | Adventure investigable end-to-end (not schema-only) |
+| **Failure condition** | Any IV automated Tier A check FAIL or BLOCKED |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-CHAIN-01 — Conclusion traces complete
+
+| Field | Value |
+|---|---|
+| **Purpose** | Every required conclusion has full investigation chain |
+| **Failure condition** | Missing trace layer or orphan conclusion |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-INFER-01 — Inference answerable
+
+| Field | Value |
+|---|---|
+| **Purpose** | Mandatory inference questions answerable from player knowledge |
+| **Failure condition** | Missing info, late info, undefined terms, equal alternatives |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-RECOVERY-01 — Recovery routes executable
+
+| Field | Value |
+|---|---|
+| **Purpose** | Failed/incomplete inference continuations are actionable |
+| **Failure condition** | Vague recovery, bare codes, illegal destinations, zero-cost loops |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-ACCESS-01 — Fair access paths
+
+| Field | Value |
+|---|---|
+| **Purpose** | Keys, passwords, items reachable without circular locks |
+| **Failure condition** | Own-lock key, password without route, early consumption |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-CHECK-01 — Mandatory check fairness (delegated)
+
+| Field | Value |
+|---|---|
+| **Purpose** | Capability checks on mandatory paths remain fair |
+| **Failure condition** | `capability_check_validate` FAIL or IV check destroys all routes |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-NPC-01 — NPC disclosure solvable
+
+| Field | Value |
+|---|---|
+| **Purpose** | Required NPC information obtainable in time |
+| **Failure condition** | Unreachable disclosure, undefined trust, NPC leaves early |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-TIME-01 — Time-state consistent
+
+| Field | Value |
+|---|---|
+| **Purpose** | Mandatory routes fit deadline; variants and revisit correct |
+| **Failure condition** | Deadline exceeded, variant not used, impossible clocks |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-ENDING-01 — Endings reachable and fair
+
+| Field | Value |
+|---|---|
+| **Purpose** | Endings reachable; imperfect endings do not leak; accusation neutral |
+| **Failure condition** | Unreachable ending, truth leak, accusation reveals answer |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-PLAYER-01 — PLAYER cross-layer audit
+
+| Field | Value |
+|---|---|
+| **Purpose** | PLAYER matches canonical packages without leaks |
+| **Failure condition** | Orphan info, missing actions, pass/fail leak, missing destinations |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-GRAPH-01 — State graph honest limits
+
+| Field | Value |
+|---|---|
+| **Purpose** | Integrated state exploration within limits |
+| **Failure condition** | State explosion → BLOCKED (not false PASS) |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### IV-TIER-B — Mandatory human review
+
+| Field | Value |
+|---|---|
+| **Purpose** | Prose understandability, sufficiency, neutrality, feel |
+| **Failure condition** | Unresolved `tier_b_mandatory` items |
+| **Severity** | Major |
+| **Automatable** | Partial |
+| **Tier** | B |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -1372,6 +1500,8 @@ When `npc_investigation_method` is `canonical`, also run: `python3 -m idne.npc_i
 When `investigation_flow_method` is `canonical`, also run: `python3 -m idne.investigation_flow_validate` (covers FLOW-GATE-01, FLOW-TRUTH-01, FLOW-ACCUSE-01, FLOW-DEADLINE-01).
 
 When `capability_check_method` is `canonical`, also run: `python3 -m idne.capability_check_validate` (covers CAP-GATE-01, CAP-TRUTH-01, CAP-UNIT-01, CAP-FAIR-01).
+
+When `investigation_validator_method` is `canonical`, also run: `python3 -m idne.investigation_validate` (covers IV-GATE-01, IV-CHAIN-01, IV-INFER-01, IV-RECOVERY-01, IV-ACCESS-01, IV-CHECK-01, IV-NPC-01, IV-TIME-01, IV-ENDING-01, IV-PLAYER-01, IV-GRAPH-01).
 
 ### B. AI-reviewable
 

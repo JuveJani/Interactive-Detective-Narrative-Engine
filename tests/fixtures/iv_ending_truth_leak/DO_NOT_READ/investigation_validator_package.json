@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "iv_ending_truth_leak",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "layer_links": {
+    "investigation_core": "DO_NOT_READ/investigation_core_package.json",
+    "investigation_flow": "DO_NOT_READ/investigation_flow_package.json",
+    "environment": "DO_NOT_READ/environment_package.json",
+    "object_interaction": "DO_NOT_READ/object_interaction_package.json",
+    "capability_check": "DO_NOT_READ/capability_check_package.json",
+    "npc_investigation": "DO_NOT_READ/npc_investigation_package.json"
+  },
+  "conclusion_traces": [
+    {
+      "conclusion_id": "CONC-CULPRIT",
+      "proof_id": "PROOF-A",
+      "chain": [
+        {
+          "layer": "fixed_truth",
+          "ref": "WF-KEY"
+        },
+        {
+          "layer": "location",
+          "ref": "LOC-OFFICE"
+        },
+        {
+          "layer": "object",
+          "ref": "OBJ-DESK"
+        },
+        {
+          "layer": "player_action",
+          "ref": "ACT-SEARCH-DESK"
+        },
+        {
+          "layer": "capability_check",
+          "ref": "CHK-PERCEPTION-DESK"
+        },
+        {
+          "layer": "observation",
+          "ref": "OBS-KEY"
+        },
+        {
+          "layer": "knowledge",
+          "ref": "KNOW-KEY"
+        },
+        {
+          "layer": "knowledge",
+          "ref": "KNOW-SECRET"
+        },
+        {
+          "layer": "conclusion",
+          "ref": "CONC-CULPRIT"
+        },
+        {
+          "layer": "proof",
+          "ref": "PROOF-A"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PERFECT"
+        }
+      ]
+    }
+  ],
+  "inference_questions": [
+    {
+      "question_id": "INF-001",
+      "hypothesis_id": "HYP-001",
+      "player_facing_text": "Where was the key hidden?",
+      "defined_terms": [
+        "key",
+        "hidden"
+      ],
+      "undefined_terms": [],
+      "required_knowledge_ids": [
+        "KNOW-KEY"
+      ],
+      "available_before_question": true,
+      "accepted_hypothesis_id": "HYP-001",
+      "equally_supported_alternatives": [],
+      "question_reveals_answer": false,
+      "requires_internal_ids": false
+    }
+  ],
+  "information_sufficiency": [
+    {
+      "inference_id": "INF-001",
+      "required_knowledge_ids": [
+        "KNOW-KEY"
+      ],
+      "minimum_independent_sources": 1,
+      "sources": [
+        {
+          "knowledge_id": "KNOW-KEY",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-SECRET",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        }
+      ]
+    }
+  ],
+  "recovery_routes": [
+    {
+      "route_id": "REC-OFFICE",
+      "trigger": "inference_incomplete",
+      "inference_id": "INF-001",
+      "player_action_label": "Return to the manager's office.",
+      "destination_ref": "LOC-OFFICE",
+      "destination_legal": true,
+      "changes_knowledge_or_access": true,
+      "changes_state": true,
+      "zero_cost_loop": false,
+      "vague_instruction": false,
+      "bare_page_code": false
+    }
+  ],
+  "access_requirements": [
+    {
+      "requirement_id": "ACC-KEY",
+      "type": "key",
+      "object_id": "OBJ-KEY-HIDDEN",
+      "discovery_route_exists": true,
+      "requires_own_key": false,
+      "mandatory": true,
+      "fair_paths": [
+        "ROUTE-PERCEPTION",
+        "ROUTE-WITNESS"
+      ]
+    },
+    {
+      "requirement_id": "ACC-PASSWORD",
+      "type": "password",
+      "mandatory": false,
+      "derivation_route_exists": true
+    }
+  ],
+  "mandatory_check_fairness": [
+    {
+      "check_id": "CHK-PERCEPTION-DESK",
+      "mandatory_path": true,
+      "failure_destroys_all_routes": false,
+      "alternate_route_on_failure": "ROUTE-WITNESS",
+      "uses_capability_validator": true
+    }
+  ],
+  "npc_disclosure_routes": [
+    {
+      "route_id": "NPC-B-SECRET",
+      "npc_id": "NPC-B",
+      "knowledge_id": "KNOW-SECRET",
+      "npc_holds_information": true,
+      "disclosure_route_exists": true,
+      "trust_achievable": true,
+      "topic_unlock_achievable": true,
+      "available_before_deadline": true,
+      "impossible_social_check": false
+    }
+  ],
+  "time_validation": {
+    "deadline_clock": "T_DEADLINE",
+    "mandatory_paths_fit_deadline": true,
+    "revisit_uses_current_variant": true,
+    "zero_cost_investigation_loop": false,
+    "mutually_impossible_clocks": false
+  },
+  "ending_reachability": [
+    {
+      "ending_id": "END-PERFECT",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "perfect",
+      "reveals_full_truth": true
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "reachable": true,
+      "decorative": false,
+      "deadline_trigger": true,
+      "ending_type": "deadline"
+    },
+    {
+      "ending_id": "END-PARTIAL",
+      "ending_type": "partial",
+      "reveals_full_truth": true,
+      "reachable": true
+    }
+  ],
+  "accusation_fairness": {
+    "options_neutral": true,
+    "reveal_correct_answer": false,
+    "requires_unknown_info": false
+  },
+  "play_mode_constraints": {
+    "single_investigator_valid": true,
+    "two_player_valid": false,
+    "solo_requires_player_2": false,
+    "two_player_private_unshared": false
+  },
+  "player_audit": {
+    "files": [
+      "PLAYER/INVESTIGATION.md"
+    ],
+    "canonical_actions": [
+      {
+        "action_label": "Search the desk.",
+        "canonical_ref": "ACT-SEARCH-DESK",
+        "present_in_player": true
+      }
+    ],
+    "information_entries": [
+      {
+        "info_id": "INFO-KEY-LOC",
+        "canonical_source": "OBS-001",
+        "orphan_in_player": false
+      }
+    ],
+    "check_units": [
+      {
+        "unit_id": "UNIT-CHK-DECL",
+        "exposes_pass_fail_together": false
+      }
+    ],
+    "destination_refs": [
+      {
+        "destination_id": "UNIT-KEY-SUCCESS",
+        "exists": true
+      }
+    ],
+    "location_reset_on_return": false,
+    "ending_contradicts_truth": false
+  },
+  "state_graph_config": {
+    "max_states": 5000,
+    "max_depth": 40,
+    "forced_explosion": false
+  },
+  "tier_b_mandatory": []
+}

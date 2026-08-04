@@ -614,6 +614,8 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 
 **Milestone 6 (Capability Check System):** normative capability-check model with fixed-world invariants; see `CAPABILITY_CHECK_SYSTEM_SPEC.md` and `capability_check_manifest.json`.
 
+**Milestone 7 (Investigation Validator):** integrated end-to-end investigability validator; see `INVESTIGATION_VALIDATOR_SPEC.md` and `investigation_validator_manifest.json`.
+
 ---
 
 ## 15. Complexity budget (guidance, not identity)

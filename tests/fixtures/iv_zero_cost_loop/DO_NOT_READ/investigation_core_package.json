@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "iv_zero_cost_loop",
+  "world_facts": [
+    {
+      "fact_id": "WF-KEY",
+      "statement": "Key under keyboard",
+      "immutable": true
+    }
+  ],
+  "knowledge": [
+    {
+      "knowledge_id": "KNOW-KEY",
+      "statement": "Key location",
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-KEY"
+      }
+    },
+    {
+      "knowledge_id": "KNOW-LOGIN",
+      "statement": "Login succeeded",
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-LOGIN"
+      }
+    },
+    {
+      "knowledge_id": "KNOW-SECRET",
+      "statement": "NPC secret",
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-001"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "OBS-KEY",
+      "description": "Key under keyboard"
+    },
+    {
+      "observation_id": "OBS-LOGIN",
+      "description": "System access"
+    }
+  ],
+  "testimony": [
+    {
+      "testimony_id": "TEST-001",
+      "source_npc_id": "NPC-B",
+      "content_knowledge_id": "KNOW-SECRET"
+    }
+  ],
+  "conclusions": [
+    {
+      "conclusion_id": "CONC-CULPRIT",
+      "category": "culprit",
+      "answer_entity_id": "NPC-A"
+    },
+    {
+      "conclusion_id": "CONC-METHOD",
+      "category": "method",
+      "answer_entity_id": "METHOD-PUSH"
+    }
+  ],
+  "proofs": [
+    {
+      "proof_id": "PROOF-A",
+      "conclusion_id": "CONC-CULPRIT",
+      "required_knowledge_ids": [
+        "KNOW-KEY",
+        "KNOW-SECRET"
+      ]
+    }
+  ],
+  "hypotheses": [],
+  "relationships": [],
+  "physical_evidence": [],
+  "compatibility_clue_map": []
+}
