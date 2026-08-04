@@ -1053,6 +1053,55 @@ Harness: `python3 -m idne.environment_validate <adventure_root>`
 
 ---
 
+### 5.14 Object Interaction System
+
+Applies when `object_interaction_manifest.json` declares `object_interaction_method: canonical`.
+
+Harness: `python3 -m idne.object_interaction_validate <adventure_root>`
+
+#### OBJ-GATE-01 — Object package valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | Objects not scene-invented clues |
+| **Failure condition** | Any OBJ automated check FAIL |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Pass criteria** | Validator PASS |
+
+#### OBJ-CHECK-01 — Fixed-world checks
+
+| Field | Value |
+|---|---|
+| **Purpose** | Checks do not create truth |
+| **Failure condition** | `changes_world_truth`, `creates_evidence`, or `determines_document_contents` |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### OBJ-UNIT-01 — Separate result units
+
+| Field | Value |
+|---|---|
+| **Purpose** | No pass/fail spoil in action unit |
+| **Failure condition** | Success and failure content in same unit; failure reveals missed info |
+| **Severity** | Critical |
+| **Automatable** | Partial |
+| **Tier** | A+B |
+
+#### OBJ-BARE-01 — Diegetic action labels
+
+| Field | Value |
+|---|---|
+| **Purpose** | No bare node/object codes as choices |
+| **Failure condition** | Player label is only J-/P-/R-/OBJ- code |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -1151,6 +1200,8 @@ When `single_investigator` is declared, also run: `python3 -m idne.single_invest
 When `generation_method` is `world_first`, also run: `python3 -m idne.world_first_validate` (covers WF-GATE-01, WF-TIMELINE-01, WF-NPC-01, WF-EVIDENCE-01, WF-CONCLUSION-01 partial, WF-NARRATIVE-01 partial).
 
 When `environment_method` is `canonical`, also run: `python3 -m idne.environment_validate` (covers ENV-GATE-01, ENV-BARE-01 automated checks).
+
+When `object_interaction_method` is `canonical`, also run: `python3 -m idne.object_interaction_validate` (covers OBJ-GATE-01, OBJ-CHECK-01, OBJ-BARE-01).
 
 ### B. AI-reviewable
 

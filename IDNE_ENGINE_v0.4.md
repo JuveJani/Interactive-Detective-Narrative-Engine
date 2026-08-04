@@ -167,6 +167,8 @@ WORLD TRUTH PACKAGE (World-First Generation — Milestone 2)
         ↓
 ENVIRONMENT PACKAGE (Environment System — Milestone 3)
         ↓
+OBJECT INTERACTION PACKAGE (Object Interaction — Milestone 4)
+        ↓
 WORLD BIBLE (objective adventure truth — human-readable summary)
         ↓
 ADVENTURE LOGIC (playable simulation structure)
@@ -188,6 +190,7 @@ Lower layers MUST NOT redefine facts owned by higher layers.
 | Data Dictionary | Record shapes | Adventure content |
 | World Truth Package | Fixed truth, timeline, NPC knowledge, evidence provenance (machine) | Player wording |
 | Environment Package | Locations, states, features, navigation, revisit rules (machine) | Inventing location state at delivery |
+| Object Interaction Package | Objects, actions, check bindings, result units (machine) | Creating evidence via checks; clue grants in scenes |
 | World Bible | What actually happened; NPC knowledge/beliefs; fixed timeline (human summary) | Player wording |
 | Adventure Logic | Actions, conditions, costs, state updates, knowledge grants, endings triggers | Public page numbers as primary IDs |
 | Delivery Adapter | Viewpoint filtering, player wording, public conditions, layout | Invent consequences; change truth; expose internal IDs |
@@ -579,13 +582,15 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 - Multi-case campaigns;
 - Competitive / traitor modes;
 - Commercial print optimization;
-- Object Interaction, Investigation Rewrite, Capability Check Rewrite, Playtime Calibration, Investigation Validator, Story Validator (later milestones);
+- Investigation Rewrite, Capability Check Rewrite, Playtime Calibration, Investigation Validator, Story Validator (later milestones);
 
 **Milestone 1 (Single Investigator Mode):** normative rules and validation are defined in v0.4 via `SINGLE_INVESTIGATOR_MODE_SPEC.md` and §6.8. Reference solo adventures are not required for 0.4 closure.
 
 **Milestone 2 (World-First Generation):** normative generation order, schema, and validation are defined via `WORLD_FIRST_GENERATION_SPEC.md` and `generation_manifest.json`. Reference World-First adventures are not required for closure.
 
 **Milestone 3 (Environment System):** normative location model, schema, and validation are defined via `ENVIRONMENT_SYSTEM_SPEC.md` and `environment_manifest.json`. Reference environment adventures are not required for closure.
+
+**Milestone 4 (Object Interaction System):** normative object model, schema, and validation are defined via `OBJECT_INTERACTION_SYSTEM_SPEC.md` and `object_interaction_manifest.json`. Reference object-interaction adventures are not required for closure.
 
 ---
 

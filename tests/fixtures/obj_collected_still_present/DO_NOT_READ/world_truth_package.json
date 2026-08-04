@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "WF",
+  "fixed_truth": {
+    "culprit_id": "NPC-A",
+    "motive": "x",
+    "method": "x",
+    "opportunity": "x",
+    "immutable_facts": [
+      {
+        "fact_id": "FACT-KEY",
+        "statement": "Key under keyboard"
+      }
+    ]
+  },
+  "causal_timeline": {
+    "events": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "2024-03-15T19:00:00",
+        "day_label": "D1",
+        "location_id": "LOC-OFFICE",
+        "participants": [
+          "NPC-A"
+        ],
+        "causes": [],
+        "effects": []
+      }
+    ]
+  },
+  "world_state_timeline": {
+    "snapshots": []
+  },
+  "npc_knowledge": {
+    "npcs": []
+  },
+  "evidence_provenance": {
+    "evidence": []
+  },
+  "observable_information": {
+    "observations": []
+  },
+  "conclusion_requirements": {
+    "questions": [
+      {
+        "question_id": "Q1",
+        "required_fact_ids": [
+          "FACT-KEY"
+        ]
+      }
+    ]
+  }
+}
