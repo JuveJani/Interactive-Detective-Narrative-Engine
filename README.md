@@ -34,7 +34,11 @@ Normative spec: `ENVIRONMENT_SYSTEM_SPEC.md`. Validation: `python3 -m idne.envir
 
 Normative spec: `OBJECT_INTERACTION_SYSTEM_SPEC.md`. Validation: `python3 -m idne.object_interaction_validate`.
 
-Later milestones (Investigation Rewrite, Capability Check Rewrite) are **not** started.
+**Milestone 5A — Investigation Core** (complete).
+
+Normative spec: `INVESTIGATION_CORE_SPEC.md`. Validation: `python3 -m idne.investigation_core_validate`.
+
+Later milestones (Investigation 5B+, Capability Check Rewrite) are **not** started.
 
 ## First reference adventure
 
