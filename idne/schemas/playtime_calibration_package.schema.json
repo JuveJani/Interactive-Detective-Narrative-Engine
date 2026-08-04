@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.dev/schemas/playtime_calibration_package.schema.json",
+  "title": "IDNE Playtime Calibration Package",
+  "type": "object",
+  "required": ["schema_version", "adventure_id", "play_modes", "target_playtime_minutes", "wall_clock_paths"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "adventure_id": { "type": "string" },
+    "play_modes": { "type": "array", "minItems": 1 },
+    "delivery_modes": { "type": "array" },
+    "target_playtime_minutes": { "type": "number" },
+    "reading_assumptions": { "type": "object" },
+    "activity_class_defaults": { "type": "object" },
+    "in_world_time": { "type": "object" },
+    "wall_clock_paths": { "type": "array" },
+    "two_player_model": { "type": "object" },
+    "coverage_assumptions": { "type": "object" },
+    "time_scarcity": { "type": "object" },
+    "playtest_calibration": { "type": "object" },
+    "tier_b_mandatory": { "type": "array" }
+  }
+}

@@ -1,0 +1,401 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "pt_missing_metadata_blocked",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "delivery_modes": [
+    "static_book",
+    "ai_dm"
+  ],
+  "primary_estimate_mode": "single_investigator",
+  "estimate_two_player": false,
+  "target_playtime_minutes": 120,
+  "require_path_report": true,
+  "target_compliance": {
+    "hard_fail_low_pct": 75,
+    "hard_fail_high_pct": 140,
+    "major_warning_low_pct": 85,
+    "major_warning_high_pct": 120
+  },
+  "reading_assumptions": {
+    "simple_seconds_per_word": 1,
+    "complex_seconds_per_word": 2,
+    "reread_add_full_reading_plus_seconds": 10,
+    "callback_recent_minutes": 2,
+    "callback_old_minutes": 5,
+    "callback_old_threshold_minutes": 60
+  },
+  "in_world_time": {
+    "total_available_minutes": 480,
+    "domain": "in_world_only"
+  },
+  "wall_clock_paths": [
+    {
+      "path_id": "PATH-SHORT",
+      "path_type": "shortest_valid",
+      "play_mode": "single_investigator",
+      "in_world_minutes": 180,
+      "activities": [
+        {
+          "activity_id": "ACT-000",
+          "activity_class": "setup_opening",
+          "authored_lower_minutes": 3.792857142857143,
+          "authored_expected_minutes": 4.214285714285714,
+          "authored_upper_minutes": 4.635714285714286
+        },
+        {
+          "activity_id": "ACT-001",
+          "activity_class": "simple_reading",
+          "authored_lower_minutes": 18.964285714285715,
+          "authored_expected_minutes": 21.071428571428573,
+          "authored_upper_minutes": 23.17857142857143,
+          "word_count": 1264,
+          "complexity": "simple"
+        },
+        {
+          "activity_id": "ACT-002",
+          "activity_class": "complex_reading",
+          "authored_lower_minutes": 11.378571428571428,
+          "authored_expected_minutes": 12.642857142857142,
+          "authored_upper_minutes": 13.907142857142858,
+          "word_count": 379,
+          "complexity": "complex"
+        },
+        {
+          "activity_id": "ACT-003",
+          "activity_class": "meaningful_decision",
+          "authored_lower_minutes": 9.102857142857143,
+          "authored_expected_minutes": 10.114285714285714,
+          "authored_upper_minutes": 11.125714285714286,
+          "strategic": true
+        },
+        {
+          "activity_id": "ACT-004",
+          "activity_class": "inference_answer",
+          "authored_lower_minutes": 7.585714285714286,
+          "authored_expected_minutes": 8.428571428571429,
+          "authored_upper_minutes": 9.271428571428572
+        },
+        {
+          "activity_id": "ACT-005",
+          "activity_class": "medium_puzzle",
+          "authored_lower_minutes": 11.378571428571428,
+          "authored_expected_minutes": 12.642857142857142,
+          "authored_upper_minutes": 13.907142857142858,
+          "puzzle_lower_minutes": 10.114285714285714,
+          "puzzle_expected_minutes": 12.642857142857142,
+          "puzzle_upper_minutes": 15.17142857142857
+        },
+        {
+          "activity_id": "ACT-006",
+          "activity_class": "revisit",
+          "authored_lower_minutes": 6.0685714285714285,
+          "authored_expected_minutes": 6.742857142857143,
+          "authored_upper_minutes": 7.417142857142858
+        },
+        {
+          "activity_id": "ACT-007",
+          "activity_class": "failed_inference_recovery",
+          "authored_lower_minutes": 3.792857142857143,
+          "authored_expected_minutes": 4.214285714285714,
+          "authored_upper_minutes": 4.635714285714286
+        },
+        {
+          "activity_id": "ACT-008",
+          "activity_class": "ending_questionnaire",
+          "authored_lower_minutes": 3.792857142857143,
+          "authored_expected_minutes": 4.214285714285714,
+          "authored_upper_minutes": 4.635714285714286
+        },
+        {
+          "activity_id": "ACT-009",
+          "activity_class": "ending_reading",
+          "authored_lower_minutes": 3.792857142857143,
+          "authored_expected_minutes": 4.214285714285714,
+          "authored_upper_minutes": 4.635714285714286
+        }
+      ]
+    },
+    {
+      "path_id": "PATH-MEDIAN",
+      "path_type": "median_expected",
+      "play_mode": "single_investigator",
+      "in_world_minutes": 240,
+      "activities": [
+        {
+          "activity_id": "ACT-000",
+          "activity_class": "setup_opening",
+          "authored_lower_minutes": 5.057142857142857,
+          "authored_expected_minutes": 5.619047619047619,
+          "authored_upper_minutes": 6.180952380952381
+        },
+        {
+          "activity_id": "ACT-001",
+          "activity_class": "simple_reading",
+          "authored_lower_minutes": 25.285714285714285,
+          "authored_expected_minutes": 28.095238095238095,
+          "authored_upper_minutes": 30.90476190476191,
+          "word_count": 1685,
+          "complexity": "simple"
+        },
+        {
+          "activity_id": "ACT-002",
+          "activity_class": "complex_reading",
+          "authored_lower_minutes": 15.171428571428573,
+          "authored_expected_minutes": 16.857142857142858,
+          "authored_upper_minutes": 18.542857142857144,
+          "word_count": 505,
+          "complexity": "complex"
+        },
+        {
+          "activity_id": "ACT-003",
+          "activity_class": "meaningful_decision",
+          "authored_lower_minutes": 12.137142857142857,
+          "authored_expected_minutes": 13.485714285714286,
+          "authored_upper_minutes": 14.834285714285716,
+          "strategic": true
+        },
+        {
+          "activity_id": "ACT-004",
+          "activity_class": "inference_answer",
+          "authored_lower_minutes": 10.114285714285714,
+          "authored_expected_minutes": 11.238095238095237,
+          "authored_upper_minutes": 12.361904761904762
+        },
+        {
+          "activity_id": "ACT-005",
+          "activity_class": "medium_puzzle",
+          "authored_lower_minutes": 15.171428571428573,
+          "authored_expected_minutes": 16.857142857142858,
+          "authored_upper_minutes": 18.542857142857144,
+          "puzzle_lower_minutes": 13.485714285714288,
+          "puzzle_expected_minutes": 16.857142857142858,
+          "puzzle_upper_minutes": 20.228571428571428
+        },
+        {
+          "activity_id": "ACT-006",
+          "activity_class": "revisit",
+          "authored_lower_minutes": 8.091428571428573,
+          "authored_expected_minutes": 8.99047619047619,
+          "authored_upper_minutes": 9.88952380952381
+        },
+        {
+          "activity_id": "ACT-007",
+          "activity_class": "failed_inference_recovery",
+          "authored_lower_minutes": 5.057142857142857,
+          "authored_expected_minutes": 5.619047619047619,
+          "authored_upper_minutes": 6.180952380952381
+        },
+        {
+          "activity_id": "ACT-008",
+          "activity_class": "ending_questionnaire",
+          "authored_lower_minutes": 5.057142857142857,
+          "authored_expected_minutes": 5.619047619047619,
+          "authored_upper_minutes": 6.180952380952381
+        },
+        {
+          "activity_id": "ACT-009",
+          "activity_class": "ending_reading",
+          "authored_lower_minutes": 5.057142857142857,
+          "authored_expected_minutes": 5.619047619047619,
+          "authored_upper_minutes": 6.180952380952381
+        }
+      ]
+    },
+    {
+      "path_id": "PATH-LONG",
+      "path_type": "longest_valid_before_deadline",
+      "play_mode": "single_investigator",
+      "in_world_minutes": 300,
+      "activities": [
+        {
+          "activity_id": "ACT-000",
+          "activity_class": "setup_opening",
+          "authored_lower_minutes": 5.815714285714285,
+          "authored_expected_minutes": 6.461904761904761,
+          "authored_upper_minutes": 7.108095238095238
+        },
+        {
+          "activity_id": "ACT-001",
+          "activity_class": "simple_reading",
+          "authored_lower_minutes": 29.078571428571422,
+          "authored_expected_minutes": 32.3095238095238,
+          "authored_upper_minutes": 35.540476190476184,
+          "word_count": 1938,
+          "complexity": "simple"
+        },
+        {
+          "activity_id": "ACT-002",
+          "activity_class": "complex_reading",
+          "authored_lower_minutes": 17.447142857142854,
+          "authored_expected_minutes": 19.385714285714283,
+          "authored_upper_minutes": 21.32428571428571,
+          "word_count": 581,
+          "complexity": "complex"
+        },
+        {
+          "activity_id": "ACT-003",
+          "activity_class": "meaningful_decision",
+          "authored_lower_minutes": 13.957714285714284,
+          "authored_expected_minutes": 15.508571428571425,
+          "authored_upper_minutes": 17.05942857142857,
+          "strategic": true
+        },
+        {
+          "activity_id": "ACT-004",
+          "activity_class": "inference_answer",
+          "authored_lower_minutes": 11.63142857142857,
+          "authored_expected_minutes": 12.923809523809522,
+          "authored_upper_minutes": 14.216190476190476
+        },
+        {
+          "activity_id": "ACT-005",
+          "activity_class": "medium_puzzle",
+          "authored_lower_minutes": 17.447142857142854,
+          "authored_expected_minutes": 19.385714285714283,
+          "authored_upper_minutes": 21.32428571428571,
+          "puzzle_lower_minutes": 15.508571428571427,
+          "puzzle_expected_minutes": 19.385714285714283,
+          "puzzle_upper_minutes": 23.26285714285714
+        },
+        {
+          "activity_id": "ACT-006",
+          "activity_class": "revisit",
+          "authored_lower_minutes": 9.305142857142856,
+          "authored_expected_minutes": 10.339047619047617,
+          "authored_upper_minutes": 11.37295238095238
+        },
+        {
+          "activity_id": "ACT-007",
+          "activity_class": "failed_inference_recovery",
+          "authored_lower_minutes": 5.815714285714285,
+          "authored_expected_minutes": 6.461904761904761,
+          "authored_upper_minutes": 7.108095238095238
+        },
+        {
+          "activity_id": "ACT-008",
+          "activity_class": "ending_questionnaire",
+          "authored_lower_minutes": 5.815714285714285,
+          "authored_expected_minutes": 6.461904761904761,
+          "authored_upper_minutes": 7.108095238095238
+        },
+        {
+          "activity_id": "ACT-009",
+          "activity_class": "ending_reading",
+          "authored_lower_minutes": 5.815714285714285,
+          "authored_expected_minutes": 6.461904761904761,
+          "authored_upper_minutes": 7.108095238095238
+        }
+      ]
+    },
+    {
+      "path_id": "PATH-PERFECT",
+      "path_type": "perfect_ending",
+      "play_mode": "single_investigator",
+      "in_world_minutes": 260,
+      "activities": [
+        {
+          "activity_id": "ACT-000",
+          "activity_class": "setup_opening",
+          "authored_lower_minutes": 5.3100000000000005,
+          "authored_expected_minutes": 5.9,
+          "authored_upper_minutes": 6.490000000000001
+        },
+        {
+          "activity_id": "ACT-001",
+          "activity_class": "simple_reading",
+          "authored_lower_minutes": 26.550000000000004,
+          "authored_expected_minutes": 29.500000000000004,
+          "authored_upper_minutes": 32.45000000000001,
+          "word_count": 1770,
+          "complexity": "simple"
+        },
+        {
+          "activity_id": "ACT-002",
+          "activity_class": "complex_reading",
+          "authored_lower_minutes": 15.930000000000003,
+          "authored_expected_minutes": 17.700000000000003,
+          "authored_upper_minutes": 19.470000000000006,
+          "word_count": 531,
+          "complexity": "complex"
+        },
+        {
+          "activity_id": "ACT-003",
+          "activity_class": "meaningful_decision",
+          "authored_lower_minutes": 12.744000000000002,
+          "authored_expected_minutes": 14.160000000000002,
+          "authored_upper_minutes": 15.576000000000004,
+          "strategic": true
+        },
+        {
+          "activity_id": "ACT-004",
+          "activity_class": "inference_answer",
+          "authored_lower_minutes": 10.620000000000001,
+          "authored_expected_minutes": 11.8,
+          "authored_upper_minutes": 12.980000000000002
+        },
+        {
+          "activity_id": "ACT-005",
+          "activity_class": "medium_puzzle",
+          "authored_lower_minutes": 15.930000000000003,
+          "authored_expected_minutes": 17.700000000000003,
+          "authored_upper_minutes": 19.470000000000006,
+          "puzzle_lower_minutes": 14.160000000000004,
+          "puzzle_expected_minutes": 17.700000000000003,
+          "puzzle_upper_minutes": 21.240000000000002
+        },
+        {
+          "activity_id": "ACT-006",
+          "activity_class": "revisit",
+          "authored_lower_minutes": 8.496000000000002,
+          "authored_expected_minutes": 9.440000000000001,
+          "authored_upper_minutes": 10.384000000000002
+        },
+        {
+          "activity_id": "ACT-007",
+          "activity_class": "failed_inference_recovery",
+          "authored_lower_minutes": 5.3100000000000005,
+          "authored_expected_minutes": 5.9,
+          "authored_upper_minutes": 6.490000000000001
+        },
+        {
+          "activity_id": "ACT-008",
+          "activity_class": "ending_questionnaire",
+          "authored_lower_minutes": 5.3100000000000005,
+          "authored_expected_minutes": 5.9,
+          "authored_upper_minutes": 6.490000000000001
+        },
+        {
+          "activity_id": "ACT-009",
+          "activity_class": "ending_reading",
+          "authored_lower_minutes": 5.3100000000000005,
+          "authored_expected_minutes": 5.9,
+          "authored_upper_minutes": 6.490000000000001
+        }
+      ]
+    }
+  ],
+  "coverage_assumptions": {
+    "target_minutes": 120,
+    "minimum_required_fraction": 0.6,
+    "likely_optional_fraction": 0.25,
+    "exhaustive_fraction": 1.0,
+    "exhaustive_content_minutes": 212.4
+  },
+  "time_scarcity": {
+    "scarcity_intended": true,
+    "deadline_in_world_minutes": 480,
+    "exhaustive_fits_before_deadline": false,
+    "fair_solution_after_deadline": false,
+    "time_gated_event_unreachable": false,
+    "deadline_irrelevant": false
+  },
+  "split_balance_limit_minutes": 5,
+  "playtest_calibration": {
+    "min_observations_for_default_change": 3,
+    "observations": []
+  },
+  "tier_b_mandatory": [],
+  "metadata_incomplete": true
+}
