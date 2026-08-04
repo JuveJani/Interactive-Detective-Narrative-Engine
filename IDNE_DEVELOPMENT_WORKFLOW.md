@@ -3,7 +3,7 @@
 **Document type:** Official development lifecycle  
 **Applies to:** Every future IDNE adventure from idea to release  
 **Status:** Normative process (does not modify the engine, QA spec, or adventures)  
-**Aligned with:** `IDNE_ENGINE_v0.4.md`, `IDNE_DESIGN_PHILOSOPHY.md`, `IDNE_ADVENTURE_QA_SPEC.md`, `ADVENTURE_QA_REPORT_TEMPLATE.md`, `SINGLE_INVESTIGATOR_MODE_SPEC.md`
+**Aligned with:** `IDNE_ENGINE_v0.4.md`, `IDNE_DESIGN_PHILOSOPHY.md`, `IDNE_ADVENTURE_QA_SPEC.md`, `ADVENTURE_QA_REPORT_TEMPLATE.md`, `SINGLE_INVESTIGATOR_MODE_SPEC.md`, `WORLD_FIRST_GENERATION_SPEC.md`
 
 ---
 
@@ -34,7 +34,7 @@ It exists to scale to **hundreds of adventures** without:
 └──────────┬──────────┘                               │
            ▼                                          │
 ┌─────────────────────┐                               │
-│ 2. Generation       │  World Bible → Logic → PLAYER │
+│ 2. Generation       │  World-First → Logic → PLAYER │
 └──────────┬──────────┘                               │
            ▼                                          │
 ┌─────────────────────┐                               │
@@ -125,17 +125,23 @@ It exists to scale to **hundreds of adventures** without:
 |---|---|
 | **Purpose** | Implement the brief as a fair mystery world + playable delivery |
 | **Required inputs** | Approved brief; engine v0.4; philosophy |
-| **Expected outputs** | `DO_NOT_READ/` (World Bible + Logic); `PLAYER/` via Delivery Adapter; `play_manifest.json`; compilation report with §5.4 (two-player) or §5.4.1 (solo) wall-clock formula |
-| **Exit criteria** | Package complete per brief budget; internal IDs stable; PLAYER spoiler-isolated from DO_NOT_READ |
+| **Expected outputs** | `generation_manifest.json` + `world_truth_package.json` (World-First); `DO_NOT_READ/` World Bible + Logic; `PLAYER/` via Delivery Adapter; `play_manifest.json` when applicable; compilation report with §5.4 / §5.4.1 wall-clock |
+| **Exit criteria** | Package complete per brief; World-First gates G-WF1–G-WF7 PASS when declared; internal IDs stable; PLAYER spoiler-isolated |
 | **Responsible actor** | **AI** / generator primary; **Human** spot-checks scope drift |
 
-**Order inside generation (mandatory):**
+**Order inside generation (mandatory for World-First):**
+
+1. Fixed Truth → Causal Timeline → World States → NPC Knowledge → Evidence → Observable → Conclusions (gates G-WF1–G-WF6)  
+2. Adventure Logic (actions, costs, state, endings)  
+3. Delivery Adapter → PLAYER (only after G-WF7)
+
+**Order for legacy (non-World-First):**
 
 1. World Bible (fixed truth)  
-2. Adventure Logic (actions, costs, state, endings)  
+2. Adventure Logic  
 3. Delivery Adapter → PLAYER  
 
-**Anti-mistake:** Do not hand-write PLAYER that contradicts Logic. Do not “fix” experience by inventing PLAYER-only mechanics.
+**Anti-mistake:** Do not hand-write PLAYER that contradicts Logic or World Truth Package.
 
 ---
 
@@ -144,7 +150,7 @@ It exists to scale to **hundreds of adventures** without:
 | Field | Value |
 |---|---|
 | **Purpose** | Prove structural completeness — necessary, **never sufficient** for release |
-| **Required inputs** | Generated package; hygiene validators / scripts; `single_investigator_validate` when manifest declares solo |
+| **Required inputs** | Generated package; hygiene validators; `world_first_validate` when World-First declared; `single_investigator_validate` when solo declared |
 | **Expected outputs** | Hygiene report (identifiers, reachability, terminals, clue inventory, sheet fit) |
 | **Exit criteria** | Hygiene PASS (or documented non-play-blocking exceptions) |
 | **Responsible actor** | **Script** primary; **Human** reviews failures |
@@ -415,6 +421,7 @@ Maintain a small **regression fixture list** (not the entire library):
 - Current reference / benchmark adventure(s)  
 - At least one known failure corpus snippet per Critical QA class (can be minimized excerpts)  
 - `tests/fixtures/solo_minimal` and `tests/fixtures/solo_invalid_split` for Single Investigator regression
+- `tests/fixtures/wf_valid_minimal` and failure-class WF fixtures for World-First regression
 
 Generator or Engine changes must run fixtures before merge.
 

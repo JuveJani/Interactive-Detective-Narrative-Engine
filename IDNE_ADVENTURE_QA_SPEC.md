@@ -903,6 +903,113 @@ When declared, **all Critical and Major** QA-SI checks below are mandatory for P
 
 ---
 
+### 5.12 World-First Generation
+
+Applies when `generation_manifest.json` declares `generation_method: world_first`.
+
+Harness: `python3 -m idne.world_first_validate <adventure_root>`
+
+When World-First is **not** declared, all WF checks are **N/A** (validator `SKIP`).
+
+#### WF-GATE-01 — Generation gates complete
+
+| Field | Value |
+|---|---|
+| **Purpose** | Truth authored before scenes |
+| **Failure condition** | Any G-WF1–G-WF7 automated check FAIL |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Required inputs** | `generation_manifest.json`; `world_truth_package.json` |
+| **Metric** | Gate check IDs in validator output |
+| **Pass criteria** | All gates PASS |
+
+#### WF-TIMELINE-01 — Causal consistency
+
+| Field | Value |
+|---|---|
+| **Purpose** | No timeline contradictions |
+| **Failure condition** | Event before cause; missing cause ref; ambiguous timestamp |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Metric** | G-WF2, WF-TIME-AMBIGUOUS |
+| **Pass criteria** | Timeline checks PASS |
+
+#### WF-NPC-01 — Knowledge without access
+
+| Field | Value |
+|---|---|
+| **Purpose** | NPC knowledge derived from presence |
+| **Failure condition** | NPC knows fact without witness chain |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Metric** | G-WF4, WF-NPC-OVERKNOW |
+| **Pass criteria** | NPC knowledge checks PASS |
+
+#### WF-EVIDENCE-01 — Provenance complete
+
+| Field | Value |
+|---|---|
+| **Purpose** | No plot-only clues |
+| **Failure condition** | Evidence without valid `source_event_id` |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+| **Metric** | G-WF5, WF-EVIDENCE-SOURCE |
+| **Pass criteria** | Evidence checks PASS |
+
+#### WF-CONCLUSION-01 — Answerable conclusions
+
+| Field | Value |
+|---|---|
+| **Purpose** | Fair play at generation layer |
+| **Failure condition** | Required conclusion facts not obtainable |
+| **Severity** | Critical |
+| **Automatable** | Partial |
+| **Tier** | A+B |
+| **Metric** | G-WF6, WF-CONCLUSION-COVERAGE |
+| **Human review** | Required for proof uniqueness (WF-B-03) |
+| **Pass criteria** | Required facts learnable |
+
+#### WF-NARRATIVE-01 — Scene/truth alignment
+
+| Field | Value |
+|---|---|
+| **Purpose** | Player text does not invent truth |
+| **Failure condition** | Scene or ending asserts unestablished fact or wrong culprit |
+| **Severity** | Critical |
+| **Automatable** | Partial |
+| **Tier** | A+B |
+| **Metric** | G-WF7, WF-SCENE-TRUTH, WF-ENDING-TRUTH |
+| **Human review** | Required for PLAYER prose not in package |
+| **Pass criteria** | Package narrative checks PASS |
+
+#### WF-B-03 — Multiple equally valid answers
+
+| Field | Value |
+|---|---|
+| **Purpose** | Unique culprit on fair path |
+| **Failure condition** | ≥2 suspects fit all proof facts without distinguishing Infer |
+| **Severity** | Critical |
+| **Automatable** | No |
+| **Tier** | B |
+| **Human review** | Required |
+
+#### WF-B-05 — Culprit by emphasis
+
+| Field | Value |
+|---|---|
+| **Purpose** | No tone telegraph |
+| **Failure condition** | Blind read names culprit before evidence Infer |
+| **Severity** | Critical |
+| **Automatable** | No |
+| **Tier** | B |
+| **Human review** | Required |
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -997,6 +1104,8 @@ Run as scripts/CI on every generation:
 Plus partial automation feeding B: `QA-SP-01`, `QA-FA-02`, `QA-CL-03`, `QA-RC-02`, `QA-NV-04`, `QA-TM-03`, `QA-FR-01`, `QA-FR-05`
 
 When `single_investigator` is declared, also run: `python3 -m idne.single_investigator_validate` (covers QA-SI-01–03, 04 partial, 06–08, 09 partial, 11, 12).
+
+When `generation_method` is `world_first`, also run: `python3 -m idne.world_first_validate` (covers WF-GATE-01, WF-TIMELINE-01, WF-NPC-01, WF-EVIDENCE-01, WF-CONCLUSION-01 partial, WF-NARRATIVE-01 partial).
 
 ### B. AI-reviewable
 

@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.dev/schemas/world_truth_package.schema.json",
+  "title": "IDNE World Truth Package",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "adventure_id",
+    "fixed_truth",
+    "causal_timeline",
+    "world_state_timeline",
+    "npc_knowledge",
+    "evidence_provenance",
+    "observable_information",
+    "conclusion_requirements"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "adventure_id": { "type": "string", "minLength": 1 },
+    "fixed_truth": {
+      "type": "object",
+      "required": ["culprit_id", "motive", "method", "opportunity", "immutable_facts"],
+      "properties": {
+        "culprit_id": { "type": "string" },
+        "motive": { "type": "string" },
+        "method": { "type": "string" },
+        "opportunity": { "type": "string" },
+        "immutable_facts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["fact_id", "statement"],
+            "properties": {
+              "fact_id": { "type": "string" },
+              "statement": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "causal_timeline": {
+      "type": "object",
+      "required": ["events"],
+      "properties": {
+        "clock_start": { "type": "string" },
+        "events": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/timeline_event" }
+        }
+      }
+    },
+    "world_state_timeline": {
+      "type": "object",
+      "required": ["snapshots"],
+      "properties": {
+        "snapshots": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["at_event_id"],
+            "properties": {
+              "at_event_id": { "type": "string" },
+              "people_locations": { "type": "object" },
+              "object_states": { "type": "object" },
+              "access_states": { "type": "object" }
+            }
+          }
+        }
+      }
+    },
+    "npc_knowledge": {
+      "type": "object",
+      "required": ["npcs"],
+      "properties": {
+        "npcs": { "type": "array", "items": { "$ref": "#/$defs/npc" } }
+      }
+    },
+    "evidence_provenance": {
+      "type": "object",
+      "required": ["evidence"],
+      "properties": {
+        "evidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidence" }
+        }
+      }
+    },
+    "observable_information": {
+      "type": "object",
+      "required": ["observations"],
+      "properties": {
+        "observations": { "type": "array", "items": { "$ref": "#/$defs/observation" } }
+      }
+    },
+    "conclusion_requirements": {
+      "type": "object",
+      "required": ["questions"],
+      "properties": {
+        "questions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/conclusion_question" }
+        }
+      }
+    },
+    "narrative_construction": {
+      "type": "object",
+      "properties": {
+        "scenes": { "type": "array", "items": { "$ref": "#/$defs/narrative_scene" } }
+      }
+    },
+    "ending_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ending_id"],
+        "properties": {
+          "ending_id": { "type": "string" },
+          "asserted_fact_ids": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "timeline_event": {
+      "type": "object",
+      "required": ["event_id", "timestamp", "location_id", "participants"],
+      "properties": {
+        "event_id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "day_label": { "type": "string" },
+        "location_id": { "type": "string" },
+        "description": { "type": "string" },
+        "participants": { "type": "array", "items": { "type": "string" } },
+        "causes": { "type": "array", "items": { "type": "string" } },
+        "reveals_facts": { "type": "array", "items": { "type": "string" } },
+        "effects": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "npc": {
+      "type": "object",
+      "required": ["npc_id"],
+      "properties": {
+        "npc_id": { "type": "string" },
+        "knows": { "type": "array", "items": { "type": "string" } },
+        "believes_incorrectly": { "type": "array" },
+        "witnessed_events": { "type": "array", "items": { "type": "string" } },
+        "hides": { "type": "array", "items": { "type": "string" } },
+        "behavior_rationale": { "type": "string" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["evidence_id", "source_event_id"],
+      "properties": {
+        "evidence_id": { "type": "string" },
+        "source_event_id": { "type": "string" },
+        "type": { "type": "string" },
+        "description": { "type": "string" },
+        "establishes_fact_ids": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "required": ["observation_id", "learnable_fact_id"],
+      "properties": {
+        "observation_id": { "type": "string" },
+        "learnable_fact_id": { "type": "string" },
+        "source_evidence_id": { "type": "string" },
+        "requires": { "type": "object" }
+      }
+    },
+    "conclusion_question": {
+      "type": "object",
+      "required": ["question_id", "required_fact_ids"],
+      "properties": {
+        "question_id": { "type": "string" },
+        "answer_entity_id": { "type": "string" },
+        "required_fact_ids": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "category": { "type": "string" }
+      }
+    },
+    "narrative_scene": {
+      "type": "object",
+      "required": ["scene_id"],
+      "properties": {
+        "scene_id": { "type": "string" },
+        "asserted_fact_ids": { "type": "array", "items": { "type": "string" } },
+        "asserted_culprit_id": { "type": "string" },
+        "player_text_summary": { "type": "string" },
+        "sources": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

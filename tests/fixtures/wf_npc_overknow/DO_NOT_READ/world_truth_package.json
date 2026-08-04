@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "FIXTURE_WF_NPC_OVERKNOW",
+  "fixed_truth": {
+    "culprit_id": "NPC-A",
+    "motive": "money",
+    "method": "push",
+    "opportunity": "basement",
+    "immutable_facts": [
+      { "fact_id": "FACT-001", "statement": "Victim died" },
+      { "fact_id": "FACT-SECRET", "statement": "Hidden fraud detail only culprit knew" }
+    ]
+  },
+  "causal_timeline": {
+    "events": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "2024-03-15T19:35:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-BASEMENT",
+        "participants": ["NPC-A", "NPC-VICTIM"],
+        "causes": [],
+        "effects": ["FACT-001"]
+      }
+    ]
+  },
+  "world_state_timeline": {
+    "snapshots": [
+      {
+        "at_event_id": "EVT-001",
+        "people_locations": { "NPC-A": "LOC-BASEMENT", "NPC-VICTIM": "LOC-BASEMENT" }
+      }
+    ]
+  },
+  "npc_knowledge": {
+    "npcs": [
+      {
+        "npc_id": "NPC-B",
+        "knows": ["FACT-SECRET"],
+        "witnessed_events": [],
+        "hides": [],
+        "behavior_rationale": "Could not have learned secret"
+      }
+    ]
+  },
+  "evidence_provenance": { "evidence": [] },
+  "observable_information": { "observations": [] },
+  "conclusion_requirements": {
+    "questions": [
+      { "question_id": "Q-CULPRIT", "answer_entity_id": "NPC-A", "required_fact_ids": ["FACT-001"] }
+    ]
+  },
+  "narrative_construction": { "scenes": [] }
+}

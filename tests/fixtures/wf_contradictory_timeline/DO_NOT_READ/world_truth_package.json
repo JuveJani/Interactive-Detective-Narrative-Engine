@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "FIXTURE_WF_CONTRADICTORY",
+  "fixed_truth": {
+    "culprit_id": "NPC-A",
+    "motive": "money",
+    "method": "push",
+    "opportunity": "basement",
+    "immutable_facts": [
+      { "fact_id": "FACT-001", "statement": "Victim died" }
+    ]
+  },
+  "causal_timeline": {
+    "events": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "2024-03-15T19:45:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-BASEMENT",
+        "participants": ["NPC-A"],
+        "causes": [],
+        "effects": ["FACT-001"]
+      },
+      {
+        "event_id": "EVT-002",
+        "timestamp": "2024-03-15T19:35:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-BASEMENT",
+        "participants": ["NPC-A", "NPC-VICTIM"],
+        "causes": ["EVT-001"],
+        "effects": []
+      }
+    ]
+  },
+  "world_state_timeline": {
+    "snapshots": [
+      { "at_event_id": "EVT-001", "people_locations": { "NPC-A": "LOC-BASEMENT" } }
+    ]
+  },
+  "npc_knowledge": { "npcs": [] },
+  "evidence_provenance": { "evidence": [] },
+  "observable_information": { "observations": [] },
+  "conclusion_requirements": {
+    "questions": [
+      { "question_id": "Q-CULPRIT", "answer_entity_id": "NPC-A", "required_fact_ids": ["FACT-001"] }
+    ]
+  },
+  "narrative_construction": { "scenes": [] }
+}

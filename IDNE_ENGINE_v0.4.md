@@ -163,7 +163,9 @@ ENGINE SPECIFICATION (this document + Design Philosophy)
         ↓
 DATA DICTIONARY (schemas)
         ↓
-WORLD BIBLE (objective adventure truth)
+WORLD TRUTH PACKAGE (World-First Generation — Milestone 2)
+        ↓
+WORLD BIBLE (objective adventure truth — human-readable summary)
         ↓
 ADVENTURE LOGIC (playable simulation structure)
         ↓
@@ -171,6 +173,8 @@ DELIVERY ADAPTER (Narrative Compiler + Book Formatter)
         ↓
 PLAYER OUTPUT
 ```
+
+For adventures using World-First Generation (`WORLD_FIRST_GENERATION_SPEC.md`), the **World Truth Package** is the machine-authoritative source. World Bible prose MUST NOT contradict the package.
 
 Lower layers MUST NOT redefine facts owned by higher layers.
 
@@ -180,7 +184,8 @@ Lower layers MUST NOT redefine facts owned by higher layers.
 |---|---|---|
 | Engine | Reusable rules, readiness, identity | Adventure plot facts |
 | Data Dictionary | Record shapes | Adventure content |
-| World Bible | What actually happened; NPC knowledge/beliefs; fixed timeline | Player wording |
+| World Truth Package | Fixed truth, timeline, NPC knowledge, evidence provenance (machine) | Player wording |
+| World Bible | What actually happened; NPC knowledge/beliefs; fixed timeline (human summary) | Player wording |
 | Adventure Logic | Actions, conditions, costs, state updates, knowledge grants, endings triggers | Public page numbers as primary IDs |
 | Delivery Adapter | Viewpoint filtering, player wording, public conditions, layout | Invent consequences; change truth; expose internal IDs |
 | Player Output | Playable artifacts | Spoilers unmarked |
@@ -189,7 +194,7 @@ Lower layers MUST NOT redefine facts owned by higher layers.
 
 **Change (C-07 / Philosophy A6):** The compiler and formatter are a **Delivery Adapter**. They translate simulated world actions into playable artifacts. They do **not** define investigation shape.
 
-Investigation shape is owned by World Bible + Adventure Logic under player-directed scarcity (§5, §7).
+Investigation shape is owned by World Truth Package (when World-First) + World Bible + Adventure Logic under player-directed scarcity (§5, §7).
 
 Printable Public Static Nodes remain a **valid delivery form**, not the identity of IDNE.
 
@@ -571,9 +576,11 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 - Multi-case campaigns;
 - Competitive / traitor modes;
 - Commercial print optimization;
-- World-First Generation, Environment System, Object Interaction, Investigation Rewrite (later milestones).
+- Environment System, Object Interaction, Investigation Rewrite, Capability Check Rewrite, Playtime Calibration (later milestones);
 
 **Milestone 1 (Single Investigator Mode):** normative rules and validation are defined in v0.4 via `SINGLE_INVESTIGATOR_MODE_SPEC.md` and §6.8. Reference solo adventures are not required for 0.4 closure.
+
+**Milestone 2 (World-First Generation):** normative generation order, schema, and validation are defined via `WORLD_FIRST_GENERATION_SPEC.md` and `generation_manifest.json`. Reference World-First adventures are not required for closure.
 
 ---
 
