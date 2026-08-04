@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "FIXTURE_WF_AMBIGUOUS_DATE",
+  "fixed_truth": {
+    "culprit_id": "NPC-A",
+    "motive": "money",
+    "method": "push",
+    "opportunity": "basement",
+    "immutable_facts": [{ "fact_id": "FACT-001", "statement": "Victim died" }]
+  },
+  "causal_timeline": {
+    "events": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "evening",
+        "day_label": "",
+        "location_id": "LOC-BASEMENT",
+        "participants": ["NPC-A"],
+        "causes": [],
+        "effects": ["FACT-001"]
+      }
+    ]
+  },
+  "world_state_timeline": {
+    "snapshots": [{ "at_event_id": "EVT-001", "people_locations": { "NPC-A": "LOC-BASEMENT" } }]
+  },
+  "npc_knowledge": { "npcs": [] },
+  "evidence_provenance": { "evidence": [] },
+  "observable_information": { "observations": [] },
+  "conclusion_requirements": {
+    "questions": [{ "question_id": "Q-CULPRIT", "answer_entity_id": "NPC-A", "required_fact_ids": ["FACT-001"] }]
+  },
+  "narrative_construction": { "scenes": [] }
+}
