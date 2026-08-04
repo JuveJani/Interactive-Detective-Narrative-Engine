@@ -1548,6 +1548,36 @@ Harness: `python3 -m idne.playtime_validate <adventure_root>`
 
 ---
 
+### 5.22 DM Feeling Validator (Milestone 10)
+
+Applies when `dm_feeling_validator_manifest.json` declares `dm_feeling_validator_method: canonical`.
+
+Harness: `python3 -m idne.dm_feeling_validate <adventure_root>`
+
+#### DF-GATE-01 — Investigation feel valid
+
+| Field | Value |
+|---|---|
+| **Purpose** | Adventure feels like simulated investigation |
+| **Failure condition** | Any DF Tier A critical FAIL or BLOCKED |
+| **Severity** | Critical |
+| **Automatable** | Yes |
+| **Tier** | A |
+
+#### DF-CATEGORY — Per-category scores
+
+| Field | Value |
+|---|---|
+| **Purpose** | Agency, discovery, exploration, inference, aha, world, time, failure, conversation, ending, mode |
+| **Failure condition** | Category FAIL on proven structural defects |
+| **Severity** | Critical / Major |
+| **Automatable** | Partial |
+| **Tier** | A+B+C |
+
+Playtest questionnaire: `DM_FEELING_PLAYTEST_QUESTIONNAIRE.md` (Tier C).
+
+---
+
 ### 5.10 Fairness
 
 #### QA-FR-01 — Required conclusion lacks evidence
@@ -1662,6 +1692,8 @@ When `investigation_validator_method` is `canonical`, also run: `python3 -m idne
 When `story_validator_method` is `canonical`, also run: `python3 -m idne.story_validate` (covers SV-GATE-01, SV-TIMELINE-01, SV-CAUSAL-01, SV-INFO-01, SV-KNOWLEDGE-01, SV-PLAYER-01, SV-ENDING-01, SV-PLAIN-01).
 
 When `playtime_calibration_method` is `canonical`, also run: `python3 -m idne.playtime_validate` (covers PT-GATE-01, PT-FORMULA-01, PT-TARGET-01, PT-SCARCITY-01, PT-CAL-01).
+
+When `dm_feeling_validator_method` is `canonical`, also run: `python3 -m idne.dm_feeling_validate` (covers DF-GATE-01, DF-CATEGORY).
 
 ### B. AI-reviewable
 

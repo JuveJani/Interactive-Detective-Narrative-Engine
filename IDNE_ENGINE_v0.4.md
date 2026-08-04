@@ -620,6 +620,8 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 
 **Milestone 9 (Playtime Calibration):** canonical wall-clock playtime estimation and validation; see `PLAYTIME_CALIBRATION_SPEC.md` and `playtime_calibration_manifest.json`.
 
+**Milestone 10 (DM Feeling Validator):** integrated investigation-feel validator; see `DM_FEELING_VALIDATOR_SPEC.md` and `dm_feeling_validator_manifest.json`.
+
 ---
 
 ## 15. Complexity budget (guidance, not identity)

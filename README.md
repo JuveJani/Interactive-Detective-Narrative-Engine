@@ -62,7 +62,9 @@ Normative spec: `STORY_VALIDATOR_SPEC.md`. Validation: `python3 -m idne.story_va
 
 Normative spec: `PLAYTIME_CALIBRATION_SPEC.md`. Validation: `python3 -m idne.playtime_validate`.
 
-Later milestones (DM Feeling Validator) are **not** started.
+**Milestone 10 — DM Feeling Validator** (complete).
+
+Normative spec: `DM_FEELING_VALIDATOR_SPEC.md`. Validation: `python3 -m idne.dm_feeling_validate`.
 
 ## First reference adventure
 

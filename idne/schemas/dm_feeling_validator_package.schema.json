@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.dev/schemas/dm_feeling_validator_package.schema.json",
+  "title": "IDNE DM Feeling Validator Package",
+  "type": "object",
+  "required": ["schema_version", "adventure_id", "play_modes"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "adventure_id": { "type": "string" },
+    "play_modes": { "type": "array", "minItems": 1 },
+    "delivery_modes": { "type": "array" },
+    "player_agency": { "type": "object" },
+    "discovery_delivery": { "type": "object" },
+    "exploration_depth": { "type": "object" },
+    "inference_quality": { "type": "object" },
+    "aha_potential": { "type": "object" },
+    "world_responsiveness": { "type": "object" },
+    "time_pressure": { "type": "object" },
+    "failure_quality": { "type": "object" },
+    "conversation_agency": { "type": "object" },
+    "ending_causality": { "type": "object" },
+    "mode_specific": { "type": "object" },
+    "player_audit": { "type": "object" },
+    "state_graph_config": { "type": "object" },
+    "tier_b_mandatory": { "type": "array" },
+    "tier_c_playtest": { "type": "object" },
+    "local_ai_export": { "type": "object" }
+  }
+}

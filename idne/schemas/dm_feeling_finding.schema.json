@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.dev/schemas/dm_feeling_finding.schema.json",
+  "title": "IDNE DM Feeling Finding",
+  "type": "object",
+  "required": ["finding_id", "severity", "confidence", "category"],
+  "properties": {
+    "finding_id": { "type": "string" },
+    "severity": { "type": "string", "enum": ["critical", "major", "minor"] },
+    "confidence": { "type": "string", "enum": ["proven", "likely", "ambiguous"] },
+    "category": { "type": "string" },
+    "mode": { "type": "string" },
+    "source_file": { "type": "string" },
+    "entity_id": { "type": "string" },
+    "player_excerpt": { "type": "string" },
+    "expected_rule": { "type": "string" },
+    "observed_behavior": { "type": "string" },
+    "affected_paths": { "type": "array", "items": { "type": "string" } },
+    "review_owner": { "type": "string", "enum": ["script", "tier_b", "tier_c", "Tier B", "Tier C"] },
+    "human_approval_needed": { "type": "boolean" },
+    "tier": { "type": "string", "enum": ["A", "B", "C"] }
+  }
+}

@@ -154,7 +154,8 @@ New module: `tests/test_regressions.py` (18 tests covering mandatory regressions
 2. **Adapter ambiguities** (5 documented) — trust downgrade active  
 3. **High E-904 rate** under random/poor strategies — mix of strategy bias and I-02 hub loops (needs human playtest to separate from adventure deadline)  
 4. **`memory_guard_mb` / `max_states`** still declared but not enforced  
-5. **Real wall-clock playtime** (IDNE §5.4) not estimated — only fiction minutes reported  
+5. **Real wall-clock playtime** — use `python3 -m idne.playtime_validate` when `playtime_calibration_manifest` is declared (Milestone 9); simulator may still report fiction minutes separately  
+6. **DM Feeling** — use `python3 -m idne.dm_feeling_validate` for investigation-feel category scores (Milestone 10); not a substitute for Monte Carlo reachability  
 
 ---
 
