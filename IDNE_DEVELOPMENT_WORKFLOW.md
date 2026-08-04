@@ -156,7 +156,7 @@ It exists to scale to **hundreds of adventures** without:
 | Field | Value |
 |---|---|
 | **Purpose** | Prove structural completeness — necessary, **never sufficient** for release |
-| **Required inputs** | Generated package; hygiene validators; `world_first_validate`; `environment_validate`; `object_interaction_validate`; `capability_check_validate` when declared; `investigation_core_validate`; `npc_investigation_validate`; `investigation_flow_validate` when declared; `single_investigator_validate` when declared |
+| **Required inputs** | Generated package; hygiene validators; `world_first_validate`; `environment_validate`; `object_interaction_validate`; `capability_check_validate` when declared; `investigation_core_validate`; `npc_investigation_validate`; `investigation_flow_validate` when declared; `investigation_validate` when declared; `single_investigator_validate` when declared |
 | **Expected outputs** | Hygiene report (identifiers, reachability, terminals, clue inventory, sheet fit) |
 | **Exit criteria** | Hygiene PASS (or documented non-play-blocking exceptions) |
 | **Responsible actor** | **Script** primary; **Human** reviews failures |
