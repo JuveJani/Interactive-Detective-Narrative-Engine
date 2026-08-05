@@ -66,12 +66,14 @@ class CanonicalSimulationModel:
     objects: dict[str, DerivedEntity]
     npcs: dict[str, DerivedEntity]
     knowledge: dict[str, DerivedEntity]
+    hypotheses: dict[str, DerivedEntity]
     conclusions: dict[str, DerivedEntity]
     checks: dict[str, DerivedEntity]
     endings: dict[str, DerivedEntity]
     flow_flags: list[str]
     flow_initial_state: dict[str, Any]
     clocks: list[str]
+    raw_packages: dict[str, dict[str, Any]]
     report: DerivationReport
 
     def entity_by_id(self, entity_id: str) -> DerivedEntity | None:
@@ -151,10 +153,19 @@ def derive_simulation_model(adventure_root: Path, play_mode: str) -> CanonicalSi
     conclusions = _derive_list(
         report, "investigation_core", adventure_root, "conclusions", "conclusion", "conclusion_id"
     )
+    hypotheses = _derive_list(
+        report, "investigation_core", adventure_root, "hypotheses", "hypothesis", "hypothesis_id"
+    )
     checks = _derive_list(report, "capability_check", adventure_root, "checks", "check", "check_id")
     endings = _derive_list(report, "investigation_flow", adventure_root, "endings", "ending", "ending_id")
 
-    flow_pkg = _load_package(adventure_root, PACKAGE_FILES["investigation_flow"]) or {}
+    raw_packages: dict[str, dict[str, Any]] = {}
+    for key, rel in PACKAGE_FILES.items():
+        pkg = _load_package(adventure_root, rel)
+        if pkg:
+            raw_packages[key] = pkg
+
+    flow_pkg = raw_packages.get("investigation_flow") or {}
     state_model = flow_pkg.get("state_model", {}) if isinstance(flow_pkg.get("state_model"), dict) else {}
     flow_flags = list(state_model.get("flags", []) or [])
     flow_initial = dict(state_model.get("initial_state", {}) or {})
@@ -172,11 +183,13 @@ def derive_simulation_model(adventure_root: Path, play_mode: str) -> CanonicalSi
         objects=objects,
         npcs=npcs,
         knowledge=knowledge,
+        hypotheses=hypotheses,
         conclusions=conclusions,
         checks=checks,
         endings=endings,
         flow_flags=flow_flags,
         flow_initial_state=flow_initial,
         clocks=clocks,
+        raw_packages=raw_packages,
         report=report,
     )

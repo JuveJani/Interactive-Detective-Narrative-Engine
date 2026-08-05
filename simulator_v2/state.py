@@ -116,12 +116,13 @@ class SimulationState:
 
 
 def initial_state_from_model(model: CanonicalSimulationModel) -> SimulationState:
-    env_path = "DO_NOT_READ/environment_package.json"
-    start_location = "LOC-LOBBY"
-    for loc in model.locations.values():
-        if loc.payload.get("location_id"):
-            start_location = str(loc.payload["location_id"])
-            break
+    env_pkg = model.raw_packages.get("environment", {})
+    start_location = str(env_pkg.get("start_location_id", "LOC-LOBBY"))
+    if start_location not in model.locations:
+        for loc in model.locations.values():
+            if loc.payload.get("location_id"):
+                start_location = str(loc.payload["location_id"])
+                break
 
     flow_flags: dict[str, Any] = {}
     flow_counters: dict[str, int] = {}
@@ -172,7 +173,15 @@ def initial_state_from_model(model: CanonicalSimulationModel) -> SimulationState
         world_triggers=set(),
         flow_flags=flow_flags,
         flow_counters=flow_counters,
-        ending_chain_state={"active": True, "evaluated_endings": []},
+        ending_chain_state={
+            "active": True,
+            "evaluated_endings": [],
+            "ending_id": None,
+            "visited_locations": [start_location],
+            "revisit_counts": {start_location: 1},
+            "location_variants": {},
+            "accusation_answers": {},
+        },
         two_player=two_player,
         state_id=0,
     )
