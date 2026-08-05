@@ -1,0 +1,21 @@
+{
+  "universe": "real world",
+  "genre": "detective story",
+  "realism_level": "grounded",
+  "player_mode": "two_player",
+  "investigator_character": "Partner investigators with split roles",
+  "target_playtime_minutes": 150,
+  "in_world_duration": "one weekend afternoon",
+  "tone": "cooperative",
+  "difficulty": "standard",
+  "location_scale": "small town block",
+  "content_boundaries": "no graphic violence",
+  "required_themes": [
+    "fair-play mystery",
+    "cooperation"
+  ],
+  "forbidden_themes": [
+    "supernatural explanations"
+  ],
+  "author_notes": "Fixture brief for two-player generator tests."
+}

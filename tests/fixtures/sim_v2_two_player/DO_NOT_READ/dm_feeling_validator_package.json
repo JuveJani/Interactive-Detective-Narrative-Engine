@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "df_valid_two_player",
+  "play_modes": [
+    "single_investigator",
+    "two_player"
+  ],
+  "delivery_modes": [
+    "static_book",
+    "ai_dm"
+  ],
+  "player_agency": {
+    "choices": [
+      {
+        "choice_id": "CHO-SEARCH",
+        "player_label": "Search the desk.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      }
+    ]
+  },
+  "discovery_delivery": {
+    "mostly_passive_reading": false,
+    "information_grants": [
+      {
+        "grant_id": "GRANT-KEY",
+        "automatic_major_grant": false,
+        "direct_solution_delivery": false,
+        "hidden_exposed_too_early": false,
+        "earned_through": "object_search"
+      }
+    ]
+  },
+  "exploration_depth": {
+    "locations": [
+      {
+        "location_id": "LOC-OFFICE",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      }
+    ],
+    "objects": [
+      {
+        "object_id": "OBJ-DESK",
+        "mandatory": true,
+        "layered_discovery": true,
+        "shallow_tree": false
+      }
+    ]
+  },
+  "inference_quality": {
+    "inferences": [
+      {
+        "inference_id": "INF-001",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 2
+      }
+    ]
+  },
+  "aha_potential": {
+    "conclusions": [
+      {
+        "conclusion_id": "CONC-001",
+        "connection_structure": "two_facts_combine",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      }
+    ]
+  },
+  "world_responsiveness": {
+    "revisit_persistent": true,
+    "state_effects": [
+      {
+        "state_id": "STATE-DESK-SEARCHED",
+        "affects_player_content": true,
+        "declared_but_inert": false,
+        "time_threshold_inert": false
+      }
+    ]
+  },
+  "time_pressure": {
+    "deadline_irrelevant": false,
+    "exhaustive_always_fits": false,
+    "time_gated_unreachable": false
+  },
+  "failure_quality": {
+    "failures": [
+      {
+        "failure_id": "FAIL-PERCEPTION",
+        "meaningless_failure": false,
+        "no_persistent_effect": false,
+        "unfair_dead_end": false,
+        "changes_fixed_truth": false,
+        "leaks_success_content": false,
+        "free_retry": false,
+        "meaningful_effect": true
+      }
+    ]
+  },
+  "conversation_agency": {
+    "npc_routes": [
+      {
+        "npc_id": "NPC-B",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      }
+    ]
+  },
+  "ending_causality": {
+    "endings": [
+      {
+        "ending_id": "END-PERFECT",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-PARTIAL",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "truth_leak": false,
+        "decorative": false
+      }
+    ]
+  },
+  "mode_specific": {
+    "single_investigator": {
+      "partner_dependency": false,
+      "artificial_split_remnants": false
+    },
+    "two_player": {
+      "little_joint_investigation": false,
+      "high_idle_time": false,
+      "joint_reasoning_required": true
+    }
+  },
+  "player_audit": {
+    "files": [
+      "PLAYER/INVESTIGATION.md"
+    ]
+  },
+  "state_graph_config": {
+    "max_states": 5000,
+    "explored_states": 10,
+    "forced_explosion": false
+  },
+  "tier_b_mandatory": [],
+  "tier_c_playtest": {
+    "required": true,
+    "completed": true
+  },
+  "local_ai_export": {
+    "required": true,
+    "ready": true,
+    "offline_runnable": true,
+    "write_reports": false
+  }
+}
