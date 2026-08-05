@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "brief_version": "1",
+  "workspace_root": "/workspace/adventures/The_Cold_Storage_Alarm",
+  "stage_status": {
+    "adventure_brief": "AWAITING_APPROVAL",
+    "fixed_truth": "PENDING",
+    "causal_timeline": "PENDING",
+    "world_state_timeline": "PENDING",
+    "npcs": "PENDING",
+    "environment": "PENDING",
+    "objects": "PENDING",
+    "investigation_core": "PENDING",
+    "npc_conversation": "PENDING",
+    "investigation_flow": "PENDING",
+    "capability_checks": "PENDING",
+    "story_player": "PENDING",
+    "playtime": "PENDING",
+    "dm_feeling": "PENDING",
+    "final_validation": "PENDING",
+    "package_export": "PENDING"
+  },
+  "input_hashes": {},
+  "output_hashes": {},
+  "validator_results": {},
+  "repair_attempts": [],
+  "human_approvals": {},
+  "invalidated_stages": [],
+  "model_metadata": {
+    "backend": "mock",
+    "model_name": "mock-deterministic",
+    "context_size": 8192,
+    "temperature": 0.1,
+    "max_output_tokens": 2048,
+    "timeout_seconds": 120.0,
+    "max_retries": 2,
+    "local_mode": true,
+    "endpoint_url": "",
+    "cli_command": "",
+    "extra": {}
+  },
+  "token_estimates": {},
+  "timestamps": {
+    "created": "2026-08-05T15:24:12+00:00",
+    "updated": "2026-08-05T15:24:12+00:00",
+    "stage_adventure_brief": "2026-08-05T15:24:12+00:00"
+  },
+  "checkpoint_stage": "adventure_brief",
+  "logic_validation_complete": false,
+  "readiness_status": "IN_PROGRESS",
+  "player_mapping_manifest": {}
+}
