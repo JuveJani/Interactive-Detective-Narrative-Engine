@@ -1,0 +1,386 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "play_modes": [
+    "single_investigator",
+    "two_player"
+  ],
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "object_interaction_links": {
+    "package_path": "DO_NOT_READ/object_interaction_package.json"
+  },
+  "npc_investigation_links": {
+    "package_path": "DO_NOT_READ/npc_investigation_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "modifier_sources": [
+    {
+      "modifier_id": "MOD-PERCEPTION",
+      "capability_category": "perception_observation",
+      "source": "character_sheet.perception"
+    },
+    {
+      "modifier_id": "MOD-REASONING",
+      "capability_category": "reasoning_interpretation",
+      "source": "character_sheet.reasoning"
+    },
+    {
+      "modifier_id": "MOD-TECHNICAL",
+      "capability_category": "technical_operation",
+      "source": "character_sheet.technical"
+    },
+    {
+      "modifier_id": "MOD-STRENGTH",
+      "capability_category": "physical_strength",
+      "source": "character_sheet.strength"
+    },
+    {
+      "modifier_id": "MOD-AGILITY",
+      "capability_category": "agility",
+      "source": "character_sheet.agility"
+    },
+    {
+      "modifier_id": "MOD-PERSUADE",
+      "capability_category": "social_persuasion",
+      "source": "character_sheet.persuasion"
+    },
+    {
+      "modifier_id": "MOD-INTIMIDATE",
+      "capability_category": "social_intimidation",
+      "source": "character_sheet.intimidation"
+    }
+  ],
+  "resolution_model": {
+    "formula": "d20 + character_modifier",
+    "success_when": "result >= dc"
+  },
+  "difficulty_bands": {
+    "easy": 5,
+    "medium": 10,
+    "hard": 15
+  },
+  "destination_units": [
+    {
+      "unit_id": "UNIT-CHK-LATCH-DECL",
+      "player_text": "Check the latch hardware for recent disturbance.",
+      "exposes_success_content": false,
+      "exposes_failure_content": false
+    },
+    {
+      "unit_id": "UNIT-LATCH-SUCCESS",
+      "player_text": "Tool marks and wear patterns suggest the latch was handled again after the last secure check."
+    },
+    {
+      "unit_id": "UNIT-LATCH-FAIL",
+      "player_text": "The latch hardware looks ordinary from this angle; nothing useful stands out.",
+      "hints_missed_content": false,
+      "reveals_hidden_object": false
+    },
+    {
+      "unit_id": "UNIT-CHK-LABEL-DECL",
+      "player_text": "Search the floor and pallet faces for label adhesive residue.",
+      "exposes_success_content": false,
+      "exposes_failure_content": false
+    },
+    {
+      "unit_id": "UNIT-LABEL-SUCCESS",
+      "player_text": "You recover a strip of label backing with fresh adhesive trace along aisle C."
+    },
+    {
+      "unit_id": "UNIT-LABEL-FAIL",
+      "player_text": "The floor and pallet faces show routine warehouse wear; no distinctive trace stands out.",
+      "hints_missed_content": false,
+      "reveals_hidden_object": false
+    },
+    {
+      "unit_id": "UNIT-CHK-TREND-DECL",
+      "player_text": "Export the CZ-1 supply air temperature trend.",
+      "exposes_success_content": false,
+      "exposes_failure_content": false
+    },
+    {
+      "unit_id": "UNIT-TREND-SUCCESS",
+      "player_text": "The trend export completes and opens for review."
+    },
+    {
+      "unit_id": "UNIT-TREND-FAIL",
+      "player_text": "The export wizard closes with an error; no trend file is saved.",
+      "hints_missed_content": false,
+      "reveals_hidden_object": false
+    },
+    {
+      "unit_id": "UNIT-CHK-LOCKER-DECL",
+      "player_text": "Inspect the ajar contractor locker.",
+      "exposes_success_content": false,
+      "exposes_failure_content": false
+    },
+    {
+      "unit_id": "UNIT-LOCKER-SUCCESS",
+      "player_text": "Inside the locker you find a contractor temporary badge that was not returned at exit."
+    },
+    {
+      "unit_id": "UNIT-LOCKER-FAIL",
+      "player_text": "The locker interior looks unremarkable at a glance.",
+      "hints_missed_content": false,
+      "reveals_hidden_object": false
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "CHK-PERCEPTION-LATCH",
+      "parent_action_id": "ACT-CHECK-LATCH-WEAR",
+      "parent_action_layer": "object_interaction",
+      "parent_action_type": "search",
+      "player_action_label": "Check the latch hardware for recent disturbance.",
+      "capability": "perception",
+      "capability_category": "perception_observation",
+      "modifier_source_id": "MOD-PERCEPTION",
+      "dc": 13,
+      "dc_justification": "Subtle tool wear on industrial latch hardware; above medium because lighting and frost haze reduce contrast",
+      "why_check_exists": "Disturbance signs are easy to overlook without careful visual search",
+      "success_enables": "Notice latch handling inconsistent with a single secure check",
+      "failure_consequence": "Latch appears routine; security archive records and testimony remain available",
+      "alternate_route_exists": true,
+      "alternate_route_id": "REC-SECURITY-ARCHIVE",
+      "mandatory_for_fair_path": false,
+      "attempt_policy": {
+        "default": "one_attempt",
+        "retry_extension_point": "future_retry_policy"
+      },
+      "time_cost_minutes": 4,
+      "cost_applied_once": true,
+      "cost_applied_count": 1,
+      "eligibility": {
+        "single_investigator": "active_investigator",
+        "two_player": "active_investigator_at_scene"
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": false,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "action_unit_id": "UNIT-CHK-LATCH-DECL",
+        "success_destination": "UNIT-LATCH-SUCCESS",
+        "failure_destination": "UNIT-LATCH-FAIL"
+      },
+      "success_effects": {
+        "reveals_information_ids": [
+          "INFO-LATCH-DISTURBANCE"
+        ],
+        "grants_knowledge_ids": [
+          "KNOW-LATCH-DISTURBANCE"
+        ],
+        "npc_social_effects": []
+      },
+      "failure_effects": {
+        "reveals_information_ids": [],
+        "grants_knowledge_ids": [],
+        "npc_social_effects": [],
+        "preserves_investigation": true,
+        "flow_flag_on_failure": "check_latch_failed"
+      },
+      "information_trace": {
+        "fixed_truth_ref": "FACT-004",
+        "source_layer": "object",
+        "source_id": "OBJ-COLD-DOOR-ASM",
+        "observation_id": "OBS-LATCH-DISTURBANCE"
+      }
+    },
+    {
+      "check_id": "CHK-PERCEPTION-LABEL",
+      "parent_action_id": "ACT-SEARCH-LABEL-RESIDUE",
+      "parent_action_layer": "object_interaction",
+      "parent_action_type": "search",
+      "player_action_label": "Search the floor and pallet faces for label adhesive residue.",
+      "capability": "perception",
+      "capability_category": "perception_observation",
+      "modifier_source_id": "MOD-PERCEPTION",
+      "dc": 14,
+      "dc_justification": "Fine adhesive trace on cold concrete and pallet film; hard band because residue blends with routine scuffing",
+      "why_check_exists": "Physical swap evidence is present but not obvious without close search",
+      "success_enables": "Recover label backing trace for timestamp comparison",
+      "failure_consequence": "No physical trace recovered; manifest records and coordinator interview threads remain",
+      "alternate_route_exists": true,
+      "alternate_route_id": "REC-MANAGER-MANIFEST",
+      "mandatory_for_fair_path": false,
+      "attempt_policy": {
+        "default": "one_attempt",
+        "retry_extension_point": "future_retry_policy"
+      },
+      "time_cost_minutes": 5,
+      "cost_applied_once": true,
+      "cost_applied_count": 1,
+      "eligibility": {
+        "single_investigator": "active_investigator",
+        "two_player": "active_investigator_at_scene"
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": false,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "action_unit_id": "UNIT-CHK-LABEL-DECL",
+        "success_destination": "UNIT-LABEL-SUCCESS",
+        "failure_destination": "UNIT-LABEL-FAIL"
+      },
+      "success_effects": {
+        "reveals_information_ids": [
+          "INFO-LABEL-RESIDUE"
+        ],
+        "grants_knowledge_ids": [
+          "KNOW-LABEL-RESIDUE"
+        ],
+        "npc_social_effects": []
+      },
+      "failure_effects": {
+        "reveals_information_ids": [],
+        "grants_knowledge_ids": [],
+        "npc_social_effects": [],
+        "preserves_investigation": true,
+        "flow_flag_on_failure": "check_label_failed"
+      },
+      "information_trace": {
+        "fixed_truth_ref": "FACT-006",
+        "source_layer": "object",
+        "source_id": "OBJ-COLD-AISLE-C",
+        "observation_id": "OBS-LABEL-RESIDUE"
+      }
+    },
+    {
+      "check_id": "CHK-TECH-TEMP-TREND",
+      "parent_action_id": "ACT-EXPORT-TEMP-TREND",
+      "parent_action_layer": "object_interaction",
+      "parent_action_type": "operate",
+      "player_action_label": "Export the CZ-1 supply air temperature trend.",
+      "capability": "technical",
+      "capability_category": "technical_operation",
+      "modifier_source_id": "MOD-TECHNICAL",
+      "dc": 12,
+      "dc_justification": "Engineering export requires navigating BMS menus under time pressure; medium-high for non-facilities investigators",
+      "why_check_exists": "Trend file extraction can fail without technical familiarity",
+      "success_enables": "Obtain archived supply-air trend for staging correlation",
+      "failure_consequence": "Export fails; live display reading and staging panel inspection remain available",
+      "alternate_route_exists": true,
+      "alternate_route_id": "REC-COLD-DISPLAY",
+      "mandatory_for_fair_path": false,
+      "attempt_policy": {
+        "default": "one_attempt",
+        "retry_extension_point": "future_retry_policy"
+      },
+      "time_cost_minutes": 5,
+      "cost_applied_once": true,
+      "cost_applied_count": 1,
+      "eligibility": {
+        "single_investigator": "active_investigator",
+        "two_player": "active_investigator_at_scene"
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": false,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "action_unit_id": "UNIT-CHK-TREND-DECL",
+        "success_destination": "UNIT-TREND-SUCCESS",
+        "failure_destination": "UNIT-TREND-FAIL"
+      },
+      "success_effects": {
+        "reveals_information_ids": [
+          "INFO-TEMP-TREND"
+        ],
+        "grants_knowledge_ids": [
+          "KNOW-TEMP-TREND"
+        ],
+        "npc_social_effects": []
+      },
+      "failure_effects": {
+        "reveals_information_ids": [],
+        "grants_knowledge_ids": [],
+        "npc_social_effects": [],
+        "preserves_investigation": true,
+        "flow_flag_on_failure": "check_trend_failed"
+      },
+      "information_trace": {
+        "fixed_truth_ref": "FACT-010",
+        "source_layer": "object",
+        "source_id": "OBJ-CTRL-TERM-02",
+        "observation_id": "OBS-TEMP-TREND"
+      }
+    },
+    {
+      "check_id": "CHK-PERCEPTION-LOCKER",
+      "parent_action_id": "ACT-INSPECT-LOCKER-14",
+      "parent_action_layer": "object_interaction",
+      "parent_action_type": "search",
+      "player_action_label": "Inspect the ajar contractor locker.",
+      "capability": "perception",
+      "capability_category": "perception_observation",
+      "modifier_source_id": "MOD-PERCEPTION",
+      "dc": 11,
+      "dc_justification": "Badge sits beneath folded coveralls; medium because locker is cluttered but door gap draws attention",
+      "why_check_exists": "Temporary badge is present but not immediately visible in a crowded locker",
+      "success_enables": "Find contractor badge left after authorized exit",
+      "failure_consequence": "Locker search inconclusive; security archive badge records remain available",
+      "alternate_route_exists": true,
+      "alternate_route_id": "REC-SECURITY-ARCHIVE",
+      "mandatory_for_fair_path": false,
+      "attempt_policy": {
+        "default": "one_attempt",
+        "retry_extension_point": "future_retry_policy"
+      },
+      "time_cost_minutes": 3,
+      "cost_applied_once": true,
+      "cost_applied_count": 1,
+      "eligibility": {
+        "single_investigator": "active_investigator",
+        "two_player": "active_investigator_at_scene"
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": false,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "action_unit_id": "UNIT-CHK-LOCKER-DECL",
+        "success_destination": "UNIT-LOCKER-SUCCESS",
+        "failure_destination": "UNIT-LOCKER-FAIL"
+      },
+      "success_effects": {
+        "reveals_information_ids": [
+          "INFO-BADGE-LOCKER"
+        ],
+        "grants_knowledge_ids": [
+          "KNOW-BADGE-LOCKER"
+        ],
+        "npc_social_effects": []
+      },
+      "failure_effects": {
+        "reveals_information_ids": [],
+        "grants_knowledge_ids": [],
+        "npc_social_effects": [],
+        "preserves_investigation": true,
+        "flow_flag_on_failure": "check_locker_failed"
+      },
+      "information_trace": {
+        "fixed_truth_ref": "FACT-003",
+        "source_layer": "object",
+        "source_id": "OBJ-LOCKER-BANK",
+        "observation_id": "OBS-BADGE-LOCKER"
+      }
+    }
+  ],
+  "player_content_refs": {
+    "files": [],
+    "action_units": []
+  }
+}
