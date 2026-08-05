@@ -1,4 +1,53 @@
+# Simulation and diagnostic output
 simulation_output/
+simulation_output_v2/
+
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets and local config (never commit)
+.env
+.env.*
+*.pem
+*.key
+secrets/
+credentials.json
+
+# Local model files (large binaries)
+*.gguf
+*.bin
+models/
+llm_models/
+
+# Generated archives and temp reports
+*.log
+/tmp/
+temp/
+.cache/
+
+# Package build artifacts in adventure dirs
+**/.generation/reports/
