@@ -14,8 +14,9 @@ from idne.story_validate import validate_story
 from idne.validate_adventure.runner import validate_adventure
 from simulator_v2.derivation import CanonicalSimulationModel
 from simulator_v2.findings import DiagnosticFinding, _normalize_owner
+from simulator_v2.strategies import strategy_compatible
 from simulator_v2.modes import ExhaustiveConfig, MonteCarloConfig, SimulationModes
-from simulator_v2.trust_gate import evaluate_trust
+from simulator_v2.trust_gate import evaluate_trust, integrated_validation_status
 from simulator_v2.types import PackageLoadResult
 
 
@@ -118,7 +119,7 @@ def _extract_validator_findings(validator: str, adventure_root: Path) -> list[Di
     return findings
 
 
-def _simulation_findings(
+def build_integration_findings(
     load: PackageLoadResult,
     model: CanonicalSimulationModel | None,
     sim_data: dict[str, Any],
@@ -147,8 +148,60 @@ def _simulation_findings(
         )
         return findings
 
+    if not trust:
+        findings.append(
+            DiagnosticFinding(
+                finding_id="SIM-MISSING-TRUST-INFO",
+                severity="major",
+                confidence="proven",
+                canonical_source="trust_gate",
+                source_file="simulator_v2/trust_gate.py",
+                affected_entity=load.adventure_id,
+                affected_paths=[],
+                simulation_evidence="Simulation mode result omitted trust metadata",
+                expected_behavior="Every mode result includes trust evaluation",
+                observed_behavior="trust={}",
+                trust_impact="blocks_trust",
+                likely_owner="SIMULATOR",
+                repair_eligible=True,
+                human_approval_required=False,
+                validator="simulator",
+            )
+        )
+
+    ivs = trust.get("integrated_validation_status")
+    mode_iv = ""
+    for key in ("trace", "monte_carlo", "compare", "exhaustive"):
+        mode_iv = (sim_data.get(key) or {}).get("integrated_validation", {}).get("status", "")
+        if mode_iv:
+            break
+    effective_ivs = ivs or mode_iv or load.integrated_validation_status or "MISSING"
+    if effective_ivs == "MISSING":
+        findings.append(
+            DiagnosticFinding(
+                finding_id="SIM-MISSING-VALIDATION-STATUS",
+                severity="major",
+                confidence="proven",
+                canonical_source="integrated_validation",
+                source_file="simulator_v2/package_loader.py",
+                affected_entity=load.adventure_id,
+                affected_paths=[],
+                simulation_evidence="integrated_validation_status not propagated",
+                expected_behavior="Integrated validation status present on all mode outputs",
+                observed_behavior="status=MISSING",
+                trust_impact="blocks_trust",
+                likely_owner="SIMULATOR",
+                repair_eligible=True,
+                human_approval_required=False,
+                validator="simulator",
+            )
+        )
+
     if not trust.get("trusted"):
-        for blocker in trust.get("blockers", []):
+        blockers = trust.get("blockers") or []
+        if not blockers:
+            blockers = ["trust_gate:quantitative_trust_denied"]
+        for blocker in blockers:
             findings.append(
                 DiagnosticFinding(
                     finding_id=f"SIM-TRUST-{blocker[:24].upper().replace(':', '-')}",
@@ -168,6 +221,80 @@ def _simulation_findings(
                     validator="simulator",
                 )
             )
+
+    compare = sim_data.get("compare", {})
+    for name, data in compare.get("strategies", {}).items():
+        if data.get("status") == "SKIPPED_INCOMPATIBLE_MODE":
+            continue
+        if data.get("status") != "SKIPPED_INCOMPATIBLE_MODE" and not strategy_compatible(load.play_mode, name):
+            findings.append(
+                DiagnosticFinding(
+                    finding_id="SIM-INCOMPATIBLE-STRATEGY-RAN",
+                    severity="major",
+                    confidence="proven",
+                    canonical_source=name,
+                    source_file="simulator_v2/modes.py",
+                    affected_entity=name,
+                    affected_paths=[],
+                    simulation_evidence=f"Strategy {name} ran on {load.play_mode} package",
+                    expected_behavior="Incompatible strategies skipped",
+                    observed_behavior="Strategy executed",
+                    trust_impact="blocks_trust",
+                    likely_owner="SIMULATOR",
+                    repair_eligible=True,
+                    human_approval_required=False,
+                    validator="simulator",
+                )
+            )
+        freqs = data.get("ending_frequencies", {})
+        incomplete_keys = [k for k in freqs if str(k).startswith("INCOMPLETE:")]
+        total_runs = sum(freqs.values())
+        incomplete_runs = sum(freqs.get(k, 0) for k in incomplete_keys)
+        if total_runs > 0 and incomplete_runs == total_runs:
+            findings.append(
+                DiagnosticFinding(
+                    finding_id=f"SIM-STRATEGY-INCOMPLETE-{name.upper().replace('-', '_')[:20]}",
+                    severity="minor",
+                    confidence="proven",
+                    canonical_source=name,
+                    source_file="simulator_v2/engine.py",
+                    affected_entity=name,
+                    affected_paths=[],
+                    simulation_evidence=f"{incomplete_runs}/{total_runs} runs incomplete",
+                    expected_behavior="Strategy reaches terminal ending or explicit incomplete reason",
+                    observed_behavior="All runs incomplete",
+                    trust_impact="none" if trust.get("trusted") else "untrusted_observation",
+                    likely_owner="SIMULATOR",
+                    repair_eligible=False,
+                    human_approval_required=False,
+                    validator="simulator",
+                )
+            )
+        for detail in data.get("incomplete_details", []):
+            reason = detail.get("reason", "")
+            if reason in ("CYCLE", "MAX_STEPS"):
+                findings.append(
+                    DiagnosticFinding(
+                        finding_id=f"SIM-STAGNATION-{name.upper().replace('-', '_')[:12]}-{reason}",
+                        severity="info",
+                        confidence="proven",
+                        canonical_source=name,
+                        source_file="simulator_v2/engine.py",
+                        affected_entity=name,
+                        affected_paths=[],
+                        simulation_evidence=(
+                            f"reason={reason} steps={detail.get('steps')} "
+                            f"last_state={detail.get('last_state_key', '')[:80]}"
+                        ),
+                        expected_behavior="Strategy avoids stagnation cycles",
+                        observed_behavior=f"Incomplete due to {reason}",
+                        trust_impact="none",
+                        likely_owner="SIMULATOR",
+                        repair_eligible=False,
+                        human_approval_required=False,
+                        validator="simulator",
+                    )
+                )
 
     mc = sim_data.get("monte_carlo", {})
     endings = mc.get("ending_frequencies", {})
@@ -220,6 +347,9 @@ def _simulation_findings(
         )
 
     return findings
+
+
+_simulation_findings = build_integration_findings
 
 
 def run_integrated_diagnostics(
@@ -312,10 +442,16 @@ def run_integrated_diagnostics(
             "player_active_minutes": trace.metrics.player_active_minutes,
         })
 
-    coverage = sim_data.get("exhaustive", {}).get("coverage", "monte_carlo")
-    trust_eval = evaluate_trust(load, model, coverage=coverage)
-    trust = trust_eval.to_dict()
-    findings.extend(_simulation_findings(load, model, sim_data, trust))
+    trust = (
+        sim_data.get("monte_carlo", {}).get("trust")
+        or sim_data.get("compare", {}).get("trust")
+        or sim_data.get("exhaustive", {}).get("trust")
+        or (sim_data.get("trace", {}) or {}).get("trust")
+        or evaluate_trust(load, model, coverage=sim_data.get("exhaustive", {}).get("coverage", "monte_carlo")).to_dict()
+    )
+    if adventure_root and not integrated.get("status"):
+        integrated = {"status": integrated_validation_status(load), "failures": list(load.integrated_validation_failures or [])}
+    findings.extend(build_integration_findings(load, model, sim_data, trust))
 
     return DiagnosticReport(
         adventure_id=load.adventure_id,
