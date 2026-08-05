@@ -33,7 +33,7 @@
     "investigation_core": "a11e41dd3bacc65b420a74df5041a685dfe33792f44f2e64f5f8f88687127918",
     "investigation_flow": "93af8169c141af4381463caebb06d889cd30d761465b00c53a020fc6fc1a8deb",
     "capability_checks": "8c3d2448706524927cf1f0d157fc255d8c28364be5d98314e11fc6414cd245d4",
-    "story_player": "317279da46fe998d295751c5e27fd59384f245aa6a276f09669fe825f3c2b746"
+    "story_player": "332da6e279d362e537097634c3498dacbbe007a00847b66e6f1e27e7d365a39d"
   },
   "validator_results": {
     "fixed_truth": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
@@ -46,6 +46,7 @@
     "investigation_flow": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "capability_checks": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "story_player": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
+    "single_investigator": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "story_validator": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "dm_feeling_structural": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "investigation_validator": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
@@ -79,14 +80,21 @@
   "token_estimates": {},
   "timestamps": {
     "created": "2026-08-05T15:24:12+00:00",
-    "updated": "2026-08-05T17:20:00+00:00",
-    "stage_story_player": "2026-08-05T17:20:00+00:00"
+    "updated": "2026-08-05T17:50:00+00:00",
+    "stage_story_player": "2026-08-05T17:50:00+00:00"
   },
   "checkpoint_stage": "story_player",
   "logic_validation_complete": false,
   "readiness_status": "AWAITING_APPROVAL",
   "player_mapping_manifest": {
     "path": "player_mapping_manifest.json",
-    "unit_count": 90
+    "unit_count": 96
+  },
+  "provisional_playtime_estimate": {
+    "path": "PROVISIONAL_PLAYTIME_ESTIMATE.json",
+    "shortest_minutes": 76.7,
+    "expected_minutes": 136.5,
+    "broad_minutes": 197.2,
+    "target_120_achievable": true
   }
 }
