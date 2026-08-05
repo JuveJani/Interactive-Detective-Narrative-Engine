@@ -8,9 +8,9 @@
     "fixed_truth": "COMPLETE",
     "causal_timeline": "COMPLETE",
     "world_state_timeline": "COMPLETE",
-    "npcs": "AWAITING_APPROVAL",
-    "environment": "PENDING",
-    "objects": "PENDING",
+    "npcs": "COMPLETE",
+    "environment": "AWAITING_APPROVAL",
+    "objects": "AWAITING_APPROVAL",
     "investigation_core": "PENDING",
     "npc_conversation": "PENDING",
     "investigation_flow": "PENDING",
@@ -27,7 +27,9 @@
     "fixed_truth": "4cafc10c38f03feaf36120377d6824dabca74bbd59380b129911f0f154d4d28f",
     "causal_timeline": "4cafc10c38f03feaf36120377d6824dabca74bbd59380b129911f0f154d4d28f",
     "world_state_timeline": "4cafc10c38f03feaf36120377d6824dabca74bbd59380b129911f0f154d4d28f",
-    "npcs": "09ba9616a4dd804512a89a6ddd9020ced26f3150c0f6bd7db0fb51dbfa646130"
+    "npcs": "09ba9616a4dd804512a89a6ddd9020ced26f3150c0f6bd7db0fb51dbfa646130",
+    "environment": "04a6610b79f98e4c1a91947799bf6f5f6cba843db06472124944fbfb84439252",
+    "objects": "587a01f535cee7cd6a6e86630d428958c92ed28cd08a4c253812a9e6a260a5dd"
   },
   "validator_results": {
     "fixed_truth": {
@@ -54,6 +56,20 @@
       "tier_b_pending": [],
       "tier_c_complete": false
     },
+    "environment": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "objects": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
     "world_first_recheck": {
       "status": "PASS",
       "findings": [],
@@ -73,6 +89,11 @@
       "approved_at": "2026-08-05T15:56:52+00:00",
       "approver": "human",
       "note": "Fixed truth revision approved"
+    },
+    "npcs": {
+      "approved_at": "2026-08-05T16:16:00+00:00",
+      "approver": "human",
+      "note": "NPC investigation layer approved"
     }
   },
   "invalidated_stages": [],
@@ -92,15 +113,17 @@
   "token_estimates": {},
   "timestamps": {
     "created": "2026-08-05T15:24:12+00:00",
-    "updated": "2026-08-05T15:56:52+00:00",
+    "updated": "2026-08-05T16:20:00+00:00",
     "stage_adventure_brief": "2026-08-05T15:46:24+00:00",
     "stage_causal_timeline": "2026-08-05T15:46:24+00:00",
     "stage_world_state_timeline": "2026-08-05T15:46:24+00:00",
     "stage_fixed_truth": "2026-08-05T15:56:52+00:00",
-    "stage_npcs": "2026-08-05T15:56:52+00:00"
+    "stage_npcs": "2026-08-05T16:16:00+00:00",
+    "stage_environment": "2026-08-05T16:20:00+00:00",
+    "stage_objects": "2026-08-05T16:20:00+00:00"
   },
-  "checkpoint_stage": "npcs",
+  "checkpoint_stage": "objects",
   "logic_validation_complete": false,
-  "readiness_status": "IN_PROGRESS",
+  "readiness_status": "AWAITING_APPROVAL",
   "player_mapping_manifest": {}
 }
