@@ -1,0 +1,22 @@
+# Cursor context exclusions — same policy as .gitignore for generated noise
+simulation_output/
+simulation_output_v2/
+.venv/
+venv/
+env/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.gguf
+*.bin
+models/
+llm_models/
+.env
+.env.*
+secrets/
+**/.generation/reports/
+*.log
+/tmp/
+temp/
+.cache/

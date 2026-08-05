@@ -1,0 +1,33 @@
+---
+description: Core IDNE operating rules for all Cursor agents and Composer tasks
+alwaysApply: true
+---
+
+# IDNE core rules
+
+Read `AGENTS.md` and `OFFLINE_AI/CURRENT_STATE.md` before substantial work.
+
+## Must do
+
+- Prefer authoritative specs over chat memory (see `AGENTS.md` document priority).
+- Preserve fixed world truth; do not weaken validators for PASS.
+- Use staged Generator v2 (one layer at a time); never one-shot full adventures.
+- Run focused tests, then `python -m unittest discover -s tests`.
+- Label facts vs observations vs assumptions vs proposals.
+- Update `OFFLINE_AI/SESSION_HANDOFF.md` after significant work.
+
+## Must not do
+
+- Modify engine, schemas, validators, or adventures unless the task explicitly requires it.
+- Treat untrusted simulator metrics as adventure facts.
+- Invent canonical IDs, schemas, or measured local-model settings.
+
+## Reference files (do not duplicate here)
+
+- `OFFLINE_AI/OPERATING_RULES.md` — workflow discipline
+- `OFFLINE_AI/ARCHITECTURE_MAP.md` — system map
+- `OFFLINE_AI/KNOWN_LIMITATIONS.md` — current gaps
+- `OFFLINE_AI/TASK_TEMPLATE.md` — scoped task format
+- `IDNE_DEVELOPMENT_WORKFLOW.md` — lifecycle
+- `ADVENTURE_GENERATOR_V2_SPEC.md` — generator norms
+- `SIMULATOR_V2_SPEC.md` — simulator norms
