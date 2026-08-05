@@ -10,19 +10,20 @@ First real IDNE adventure prepared for Adventure Generator v2.
 | World truth package | `adventure/DO_NOT_READ/world_truth_package.json` |
 | Generation state | `.generation/generation_state.json` |
 
-**Status:** `AWAITING_APPROVAL` at `environment` / `objects` — environment and object interaction layers drafted; investigation core not started.
+**Status:** `AWAITING_APPROVAL` at `investigation_core` — investigation core drafted; investigation flow not started.
 
 | Item | Path |
 |------|------|
 | NPC approval (spoiler-free) | `NPC_APPROVAL_REPORT_PLAYER_TEST.md` |
-| NPC approval (author-only) | `DO_NOT_READ/NPC_APPROVAL_REPORT.md` |
-| NPC investigation package | `adventure/DO_NOT_READ/npc_investigation_package.json` |
 | Environment/object approval (spoiler-free) | `ENVIRONMENT_OBJECT_APPROVAL_PLAYER_TEST.md` |
-| Environment/object approval (author-only) | `DO_NOT_READ/ENVIRONMENT_OBJECT_APPROVAL_REPORT.md` |
+| Investigation core approval (spoiler-free) | `INVESTIGATION_CORE_APPROVAL_PLAYER_TEST.md` |
+| Investigation core approval (author-only) | `DO_NOT_READ/INVESTIGATION_CORE_APPROVAL_REPORT.md` |
+| Investigation core package | `adventure/DO_NOT_READ/investigation_core_package.json` |
 | Environment package | `adventure/DO_NOT_READ/environment_package.json` |
 | Object interaction package | `adventure/DO_NOT_READ/object_interaction_package.json` |
+| NPC investigation package | `adventure/DO_NOT_READ/npc_investigation_package.json` |
 
-Resume after human approval of environment and object layers:
+Resume after human approval of investigation core:
 
 ```bash
 python3 -m idne.generate adventure_brief.json --workspace . --resume
