@@ -14,8 +14,8 @@
     "investigation_core": "COMPLETE",
     "npc_conversation": "PENDING",
     "investigation_flow": "COMPLETE",
-    "capability_checks": "AWAITING_APPROVAL",
-    "story_player": "PENDING",
+    "capability_checks": "COMPLETE",
+    "story_player": "AWAITING_APPROVAL",
     "playtime": "PENDING",
     "dm_feeling": "PENDING",
     "final_validation": "PENDING",
@@ -32,18 +32,22 @@
     "objects": "587a01f535cee7cd6a6e86630d428958c92ed28cd08a4c253812a9e6a260a5dd",
     "investigation_core": "a11e41dd3bacc65b420a74df5041a685dfe33792f44f2e64f5f8f88687127918",
     "investigation_flow": "93af8169c141af4381463caebb06d889cd30d761465b00c53a020fc6fc1a8deb",
-    "capability_checks": "8c3d2448706524927cf1f0d157fc255d8c28364be5d98314e11fc6414cd245d4"
+    "capability_checks": "8c3d2448706524927cf1f0d157fc255d8c28364be5d98314e11fc6414cd245d4",
+    "story_player": "317279da46fe998d295751c5e27fd59384f245aa6a276f09669fe825f3c2b746"
   },
   "validator_results": {
     "fixed_truth": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "causal_timeline": {"status": "PASS", "skipped": true, "note": "validated via world_first in fixed_truth stage"},
     "world_state_timeline": {"status": "PASS", "skipped": true, "note": "validated via world_first in fixed_truth stage"},
     "npcs": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "environment": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
+    "environment": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_pending": [], "tier_c_complete": false},
     "objects": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "investigation_core": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "investigation_flow": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "capability_checks": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
+    "story_player": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
+    "story_validator": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
+    "dm_feeling_structural": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "investigation_validator": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
     "world_first_recheck": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false}
   },
@@ -55,7 +59,8 @@
     "environment": {"approved_at": "2026-08-05T16:42:00+00:00", "approver": "human", "note": "Environment layer approved"},
     "objects": {"approved_at": "2026-08-05T16:42:00+00:00", "approver": "human", "note": "Object interaction layer approved"},
     "investigation_core": {"approved_at": "2026-08-05T16:51:00+00:00", "approver": "human", "note": "Investigation core layer approved"},
-    "investigation_flow": {"approved_at": "2026-08-05T17:00:00+00:00", "approver": "human", "note": "Investigation flow and endings layer approved"}
+    "investigation_flow": {"approved_at": "2026-08-05T17:00:00+00:00", "approver": "human", "note": "Investigation flow and endings layer approved"},
+    "capability_checks": {"approved_at": "2026-08-05T17:10:00+00:00", "approver": "human", "note": "Capability checks layer approved"}
   },
   "invalidated_stages": [],
   "model_metadata": {
@@ -74,11 +79,14 @@
   "token_estimates": {},
   "timestamps": {
     "created": "2026-08-05T15:24:12+00:00",
-    "updated": "2026-08-05T17:05:00+00:00",
-    "stage_capability_checks": "2026-08-05T17:05:00+00:00"
+    "updated": "2026-08-05T17:20:00+00:00",
+    "stage_story_player": "2026-08-05T17:20:00+00:00"
   },
-  "checkpoint_stage": "capability_checks",
+  "checkpoint_stage": "story_player",
   "logic_validation_complete": false,
   "readiness_status": "AWAITING_APPROVAL",
-  "player_mapping_manifest": {}
+  "player_mapping_manifest": {
+    "path": "player_mapping_manifest.json",
+    "unit_count": 90
+  }
 }

@@ -1,0 +1,457 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "delivery_modes": [
+    "static_book"
+  ],
+  "player_agency": {
+    "choices": [
+      {
+        "choice_id": "CHO-NAV-0",
+        "player_label": "Walk through the warehouse corridor.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-NAV-1",
+        "player_label": "Walk through the warehouse corridor.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-NAV-2",
+        "player_label": "Walk through the warehouse corridor.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      }
+    ]
+  },
+  "discovery_delivery": {
+    "mostly_passive_reading": false,
+    "information_grants": [
+      {
+        "grant_id": "GRANT-OBJECT",
+        "automatic_major_grant": false,
+        "direct_solution_delivery": false,
+        "hidden_exposed_too_early": false,
+        "earned_through": "object_interaction"
+      },
+      {
+        "grant_id": "GRANT-NPC",
+        "automatic_major_grant": false,
+        "direct_solution_delivery": false,
+        "hidden_exposed_too_early": false,
+        "earned_through": "npc_dialogue"
+      }
+    ]
+  },
+  "exploration_depth": {
+    "locations": [
+      {
+        "location_id": "LOC-DOCK",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      },
+      {
+        "location_id": "LOC-COLD",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      },
+      {
+        "location_id": "LOC-CONTROL",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      },
+      {
+        "location_id": "LOC-SECURITY",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      },
+      {
+        "location_id": "LOC-MANAGER",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      },
+      {
+        "location_id": "LOC-BREAK",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      }
+    ],
+    "objects": [
+      {
+        "object_id": "OBJ-CTRL-TERM-02",
+        "mandatory": true,
+        "layered_discovery": true,
+        "shallow_tree": false
+      },
+      {
+        "object_id": "OBJ-BADGE-ARCHIVE",
+        "mandatory": true,
+        "layered_discovery": true,
+        "shallow_tree": false
+      },
+      {
+        "object_id": "OBJ-MANIFEST-WORKSTATION",
+        "mandatory": true,
+        "layered_discovery": true,
+        "shallow_tree": false
+      }
+    ]
+  },
+  "inference_quality": {
+    "inferences": [
+      {
+        "inference_id": "INF-BADGE-MISATTRIBUTED",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 2
+      },
+      {
+        "inference_id": "INF-STAGING-ROOT-CAUSE",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 3
+      },
+      {
+        "inference_id": "INF-RELABEL-FRAUD",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 3
+      },
+      {
+        "inference_id": "INF-CONTROL-ACCESS-MISMATCH",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 2
+      },
+      {
+        "inference_id": "INF-CULPRIT-SUPPORTED",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 4
+      },
+      {
+        "inference_id": "INF-PERFECT-RECONSTRUCTION",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 5
+      }
+    ]
+  },
+  "aha_potential": {
+    "conclusions": [
+      {
+        "conclusion_id": "CONC-WHAT",
+        "connection_structure": "multi_source_synthesis",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      },
+      {
+        "conclusion_id": "CONC-HOW",
+        "connection_structure": "multi_source_synthesis",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      },
+      {
+        "conclusion_id": "CONC-WHO",
+        "connection_structure": "multi_source_synthesis",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      },
+      {
+        "conclusion_id": "CONC-MOTIVE",
+        "connection_structure": "multi_source_synthesis",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      },
+      {
+        "conclusion_id": "CONC-PERFECT",
+        "connection_structure": "multi_source_synthesis",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      }
+    ]
+  },
+  "world_responsiveness": {
+    "revisit_persistent": true,
+    "state_effects": [
+      {
+        "state_id": "archive_sync_complete",
+        "affects_player_content": true,
+        "declared_but_inert": false,
+        "time_threshold_inert": false
+      },
+      {
+        "state_id": "dock_restricted_active",
+        "affects_player_content": true,
+        "declared_but_inert": false,
+        "time_threshold_inert": false
+      },
+      {
+        "state_id": "security_unstaffed",
+        "affects_player_content": true,
+        "declared_but_inert": false,
+        "time_threshold_inert": false
+      }
+    ]
+  },
+  "time_pressure": {
+    "deadline_irrelevant": false,
+    "exhaustive_always_fits": false,
+    "time_gated_unreachable": false
+  },
+  "failure_quality": {
+    "failures": [
+      {
+        "failure_id": "CHK-PERCEPTION-LATCH",
+        "meaningless_failure": false,
+        "no_persistent_effect": false,
+        "unfair_dead_end": false,
+        "changes_fixed_truth": false,
+        "leaks_success_content": false,
+        "free_retry": false,
+        "meaningful_effect": true
+      },
+      {
+        "failure_id": "CHK-PERCEPTION-LABEL",
+        "meaningless_failure": false,
+        "no_persistent_effect": false,
+        "unfair_dead_end": false,
+        "changes_fixed_truth": false,
+        "leaks_success_content": false,
+        "free_retry": false,
+        "meaningful_effect": true
+      },
+      {
+        "failure_id": "CHK-TECH-TEMP-TREND",
+        "meaningless_failure": false,
+        "no_persistent_effect": false,
+        "unfair_dead_end": false,
+        "changes_fixed_truth": false,
+        "leaks_success_content": false,
+        "free_retry": false,
+        "meaningful_effect": true
+      },
+      {
+        "failure_id": "CHK-PERCEPTION-LOCKER",
+        "meaningless_failure": false,
+        "no_persistent_effect": false,
+        "unfair_dead_end": false,
+        "changes_fixed_truth": false,
+        "leaks_success_content": false,
+        "free_retry": false,
+        "meaningful_effect": true
+      }
+    ]
+  },
+  "conversation_agency": {
+    "npc_routes": [
+      {
+        "npc_id": "NPC-MARCUS",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      },
+      {
+        "npc_id": "NPC-DEV",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      },
+      {
+        "npc_id": "NPC-LORI",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      },
+      {
+        "npc_id": "NPC-ELENA",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      },
+      {
+        "npc_id": "NPC-PAT",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      },
+      {
+        "npc_id": "NPC-IT",
+        "mandatory_route": false,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      }
+    ]
+  },
+  "ending_causality": {
+    "endings": [
+      {
+        "ending_id": "END-PERFECT",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-PARTIAL-INCOMPLETE",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-PARTIAL-WRONG-CULPRIT",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-PARTIAL-TECH-ONLY",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-PARTIAL-MOTIVE-GAP",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-NARRATIVE-CONTINUE",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": true,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-HIDDEN-RECORDS",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-TIMEOUT",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      }
+    ]
+  },
+  "mode_specific": {
+    "single_investigator": {
+      "partner_dependency": false,
+      "artificial_split_remnants": false
+    },
+    "two_player": {
+      "little_joint_investigation": false,
+      "high_idle_time": false,
+      "joint_reasoning_required": false
+    }
+  },
+  "player_audit": {
+    "files": [
+      "PLAYER/OPENING.md",
+      "PLAYER/HOW_TO_PLAY.md",
+      "PLAYER/README.md",
+      "PLAYER/NAVIGATION_INDEX.md",
+      "PLAYER/LOCATIONS.md",
+      "PLAYER/OBJECTS.md",
+      "PLAYER/NPCS.md",
+      "PLAYER/SCENES.md",
+      "PLAYER/INFERENCE.md",
+      "PLAYER/RECOVERY.md",
+      "PLAYER/ENDINGS.md"
+    ]
+  },
+  "state_graph_config": {
+    "max_states": 500000,
+    "explored_states": 131072,
+    "forced_explosion": false
+  },
+  "tier_b_mandatory": [],
+  "tier_c_playtest": {
+    "required": false,
+    "completed": false
+  },
+  "local_ai_export": {
+    "required": false,
+    "ready": false,
+    "offline_runnable": false,
+    "write_reports": false
+  }
+}
