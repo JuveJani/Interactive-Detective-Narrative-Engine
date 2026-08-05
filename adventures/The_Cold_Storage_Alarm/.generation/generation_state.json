@@ -4,10 +4,10 @@
   "brief_version": "1",
   "workspace_root": "/workspace/adventures/The_Cold_Storage_Alarm",
   "stage_status": {
-    "adventure_brief": "AWAITING_APPROVAL",
-    "fixed_truth": "PENDING",
-    "causal_timeline": "PENDING",
-    "world_state_timeline": "PENDING",
+    "adventure_brief": "COMPLETE",
+    "fixed_truth": "AWAITING_APPROVAL",
+    "causal_timeline": "COMPLETE",
+    "world_state_timeline": "COMPLETE",
     "npcs": "PENDING",
     "environment": "PENDING",
     "objects": "PENDING",
@@ -22,10 +22,39 @@
     "package_export": "PENDING"
   },
   "input_hashes": {},
-  "output_hashes": {},
-  "validator_results": {},
+  "output_hashes": {
+    "adventure_brief": "a8dcbf08bbf8dc2727113fe355a885299bf1fe45f2096e48c7e3bee899553275",
+    "fixed_truth": "19d8916735785d6970849eb0550ae952ca13c2ccb7d31520b9df736e5b4144b7",
+    "causal_timeline": "19d8916735785d6970849eb0550ae952ca13c2ccb7d31520b9df736e5b4144b7",
+    "world_state_timeline": "19d8916735785d6970849eb0550ae952ca13c2ccb7d31520b9df736e5b4144b7"
+  },
+  "validator_results": {
+    "fixed_truth": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "causal_timeline": {
+      "status": "PASS",
+      "skipped": true,
+      "note": "validated via world_first in fixed_truth stage"
+    },
+    "world_state_timeline": {
+      "status": "PASS",
+      "skipped": true,
+      "note": "validated via world_first in fixed_truth stage"
+    }
+  },
   "repair_attempts": [],
-  "human_approvals": {},
+  "human_approvals": {
+    "adventure_brief": {
+      "approved_at": "2026-08-05T15:46:24+00:00",
+      "approver": "human",
+      "note": "The Cold Storage Alarm concept and parameters approved"
+    }
+  },
   "invalidated_stages": [],
   "model_metadata": {
     "backend": "mock",
@@ -43,10 +72,13 @@
   "token_estimates": {},
   "timestamps": {
     "created": "2026-08-05T15:24:12+00:00",
-    "updated": "2026-08-05T15:24:12+00:00",
-    "stage_adventure_brief": "2026-08-05T15:24:12+00:00"
+    "updated": "2026-08-05T15:46:24+00:00",
+    "stage_adventure_brief": "2026-08-05T15:46:24+00:00",
+    "stage_causal_timeline": "2026-08-05T15:46:24+00:00",
+    "stage_world_state_timeline": "2026-08-05T15:46:24+00:00",
+    "stage_fixed_truth": "2026-08-05T15:46:24+00:00"
   },
-  "checkpoint_stage": "adventure_brief",
+  "checkpoint_stage": "fixed_truth",
   "logic_validation_complete": false,
   "readiness_status": "IN_PROGRESS",
   "player_mapping_manifest": {}

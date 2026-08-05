@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "fixed_truth": {
+    "culprit_id": "NPC-LORI",
+    "motive": "Conceal a 40-case short-shipment on inbound lot L-4471 before the quarterly inventory audit",
+    "method": "Used the contractor's forgotten temporary badge to enter cold storage and swap pallet labels, then issued a BMS maintenance override that inadvertently disabled CZ-1 compressor staging",
+    "opportunity": "Month-end late shift with legitimate site access, knowledge of lot locations, and awareness that audit sampling would begin within 48 hours",
+    "immutable_facts": [
+      { "fact_id": "FACT-001", "statement": "Dev Santos legitimately completed refrigeration maintenance ticket CLO-1847 at 18:30" },
+      { "fact_id": "FACT-002", "statement": "Dev Santos exited the facility at 19:02 with an outbound badge scan at the loading dock" },
+      { "fact_id": "FACT-003", "statement": "Dev's temporary badge BADGE-DEV-TEMP remained in the break room locker after he departed" },
+      { "fact_id": "FACT-004", "statement": "Night guard Marcus Hale visually confirmed the cold storage door latch engaged at 23:00" },
+      { "fact_id": "FACT-005", "statement": "The cold storage badge reader logged an inbound entry at 23:14:08 using credential BADGE-DEV-TEMP" },
+      { "fact_id": "FACT-006", "statement": "Two pallets in aisle C had labels swapped between inbound lot L-4471 and quarantine lot Q-118" },
+      { "fact_id": "FACT-007", "statement": "Lori Okonkwo's badge BADGE-LORI logged entry to the automation control room at 23:20:41" },
+      { "fact_id": "FACT-008", "statement": "BMS terminal CTRL-TERM-01 issued command ENG-COLD-OVERRIDE at 23:22:17 under BADGE-LORI session" },
+      { "fact_id": "FACT-009", "statement": "Override ENG-COLD-OVERRIDE disables automatic compressor staging for cold zone CZ-1" },
+      { "fact_id": "FACT-010", "statement": "CZ-1 supply air temperature began a sustained rise at 23:25 while override remained engaged" },
+      { "fact_id": "FACT-011", "statement": "High-temperature alarm ALM-COLD-HIGH activated at 23:30" },
+      { "fact_id": "FACT-012", "statement": "Lori entered cold storage to hide the L-4471 short-ship before audit sampling" },
+      { "fact_id": "FACT-013", "statement": "Cleaning lead Pat Nguyen saw the dock door propped and an unidentified person near the cold hall at 23:40 without seeing a face" },
+      { "fact_id": "FACT-014", "statement": "The nightly badge log batch upload to the access archive completed at 02:30 due to standard IT sync delay" },
+      { "fact_id": "FACT-015", "statement": "If CZ-1 remains above -12C at 05:00, Northline must initiate product write-off and health compliance notification" },
+      { "fact_id": "FACT-016", "statement": "Lori intended only to relabel pallets and silence a local door alarm, not to disable refrigeration" },
+      { "fact_id": "FACT-017", "statement": "Root cause of product risk is the unattended BMS override, not the label swap alone" }
+    ]
+  },
+  "causal_timeline": {
+    "clock_start": "2026-03-12T18:00:00",
+    "events": [
+      { "event_id": "EVT-001", "timestamp": "2026-03-12T18:30:00", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "Dev completes scheduled CLO-1847 compressor inspection", "participants": ["NPC-DEV"], "causes": [], "reveals_facts": ["FACT-001"], "effects": [] },
+      { "event_id": "EVT-002", "timestamp": "2026-03-12T19:02:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Dev outbound badge scan at loading dock", "participants": ["NPC-DEV"], "causes": ["EVT-001"], "reveals_facts": ["FACT-002"], "effects": [] },
+      { "event_id": "EVT-003", "timestamp": "2026-03-12T19:05:00", "day_label": "Night 1", "location_id": "LOC-BREAK", "description": "Dev leaves temporary badge in locker while removing coveralls", "participants": ["NPC-DEV"], "causes": ["EVT-002"], "reveals_facts": ["FACT-003"], "effects": [] },
+      { "event_id": "EVT-004", "timestamp": "2026-03-12T22:35:00", "day_label": "Night 1", "location_id": "LOC-MANAGER", "description": "Lori reconciles month-end inbound manifests", "participants": ["NPC-LORI"], "causes": [], "reveals_facts": [], "effects": [] },
+      { "event_id": "EVT-005", "timestamp": "2026-03-12T22:48:00", "day_label": "Night 1", "location_id": "LOC-BREAK", "description": "Lori retrieves Dev's forgotten temporary badge from locker", "participants": ["NPC-LORI"], "causes": ["EVT-003"], "reveals_facts": ["FACT-003"], "effects": [] },
+      { "event_id": "EVT-006", "timestamp": "2026-03-12T23:00:00", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "Marcus checks cold storage door latch during rounds", "participants": ["NPC-MARCUS"], "causes": [], "reveals_facts": ["FACT-004"], "effects": [] },
+      { "event_id": "EVT-007", "timestamp": "2026-03-12T23:14:08", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "Unauthorized cold storage entry using BADGE-DEV-TEMP", "participants": ["NPC-LORI"], "causes": ["EVT-005"], "reveals_facts": ["FACT-005", "FACT-012"], "effects": [] },
+      { "event_id": "EVT-008", "timestamp": "2026-03-12T23:17:30", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "Lori swaps pallet labels between lots L-4471 and Q-118", "participants": ["NPC-LORI"], "causes": ["EVT-007"], "reveals_facts": ["FACT-006"], "effects": [] },
+      { "event_id": "EVT-009", "timestamp": "2026-03-12T23:20:41", "day_label": "Night 1", "location_id": "LOC-CONTROL", "description": "Lori enters automation control room under own badge", "participants": ["NPC-LORI"], "causes": ["EVT-008"], "reveals_facts": ["FACT-007"], "effects": [] },
+      { "event_id": "EVT-010", "timestamp": "2026-03-12T23:22:17", "day_label": "Night 1", "location_id": "LOC-CONTROL", "description": "Lori issues ENG-COLD-OVERRIDE from CTRL-TERM-01 to silence door alarm", "participants": ["NPC-LORI"], "causes": ["EVT-009"], "reveals_facts": ["FACT-008", "FACT-009", "FACT-016"], "effects": [] },
+      { "event_id": "EVT-011", "timestamp": "2026-03-12T23:25:00", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "CZ-1 compressor staging stops under override", "participants": [], "causes": ["EVT-010"], "reveals_facts": ["FACT-010", "FACT-017"], "effects": [] },
+      { "event_id": "EVT-012", "timestamp": "2026-03-12T23:30:00", "day_label": "Night 1", "location_id": "LOC-SECURITY", "description": "ALM-COLD-HIGH appears on security monitoring panel", "participants": ["NPC-MARCUS"], "causes": ["EVT-011"], "reveals_facts": ["FACT-011"], "effects": [] },
+      { "event_id": "EVT-013", "timestamp": "2026-03-12T23:40:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Pat observes propped dock door and silhouette near cold hall", "participants": ["NPC-PAT"], "causes": [], "reveals_facts": ["FACT-013"], "effects": [] },
+      { "event_id": "EVT-014", "timestamp": "2026-03-13T00:10:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Supervisor Elena Morales arrives on call after ALM-COLD-HIGH notification", "participants": ["NPC-ELENA"], "causes": ["EVT-012"], "reveals_facts": ["FACT-011"], "effects": [] },
+      { "event_id": "EVT-015", "timestamp": "2026-03-13T00:35:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Dev Santos is recalled by phone and agrees to return", "participants": ["NPC-DEV"], "causes": ["EVT-012"], "reveals_facts": [], "effects": [] },
+      { "event_id": "EVT-016", "timestamp": "2026-03-13T01:00:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Investigator technician arrives on site", "participants": ["PC-TECH"], "causes": ["EVT-014"], "reveals_facts": [], "effects": [] },
+      { "event_id": "EVT-017", "timestamp": "2026-03-13T02:30:00", "day_label": "Night 1", "location_id": "LOC-SECURITY", "description": "Delayed badge log batch upload completes", "participants": [], "causes": [], "reveals_facts": ["FACT-014"], "effects": [] },
+      { "event_id": "EVT-018", "timestamp": "2026-03-13T03:15:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Elena restricts loading dock access pending review", "participants": ["NPC-ELENA"], "causes": ["EVT-016"], "reveals_facts": [], "effects": [] },
+      { "event_id": "EVT-019", "timestamp": "2026-03-13T04:30:00", "day_label": "Night 1", "location_id": "LOC-BREAK", "description": "Marcus begins mandatory break leaving security desk", "participants": ["NPC-MARCUS"], "causes": [], "reveals_facts": [], "effects": [] },
+      { "event_id": "EVT-020", "timestamp": "2026-03-13T05:00:00", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "Compliance write-off threshold evaluation moment", "participants": [], "causes": ["EVT-011"], "reveals_facts": ["FACT-015"], "effects": [] }
+    ]
+  },
+  "world_state_timeline": {
+    "snapshots": [
+      { "at_event_id": "EVT-006", "people_locations": { "NPC-MARCUS": "LOC-COLD" }, "object_states": { "OBJ-COLD-DOOR": "latched" }, "access_states": { "LOC-COLD": "badge_required" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-010", "people_locations": { "NPC-LORI": "LOC-CONTROL" }, "object_states": { "OBJ-OVERRIDE-PANEL": "engaged", "OBJ-CZ1-TEMP": "-18.2C" }, "access_states": { "LOC-CONTROL": "badge_required" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-011", "people_locations": {}, "object_states": { "OBJ-CZ1-TEMP": "-16.4C_rising", "OBJ-COMPRESSOR-STAGE": "disabled" }, "access_states": { "LOC-COLD": "badge_required" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-012", "people_locations": { "NPC-MARCUS": "LOC-SECURITY" }, "object_states": { "OBJ-ALARM-PANEL": "ALM-COLD-HIGH_active", "OBJ-CZ1-TEMP": "-14.8C_rising" }, "access_states": { "LOC-SECURITY": "staff_only" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-016", "people_locations": { "PC-TECH": "LOC-DOCK" }, "object_states": { "OBJ-CZ1-TEMP": "-11.9C_rising", "OBJ-ALARM-PANEL": "ALM-COLD-HIGH_active", "OBJ-OVERRIDE-PANEL": "engaged" }, "access_states": { "LOC-DOCK": "open", "LOC-COLD": "badge_required", "LOC-CONTROL": "supervisor_escort" }, "evidence_conditions": { "EVD-LABEL-RESIDUE": "present" } },
+      { "at_event_id": "EVT-017", "people_locations": {}, "object_states": { "OBJ-BADGE-ARCHIVE": "sync_complete" }, "access_states": { "LOC-SECURITY": "records_available" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-018", "people_locations": { "NPC-ELENA": "LOC-DOCK" }, "object_states": { "OBJ-CZ1-TEMP": "-10.6C_rising" }, "access_states": { "LOC-DOCK": "restricted", "LOC-COLD": "badge_required" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-019", "people_locations": { "NPC-MARCUS": "LOC-BREAK" }, "object_states": {}, "access_states": { "LOC-SECURITY": "unstaffed_temporarily" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-020", "people_locations": {}, "object_states": { "OBJ-CZ1-TEMP": "-9.8C_critical", "OBJ-PRODUCT-RISK": "writeoff_imminent" }, "access_states": { "LOC-COLD": "emergency_protocol" }, "evidence_conditions": {} }
+    ]
+  },
+  "npc_knowledge": {
+    "npcs": [
+      {
+        "npc_id": "NPC-LORI",
+        "knows": ["FACT-005", "FACT-006", "FACT-007", "FACT-008", "FACT-009", "FACT-012", "FACT-016"],
+        "believes_incorrectly": [],
+        "witnessed_events": ["EVT-005", "EVT-007", "EVT-008", "EVT-009", "EVT-010"],
+        "hides": ["FACT-005", "FACT-006", "FACT-008", "FACT-012", "FACT-016"],
+        "behavior_rationale": "Conceals audit fraud and misjudged override attempt; will be evasive about after-hours cold storage access"
+      },
+      {
+        "npc_id": "NPC-MARCUS",
+        "knows": ["FACT-004", "FACT-011"],
+        "believes_incorrectly": [
+          { "belief_fact_id": "FACT-004", "actual_fact_id": "FACT-005", "cause": "Checked manual latch only and did not yet review badge reader at time of statement" }
+        ],
+        "witnessed_events": ["EVT-006", "EVT-012"],
+        "hides": [],
+        "behavior_rationale": "Truthful but overconfident about door security based on latch check"
+      },
+      {
+        "npc_id": "NPC-DEV",
+        "knows": ["FACT-001", "FACT-002"],
+        "believes_incorrectly": [
+          { "belief_fact_id": "FACT-002", "actual_fact_id": "FACT-003", "cause": "Assumed badge remained on person when leaving quickly after maintenance" }
+        ],
+        "witnessed_events": ["EVT-001", "EVT-002", "EVT-003"],
+        "hides": [],
+        "behavior_rationale": "Cooperative specialist embarrassed about forgotten badge; appears implicated by log until timeline cleared"
+      },
+      {
+        "npc_id": "NPC-ELENA",
+        "knows": ["FACT-011"],
+        "believes_incorrectly": [],
+        "witnessed_events": ["EVT-014", "EVT-018"],
+        "hides": [],
+        "behavior_rationale": "Institutional pressure to restore cold chain and document accountability"
+      },
+      {
+        "npc_id": "NPC-PAT",
+        "knows": ["FACT-013"],
+        "believes_incorrectly": [],
+        "witnessed_events": ["EVT-013"],
+        "hides": [],
+        "behavior_rationale": "Honest observer who cannot identify the silhouette"
+      },
+      {
+        "npc_id": "NPC-IT",
+        "knows": [],
+        "believes_incorrectly": [],
+        "witnessed_events": [],
+        "hides": [],
+        "behavior_rationale": "Records-only role; archive delay is routine not malice; FACT-014 becomes available via delayed log sync event"
+      }
+    ]
+  },
+  "evidence_provenance": {
+    "evidence": [
+      { "evidence_id": "EVD-BADGE-LOG", "source_event_id": "EVT-007", "type": "document", "description": "Cold storage inbound badge reader entry record", "establishes_fact_ids": ["FACT-005"], "misleading": true, "misleading_cause": "Credential shows contractor badge while contractor had already exited" },
+      { "evidence_id": "EVD-BMS-OVERRIDE", "source_event_id": "EVT-010", "type": "document", "description": "BMS command log for ENG-COLD-OVERRIDE with session badge", "establishes_fact_ids": ["FACT-008", "FACT-009"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-LABEL-RESIDUE", "source_event_id": "EVT-008", "type": "physical", "description": "Adhesive label backing and mismatched lot stickers in aisle C", "establishes_fact_ids": ["FACT-006"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-TEMP-TREND", "source_event_id": "EVT-011", "type": "document", "description": "CZ-1 supply air temperature trend export", "establishes_fact_ids": ["FACT-010", "FACT-017"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-MAINT-CLO1847", "source_event_id": "EVT-001", "type": "document", "description": "Closed maintenance ticket CLO-1847 completion record", "establishes_fact_ids": ["FACT-001"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-EXIT-SCAN", "source_event_id": "EVT-002", "type": "document", "description": "Contractor outbound dock badge scan", "establishes_fact_ids": ["FACT-002"], "misleading": false, "misleading_cause": null }
+    ]
+  },
+  "observable_information": {
+    "observations": [
+      { "observation_id": "OBS-001", "learnable_fact_id": "FACT-005", "source_evidence_id": "EVD-BADGE-LOG", "requires": { "action": "review_records", "location_id": "LOC-SECURITY", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-002", "learnable_fact_id": "FACT-008", "source_evidence_id": "EVD-BMS-OVERRIDE", "requires": { "action": "review_logs", "location_id": "LOC-CONTROL", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-003", "learnable_fact_id": "FACT-006", "source_evidence_id": "EVD-LABEL-RESIDUE", "requires": { "action": "inspect", "location_id": "LOC-COLD", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-004", "learnable_fact_id": "FACT-010", "source_evidence_id": "EVD-TEMP-TREND", "requires": { "action": "review_logs", "location_id": "LOC-CONTROL", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-005", "learnable_fact_id": "FACT-002", "source_evidence_id": "EVD-EXIT-SCAN", "requires": { "action": "review_records", "location_id": "LOC-SECURITY", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-006", "learnable_fact_id": "FACT-001", "source_evidence_id": "EVD-MAINT-CLO1847", "requires": { "action": "review_records", "location_id": "LOC-MANAGER", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-007", "learnable_fact_id": "FACT-013", "source_evidence_id": "EVD-LABEL-RESIDUE", "requires": { "action": "interview", "location_id": "LOC-BREAK", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true }
+    ]
+  },
+  "conclusion_requirements": {
+    "questions": [
+      { "question_id": "Q-RESPONSIBLE", "answer_entity_id": "NPC-LORI", "required_fact_ids": ["FACT-005", "FACT-008", "FACT-006", "FACT-010"], "category": "culprit" },
+      { "question_id": "Q-METHOD", "answer_entity_id": "NPC-LORI", "required_fact_ids": ["FACT-006", "FACT-008", "FACT-009", "FACT-017"], "category": "method" },
+      { "question_id": "Q-MOTIVE", "answer_entity_id": "NPC-LORI", "required_fact_ids": ["FACT-012", "FACT-006"], "category": "motive" }
+    ]
+  }
+}
