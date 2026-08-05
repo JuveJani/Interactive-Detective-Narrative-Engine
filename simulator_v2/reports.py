@@ -25,15 +25,26 @@ def make_output_dir(base: Path = Path("simulation_output_v2"), mode: str = "diag
     return out
 
 
+def _format_trust_blockers(trust: dict[str, Any]) -> list[str]:
+    if trust.get("trusted"):
+        return []
+    blockers = list(trust.get("blockers") or [])
+    if not blockers:
+        blockers = ["trust_gate:quantitative_trust_denied"]
+    return blockers
+
+
 def _executive_diagnostic(report: DiagnosticReport, explanations: list) -> str:
     trusted = report.trust.get("trusted", False)
     critical = [f for f in report.findings if f.severity == "critical"]
+    ivs = report.integrated_validation.get("status") or report.trust.get("integrated_validation_status") or "MISSING"
+    blockers = _format_trust_blockers(report.trust)
     lines = [
         "# Executive diagnostic",
         "",
         f"**Adventure:** {report.adventure_id}",
         f"**Play mode:** {report.play_mode}",
-        f"**Integrated validation:** {report.integrated_validation.get('status')}",
+        f"**Integrated validation:** {ivs}",
         f"**Quantitative trust:** {'yes' if trusted else 'no'}",
         "",
         "## Critical findings",
@@ -43,15 +54,27 @@ def _executive_diagnostic(report: DiagnosticReport, explanations: list) -> str:
     else:
         lines.append("- None")
     lines.extend(["", "## Trust blockers"])
-    blockers = report.trust.get("blockers", [])
-    lines.extend(f"- {b}" for b in blockers) if blockers else lines.append("- None")
+    lines.extend(f"- {b}" for b in blockers)
     lines.extend(["", "## Simulation summary"])
+    trace = report.simulation.get("trace", {})
+    if trace:
+        lines.append(f"- Trace: status={trace.get('status')} ending={trace.get('ending_id')} steps={trace.get('metrics', {}).get('steps')}")
+        if trace.get("incomplete_reason"):
+            lines.append(f"  - Incomplete reason: {trace.get('incomplete_reason')} last_state={trace.get('last_state_key', '')[:60]}")
     mc = report.simulation.get("monte_carlo", {})
     if mc:
-        lines.append(f"- Monte Carlo endings: {mc.get('ending_frequencies', {})}")
+        lines.append(f"- Monte Carlo: {mc.get('ending_frequencies', {})}")
+    cmp = report.simulation.get("compare", {})
+    if cmp:
+        lines.append("- Strategy comparison:")
+        for name, data in sorted(cmp.get("strategies", {}).items()):
+            if data.get("status") == "SKIPPED_INCOMPATIBLE_MODE":
+                lines.append(f"  - {name}: SKIPPED_INCOMPATIBLE_MODE ({data.get('reason', '')})")
+            else:
+                lines.append(f"  - {name}: {data.get('ending_frequencies', {})}")
     ex = report.simulation.get("exhaustive", {})
     if ex:
-        lines.append(f"- Exhaustive: {ex.get('status')} ({ex.get('states_explored', 0)} states)")
+        lines.append(f"- Exhaustive: {ex.get('status')} reason={ex.get('blocked_reason', 'n/a')} states={ex.get('states_explored', 0)}")
     return "\n".join(lines) + "\n"
 
 
@@ -99,14 +122,20 @@ def _parse_errors_md(errors: list[str]) -> str:
 def _write_strategy_comparison_csv(path: Path, compare: dict[str, Any]) -> None:
     strategies = compare.get("strategies", {})
     endings: set[str] = set()
-    for freq in strategies.values():
-        endings.update(freq.keys())
+    for data in strategies.values():
+        if data.get("status") != "SKIPPED_INCOMPATIBLE_MODE":
+            endings.update(data.get("ending_frequencies", {}).keys())
     endings_sorted = sorted(endings)
     with path.open("w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
-        w.writerow(["strategy"] + endings_sorted)
-        for name, freq in sorted(strategies.items()):
-            w.writerow([name] + [freq.get(e, 0) for e in endings_sorted])
+        w.writerow(["strategy", "mode_status"] + endings_sorted)
+        for name, data in sorted(strategies.items()):
+            status = data.get("status", "COMPLETED")
+            if status == "SKIPPED_INCOMPATIBLE_MODE":
+                w.writerow([name, status] + [""] * len(endings_sorted))
+                continue
+            freq = data.get("ending_frequencies", {})
+            w.writerow([name, status] + [freq.get(e, 0) for e in endings_sorted])
 
 
 def _write_endings_csv(path: Path, mc: dict[str, Any]) -> None:
@@ -187,6 +216,8 @@ def write_all_reports(output_dir: Path, report: DiagnosticReport) -> None:
     atomic_write_json(output_dir / "run_manifest.json", {
         "adventure_id": report.adventure_id,
         "play_mode": report.play_mode,
+        "integrated_validation_status": report.integrated_validation.get("status")
+        or report.trust.get("integrated_validation_status"),
         "trust": report.trust,
         "finding_count": len(report.findings),
         "output_files": sorted(p.name for p in output_dir.iterdir() if p.is_file()),
