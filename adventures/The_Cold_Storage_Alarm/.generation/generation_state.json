@@ -24,9 +24,9 @@
   "input_hashes": {},
   "output_hashes": {
     "adventure_brief": "a8dcbf08bbf8dc2727113fe355a885299bf1fe45f2096e48c7e3bee899553275",
-    "fixed_truth": "19d8916735785d6970849eb0550ae952ca13c2ccb7d31520b9df736e5b4144b7",
-    "causal_timeline": "19d8916735785d6970849eb0550ae952ca13c2ccb7d31520b9df736e5b4144b7",
-    "world_state_timeline": "19d8916735785d6970849eb0550ae952ca13c2ccb7d31520b9df736e5b4144b7"
+    "fixed_truth": "4cafc10c38f03feaf36120377d6824dabca74bbd59380b129911f0f154d4d28f",
+    "causal_timeline": "4cafc10c38f03feaf36120377d6824dabca74bbd59380b129911f0f154d4d28f",
+    "world_state_timeline": "4cafc10c38f03feaf36120377d6824dabca74bbd59380b129911f0f154d4d28f"
   },
   "validator_results": {
     "fixed_truth": {
@@ -72,11 +72,11 @@
   "token_estimates": {},
   "timestamps": {
     "created": "2026-08-05T15:24:12+00:00",
-    "updated": "2026-08-05T15:46:24+00:00",
+    "updated": "2026-08-05T15:50:49+00:00",
     "stage_adventure_brief": "2026-08-05T15:46:24+00:00",
     "stage_causal_timeline": "2026-08-05T15:46:24+00:00",
     "stage_world_state_timeline": "2026-08-05T15:46:24+00:00",
-    "stage_fixed_truth": "2026-08-05T15:46:24+00:00"
+    "stage_fixed_truth": "2026-08-05T15:50:49+00:00"
   },
   "checkpoint_stage": "fixed_truth",
   "logic_validation_complete": false,
