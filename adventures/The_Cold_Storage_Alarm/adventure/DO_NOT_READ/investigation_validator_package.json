@@ -8,7 +8,8 @@
     "investigation_core": "DO_NOT_READ/investigation_core_package.json",
     "environment": "DO_NOT_READ/environment_package.json",
     "object_interaction": "DO_NOT_READ/object_interaction_package.json",
-    "npc_investigation": "DO_NOT_READ/npc_investigation_package.json"
+    "npc_investigation": "DO_NOT_READ/npc_investigation_package.json",
+    "investigation_flow": "DO_NOT_READ/investigation_flow_package.json"
   },
   "conclusion_traces": [
     {
@@ -38,6 +39,10 @@
         {
           "layer": "proof",
           "ref": "PROOF-WHO-DOC"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PERFECT"
         }
       ]
     },
@@ -68,6 +73,10 @@
         {
           "layer": "proof",
           "ref": "PROOF-HOW-TECH"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PARTIAL-TECH-ONLY"
         }
       ]
     },
@@ -98,6 +107,10 @@
         {
           "layer": "proof",
           "ref": "PROOF-WHAT-TECH"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PERFECT"
         }
       ]
     },
@@ -128,6 +141,44 @@
         {
           "layer": "proof",
           "ref": "PROOF-MOTIVE-DOC"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PARTIAL-MOTIVE-GAP"
+        }
+      ]
+    },
+    {
+      "conclusion_id": "CONC-PERFECT",
+      "proof_id": "PROOF-PERFECT-FULL",
+      "chain": [
+        {
+          "layer": "fixed_truth",
+          "ref": "FACT-017"
+        },
+        {
+          "layer": "location",
+          "ref": "LOC-CONTROL"
+        },
+        {
+          "layer": "player_action",
+          "ref": "ACT-REVIEW-BMS-COMMAND-LOG"
+        },
+        {
+          "layer": "knowledge",
+          "ref": "KNOW-PERFECT-RECONSTRUCTION"
+        },
+        {
+          "layer": "conclusion",
+          "ref": "CONC-PERFECT"
+        },
+        {
+          "layer": "proof",
+          "ref": "PROOF-PERFECT-FULL"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PERFECT"
         }
       ]
     }
@@ -154,12 +205,7 @@
       "accepted_hypothesis_id": "HYP-BADGE-MISATTRIBUTED",
       "equally_supported_alternatives": [],
       "question_reveals_answer": false,
-      "requires_internal_ids": false,
-      "failure_effect": "contractor_remains_primary_suspect",
-      "downstream_conclusions_affected": [
-        "CONC-WHO",
-        "CONC-PERFECT"
-      ]
+      "requires_internal_ids": false
     },
     {
       "question_id": "INF-STAGING-ROOT-CAUSE",
@@ -183,13 +229,7 @@
       "accepted_hypothesis_id": "HYP-STAGING-ROOT-CAUSE",
       "equally_supported_alternatives": [],
       "question_reveals_answer": false,
-      "requires_internal_ids": false,
-      "failure_effect": "product_risk_cause_remains_ambiguous",
-      "downstream_conclusions_affected": [
-        "CONC-WHAT",
-        "CONC-HOW",
-        "CONC-PERFECT"
-      ]
+      "requires_internal_ids": false
     },
     {
       "question_id": "INF-RELABEL-FRAUD",
@@ -213,13 +253,7 @@
       "accepted_hypothesis_id": "HYP-RELABEL-FRAUD",
       "equally_supported_alternatives": [],
       "question_reveals_answer": false,
-      "requires_internal_ids": false,
-      "failure_effect": "motive_and_culprit_routes_incomplete",
-      "downstream_conclusions_affected": [
-        "CONC-MOTIVE",
-        "CONC-WHO",
-        "CONC-PERFECT"
-      ]
+      "requires_internal_ids": false
     },
     {
       "question_id": "INF-CONTROL-ACCESS-MISMATCH",
@@ -242,13 +276,7 @@
       "accepted_hypothesis_id": "HYP-CONTROL-ACCESS-MISMATCH",
       "equally_supported_alternatives": [],
       "question_reveals_answer": false,
-      "requires_internal_ids": false,
-      "failure_effect": "method_actor_link_weak",
-      "downstream_conclusions_affected": [
-        "CONC-HOW",
-        "CONC-WHO",
-        "CONC-PERFECT"
-      ]
+      "requires_internal_ids": false
     },
     {
       "question_id": "INF-CULPRIT-SUPPORTED",
@@ -273,12 +301,7 @@
       "accepted_hypothesis_id": "HYP-CULPRIT-SUPPORTED",
       "equally_supported_alternatives": [],
       "question_reveals_answer": false,
-      "requires_internal_ids": false,
-      "failure_effect": "imperfect_accusation_endings_remain_open",
-      "downstream_conclusions_affected": [
-        "CONC-WHO",
-        "CONC-PERFECT"
-      ]
+      "requires_internal_ids": false
     },
     {
       "question_id": "INF-PERFECT-RECONSTRUCTION",
@@ -304,11 +327,7 @@
       "accepted_hypothesis_id": "HYP-PERFECT-RECONSTRUCTION",
       "equally_supported_alternatives": [],
       "question_reveals_answer": false,
-      "requires_internal_ids": false,
-      "failure_effect": "only_imperfect_endings_available",
-      "downstream_conclusions_affected": [
-        "CONC-PERFECT"
-      ]
+      "requires_internal_ids": false
     }
   ],
   "information_sufficiency": [
@@ -715,14 +734,79 @@
     }
   ],
   "time_validation": {
-    "deadline_clock": "2026-03-13T05:00:00",
+    "deadline_clock": "T_DEADLINE",
     "deadline_event_id": "EVT-022",
     "mandatory_paths_fit_deadline": true,
     "revisit_uses_current_variant": true,
     "zero_cost_investigation_loop": false,
     "mutually_impossible_clocks": false
   },
-  "ending_reachability": [],
+  "ending_reachability": [
+    {
+      "ending_id": "END-PERFECT",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "perfect",
+      "reveals_full_truth": true,
+      "investigation_preserving": false
+    },
+    {
+      "ending_id": "END-PARTIAL-INCOMPLETE",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "partial",
+      "reveals_full_truth": false,
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-PARTIAL-WRONG-CULPRIT",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "partial",
+      "reveals_full_truth": false,
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-PARTIAL-TECH-ONLY",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "partial",
+      "reveals_full_truth": false,
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-PARTIAL-MOTIVE-GAP",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "partial",
+      "reveals_full_truth": false,
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-NARRATIVE-CONTINUE",
+      "reachable": true,
+      "decorative": true,
+      "ending_type": "narrative_failure",
+      "reveals_full_truth": false,
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-HIDDEN-RECORDS",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "hidden",
+      "reveals_full_truth": false,
+      "investigation_preserving": false
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "deadline",
+      "reveals_full_truth": false,
+      "investigation_preserving": false
+    }
+  ],
   "accusation_fairness": {
     "options_neutral": true,
     "reveal_correct_answer": false,
