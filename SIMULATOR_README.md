@@ -43,6 +43,8 @@ Each run creates `simulation_output/YYYYMMDD_HHMMSS/` with:
 
 Markdown PLAYER files are ambiguous for deterministic simulation. Each adventure ships a `sim_adapter.json` beside `PLAYER/`. Harborview mapping is documented in `adventures/CASE_BENCHMARK_v0.4/sim_adapter.json` under `ambiguities`.
 
+Milestone 11 exports unified `.idne` ZIP packages (`ADVENTURE_GENERATOR_V2_SPEC.md`) for future Simulator v2 import; the current simulator still reads adventure directories directly.
+
 ## Strategies
 
 | Name | Behaviour |

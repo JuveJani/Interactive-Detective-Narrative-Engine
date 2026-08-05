@@ -622,6 +622,8 @@ Post-playtest issues classify as content, adventure logic, engine rule, delivery
 
 **Milestone 10 (DM Feeling Validator):** integrated investigation-feel validator; see `DM_FEELING_VALIDATOR_SPEC.md` and `dm_feeling_validator_manifest.json`.
 
+**Milestone 11 (Adventure Generator v2):** staged offline generator with model adapter, integrated validation runner, and `.idne` package export; see `ADVENTURE_GENERATOR_V2_SPEC.md`, `python3 -m idne.generate`, and `python3 -m idne.validate_adventure`.
+
 ---
 
 ## 15. Complexity budget (guidance, not identity)

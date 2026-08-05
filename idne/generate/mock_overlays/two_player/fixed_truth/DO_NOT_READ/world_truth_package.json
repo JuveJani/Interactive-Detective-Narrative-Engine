@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "FIXTURE_WF_VALID",
+  "fixed_truth": {
+    "culprit_id": "NPC-A",
+    "motive": "Invoice fraud exposure",
+    "method": "Push during confrontation",
+    "opportunity": "Alone with victim in basement",
+    "immutable_facts": [
+      { "fact_id": "FACT-001", "statement": "Victim died from fall at stairwell" },
+      { "fact_id": "FACT-002", "statement": "NPC-A pushed victim during confrontation" }
+    ]
+  },
+  "causal_timeline": {
+    "clock_start": "2024-03-15T19:00:00",
+    "events": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "2024-03-15T19:35:00",
+        "day_label": "Day 1 Saturday",
+        "location_id": "LOC-BASEMENT",
+        "description": "Confrontation over invoices",
+        "participants": ["NPC-A", "NPC-VICTIM"],
+        "causes": [],
+        "reveals_facts": ["FACT-001"],
+        "effects": ["FACT-002"]
+      },
+      {
+        "event_id": "EVT-002",
+        "timestamp": "2024-03-15T19:45:00",
+        "day_label": "Day 1 Saturday",
+        "location_id": "LOC-BASEMENT",
+        "description": "NPC-A repositions mop after fall",
+        "participants": ["NPC-A"],
+        "causes": ["EVT-001"],
+        "reveals_facts": [],
+        "effects": ["FACT-003"]
+      }
+    ]
+  },
+  "world_state_timeline": {
+    "snapshots": [
+      {
+        "at_event_id": "EVT-001",
+        "people_locations": { "NPC-A": "LOC-BASEMENT", "NPC-VICTIM": "LOC-BASEMENT" },
+        "object_states": { "OBJ-MOP": "in_use" },
+        "access_states": { "LOC-BASEMENT": "open" }
+      },
+      {
+        "at_event_id": "EVT-002",
+        "people_locations": { "NPC-A": "LOC-BASEMENT" },
+        "object_states": { "OBJ-MOP": "wet" },
+        "access_states": { "LOC-BASEMENT": "open" }
+      }
+    ]
+  },
+  "npc_knowledge": {
+    "npcs": [
+      {
+        "npc_id": "NPC-A",
+        "knows": ["FACT-002"],
+        "believes_incorrectly": [],
+        "witnessed_events": ["EVT-001", "EVT-002"],
+        "hides": ["FACT-002"],
+        "behavior_rationale": "Guilty party conceals the push"
+      },
+      {
+        "npc_id": "NPC-B",
+        "knows": [],
+        "believes_incorrectly": [],
+        "witnessed_events": [],
+        "hides": [],
+        "behavior_rationale": "Uninvolved neighbor"
+      }
+    ]
+  },
+  "evidence_provenance": {
+    "evidence": [
+      {
+        "evidence_id": "EVD-001",
+        "source_event_id": "EVT-002",
+        "type": "physical",
+        "description": "Wet mop placed after struggle",
+        "establishes_fact_ids": ["FACT-003"]
+      }
+    ]
+  },
+  "observable_information": {
+    "observations": [
+      {
+        "observation_id": "OBS-001",
+        "learnable_fact_id": "FACT-003",
+        "source_evidence_id": "EVD-001",
+        "requires": { "location_id": "LOC-BASEMENT", "action": "search" }
+      },
+      {
+        "observation_id": "OBS-002",
+        "learnable_fact_id": "FACT-001",
+        "source_evidence_id": "EVD-001",
+        "requires": { "location_id": "LOC-STAIRWELL", "action": "observe" }
+      }
+    ]
+  },
+  "conclusion_requirements": {
+    "questions": [
+      {
+        "question_id": "Q-CULPRIT",
+        "answer_entity_id": "NPC-A",
+        "required_fact_ids": ["FACT-002", "FACT-003"]
+      }
+    ]
+  },
+  "narrative_construction": {
+    "scenes": [
+      {
+        "scene_id": "J-100",
+        "asserted_fact_ids": ["FACT-003"],
+        "player_text_summary": "Wet mop noted in basement"
+      }
+    ]
+  },
+  "ending_claims": [
+    {
+      "ending_id": "E-CORRECT",
+      "asserted_fact_ids": ["FACT-002"]
+    }
+  ]
+}

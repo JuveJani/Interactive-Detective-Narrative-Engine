@@ -1,0 +1,16 @@
+{
+  "universe": "real world",
+  "genre": "detective story",
+  "realism_level": "grounded",
+  "player_mode": "single_investigator",
+  "investigator_character": "Technician who enjoys solving mysteries",
+  "target_playtime_minutes": 120,
+  "in_world_duration": "one evening",
+  "tone": "methodical",
+  "difficulty": "standard",
+  "location_scale": "single building",
+  "content_boundaries": "no graphic violence",
+  "required_themes": ["fair-play mystery"],
+  "forbidden_themes": ["supernatural explanations"],
+  "author_notes": "Fixture brief for generator tests — not a real adventure."
+}
