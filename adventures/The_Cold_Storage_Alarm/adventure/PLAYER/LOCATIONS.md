@@ -4,7 +4,7 @@
 
 **Location:** Loading dock | **Time cost:** 0 min
 
-The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing.
+The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. Cold rolls off the bay in waves whenever a door cycles, and the smell of diesel and refrigerant hangs in the air. Somewhere past 1:00 a.m., the building has settled into the strange quiet of a shift that has already gone wrong.
 
 **What do you do?**
 
@@ -20,7 +20,7 @@ The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales wa
 
 **Location:** Cold storage hall | **Time cost:** 0 min
 
-Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1.
+Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your breath fogs the moment you step past the threshold, and the compressor hum overhead sounds one register lower than it should. CZ-1's supply air display glows at the far end of the hall like it is keeping score.
 
 **What do you do?**
 
@@ -36,7 +36,7 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1.
 
 **Location:** Automation control room | **Time cost:** 0 min
 
-The automation control room holds engineering workstations and a CZ-1 staging indicator panel.
+The automation control room holds engineering workstations and a CZ-1 staging indicator panel. Server fans hum steadily under the fluorescent light, and rows of status LEDs blink through their normal patterns — except for one panel that is not blinking at all.
 
 **What do you do?**
 
@@ -51,7 +51,7 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 
 **Location:** Security office | **Time cost:** 0 min
 
-The security office holds an alarm panel and a badge archive terminal.
+The security office holds an alarm panel and a badge archive terminal. A wall of small monitors cycles through empty hallways, and the alarm panel's speaker occasionally clicks like it is about to say something before falling silent again.
 
 **What do you do?**
 
@@ -65,7 +65,7 @@ The security office holds an alarm panel and a badge archive terminal.
 
 **Location:** Warehouse manager office | **Time cost:** 0 min
 
-The warehouse manager office is open for the emergency. Lori Okonkwo's receiving workstation still shows an active reconciliation screen.
+The warehouse manager office is open for the emergency. Lori Okonkwo's receiving workstation still shows an active reconciliation screen. Stacks of manifest printouts cover most of the desk, and the fluorescent light overhead flickers just enough to notice. Lori has not left this chair in longer than tonight's alarm alone would explain.
 
 **What do you do?**
 
@@ -79,7 +79,7 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 
 **Location:** Staff break room | **Time cost:** 0 min
 
-The staff break room has vending machines, lockers, and a window toward the dock.
+The staff break room has vending machines, lockers, and a window toward the dock. The vending machines hum against one wall, and a half-finished cup of coffee sits abandoned on the table, gone cold along with everything else tonight.
 
 **What do you do?**
 

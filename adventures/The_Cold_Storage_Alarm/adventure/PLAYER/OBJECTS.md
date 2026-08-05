@@ -4,7 +4,7 @@
 
 **Time cost:** 2 min
 
-Elena points to a printed incident timeline on the briefing table.
+You step up to the briefing table where Elena has laid out everything she has gathered so far. Elena points to a printed incident timeline on the briefing table. You note the timeline before stepping back toward the bay doors.
 
 **What do you do?**
 
@@ -15,7 +15,7 @@ Elena points to a printed incident timeline on the briefing table.
 
 **Time cost:** 3 min
 
-Elena signs an escort log and walks you toward the engineering passage.
+Elena does not argue when you ask for control room access — she just reaches for the escort log. Elena signs an escort log and walks you toward the engineering passage. With her signature down, you are cleared to make the walk on your own from here.
 
 **What do you do?**
 
@@ -26,7 +26,7 @@ Elena signs an escort log and walks you toward the engineering passage.
 
 **Time cost:** 3 min
 
-The cold storage door has a badge reader and a heavy latch.
+Frost rimes the frame where the cold storage door meets the corridor air. The cold storage door has a badge reader and a heavy latch. Whatever you decide to check, the door itself is not going anywhere.
 
 **What do you do?**
 
@@ -38,7 +38,7 @@ The cold storage door has a badge reader and a heavy latch.
 
 **Time cost:** 4 min
 
-Under the latch plate you notice fresh scuffing where hardware was recently handled.
+You crouch and run a light along the latch plate, looking past the obvious. Under the latch plate you notice fresh scuffing where hardware was recently handled. You note the wear pattern before straightening up and returning to the door.
 
 **What do you do?**
 
@@ -49,7 +49,7 @@ Under the latch plate you notice fresh scuffing where hardware was recently hand
 
 **Time cost:** 4 min
 
-The latch hardware looks ordinary from this angle; nothing useful stands out.
+You crouch and check the latch plate as carefully as the light allows. The latch hardware looks ordinary from this angle; nothing useful stands out. Nothing here changes what you already knew, so you head back to the door.
 
 **What do you do?**
 
@@ -60,7 +60,7 @@ The latch hardware looks ordinary from this angle; nothing useful stands out.
 
 **Time cost:** 2 min
 
-Aisle C runs between high pallet rows.
+Pallet shrink-wrap crinkles under the cold air draft as you step into the row. Aisle C runs between high pallet rows. The aisle holds still around you, waiting to be searched or left alone.
 
 **What do you do?**
 
@@ -72,7 +72,7 @@ Aisle C runs between high pallet rows.
 
 **Time cost:** 5 min
 
-You recover a strip of label backing with fresh adhesive trace.
+You go over the floor and pallet faces inch by inch, ignoring the cold in your fingers. You recover a strip of label backing with fresh adhesive trace. You bag the strip carefully and head back toward the aisle entrance.
 
 **What do you do?**
 
@@ -83,7 +83,7 @@ You recover a strip of label backing with fresh adhesive trace.
 
 **Time cost:** 5 min
 
-The floor and pallet faces show routine warehouse wear; no distinctive trace stands out.
+You go over the floor and pallet faces as closely as you can manage. The floor and pallet faces show routine warehouse wear; no distinctive trace stands out. You come up empty and step back toward the aisle entrance.
 
 **What do you do?**
 
@@ -94,7 +94,7 @@ The floor and pallet faces show routine warehouse wear; no distinctive trace sta
 
 **Time cost:** 4 min
 
-You compare the recovered backing print timestamp to pallet receipt records. The timestamp does not match the original partial-pallet location.
+With the backing strip in hand, you lay it next to the pallet receipt printout. You compare the recovered backing print timestamp to pallet receipt records. The timestamp does not match the original partial-pallet location. You note the mismatch in your case file before returning to the aisle.
 
 **What do you do?**
 
@@ -105,7 +105,7 @@ You compare the recovered backing print timestamp to pallet receipt records. The
 
 **Time cost:** 1 min
 
-The live display reads CZ-1 supply air at a sustained rise above the cold-chain threshold.
+You wipe frost off the sensor display to get a clean reading. The live display reads CZ-1 supply air at a sustained rise above the cold-chain threshold. You log the number and turn back toward the rest of the hall.
 
 **What do you do?**
 
@@ -116,7 +116,7 @@ The live display reads CZ-1 supply air at a sustained rise above the cold-chain 
 
 **Time cost:** 1 min
 
-Engineering workstation CTRL-TERM-02 is awake.
+The workstation screen is still lit, exactly the way someone left it hours ago. Engineering workstation CTRL-TERM-02 is awake. The terminal is not locking itself while you decide what to open first.
 
 **What do you do?**
 
@@ -130,7 +130,7 @@ Engineering workstation CTRL-TERM-02 is awake.
 
 **Time cost:** 4 min
 
-The command log shows CMD-CZ1-MUTE-STAGE issued at 11:22 p.m. under maintenance session SVC-REFRG-MAINT.
+You open the command history and scroll back to the window around the first alarm. The command log shows CMD-CZ1-MUTE-STAGE issued at 11:22 p.m. under maintenance session SVC-REFRG-MAINT. You copy the entry into your notes and back out to the workstation menu.
 
 **What do you do?**
 
@@ -141,7 +141,7 @@ The command log shows CMD-CZ1-MUTE-STAGE issued at 11:22 p.m. under maintenance 
 
 **Time cost:** 3 min
 
-Ticket CLO-1847 closed at 6:30 p.m. with a note that session SVC-REFRG-MAINT was left unlocked.
+You pull up the maintenance ticket queue and find the most recently closed entry for CZ-1. Ticket CLO-1847 closed at 6:30 p.m. with a note that session SVC-REFRG-MAINT was left unlocked. You note the closeout comment and return to the workstation menu.
 
 **What do you do?**
 
@@ -152,7 +152,7 @@ Ticket CLO-1847 closed at 6:30 p.m. with a note that session SVC-REFRG-MAINT was
 
 **Time cost:** 5 min
 
-The trend export completes. Supply air inflects upward after 11:27 p.m.
+You start the export and wait through the progress bar, watching it climb. The trend export completes. Supply air inflects upward after 11:27 p.m. You save the export locally and step back from the terminal.
 
 **What do you do?**
 
@@ -163,7 +163,7 @@ The trend export completes. Supply air inflects upward after 11:27 p.m.
 
 **Time cost:** 5 min
 
-The export wizard closes with an error; no trend file is saved.
+You start the export and wait through the progress bar. The export wizard closes with an error; no trend file is saved. You close the failed dialog and step back from the terminal.
 
 **What do you do?**
 
@@ -174,7 +174,7 @@ The export wizard closes with an error; no trend file is saved.
 
 **Time cost:** 3 min
 
-The CZ-1 staging panel shows compressor staging suspended.
+A single amber indicator on the staging panel is the only thing not blinking in sequence. The CZ-1 staging panel shows compressor staging suspended. You write down the panel state and turn back toward the room.
 
 **What do you do?**
 
@@ -185,7 +185,7 @@ The CZ-1 staging panel shows compressor staging suspended.
 
 **Time cost:** 3 min
 
-Alarm history lists ALM-COLD-DOOR-AJAR at 11:18 p.m. and ALM-COLD-HIGH at 11:30 p.m.
+You scroll the alarm panel's history back past the noise of tonight's other notifications. Alarm history lists ALM-COLD-DOOR-AJAR at 11:18 p.m. and ALM-COLD-HIGH at 11:30 p.m. You copy both timestamps down before stepping back from the panel.
 
 **What do you do?**
 
@@ -196,7 +196,7 @@ Alarm history lists ALM-COLD-DOOR-AJAR at 11:18 p.m. and ALM-COLD-HIGH at 11:30 
 
 **Time cost:** 2 min
 
-The badge archive terminal shows whether tonight's batch upload has finished.
+The archive terminal's status field is the first thing you check before running any query. The badge archive terminal shows whether tonight's batch upload has finished. Whatever the sync status says, the query menu is still in front of you.
 
 **What do you do?**
 
@@ -210,7 +210,7 @@ The badge archive terminal shows whether tonight's batch upload has finished.
 
 **Time cost:** 4 min
 
-Cold storage inbound log shows credential BADGE-DEV-TEMP at 11:14 p.m.
+You filter the badge archive down to cold storage entries for tonight's shift. Cold storage inbound log shows credential BADGE-DEV-TEMP at 11:14 p.m. You note the credential and timestamp before returning to the archive menu.
 
 **What do you do?**
 
@@ -221,7 +221,7 @@ Cold storage inbound log shows credential BADGE-DEV-TEMP at 11:14 p.m.
 
 **Time cost:** 3 min
 
-Control room entry log shows badge BADGE-LORI at 11:20 p.m.
+You switch the filter to control room door entries for the same window. Control room entry log shows badge BADGE-LORI at 11:20 p.m. You note the badge and timestamp before returning to the archive menu.
 
 **What do you do?**
 
@@ -232,7 +232,7 @@ Control room entry log shows badge BADGE-LORI at 11:20 p.m.
 
 **Time cost:** 3 min
 
-Outbound dock scan shows Dev Santos exited at 7:02 p.m.
+You pull the outbound dock scan log to check the contractor's departure. Outbound dock scan shows Dev Santos exited at 7:02 p.m. You note the exit time before returning to the archive menu.
 
 **What do you do?**
 
@@ -243,7 +243,7 @@ Outbound dock scan shows Dev Santos exited at 7:02 p.m.
 
 **Time cost:** 2 min
 
-The receiving screen still flags manifest MNF-IN-4471.
+The reconciliation screen is exactly how it was left, exception flag still lit. The receiving screen still flags manifest MNF-IN-4471. The exception is still open, waiting on whichever record you check first.
 
 **What do you do?**
 
@@ -256,7 +256,7 @@ The receiving screen still flags manifest MNF-IN-4471.
 
 **Time cost:** 5 min
 
-Manifest MNF-IN-4471 shows eight cases received while carrier POD-4471 lists forty-eight.
+You pull the manifest up side by side with the scanned delivery record. Manifest MNF-IN-4471 shows eight cases received while carrier POD-4471 lists forty-eight. You note the quantity gap before returning to the receiving workstation.
 
 **What do you do?**
 
@@ -267,7 +267,7 @@ Manifest MNF-IN-4471 shows eight cases received while carrier POD-4471 lists for
 
 **Time cost:** 3 min
 
-The signed POD assigns the full shipment to bay C3 expecting a complete lot scan.
+You flip open the carrier POD binder to check the bay assignment against what was actually logged. The signed POD assigns the full shipment to bay C3 expecting a complete lot scan. You note the assignment before returning to the receiving workstation.
 
 **What do you do?**
 
@@ -278,7 +278,7 @@ The signed POD assigns the full shipment to bay C3 expecting a complete lot scan
 
 **Time cost:** 2 min
 
-Several lockers are closed. One contractor locker door sits slightly open.
+The locker row smells like cold coffee and cleaning solution, mostly undisturbed. Several lockers are closed. One contractor locker door sits slightly open. The open locker door is not going to close itself while you decide.
 
 **What do you do?**
 
@@ -290,7 +290,7 @@ Several lockers are closed. One contractor locker door sits slightly open.
 
 **Time cost:** 3 min
 
-Inside the locker you find a contractor temporary badge that was not returned at exit.
+You ease the ajar door open and check past the folded coveralls inside. Inside the locker you find a contractor temporary badge that was not returned at exit. You note the badge and step back from the locker bank.
 
 **What do you do?**
 
@@ -301,7 +301,7 @@ Inside the locker you find a contractor temporary badge that was not returned at
 
 **Time cost:** 3 min
 
-The locker interior looks unremarkable at a glance.
+You ease the ajar door open and check what is inside. The locker interior looks unremarkable at a glance. Nothing stands out, so you step back from the locker bank.
 
 **What do you do?**
 
@@ -312,7 +312,7 @@ The locker interior looks unremarkable at a glance.
 
 **Time cost:** 1 min
 
-Through the window you see the dock bay under sodium lights.
+You glance out the break room window toward the dock you just came from. Through the window you see the dock bay under sodium lights. You turn back into the room once you have seen enough.
 
 **What do you do?**
 
@@ -323,7 +323,7 @@ Through the window you see the dock bay under sodium lights.
 
 **Check:** one attempt
 
-Roll d20 plus your listed modifier once for this action.
+You commit to a single careful look at the latch — there is no redoing this once you have decided. Roll d20 plus your listed modifier once for this action.
 
 **What do you do?**
 
@@ -334,7 +334,7 @@ Roll d20 plus your listed modifier once for this action.
 
 **Check:** one attempt
 
-Roll d20 plus your listed modifier once for this action.
+You commit to a close search of the aisle floor and pallet faces — one pass, no second look. Roll d20 plus your listed modifier once for this action.
 
 **What do you do?**
 
@@ -345,7 +345,7 @@ Roll d20 plus your listed modifier once for this action.
 
 **Check:** one attempt
 
-Roll d20 plus your listed modifier once for this action.
+You commit to running the export through the BMS menus — one attempt, and the interface will not be forgiving of a wrong click. Roll d20 plus your listed modifier once for this action.
 
 **What do you do?**
 
@@ -356,7 +356,7 @@ Roll d20 plus your listed modifier once for this action.
 
 **Check:** one attempt
 
-Roll d20 plus your listed modifier once for this action.
+You commit to checking inside the ajar locker properly — one look, not a quick glance. Roll d20 plus your listed modifier once for this action.
 
 **What do you do?**
 

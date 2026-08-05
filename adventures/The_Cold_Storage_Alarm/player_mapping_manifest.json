@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "adventure_id": "The_Cold_Storage_Alarm",
   "play_mode": "single_investigator",
-  "unit_count": 90,
+  "unit_count": 96,
   "files": [
     "PLAYER/ENDINGS.md",
     "PLAYER/INFERENCE.md",
@@ -279,8 +279,8 @@
       "unit_id": "UNIT-PAT-DOOR"
     },
     "UNIT-PAT-SIL": {
-      "file": "PLAYER/INFERENCE.md",
-      "anchor": "Perfect reconstruction",
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Pat sil",
       "unit_id": "UNIT-PAT-SIL"
     },
     "UNIT-IT-ARCHIVE-POLICY": {
@@ -377,6 +377,36 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Optional locker branch",
       "unit_id": "SC-BREAK-LOCKER-BRANCH"
+    },
+    "INF-BADGE-MISATTRIBUTED": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Badge misattributed",
+      "unit_id": "INF-BADGE-MISATTRIBUTED"
+    },
+    "INF-STAGING-ROOT-CAUSE": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Staging root cause",
+      "unit_id": "INF-STAGING-ROOT-CAUSE"
+    },
+    "INF-RELABEL-FRAUD": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Relabel fraud",
+      "unit_id": "INF-RELABEL-FRAUD"
+    },
+    "INF-CONTROL-ACCESS-MISMATCH": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Control access mismatch",
+      "unit_id": "INF-CONTROL-ACCESS-MISMATCH"
+    },
+    "INF-CULPRIT-SUPPORTED": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Culprit supported",
+      "unit_id": "INF-CULPRIT-SUPPORTED"
+    },
+    "INF-PERFECT-RECONSTRUCTION": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Perfect reconstruction",
+      "unit_id": "INF-PERFECT-RECONSTRUCTION"
     },
     "REC-SECURITY-ARCHIVE": {
       "file": "PLAYER/RECOVERY.md",

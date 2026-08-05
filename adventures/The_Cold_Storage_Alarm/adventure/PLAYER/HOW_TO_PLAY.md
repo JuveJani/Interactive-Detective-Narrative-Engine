@@ -10,4 +10,6 @@
 
 **Deadline:** At **5:00 a.m.**, compliance procedures may end your investigation window.
 
+**Before you start:** read your character sheet for your check modifiers, and keep your case file open beside you to log clues as you find them.
+
 Read the opening section first, then use each location's base section in the locations file as your menu at that place.
