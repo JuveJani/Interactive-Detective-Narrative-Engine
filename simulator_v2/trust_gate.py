@@ -18,17 +18,19 @@ class TrustEvaluation:
     mechanics_supported: bool = False
     package_integrity: bool = False
     strategies_blind: bool = True
+    integrated_validation_status: str = "MISSING"
 
     def to_dict(self) -> dict[str, Any]:
-        return {
+        return ensure_trust_blockers({
             "trusted": self.trusted,
             "ownership": self.ownership,
-            "blockers": self.blockers,
+            "blockers": list(self.blockers),
             "coverage": self.coverage,
             "mechanics_supported": self.mechanics_supported,
             "package_integrity": self.package_integrity,
             "strategies_blind": self.strategies_blind,
-        }
+            "integrated_validation_status": self.integrated_validation_status,
+        })
 
 
 REQUIRED_MECHANICS = (
@@ -41,6 +43,35 @@ REQUIRED_MECHANICS = (
     "capability_check",
 )
 
+TRUSTED_INTEGRATED_STATUSES = frozenset({"PASS"})
+
+
+def integrated_validation_status(load: PackageLoadResult) -> str:
+    status = load.integrated_validation_status
+    if not status:
+        return "MISSING"
+    return str(status)
+
+
+def ensure_trust_blockers(trust_dict: dict[str, Any]) -> dict[str, Any]:
+    """Untrusted results must always carry explicit blockers."""
+    trusted = bool(trust_dict.get("trusted"))
+    blockers = list(trust_dict.get("blockers") or [])
+    if not trusted and not blockers:
+        ivs = trust_dict.get("integrated_validation_status") or "MISSING"
+        if ivs not in TRUSTED_INTEGRATED_STATUSES:
+            blockers.append(f"integrated_validation:{ivs}")
+        elif not trust_dict.get("coverage"):
+            blockers.append("trust_gate:missing_coverage")
+        elif not trust_dict.get("mechanics_supported", True):
+            blockers.append("trust_gate:mechanics_unsupported")
+        elif not trust_dict.get("package_integrity", True):
+            blockers.append("trust_gate:package_integrity_failed")
+        else:
+            blockers.append("trust_gate:quantitative_trust_denied")
+    trust_dict["blockers"] = blockers
+    return trust_dict
+
 
 def evaluate_trust(
     load: PackageLoadResult,
@@ -48,6 +79,8 @@ def evaluate_trust(
     coverage: str = "",
 ) -> TrustEvaluation:
     blockers: list[str] = []
+    ivs = integrated_validation_status(load)
+
     package_integrity = load.checksum_valid and load.status.value == "READY"
     if not package_integrity:
         blockers.append("package_integrity_failed")
@@ -65,10 +98,15 @@ def evaluate_trust(
         mechanics_supported = False
         blockers.append("no_model")
 
-    if load.integrated_validation_status not in ("PASS",):
-        blockers.append(f"integrated_validation:{load.integrated_validation_status}")
+    if ivs not in TRUSTED_INTEGRATED_STATUSES:
+        blockers.append(f"integrated_validation:{ivs}")
 
-    trusted = package_integrity and mechanics_supported and not blockers
+    trusted = (
+        package_integrity
+        and mechanics_supported
+        and ivs in TRUSTED_INTEGRATED_STATUSES
+        and not blockers
+    )
     ownership = "ADVENTURE" if trusted else "SIMULATOR"
     if not package_integrity:
         ownership = "PACKAGE"
@@ -85,4 +123,13 @@ def evaluate_trust(
         mechanics_supported=mechanics_supported,
         package_integrity=package_integrity,
         strategies_blind=True,
+        integrated_validation_status=ivs,
     )
+
+
+def trust_dict_for_mode(
+    load: PackageLoadResult,
+    model: CanonicalSimulationModel | None,
+    coverage: str,
+) -> dict[str, Any]:
+    return evaluate_trust(load, model, coverage=coverage).to_dict()

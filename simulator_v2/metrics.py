@@ -74,14 +74,27 @@ class SimulationRunResult:
     errors: list[str] = field(default_factory=list)
     partial: bool = False
     coverage: str = ""
+    incomplete_reason: str | None = None
+    last_state_key: str = ""
+    strategy: str = ""
+    seed: int = 0
+    integrated_validation: dict[str, Any] = field(default_factory=dict)
+    trust: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "status": self.status,
             "metrics": self.metrics.to_dict(),
+            "final_state_key": self.final_state_key,
             "ending_id": self.ending_id,
             "path": self.path,
             "errors": self.errors,
             "partial": self.partial,
             "coverage": self.coverage,
+            "incomplete_reason": self.incomplete_reason,
+            "last_state_key": self.last_state_key,
+            "strategy": self.strategy,
+            "seed": self.seed,
+            "integrated_validation": self.integrated_validation,
+            "trust": self.trust,
         }

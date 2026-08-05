@@ -8,6 +8,32 @@ from simulator_v2.actions import ActionKind, LegalAction
 from simulator_v2.player_view import PlayerView
 from simulator_v2.rng import DeterministicRNG
 
+TWO_PLAYER_ONLY_STRATEGIES = frozenset({"cooperative_two_player"})
+
+
+def strategy_compatible(play_mode: str, strategy_name: str) -> bool:
+    if strategy_name in TWO_PLAYER_ONLY_STRATEGIES:
+        return play_mode == "two_player"
+    return True
+
+
+def terminal_fallback(legal: list[LegalAction]) -> LegalAction | None:
+    """Deterministic time/progress fallback using only player-visible legal actions."""
+    if not legal:
+        return None
+    for kind in (
+        ActionKind.ADVANCE_TIME,
+        ActionKind.NAVIGATE,
+        ActionKind.OBJECT,
+        ActionKind.NPC,
+        ActionKind.HYPOTHESIS,
+        ActionKind.REVISIT,
+    ):
+        opts = sorted([a for a in legal if a.kind == kind], key=lambda a: a.action_id)
+        if opts:
+            return opts[0]
+    return sorted(legal, key=lambda a: a.action_id)[0]
+
 
 class Strategy(ABC):
     name: str = "base"

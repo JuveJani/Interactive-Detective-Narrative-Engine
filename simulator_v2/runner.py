@@ -2,39 +2,71 @@
 
 from __future__ import annotations
 
-import json
 import sys
-import time
 from pathlib import Path
 from typing import Any
 
 from simulator_v2.config import RunnerConfig
-from simulator_v2.diagnostics import DiagnosticReport, run_integrated_diagnostics
+from simulator_v2.diagnostics import DiagnosticReport, build_integration_findings, run_integrated_diagnostics
+from simulator_v2.derivation import derive_simulation_model
 from simulator_v2.modes import ExhaustiveConfig, MonteCarloConfig, SimulationModes
 from simulator_v2.package_loader import load_simulator_package
 from simulator_v2.reports import make_output_dir, write_all_reports
+from simulator_v2.trust_gate import integrated_validation_status
 
 
-class RunInterrupted(Exception):
-    pass
+def _trust_from_simulation(sim_data: dict[str, Any]) -> dict[str, Any]:
+    for key in ("trace", "monte_carlo", "compare", "exhaustive", "path_analysis"):
+        block = sim_data.get(key)
+        if isinstance(block, dict) and block.get("trust"):
+            return dict(block["trust"])
+        if hasattr(block, "to_dict"):
+            td = block.to_dict()
+            if td.get("trust"):
+                return dict(td["trust"])
+    return {}
 
 
-def _memory_mb() -> float:
-    try:
-        import resource
+def _integrated_from_simulation(sim_data: dict[str, Any], load) -> dict[str, Any]:
+    for key in ("trace", "monte_carlo", "compare", "exhaustive", "path_analysis"):
+        block = sim_data.get(key)
+        if isinstance(block, dict) and block.get("integrated_validation"):
+            return dict(block["integrated_validation"])
+        if hasattr(block, "to_dict"):
+            td = block.to_dict()
+            if td.get("integrated_validation"):
+                return dict(td["integrated_validation"])
+    return {
+        "status": integrated_validation_status(load),
+        "failures": list(load.integrated_validation_failures or []),
+    }
 
-        usage = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-        if sys.platform == "darwin":
-            return usage / (1024 * 1024)
-        return usage / 1024
-    except Exception:
-        return 0.0
 
-
-def _check_memory(config: RunnerConfig) -> None:
-    mem = _memory_mb()
-    if mem > config.memory_guard_mb:
-        raise MemoryError(f"memory guard exceeded ({mem:.0f} MB > {config.memory_guard_mb} MB)")
+def _diagnostic_report(
+    load,
+    sim_data: dict[str, Any],
+    metrics: dict[str, Any],
+    log: list[str],
+) -> DiagnosticReport:
+    model = None
+    if load.adventure_root and load.status.value == "READY":
+        try:
+            model = derive_simulation_model(load.adventure_root, load.play_mode)
+        except Exception:
+            model = None
+    trust = _trust_from_simulation(sim_data)
+    integrated = _integrated_from_simulation(sim_data, load)
+    findings = build_integration_findings(load, model, sim_data, trust)
+    return DiagnosticReport(
+        adventure_id=load.adventure_id,
+        play_mode=load.play_mode,
+        integrated_validation=integrated,
+        trust=trust,
+        findings=findings,
+        metrics=metrics,
+        simulation=sim_data,
+        log=log,
+    )
 
 
 def cmd_diagnose(package_path: str | Path, config: RunnerConfig | None = None) -> Path:
@@ -63,35 +95,24 @@ def cmd_validate(package_path: str | Path, config: RunnerConfig | None = None) -
     modes = SimulationModes(str(package_path))
     result = modes.validate()
     if cfg.output_base:
+        load = modes.load_result
+        report = _diagnostic_report(load, {"validate": result}, {"legal_action_count": result.get("legal_action_count", 0)}, ["validate"])
         out = make_output_dir(Path(cfg.output_base), mode="validate")
-        write_all_reports(out, DiagnosticReport(
-            adventure_id=result.get("load", {}).get("adventure_id", ""),
-            play_mode=result.get("load", {}).get("play_mode", ""),
-            integrated_validation={"status": result.get("status")},
-            trust=result.get("trust", {}),
-            findings=[],
-            metrics={"legal_action_count": result.get("legal_action_count", 0)},
-        ))
+        write_all_reports(out, report)
     return result
 
 
 def cmd_trace(package_path: str | Path, seed: int = 42, strategy: str = "random_legal", config: RunnerConfig | None = None) -> dict[str, Any]:
     cfg = config or RunnerConfig()
-    cfg.seed = seed
-    cfg.strategy = strategy
     modes = SimulationModes(str(package_path))
     result = modes.trace(strategy, seed=seed)
     out = make_output_dir(Path(cfg.output_base), mode="trace")
-    load = load_simulator_package(package_path)
-    report = DiagnosticReport(
-        adventure_id=load.adventure_id,
-        play_mode=load.play_mode,
-        integrated_validation={},
-        trust=result.to_dict().get("trust", {}),
-        findings=[],
-        metrics=result.metrics.to_dict(),
-        simulation={"trace": result.to_dict()},
-        log=[f"trace seed={seed} strategy={strategy}"],
+    sim_data = {"trace": result.to_dict()}
+    report = _diagnostic_report(
+        modes.load_result,
+        sim_data,
+        result.metrics.to_dict(),
+        [f"trace seed={seed} strategy={strategy}"],
     )
     write_all_reports(out, report)
     return {"output": str(out), "result": result.to_dict()}
@@ -103,16 +124,12 @@ def cmd_simulate(package_path: str | Path, runs: int = 1000, seed: int = 42, con
     modes = SimulationModes(str(package_path))
     result = modes.monte_carlo(MonteCarloConfig(runs=runs, seed=seed))
     out = make_output_dir(Path(cfg.output_base), mode="simulate")
-    load = load_simulator_package(package_path)
-    report = DiagnosticReport(
-        adventure_id=load.adventure_id,
-        play_mode=load.play_mode,
-        integrated_validation={},
-        trust=result.get("trust", {}),
-        findings=[],
-        metrics={"runs": runs},
-        simulation={"monte_carlo": result},
-        log=[f"simulate runs={runs} seed={seed}"],
+    sim_data = {"monte_carlo": result}
+    report = _diagnostic_report(
+        modes.load_result,
+        sim_data,
+        {"runs": runs, **{k: v for k, v in result.items() if k in ("shortest_path_steps", "longest_path_steps")}},
+        [f"simulate runs={runs} seed={seed}"],
     )
     write_all_reports(out, report)
     return {"output": str(out), "result": result}
@@ -132,16 +149,12 @@ def cmd_exhaustive(
         cancel_flag=cancel,
     )
     out = make_output_dir(Path(cfg.output_base), mode="exhaustive")
-    load = load_simulator_package(package_path)
-    report = DiagnosticReport(
-        adventure_id=load.adventure_id,
-        play_mode=load.play_mode,
-        integrated_validation={},
-        trust={},
-        findings=[],
-        metrics={"states_explored": result.get("states_explored", 0)},
-        simulation={"exhaustive": result},
-        log=[f"exhaustive max_states={max_states}"],
+    sim_data = {"exhaustive": result}
+    report = _diagnostic_report(
+        modes.load_result,
+        sim_data,
+        {"states_explored": result.get("states_explored", 0)},
+        [f"exhaustive max_states={max_states}"],
     )
     write_all_reports(out, report)
     return {"output": str(out), "result": result}
@@ -157,16 +170,12 @@ def cmd_compare(
     modes = SimulationModes(str(package_path))
     result = modes.compare_strategies(runs_per_strategy=runs_per_strategy, seed=seed)
     out = make_output_dir(Path(cfg.output_base), mode="compare")
-    load = load_simulator_package(package_path)
-    report = DiagnosticReport(
-        adventure_id=load.adventure_id,
-        play_mode=load.play_mode,
-        integrated_validation={},
-        trust={},
-        findings=[],
-        metrics={"runs_per_strategy": runs_per_strategy},
-        simulation={"compare": result},
-        log=[f"compare runs_per_strategy={runs_per_strategy}"],
+    sim_data = {"compare": result}
+    report = _diagnostic_report(
+        modes.load_result,
+        sim_data,
+        {"runs_per_strategy": runs_per_strategy},
+        [f"compare runs_per_strategy={runs_per_strategy}"],
     )
     write_all_reports(out, report)
     return {"output": str(out), "result": result}
