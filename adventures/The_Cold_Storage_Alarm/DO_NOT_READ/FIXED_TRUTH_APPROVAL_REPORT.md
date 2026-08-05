@@ -27,7 +27,7 @@ Logistics coordinator **Lori Okonkwo (NPC-LORI)** discovered a real carrier shor
 | **Labels applied** | LBL-4471-A → PLT-Q118-B (48 cases); LBL-Q118-B → 8-case partial stack |
 | **False WMS appearance** | Scan at aisle C bay 3 reads full L-4471 on the 48-case quarantine pallet |
 | **Audit deception** | Quarterly audit uses random pallet-label scan + manifest match; mislabeled 48-case pallet would initially pass |
-| **Later visibility** | Discrepancy surfaces via label serial print history (NL-20260312-4471A receipt绑定 to 8-case partial), POD vs receiving count, case-weight sampling, or Q-118 destruction paperwork mismatch |
+| **Later visibility** | Discrepancy surfaces via label serial print history (NL-20260312-4471A bound to 8-case partial at receipt), POD vs receiving count, case-weight sampling, or Q-118 destruction paperwork mismatch |
 | **Physical evidence** | Adhesive backing NL-20260312-4471A in aisle C; mismatched label re-application timestamp; MNF-IN-4471 vs POD-4471 documents |
 
 **Important:** Label swap **reassigns identity**; it does not manufacture 40 missing cases.
