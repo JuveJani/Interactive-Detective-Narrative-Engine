@@ -6,7 +6,7 @@
 
 - **Branch:** `setup/offline-ai-workspace`
 - **Base:** `main` @ `38f2921`
-- **Commit:** _(pending — documentation-only commit on this branch)_
+- **Commit:** `9df4886` — Add permanent offline AI workspace for IDNE agents
 
 ## Completed work
 
