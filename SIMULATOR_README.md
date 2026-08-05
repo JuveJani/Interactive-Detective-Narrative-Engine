@@ -45,6 +45,24 @@ Markdown PLAYER files are ambiguous for deterministic simulation. Each adventure
 
 Milestone 11 exports unified `.idne` ZIP packages (`ADVENTURE_GENERATOR_V2_SPEC.md`) for future Simulator v2 import; the current simulator still reads adventure directories directly.
 
+## Simulator v2 (Part 1)
+
+Canonical package-driven simulation foundation lives in `simulator_v2/`:
+
+```python
+from simulator_v2 import SimulatorService
+svc = SimulatorService()
+svc.load_package("path/to/adventure.idne")  # or unpacked canonical directory
+svc.validate_readiness()
+run_id = svc.start_run()
+```
+
+- Loads `.idne` archives or unpacked Generator v2 packages **without** `sim_adapter.json`
+- Derives internal simulation model from canonical packages with source traceability
+- Legacy simulator (`simulator/`) remains available for Harborview-class adventures with `sim_adapter.json`
+
+See `SIMULATOR_V2_PART1_IMPLEMENTATION.md`.
+
 ## Strategies
 
 | Name | Behaviour |
