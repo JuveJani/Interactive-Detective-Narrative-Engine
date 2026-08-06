@@ -12,6 +12,7 @@ from idne.local_ai.context_builder import (
     ContextBuildResult,
     build_context_package,
 )
+from idne.local_ai.output_paths import DEFAULT_BRIEF_OUTPUT, validate_output_path
 from idne.local_ai.paths import normalize_allowlist, normalize_repo_relative, resolve_allowed_file, to_posix_relpath
 from idne.local_ai.platform_runtime import detect_platform_runtime
 from idne.local_ai.prompt_builder import build_prompt
@@ -71,16 +72,17 @@ ADVENTURE_BRIEF_TASK = TaskDefinition(
             excerpt_end="## Validation and Simulator v2",
         ),
     ),
-    allowed_output_files=("brief/adventure_brief.json",),
-    expected_output_schema_ref="ADVENTURE_GENERATOR_V2_SCHEMA.md#1-adventure-brief-adventure_briefjson",
+    allowed_output_files=(DEFAULT_BRIEF_OUTPUT,),
+    expected_output_schema_ref="idne/schemas/local_ai_adventure_brief_response.schema.json",
     context_budget=12000,
     validator_commands=(
-        "python -m idne.generate.brief <brief/adventure_brief.json>",
+        f"python -m idne.generate.brief <{DEFAULT_BRIEF_OUTPUT}>",
     ),
     task_instruction=(
-        "Transform the author input into an adventure brief JSON object containing "
-        "semantic parameters only. Do not write story prose, spoilers, culprit details, "
-        "or deterministic metadata. Python will assign IDs, paths, and manifests later."
+        "Transform the author input into a semantic adventure brief response JSON object. "
+        "Provide premise, opening situation, and brief parameters only. "
+        "Do not write story prose, spoilers, culprit details, or deterministic metadata. "
+        "Python will assign IDs, paths, and manifests later."
     ),
 )
 
@@ -106,6 +108,7 @@ def prepare_task(
     *,
     repo_root: Path | None = None,
     context_budget: int | None = None,
+    output_path: str | None = None,
 ) -> tuple[LocalAITask, ContextBuildResult, str, PreparationMetrics, Path]:
     runtime = detect_platform_runtime(repo_root)
     root = runtime.repo_root
@@ -119,6 +122,7 @@ def prepare_task(
     input_hash = sha256_bytes(input_bytes)
 
     allowed_inputs = normalize_allowlist([input_rel], root)
+    output_rel = validate_output_path(output_path or DEFAULT_BRIEF_OUTPUT, root)
     task_id = make_task_id(task_type, allowed_inputs, [input_hash])
     run_dir = run_directory_for_task(root, task_id)
     run_rel = to_posix_relpath(run_dir, root)
@@ -132,7 +136,7 @@ def prepare_task(
         created_at=utc_now_iso(),
         source_content_identity=SourceIdentity(sha256=input_hash, path=input_rel),
         allowed_input_files=allowed_inputs,
-        allowed_output_files=list(definition.allowed_output_files),
+        allowed_output_files=[output_rel],
         authoritative_sources=[],
         approved_prior_stage_facts={},
         protected_values={
@@ -155,7 +159,7 @@ def prepare_task(
             "max_output_tokens": 2048,
             "local_mode": True,
         },
-        validator_commands=list(definition.validator_commands),
+        validator_commands=[f"python -m idne.generate.brief <{output_rel}>"],
         status=TaskStatus.CREATED,
         attempt_count=0,
         run_directory=run_rel,

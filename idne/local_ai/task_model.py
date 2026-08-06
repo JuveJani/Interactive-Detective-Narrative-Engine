@@ -7,7 +7,10 @@ import json
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 TASK_SCHEMA_VERSION = "1.0"
 
@@ -21,6 +24,25 @@ class TaskStatus(str, Enum):
     VALIDATED = "VALIDATED"
     FAILED = "FAILED"
     APPLIED = "APPLIED"
+
+
+class ProcessingStage(str, Enum):
+    NONE = "NONE"
+    PARSED = "PARSED"
+    RESPONSE_VALIDATED = "RESPONSE_VALIDATED"
+    PROPOSAL_READY = "PROPOSAL_READY"
+    VALIDATED = "VALIDATED"
+    APPLIED = "APPLIED"
+
+
+PROCESSING_TRANSITIONS: dict[ProcessingStage, frozenset[ProcessingStage]] = {
+    ProcessingStage.NONE: frozenset({ProcessingStage.PARSED}),
+    ProcessingStage.PARSED: frozenset({ProcessingStage.RESPONSE_VALIDATED}),
+    ProcessingStage.RESPONSE_VALIDATED: frozenset({ProcessingStage.PROPOSAL_READY}),
+    ProcessingStage.PROPOSAL_READY: frozenset({ProcessingStage.VALIDATED}),
+    ProcessingStage.VALIDATED: frozenset({ProcessingStage.APPLIED}),
+    ProcessingStage.APPLIED: frozenset(),
+}
 
 
 ALLOWED_TRANSITIONS: dict[TaskStatus, frozenset[TaskStatus]] = {
@@ -219,3 +241,29 @@ def transition_task(task: LocalAITask, new_status: TaskStatus) -> LocalAITask:
     assert_valid_transition(task.status, new_status)
     task.status = new_status
     return task
+
+
+def get_processing_stage(run_dir_status: dict[str, Any]) -> ProcessingStage:
+    raw = run_dir_status.get("processing_stage", ProcessingStage.NONE.value)
+    return ProcessingStage(str(raw))
+
+
+def assert_processing_transition(current: ProcessingStage, new: ProcessingStage) -> None:
+    allowed = PROCESSING_TRANSITIONS.get(current, frozenset())
+    if new not in allowed and not (current == ProcessingStage.NONE and new == ProcessingStage.PARSED):
+        if current == new:
+            return
+        raise ValueError(f"invalid processing transition: {current.value} -> {new.value}")
+
+
+def transition_processing_stage(run_dir: "Path", new_stage: ProcessingStage) -> None:
+    from pathlib import Path
+
+    from idne.local_ai.run_state import load_status, write_json
+
+    status_path = Path(run_dir) / "status.json"
+    status = load_status(Path(run_dir))
+    current = get_processing_stage(status)
+    assert_processing_transition(current, new_stage)
+    status["processing_stage"] = new_stage.value
+    write_json(status_path, status)

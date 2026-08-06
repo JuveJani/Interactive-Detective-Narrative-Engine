@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from idne.local_ai.attempts import archive_current_attempt, reset_processing_state
 from idne.local_ai.config import LocalAIConfig, load_config
 from idne.local_ai.errors import ModelSelectionError, TransportError
 from idne.local_ai.lm_studio_client import SYSTEM_MESSAGE
@@ -106,6 +107,9 @@ def run_task(
 
     prompt_sha256 = verify_prompt_identity(run_dir, task)
     prompt = (run_dir / "prompt.txt").read_text(encoding="utf-8")
+    if force and response_exists(run_dir):
+        archive_current_attempt(run_dir)
+        reset_processing_state(run_dir)
     cfg = load_config(config_path=config_path)
     if mock:
         cfg.adapter_type = "mock"
@@ -173,6 +177,8 @@ def run_task(
                 "status": task.status.value,
                 "attempt_count": task.attempt_count,
                 "prompt_sha256": prompt_sha256,
+                "source_content_sha256": task.source_content_identity.sha256,
+                "processing_stage": "NONE",
                 "transport": report.to_dict(),
             },
         )

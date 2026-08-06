@@ -32,7 +32,7 @@ python -m unittest discover -s tests
 | API compatibility | OpenAI-compatible (`/v1/models`, `/v1/chat/completions`) |
 | Config example | `OFFLINE_AI/local_ai.example.toml` |
 | User config | `local_ai.toml` (gitignored) |
-| CLI | `python -m idne.local_ai doctor` / `prepare` / `run` |
+| CLI | `python -m idne.local_ai doctor` / `prepare` / `run` / `process` / `apply` |
 
 ### Doctor commands
 
@@ -42,15 +42,17 @@ python -m idne.local_ai doctor --test-completion
 python -m idne.local_ai doctor --mock --test-completion
 ```
 
-### Transport verification (Step 2)
+### End-to-end workflow (Step 3)
 
 | Step | Command |
 |------|---------|
-| Prepare | `python -m idne.local_ai prepare --task-type adventure_brief --input OFFLINE_AI/examples/adventure_brief_input.md` |
+| Prepare | `python -m idne.local_ai prepare --task-type adventure_brief --input OFFLINE_AI/examples/adventure_brief_input.md --output adventures/_local_ai_drafts/example_offline_brief/adventure_brief.json` |
 | Run | `python -m idne.local_ai run .local_ai_runs/<task-id>` |
-| Inspect | `python -m idne.local_ai transport-report .local_ai_runs/<task-id>` |
+| Process | `python -m idne.local_ai process .local_ai_runs/<task-id>` |
+| Review | `python -m idne.local_ai review .local_ai_runs/<task-id>` |
+| Apply | `python -m idne.local_ai apply .local_ai_runs/<task-id>` |
 
-Semantic validation and repository application: **Step 3 (not yet)**.
+AI semantic repair is **not yet** implemented. Invalid model output must be corrected via `--force` re-run.
 
 See `OFFLINE_AI/QUICKSTART.md`, `OFFLINE_AI/TROUBLESHOOTING.md`, `OFFLINE_AI/OFFLINE_CHECKLIST.md`.
 

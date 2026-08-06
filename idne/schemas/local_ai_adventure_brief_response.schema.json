@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.local/schemas/local_ai_adventure_brief_response.schema.json",
+  "title": "LocalAIAdventureBriefResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "universe",
+    "genre",
+    "realism_level",
+    "player_mode",
+    "investigator_character",
+    "target_playtime_minutes",
+    "in_world_duration",
+    "tone",
+    "difficulty",
+    "location_scale",
+    "content_boundaries",
+    "premise",
+    "opening_situation"
+  ],
+  "properties": {
+    "working_title": { "type": "string", "minLength": 1 },
+    "premise": { "type": "string", "minLength": 1 },
+    "setting": { "type": "string", "minLength": 1 },
+    "universe": { "type": "string", "minLength": 1 },
+    "genre": { "type": "string", "minLength": 1 },
+    "realism_level": { "type": "string", "minLength": 1 },
+    "player_mode": {
+      "type": "string",
+      "enum": ["single_investigator", "two_player"]
+    },
+    "investigator_character": { "type": "string", "minLength": 1 },
+    "opening_situation": { "type": "string", "minLength": 1 },
+    "initial_observable_facts": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "tone": { "type": "string", "minLength": 1 },
+    "difficulty": { "type": "string", "minLength": 1 },
+    "location_scale": { "type": "string", "minLength": 1 },
+    "target_playtime_minutes": { "type": "integer", "minimum": 15, "maximum": 480 },
+    "in_world_duration": { "type": "string", "minLength": 1 },
+    "content_boundaries": { "type": "string", "minLength": 1 },
+    "required_themes": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "forbidden_themes": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "author_notes": { "type": "string" }
+  }
+}

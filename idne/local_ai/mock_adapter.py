@@ -32,6 +32,39 @@ class MockAdapterState:
     http_status: int = 200
 
 
+def _semantic_payload(digest: str) -> dict[str, Any]:
+    return {
+        "working_title": "Museum Night Audit",
+        "premise": (
+            "A contract security auditor investigates an impossible theft during a brief "
+            "power outage at a regional museum."
+        ),
+        "setting": "regional museum during a night shift",
+        "universe": "real world",
+        "genre": "detective story",
+        "realism_level": "grounded",
+        "player_mode": "single_investigator",
+        "investigator_character": "meticulous security auditor with forensic curiosity",
+        "target_playtime_minutes": 90,
+        "in_world_duration": "one night shift",
+        "tone": "methodical, slightly tense",
+        "difficulty": "standard fair-play mystery",
+        "location_scale": "single museum building",
+        "content_boundaries": "no graphic violence; no supernatural explanations",
+        "opening_situation": (
+            "The night watch reports a display case opened during a two-minute outage; "
+            "the player arrives before insurance review."
+        ),
+        "initial_observable_facts": [
+            "Emergency lighting is still active in the east wing.",
+            "The outage timer log shows exactly two minutes without power.",
+        ],
+        "required_themes": ["fair-play mystery", "access-control puzzle"],
+        "forbidden_themes": ["supernatural explanations"],
+        "author_notes": f"mock deterministic semantic response {digest}",
+    }
+
+
 class MockAdapter(ModelAdapter):
     name = "mock"
 
@@ -73,10 +106,8 @@ class MockAdapter(ModelAdapter):
             raw = self._raw_response("")
             return self._wrap(raw, "", finish_reason="stop")
         if scenario == "null_content":
-            raw = {"choices": [{"message": {"content": None}, "finish_reason": "stop"}]}
             raise EmptyCompletionTransportError("completion content is null")
         if scenario == "missing_choices":
-            raw = {"choices": []}
             raise UnsupportedResponseTransportError("missing choices array")
         if scenario == "malformed_json":
             raise MalformedJsonTransportError("malformed JSON response")
@@ -84,23 +115,56 @@ class MockAdapter(ModelAdapter):
             raise HttpTransportError("HTTP 500", status=500, retryable=True)
 
         digest = hashlib.sha256(user_prompt.encode("utf-8")).hexdigest()[:12]
-        payload = {
-            "universe": "real world",
-            "genre": "detective story",
-            "realism_level": "grounded",
-            "player_mode": "single_investigator",
-            "investigator_character": "mock investigator",
-            "target_playtime_minutes": 90,
-            "in_world_duration": "one night",
-            "tone": "methodical",
-            "difficulty": "standard",
-            "location_scale": "single building",
-            "content_boundaries": "no graphic violence",
-            "author_notes": f"mock deterministic response {digest}",
-        }
-        content = json.dumps(payload, indent=2, sort_keys=True)
-        raw = self._raw_response(content, usage={"prompt_tokens": 100, "completion_tokens": 50, "total_tokens": 150})
+        content = self._build_response_content(scenario, digest)
+        raw = self._raw_response(
+            content,
+            usage={"prompt_tokens": 100, "completion_tokens": 50, "total_tokens": 150},
+        )
         return self._wrap(raw, content, finish_reason="stop")
+
+    def _build_response_content(self, scenario: str, digest: str) -> str:
+        if scenario == "duplicate_key":
+            return '{"premise":"x","premise":"y","universe":"real world"}'
+        if scenario == "missing_required_field":
+            payload = _semantic_payload(digest)
+            payload.pop("opening_situation", None)
+            return json.dumps(payload, indent=2, sort_keys=True)
+        if scenario == "wrong_type":
+            payload = _semantic_payload(digest)
+            payload["target_playtime_minutes"] = "ninety"
+            return json.dumps(payload, indent=2, sort_keys=True)
+        if scenario == "unexpected_field":
+            payload = _semantic_payload(digest)
+            payload["task_id"] = "injected-task"
+            return json.dumps(payload, indent=2, sort_keys=True)
+        if scenario == "protected_field_injection":
+            payload = _semantic_payload(digest)
+            payload["adventure_id"] = "ADV-999"
+            return json.dumps(payload, indent=2, sort_keys=True)
+        if scenario == "invalid_playtime":
+            payload = _semantic_payload(digest)
+            payload["target_playtime_minutes"] = 0
+            return json.dumps(payload, indent=2, sort_keys=True)
+        if scenario == "empty_semantic_value":
+            payload = _semantic_payload(digest)
+            payload["premise"] = "   "
+            return json.dumps(payload, indent=2, sort_keys=True)
+        if scenario == "response_malformed_json":
+            return "{not valid json"
+        if scenario == "response_empty":
+            return ""
+        if scenario == "response_multiple_objects":
+            a = json.dumps({"a": 1})
+            b = json.dumps({"b": 2})
+            return f"{a}\n{b}"
+
+        payload = _semantic_payload(digest)
+        body = json.dumps(payload, indent=2, sort_keys=True)
+        if scenario == "fenced_json":
+            return f"```json\n{body}\n```"
+        if scenario == "commentary_json":
+            return f"Here is the brief:\n{body}\nEnd of response."
+        return body
 
     def _maybe_fail(self, phase: str) -> None:
         scenario = self.state.scenario

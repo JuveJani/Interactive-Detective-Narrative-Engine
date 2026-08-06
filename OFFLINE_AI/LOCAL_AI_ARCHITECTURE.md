@@ -1,70 +1,87 @@
 # Local AI Orchestrator — Architecture
 
-**Status:** Step 2 — LM Studio transport adapter (no semantic validation yet)
+**Status:** Step 3 — response validation, proposal, explicit apply
 
 ## Purpose
 
-Prepare exact, validated Local AI task packages and send `prompt.txt` to a local
-OpenAI-compatible model (LM Studio). Python performs all deterministic work.
+End-to-end offline Local AI workflow for `adventure_brief`:
 
-## What Python does
+`prepare` → `run` → `process` → `review` → `apply`
 
-- Deterministic task preparation (Step 1)
-- Configuration loading and endpoint safety (`config.py`)
-- Model listing and chat completion transport (`lm_studio_client.py`, `model_adapter.py`)
-- Response capture inside task directories only (`response_capture.py`, `transport.py`)
-- Mock adapter for tests and Termux offline workflow (`mock_adapter.py`)
-- Doctor diagnostics (`doctor.py`)
+Python owns IDs, paths, manifests, validators, and atomic writes. The model
+provides semantic brief content only.
 
-## What the model adapter does (transport only)
+## Pipeline stages
 
-- `GET /v1/models` — list and select model
-- `POST /v1/chat/completions` — send prepared prompt
-- Save raw response, extracted content, transport metrics
-- Transition task `READY_FOR_MODEL` → `RESPONSE_RECEIVED`
+| Stage | Command | Output |
+|-------|---------|--------|
+| Prepare | `prepare` | `READY_FOR_MODEL` |
+| Transport | `run` | `RESPONSE_RECEIVED` |
+| Parse | `parse` | `parsed_response.json`, `processing_stage=PARSED` |
+| Response validate | `validate-response` | `response_validation_report.json` |
+| Proposal build | `build-proposal` | `proposal/` directory |
+| Proposal validate | `validate-proposal` | `VALIDATED` |
+| Apply | `apply` | draft brief file, `APPLIED` |
 
-## What the adapter must NOT do
+Convenience: `process` runs parse → validate-response → build-proposal → validate-proposal (stops on first failure).
 
-- Explore the repository or modify `prompt.txt`
-- Add chat history
-- Write outside `.local_ai_runs/<task-id>/`
-- Assign IDs, repair schemas, or apply output
+## Semantic response schema
+
+Model-facing schema: `idne/schemas/local_ai_adventure_brief_response.schema.json`
+
+Fields include premise, opening_situation, initial_observable_facts, and canonical brief parameters. Python maps this into Adventure Generator v2 `adventure_brief.json` via `proposal_builder.map_semantic_to_canonical()`:
+
+- Direct copy: universe, genre, realism_level, player_mode, investigator_character, target_playtime_minutes, in_world_duration, tone, difficulty, location_scale, content_boundaries, theme arrays
+- Composed into `author_notes`: working_title, premise, setting, opening_situation, initial_observable_facts, author_notes
+
+## Safe structural repairs (`structural_repair.py`)
+
+Allowed only:
+
+- UTF-8 BOM strip
+- Whitespace trim
+- Line ending normalization
+- Single Markdown JSON fence removal
+- Extraction of one unambiguous JSON object from short commentary
+
+Not repaired: missing commas, wrong types, missing fields, duplicate keys, multiple objects.
+
+## Protected values
+
+Model output must not include task_id, adventure_id, paths, hashes, manifests, or internal IDs. Checked in `response_validate.validate_protected_values()`.
+
+## Output destinations
+
+Draft root: `adventures/_local_ai_drafts/` (gitignored)
+
+Prepare with explicit `--output`. Paths must:
+
+- Be repository-relative
+- End with `/adventure_brief.json`
+- Not touch existing adventures, specs, tests, Cold Storage, or A_Hutoriasztas
+
+## Proposal directory
+
+`proposal/adventure_brief.json`, `proposal_manifest.json`, `provenance.json`, `validation_report.json`, `human_review.md`
+
+## Attempt preservation
+
+`run --force` archives prior attempt under `attempts/001/`, `attempts/002/`, etc.
+
+## Status model
+
+- `task.status`: major milestones (`RESPONSE_RECEIVED`, `VALIDATED`, `APPLIED`)
+- `status.json.processing_stage`: substates (`PARSED`, `RESPONSE_VALIDATED`, `PROPOSAL_READY`, `VALIDATED`, `APPLIED`)
 
 ## Network policy
 
-Network requests occur **only** through the configured adapter endpoint.
-Default: loopback (`127.0.0.1`, `localhost`, `::1`) only.
-Set `allow_remote_endpoint = true` for trusted LAN (e.g. Termux → laptop).
+Network requests occur only through the configured adapter endpoint. Mock mode (`--mock`) opens no sockets.
 
-## Task directory (after transport)
+## Not yet implemented
 
-| File | Purpose |
-|------|---------|
-| `task.json` | Versioned task record |
-| `prompt.txt` | Prepared prompt (unchanged by adapter) |
-| `request.json` | Outbound request metadata |
-| `raw_response.json` | Full model HTTP JSON |
-| `response.txt` | Extracted assistant content |
-| `transport_report.json` | Timing, usage, classification |
-| `status.json` | Updated status + attempt count |
-
-## Configuration
-
-See `OFFLINE_AI/local_ai.example.toml`. User file: `local_ai.toml` (gitignored).
-
-Precedence: `--config` → `IDNE_LOCAL_AI_CONFIG` → `local_ai.toml` → defaults.
-
-## Termux modes
-
-1. **Mock only** — prepare/run with `--mock` on device
-2. **LAN adapter** — point `base_url` at laptop LM Studio with `allow_remote_endpoint = true`
-
-LM Studio does not run on Android.
-
-## Step 3 (not yet)
-
-- Semantic JSON validation
-- Repair and repository application
+- AI semantic repair loop
+- Full adventure generation
+- Automatic git commit
 
 ## Cline
 

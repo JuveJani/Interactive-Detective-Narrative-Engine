@@ -47,6 +47,9 @@ llm_models/
 .local_ai_runs/
 local_ai.toml
 
+# Local AI draft brief outputs (applied via explicit apply command)
+adventures/_local_ai_drafts/
+
 # Generated archives and temp reports
 *.log
 /tmp/

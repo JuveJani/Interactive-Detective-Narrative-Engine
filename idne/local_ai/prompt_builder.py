@@ -2,10 +2,30 @@
 
 from __future__ import annotations
 
-from idne.generate.brief import REQUIRED_BRIEF_FIELDS
 from idne.local_ai.context_builder import ContextBuildResult
 from idne.local_ai.task_model import LocalAITask
 
+SEMANTIC_RESPONSE_FIELDS = (
+    "working_title",
+    "premise",
+    "setting",
+    "universe",
+    "genre",
+    "realism_level",
+    "player_mode",
+    "investigator_character",
+    "opening_situation",
+    "initial_observable_facts",
+    "tone",
+    "difficulty",
+    "location_scale",
+    "target_playtime_minutes",
+    "in_world_duration",
+    "content_boundaries",
+    "required_themes",
+    "forbidden_themes",
+    "author_notes",
+)
 
 FORBIDDEN_MODEL_ACTIONS = (
     "Do not explore the repository or choose additional files.",
@@ -19,7 +39,7 @@ FORBIDDEN_MODEL_ACTIONS = (
 
 def build_prompt(task: LocalAITask, context: ContextBuildResult) -> str:
     """Build a deterministic model-ready prompt from task and context."""
-    semantic_fields = ", ".join(REQUIRED_BRIEF_FIELDS)
+    semantic_fields = ", ".join(SEMANTIC_RESPONSE_FIELDS)
     protected = "\n".join(f"- {key}: {value}" for key, value in sorted(task.protected_values.items()))
     forbidden = "\n".join(f"- {line}" for line in FORBIDDEN_MODEL_ACTIONS)
     approved_facts = task.approved_prior_stage_facts or {}
@@ -43,9 +63,8 @@ def build_prompt(task: LocalAITask, context: ContextBuildResult) -> str:
         "",
         "## Expected output",
         f"Return one JSON object only, conforming to {task.expected_output_schema_ref}.",
-        f"Provide semantic values for these brief fields: {semantic_fields}.",
-        "Optional arrays: required_themes, forbidden_themes, author_notes.",
-        f"Allowed output scope: {', '.join(task.allowed_output_files)}",
+        f"Provide semantic values for these response fields: {semantic_fields}.",
+        "Python will map your response into the canonical Adventure Generator v2 brief.",
         "",
         "## Explicitly forbidden",
         forbidden,

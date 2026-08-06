@@ -31,7 +31,9 @@ python -m idne.local_ai doctor --mock --test-completion
 ## 4. Prepare task
 
 ```powershell
-python -m idne.local_ai prepare --task-type adventure_brief --input OFFLINE_AI/examples/adventure_brief_input.md
+python -m idne.local_ai prepare --task-type adventure_brief `
+  --input OFFLINE_AI/examples/adventure_brief_input.md `
+  --output adventures/_local_ai_drafts/example_offline_brief/adventure_brief.json
 ```
 
 ## 5. Run task
@@ -46,29 +48,61 @@ Mock:
 python -m idne.local_ai run .local_ai_runs\<task-id> --mock
 ```
 
-## 6. Inspect
+## 6. Process response
+
+```powershell
+python -m idne.local_ai process .local_ai_runs\<task-id>
+python -m idne.local_ai review .local_ai_runs\<task-id>
+```
+
+Or step-by-step:
+
+```powershell
+python -m idne.local_ai parse .local_ai_runs\<task-id>
+python -m idne.local_ai validate-response .local_ai_runs\<task-id>
+python -m idne.local_ai build-proposal .local_ai_runs\<task-id>
+python -m idne.local_ai validate-proposal .local_ai_runs\<task-id>
+```
+
+## 7. Apply (explicit)
+
+```powershell
+python -m idne.local_ai apply .local_ai_runs\<task-id>
+```
+
+Use `--overwrite` only to rewrite a draft file previously written by the same task.
+Use `--acknowledge-warnings` if response validation recorded human-review warnings.
+
+## 8. Inspect
 
 ```powershell
 python -m idne.local_ai show-response .local_ai_runs\<task-id>
 python -m idne.local_ai transport-report .local_ai_runs\<task-id>
+python -m idne.local_ai attempts .local_ai_runs\<task-id>
 python -m idne.local_ai models
 ```
 
 ## Termux
 
-Mock workflow on Pixel:
+Mock end-to-end on Pixel:
 
 ```bash
 python -m idne.local_ai doctor --mock
-python -m idne.local_ai prepare --task-type adventure_brief --input OFFLINE_AI/examples/adventure_brief_input.md
+python -m idne.local_ai prepare --task-type adventure_brief \
+  --input OFFLINE_AI/examples/adventure_brief_input.md \
+  --output adventures/_local_ai_drafts/example_offline_brief/adventure_brief.json
 python -m idne.local_ai run .local_ai_runs/<task-id> --mock
+python -m idne.local_ai process .local_ai_runs/<task-id>
+python -m idne.local_ai apply .local_ai_runs/<task-id>
 ```
 
 LAN to laptop: edit `local_ai.toml` with laptop IP and `allow_remote_endpoint = true`.
 
-## Limitation
+## Limitations
 
-Step 2 does **not** validate or apply model JSON to the repository. See `OFFLINE_AI/OFFLINE_CHECKLIST.md`.
+- No AI semantic repair loop yet — invalid model JSON must be fixed by re-running with `--force` or editing offline.
+- Apply writes only to approved draft paths under `adventures/_local_ai_drafts/`.
+- Does not generate a full adventure or modify existing adventures.
 
 ## Cline
 

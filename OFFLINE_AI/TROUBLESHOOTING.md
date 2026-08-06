@@ -56,7 +56,24 @@ Transport succeeded but response shape was invalid. Inspect:
 - `raw_response.json`
 - `transport_report.json`
 
-Semantic validation is Step 3 — do not apply `response.txt` to the repository yet.
+Run `python -m idne.local_ai parse <task-dir>` for structured parse errors.
+
+## Parse or validation failure
+
+Inspect:
+
+- `response_parse_report.json`
+- `response_validation_report.json`
+- `proposal/validation_report.json`
+
+Re-run model with `--force` (archives prior attempt). Do not apply until `review` shows apply allowed.
+
+## Apply blocked
+
+- Task must be `VALIDATED`
+- Warnings require `--acknowledge-warnings`
+- Existing output requires `--overwrite` (same task only)
+- Output must be under `adventures/_local_ai_drafts/`
 
 ## Cline
 

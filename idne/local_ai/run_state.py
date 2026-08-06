@@ -56,6 +56,8 @@ def write_run_artifacts(
             "status": task.status.value,
             "attempt_count": task.attempt_count,
             "prompt_sha256": prompt_sha256,
+            "source_content_sha256": task.source_content_identity.sha256,
+            "processing_stage": "NONE",
             "metrics": metrics.to_dict(),
         },
     )
