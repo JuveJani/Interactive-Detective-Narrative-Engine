@@ -42,6 +42,7 @@ from idne.local_ai.model_adapter import create_adapter, execute_with_retries, se
 from idne.local_ai.task_builder import prepare_task
 from idne.local_ai.task_model import TaskStatus
 from idne.local_ai.transport import TaskRunError, run_task
+from tests.local_ai_test_helpers import assert_resolved_under
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 EXAMPLE_INPUT = "OFFLINE_AI/examples/adventure_brief_input.md"
@@ -400,12 +401,25 @@ class TestTransportRun(unittest.TestCase):
 
     def test_writes_only_inside_task_directory(self):
         _task, _ctx, _prompt, _metrics, run_dir = _fresh_prepare()
-        before = {p.relative_to(REPO_ROOT) for p in REPO_ROOT.rglob("*") if p.is_file()}
+        task_dir = run_dir.resolve()
+        runs_root = task_dir.parent.resolve()
+        repo_root = REPO_ROOT.resolve()
+
+        # String prefix checks are insufficient on Windows (backslashes) and for
+        # decoy names such as ".local_ai_runs_evil/".
+        decoy = (repo_root / ".local_ai_runs_evil" / "escape.txt").resolve()
+        with self.assertRaises(ValueError):
+            decoy.relative_to(runs_root)
+
+        before = {p.resolve() for p in REPO_ROOT.rglob("*") if p.is_file()}
         run_task(run_dir, mock=True)
-        after = {p.relative_to(REPO_ROOT) for p in REPO_ROOT.rglob("*") if p.is_file()}
+        after = {p.resolve() for p in REPO_ROOT.rglob("*") if p.is_file()}
         new_files = after - before
+        self.assertTrue(new_files, "run should create transport artifacts")
         for path in new_files:
-            self.assertTrue(str(path).startswith(".local_ai_runs/"))
+            assert_resolved_under(path, repo_root)
+            assert_resolved_under(path, runs_root)
+            assert_resolved_under(path, task_dir)
 
 
 class TestDoctorTransport(unittest.TestCase):

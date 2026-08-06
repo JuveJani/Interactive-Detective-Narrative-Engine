@@ -28,6 +28,7 @@ from idne.local_ai.structural_repair import apply_safe_repairs
 from idne.local_ai.task_builder import prepare_task
 from idne.local_ai.task_model import TaskStatus
 from idne.local_ai.transport import run_task
+from tests.local_ai_test_helpers import can_create_symlinks
 from idne.generate.brief import validate_brief
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -203,6 +204,29 @@ class TestOutputPaths(unittest.TestCase):
                 REPO_ROOT,
             )
 
+    def test_resolved_path_outside_repository_rejected(self):
+        """Platform-independent escape check without creating a real symlink."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "repo"
+            root.mkdir()
+            (root / "AGENTS.md").write_text("x", encoding="utf-8")
+            (root / "IDNE_ENGINE_v0.4.md").write_text("x", encoding="utf-8")
+            rel = "adventures/_local_ai_drafts/mocktest/adventure_brief.json"
+            outside = (Path(tmp) / "outside_repo" / "evil.json").resolve()
+            candidate = (root / rel).resolve()
+            real_resolve = Path.resolve
+
+            def selective_resolve(self: Path, *args, **kwargs):
+                resolved = real_resolve(self, *args, **kwargs)
+                if resolved == candidate:
+                    return outside
+                return resolved
+
+            with mock.patch.object(Path, "resolve", selective_resolve):
+                with self.assertRaises(PathValidationError) as ctx:
+                    validate_output_path(rel, root)
+            self.assertIn("escapes", str(ctx.exception).lower())
+
     def test_symlink_escape_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "repo"
@@ -214,13 +238,16 @@ class TestOutputPaths(unittest.TestCase):
             (outside / "evil.json").write_text("{}", encoding="utf-8")
             draft = root / "adventures" / "_local_ai_drafts" / "linktest"
             draft.mkdir(parents=True)
+            if not can_create_symlinks(draft):
+                self.skipTest("symlink creation not permitted in this environment")
             target = draft / "adventure_brief.json"
             target.symlink_to(outside / "evil.json")
-            with self.assertRaises(PathValidationError):
+            with self.assertRaises(PathValidationError) as ctx:
                 validate_output_path(
                     "adventures/_local_ai_drafts/linktest/adventure_brief.json",
                     root,
                 )
+            self.assertIn("escapes", str(ctx.exception).lower())
 
 
 class TestProposalAndApply(unittest.TestCase):
