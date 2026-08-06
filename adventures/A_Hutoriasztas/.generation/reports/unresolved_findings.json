@@ -1,0 +1,10 @@
+{
+  "invalidated_stages": [],
+  "validator_results": {
+    "fixed_truth": "PASS",
+    "causal_timeline": "PASS",
+    "world_state_timeline": "PASS",
+    "npcs": "PASS",
+    "world_first_recheck": "PASS"
+  }
+}

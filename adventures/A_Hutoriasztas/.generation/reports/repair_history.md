@@ -1,0 +1,1 @@
+# Javítási előzmények

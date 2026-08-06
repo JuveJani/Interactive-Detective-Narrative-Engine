@@ -1,0 +1,835 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "layer_links": {
+    "investigation_core": "DO_NOT_READ/investigation_core_package.json",
+    "environment": "DO_NOT_READ/environment_package.json",
+    "object_interaction": "DO_NOT_READ/object_interaction_package.json",
+    "npc_investigation": "DO_NOT_READ/npc_investigation_package.json",
+    "investigation_flow": "DO_NOT_READ/investigation_flow_package.json"
+  },
+  "conclusion_traces": [
+    {
+      "conclusion_id": "CONC-WHO",
+      "proof_id": "PROOF-WHO-DOC",
+      "chain": [
+        {
+          "layer": "fixed_truth",
+          "ref": "FACT-005"
+        },
+        {
+          "layer": "location",
+          "ref": "LOC-SECURITY"
+        },
+        {
+          "layer": "player_action",
+          "ref": "ACT-QUERY-COLD-ENTRY"
+        },
+        {
+          "layer": "knowledge",
+          "ref": "KNOW-BADGE-COLD-ENTRY"
+        },
+        {
+          "layer": "conclusion",
+          "ref": "CONC-WHO"
+        },
+        {
+          "layer": "proof",
+          "ref": "PROOF-WHO-DOC"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PERFECT"
+        }
+      ]
+    },
+    {
+      "conclusion_id": "CONC-HOW",
+      "proof_id": "PROOF-HOW-TECH",
+      "chain": [
+        {
+          "layer": "fixed_truth",
+          "ref": "FACT-008"
+        },
+        {
+          "layer": "location",
+          "ref": "LOC-CONTROL"
+        },
+        {
+          "layer": "player_action",
+          "ref": "ACT-REVIEW-BMS-COMMAND-LOG"
+        },
+        {
+          "layer": "knowledge",
+          "ref": "KNOW-BMS-COMMAND"
+        },
+        {
+          "layer": "conclusion",
+          "ref": "CONC-HOW"
+        },
+        {
+          "layer": "proof",
+          "ref": "PROOF-HOW-TECH"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PARTIAL-TECH-ONLY"
+        }
+      ]
+    },
+    {
+      "conclusion_id": "CONC-WHAT",
+      "proof_id": "PROOF-WHAT-TECH",
+      "chain": [
+        {
+          "layer": "fixed_truth",
+          "ref": "FACT-010"
+        },
+        {
+          "layer": "location",
+          "ref": "LOC-CONTROL"
+        },
+        {
+          "layer": "player_action",
+          "ref": "ACT-EXPORT-TEMP-TREND"
+        },
+        {
+          "layer": "knowledge",
+          "ref": "KNOW-TEMP-TREND"
+        },
+        {
+          "layer": "conclusion",
+          "ref": "CONC-WHAT"
+        },
+        {
+          "layer": "proof",
+          "ref": "PROOF-WHAT-TECH"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PERFECT"
+        }
+      ]
+    },
+    {
+      "conclusion_id": "CONC-MOTIVE",
+      "proof_id": "PROOF-MOTIVE-DOC",
+      "chain": [
+        {
+          "layer": "fixed_truth",
+          "ref": "FACT-019"
+        },
+        {
+          "layer": "location",
+          "ref": "LOC-MANAGER"
+        },
+        {
+          "layer": "player_action",
+          "ref": "ACT-REVIEW-MNF-4471"
+        },
+        {
+          "layer": "knowledge",
+          "ref": "KNOW-MANIFEST-GAP"
+        },
+        {
+          "layer": "conclusion",
+          "ref": "CONC-MOTIVE"
+        },
+        {
+          "layer": "proof",
+          "ref": "PROOF-MOTIVE-DOC"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PARTIAL-MOTIVE-GAP"
+        }
+      ]
+    },
+    {
+      "conclusion_id": "CONC-PERFECT",
+      "proof_id": "PROOF-PERFECT-FULL",
+      "chain": [
+        {
+          "layer": "fixed_truth",
+          "ref": "FACT-017"
+        },
+        {
+          "layer": "location",
+          "ref": "LOC-CONTROL"
+        },
+        {
+          "layer": "player_action",
+          "ref": "ACT-REVIEW-BMS-COMMAND-LOG"
+        },
+        {
+          "layer": "knowledge",
+          "ref": "KNOW-PERFECT-RECONSTRUCTION"
+        },
+        {
+          "layer": "conclusion",
+          "ref": "CONC-PERFECT"
+        },
+        {
+          "layer": "proof",
+          "ref": "PROOF-PERFECT-FULL"
+        },
+        {
+          "layer": "ending",
+          "ref": "END-PERFECT"
+        }
+      ]
+    }
+  ],
+  "inference_questions": [
+    {
+      "question_id": "INF-BADGE-MISATTRIBUTED",
+      "hypothesis_id": "HYP-BADGE-MISATTRIBUTED",
+      "player_facing_text": "A hűtőházi jelvény bejegyzése a kilépési idők összehasonlítása után is érinti a vállalkozót?",
+      "defined_terms": [
+        "badge",
+        "manifest",
+        "staging",
+        "relabel",
+        "irányítóterem",
+        "temperature"
+      ],
+      "undefined_terms": [],
+      "required_knowledge_ids": [
+        "KNOW-BADGE-COLD-ENTRY",
+        "KNOW-EXIT-SCAN"
+      ],
+      "available_before_question": true,
+      "accepted_hypothesis_id": "HYP-BADGE-MISATTRIBUTED",
+      "equally_supported_alternatives": [],
+      "question_reveals_answer": false,
+      "requires_internal_ids": false
+    },
+    {
+      "question_id": "INF-STAGING-ROOT-CAUSE",
+      "hypothesis_id": "HYP-STAGING-ROOT-CAUSE",
+      "player_facing_text": "Vajon a felfüggesztés – nem egyedül az ajtóriasztó – okozta a tartós hőmérséklet-emelkedést?",
+      "defined_terms": [
+        "badge",
+        "manifest",
+        "staging",
+        "relabel",
+        "irányítóterem",
+        "temperature"
+      ],
+      "undefined_terms": [],
+      "required_knowledge_ids": [
+        "KNOW-TEMP-TREND",
+        "KNOW-STAGING-SUSPEND",
+        "KNOW-BMS-COMMAND"
+      ],
+      "available_before_question": true,
+      "accepted_hypothesis_id": "HYP-STAGING-ROOT-CAUSE",
+      "equally_supported_alternatives": [],
+      "question_reveals_answer": false,
+      "requires_internal_ids": false
+    },
+    {
+      "question_id": "INF-RELABEL-FRAUD",
+      "hypothesis_id": "HYP-RELABEL-FRAUD",
+      "player_facing_text": "Raklap átcímkézést alkalmaztak a bejövő mennyiség elrejtésére?",
+      "defined_terms": [
+        "badge",
+        "manifest",
+        "staging",
+        "relabel",
+        "irányítóterem",
+        "temperature"
+      ],
+      "undefined_terms": [],
+      "required_knowledge_ids": [
+        "KNOW-LABEL-RESIDUE",
+        "KNOW-MANIFEST-GAP",
+        "KNOW-LABEL-TIMESTAMP"
+      ],
+      "available_before_question": true,
+      "accepted_hypothesis_id": "HYP-RELABEL-FRAUD",
+      "equally_supported_alternatives": [],
+      "question_reveals_answer": false,
+      "requires_internal_ids": false
+    },
+    {
+      "question_id": "INF-CONTROL-ACCESS-MISMATCH",
+      "hypothesis_id": "HYP-CONTROL-ACCESS-MISMATCH",
+      "player_facing_text": "Ki adhatná ki a BMS némítási parancsot hűtőmérnöki jogosultság nélkül?",
+      "defined_terms": [
+        "badge",
+        "manifest",
+        "staging",
+        "relabel",
+        "irányítóterem",
+        "temperature"
+      ],
+      "undefined_terms": [],
+      "required_knowledge_ids": [
+        "KNOW-CONTROL-ENTRY",
+        "KNOW-BMS-COMMAND"
+      ],
+      "available_before_question": true,
+      "accepted_hypothesis_id": "HYP-CONTROL-ACCESS-MISMATCH",
+      "equally_supported_alternatives": [],
+      "question_reveals_answer": false,
+      "requires_internal_ids": false
+    },
+    {
+      "question_id": "INF-CULPRIT-SUPPORTED",
+      "hypothesis_id": "HYP-CULPRIT-SUPPORTED",
+      "player_facing_text": "Melyik szerepkört támogatják a független hozzáférés, a csalások és a vezérlőterem nyilvántartása?",
+      "defined_terms": [
+        "badge",
+        "manifest",
+        "staging",
+        "relabel",
+        "irányítóterem",
+        "temperature"
+      ],
+      "undefined_terms": [],
+      "required_knowledge_ids": [
+        "KNOW-BADGE-MISATTRIBUTED",
+        "KNOW-CONTROL-ACCESS-MISMATCH",
+        "KNOW-RELABEL-FRAUD",
+        "KNOW-MANIFEST-GAP"
+      ],
+      "available_before_question": true,
+      "accepted_hypothesis_id": "HYP-CULPRIT-SUPPORTED",
+      "equally_supported_alternatives": [],
+      "question_reveals_answer": false,
+      "requires_internal_ids": false
+    },
+    {
+      "question_id": "INF-PERFECT-RECONSTRUCTION",
+      "hypothesis_id": "HYP-PERFECT-RECONSTRUCTION",
+      "player_facing_text": "Rekonstruálhatja-e a csalás eltitkolását, az illetéktelen hozzáférést és a felfüggesztést egy támogatott idővonalként?",
+      "defined_terms": [
+        "badge",
+        "manifest",
+        "staging",
+        "relabel",
+        "irányítóterem",
+        "temperature"
+      ],
+      "undefined_terms": [],
+      "required_knowledge_ids": [
+        "KNOW-CULPRIT-SUPPORTED",
+        "KNOW-STAGING-ROOT-CAUSE",
+        "KNOW-RELABEL-FRAUD",
+        "KNOW-MAINT-SESSION",
+        "KNOW-DOOR-AJAR"
+      ],
+      "available_before_question": true,
+      "accepted_hypothesis_id": "HYP-PERFECT-RECONSTRUCTION",
+      "equally_supported_alternatives": [],
+      "question_reveals_answer": false,
+      "requires_internal_ids": false
+    }
+  ],
+  "information_sufficiency": [
+    {
+      "inference_id": "INF-ALL-SOURCES",
+      "required_knowledge_ids": [
+        "KNOW-BADGE-COLD-ENTRY",
+        "KNOW-EXIT-SCAN",
+        "KNOW-TEMP-TREND",
+        "KNOW-STAGING-SUSPEND",
+        "KNOW-BMS-COMMAND",
+        "KNOW-LABEL-RESIDUE",
+        "KNOW-MANIFEST-GAP",
+        "KNOW-LABEL-TIMESTAMP",
+        "KNOW-CONTROL-ENTRY",
+        "KNOW-BADGE-MISATTRIBUTED",
+        "KNOW-CONTROL-ACCESS-MISMATCH",
+        "KNOW-RELABEL-FRAUD",
+        "KNOW-CULPRIT-SUPPORTED",
+        "KNOW-STAGING-ROOT-CAUSE",
+        "KNOW-MAINT-SESSION",
+        "KNOW-DOOR-AJAR"
+      ],
+      "minimum_independent_sources": 2,
+      "sources": [
+        {
+          "knowledge_id": "KNOW-BADGE-COLD-ENTRY",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-EXIT-SCAN",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-TEMP-TREND",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-STAGING-SUSPEND",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-BMS-COMMAND",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-LABEL-RESIDUE",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-MANIFEST-GAP",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-LABEL-TIMESTAMP",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-CONTROL-ENTRY",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-BADGE-MISATTRIBUTED",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-CONTROL-ACCESS-MISMATCH",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-RELABEL-FRAUD",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-CULPRIT-SUPPORTED",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-STAGING-ROOT-CAUSE",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-MAINT-SESSION",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        },
+        {
+          "knowledge_id": "KNOW-DOOR-AJAR",
+          "accessible": true,
+          "before_inference": true,
+          "independent": true
+        }
+      ]
+    }
+  ],
+  "recovery_routes": [
+    {
+      "route_id": "REC-SECURITY-ARCHIVE",
+      "trigger": "inference_incomplete",
+      "inference_id": "INF-BADGE-MISATTRIBUTED",
+      "player_action_label": "Térjen vissza a biztonsági iroda jelvényarchívum-termináljához.",
+      "destination_ref": "LOC-SECURITY",
+      "action_ref": "ACT-APPROACH-BADGE-ARCHIVE",
+      "destination_legal": true,
+      "changes_knowledge_or_access": true,
+      "changes_state": true,
+      "zero_cost_loop": false,
+      "vague_instruction": false,
+      "bare_page_code": false
+    },
+    {
+      "route_id": "REC-BREAK-LOCKER",
+      "trigger": "inference_incomplete",
+      "inference_id": "INF-BADGE-MISATTRIBUTED",
+      "player_action_label": "Vizsgálja meg a személyzeti szekrényt a szünetben.",
+      "destination_ref": "LOC-BREAK",
+      "action_ref": "ACT-APPROACH-LOCKERS",
+      "destination_legal": true,
+      "changes_knowledge_or_access": true,
+      "changes_state": true,
+      "zero_cost_loop": false,
+      "vague_instruction": false,
+      "bare_page_code": false
+    },
+    {
+      "route_id": "REC-CONTROL-TERM",
+      "trigger": "inference_incomplete",
+      "inference_id": "INF-STAGING-ROOT-CAUSE",
+      "player_action_label": "Tekintse át a mérnöki munkaállomást a vezérlőteremben.",
+      "destination_ref": "LOC-CONTROL",
+      "action_ref": "ACT-APPROACH-TERM-02",
+      "destination_legal": true,
+      "changes_knowledge_or_access": true,
+      "changes_state": true,
+      "zero_cost_loop": false,
+      "vague_instruction": false,
+      "bare_page_code": false
+    },
+    {
+      "route_id": "REC-COLD-DISPLAY",
+      "trigger": "inference_incomplete",
+      "inference_id": "INF-STAGING-ROOT-CAUSE",
+      "player_action_label": "Read the CZ-1 supply air display in the cold hall.",
+      "destination_ref": "LOC-COLD",
+      "action_ref": "ACT-READ-TEMP-DISPLAY",
+      "destination_legal": true,
+      "changes_knowledge_or_access": true,
+      "changes_state": true,
+      "zero_cost_loop": false,
+      "vague_instruction": false,
+      "bare_page_code": false
+    },
+    {
+      "route_id": "REC-COLD-AISLE",
+      "trigger": "inference_incomplete",
+      "inference_id": "INF-RELABEL-FRAUD",
+      "player_action_label": "Keresse meg a C folyosón a címkemaradványokat.",
+      "destination_ref": "LOC-COLD",
+      "action_ref": "ACT-SEARCH-LABEL-RESIDUE",
+      "destination_legal": true,
+      "changes_knowledge_or_access": true,
+      "changes_state": true,
+      "zero_cost_loop": false,
+      "vague_instruction": false,
+      "bare_page_code": false
+    },
+    {
+      "route_id": "REC-MANAGER-MANIFEST",
+      "trigger": "inference_incomplete",
+      "inference_id": "INF-RELABEL-FRAUD",
+      "player_action_label": "Hasonlítsa össze a MNF-IN-4471 jegyzéket a menedzser munkaállomáson.",
+      "destination_ref": "LOC-MANAGER",
+      "action_ref": "ACT-REVIEW-MNF-4471",
+      "destination_legal": true,
+      "changes_knowledge_or_access": true,
+      "changes_state": true,
+      "zero_cost_loop": false,
+      "vague_instruction": false,
+      "bare_page_code": false
+    },
+    {
+      "route_id": "REC-MANAGER-INTERVIEW",
+      "trigger": "inference_incomplete",
+      "inference_id": "INF-CULPRIT-SUPPORTED",
+      "player_action_label": "Beszéljen a logisztikai koordinátorral a menedzser irodában.",
+      "destination_ref": "LOC-MANAGER",
+      "action_ref": "TOPIC-RECEIVING-EXCEPTION",
+      "destination_legal": true,
+      "changes_knowledge_or_access": true,
+      "changes_state": true,
+      "zero_cost_loop": false,
+      "vague_instruction": false,
+      "bare_page_code": false
+    },
+    {
+      "route_id": "REC-SECURITY-CROSSREF",
+      "trigger": "inference_incomplete",
+      "inference_id": "INF-CULPRIT-SUPPORTED",
+      "player_action_label": "Kereszthivatkozási jelvény és riasztási nyilvántartás a biztonságinál.",
+      "destination_ref": "LOC-SECURITY",
+      "action_ref": "ACT-REVIEW-ALARM-HISTORY",
+      "destination_legal": true,
+      "changes_knowledge_or_access": true,
+      "changes_state": true,
+      "zero_cost_loop": false,
+      "vague_instruction": false,
+      "bare_page_code": false
+    },
+    {
+      "route_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+      "trigger": "inference_incomplete",
+      "inference_id": "INF-PERFECT-RECONSTRUCTION",
+      "player_action_label": "Revisit any location where documentary or physical review remains incomplete.",
+      "destination_ref": "LOC-DOCK",
+      "action_ref": "NAV-DOCK-SECURITY",
+      "destination_legal": true,
+      "changes_knowledge_or_access": true,
+      "changes_state": true,
+      "zero_cost_loop": false,
+      "vague_instruction": false,
+      "bare_page_code": false
+    }
+  ],
+  "access_requirements": [
+    {
+      "requirement_id": "ACC-CONTROL-ESCORT",
+      "type": "escort",
+      "location_id": "LOC-CONTROL",
+      "discovery_route_exists": true,
+      "requires_own_key": false,
+      "mandatory": true,
+      "fair_paths": [
+        "ACT-REQUEST-CONTROL-ESCORT"
+      ]
+    },
+    {
+      "requirement_id": "ACC-BADGE-ARCHIVE-SYNC",
+      "type": "world_time",
+      "location_id": "LOC-SECURITY",
+      "discovery_route_exists": true,
+      "requires_own_key": false,
+      "mandatory": true,
+      "fair_paths": [
+        "ACT-QUERY-COLD-ENTRY",
+        "ACT-QUERY-CONTROL-ENTRY"
+      ]
+    }
+  ],
+  "mandatory_check_fairness": [
+    {
+      "check_id": "CHK-PERCEPTION-LABEL",
+      "mandatory_path": false,
+      "failure_destroys_all_routes": false,
+      "alternate_route_on_failure": "REC-MANAGER-MANIFEST",
+      "uses_capability_validator": false
+    },
+    {
+      "check_id": "CHK-TECH-TEMP-TREND",
+      "mandatory_path": false,
+      "failure_destroys_all_routes": false,
+      "alternate_route_on_failure": "REC-COLD-DISPLAY",
+      "uses_capability_validator": false
+    },
+    {
+      "check_id": "CHK-PERCEPTION-LATCH",
+      "mandatory_path": false,
+      "failure_destroys_all_routes": false,
+      "alternate_route_on_failure": "REC-SECURITY-ARCHIVE",
+      "uses_capability_validator": false
+    },
+    {
+      "check_id": "CHK-PERCEPTION-LOCKER",
+      "mandatory_path": false,
+      "failure_destroys_all_routes": false,
+      "alternate_route_on_failure": "REC-SECURITY-ARCHIVE",
+      "uses_capability_validator": false
+    }
+  ],
+  "npc_disclosure_routes": [
+    {
+      "route_id": "NPC-NPC-MARCUS-KNOW-MARCUS-LATCH-CHECK",
+      "npc_id": "NPC-MARCUS",
+      "knowledge_id": "KNOW-MARCUS-LATCH-CHECK",
+      "topic_id": "TOPIC-DOOR-ROUNDS",
+      "npc_holds_information": true,
+      "disclosure_route_exists": true,
+      "trust_achievable": true,
+      "topic_unlock_achievable": true,
+      "available_before_deadline": true,
+      "impossible_social_check": false
+    },
+    {
+      "route_id": "NPC-NPC-MARCUS-KNOW-MARCUS-BADGE-UNREVIEWED",
+      "npc_id": "NPC-MARCUS",
+      "knowledge_id": "KNOW-MARCUS-BADGE-UNREVIEWED",
+      "topic_id": "TOPIC-BADGE-REVIEW-GAP",
+      "npc_holds_information": true,
+      "disclosure_route_exists": true,
+      "trust_achievable": true,
+      "topic_unlock_achievable": true,
+      "available_before_deadline": true,
+      "impossible_social_check": false
+    },
+    {
+      "route_id": "NPC-NPC-DEV-KNOW-DEV-BADGE-LEFT",
+      "npc_id": "NPC-DEV",
+      "knowledge_id": "KNOW-DEV-BADGE-LEFT",
+      "topic_id": "TOPIC-FORGOTTEN-BADGE",
+      "npc_holds_information": true,
+      "disclosure_route_exists": true,
+      "trust_achievable": true,
+      "topic_unlock_achievable": true,
+      "available_before_deadline": true,
+      "impossible_social_check": false
+    },
+    {
+      "route_id": "NPC-NPC-DEV-KNOW-DEV-SESSION-LEFT",
+      "npc_id": "NPC-DEV",
+      "knowledge_id": "KNOW-DEV-SESSION-LEFT",
+      "topic_id": "TOPIC-UNLOCKED-SESSION",
+      "npc_holds_information": true,
+      "disclosure_route_exists": true,
+      "trust_achievable": true,
+      "topic_unlock_achievable": true,
+      "available_before_deadline": true,
+      "impossible_social_check": false
+    },
+    {
+      "route_id": "NPC-NPC-LORI-KNOW-LORI-MANIFEST-EXCEPTION",
+      "npc_id": "NPC-LORI",
+      "knowledge_id": "KNOW-LORI-MANIFEST-EXCEPTION",
+      "topic_id": "TOPIC-RECEIVING-EXCEPTION",
+      "npc_holds_information": true,
+      "disclosure_route_exists": true,
+      "trust_achievable": true,
+      "topic_unlock_achievable": true,
+      "available_before_deadline": true,
+      "impossible_social_check": false
+    },
+    {
+      "route_id": "NPC-NPC-LORI-KNOW-LORI-RELABEL",
+      "npc_id": "NPC-LORI",
+      "knowledge_id": "KNOW-LORI-RELABEL",
+      "topic_id": "TOPIC-LABEL-WORK",
+      "npc_holds_information": true,
+      "disclosure_route_exists": true,
+      "trust_achievable": true,
+      "topic_unlock_achievable": true,
+      "available_before_deadline": true,
+      "impossible_social_check": false
+    },
+    {
+      "route_id": "NPC-NPC-PAT-KNOW-PAT-SILHOUETTE",
+      "npc_id": "NPC-PAT",
+      "knowledge_id": "KNOW-PAT-SILHOUETTE",
+      "topic_id": "TOPIC-SILHOUETTE",
+      "npc_holds_information": true,
+      "disclosure_route_exists": true,
+      "trust_achievable": true,
+      "topic_unlock_achievable": true,
+      "available_before_deadline": true,
+      "impossible_social_check": false
+    },
+    {
+      "route_id": "NPC-NPC-IT-KNOW-IT-SYNC-SCHEDULE",
+      "npc_id": "NPC-IT",
+      "knowledge_id": "KNOW-IT-SYNC-SCHEDULE",
+      "topic_id": "TOPIC-ARCHIVE-SYNC",
+      "npc_holds_information": true,
+      "disclosure_route_exists": true,
+      "trust_achievable": true,
+      "topic_unlock_achievable": true,
+      "available_before_deadline": true,
+      "impossible_social_check": false
+    }
+  ],
+  "time_validation": {
+    "deadline_clock": "T_DEADLINE",
+    "deadline_event_id": "EVT-022",
+    "mandatory_paths_fit_deadline": true,
+    "revisit_uses_current_variant": true,
+    "zero_cost_investigation_loop": false,
+    "mutually_impossible_clocks": false
+  },
+  "ending_reachability": [
+    {
+      "ending_id": "END-PERFECT",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "perfect",
+      "reveals_full_truth": true,
+      "investigation_preserving": false
+    },
+    {
+      "ending_id": "END-PARTIAL-INCOMPLETE",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "partial",
+      "reveals_full_truth": false,
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-PARTIAL-WRONG-CULPRIT",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "partial",
+      "reveals_full_truth": false,
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-PARTIAL-TECH-ONLY",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "partial",
+      "reveals_full_truth": false,
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-PARTIAL-MOTIVE-GAP",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "partial",
+      "reveals_full_truth": false,
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-NARRATIVE-CONTINUE",
+      "reachable": true,
+      "decorative": true,
+      "ending_type": "narrative_failure",
+      "reveals_full_truth": false,
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-HIDDEN-RECORDS",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "hidden",
+      "reveals_full_truth": false,
+      "investigation_preserving": false
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "reachable": true,
+      "decorative": false,
+      "ending_type": "deadline",
+      "reveals_full_truth": false,
+      "investigation_preserving": false
+    }
+  ],
+  "accusation_fairness": {
+    "options_neutral": true,
+    "reveal_correct_answer": false,
+    "requires_unknown_info": true
+  },
+  "play_mode_constraints": {
+    "single_investigator_valid": true,
+    "two_player_valid": false,
+    "solo_requires_player_2": false,
+    "two_player_private_unshared": false
+  },
+  "player_audit": {
+    "files": [],
+    "canonical_actions": [],
+    "information_entries": [],
+    "destination_refs": [],
+    "location_reset_on_return": false,
+    "ending_contradicts_truth": false
+  },
+  "state_graph_config": {
+    "max_states": 500000,
+    "max_depth": 48,
+    "forced_explosion": false
+  },
+  "tier_b_mandatory": []
+}

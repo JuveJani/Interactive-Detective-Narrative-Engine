@@ -1,0 +1,18 @@
+{
+  "adventure_brief": "COMPLETE",
+  "fixed_truth": "COMPLETE",
+  "causal_timeline": "COMPLETE",
+  "world_state_timeline": "COMPLETE",
+  "npcs": "AWAITING_APPROVAL",
+  "environment": "PENDING",
+  "objects": "PENDING",
+  "investigation_core": "PENDING",
+  "npc_conversation": "PENDING",
+  "investigation_flow": "PENDING",
+  "capability_checks": "PENDING",
+  "story_player": "PENDING",
+  "playtime": "PENDING",
+  "dm_feeling": "PENDING",
+  "final_validation": "PENDING",
+  "package_export": "PENDING"
+}

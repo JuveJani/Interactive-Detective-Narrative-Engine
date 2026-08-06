@@ -1,0 +1,14 @@
+{
+  "status": "CONDITIONAL_PASS",
+  "mandatory_failures": [],
+  "tier_b_pending": [
+    "DF-B-AGENCY-NAV",
+    "DF-B-ENDING-OPACITY",
+    "DF-B-INFERENCE-QUALITY",
+    "DF-B-NPC-NEUTRALITY",
+    "DF-B-TIME-PRESSURE",
+    "PT-B-PATH-MEDIAN",
+    "PT-B-SCARCITY"
+  ],
+  "tier_c_complete": false
+}

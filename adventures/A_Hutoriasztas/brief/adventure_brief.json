@@ -1,0 +1,33 @@
+{
+  "universe": "real world",
+  "genre": "detective mystery",
+  "realism_level": "grounded contemporary",
+  "player_mode": "single_investigator",
+  "investigator_character": "Létesítmények automatizálási és hűtési karbantartó technikus, aki szívesen megoldja a rejtélyeket szabadidejében",
+  "target_playtime_minutes": 120,
+  "in_world_duration": "egy éjszakai műszak (körülbelül négy világóra)",
+  "tone": "módszeres, sürgető, de nem szenzációs",
+  "difficulty": "standard",
+  "location_scale": "egyetlen ipari raktár és hozzá tartozó irodák",
+  "content_boundaries": "nincs grafikus erőszak; nincsenek természetfeletti elemek; felnőtt munkahelyi témák, beleértve a hanyagságot, csalást és intézményi nyomást; nincs szexuális tartalom",
+  "required_themes": [
+    "fair-play rejtély",
+    "tanúvallomás kontra tárgyi bizonyíték",
+    "értelmes időnyomás",
+    "többféle vizsgálati útvonal",
+    "egy tökéletes befejezés és több tökéletlen befejezés",
+    "késleltetett jelentőségű felfedezés"
+  ],
+  "forbidden_themes": [
+    "természetfeletti magyarázatok",
+    "sorozatgyilkos tervek",
+    "mágia vagy okkult felbontás",
+    "nyomszámláló rejtvények",
+    "közvetlen narrátor megoldás szállítása",
+    "nem támogatott készletmechanika",
+    "próbálja újra a rendszereket",
+    "hamis ellenőrzések",
+    "dedikált puzzle-rendszer mechanika"
+  ],
+  "author_notes": "Kódnév: A hűtőriasztás. Az első igazi Generator v2 kaland. Beállítás: regionális hidegláncos elosztó raktár munkaidő után. Központi esemény: kritikus hűtőházi hiba és illetéktelen hozzáférés riasztások nyilvánvaló lopás vagy erőszak nélkül. Korlátozott skála: öt elsődleges helyszín (rakodó dokk, hűtőcsarnok, automatizálási vezérlőterem, biztonsági iroda, raktárvezetői iroda), másodlagos központként egy személyzeti szünettel. Öt elsődleges NPC (éjszakai biztonsági őr, ügyeletben lévő raktári felügyelő, hűtési vállalkozó, logisztikai koordinátor, takarítószemélyzet vezetője), valamint a hatodik IT-adminisztrátor szerepkörhöz tartozó jelvény-hozzáférési rekordok, élő interjú nélkül. A vizsgálat felépítése: technikus hívott, hogy diagnosztizáljon egy automatizálási hibát, miközben a tárolási hőmérséklet emelkedik; tisztességes útvonalak a jelvénynaplókon, az épületirányítási trendek exportján, a hűtési alapértékeken, a tanúk nyilatkozatán, valamint az ajtók, érzékelők és felülbíráló panelek fizikai ellenőrzésén keresztül. Időnyomás: az emelkedő tárolási hőmérséklet és a közelgő leírási vagy megfelelési határidő lezárja az interjúkat és a mélyreható ellenőrzéseket. Tervezett aha típus: a kezdetben jóindulatúnak tűnő rutin karbantartási időbélyeg jelentőségteljessé válik, ha egy felülírási szekvenciával és hozzáférési időzítéssel korrelál (késleltetett szignifikancia; nincs korai reflektorfény). Legalább egy tanúvallomás kontra bizonyíték ellentmondás szükséges a tanúk beszámolója és a jelvény vagy az érzékelő feljegyzései között. Befejezések: egy teljes mértékben támogatott tökéletes rekonstrukció; számos tökéletlen befejezés, amelyek inkább megőrzik a nyomozást, mint a kemény megállást. A sikertelen útvonalak átirányítanak a folyamatos lekérdezésre. Az incidens tervezési területe: ipari hanyagság, jogosulatlan hozzáférés vagy pénzügyi csalás – a megoldást ebben a tájékoztatóban nem rögzítjük."
+}
