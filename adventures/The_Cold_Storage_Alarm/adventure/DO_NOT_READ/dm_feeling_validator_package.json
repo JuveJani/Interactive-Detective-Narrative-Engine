@@ -10,24 +10,192 @@
   "player_agency": {
     "choices": [
       {
-        "choice_id": "CHO-NAV-0",
-        "player_label": "Walk through the warehouse corridor.",
+        "choice_id": "CHO-INFERENCE-0",
+        "player_label": "Cold storage inbound badge entry (security office archive)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
         "immediate_reconverge_no_effect": false
       },
       {
-        "choice_id": "CHO-NAV-1",
-        "player_label": "Walk through the warehouse corridor.",
+        "choice_id": "CHO-INFERENCE-1",
+        "player_label": "Contractor outbound dock scan (security office archive)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
         "immediate_reconverge_no_effect": false
       },
       {
-        "choice_id": "CHO-NAV-2",
-        "player_label": "Walk through the warehouse corridor.",
+        "choice_id": "CHO-INFERENCE-2",
+        "player_label": "Contractor's own account of the badge left behind (break room locker or interview)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-3",
+        "player_label": "BMS command log (control room workstation)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-4",
+        "player_label": "CZ-1 staging indicator panel (control room)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-5",
+        "player_label": "CZ-1 supply air temperature trend export (control room workstation)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-6",
+        "player_label": "Label adhesive residue and timestamp comparison (aisle C)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-7",
+        "player_label": "Manifest MNF-IN-4471 versus carrier POD-4471 (manager office)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-8",
+        "player_label": "Coordinator's account of the receiving exception (manager office interview)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-9",
+        "player_label": "Control room door badge entry (security office archive)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-10",
+        "player_label": "BMS command log and session identifier (control room workstation)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-11",
+        "player_label": "Everything you have gathered on badge access, control room entry, and manifest fraud",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-12",
+        "player_label": "Cross-referenced timestamps from the security office",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-13",
+        "player_label": "Every record thread listed in the worksheets above",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-14",
+        "player_label": "The maintenance ticket and door-ajar alarm history (control room and security office)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-15",
+        "player_label": "Walk through the dock corridor to the cold storage hall.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-16",
+        "player_label": "Head inside to the staff break room.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-17",
+        "player_label": "Cut through the warehouse corridor to the security office.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-18",
+        "player_label": "Take the office wing corridor to the warehouse manager office.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-19",
+        "player_label": "Review the supervisor briefing area.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-20",
+        "player_label": "Request escort clearance to the automation control room.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-21",
+        "player_label": "Examine the cold storage door latch and reader.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-22",
+        "player_label": "Walk the length of aisle C between the pallet rows.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-23",
+        "player_label": "Read the live CZ-1 supply air temperature display.",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -429,6 +597,8 @@
       "PLAYER/HOW_TO_PLAY.md",
       "PLAYER/README.md",
       "PLAYER/NAVIGATION_INDEX.md",
+      "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "PLAYER/SHARED/CASE_FILE.md",
       "PLAYER/LOCATIONS.md",
       "PLAYER/OBJECTS.md",
       "PLAYER/NPCS.md",
@@ -443,15 +613,101 @@
     "explored_states": 131072,
     "forced_explosion": false
   },
-  "tier_b_mandatory": [],
+  "tier_b_mandatory": [
+    {
+      "review_id": "DF-B-AGENCY-NAV",
+      "category": "player_agency",
+      "expected": "Navigation and object choices remain diegetic with no bare codes",
+      "resolved": false,
+      "player_excerpt_refs": [
+        {
+          "file": "PLAYER/LOCATIONS.md",
+          "anchor": "Loading dock"
+        },
+        {
+          "file": "PLAYER/OBJECTS.md",
+          "anchor": "Badge archive terminal"
+        }
+      ]
+    },
+    {
+      "review_id": "DF-B-INFERENCE-QUALITY",
+      "category": "inference_quality",
+      "expected": "Inference worksheets require multi-record synthesis without embedded answers",
+      "resolved": false,
+      "player_excerpt_refs": [
+        {
+          "file": "PLAYER/INFERENCE.md",
+          "anchor": "Badge misattributed"
+        },
+        {
+          "file": "PLAYER/INFERENCE.md",
+          "anchor": "Perfect reconstruction"
+        }
+      ]
+    },
+    {
+      "review_id": "DF-B-NPC-NEUTRALITY",
+      "category": "conversation_agency",
+      "expected": "NPC dialogue preserves suspect neutrality and trust-gated tone shifts",
+      "resolved": false,
+      "player_excerpt_refs": [
+        {
+          "file": "PLAYER/NPCS.md",
+          "anchor": "Marcus latch"
+        },
+        {
+          "file": "PLAYER/NPCS.md",
+          "anchor": "Lori label"
+        }
+      ]
+    },
+    {
+      "review_id": "DF-B-ENDING-OPACITY",
+      "category": "ending_causality",
+      "expected": "Imperfect endings remain opaque; perfect ending requires full supported reconstruction",
+      "resolved": false,
+      "player_excerpt_refs": [
+        {
+          "file": "PLAYER/ENDINGS.md",
+          "anchor": "Partial incomplete"
+        },
+        {
+          "file": "PLAYER/ENDINGS.md",
+          "anchor": "Perfect"
+        }
+      ]
+    },
+    {
+      "review_id": "DF-B-TIME-PRESSURE",
+      "category": "time_pressure",
+      "expected": "Clock-driven scene changes are visible in PLAYER revisit prose",
+      "resolved": false,
+      "player_excerpt_refs": [
+        {
+          "file": "PLAYER/SCENES.md",
+          "anchor": "Archive pending"
+        },
+        {
+          "file": "PLAYER/SCENES.md",
+          "anchor": "Dock restriction active"
+        }
+      ]
+    }
+  ],
   "tier_c_playtest": {
-    "required": false,
-    "completed": false
+    "required": true,
+    "completed": false,
+    "template_path": "DO_NOT_READ/dm_feeling_reports/tier_c_playtest_questionnaire.md",
+    "observations": []
   },
   "local_ai_export": {
     "required": false,
-    "ready": false,
-    "offline_runnable": false,
-    "write_reports": false
+    "ready": true,
+    "offline_runnable": true,
+    "write_reports": true
+  },
+  "layer_links": {
+    "playtime_calibration": "DO_NOT_READ/playtime_calibration_package.json"
   }
 }

@@ -1,0 +1,341 @@
+{
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "tier_b_findings": [
+    {
+      "finding_id": "DF-TIER-B-DF-B-AGENCY-NAV",
+      "severity": "major",
+      "confidence": "likely",
+      "category": "player_agency",
+      "mode": "",
+      "source_file": "dm_feeling_validator_package.json",
+      "entity_id": "DF-B-AGENCY-NAV",
+      "player_excerpt": "",
+      "expected_rule": "Navigation and object choices remain diegetic with no bare codes",
+      "observed_behavior": "pending",
+      "affected_paths": [],
+      "review_owner": "tier_b",
+      "human_approval_needed": true,
+      "tier": "B"
+    },
+    {
+      "finding_id": "DF-TIER-B-DF-B-INFERENCE-QUALITY",
+      "severity": "major",
+      "confidence": "likely",
+      "category": "inference_quality",
+      "mode": "",
+      "source_file": "dm_feeling_validator_package.json",
+      "entity_id": "DF-B-INFERENCE-QUALITY",
+      "player_excerpt": "",
+      "expected_rule": "Inference worksheets require multi-record synthesis without embedded answers",
+      "observed_behavior": "pending",
+      "affected_paths": [],
+      "review_owner": "tier_b",
+      "human_approval_needed": true,
+      "tier": "B"
+    },
+    {
+      "finding_id": "DF-TIER-B-DF-B-NPC-NEUTRALITY",
+      "severity": "major",
+      "confidence": "likely",
+      "category": "conversation_agency",
+      "mode": "",
+      "source_file": "dm_feeling_validator_package.json",
+      "entity_id": "DF-B-NPC-NEUTRALITY",
+      "player_excerpt": "",
+      "expected_rule": "NPC dialogue preserves suspect neutrality and trust-gated tone shifts",
+      "observed_behavior": "pending",
+      "affected_paths": [],
+      "review_owner": "tier_b",
+      "human_approval_needed": true,
+      "tier": "B"
+    },
+    {
+      "finding_id": "DF-TIER-B-DF-B-ENDING-OPACITY",
+      "severity": "major",
+      "confidence": "likely",
+      "category": "ending_causality",
+      "mode": "",
+      "source_file": "dm_feeling_validator_package.json",
+      "entity_id": "DF-B-ENDING-OPACITY",
+      "player_excerpt": "",
+      "expected_rule": "Imperfect endings remain opaque; perfect ending requires full supported reconstruction",
+      "observed_behavior": "pending",
+      "affected_paths": [],
+      "review_owner": "tier_b",
+      "human_approval_needed": true,
+      "tier": "B"
+    },
+    {
+      "finding_id": "DF-TIER-B-DF-B-TIME-PRESSURE",
+      "severity": "major",
+      "confidence": "likely",
+      "category": "time_pressure",
+      "mode": "",
+      "source_file": "dm_feeling_validator_package.json",
+      "entity_id": "DF-B-TIME-PRESSURE",
+      "player_excerpt": "",
+      "expected_rule": "Clock-driven scene changes are visible in PLAYER revisit prose",
+      "observed_behavior": "pending",
+      "affected_paths": [],
+      "review_owner": "tier_b",
+      "human_approval_needed": true,
+      "tier": "B"
+    }
+  ],
+  "player_excerpts_sample": [
+    {
+      "file": "PLAYER/OPENING.md",
+      "line": 1,
+      "text": "You arrive at the **loading dock** of the Northline cold-chain warehouse at **1:00 a.m.** on Friday, March 13."
+    },
+    {
+      "file": "PLAYER/OPENING.md",
+      "line": 3,
+      "text": "Supervisor **Elena Morales** called you in as the on-call **refrigeration technician**. A high-temperature alarm on cold zone CZ-1 sounded at **11:30 p.m.** Supply air in the cold storage hall is still rising. If CZ-1 stays above the compliance threshold until **5:00 a.m.**, the facility must begin "
+    },
+    {
+      "file": "PLAYER/OPENING.md",
+      "line": 5,
+      "text": "Your job tonight is to find why staging control failed, who had access, and whether receiving records explain any discrepancies\u2014before the compliance deadline closes the shift."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 1,
+      "text": "# How to Play \u2014 The Cold Storage Alarm"
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 3,
+      "text": "**Mode:** Single investigator (you play the on-call technician)."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 5,
+      "text": "**Time:** Each action shows a time cost in minutes. The in-world clock moves forward. You cannot travel back to an earlier time."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 7,
+      "text": "**Checks:** Some actions require a d20 roll plus your character modifier. Each check allows **one attempt**. Success and failure use separate result text."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 9,
+      "text": "**Notes:** Record facts you learn. Synthesis steps ask you to connect records you have already found\u2014answers are not delivered automatically."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 11,
+      "text": "**Deadline:** At **5:00 a.m.**, compliance procedures may end your investigation window."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 13,
+      "text": "**Before you start:** read your character sheet for your check modifiers, and keep your case file open beside you to log clues as you find them."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 15,
+      "text": "Read the opening section first, then use each location's base section in the locations file as your menu at that place."
+    },
+    {
+      "file": "PLAYER/README.md",
+      "line": 1,
+      "text": "# The Cold Storage Alarm \u2014 Player Package"
+    },
+    {
+      "file": "PLAYER/README.md",
+      "line": 3,
+      "text": "**Mode:** Single investigator"
+    },
+    {
+      "file": "PLAYER/README.md",
+      "line": 4,
+      "text": "**Estimated playtime:** About two hours"
+    },
+    {
+      "file": "PLAYER/README.md",
+      "line": 5,
+      "text": "**In-world duration:** One night shift (roughly four hours)"
+    },
+    {
+      "file": "PLAYER/README.md",
+      "line": 7,
+      "text": "Read only files in this folder. Do not open `DO_NOT_READ/` or other repository paths."
+    },
+    {
+      "file": "PLAYER/README.md",
+      "line": 9,
+      "text": "This package also includes a character sheet with your check modifiers and a blank case file template for logging clues, alongside the usual location, object, people, scene, inference, recovery, and ending sections."
+    },
+    {
+      "file": "PLAYER/README.md",
+      "line": 11,
+      "text": "Start with the opening section, then the how-to-play notes. Follow section prompts in order; do not read ahead in ending sections."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 1,
+      "text": "# Navigation index"
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 3,
+      "text": "Do not read ahead in these files."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 5,
+      "text": "- Opening briefing uses the opening file."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 6,
+      "text": "- Your stats and check modifiers use the character sheet file."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 7,
+      "text": "- Clue notes and working theories use the case file template."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 8,
+      "text": "- Base locations use the locations file."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 9,
+      "text": "- Object results use the objects file."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 10,
+      "text": "- People on site use the people file."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 11,
+      "text": "- Time scenes use the scenes file."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 12,
+      "text": "- Inference worksheets use the inference file."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 13,
+      "text": "- Recovery prompts use the recovery file."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 14,
+      "text": "- Endings use the endings file."
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 1,
+      "text": "# Character sheet \u2014 on-call refrigeration technician"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 3,
+      "text": "You are the on-call refrigeration technician for the Northline cold-chain warehouse. You know compressor staging, BMS terminals, and cold-chain compliance rules well enough that Elena calls you first when CZ-1 misbehaves at 1:00 a.m. You are not a police investigator, an auditor, or an interrogator "
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 5,
+      "text": "## Check modifiers"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 7,
+      "text": "When a scene calls for a check, roll **1d20** and add the modifier for the listed capability. Compare your total against the difficulty noted in that scene \u2014 the target number is not shown to you in advance, and each check allows **one attempt**. A failed check never ends your investigation; it just"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 9,
+      "text": "| Capability | Modifier | When it applies |"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 10,
+      "text": "|---|---|---|"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 11,
+      "text": "| **Perception** | **+3** | Close physical searches \u2014 hardware wear, adhesive residue, locker contents, anything you have to look hard for. |"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 12,
+      "text": "| **Technical** | **+3** | Operating engineering systems \u2014 BMS exports, terminal menus, anything that runs on the automation network. |"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 13,
+      "text": "| Reasoning | +2 | Reading and connecting records once you already hold them. |"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 14,
+      "text": "| Persuasion | +1 | Getting someone to open up further in conversation. |"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 15,
+      "text": "| Intimidation | +0 | Pressuring someone who is already being evasive. |"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 16,
+      "text": "| Agility | +1 | Physical movement under time pressure. |"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 17,
+      "text": "| Strength | +1 | Manual tasks requiring force. |"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 19,
+      "text": "Your training runs toward **perception** and **technical** work \u2014 a career spent noticing what's slightly out of place on refrigeration hardware and BMS logs. You are competent in conversation but no specialist interrogator, which is reflected in your lower social modifiers."
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 21,
+      "text": "## Equipment"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 23,
+      "text": "- Facility-issued flashlight and multitool"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 24,
+      "text": "- Two-way radio (direct line to Elena and the security desk)"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 25,
+      "text": "- Photo ID and your own after-hours access badge"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 26,
+      "text": "- A notepad \u2014 use `PLAYER/SHARED/CASE_FILE.md` as your case file template"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 28,
+      "text": "## Personal stakes"
+    }
+  ],
+  "review_prompt": "Assess whether PLAYER prose supports agency, discovery, and neutrality."
+}
