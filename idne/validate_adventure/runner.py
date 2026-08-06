@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable
 
+from idne.epistemic_progression_validate import validate_epistemic_progression
 from idne.capability_check_validate import validate_capability_check
 from idne.dm_feeling_validate import validate_dm_feeling
 from idne.environment_validate import validate_environment
@@ -135,6 +136,7 @@ def validate_adventure(adventure_root: str | Path) -> IntegratedValidationResult
         ("investigation_core", validate_investigation_core, True),
         ("npc_investigation", validate_npc_investigation, True),
         ("investigation_flow", validate_investigation_flow, True),
+        ("epistemic_progression", validate_epistemic_progression, True),
         ("capability_check", validate_capability_check, True),
         ("investigation", validate_investigation, True),
         ("story", validate_story, True),

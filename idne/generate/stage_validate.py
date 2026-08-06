@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from idne.epistemic_progression_validate import validate_epistemic_progression
 from idne.capability_check_validate import validate_capability_check
 from idne.dm_feeling_validate import validate_dm_feeling
 from idne.environment_validate import validate_environment
@@ -33,6 +34,7 @@ def run_stage_validator(validator_name: str | None, adventure_root: Path) -> dic
         "investigation_core": validate_investigation_core,
         "npc_investigation": validate_npc_investigation,
         "investigation_flow": validate_investigation_flow,
+        "epistemic_progression": validate_epistemic_progression,
         "capability_check": validate_capability_check,
         "story": validate_story,
         "playtime": validate_playtime,

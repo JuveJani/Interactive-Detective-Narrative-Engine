@@ -15,6 +15,8 @@ def evaluate_human_delivery_trust(
     route_equivalence: str,
     hidden_boundary_violation: bool,
     canonical_validation_status: str,
+    epistemic_validation_status: str = "SKIP",
+    epistemic_eligibility_failures: int = 0,
     findings: list[DeliveryFinding],
 ) -> dict[str, Any]:
     blockers: list[str] = []
@@ -30,6 +32,10 @@ def evaluate_human_delivery_trust(
         blockers.append("hidden_information_boundary_violation")
     if canonical_validation_status not in ("PASS", "CONDITIONAL_PASS"):
         blockers.append(f"canonical_validation:{canonical_validation_status}")
+    if epistemic_validation_status not in ("PASS", "SKIP"):
+        blockers.append(f"epistemic_validation:{epistemic_validation_status}")
+    if epistemic_eligibility_failures and epistemic_validation_status not in ("PASS", "SKIP"):
+        blockers.append(f"epistemic_eligibility_failures:{epistemic_eligibility_failures}")
 
     delivery_defects = [
         f

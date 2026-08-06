@@ -11,8 +11,10 @@ from simulator_v2.human_delivery.strategies import HumanDeliveryStrategy, create
 from simulator_v2.human_delivery.trust import evaluate_human_delivery_trust
 from simulator_v2.human_delivery.types import DeliveryDefectClass, DeliveryFinding, HumanDeliveryResult, HumanTraceStep
 from simulator_v2.human_delivery.validate import validate_human_delivery
+from simulator_v2.epistemic import apply_chosen_action, load_epistemic_for_adventure, trace_epistemic_step
 from simulator_v2.package_loader import load_simulator_package
 from simulator_v2.rng import DeterministicRNG
+from idne.epistemic_progression_validate import validate_epistemic_progression
 
 
 def _finding_from_dict(raw: dict) -> DeliveryFinding:
@@ -72,6 +74,17 @@ class HumanDeliveryEngine:
         self.start_file = start_file
         self.start_section = start_section
         self._canonical_validation_status = "UNKNOWN"
+        self._epistemic_validation_status = "UNKNOWN"
+        self._ep_package, self._ep_state = load_epistemic_for_adventure(str(self.workspace.adventure_root))
+
+    def _epistemic_status(self) -> str:
+        if self._epistemic_validation_status == "UNKNOWN":
+            if self._ep_package is None:
+                self._epistemic_validation_status = "SKIP"
+            else:
+                res = validate_epistemic_progression(self.workspace.adventure_root)
+                self._epistemic_validation_status = res.status
+        return self._epistemic_validation_status
 
     def _canonical_status(self) -> str:
         if self._canonical_validation_status == "UNKNOWN":
@@ -123,6 +136,8 @@ class HumanDeliveryEngine:
         steps: list[HumanTraceStep] = []
         hidden_violation = False
         equiv_failures = 0
+        epistemic_failures = 0
+        ep_state = self._ep_state.copy() if self._ep_state else None
 
         for step_idx in range(max_steps):
             if cur_sec not in self.parsed:
@@ -144,6 +159,16 @@ class HumanDeliveryEngine:
 
             ps = self.parsed[cur_sec]
             visited.add(cur_sec)
+            ep_trace: dict = {}
+            if self._ep_package and ep_state is not None:
+                ep_trace = trace_epistemic_step(
+                    self._ep_package,
+                    ep_state,
+                    ps.unit_id,
+                    [c.label for c in ps.choices],
+                )
+                if ep_trace.get("prerequisite_validation", "PASS") != "PASS":
+                    epistemic_failures += 1
             view = HumanDeliveryPlayerView(
                 start_filename=self.start_file,
                 start_section=self.start_section,
@@ -188,10 +213,28 @@ class HumanDeliveryEngine:
                         dest_internal_unit_id=None,
                         blocked_reason="no legal visible choice",
                         route_equivalence="PASS",
+                        epistemic_trace=ep_trace,
                     )
                 )
                 result.status = "INCOMPLETE"
                 break
+
+            if self._ep_package and ep_state is not None:
+                ep_trace = trace_epistemic_step(
+                    self._ep_package,
+                    ep_state,
+                    ps.unit_id,
+                    [c.label for c in ps.choices],
+                    chosen_label=chosen.label,
+                )
+                if ep_trace.get("epistemic_eligibility_failure"):
+                    epistemic_failures += 1
+                else:
+                    ep_state, _, apply_reason = apply_chosen_action(
+                        self._ep_package, ep_state, ps.unit_id, chosen.label
+                    )
+                    if apply_reason != "PASS":
+                        epistemic_failures += 1
 
             dest_sec = chosen.destination_section
             dest_unit = self.sec_to_unit.get(dest_sec, "") if dest_sec else None
@@ -221,6 +264,7 @@ class HumanDeliveryEngine:
                     check_branch=check_branch,
                     player_visible_state=view.snapshot_state(),
                     route_equivalence=equiv,
+                    epistemic_trace=ep_trace,
                 )
             )
 
@@ -253,6 +297,8 @@ class HumanDeliveryEngine:
                 route_equivalence=result.canonical_equivalence,
                 hidden_boundary_violation=hidden_violation,
                 canonical_validation_status=canonical_status,
+                epistemic_validation_status=self._epistemic_status(),
+                epistemic_eligibility_failures=epistemic_failures,
                 findings=findings,
             )
         return result
@@ -284,6 +330,7 @@ class HumanDeliveryEngine:
             route_equivalence=route_equiv,
             hidden_boundary_violation=hidden_violation,
             canonical_validation_status=self._canonical_status(),
+            epistemic_validation_status=self._epistemic_status(),
             findings=[_finding_from_dict(f) for f in delivery.get("findings", [])],
         )
         return {

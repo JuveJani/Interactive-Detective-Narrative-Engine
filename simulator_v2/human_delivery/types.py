@@ -90,6 +90,7 @@ class HumanTraceStep:
     route_equivalence: str = "PASS"
     blocked_reason: str | None = None
     author_only_access_attempted: bool = False
+    epistemic_trace: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -106,6 +107,7 @@ class HumanTraceStep:
             "route_equivalence": self.route_equivalence,
             "blocked_reason": self.blocked_reason,
             "author_only_access_attempted": self.author_only_access_attempted,
+            "epistemic_trace": dict(self.epistemic_trace),
         }
 
 

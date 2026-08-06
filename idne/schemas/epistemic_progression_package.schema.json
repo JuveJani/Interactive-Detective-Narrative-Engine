@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.dev/schemas/epistemic_progression_package.schema.json",
+  "title": "Epistemic Progression Package",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "adventure_id",
+    "initial_player_knowledge",
+    "initial_world_state",
+    "playable_events"
+  ],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "adventure_id": { "type": "string" },
+    "initial_player_knowledge": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "initial_world_state": { "type": "object" },
+    "initial_observable_entities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "initial_observable_objects": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "playable_events": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/playable_event" }
+    }
+  },
+  "$defs": {
+    "structured_action": {
+      "type": "object",
+      "required": ["action_id", "action_type", "label", "destination_unit_id"],
+      "properties": {
+        "action_id": { "type": "string" },
+        "action_type": { "type": "string" },
+        "label": { "type": "string" },
+        "destination_unit_id": { "type": "string" },
+        "requires_knowledge_ids": { "type": "array", "items": { "type": "string" } },
+        "forbidden_knowledge_ids": { "type": "array", "items": { "type": "string" } },
+        "requires_world_state": { "type": "object" },
+        "forbidden_world_state": { "type": "object" },
+        "requires_observable": { "type": "array", "items": { "type": "string" } },
+        "referenced_fact_ids": { "type": "array", "items": { "type": "string" } },
+        "referenced_entity_ids": { "type": "array", "items": { "type": "string" } },
+        "exhaustion": {
+          "type": "string",
+          "enum": ["one_time", "exhaustible", "repeatable", "ambient", "recovery"]
+        },
+        "knowledge_delta": { "type": "array", "items": { "type": "string" } },
+        "world_state_delta": { "type": "object" },
+        "interaction_delta": { "type": "object" },
+        "investigative": { "type": "boolean" },
+        "purpose": { "type": "string" }
+      }
+    },
+    "content_block": {
+      "type": "object",
+      "required": ["block_id", "provenance"],
+      "properties": {
+        "block_id": { "type": "string" },
+        "text": { "type": "string" },
+        "provenance": {
+          "type": "string",
+          "enum": ["observation", "prior_knowledge", "action_reveal", "atmosphere"]
+        },
+        "requires_knowledge_ids": { "type": "array", "items": { "type": "string" } },
+        "requires_world_state": { "type": "object" },
+        "fact_ids": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "playable_event": {
+      "type": "object",
+      "required": ["event_id", "unit_id", "location_id", "event_kind", "structured_actions"],
+      "properties": {
+        "event_id": { "type": "string" },
+        "unit_id": { "type": "string" },
+        "location_id": { "type": "string" },
+        "physical_location_id": { "type": "string" },
+        "event_kind": { "type": "string" },
+        "variant_of": { "type": "string" },
+        "supersedes_unit_id": { "type": "string" },
+        "time_layer": { "type": "string" },
+        "required_knowledge_ids": { "type": "array", "items": { "type": "string" } },
+        "forbidden_knowledge_ids": { "type": "array", "items": { "type": "string" } },
+        "required_world_state": { "type": "object" },
+        "forbidden_world_state": { "type": "object" },
+        "relevant_knowledge_dependencies": { "type": "array", "items": { "type": "string" } },
+        "relevant_world_state_dependencies": { "type": "array", "items": { "type": "string" } },
+        "relevant_interaction_dependencies": { "type": "array", "items": { "type": "string" } },
+        "observable_entities": { "type": "array", "items": { "type": "string" } },
+        "observable_objects": { "type": "array", "items": { "type": "string" } },
+        "structured_actions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/structured_action" }
+        },
+        "content_blocks": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/content_block" }
+        }
+      }
+    }
+  }
+}

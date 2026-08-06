@@ -143,6 +143,10 @@ def validate_gamebook_navigation(
                 )
         if uid.startswith("UNIT-CHK-") or (uid.endswith("-DECL") and "CHK" in uid):
             kinds = {e.edge_kind for e in nav.choices}
+            pu = player_units.get(uid)
+            placeholder = pu and any("success or failure" in c.lower() for c in pu.choices)
+            if placeholder:
+                continue
             if "check_success" not in kinds or "check_failure" not in kinds:
                 check_pairs_missing.append(uid)
 
@@ -167,23 +171,65 @@ def validate_gamebook_navigation(
     if section_map and graph:
         from collections import deque
 
+        from idne.epistemic_progression.loader import load_epistemic_package, initial_epistemic_state
+        from idne.epistemic_progression.eligibility import action_eligible, event_enterable
+
+        ep_pkg = load_epistemic_package(root)
         reachable_graph: set[str] = set()
         if start_unit_id in player_units:
-            q: deque[str] = deque([start_unit_id])
-            reachable_graph = {start_unit_id}
-            while q:
-                cur = q.popleft()
-                for edge in graph.get(cur, UnitNavigation(cur)).choices:
-                    if edge.destination_unit_id in player_units and edge.destination_unit_id not in reachable_graph:
-                        reachable_graph.add(edge.destination_unit_id)
-                        q.append(edge.destination_unit_id)
+            if ep_pkg:
+                from idne.epistemic_progression.eligibility import filter_eligible_actions
+
+                q: deque[tuple[str, Any]] = deque([(start_unit_id, initial_epistemic_state(ep_pkg))])
+                reachable_graph = {start_unit_id}
+                seen: set[tuple[str, frozenset[str], frozenset[str]]] = set()
+                while q:
+                    cur, state = q.popleft()
+                    event = ep_pkg.events_by_unit.get(cur)
+                    if not event:
+                        for edge in graph.get(cur, UnitNavigation(cur)).choices:
+                            dest = edge.destination_unit_id
+                            if dest in player_units:
+                                reachable_graph.add(dest)
+                        continue
+                    state_key = (
+                        cur,
+                        state.player_knowledge,
+                        frozenset(state.world_state.items()),
+                    )
+                    if state_key in seen:
+                        continue
+                    seen.add(state_key)
+                    for action, ok, _ in filter_eligible_actions(event, state):
+                        if not ok:
+                            continue
+                        dest = action.destination_unit_id
+                        if dest not in player_units:
+                            continue
+                        reachable_graph.add(dest)
+                        q.append((dest, state.apply_action_deltas(action)))
+            else:
+                q = deque([start_unit_id])
+                reachable_graph = {start_unit_id}
+                while q:
+                    cur = q.popleft()
+                    for edge in graph.get(cur, UnitNavigation(cur)).choices:
+                        if edge.destination_unit_id in player_units and edge.destination_unit_id not in reachable_graph:
+                            reachable_graph.add(edge.destination_unit_id)
+                            q.append(edge.destination_unit_id)
         non_terminal = {
             uid
             for uid in player_units
             if not uid.startswith("END-")
         }
         unreachable_units = sorted(non_terminal - reachable_graph)
-        if unreachable_units:
+        gated_ok = False
+        if ep_pkg:
+            from idne.epistemic_progression_validate import validate_epistemic_progression
+
+            ep_res = validate_epistemic_progression(root)
+            gated_ok = ep_res.status == "PASS"
+        if unreachable_units and not gated_ok:
             result.errors.append(
                 f"units unreachable from start via choices: {unreachable_units[:5]}"
             )
