@@ -1,0 +1,12 @@
+{
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "readiness_status": "IN_PROGRESS",
+  "reports": {
+    "generation_summary.md": "adventures/The_Cold_Storage_Alarm/.generation/reports/generation_summary.md",
+    "stage_status.json": "adventures/The_Cold_Storage_Alarm/.generation/reports/stage_status.json",
+    "repair_history.md": "adventures/The_Cold_Storage_Alarm/.generation/reports/repair_history.md",
+    "human_approval_queue.md": "adventures/The_Cold_Storage_Alarm/.generation/reports/human_approval_queue.md",
+    "unresolved_findings.json": "adventures/The_Cold_Storage_Alarm/.generation/reports/unresolved_findings.json",
+    "model_usage.json": "adventures/The_Cold_Storage_Alarm/.generation/reports/model_usage.json"
+  }
+}
