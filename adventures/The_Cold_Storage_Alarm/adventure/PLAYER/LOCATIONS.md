@@ -8,12 +8,52 @@ The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales wa
 
 **What do you do?**
 
+- Talk to Elena Morales.
 - Walk through the dock corridor to the cold storage hall.
+- Talk to a dock worker.
+
+<!-- unit:unit-dock-base-surveyed -->
+### Loading dock — after orientation
+
+**Location:** Loading dock | **Time cost:** 0 min
+
+The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. You have oriented yourself to the site layout and the supervisor briefing area.
+
+**What do you do?**
+
+- Talk to Elena Morales.
+- Walk through the dock corridor to the cold storage hall.
+- Talk to a dock worker.
 - Head inside to the staff break room.
 - Cut through the warehouse corridor to the security office.
 - Take the office wing corridor to the warehouse manager office.
 - Review the supervisor briefing area.
 - Request escort clearance to the automation control room.
+- Receive supervisor briefing at the loading dock.
+- Survey the dock and adjacent corridors.
+- Prepare final accountability documentation before the compliance threshold.
+
+<!-- unit:unit-dock-base-restricted -->
+### Loading dock — restricted
+
+**Location:** Loading dock (restricted) | **Time cost:** 0 min
+
+Tape marks restricted lanes across the loading dock. Elena stands at the boundary while essential movement continues under her supervision.
+
+**What do you do?**
+
+- Talk to Elena Morales.
+- Walk through the dock corridor to the cold storage hall.
+- Talk to a dock worker.
+- Head inside to the staff break room.
+- Cut through the warehouse corridor to the security office.
+- Take the office wing corridor to the warehouse manager office.
+- Review the supervisor briefing area.
+- Request escort clearance to the automation control room.
+- Receive supervisor briefing at the loading dock.
+- Survey the dock and adjacent corridors.
+- Prepare final accountability documentation before the compliance threshold.
+- Work under supervisor dock restriction enforcement.
 
 <!-- unit:unit-cold-base -->
 ### Cold storage hall

@@ -102,11 +102,6 @@
       "text": "Your job tonight is to find why staging control failed, who had access, and whether receiving records explain any discrepancies\u2014before the compliance deadline closes the shift."
     },
     {
-      "file": "PLAYER/OPENING.md",
-      "line": 7,
-      "text": "**Begin in the static gamebook file in this folder at section 636.**"
-    },
-    {
       "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 1,
       "text": "# How to Play \u2014 The Cold Storage Alarm"
@@ -119,37 +114,32 @@
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 5,
-      "text": "**Playable file:** Use the static gamebook file in this folder as your only navigation source during play. It contains every section, numbered for turn-to navigation. The other thematic files are reference material; you do not need to look up internal unit codes."
-    },
-    {
-      "file": "PLAYER/HOW_TO_PLAY.md",
-      "line": 7,
-      "text": "**Starting section:** **636** (loading dock base menu). Read the opening at the start of the gamebook file, then turn to section **636**."
-    },
-    {
-      "file": "PLAYER/HOW_TO_PLAY.md",
-      "line": 9,
       "text": "**Time:** Each action shows a time cost in minutes. The in-world clock moves forward. You cannot travel back to an earlier time."
     },
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 7,
+      "text": "**Checks:** Some actions require a d20 roll plus your character modifier. Each check allows **one attempt**. Success and failure use separate result text."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 9,
+      "text": "**Notes:** Record facts you learn. Synthesis steps ask you to connect records you have already found\u2014answers are not delivered automatically."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 11,
-      "text": "**Checks:** Some actions require a d20 roll plus your character modifier. Each check allows **one attempt**. When a section tells you to roll, follow the separate **success** or **failure** turn-to instructions\u2014never reuse the same section for both outcomes."
-    },
-    {
-      "file": "PLAYER/HOW_TO_PLAY.md",
-      "line": 13,
-      "text": "**Notes:** Record facts you learn in your case file. Synthesis steps ask you to connect records you have already found\u2014answers are not delivered automatically. When a choice lists a section number, turn to that section only."
-    },
-    {
-      "file": "PLAYER/HOW_TO_PLAY.md",
-      "line": 15,
       "text": "**Deadline:** At **5:00 a.m.**, compliance procedures may end your investigation window."
     },
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
-      "line": 17,
+      "line": 13,
       "text": "**Before you start:** read your character sheet for your check modifiers, and keep your case file open beside you to log clues as you find them."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 15,
+      "text": "Read the opening section first, then use each location's base section in the locations file as your menu at that place."
     },
     {
       "file": "PLAYER/README.md",
@@ -179,17 +169,12 @@
     {
       "file": "PLAYER/README.md",
       "line": 9,
-      "text": "**Play the adventure using the static gamebook file in this folder.** That file is the complete numbered gamebook with turn-to instructions and the opening briefing. Begin at **section 636** after reading the opening."
+      "text": "This package also includes a character sheet with your check modifiers and a blank case file template for logging clues, alongside the usual location, object, people, scene, inference, recovery, and ending sections."
     },
     {
       "file": "PLAYER/README.md",
       "line": 11,
-      "text": "This package also includes a character sheet with your check modifiers and a blank case file template for logging clues. The other thematic files (locations, objects, people, scenes, inference, recovery, endings) remain as source material but are not required for navigation during play."
-    },
-    {
-      "file": "PLAYER/README.md",
-      "line": 13,
-      "text": "Start with the opening and how-to-play notes in this folder, then play from the static gamebook file."
+      "text": "Start with the opening section, then the how-to-play notes. Follow section prompts in order; do not read ahead in ending sections."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
@@ -199,62 +184,57 @@
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 3,
-      "text": "**Playable file:** the static gamebook file in this folder."
+      "text": "Do not read ahead in these files."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 5,
-      "text": "**Starting section:** **636** (loading dock base menu)."
+      "text": "- Opening briefing uses the opening file."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 6,
+      "text": "- Your stats and check modifiers use the character sheet file."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 7,
-      "text": "**How to follow play:**"
+      "text": "- Clue notes and working theories use the case file template."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 8,
-      "text": "- Read the opening at the top of the gamebook file."
+      "text": "- Base locations use the locations file."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 9,
-      "text": "- Turn to section **636** to begin."
+      "text": "- Object results use the objects file."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 10,
-      "text": "- Follow only the numbered turn-to instructions in each choice."
+      "text": "- People on site use the people file."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 11,
-      "text": "- After d20 checks, use the separate success or failure section numbers."
+      "text": "- Time scenes use the scenes file."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 12,
-      "text": "- Keep your character sheet and case file open for modifiers and notes."
+      "text": "- Inference worksheets use the inference file."
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 13,
+      "text": "- Recovery prompts use the recovery file."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 14,
-      "text": "**Reference material (optional during play):**"
-    },
-    {
-      "file": "PLAYER/NAVIGATION_INDEX.md",
-      "line": 15,
-      "text": "- Character sheet and case file template"
-    },
-    {
-      "file": "PLAYER/NAVIGATION_INDEX.md",
-      "line": 16,
-      "text": "- Thematic source files (content is in the gamebook file)"
-    },
-    {
-      "file": "PLAYER/NAVIGATION_INDEX.md",
-      "line": 18,
-      "text": "Do not read ahead in ending sections during play."
+      "text": "- Endings use the endings file."
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
@@ -335,6 +315,26 @@
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 23,
       "text": "- Facility-issued flashlight and multitool"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 24,
+      "text": "- Two-way radio (direct line to Elena and the security desk)"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 25,
+      "text": "- Photo ID and your own after-hours access badge"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 26,
+      "text": "- A notepad \u2014 use `PLAYER/SHARED/CASE_FILE.md` as your case file template"
+    },
+    {
+      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "line": 28,
+      "text": "## Personal stakes"
     }
   ],
   "review_prompt": "Assess whether PLAYER prose supports agency, discovery, and neutrality."

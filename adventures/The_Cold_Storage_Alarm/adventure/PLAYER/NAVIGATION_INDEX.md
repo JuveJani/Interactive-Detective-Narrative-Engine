@@ -1,18 +1,14 @@
 # Navigation index
 
-**Playable file:** the static gamebook file in this folder.
+Do not read ahead in these files.
 
-**Starting section:** **636** (loading dock base menu).
-
-**How to follow play:**
-- Read the opening at the top of the gamebook file.
-- Turn to section **636** to begin.
-- Follow only the numbered turn-to instructions in each choice.
-- After d20 checks, use the separate success or failure section numbers.
-- Keep your character sheet and case file open for modifiers and notes.
-
-**Reference material (optional during play):**
-- Character sheet and case file template
-- Thematic source files (content is in the gamebook file)
-
-Do not read ahead in ending sections during play.
+- Opening briefing uses the opening file.
+- Your stats and check modifiers use the character sheet file.
+- Clue notes and working theories use the case file template.
+- Base locations use the locations file.
+- Object results use the objects file.
+- People on site use the people file.
+- Time scenes use the scenes file.
+- Inference worksheets use the inference file.
+- Recovery prompts use the recovery file.
+- Endings use the endings file.
