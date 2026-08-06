@@ -1,0 +1,18 @@
+{
+  "offline_runnable": true,
+  "tier_b_export_path": "DO_NOT_READ/dm_feeling_reports/tier_b_export.json",
+  "categories": {
+    "player_agency": "CONDITIONAL_PASS",
+    "discovery_delivery": "PASS",
+    "exploration_depth": "PASS",
+    "inference_quality": "CONDITIONAL_PASS",
+    "aha_potential": "PASS",
+    "world_responsiveness": "PASS",
+    "time_pressure": "CONDITIONAL_PASS",
+    "failure_quality": "PASS",
+    "conversation_agency": "CONDITIONAL_PASS",
+    "ending_causality": "CONDITIONAL_PASS",
+    "mode_specific": "CONDITIONAL_PASS"
+  },
+  "finding_count": 6
+}

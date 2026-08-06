@@ -1,0 +1,850 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "object_interaction_links": {
+    "package_path": "DO_NOT_READ/object_interaction_package.json"
+  },
+  "npc_investigation_links": {
+    "package_path": "DO_NOT_READ/npc_investigation_package.json"
+  },
+  "placeholder_resolution": {
+    "KNOW-BADGE-ENTRY-RECORD": "KNOW-BADGE-COLD-ENTRY",
+    "KNOW-BMS-COMMAND-LOG": "KNOW-BMS-COMMAND",
+    "KNOW-CONTROL-ROOM-ENTRY": "KNOW-CONTROL-ENTRY",
+    "KNOW-DOOR-AJAR-ALARM": "KNOW-DOOR-AJAR",
+    "KNOW-LABEL-RESIDUE": "KNOW-LABEL-RESIDUE",
+    "KNOW-MANIFEST-POD-GAP": "KNOW-MANIFEST-GAP"
+  },
+  "knowledge_gate_resolution": {
+    "NPC conversation gates using legacy KNOW-* placeholders resolve via investigation_core placeholder_resolution at flow evaluation time": true
+  },
+  "state_model": {
+    "flags": [
+      "control_escort_cleared",
+      "archive_sync_complete",
+      "dock_restricted_active",
+      "security_unstaffed",
+      "records_archive_queried",
+      "manifest_reviewed",
+      "label_residue_found",
+      "bms_command_reviewed",
+      "ready_to_accuse",
+      "accusation_complete",
+      "inference_badge_resolved",
+      "inference_staging_resolved",
+      "inference_relabel_resolved",
+      "inference_control_resolved",
+      "inference_culprit_resolved",
+      "inference_perfect_resolved",
+      "check_label_failed",
+      "check_trend_failed",
+      "it_records_route_used"
+    ],
+    "counters": [
+      "investigation_phase"
+    ],
+    "initial_state": {
+      "control_escort_cleared": false,
+      "archive_sync_complete": false,
+      "dock_restricted_active": false,
+      "security_unstaffed": false,
+      "records_archive_queried": false,
+      "manifest_reviewed": false,
+      "label_residue_found": false,
+      "bms_command_reviewed": false,
+      "ready_to_accuse": false,
+      "accusation_complete": false,
+      "inference_badge_resolved": false,
+      "inference_staging_resolved": false,
+      "inference_relabel_resolved": false,
+      "inference_control_resolved": false,
+      "inference_culprit_resolved": false,
+      "inference_perfect_resolved": false,
+      "check_label_failed": false,
+      "check_trend_failed": false,
+      "it_records_route_used": false,
+      "investigation_phase": 0
+    }
+  },
+  "time_model": {
+    "clocks": [
+      "T_ARRIVAL",
+      "T_ARCHIVE_SYNC",
+      "T_DOCK_RESTRICT",
+      "T_SECURITY_BREAK",
+      "T_DEADLINE"
+    ],
+    "clock_event_map": {
+      "T_ARRIVAL": "EVT-018",
+      "T_ARCHIVE_SYNC": "EVT-019",
+      "T_DOCK_RESTRICT": "EVT-020",
+      "T_SECURITY_BREAK": "EVT-021",
+      "T_DEADLINE": "EVT-022"
+    },
+    "deadline_clock": "T_DEADLINE",
+    "scene_time_cost_default_minutes": 5,
+    "no_earlier_time_travel": true
+  },
+  "scene_chains": [
+    {
+      "chain_id": "CHAIN-OPENING",
+      "active_from_clock": "T_ARRIVAL",
+      "active_until_clock": "T_ARCHIVE_SYNC",
+      "steps": [
+        {
+          "step_id": "SC-DOCK-ARRIVAL",
+          "scene_unit_id": "SC-DOCK-ARRIVAL",
+          "player_label": "Receive supervisor briefing at the rakodópart.",
+          "location_id": "LOC-DOCK",
+          "requires_state": {
+            "accusation_complete": false
+          }
+        },
+        {
+          "step_id": "SC-DOCK-INITIAL-SURVEY",
+          "scene_unit_id": "SC-DOCK-INITIAL-SURVEY",
+          "player_label": "Mérje fel a dokkot és a szomszédos folyosókat.",
+          "location_id": "LOC-DOCK",
+          "allows_prior_acquisition": true
+        }
+      ]
+    },
+    {
+      "chain_id": "CHAIN-ARCHIVE-WINDOW",
+      "active_from_clock": "T_ARCHIVE_SYNC",
+      "active_until_clock": "T_DOCK_RESTRICT",
+      "steps": [
+        {
+          "step_id": "SC-SECURITY-ARCHIVE-OPEN",
+          "scene_unit_id": "SC-SECURITY-ARCHIVE-OPEN",
+          "player_label": "A jelvényarchívum szinkronizálása után térjen vissza a biztonsághoz.",
+          "location_id": "LOC-SECURITY",
+          "state_updates": {
+            "archive_sync_complete": true
+          },
+          "allows_prior_acquisition": true
+        },
+        {
+          "step_id": "SC-IT-RECORDS-POLICY",
+          "scene_unit_id": "SC-IT-RECORDS-POLICY",
+          "player_label": "Review the records-only archive sync policy.",
+          "location_id": "LOC-SECURITY",
+          "npc_topic_ref": "TOPIC-ARCHIVE-SYNC",
+          "state_updates": {
+            "it_records_route_used": true
+          },
+          "allows_prior_acquisition": true
+        }
+      ]
+    },
+    {
+      "chain_id": "CHAIN-PRESSURE",
+      "active_from_clock": "T_DOCK_RESTRICT",
+      "active_until_clock": "T_SECURITY_BREAK",
+      "steps": [
+        {
+          "step_id": "SC-DOCK-RESTRICTED",
+          "scene_unit_id": "SC-DOCK-RESTRICTED",
+          "player_label": "Munkavégzés a felügyelő dokk korlátozásának végrehajtása alatt.",
+          "location_id": "LOC-DOCK",
+          "state_updates": {
+            "dock_restricted_active": true
+          },
+          "allows_prior_acquisition": true
+        }
+      ]
+    },
+    {
+      "chain_id": "CHAIN-FINAL-HOUR",
+      "active_from_clock": "T_SECURITY_BREAK",
+      "active_until_clock": "T_DEADLINE",
+      "steps": [
+        {
+          "step_id": "SC-SECURITY-UNSTAFFED",
+          "scene_unit_id": "SC-SECURITY-UNSTAFFED",
+          "player_label": "Use the security office while the guard is on mandatory break.",
+          "location_id": "LOC-SECURITY",
+          "state_updates": {
+            "security_unstaffed": true
+          },
+          "allows_prior_acquisition": true
+        },
+        {
+          "step_id": "SC-ACCUSATION-PREP",
+          "scene_unit_id": "SC-ACCUSATION-PREP",
+          "player_label": "A megfelelőségi küszöb előtt készítse el a végső elszámoltathatósági dokumentációt.",
+          "location_id": "LOC-DOCK",
+          "requires_state": {
+            "ready_to_accuse": true
+          },
+          "allows_prior_acquisition": true
+        }
+      ]
+    }
+  ],
+  "world_state_variants": [
+    {
+      "variant_id": "VAR-SECURITY-ARCHIVE",
+      "base_scene_unit_id": "SC-SECURITY-ARCHIVE-OPEN",
+      "variants": [
+        {
+          "when_state": {
+            "flag": "archive_sync_complete",
+            "value": true
+          },
+          "scene_unit_id": "SC-SECURITY-ARCHIVE-READY"
+        },
+        {
+          "when_state": {
+            "flag": "archive_sync_complete",
+            "value": false
+          },
+          "scene_unit_id": "SC-SECURITY-ARCHIVE-PENDING"
+        }
+      ]
+    },
+    {
+      "variant_id": "VAR-DOCK-ACCESS",
+      "base_scene_unit_id": "SC-DOCK-INITIAL-SURVEY",
+      "variants": [
+        {
+          "when_state": {
+            "flag": "dock_restricted_active",
+            "value": true
+          },
+          "scene_unit_id": "SC-DOCK-RESTRICTED"
+        },
+        {
+          "when_state": {
+            "flag": "dock_restricted_active",
+            "value": false
+          },
+          "scene_unit_id": "SC-DOCK-INITIAL-SURVEY"
+        }
+      ]
+    },
+    {
+      "variant_id": "VAR-CONTROL-ACCESS",
+      "base_scene_unit_id": "SC-CONTROL-APPROACH",
+      "variants": [
+        {
+          "when_state": {
+            "flag": "control_escort_cleared",
+            "value": true
+          },
+          "scene_unit_id": "SC-CONTROL-CLEARED"
+        },
+        {
+          "when_state": {
+            "flag": "control_escort_cleared",
+            "value": false
+          },
+          "scene_unit_id": "SC-CONTROL-ESCORT-REQUIRED"
+        }
+      ]
+    }
+  ],
+  "location_revisits": [
+    {
+      "location_id": "LOC-SECURITY",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-ARCHIVE-SYNC",
+          "when_clock_at_least": "T_ARCHIVE_SYNC",
+          "unlocks_scene_unit_id": "SC-SECURITY-ARCHIVE-READY",
+          "state_updates": {
+            "archive_sync_complete": true
+          },
+          "player_label": "Térjen vissza a szinkronizált jelvényarchívum lekérdezéséhez."
+        },
+        {
+          "rule_id": "REV-BADGE-QUERIED",
+          "when_knowledge_held": [
+            "KNOW-BADGE-COLD-ENTRY"
+          ],
+          "unlocks_scene_unit_id": "SC-SECURITY-CROSSREF",
+          "state_updates": {
+            "records_archive_queried": true
+          }
+        }
+      ]
+    },
+    {
+      "location_id": "LOC-COLD",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-AISLE-AFTER-MANIFEST",
+          "when_knowledge_held": [
+            "KNOW-MANIFEST-GAP"
+          ],
+          "unlocks_scene_unit_id": "SC-COLD-AISLE-FOCUSED",
+          "state_updates": {
+            "manifest_reviewed": true
+          },
+          "alternate_if_flag": {
+            "check_label_failed": true
+          },
+          "alternate_action_ref": "ACT-CROSSREF-POD"
+        },
+        {
+          "rule_id": "REV-LABEL-DETAIL",
+          "when_knowledge_held": [
+            "KNOW-LABEL-RESIDUE"
+          ],
+          "unlocks_scene_unit_id": "SC-COLD-LABEL-DETAIL",
+          "state_updates": {
+            "label_residue_found": true
+          }
+        }
+      ]
+    },
+    {
+      "location_id": "LOC-CONTROL",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-CONTROL-ESCORT",
+          "when_state": {
+            "control_escort_cleared": true
+          },
+          "unlocks_scene_unit_id": "SC-CONTROL-CLEARED",
+          "player_label": "A kísérő engedélye után lépjen be a vezérlőterembe."
+        },
+        {
+          "rule_id": "REV-BMS-REVIEW",
+          "when_knowledge_held": [
+            "KNOW-BMS-COMMAND"
+          ],
+          "unlocks_scene_unit_id": "SC-CONTROL-BMS-REVIEW",
+          "state_updates": {
+            "bms_command_reviewed": true
+          },
+          "alternate_if_flag": {
+            "check_trend_failed": true
+          },
+          "alternate_action_ref": "ACT-INSPECT-STAGING-PANEL"
+        }
+      ]
+    },
+    {
+      "location_id": "LOC-MANAGER",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-MANIFEST-PRESSURE",
+          "when_knowledge_held": [
+            "KNOW-LABEL-RESIDUE"
+          ],
+          "unlocks_scene_unit_id": "SC-MANAGER-PRESSURE-TOPIC",
+          "npc_topic_ref": "TOPIC-LABEL-WORK"
+        }
+      ]
+    },
+    {
+      "location_id": "LOC-BREAK",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-LOCKER-OPTIONAL",
+          "unlocks_scene_unit_id": "SC-BREAK-LOCKER-BRANCH",
+          "optional_branch": true,
+          "player_label": "Opcionálisan ellenőrizze a személyzeti szekrény bankját."
+        }
+      ]
+    }
+  ],
+  "inference_flow_gates": [
+    {
+      "inference_id": "INF-BADGE-MISATTRIBUTED",
+      "hypothesis_id": "HYP-BADGE-MISATTRIBUTED",
+      "required_knowledge_ids": [
+        "KNOW-BADGE-COLD-ENTRY",
+        "KNOW-EXIT-SCAN"
+      ],
+      "success_state_updates": {
+        "inference_badge_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-SECURITY-ARCHIVE",
+        "REC-BREAK-LOCKER"
+      ],
+      "failure_alternate_knowledge": [
+        "KNOW-BADGE-LOCKER"
+      ]
+    },
+    {
+      "inference_id": "INF-STAGING-ROOT-CAUSE",
+      "hypothesis_id": "HYP-STAGING-ROOT-CAUSE",
+      "required_knowledge_ids": [
+        "KNOW-TEMP-TREND",
+        "KNOW-STAGING-SUSPEND",
+        "KNOW-BMS-COMMAND"
+      ],
+      "success_state_updates": {
+        "inference_staging_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "failure_state_updates": {
+        "check_trend_failed": true
+      },
+      "recovery_routes": [
+        "REC-CONTROL-TERM",
+        "REC-COLD-DISPLAY"
+      ]
+    },
+    {
+      "inference_id": "INF-RELABEL-FRAUD",
+      "hypothesis_id": "HYP-RELABEL-FRAUD",
+      "required_knowledge_ids": [
+        "KNOW-LABEL-RESIDUE",
+        "KNOW-MANIFEST-GAP",
+        "KNOW-LABEL-TIMESTAMP"
+      ],
+      "success_state_updates": {
+        "inference_relabel_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "failure_state_updates": {
+        "check_label_failed": true
+      },
+      "recovery_routes": [
+        "REC-COLD-AISLE",
+        "REC-MANAGER-MANIFEST"
+      ]
+    },
+    {
+      "inference_id": "INF-CONTROL-ACCESS-MISMATCH",
+      "hypothesis_id": "HYP-CONTROL-ACCESS-MISMATCH",
+      "required_knowledge_ids": [
+        "KNOW-CONTROL-ENTRY",
+        "KNOW-BMS-COMMAND"
+      ],
+      "success_state_updates": {
+        "inference_control_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-SECURITY-ARCHIVE",
+        "REC-CONTROL-TERM"
+      ]
+    },
+    {
+      "inference_id": "INF-CULPRIT-SUPPORTED",
+      "hypothesis_id": "HYP-CULPRIT-SUPPORTED",
+      "required_knowledge_ids": [
+        "KNOW-BADGE-MISATTRIBUTED",
+        "KNOW-CONTROL-ACCESS-MISMATCH",
+        "KNOW-RELABEL-FRAUD",
+        "KNOW-MANIFEST-GAP"
+      ],
+      "success_state_updates": {
+        "inference_culprit_resolved": true,
+        "ready_to_accuse": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-MANAGER-INTERVIEW",
+        "REC-SECURITY-CROSSREF"
+      ]
+    },
+    {
+      "inference_id": "INF-PERFECT-RECONSTRUCTION",
+      "hypothesis_id": "HYP-PERFECT-RECONSTRUCTION",
+      "required_knowledge_ids": [
+        "KNOW-CULPRIT-SUPPORTED",
+        "KNOW-STAGING-ROOT-CAUSE",
+        "KNOW-RELABEL-FRAUD",
+        "KNOW-MAINT-SESSION",
+        "KNOW-DOOR-AJAR"
+      ],
+      "success_state_updates": {
+        "inference_perfect_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "imperfect_endings_remain_available": true,
+      "recovery_routes": [
+        "REC-REVISIT-ANY-UNRESOLVED-SOURCE"
+      ]
+    }
+  ],
+  "recovery_routes": [
+    {
+      "route_id": "REC-SECURITY-ARCHIVE",
+      "player_action_label": "Térjen vissza a biztonsági iroda jelvényarchívum-termináljához.",
+      "destination_ref": "LOC-SECURITY",
+      "action_ref": "ACT-APPROACH-BADGE-ARCHIVE"
+    },
+    {
+      "route_id": "REC-BREAK-LOCKER",
+      "player_action_label": "Vizsgálja meg a személyzeti szekrényt a szünetben.",
+      "destination_ref": "LOC-BREAK",
+      "action_ref": "ACT-APPROACH-LOCKERS"
+    },
+    {
+      "route_id": "REC-CONTROL-TERM",
+      "player_action_label": "Tekintse át a mérnöki munkaállomást a vezérlőteremben.",
+      "destination_ref": "LOC-CONTROL",
+      "action_ref": "ACT-APPROACH-TERM-02"
+    },
+    {
+      "route_id": "REC-COLD-DISPLAY",
+      "player_action_label": "Olvassa el az élő CZ-1 befúvott levegő kijelzőt.",
+      "destination_ref": "LOC-COLD",
+      "action_ref": "ACT-READ-TEMP-DISPLAY"
+    },
+    {
+      "route_id": "REC-COLD-AISLE",
+      "player_action_label": "Keresse meg a C folyosón a címkemaradványokat.",
+      "destination_ref": "LOC-COLD",
+      "action_ref": "ACT-SEARCH-LABEL-RESIDUE"
+    },
+    {
+      "route_id": "REC-MANAGER-MANIFEST",
+      "player_action_label": "Hasonlítsa össze a MNF-IN-4471 jegyzéket a menedzser munkaállomáson.",
+      "destination_ref": "LOC-MANAGER",
+      "action_ref": "ACT-REVIEW-MNF-4471"
+    },
+    {
+      "route_id": "REC-MANAGER-INTERVIEW",
+      "player_action_label": "Interjú a logisztikai koordinátorral a kivételek fogadásáról.",
+      "destination_ref": "LOC-MANAGER",
+      "action_ref": "TOPIC-RECEIVING-EXCEPTION"
+    },
+    {
+      "route_id": "REC-SECURITY-CROSSREF",
+      "player_action_label": "Cross-reference belépőkártya and alarm records at security.",
+      "destination_ref": "LOC-SECURITY",
+      "action_ref": "ACT-REVIEW-ALARM-HISTORY"
+    },
+    {
+      "route_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+      "player_action_label": "Keresse fel újra azokat a helyeket, ahol az áttekintés még mindig nem fejeződött be.",
+      "destination_ref": "LOC-DOCK",
+      "action_ref": "NAV-DOCK-SECURITY"
+    }
+  ],
+  "accusation_questionnaire": {
+    "questionnaire_id": "ACC-FINAL-COLD-STORAGE",
+    "required_before_ending_eval": true,
+    "multi_component": true,
+    "questions": [
+      {
+        "question_id": "Q-WHO",
+        "conclusion_id": "CONC-WHO",
+        "answer_type": "npc_id",
+        "player_label": "Ki a felelős a ma esti jogosulatlan cselekedetekért?"
+      },
+      {
+        "question_id": "Q-HOW",
+        "conclusion_id": "CONC-HOW",
+        "answer_type": "entity_id",
+        "player_label": "Milyen mechanizmus függesztette fel a hidegláncos fokozatot?"
+      },
+      {
+        "question_id": "Q-WHAT",
+        "conclusion_id": "CONC-WHAT",
+        "answer_type": "entity_id",
+        "player_label": "Milyen elsődleges működési hiba okozta a termékkockázat eszkalációját?"
+      },
+      {
+        "question_id": "Q-MOTIVE",
+        "conclusion_id": "CONC-MOTIVE",
+        "answer_type": "npc_id",
+        "player_label": "Kinek volt indítéka a bejövő nyilvánvaló eltérésekhez?"
+      }
+    ],
+    "accusation_complete_state_flag": "accusation_complete"
+  },
+  "deadline": {
+    "enabled": true,
+    "deadline_clock": "T_DEADLINE",
+    "deadline_ending_id": "END-TIMEOUT",
+    "blocks_accusation_after": true,
+    "compliance_writeoff_trigger": true
+  },
+  "endings": [
+    {
+      "ending_id": "END-PERFECT",
+      "ending_type": "perfect",
+      "priority": 100,
+      "reveals_full_truth": true,
+      "hidden": false,
+      "truth_reveal_scope": "complete",
+      "trigger": {
+        "type": "state_driven",
+        "required_knowledge_ids": [
+          "KNOW-BADGE-MISATTRIBUTED",
+          "KNOW-BMS-COMMAND",
+          "KNOW-CONTROL-ACCESS-MISMATCH",
+          "KNOW-CONTROL-ENTRY",
+          "KNOW-CULPRIT-SUPPORTED",
+          "KNOW-DOOR-AJAR",
+          "KNOW-MAINT-SESSION",
+          "KNOW-MANIFEST-GAP",
+          "KNOW-PERFECT-RECONSTRUCTION",
+          "KNOW-RELABEL-FRAUD",
+          "KNOW-STAGING-ROOT-CAUSE",
+          "KNOW-STAGING-SUSPEND",
+          "KNOW-TEMP-TREND"
+        ],
+        "required_accusation": {
+          "Q-WHO": "NPC-LORI",
+          "Q-HOW": "CMD-CZ1-MUTE-STAGE",
+          "Q-WHAT": "CMD-CZ1-MUTE-STAGE",
+          "Q-MOTIVE": "NPC-LORI"
+        },
+        "required_state": {
+          "accusation_complete": true,
+          "inference_perfect_resolved": true
+        },
+        "requires_full_proof": true
+      },
+      "investigation_preserving": false
+    },
+    {
+      "ending_id": "END-PARTIAL-INCOMPLETE",
+      "ending_type": "partial",
+      "priority": 40,
+      "reveals_full_truth": false,
+      "hidden": false,
+      "truth_reveal_scope": "partial",
+      "max_knowledge_revealed_ids": [
+        "KNOW-TEMP-LIVE",
+        "KNOW-MARCUS-HIGH-TEMP-ALARM",
+        "KNOW-ELENA-ALARM-CALL"
+      ],
+      "trigger": {
+        "type": "state_driven",
+        "min_knowledge_count": 3,
+        "wrong_accusation_allowed": true,
+        "required_state": {
+          "accusation_complete": true
+        }
+      },
+      "investigation_preserving": true,
+      "opacity_note": "Dokumentálja az operatív válaszreakciók hiányosságait anélkül, hogy megnevezné a teljes csalási rekonstrukciót"
+    },
+    {
+      "ending_id": "END-PARTIAL-WRONG-CULPRIT",
+      "ending_type": "partial",
+      "priority": 35,
+      "reveals_full_truth": false,
+      "hidden": false,
+      "truth_reveal_scope": "partial",
+      "max_knowledge_revealed_ids": [
+        "KNOW-BADGE-COLD-ENTRY",
+        "KNOW-EXIT-SCAN",
+        "KNOW-DEV-EXIT-TIME"
+      ],
+      "trigger": {
+        "type": "state_driven",
+        "required_accusation": {
+          "Q-WHO": "NPC-DEV"
+        },
+        "required_state": {
+          "accusation_complete": true
+        },
+        "wrong_accusation_allowed": true,
+        "min_knowledge_count": 2
+      },
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-PARTIAL-TECH-ONLY",
+      "ending_type": "partial",
+      "priority": 45,
+      "reveals_full_truth": false,
+      "hidden": false,
+      "truth_reveal_scope": "partial",
+      "max_knowledge_revealed_ids": [
+        "KNOW-BMS-COMMAND",
+        "KNOW-STAGING-SUSPEND",
+        "KNOW-TEMP-TREND",
+        "KNOW-MAINT-SESSION"
+      ],
+      "trigger": {
+        "type": "state_driven",
+        "required_knowledge_ids": [
+          "KNOW-BMS-COMMAND",
+          "KNOW-STAGING-SUSPEND"
+        ],
+        "required_state": {
+          "inference_staging_resolved": true,
+          "accusation_complete": true
+        },
+        "wrong_accusation_allowed": true
+      },
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-PARTIAL-MOTIVE-GAP",
+      "ending_type": "partial",
+      "priority": 38,
+      "reveals_full_truth": false,
+      "hidden": false,
+      "truth_reveal_scope": "partial",
+      "max_knowledge_revealed_ids": [
+        "KNOW-MANIFEST-GAP",
+        "KNOW-LABEL-RESIDUE"
+      ],
+      "trigger": {
+        "type": "state_driven",
+        "required_knowledge_ids": [
+          "KNOW-MANIFEST-GAP"
+        ],
+        "required_state": {
+          "accusation_complete": true,
+          "inference_relabel_resolved": false
+        },
+        "wrong_accusation_allowed": true
+      },
+      "investigation_preserving": true
+    },
+    {
+      "ending_id": "END-NARRATIVE-CONTINUE",
+      "ending_type": "narrative_failure",
+      "priority": 20,
+      "reveals_full_truth": false,
+      "hidden": false,
+      "truth_reveal_scope": "none",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": false
+        },
+        "min_knowledge_count": 1,
+        "deadline_not_expired": true
+      },
+      "investigation_preserving": true,
+      "note": "Képviseli a folyamatos vizsgálatot, amikor a vádemelést elhalasztották; nem egy igazságfeltáró végállapot"
+    },
+    {
+      "ending_id": "END-HIDDEN-RECORDS",
+      "ending_type": "hidden",
+      "priority": 55,
+      "reveals_full_truth": false,
+      "hidden": true,
+      "truth_reveal_scope": "hint",
+      "max_knowledge_revealed_ids": [
+        "KNOW-IT-SYNC-SCHEDULE"
+      ],
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "it_records_route_used": true,
+          "archive_sync_complete": true
+        },
+        "required_knowledge_ids": [
+          "KNOW-IT-SYNC-SCHEDULE"
+        ]
+      }
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "ending_type": "deadline",
+      "priority": 10,
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "none",
+      "trigger": {
+        "type": "deadline_expired"
+      },
+      "investigation_preserving": false
+    }
+  ],
+  "ending_graph": {
+    "nodes": [
+      "END-PERFECT",
+      "END-PARTIAL-TECH-ONLY",
+      "END-PARTIAL-MOTIVE-GAP",
+      "END-PARTIAL-INCOMPLETE",
+      "END-PARTIAL-WRONG-CULPRIT",
+      "END-HIDDEN-RECORDS",
+      "END-NARRATIVE-CONTINUE",
+      "END-TIMEOUT"
+    ],
+    "edges": [
+      {
+        "from": "FLOW-ACTIVE",
+        "to": "END-PERFECT",
+        "condition": "accusation_correct_and_full_proof"
+      },
+      {
+        "from": "FLOW-ACCUSATION",
+        "to": "END-PERFECT",
+        "condition": "accusation_correct_and_full_proof"
+      },
+      {
+        "from": "FLOW-ACCUSATION",
+        "to": "END-PARTIAL-WRONG-CULPRIT",
+        "condition": "wrong_culprit_accusation"
+      },
+      {
+        "from": "FLOW-ACCUSATION",
+        "to": "END-PARTIAL-TECH-ONLY",
+        "condition": "technical_partial_accusation"
+      },
+      {
+        "from": "FLOW-ACCUSATION",
+        "to": "END-PARTIAL-MOTIVE-GAP",
+        "condition": "motive_gap_accusation"
+      },
+      {
+        "from": "FLOW-ACCUSATION",
+        "to": "END-PARTIAL-INCOMPLETE",
+        "condition": "incomplete_proof_accusation"
+      },
+      {
+        "from": "FLOW-ACTIVE",
+        "to": "END-HIDDEN-RECORDS",
+        "condition": "records_route_complete"
+      },
+      {
+        "from": "FLOW-ACTIVE",
+        "to": "END-NARRATIVE-CONTINUE",
+        "condition": "investigation_continues"
+      },
+      {
+        "from": "FLOW-ACTIVE",
+        "to": "END-TIMEOUT",
+        "condition": "deadline"
+      },
+      {
+        "from": "FLOW-ACCUSATION",
+        "to": "END-TIMEOUT",
+        "condition": "deadline"
+      }
+    ],
+    "evaluation_order": [
+      "END-PERFECT",
+      "END-HIDDEN-RECORDS",
+      "END-PARTIAL-TECH-ONLY",
+      "END-PARTIAL-MOTIVE-GAP",
+      "END-PARTIAL-WRONG-CULPRIT",
+      "END-PARTIAL-INCOMPLETE",
+      "END-NARRATIVE-CONTINUE",
+      "END-TIMEOUT"
+    ]
+  },
+  "flow_states": [
+    {
+      "flow_state_id": "FLOW-ACTIVE",
+      "initial": true
+    },
+    {
+      "flow_state_id": "FLOW-ACCUSATION",
+      "requires": {
+        "flag": "ready_to_accuse"
+      }
+    },
+    {
+      "flow_state_id": "FLOW-RESOLUTION",
+      "requires": {
+        "flag": "accusation_complete"
+      }
+    }
+  ]
+}

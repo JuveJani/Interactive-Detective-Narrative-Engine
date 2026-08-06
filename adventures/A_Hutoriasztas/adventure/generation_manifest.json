@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "generation_method": "world_first",
+  "package_path": "DO_NOT_READ/world_truth_package.json",
+  "gates": {
+    "G-WF1": {
+      "status": "PASS"
+    },
+    "G-WF2": {
+      "status": "PASS"
+    },
+    "G-WF3": {
+      "status": "PASS"
+    },
+    "G-WF4": {
+      "status": "PASS"
+    },
+    "G-WF5": {
+      "status": "PASS"
+    },
+    "G-WF6": {
+      "status": "PASS"
+    },
+    "G-WF7": {
+      "status": "PASS"
+    }
+  }
+}

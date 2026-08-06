@@ -1,0 +1,32 @@
+{
+  "target_minutes": 120,
+  "total_player_words": 7694,
+  "paths": [
+    {
+      "path_id": "PATH-SHORT",
+      "path_type": "shortest_valid",
+      "expected_minutes": 76.7,
+      "reading_words": 3231,
+      "activities": 10
+    },
+    {
+      "path_id": "PATH-MEDIAN",
+      "path_type": "median_expected",
+      "expected_minutes": 136.5,
+      "reading_words": 5231,
+      "activities": 18
+    },
+    {
+      "path_id": "PATH-BROAD",
+      "path_type": "broad_exploration",
+      "expected_minutes": 197.2,
+      "reading_words": 6770,
+      "activities": 27
+    }
+  ],
+  "reading_time_expected_path_minutes": 87.2,
+  "interaction_inference_revisit_expected_path_minutes": 40.3,
+  "approximately_120_minutes_achievable": true,
+  "shortfall_categories": [],
+  "method": "ideiglenes_játékidő_kalibrációs_rules_pre_package"
+}

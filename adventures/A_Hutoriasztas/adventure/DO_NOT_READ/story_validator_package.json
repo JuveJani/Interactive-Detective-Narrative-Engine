@@ -1,0 +1,765 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "story_frame": {
+    "investigation_starts_where": "rakodó dokk",
+    "investigation_starts_when": "1:00 a.m. március 13., péntek",
+    "incident_description": "magas hőmérséklet riasztás a hideg zónában CZ-1",
+    "incident_when": "11:30 p.m.",
+    "investigator_involvement": "ügyeletes hűtőtechnikus, akit a felügyelő hívott",
+    "deadline_or_constraint": "5:00 a.m. compliance selejtezés threshold",
+    "reveals_culprit": false,
+    "reveals_motive": false,
+    "reveals_hidden_relationships": false,
+    "reveals_correct_priority": false
+  },
+  "timeline": {
+    "investigation_start": {
+      "label": "2026-03-13 01:00",
+      "anchor_id": "T-INV-START"
+    },
+    "incident_date": {
+      "label": "2026-03-12 éjszakai műszak",
+      "anchor_id": "T-INCIDENT-DATE"
+    },
+    "incident_time": {
+      "label": "23:30",
+      "anchor_id": "T-INCIDENT-TIME"
+    },
+    "current_in_world_time": {
+      "label": "2026-03-13 01:00",
+      "anchor_id": "T-CURRENT"
+    },
+    "investigation_confused_with_incident": false,
+    "impossible_ordering": false,
+    "events": [
+      {
+        "event_id": "EVT-014",
+        "label": "Magas hőmérsékletű riasztó",
+        "anchor_id": "T-INCIDENT-TIME",
+        "ordering_index": 1,
+        "ambiguous_day": false,
+        "relative_without_anchor": false,
+        "silent_time_switch": false,
+        "contradicts": []
+      },
+      {
+        "event_id": "EVT-018",
+        "label": "Investigator arrival",
+        "anchor_id": "T-INV-START",
+        "ordering_index": 2,
+        "ambiguous_day": false,
+        "relative_without_anchor": false,
+        "silent_time_switch": false,
+        "contradicts": []
+      },
+      {
+        "event_id": "EVT-019",
+        "label": "Jelvényarchívum szinkronizálása",
+        "anchor_id": "T-ARCHIVE-SYNC",
+        "ordering_index": 3,
+        "ambiguous_day": false,
+        "relative_without_anchor": false,
+        "silent_time_switch": false,
+        "contradicts": []
+      },
+      {
+        "event_id": "EVT-022",
+        "label": "megfelelőségi határidő",
+        "anchor_id": "T-DEADLINE",
+        "ordering_index": 4,
+        "ambiguous_day": false,
+        "relative_without_anchor": false,
+        "silent_time_switch": false,
+        "contradicts": []
+      }
+    ],
+    "temporal_references": [
+      {
+        "ref_id": "REF-ALARM",
+        "text_fragment": "11:30 p.m.",
+        "maps_to_anchor": "T-INCIDENT-TIME",
+        "day_clear": true,
+        "contradictory": false
+      },
+      {
+        "ref_id": "REF-ARRIVAL",
+        "text_fragment": "1:00 a.m.",
+        "maps_to_anchor": "T-INV-START",
+        "day_clear": true,
+        "contradictory": false
+      },
+      {
+        "ref_id": "REF-DEADLINE",
+        "text_fragment": "5:00 a.m.",
+        "maps_to_anchor": "T-DEADLINE",
+        "day_clear": true,
+        "contradictory": false
+      }
+    ]
+  },
+  "causal_events": [
+    {
+      "event_id": "EVT-014",
+      "cause_event_ids": [
+        "EVT-013"
+      ],
+      "consequences": [
+        "supervisor notification",
+        "nyomozó feladás"
+      ],
+      "actors": [
+        "NPC-MARCUS",
+        "NPC-ELENA"
+      ],
+      "physical_traces": [
+        "OBS-DOOR-AJAR",
+        "OBS-TEMP-LIVE"
+      ],
+      "dependent_events": [
+        "EVT-018"
+      ],
+      "motive_connected": true,
+      "method_compatible_with_world": true,
+      "action_consistent_with_knowledge": true,
+      "ending_supported": true,
+      "missing_cause": false,
+      "orphan_consequence": false
+    }
+  ],
+  "information_facts": [
+    {
+      "fact_id": "FACT-BMS",
+      "term": "BMS parancsnapló",
+      "first_mention_scene": "UNIT-TERM-02-MENU",
+      "explanation_scene": "UNIT-BMS-COMMAND",
+      "player_understandable_at_first_use": true,
+      "half_information": false,
+      "undefined_term": false,
+      "undefined_entity": false,
+      "used_before_introduction": false,
+      "explained_after_required_use": false,
+      "unexplained_pronoun": false,
+      "conflicting_duplicates": false,
+      "appears_from_nowhere": false
+    },
+    {
+      "fact_id": "FACT-MANIFEST",
+      "term": "manifeszt MNF-IN-4471",
+      "first_mention_scene": "UNIT-MANIFEST-MENU",
+      "explanation_scene": "UNIT-MANIFEST-GAP",
+      "player_understandable_at_first_use": true,
+      "half_information": false,
+      "undefined_term": false,
+      "undefined_entity": false,
+      "used_before_introduction": false,
+      "explained_after_required_use": false,
+      "unexplained_pronoun": false,
+      "conflicting_duplicates": false,
+      "appears_from_nowhere": false
+    }
+  ],
+  "knowledge_order": [
+    {
+      "scene_id": "UNIT-DOCK-BASE",
+      "unit_id": "UNIT-DOCK-BASE",
+      "required_knowledge_ids": [],
+      "possible_prior_knowledge_ids": [],
+      "assumes_undiscovered_event": false,
+      "inference_terms_not_introduced": false,
+      "npc_assumes_unformulated_question": false,
+      "object_uses_hidden_background": false,
+      "ending_relies_on_unavailable_info": false
+    }
+  ],
+  "npc_consistency": [
+    {
+      "npc_id": "NPC-LORI",
+      "motivation_consistent": true,
+      "testimony_within_knowledge": true,
+      "actions_match_motivation": true,
+      "deception_has_motive": true,
+      "confession_has_pressure_or_evidence": true,
+      "suspicious_innocent_believable": true,
+      "guilty_not_highlighted_by_wording": true,
+      "trust_reaction_consistent": true,
+      "dialogue_within_knowledge": true,
+      "drama_only_behavior": false,
+      "sudden_cooperation_unexplained": false
+    },
+    {
+      "npc_id": "NPC-MARCUS",
+      "motivation_consistent": true,
+      "testimony_within_knowledge": true,
+      "actions_match_motivation": true,
+      "deception_has_motive": true,
+      "confession_has_pressure_or_evidence": true,
+      "suspicious_innocent_believable": true,
+      "guilty_not_highlighted_by_wording": true,
+      "trust_reaction_consistent": true,
+      "dialogue_within_knowledge": true,
+      "drama_only_behavior": false,
+      "sudden_cooperation_unexplained": false
+    },
+    {
+      "npc_id": "NPC-DEV",
+      "motivation_consistent": true,
+      "testimony_within_knowledge": true,
+      "actions_match_motivation": true,
+      "deception_has_motive": true,
+      "confession_has_pressure_or_evidence": true,
+      "suspicious_innocent_believable": true,
+      "guilty_not_highlighted_by_wording": true,
+      "trust_reaction_consistent": true,
+      "dialogue_within_knowledge": true,
+      "drama_only_behavior": false,
+      "sudden_cooperation_unexplained": false
+    },
+    {
+      "npc_id": "NPC-ELENA",
+      "motivation_consistent": true,
+      "testimony_within_knowledge": true,
+      "actions_match_motivation": true,
+      "deception_has_motive": true,
+      "confession_has_pressure_or_evidence": true,
+      "suspicious_innocent_believable": true,
+      "guilty_not_highlighted_by_wording": true,
+      "trust_reaction_consistent": true,
+      "dialogue_within_knowledge": true,
+      "drama_only_behavior": false,
+      "sudden_cooperation_unexplained": false
+    },
+    {
+      "npc_id": "NPC-PAT",
+      "motivation_consistent": true,
+      "testimony_within_knowledge": true,
+      "actions_match_motivation": true,
+      "deception_has_motive": true,
+      "confession_has_pressure_or_evidence": true,
+      "suspicious_innocent_believable": true,
+      "guilty_not_highlighted_by_wording": true,
+      "trust_reaction_consistent": true,
+      "dialogue_within_knowledge": true,
+      "drama_only_behavior": false,
+      "sudden_cooperation_unexplained": false
+    },
+    {
+      "npc_id": "NPC-IT",
+      "motivation_consistent": true,
+      "testimony_within_knowledge": true,
+      "actions_match_motivation": true,
+      "deception_has_motive": true,
+      "confession_has_pressure_or_evidence": true,
+      "suspicious_innocent_believable": true,
+      "guilty_not_highlighted_by_wording": true,
+      "trust_reaction_consistent": true,
+      "dialogue_within_knowledge": true,
+      "drama_only_behavior": false,
+      "sudden_cooperation_unexplained": false
+    }
+  ],
+  "location_object_continuity": [
+    {
+      "entity_id": "LOC-FACILITY",
+      "entity_type": "location",
+      "introduced": true,
+      "moved_without_event": false,
+      "layout_changes_without_cause": false,
+      "removed_item_reappears": false,
+      "locked_described_open": false,
+      "references_inaccessible_area": false,
+      "revisit_ignores_changes": false,
+      "time_variant_not_reflected": false
+    },
+    {
+      "entity_id": "LOC-DOCK",
+      "entity_type": "location",
+      "introduced": true,
+      "moved_without_event": false,
+      "layout_changes_without_cause": false,
+      "removed_item_reappears": false,
+      "locked_described_open": false,
+      "references_inaccessible_area": false,
+      "revisit_ignores_changes": false,
+      "time_variant_not_reflected": false
+    },
+    {
+      "entity_id": "LOC-COLD",
+      "entity_type": "location",
+      "introduced": true,
+      "moved_without_event": false,
+      "layout_changes_without_cause": false,
+      "removed_item_reappears": false,
+      "locked_described_open": false,
+      "references_inaccessible_area": false,
+      "revisit_ignores_changes": false,
+      "time_variant_not_reflected": false
+    },
+    {
+      "entity_id": "LOC-CONTROL",
+      "entity_type": "location",
+      "introduced": true,
+      "moved_without_event": false,
+      "layout_changes_without_cause": false,
+      "removed_item_reappears": false,
+      "locked_described_open": false,
+      "references_inaccessible_area": false,
+      "revisit_ignores_changes": false,
+      "time_variant_not_reflected": false
+    },
+    {
+      "entity_id": "LOC-SECURITY",
+      "entity_type": "location",
+      "introduced": true,
+      "moved_without_event": false,
+      "layout_changes_without_cause": false,
+      "removed_item_reappears": false,
+      "locked_described_open": false,
+      "references_inaccessible_area": false,
+      "revisit_ignores_changes": false,
+      "time_variant_not_reflected": false
+    },
+    {
+      "entity_id": "LOC-MANAGER",
+      "entity_type": "location",
+      "introduced": true,
+      "moved_without_event": false,
+      "layout_changes_without_cause": false,
+      "removed_item_reappears": false,
+      "locked_described_open": false,
+      "references_inaccessible_area": false,
+      "revisit_ignores_changes": false,
+      "time_variant_not_reflected": false
+    },
+    {
+      "entity_id": "LOC-BREAK",
+      "entity_type": "location",
+      "introduced": true,
+      "moved_without_event": false,
+      "layout_changes_without_cause": false,
+      "removed_item_reappears": false,
+      "locked_described_open": false,
+      "references_inaccessible_area": false,
+      "revisit_ignores_changes": false,
+      "time_variant_not_reflected": false
+    }
+  ],
+  "narrative_neutrality": [
+    {
+      "entity_id": "NPC-LORI",
+      "suspicious_quotation_marks": false,
+      "loaded_adjectives": false,
+      "loaded_description": false,
+      "asymmetric_detail": false,
+      "emphasis_spotlight": false,
+      "tier_b_review_required": false
+    },
+    {
+      "entity_id": "NPC-MARCUS",
+      "suspicious_quotation_marks": false,
+      "loaded_adjectives": false,
+      "loaded_description": false,
+      "asymmetric_detail": false,
+      "emphasis_spotlight": false,
+      "tier_b_review_required": false
+    },
+    {
+      "entity_id": "NPC-DEV",
+      "suspicious_quotation_marks": false,
+      "loaded_adjectives": false,
+      "loaded_description": false,
+      "asymmetric_detail": false,
+      "emphasis_spotlight": false,
+      "tier_b_review_required": false
+    },
+    {
+      "entity_id": "NPC-ELENA",
+      "suspicious_quotation_marks": false,
+      "loaded_adjectives": false,
+      "loaded_description": false,
+      "asymmetric_detail": false,
+      "emphasis_spotlight": false,
+      "tier_b_review_required": false
+    },
+    {
+      "entity_id": "NPC-PAT",
+      "suspicious_quotation_marks": false,
+      "loaded_adjectives": false,
+      "loaded_description": false,
+      "asymmetric_detail": false,
+      "emphasis_spotlight": false,
+      "tier_b_review_required": false
+    }
+  ],
+  "inference_questions": [
+    {
+      "question_id": "INF-BADGE-MISATTRIBUTED",
+      "player_facing_text": "A hűtőházi jelvény bejegyzése a kilépési idők összehasonlítása után is érinti a vállalkozót?",
+      "terms_defined": true,
+      "grammatically_clear": true,
+      "subject_explicit": true,
+      "facts_communicated_not_just_canonical": true,
+      "presupposes_answer": false,
+      "options_reveal_solution": false,
+      "understandable": true,
+      "undefined_terms": [],
+      "grammatically_unclear": false
+    },
+    {
+      "question_id": "INF-STAGING-ROOT-CAUSE",
+      "player_facing_text": "Vajon a felfüggesztés – nem egyedül az ajtóriasztó – okozta a tartós hőmérséklet-emelkedést?",
+      "terms_defined": true,
+      "grammatically_clear": true,
+      "subject_explicit": true,
+      "facts_communicated_not_just_canonical": true,
+      "presupposes_answer": false,
+      "options_reveal_solution": false,
+      "understandable": true,
+      "undefined_terms": [],
+      "grammatically_unclear": false
+    },
+    {
+      "question_id": "INF-RELABEL-FRAUD",
+      "player_facing_text": "Raklap átcímkézést alkalmaztak a bejövő mennyiség elrejtésére?",
+      "terms_defined": true,
+      "grammatically_clear": true,
+      "subject_explicit": true,
+      "facts_communicated_not_just_canonical": true,
+      "presupposes_answer": false,
+      "options_reveal_solution": false,
+      "understandable": true,
+      "undefined_terms": [],
+      "grammatically_unclear": false
+    },
+    {
+      "question_id": "INF-CONTROL-ACCESS-MISMATCH",
+      "player_facing_text": "Ki adhatná ki a BMS némítási parancsot hűtőmérnöki jogosultság nélkül?",
+      "terms_defined": true,
+      "grammatically_clear": true,
+      "subject_explicit": true,
+      "facts_communicated_not_just_canonical": true,
+      "presupposes_answer": false,
+      "options_reveal_solution": false,
+      "understandable": true,
+      "undefined_terms": [],
+      "grammatically_unclear": false
+    },
+    {
+      "question_id": "INF-CULPRIT-SUPPORTED",
+      "player_facing_text": "Melyik szerepkört támogatják a független hozzáférés, a csalások és a vezérlőterem nyilvántartása?",
+      "terms_defined": true,
+      "grammatically_clear": true,
+      "subject_explicit": true,
+      "facts_communicated_not_just_canonical": true,
+      "presupposes_answer": false,
+      "options_reveal_solution": false,
+      "understandable": true,
+      "undefined_terms": [],
+      "grammatically_unclear": false
+    },
+    {
+      "question_id": "INF-PERFECT-RECONSTRUCTION",
+      "player_facing_text": "Rekonstruálhatja-e a csalás eltitkolását, az illetéktelen hozzáférést és a felfüggesztést egy támogatott idővonalként?",
+      "terms_defined": true,
+      "grammatically_clear": true,
+      "subject_explicit": true,
+      "facts_communicated_not_just_canonical": true,
+      "presupposes_answer": false,
+      "options_reveal_solution": false,
+      "understandable": true,
+      "undefined_terms": [],
+      "grammatically_unclear": false
+    }
+  ],
+  "opening_transitions": [
+    {
+      "transition_id": "OPEN-001",
+      "scene_id": "SC-DOCK-ARRIVAL",
+      "clear_purpose": true,
+      "player_knows_actions": true,
+      "causal_transition": true,
+      "unexplained_exposition": false,
+      "unexplained_jump": false,
+      "return_makes_sense": true,
+      "opening_lacks_incident_context": false,
+      "no_causal_explanation": false
+    }
+  ],
+  "ending_story": [
+    {
+      "ending_id": "END-PERFECT",
+      "ending_type": "perfect",
+      "causal_sequence": true,
+      "outcome_follows_actions": true,
+      "contradicts_fixed_truth": false,
+      "contradicts_timeline": false,
+      "imperfect_leaks_full_truth": false,
+      "claims_unsupported_certainty": false,
+      "coherently_explains_truth": true,
+      "intentionally_uncertain": false
+    },
+    {
+      "ending_id": "END-PARTIAL-INCOMPLETE",
+      "ending_type": "imperfect",
+      "causal_sequence": true,
+      "outcome_follows_actions": true,
+      "contradicts_fixed_truth": false,
+      "contradicts_timeline": false,
+      "imperfect_leaks_full_truth": false,
+      "claims_unsupported_certainty": false,
+      "coherently_explains_truth": false,
+      "intentionally_uncertain": true
+    },
+    {
+      "ending_id": "END-PARTIAL-WRONG-CULPRIT",
+      "ending_type": "imperfect",
+      "causal_sequence": true,
+      "outcome_follows_actions": true,
+      "contradicts_fixed_truth": false,
+      "contradicts_timeline": false,
+      "imperfect_leaks_full_truth": false,
+      "claims_unsupported_certainty": false,
+      "coherently_explains_truth": false,
+      "intentionally_uncertain": true
+    },
+    {
+      "ending_id": "END-PARTIAL-TECH-ONLY",
+      "ending_type": "imperfect",
+      "causal_sequence": true,
+      "outcome_follows_actions": true,
+      "contradicts_fixed_truth": false,
+      "contradicts_timeline": false,
+      "imperfect_leaks_full_truth": false,
+      "claims_unsupported_certainty": false,
+      "coherently_explains_truth": false,
+      "intentionally_uncertain": true
+    },
+    {
+      "ending_id": "END-PARTIAL-MOTIVE-GAP",
+      "ending_type": "imperfect",
+      "causal_sequence": true,
+      "outcome_follows_actions": true,
+      "contradicts_fixed_truth": false,
+      "contradicts_timeline": false,
+      "imperfect_leaks_full_truth": false,
+      "claims_unsupported_certainty": false,
+      "coherently_explains_truth": false,
+      "intentionally_uncertain": true
+    },
+    {
+      "ending_id": "END-NARRATIVE-CONTINUE",
+      "ending_type": "narrative_failure",
+      "causal_sequence": true,
+      "outcome_follows_actions": true,
+      "contradicts_fixed_truth": false,
+      "contradicts_timeline": false,
+      "imperfect_leaks_full_truth": false,
+      "claims_unsupported_certainty": false,
+      "coherently_explains_truth": false,
+      "intentionally_uncertain": true
+    },
+    {
+      "ending_id": "END-HIDDEN-RECORDS",
+      "ending_type": "imperfect",
+      "causal_sequence": true,
+      "outcome_follows_actions": true,
+      "contradicts_fixed_truth": false,
+      "contradicts_timeline": false,
+      "imperfect_leaks_full_truth": false,
+      "claims_unsupported_certainty": false,
+      "coherently_explains_truth": false,
+      "intentionally_uncertain": true
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "ending_type": "imperfect",
+      "causal_sequence": true,
+      "outcome_follows_actions": true,
+      "contradicts_fixed_truth": false,
+      "contradicts_timeline": false,
+      "imperfect_leaks_full_truth": false,
+      "claims_unsupported_certainty": false,
+      "coherently_explains_truth": false,
+      "intentionally_uncertain": true
+    }
+  ],
+  "plain_language": {
+    "known_acronyms": [
+      "AJAR",
+      "ALM",
+      "BADGE",
+      "BMS",
+      "CLO",
+      "CMD",
+      "COLD",
+      "CTRL",
+      "CZ",
+      "DEV",
+      "DOOR",
+      "HIGH",
+      "IN",
+      "IT",
+      "LORI",
+      "MAINT",
+      "MNF",
+      "MUTE",
+      "OPENING",
+      "POD",
+      "REFRG",
+      "STAGE",
+      "SVC",
+      "TEMP",
+      "TERM"
+    ],
+    "jargon_terms": [],
+    "entity_name_aliases": {
+      "Elena Morales": [
+        "Elena",
+        "supervisor"
+      ],
+      "Marcus Hale": [
+        "Marcus",
+        "biztonsági őr"
+      ],
+      "Lori Okonkwo": [
+        "Lori",
+        "logisztikai koordinátor"
+      ],
+      "Dev Santos": [
+        "Dev",
+        "contractor"
+      ],
+      "Pat Nguyen": [
+        "Pat",
+        "takarító személyzet vezetése"
+      ]
+    },
+    "entries": [
+      {
+        "source_ref": "PLAYER/OPENING.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      },
+      {
+        "source_ref": "PLAYER/HOW_TO_PLAY.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      },
+      {
+        "source_ref": "PLAYER/README.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      },
+      {
+        "source_ref": "PLAYER/NAVIGATION_INDEX.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      },
+      {
+        "source_ref": "PLAYER/LOCATIONS.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      },
+      {
+        "source_ref": "PLAYER/OBJECTS.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      },
+      {
+        "source_ref": "PLAYER/NPCS.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      },
+      {
+        "source_ref": "PLAYER/SCENES.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      },
+      {
+        "source_ref": "PLAYER/INFERENCE.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      },
+      {
+        "source_ref": "PLAYER/RECOVERY.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      },
+      {
+        "source_ref": "PLAYER/ENDINGS.md",
+        "very_long_sentences": false,
+        "undefined_acronyms": [],
+        "excessive_jargon": false,
+        "ambiguous_pronouns": false,
+        "stacked_unrelated_facts": false,
+        "inconsistent_entity_names": false
+      }
+    ]
+  },
+  "player_audit": {
+    "files": [
+      "PLAYER/OPENING.md",
+      "PLAYER/HOW_TO_PLAY.md",
+      "PLAYER/README.md",
+      "PLAYER/NAVIGATION_INDEX.md",
+      "PLAYER/LOCATIONS.md",
+      "PLAYER/OBJECTS.md",
+      "PLAYER/NPCS.md",
+      "PLAYER/SCENES.md",
+      "PLAYER/INFERENCE.md",
+      "PLAYER/RECOVERY.md",
+      "PLAYER/ENDINGS.md"
+    ],
+    "opening_file": "PLAYER/OPENING.md",
+    "story_frame_communicated": true,
+    "player_text_absent": false
+  },
+  "play_mode_constraints": {
+    "single_investigator_valid": true,
+    "two_player_valid": false
+  },
+  "tier_b_mandatory": []
+}

@@ -1,0 +1,713 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "delivery_modes": [
+    "static_book"
+  ],
+  "player_agency": {
+    "choices": [
+      {
+        "choice_id": "CHO-INFERENCE-0",
+        "player_label": "Hűtőszekrény bejövő jelvény bejegyzés (biztonsági iroda archívum)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-1",
+        "player_label": "Vállalkozó kimenő dokkoló szkennelése (biztonsági iroda archívuma)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-2",
+        "player_label": "A vállalkozó saját beszámolója a hátrahagyott jelvényről (szüneti szekrény vagy interjú)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-3",
+        "player_label": "BMS parancsnapló (vezérlőterem munkaállomás)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-4",
+        "player_label": "CZ-1 állomásjelző panel (vezérlőterem)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-5",
+        "player_label": "CZ-1 befújt levegő hőmérsékleti trend exportálása (vezérlőterem munkaállomás)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-6",
+        "player_label": "Címkeragasztó-maradék és időbélyeg összehasonlítása (C folyosó)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-7",
+        "player_label": "bevételezési jegyzék MNF-IN-4471 versus szolgáltató POD-4471 (vezetői iroda)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-8",
+        "player_label": "Koordinátor beszámolója a fogadó kivételről (vezetői irodai interjú)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-9",
+        "player_label": "Vezérlőterem ajtó jelvény bejegyzés (biztonsági iroda archívuma)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-10",
+        "player_label": "BMS parancsnapló és munkamenet azonosító (vezérlőterem munkaállomás)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-11",
+        "player_label": "Everything you have gathered on belépőkártya access, automatika vezérlő entry, and bevételezési jegyzék fraud",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-12",
+        "player_label": "Kereszthivatkozásos időbélyegek a biztonsági hivataltól",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-13",
+        "player_label": "A fenti munkalapokon felsorolt ​​összes rekordszál",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-INFERENCE-14",
+        "player_label": "A karbantartási jegy és az ajtónyitott riasztó előzményei (irányítóterem és biztonsági iroda)",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-15",
+        "player_label": "Menjen át a dokkfolyosón a hűtőcsarnokba.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-16",
+        "player_label": "Menj be a személyzeti pihenőszobába.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-17",
+        "player_label": "A raktár folyosóján át a biztonsági irodába.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-18",
+        "player_label": "Az irodaszárny folyosóján menjen a raktárvezető irodájába.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-19",
+        "player_label": "Tekintse át a felügyelői eligazítási területet.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-20",
+        "player_label": "Kérjen kísérő engedélyt az automatizálási vezérlőterembe.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-21",
+        "player_label": "Examine the hűtőtár door latch and reader.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-22",
+        "player_label": "Járja be a C folyosó hosszát a raklapsorok között.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      },
+      {
+        "choice_id": "CHO-LOCATIONS-23",
+        "player_label": "Olvassa el az élő CZ-1 befúvott levegő hőmérséklet kijelzőjét.",
+        "bare_code": false,
+        "unexplained_choice": false,
+        "fake_branch": false,
+        "immediate_reconverge_no_effect": false
+      }
+    ]
+  },
+  "discovery_delivery": {
+    "mostly_passive_reading": false,
+    "information_grants": [
+      {
+        "grant_id": "GRANT-OBJECT",
+        "automatic_major_grant": false,
+        "direct_solution_delivery": false,
+        "hidden_exposed_too_early": false,
+        "earned_through": "object_interaction"
+      },
+      {
+        "grant_id": "GRANT-NPC",
+        "automatic_major_grant": false,
+        "direct_solution_delivery": false,
+        "hidden_exposed_too_early": false,
+        "earned_through": "npc_dialogue"
+      }
+    ]
+  },
+  "exploration_depth": {
+    "locations": [
+      {
+        "location_id": "LOC-DOCK",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      },
+      {
+        "location_id": "LOC-COLD",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      },
+      {
+        "location_id": "LOC-CONTROL",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      },
+      {
+        "location_id": "LOC-SECURITY",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      },
+      {
+        "location_id": "LOC-MANAGER",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      },
+      {
+        "location_id": "LOC-BREAK",
+        "one_paragraph_only": false,
+        "important_objects_on_arrival": false,
+        "state_resets_on_revisit": false
+      }
+    ],
+    "objects": [
+      {
+        "object_id": "OBJ-CTRL-TERM-02",
+        "mandatory": true,
+        "layered_discovery": true,
+        "shallow_tree": false
+      },
+      {
+        "object_id": "OBJ-BADGE-ARCHIVE",
+        "mandatory": true,
+        "layered_discovery": true,
+        "shallow_tree": false
+      },
+      {
+        "object_id": "OBJ-MANIFEST-WORKSTATION",
+        "mandatory": true,
+        "layered_discovery": true,
+        "shallow_tree": false
+      }
+    ]
+  },
+  "inference_quality": {
+    "inferences": [
+      {
+        "inference_id": "INF-BADGE-MISATTRIBUTED",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 2
+      },
+      {
+        "inference_id": "INF-STAGING-ROOT-CAUSE",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 3
+      },
+      {
+        "inference_id": "INF-RELABEL-FRAUD",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 3
+      },
+      {
+        "inference_id": "INF-CONTROL-ACCESS-MISMATCH",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 2
+      },
+      {
+        "inference_id": "INF-CULPRIT-SUPPORTED",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 4
+      },
+      {
+        "inference_id": "INF-PERFECT-RECONSTRUCTION",
+        "checkbox_theatre": false,
+        "answer_embedded_in_question": false,
+        "single_fact_copy": false,
+        "no_consequence": false,
+        "impossible_question": false,
+        "facts_required": 5
+      }
+    ]
+  },
+  "aha_potential": {
+    "conclusions": [
+      {
+        "conclusion_id": "CONC-WHAT",
+        "connection_structure": "multi_source_synthesis",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      },
+      {
+        "conclusion_id": "CONC-HOW",
+        "connection_structure": "multi_source_synthesis",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      },
+      {
+        "conclusion_id": "CONC-WHO",
+        "connection_structure": "multi_source_synthesis",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      },
+      {
+        "conclusion_id": "CONC-MOTIVE",
+        "connection_structure": "multi_source_synthesis",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      },
+      {
+        "conclusion_id": "CONC-PERFECT",
+        "connection_structure": "multi_source_synthesis",
+        "explicitly_waived": false,
+        "direct_conclusion_delivery": false
+      }
+    ]
+  },
+  "world_responsiveness": {
+    "revisit_persistent": true,
+    "state_effects": [
+      {
+        "state_id": "archive_sync_complete",
+        "affects_player_content": true,
+        "declared_but_inert": false,
+        "time_threshold_inert": false
+      },
+      {
+        "state_id": "dock_restricted_active",
+        "affects_player_content": true,
+        "declared_but_inert": false,
+        "time_threshold_inert": false
+      },
+      {
+        "state_id": "security_unstaffed",
+        "affects_player_content": true,
+        "declared_but_inert": false,
+        "time_threshold_inert": false
+      }
+    ]
+  },
+  "time_pressure": {
+    "deadline_irrelevant": false,
+    "exhaustive_always_fits": false,
+    "time_gated_unreachable": false
+  },
+  "failure_quality": {
+    "failures": [
+      {
+        "failure_id": "CHK-PERCEPTION-LATCH",
+        "meaningless_failure": false,
+        "no_persistent_effect": false,
+        "unfair_dead_end": false,
+        "changes_fixed_truth": false,
+        "leaks_success_content": false,
+        "free_retry": false,
+        "meaningful_effect": true
+      },
+      {
+        "failure_id": "CHK-PERCEPTION-LABEL",
+        "meaningless_failure": false,
+        "no_persistent_effect": false,
+        "unfair_dead_end": false,
+        "changes_fixed_truth": false,
+        "leaks_success_content": false,
+        "free_retry": false,
+        "meaningful_effect": true
+      },
+      {
+        "failure_id": "CHK-TECH-TEMP-TREND",
+        "meaningless_failure": false,
+        "no_persistent_effect": false,
+        "unfair_dead_end": false,
+        "changes_fixed_truth": false,
+        "leaks_success_content": false,
+        "free_retry": false,
+        "meaningful_effect": true
+      },
+      {
+        "failure_id": "CHK-PERCEPTION-LOCKER",
+        "meaningless_failure": false,
+        "no_persistent_effect": false,
+        "unfair_dead_end": false,
+        "changes_fixed_truth": false,
+        "leaks_success_content": false,
+        "free_retry": false,
+        "meaningful_effect": true
+      }
+    ]
+  },
+  "conversation_agency": {
+    "npc_routes": [
+      {
+        "npc_id": "NPC-MARCUS",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      },
+      {
+        "npc_id": "NPC-DEV",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      },
+      {
+        "npc_id": "NPC-LORI",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      },
+      {
+        "npc_id": "NPC-ELENA",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      },
+      {
+        "npc_id": "NPC-PAT",
+        "mandatory_route": true,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      },
+      {
+        "npc_id": "NPC-IT",
+        "mandatory_route": false,
+        "responds_to_relationship": true,
+        "exposition_menu_only": false,
+        "trust_declared_unused": false,
+        "identical_outcomes": false,
+        "dispenser_only": false
+      }
+    ]
+  },
+  "ending_causality": {
+    "endings": [
+      {
+        "ending_id": "END-PERFECT",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-PARTIAL-INCOMPLETE",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-PARTIAL-WRONG-CULPRIT",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-PARTIAL-TECH-ONLY",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-PARTIAL-MOTIVE-GAP",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-NARRATIVE-CONTINUE",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": true,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-HIDDEN-RECORDS",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      },
+      {
+        "ending_id": "END-TIMEOUT",
+        "causal_trace": true,
+        "final_choice_only": false,
+        "unreachable": false,
+        "decorative": false,
+        "truth_leak": false,
+        "auto_perfect_unlock": false
+      }
+    ]
+  },
+  "mode_specific": {
+    "single_investigator": {
+      "partner_dependency": false,
+      "artificial_split_remnants": false
+    },
+    "two_player": {
+      "little_joint_investigation": false,
+      "high_idle_time": false,
+      "joint_reasoning_required": false
+    }
+  },
+  "player_audit": {
+    "files": [
+      "PLAYER/OPENING.md",
+      "PLAYER/HOW_TO_PLAY.md",
+      "PLAYER/README.md",
+      "PLAYER/NAVIGATION_INDEX.md",
+      "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+      "PLAYER/SHARED/CASE_FILE.md",
+      "PLAYER/LOCATIONS.md",
+      "PLAYER/OBJECTS.md",
+      "PLAYER/NPCS.md",
+      "PLAYER/SCENES.md",
+      "PLAYER/INFERENCE.md",
+      "PLAYER/RECOVERY.md",
+      "PLAYER/ENDINGS.md"
+    ]
+  },
+  "state_graph_config": {
+    "max_states": 500000,
+    "explored_states": 131072,
+    "forced_explosion": false
+  },
+  "tier_b_mandatory": [
+    {
+      "review_id": "DF-B-AGENCY-NAV",
+      "category": "player_agency",
+      "expected": "A navigáció és az objektumválasztás diegetikus marad, csupasz kódok nélkül",
+      "resolved": false,
+      "player_excerpt_refs": [
+        {
+          "file": "PLAYER/LOCATIONS.md",
+          "anchor": "Betöltési dokkoló"
+        },
+        {
+          "file": "PLAYER/OBJECTS.md",
+          "anchor": "Jelvényarchívum terminál"
+        }
+      ]
+    },
+    {
+      "review_id": "DF-B-INFERENCE-QUALITY",
+      "category": "inference_quality",
+      "expected": "A következtetési munkalapok több rekordból álló szintézist igényelnek beágyazott válaszok nélkül",
+      "resolved": false,
+      "player_excerpt_refs": [
+        {
+          "file": "PLAYER/INFERENCE.md",
+          "anchor": "A jelvény helytelenül van feltüntetve"
+        },
+        {
+          "file": "PLAYER/INFERENCE.md",
+          "anchor": "Tökéletes rekonstrukció"
+        }
+      ]
+    },
+    {
+      "review_id": "DF-B-NPC-NEUTRALITY",
+      "category": "conversation_agency",
+      "expected": "Az NPC párbeszéd megőrzi a gyanús semlegességet és a bizalomfüggő hangszínváltásokat",
+      "resolved": false,
+      "player_excerpt_refs": [
+        {
+          "file": "PLAYER/NPCS.md",
+          "anchor": "Marcus retesz"
+        },
+        {
+          "file": "PLAYER/NPCS.md",
+          "anchor": "Lori címke"
+        }
+      ]
+    },
+    {
+      "review_id": "DF-B-ENDING-OPACITY",
+      "category": "ending_causality",
+      "expected": "A tökéletlen befejezések átlátszatlanok maradnak; A tökéletes befejezés teljes támogatott rekonstrukciót igényel",
+      "resolved": false,
+      "player_excerpt_refs": [
+        {
+          "file": "PLAYER/ENDINGS.md",
+          "anchor": "Részben hiányos"
+        },
+        {
+          "file": "PLAYER/ENDINGS.md",
+          "anchor": "Perfect"
+        }
+      ]
+    },
+    {
+      "review_id": "DF-B-TIME-PRESSURE",
+      "category": "time_pressure",
+      "expected": "Az óra által vezérelt jelenetek változásai láthatók a PLAYER revisit prózában",
+      "resolved": false,
+      "player_excerpt_refs": [
+        {
+          "file": "PLAYER/SCENES.md",
+          "anchor": "Az archívum függőben van"
+        },
+        {
+          "file": "PLAYER/SCENES.md",
+          "anchor": "Dokk korlátozás aktív"
+        }
+      ]
+    }
+  ],
+  "tier_c_playtest": {
+    "required": true,
+    "completed": false,
+    "template_path": "DO_NOT_READ/dm_feeling_reports/tier_c_playtest_questionnaire.md",
+    "observations": []
+  },
+  "local_ai_export": {
+    "required": false,
+    "ready": true,
+    "offline_runnable": true,
+    "write_reports": true
+  },
+  "layer_links": {
+    "playtime_calibration": "DO_NOT_READ/playtime_calibration_package.json"
+  }
+}

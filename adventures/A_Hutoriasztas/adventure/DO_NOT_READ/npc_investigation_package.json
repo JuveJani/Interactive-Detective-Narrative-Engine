@@ -1,0 +1,1101 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "npcs": [
+    {
+      "npc_id": "NPC-LORI",
+      "public_name": "Lori Okonkwo",
+      "role": "Logisztikai koordinátor",
+      "responsibilities": "Bejövő jegyzék-egyeztetés, WMS tételkövetés, hónap végi fogadási kivételek",
+      "personal_stakes": "A bejövő eltérések kitettségének ellenőrzése; karrier és aláírás aláírásához szükséges papírokat",
+      "technical_competence": "WMS és bevételezési jegyzék munkafolyamatok; korlátozott BMS-műveltség; nincs hűtőmérnöki bizonyítvány",
+      "static_properties": {
+        "motivation": "A fogadó kivétel elrejtése a negyedéves ellenőrzési mintavétel előtt",
+        "honesty": 0.35,
+        "deception": 0.75,
+        "manipulation": 0.45,
+        "loyalty": "self_preservation",
+        "fear": "termination_and_fraud_investigation"
+      },
+      "relationships": [
+        {
+          "target_npc_id": "NPC-DEV",
+          "relationship_type": "contractor_dependency",
+          "strength": 0.4
+        },
+        {
+          "target_npc_id": "NPC-ELENA",
+          "relationship_type": "reports_to",
+          "strength": 0.8
+        },
+        {
+          "target_npc_id": "NPC-MARCUS",
+          "relationship_type": "professional",
+          "strength": 0.3
+        }
+      ],
+      "initial_dynamic_state": {
+        "trust": 35,
+        "information_known": [
+          "INFO-LORI-01",
+          "INFO-LORI-02",
+          "INFO-LORI-03",
+          "INFO-LORI-04",
+          "INFO-LORI-05"
+        ],
+        "revealed_topics": [],
+        "suspicion": 55,
+        "pressure": 70
+      }
+    },
+    {
+      "npc_id": "NPC-MARCUS",
+      "public_name": "Marcus Hale",
+      "role": "Éjszakai biztonsági őr",
+      "responsibilities": "Door rounds, alarm panel monitoring, belépőkártya escort coordination",
+      "personal_stakes": "Kerülje el az elmulasztott jelvény áttekintését a riasztási válaszadás során",
+      "technical_competence": "Fizikai biztonsági körök; alap riasztópanel leolvasás; nem képezték ki BMS-en",
+      "static_properties": {
+        "motivation": "A demonstrációs helyszín megfelelően biztosított volt",
+        "honesty": 0.75,
+        "deception": 0.15,
+        "manipulation": 0.1,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "relationships": [
+        {
+          "target_npc_id": "NPC-ELENA",
+          "relationship_type": "reports_to",
+          "strength": 0.7
+        },
+        {
+          "target_npc_id": "NPC-PAT",
+          "relationship_type": "colleague",
+          "strength": 0.5
+        }
+      ],
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [
+          "INFO-MARCUS-01",
+          "INFO-MARCUS-02",
+          "INFO-MARCUS-03"
+        ],
+        "revealed_topics": [],
+        "suspicion": 15,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-DEV",
+      "public_name": "Dev Santos",
+      "role": "Hűtéstechnikai vállalkozó",
+      "responsibilities": "CZ-1 karbantartás CLO-1847 jegy alatt; hűtéstechnikai terminálmunka",
+      "personal_stakes": "Szerződés megújítása; professzionális hírnév a megbízható bezárásért",
+      "technical_competence": "Hűtőrendszerek, BMS karbantartási munkamenetek, kompresszor-beállítási koncepciók",
+      "static_properties": {
+        "motivation": "Név törlése a jelvénynapló-implikációból",
+        "honesty": 0.85,
+        "deception": 0.15,
+        "manipulation": 0.05,
+        "loyalty": "professional_reputation",
+        "fear": "contract_loss"
+      },
+      "relationships": [
+        {
+          "target_npc_id": "NPC-ELENA",
+          "relationship_type": "vendor_to_facility",
+          "strength": 0.6
+        },
+        {
+          "target_npc_id": "NPC-LORI",
+          "relationship_type": "contractor_dependency",
+          "strength": 0.4
+        }
+      ],
+      "initial_dynamic_state": {
+        "trust": 45,
+        "information_known": [
+          "INFO-DEV-01",
+          "INFO-DEV-02",
+          "INFO-DEV-03",
+          "INFO-DEV-04"
+        ],
+        "revealed_topics": [],
+        "suspicion": 25,
+        "pressure": 35
+      }
+    },
+    {
+      "npc_id": "NPC-ELENA",
+      "public_name": "Elena Morales",
+      "role": "Ügyeleti raktárfelügyelő",
+      "responsibilities": "Üzemi parancs riasztás közben; hozzáférési korlátozások; vállalkozó visszahívása",
+      "personal_stakes": "Megakadályozza a termékleírást; dokumentálja a megfelelésre vonatkozó elszámoltatható választ",
+      "technical_competence": "Raktári műveletek; politika érvényesítése; nem hűtési szakember",
+      "static_properties": {
+        "motivation": "Helyezze vissza a hidegláncot és akadályozza meg a működési csapadékot",
+        "honesty": 0.8,
+        "deception": 0.2,
+        "manipulation": 0.25,
+        "loyalty": "facility_operations",
+        "fear": "compliance_failure"
+      },
+      "relationships": [
+        {
+          "target_npc_id": "NPC-LORI",
+          "relationship_type": "supervises",
+          "strength": 0.8
+        },
+        {
+          "target_npc_id": "NPC-MARCUS",
+          "relationship_type": "supervises",
+          "strength": 0.7
+        },
+        {
+          "target_npc_id": "NPC-DEV",
+          "relationship_type": "vendor_to_facility",
+          "strength": 0.6
+        }
+      ],
+      "initial_dynamic_state": {
+        "trust": 40,
+        "information_known": [
+          "INFO-ELENA-01",
+          "INFO-ELENA-02",
+          "INFO-ELENA-03"
+        ],
+        "revealed_topics": [],
+        "suspicion": 20,
+        "pressure": 80
+      }
+    },
+    {
+      "npc_id": "NPC-PAT",
+      "public_name": "Pat Nguyen",
+      "role": "Takarító személyzet vezetése",
+      "responsibilities": "Kikötők és betörési területek higiénia; műszak végi takarítás",
+      "personal_stakes": "Fejezze be a műszakot anélkül, hogy csalásvizsgálatba vonná magát",
+      "technical_competence": "Facility layout familiarity; no systems access",
+      "static_properties": {
+        "motivation": "Töltsd be a műszakot és menj haza",
+        "honesty": 0.7,
+        "deception": 0.15,
+        "manipulation": 0.05,
+        "loyalty": "coworkers",
+        "fear": "being_blamed_for_propped_door"
+      },
+      "relationships": [
+        {
+          "target_npc_id": "NPC-MARCUS",
+          "relationship_type": "colleague",
+          "strength": 0.5
+        }
+      ],
+      "initial_dynamic_state": {
+        "trust": 55,
+        "information_known": [
+          "INFO-PAT-01",
+          "INFO-PAT-02"
+        ],
+        "revealed_topics": [],
+        "suspicion": 10,
+        "pressure": 25
+      }
+    },
+    {
+      "npc_id": "NPC-IT",
+      "public_name": "Jordan Reeves (íróasztal)",
+      "role": "Jelvény hozzáférési rendszergazda (csak rekordok)",
+      "responsibilities": "Éjszakai jelvényarchívum kötegelt szinkronizálása; hozzáférési rekordmegőrzési szabályzat",
+      "personal_stakes": "Nincs a helyszínen; csak az eljárási pontosság",
+      "technical_competence": "Hozzáférés az archívumrendszerekhez; ütemezések szinkronizálása",
+      "static_properties": {
+        "motivation": "Adjon pontos nyilvántartást, ha megfelelő csatornákon keresztül kérik",
+        "honesty": 0.95,
+        "deception": 0.0,
+        "manipulation": 0.0,
+        "loyalty": "policy",
+        "fear": "audit_of_IT_process"
+      },
+      "relationships": [],
+      "initial_dynamic_state": {
+        "trust": 60,
+        "information_known": [
+          "INFO-IT-01"
+        ],
+        "revealed_topics": [],
+        "suspicion": 0,
+        "pressure": 5
+      }
+    }
+  ],
+  "npc_graph": {
+    "nodes": [
+      "NPC-LORI",
+      "NPC-MARCUS",
+      "NPC-DEV",
+      "NPC-ELENA",
+      "NPC-PAT",
+      "NPC-IT"
+    ],
+    "edges": [
+      {
+        "from_npc_id": "NPC-LORI",
+        "to_npc_id": "NPC-ELENA",
+        "relationship_type": "reports_to"
+      },
+      {
+        "from_npc_id": "NPC-MARCUS",
+        "to_npc_id": "NPC-ELENA",
+        "relationship_type": "reports_to"
+      },
+      {
+        "from_npc_id": "NPC-LORI",
+        "to_npc_id": "NPC-DEV",
+        "relationship_type": "contractor_dependency"
+      },
+      {
+        "from_npc_id": "NPC-DEV",
+        "to_npc_id": "NPC-LORI",
+        "relationship_type": "contractor_dependency"
+      },
+      {
+        "from_npc_id": "NPC-PAT",
+        "to_npc_id": "NPC-MARCUS",
+        "relationship_type": "colleague"
+      },
+      {
+        "from_npc_id": "NPC-ELENA",
+        "to_npc_id": "NPC-DEV",
+        "relationship_type": "vendor_to_facility"
+      }
+    ]
+  },
+  "information_known_model": [
+    {
+      "info_id": "INFO-LORI-01",
+      "npc_id": "NPC-LORI",
+      "knowledge_id": "KNOW-LORI-MANIFEST-EXCEPTION",
+      "topic_id": "TOPIC-RECEIVING-EXCEPTION",
+      "provenance_category": "direct_action",
+      "provenance_note": "MNF-IN-4471 egyeztetve 22:35-kor"
+    },
+    {
+      "info_id": "INFO-LORI-02",
+      "npc_id": "NPC-LORI",
+      "knowledge_id": "KNOW-LORI-COLD-ACCESS",
+      "topic_id": "TOPIC-COLD-ACCESS-DENY",
+      "provenance_category": "direct_action",
+      "provenance_note": "Használt kölcsönjelvény; tagadni fogja, hacsak nem nyomást gyakorolnak rá"
+    },
+    {
+      "info_id": "INFO-LORI-03",
+      "npc_id": "NPC-LORI",
+      "knowledge_id": "KNOW-LORI-CONTROL-PRESENCE",
+      "topic_id": "TOPIC-CONTROL-ROOM",
+      "provenance_category": "direct_action",
+      "provenance_note": "Belépett a vezérlőterembe; minimalizálja a terminál érintkezését"
+    },
+    {
+      "info_id": "INFO-LORI-04",
+      "npc_id": "NPC-LORI",
+      "knowledge_id": "KNOW-LORI-DOOR-ALARM",
+      "topic_id": "TOPIC-DOOR-AJAR-MUTE",
+      "provenance_category": "direct_observation",
+      "provenance_note": "Az átcímkézés során ajtónyitottsági riasztást hallott/látott"
+    },
+    {
+      "info_id": "INFO-LORI-05",
+      "npc_id": "NPC-LORI",
+      "knowledge_id": "KNOW-LORI-RELABEL",
+      "topic_id": "TOPIC-LABEL-WORK",
+      "provenance_category": "direct_action",
+      "provenance_note": "Végzett átcímkézés; elrejtve, hacsak nem ismert a nagy nyomás plusz fizikai bizonyíték"
+    },
+    {
+      "info_id": "INFO-MARCUS-01",
+      "npc_id": "NPC-MARCUS",
+      "knowledge_id": "KNOW-MARCUS-LATCH-CHECK",
+      "topic_id": "TOPIC-DOOR-ROUNDS",
+      "provenance_category": "direct_observation",
+      "provenance_note": "A retesz 23:00-kor vizuálisan reteszelődik"
+    },
+    {
+      "info_id": "INFO-MARCUS-02",
+      "npc_id": "NPC-MARCUS",
+      "knowledge_id": "KNOW-MARCUS-HIGH-TEMP-ALARM",
+      "topic_id": "TOPIC-ALARM-PANEL",
+      "provenance_category": "direct_observation",
+      "provenance_note": "Látta ALM-COLD-HIGH 23:30-kor"
+    },
+    {
+      "info_id": "INFO-MARCUS-03",
+      "npc_id": "NPC-MARCUS",
+      "knowledge_id": "KNOW-MARCUS-BADGE-UNREVIEWED",
+      "topic_id": "TOPIC-BADGE-REVIEW-GAP",
+      "provenance_category": "incorrect_assumption",
+      "provenance_note": "A feltételezett jelvényolvasó megfelelt a reteszellenőrzésnek; még nem nézte át a naplót"
+    },
+    {
+      "info_id": "INFO-DEV-01",
+      "npc_id": "NPC-DEV",
+      "knowledge_id": "KNOW-DEV-CLO1847",
+      "topic_id": "TOPIC-MAINT-CLOSEOUT",
+      "provenance_category": "direct_action",
+      "provenance_note": "Törvényesen kitöltve CLO-1847"
+    },
+    {
+      "info_id": "INFO-DEV-02",
+      "npc_id": "NPC-DEV",
+      "knowledge_id": "KNOW-DEV-EXIT-TIME",
+      "topic_id": "TOPIC-CONTRACTOR-SCHEDULE",
+      "provenance_category": "direct_action",
+      "provenance_note": "Kilépés 19:02"
+    },
+    {
+      "info_id": "INFO-DEV-03",
+      "npc_id": "NPC-DEV",
+      "knowledge_id": "KNOW-DEV-BADGE-LEFT",
+      "topic_id": "TOPIC-FORGOTTEN-BADGE",
+      "provenance_category": "direct_action",
+      "provenance_note": "Ismeri a szekrényben hagyott jelvényt; szégyellni beismerni"
+    },
+    {
+      "info_id": "INFO-DEV-04",
+      "npc_id": "NPC-DEV",
+      "knowledge_id": "KNOW-DEV-SESSION-LEFT",
+      "topic_id": "TOPIC-UNLOCKED-SESSION",
+      "provenance_category": "direct_action",
+      "provenance_note": "A SVC-REFRG-MAINT munkamenet feloldva maradt; elrejtőzik, amíg a bizalom magas"
+    },
+    {
+      "info_id": "INFO-ELENA-01",
+      "npc_id": "NPC-ELENA",
+      "knowledge_id": "KNOW-ELENA-ALARM-CALL",
+      "topic_id": "TOPIC-OPERATIONS-URGENCY",
+      "provenance_category": "told",
+      "provenance_note": "Értesítés ALM-COLD-HIGH ügyeletről"
+    },
+    {
+      "info_id": "INFO-ELENA-02",
+      "npc_id": "NPC-ELENA",
+      "knowledge_id": "KNOW-ELENA-DOCK-RESTRICT",
+      "topic_id": "TOPIC-ACCESS-RESTRICTION",
+      "provenance_category": "direct_action",
+      "provenance_note": "Kikötőkorlátozást rendeltek el 03:15-kor"
+    },
+    {
+      "info_id": "INFO-ELENA-03",
+      "npc_id": "NPC-ELENA",
+      "knowledge_id": "KNOW-ELENA-LORI-LATE",
+      "topic_id": "TOPIC-STAFF-PRESENCE",
+      "provenance_category": "inferred",
+      "provenance_note": "Tudja, hogy Lori későn dolgozott a manifeszteken; nincs ismerete az átcímkézésről"
+    },
+    {
+      "info_id": "INFO-PAT-01",
+      "npc_id": "NPC-PAT",
+      "knowledge_id": "KNOW-PAT-PROPPED-DOOR",
+      "topic_id": "TOPIC-DOCK-ACTIVITY",
+      "provenance_category": "direct_observation",
+      "provenance_note": "Megtámasztott dokkajtó a kocsihoz 23:40-kor"
+    },
+    {
+      "info_id": "INFO-PAT-02",
+      "npc_id": "NPC-PAT",
+      "knowledge_id": "KNOW-PAT-SILHOUETTE",
+      "topic_id": "TOPIC-SILHOUETTE",
+      "provenance_category": "direct_observation",
+      "provenance_note": "Ismeretlen személyt láttam a hűtőcsarnok közelében; nincs azonosítás"
+    },
+    {
+      "info_id": "INFO-IT-01",
+      "npc_id": "NPC-IT",
+      "knowledge_id": "KNOW-IT-SYNC-SCHEDULE",
+      "topic_id": "TOPIC-ARCHIVE-SYNC",
+      "provenance_category": "policy",
+      "provenance_note": "Csak rekordok; A kötegelt szinkronizálás 02:30-kor szabványos"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "TOPIC-DOOR-ROUNDS",
+      "unlock_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T01:00:00"
+        }
+      ],
+      "contradiction_links": [
+        "TOPIC-BADGE-RECORDS"
+      ],
+      "time_cost_minutes": 8
+    },
+    {
+      "topic_id": "TOPIC-BADGE-RECORDS",
+      "unlock_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T02:30:00"
+        }
+      ],
+      "contradiction_links": [
+        "TOPIC-DOOR-ROUNDS"
+      ],
+      "time_cost_minutes": 10
+    },
+    {
+      "topic_id": "TOPIC-ALARM-PANEL",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-MARCUS",
+          "min": 25
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-BADGE-REVIEW-GAP",
+      "unlock_conditions": [
+        {
+          "type": "knowledge_held",
+          "knowledge_id": "KNOW-MARCUS-LATCH-CHECK"
+        },
+        {
+          "type": "knowledge_held",
+          "knowledge_id": "KNOW-BADGE-ENTRY-RECORD"
+        }
+      ],
+      "repeat_policy": "once"
+    },
+    {
+      "topic_id": "TOPIC-MAINT-CLOSEOUT",
+      "unlock_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T01:00:00"
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-FORGOTTEN-BADGE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-DEV",
+          "min": 45
+        },
+        {
+          "type": "knowledge_held",
+          "knowledge_id": "KNOW-BADGE-ENTRY-RECORD"
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-UNLOCKED-SESSION",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-DEV",
+          "min": 55
+        },
+        {
+          "type": "knowledge_held",
+          "knowledge_id": "KNOW-BMS-COMMAND-LOG"
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-CONTRACTOR-SCHEDULE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-DEV",
+          "min": 20
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-RECEIVING-EXCEPTION",
+      "unlock_conditions": [
+        {
+          "type": "knowledge_held",
+          "knowledge_id": "KNOW-MANIFEST-POD-GAP"
+        },
+        {
+          "type": "player_action",
+          "action_id": "apply_manifest_pressure"
+        }
+      ],
+      "repeat_policy": "once"
+    },
+    {
+      "topic_id": "TOPIC-COLD-ACCESS-DENY",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-LORI",
+          "min": 10
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-CONTROL-ROOM",
+      "unlock_conditions": [
+        {
+          "type": "knowledge_held",
+          "knowledge_id": "KNOW-CONTROL-ROOM-ENTRY"
+        },
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-LORI",
+          "min": 30
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-DOOR-AJAR-MUTE",
+      "unlock_conditions": [
+        {
+          "type": "knowledge_held",
+          "knowledge_id": "KNOW-DOOR-AJAR-ALARM"
+        },
+        {
+          "type": "player_action",
+          "action_id": "apply_alarm_pressure"
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-LABEL-WORK",
+      "unlock_conditions": [
+        {
+          "type": "knowledge_held",
+          "knowledge_id": "KNOW-LABEL-RESIDUE"
+        },
+        {
+          "type": "player_action",
+          "action_id": "apply_physical_evidence_pressure"
+        }
+      ],
+      "repeat_policy": "once"
+    },
+    {
+      "topic_id": "TOPIC-OPERATIONS-URGENCY",
+      "unlock_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T00:10:00"
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-ACCESS-RESTRICTION",
+      "unlock_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T03:15:00"
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-STAFF-PRESENCE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-ELENA",
+          "min": 35
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-DOCK-ACTIVITY",
+      "unlock_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T01:00:00"
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-SILHOUETTE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-PAT",
+          "min": 40
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-ARCHIVE-SYNC",
+      "unlock_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T02:30:00"
+        }
+      ],
+      "records_only": true
+    }
+  ],
+  "conversation_graph": [
+    {
+      "conversation_id": "CONV-MARCUS-DOOR",
+      "npc_id": "NPC-MARCUS",
+      "entry_topic_id": "TOPIC-DOOR-ROUNDS",
+      "route_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T01:00:00"
+        },
+        {
+          "type": "world_time",
+          "clock_max": "2026-03-13T04:30:00"
+        }
+      ],
+      "nodes": [
+        {
+          "node_id": "CN-MARCUS-01",
+          "player_label": "Kérdezd meg, mit ellenőriztél a hűtőkamra ajtaján a körök során.",
+          "npc_response_unit": "UNIT-MARCUS-LATCH",
+          "response_category": "truthful_incomplete",
+          "grants_knowledge_id": "KNOW-MARCUS-LATCH-CHECK",
+          "follow_up_topic_ids": [
+            "TOPIC-BADGE-REVIEW-GAP"
+          ],
+          "time_cost_minutes": 8
+        },
+        {
+          "node_id": "CN-MARCUS-02",
+          "player_label": "Kérdezze meg, hogy a jelvényolvasó naplója eltérhet-e a reteszellenőrzéstől.",
+          "npc_response_unit": "UNIT-MARCUS-GAP",
+          "response_category": "mistaken_honest",
+          "requires": {
+            "knowledge_id": "KNOW-BADGE-ENTRY-RECORD"
+          },
+          "grants_knowledge_id": "KNOW-MARCUS-BADGE-UNREVIEWED",
+          "contradiction_links": [
+            "TOPIC-BADGE-RECORDS"
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-MARCUS-ALARM",
+      "npc_id": "NPC-MARCUS",
+      "entry_topic_id": "TOPIC-ALARM-PANEL",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-MARCUS",
+          "min": 25
+        }
+      ],
+      "nodes": [
+        {
+          "node_id": "CN-MARCUS-03",
+          "player_label": "Kérdezze meg, mikor jelent meg először a magas hőmérsékleti riasztás a panelen.",
+          "npc_response_unit": "UNIT-MARCUS-ALARM",
+          "response_category": "truthful_observation",
+          "grants_knowledge_id": "KNOW-MARCUS-HIGH-TEMP-ALARM"
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-DEV-SCHEDULE",
+      "npc_id": "NPC-DEV",
+      "entry_topic_id": "TOPIC-CONTRACTOR-SCHEDULE",
+      "route_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T01:00:00"
+        }
+      ],
+      "nodes": [
+        {
+          "node_id": "CN-DEV-01",
+          "player_label": "Erősítse meg, mikor hagyta el ma este a webhelyet.",
+          "npc_response_unit": "UNIT-DEV-EXIT",
+          "response_category": "truthful_action",
+          "grants_knowledge_id": "KNOW-DEV-EXIT-TIME"
+        },
+        {
+          "node_id": "CN-DEV-02",
+          "player_label": "Kérdezzen a CLO-1847 bezárási részleteiről.",
+          "npc_response_unit": "UNIT-DEV-CLO1847",
+          "response_category": "truthful_action",
+          "grants_knowledge_id": "KNOW-DEV-CLO1847",
+          "follow_up_topic_ids": [
+            "TOPIC-UNLOCKED-SESSION"
+          ]
+        },
+        {
+          "node_id": "CN-DEV-03",
+          "player_label": "Nyomd meg, hogy a vállalkozói jelvényed elhagyta-e az épületet.",
+          "npc_response_unit": "UNIT-DEV-BADGE",
+          "response_category": "reluctant_truth",
+          "requires": {
+            "trust_min": 45,
+            "knowledge_id": "KNOW-BADGE-ENTRY-RECORD"
+          },
+          "grants_knowledge_id": "KNOW-DEV-BADGE-LEFT",
+          "state_effects": {
+            "trust_delta": -5,
+            "pressure_delta": 10
+          }
+        },
+        {
+          "node_id": "CN-DEV-04",
+          "player_label": "Kérdezze meg, hogy maradt-e aktív karbantartási munkamenet a CTRL-TERM-02 napon.",
+          "npc_response_unit": "UNIT-DEV-SESSION",
+          "response_category": "embarrassed_confession",
+          "requires": {
+            "trust_min": 55,
+            "knowledge_id": "KNOW-BMS-COMMAND-LOG"
+          },
+          "grants_knowledge_id": "KNOW-DEV-SESSION-LEFT"
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-LORI-MANIFEST",
+      "npc_id": "NPC-LORI",
+      "entry_topic_id": "TOPIC-COLD-ACCESS-DENY",
+      "route_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T01:00:00"
+        }
+      ],
+      "nodes": [
+        {
+          "node_id": "CN-LORI-01",
+          "player_label": "Kérdezze meg, hogy belépett-e a hűtőházba a munkaidő után.",
+          "npc_response_unit": "UNIT-LORI-DENY-COLD",
+          "response_category": "evasive_denial",
+          "grants_knowledge_id": "KNOW-LORI-EVASIVE-COLD"
+        },
+        {
+          "node_id": "CN-LORI-02",
+          "player_label": "Érdeklődjön a vezérlőterem látogatásáról 23:20 körül.",
+          "npc_response_unit": "UNIT-LORI-CONTROL-MIN",
+          "response_category": "minimizing_truth",
+          "requires": {
+            "knowledge_id": "KNOW-CONTROL-ROOM-ENTRY"
+          },
+          "grants_knowledge_id": "KNOW-LORI-CONTROL-PRESENCE"
+        },
+        {
+          "node_id": "CN-LORI-03",
+          "player_label": "Szembesüljön a MNF-IN-4471 nyilvánvaló kivételes bizonyítékaival.",
+          "npc_response_unit": "UNIT-LORI-PRESSURE",
+          "response_category": "partial_admission",
+          "requires": {
+            "knowledge_id": "KNOW-MANIFEST-POD-GAP",
+            "pressure_min": 60
+          },
+          "grants_knowledge_id": "KNOW-LORI-MANIFEST-EXCEPTION",
+          "follow_up_topic_ids": [
+            "TOPIC-LABEL-WORK"
+          ]
+        },
+        {
+          "node_id": "CN-LORI-04",
+          "player_label": "Nyomja meg a C folyosón talált címkemaradékról.",
+          "npc_response_unit": "UNIT-LORI-LABEL",
+          "response_category": "high_pressure_break",
+          "requires": {
+            "knowledge_id": "KNOW-LABEL-RESIDUE",
+            "pressure_min": 70
+          },
+          "grants_knowledge_id": "KNOW-LORI-RELABEL",
+          "state_effects": {
+            "trust_delta": -20,
+            "suspicion_delta": 30
+          }
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-ELENA-OPS",
+      "npc_id": "NPC-ELENA",
+      "entry_topic_id": "TOPIC-OPERATIONS-URGENCY",
+      "route_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T00:10:00"
+        }
+      ],
+      "nodes": [
+        {
+          "node_id": "CN-ELENA-01",
+          "player_label": "Kérdezze meg, milyen műveleti lépéseket rendelt el a riasztás után.",
+          "npc_response_unit": "UNIT-ELENA-URGENCY",
+          "response_category": "institutional_pressure",
+          "grants_knowledge_id": "KNOW-ELENA-ALARM-CALL"
+        },
+        {
+          "node_id": "CN-ELENA-02",
+          "player_label": "Kérdezd meg, hogy ki dolgozott még a helyszínen későn.",
+          "npc_response_unit": "UNIT-ELENA-STAFF",
+          "response_category": "inferred_workflow",
+          "requires": {
+            "trust_min": 35
+          },
+          "grants_knowledge_id": "KNOW-ELENA-LORI-LATE"
+        },
+        {
+          "node_id": "CN-ELENA-03",
+          "player_label": "Kérdezzen a dokkoló hozzáférési korlátozásairól.",
+          "npc_response_unit": "UNIT-ELENA-RESTRICT",
+          "response_category": "policy_action",
+          "requires": {
+            "world_time_min": "2026-03-13T03:15:00"
+          },
+          "grants_knowledge_id": "KNOW-ELENA-DOCK-RESTRICT"
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-PAT-DOCK",
+      "npc_id": "NPC-PAT",
+      "entry_topic_id": "TOPIC-DOCK-ACTIVITY",
+      "route_conditions": [
+        {
+          "type": "world_time",
+          "clock": "2026-03-13T01:00:00"
+        }
+      ],
+      "nodes": [
+        {
+          "node_id": "CN-PAT-01",
+          "player_label": "Kérdezzen a dokk és a hűtőcsarnok közelében végzett szokatlan tevékenységekről.",
+          "npc_response_unit": "UNIT-PAT-DOOR",
+          "response_category": "truthful_partial",
+          "grants_knowledge_id": "KNOW-PAT-PROPPED-DOOR"
+        },
+        {
+          "node_id": "CN-PAT-02",
+          "player_label": "Kérdezze meg, hogy be tudja-e azonosítani a látott személyt.",
+          "npc_response_unit": "UNIT-PAT-SIL",
+          "response_category": "honest_limit",
+          "requires": {
+            "trust_min": 40
+          },
+          "grants_knowledge_id": "KNOW-PAT-SILHOUETTE"
+        }
+      ]
+    }
+  ],
+  "trust_model": {
+    "default_range": {
+      "min": 0,
+      "max": 100
+    },
+    "not_globally_positive": true,
+    "modifiers": [
+      {
+        "modifier_id": "TRUST-ACCUSE-DEV-LORI-RELief",
+        "trigger": "player_accuses_npc",
+        "target_npc_id": "NPC-DEV",
+        "subject_npc_id": "NPC-LORI",
+        "relationship_reaction": {
+          "if_relationship": "contractor_dependency",
+          "trust_delta": 10
+        }
+      },
+      {
+        "modifier_id": "TRUST-ACCUSE-LORI-ELENA",
+        "trigger": "player_accuses_npc",
+        "target_npc_id": "NPC-LORI",
+        "subject_npc_id": "NPC-ELENA",
+        "relationship_reaction": {
+          "if_relationship": "supervises",
+          "trust_delta": -15
+        }
+      },
+      {
+        "modifier_id": "TRUST-ACCUSE-DEV-ELENA",
+        "trigger": "player_accuses_npc",
+        "target_npc_id": "NPC-DEV",
+        "subject_npc_id": "NPC-ELENA",
+        "relationship_reaction": {
+          "if_relationship": "vendor_to_facility",
+          "trust_delta": -20
+        }
+      },
+      {
+        "modifier_id": "TRUST-IGNORE-URGENCY-ELENA",
+        "trigger": "player_dismisses_urgency",
+        "target_npc_id": "NPC-ELENA",
+        "relationship_reaction": {
+          "trust_delta": -12
+        }
+      }
+    ]
+  },
+  "relationship_reactions": [
+    {
+      "reaction_id": "REACT-ELENA-PROTECT-LORI",
+      "actor_npc_id": "NPC-ELENA",
+      "trigger": "accuse_npc",
+      "target_npc_id": "NPC-LORI",
+      "relationship_type": "supervises",
+      "trust_delta": -10,
+      "suspicion_delta": 15
+    },
+    {
+      "reaction_id": "REACT-LORI-SCAPEGOAT-DEV",
+      "actor_npc_id": "NPC-LORI",
+      "trigger": "accuse_npc",
+      "target_npc_id": "NPC-DEV",
+      "relationship_type": "contractor_dependency",
+      "trust_delta": 8,
+      "suspicion_delta": -5
+    },
+    {
+      "reaction_id": "REACT-MARCUS-DEFEND-ROUNDS",
+      "actor_npc_id": "NPC-MARCUS",
+      "trigger": "challenge_testimony",
+      "target_npc_id": "NPC-MARCUS",
+      "relationship_type": "self",
+      "trust_delta": -8,
+      "suspicion_delta": 10
+    }
+  ],
+  "testimony_links": [
+    {
+      "testimony_id": "TEST-MARCUS-LATCH",
+      "conversation_node_id": "CN-MARCUS-01",
+      "grants_knowledge_id": "KNOW-MARCUS-LATCH-CHECK"
+    },
+    {
+      "testimony_id": "TEST-MARCUS-GAP",
+      "conversation_node_id": "CN-MARCUS-02",
+      "grants_knowledge_id": "KNOW-MARCUS-BADGE-UNREVIEWED"
+    },
+    {
+      "testimony_id": "TEST-DEV-EXIT",
+      "conversation_node_id": "CN-DEV-01",
+      "grants_knowledge_id": "KNOW-DEV-EXIT-TIME"
+    },
+    {
+      "testimony_id": "TEST-DEV-BADGE",
+      "conversation_node_id": "CN-DEV-03",
+      "grants_knowledge_id": "KNOW-DEV-BADGE-LEFT"
+    },
+    {
+      "testimony_id": "TEST-LORI-EVASIVE",
+      "conversation_node_id": "CN-LORI-01",
+      "grants_knowledge_id": "KNOW-LORI-EVASIVE-COLD"
+    },
+    {
+      "testimony_id": "TEST-PAT-SIL",
+      "conversation_node_id": "CN-PAT-02",
+      "grants_knowledge_id": "KNOW-PAT-SILHOUETTE"
+    }
+  ],
+  "availability_schedule": [
+    {
+      "npc_id": "NPC-MARCUS",
+      "segments": [
+        {
+          "from": "2026-03-13T01:00:00",
+          "until": "2026-03-13T04:30:00",
+          "location_id": "LOC-SECURITY",
+          "cooperation": "normal"
+        },
+        {
+          "from": "2026-03-13T04:30:00",
+          "until": "2026-03-13T05:00:00",
+          "location_id": "LOC-BREAK",
+          "cooperation": "unavailable",
+          "reason": "kötelező_szünet"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-ELENA",
+      "segments": [
+        {
+          "from": "2026-03-13T00:10:00",
+          "until": "2026-03-13T05:00:00",
+          "location_id": "LOC-DOCK",
+          "cooperation": "high_pressure"
+        },
+        {
+          "from": "2026-03-13T03:15:00",
+          "until": "2026-03-13T05:00:00",
+          "location_id": "LOC-DOCK",
+          "cooperation": "restricted_access_enforcement"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-DEV",
+      "segments": [
+        {
+          "from": "2026-03-13T01:00:00",
+          "until": "2026-03-13T01:30:00",
+          "location_id": "remote",
+          "cooperation": "phone_only"
+        },
+        {
+          "from": "2026-03-13T01:30:00",
+          "until": "2026-03-13T05:00:00",
+          "location_id": "LOC-DOCK",
+          "cooperation": "cooperative"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-LORI",
+      "segments": [
+        {
+          "from": "2026-03-13T01:00:00",
+          "until": "2026-03-13T05:00:00",
+          "location_id": "LOC-MANAGER",
+          "cooperation": "evasive"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-PAT",
+      "segments": [
+        {
+          "from": "2026-03-13T01:00:00",
+          "until": "2026-03-13T03:00:00",
+          "location_id": "LOC-BREAK",
+          "cooperation": "willing"
+        },
+        {
+          "from": "2026-03-13T03:00:00",
+          "until": "2026-03-13T05:00:00",
+          "location_id": "off_site",
+          "cooperation": "unavailable"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-IT",
+      "segments": [
+        {
+          "from": "2026-03-13T02:30:00",
+          "until": "2026-03-13T05:00:00",
+          "location_id": "records_remote",
+          "cooperation": "records_only"
+        }
+      ]
+    }
+  ],
+  "player_knowledge_placeholders": [
+    "KNOW-BADGE-ENTRY-RECORD",
+    "KNOW-BMS-COMMAND-LOG",
+    "KNOW-CONTROL-ROOM-ENTRY",
+    "KNOW-DOOR-AJAR-ALARM",
+    "KNOW-LABEL-RESIDUE",
+    "KNOW-MANIFEST-POD-GAP"
+  ]
+}
