@@ -1,226 +1,332 @@
-# Objektum kölcsönhatások
+# Object interactions
 <!-- unit:unit-dock-briefing-menu -->
-### Felügyelői tájékoztató
+### Supervisor briefing
 
-**Időköltség:** 2 perc
+**Time cost:** 2 min
 
-Odalépsz az eligazító asztalhoz, ahol Elena mindent lefektetett, amit eddig összegyűjtött. Elena az incidensek nyomtatott idővonalára mutat az eligazító asztalon. Jegyezze fel az idővonalat, mielőtt visszalép az ablakajtó felé. **Mit csinálsz?**
+You step up to the briefing table where Elena has laid out everything she has gathered so far. Elena points to a printed incident timeline on the briefing table. You note the timeline before stepping back toward the bay doors.
 
-- Menjen vissza a rakodó dokkba. <!-- unit:unit-escort-granted -->
-### A kíséret megadva
+**What do you do?**
 
-**Időköltség:** 3 perc
+- Return to the loading dock.
 
-Elena nem vitatkozik, amikor belépést kér a vezérlőterembe – csak a kísérőnaplóért nyúl. Elena aláír egy kísérőnaplót, és elkísér a mérnöki átjáró felé. Az aláírásával feljogosíthatja, hogy innen egyedül induljon el. **Mit csinálsz?**
+<!-- unit:unit-escort-granted -->
+### Escort granted
 
-- Menjen vissza a rakodó dokkba. <!-- unit:unit-cold-door-menu -->
-### Hűtőszekrény ajtaja
+**Time cost:** 3 min
 
-**Időköltség:** 3 perc
+Elena does not argue when you ask for automatika vezérlő access — she just reaches for the escort log. Elena signs an escort log and walks you toward the engineering passage. With her signature down, you are cleared to make the walk on your own from here.
+**What do you do?**
 
-Dér szegélyezi a keretet, ahol a hűtőház ajtaja találkozik a folyosó levegőjével. A hűtőkamra ajtaján jelvényolvasó és nehéz retesz található. Bármit is dönt az ellenőrzés mellett, maga az ajtó nem vezet sehova. **Mit csinálsz?**
+- Return to the loading dock.
 
-- Ellenőrizze a retesz hardverét, hogy nem észlelték-e a közelmúltbeli zavarokat. - Vissza a hűtőcsarnokba. <!-- unit:unit-latch-success -->
-### Reteszellenőrzés – siker
+<!-- unit:unit-cold-door-menu -->
+### hűtőtár door
 
-**Időköltség:** 4 perc
+**Time cost:** 3 min
 
-Leguggolsz, és egy lámpát vezetsz a reteszlapon, elnézve a nyilvánvalót. A reteszlemez alatt friss kopást észlel azon a helyen, ahol nemrégiben a hardvert kezelték. Jegyezze fel a kopásmintát, mielőtt felegyenesedne és visszatérne az ajtóhoz. **Mit csinálsz?**
+Frost rimes the frame where the hűtőtár door meets the corridor air. The hűtőtár door has a belépőkártya-olvasó and a heavy latch. Whatever you decide to check, the door itself is not going anywhere.
+**What do you do?**
 
-- Visszatérés a hűtőház ajtó menüjéhez. <!-- unit:unit-latch-fail -->
-### Reteszellenőrzés – hiba
+- Check the latch hardware for recent disturbance.
+- Return to the cold storage hall.
 
-**Időköltség:** 4 perc
+<!-- unit:unit-latch-success -->
+### Latch check — success
 
-Leguggolsz, és olyan gondosan ellenőrizd a reteszlemezt, ahogy a fény engedi. Ebből a szögből a reteszelő hardver közönségesnek tűnik; semmi hasznos nem tűnik ki. Itt semmi sem változtat azon, amit eddig is tudtál, ezért menj vissza az ajtóhoz. **Mit csinálsz?**
+**Time cost:** 4 min
 
-- Visszatérés a hűtőház ajtó menüjéhez. <!-- unit:unit-aisle-c-menu -->
-### C folyosó
+You crouch and run a light along the latch plate, looking past the obvious. Under the latch plate you notice fresh scuffing where hardware was recently handled. You note the wear pattern before straightening up and returning to the door.
+**What do you do?**
 
-**Időköltség:** 2 perc
+- Return to the cold storage door menu.
 
-A raklap zsugorfólia meggyűrődik a hideg léghuzat alatt, ahogy belép a sorba. A C folyosó a magas raklapsorok között fut. A folyosó mozdulatlanul tart körülötted, és arra vár, hogy átkutassanak vagy békén hagyjanak. **Mit csinálsz?**
+<!-- unit:unit-latch-fail -->
+### Latch check — failure
 
-- Keresse meg a padlón és a raklap felületén címkeragasztó-maradványokat. - Vissza a hűtőcsarnokba. <!-- unit:unit-label-success -->
-### Címkekeresés – siker
+**Time cost:** 4 min
 
-**Időköltség:** 5 perc
+You crouch and check the latch plate as carefully as the light allows. The latch hardware looks ordinary from this angle; nothing useful stands out. Nothing here changes what you already knew, so you head back to the door.
+**What do you do?**
 
-Átmész a padlón, és a raklapok hüvelykről hüvelykre néznek, figyelmen kívül hagyva az ujjaid hidegét. Friss ragasztónyomokkal visszanyerheti a címke hátlapját. Óvatosan csomagolja be a csíkot, és induljon vissza a folyosó bejárata felé. **Mit csinálsz?**
+- Return to the cold storage door menu.
 
-- Visszatérés a C folyosó menüjéhez. <!-- unit:unit-label-fail -->
-### Címkekeresés – hiba
+<!-- unit:unit-aisle-c-menu -->
+### Aisle C
 
-**Időköltség:** 5 perc
+**Time cost:** 2 min
 
-Olyan közel megy át a padlón és a raklap felületén, amennyire csak tudja. A padló és a raklap felülete rutinszerű raktári kopást mutat; semmi jellegzetes nyoma nem látszik. Üresen feljössz, és visszalépsz a folyosó bejárata felé. **Mit csinálsz?**
+raklap shrink-wrap crinkles under the cold air draft as you step into the row. Aisle C runs between high raklap rows. The aisle holds still around you, waiting to be searched or left alone.
+**What do you do?**
 
-- Visszatérés a C folyosó menüjéhez. <!-- unit:unit-label-detail -->
-### Címke időbélyegének összehasonlítása
+- Search the floor and pallet faces for label adhesive residue.
+- Return to the cold storage hall.
 
-**Időköltség:** 4 perc
+<!-- unit:unit-label-success -->
+### Label search — success
 
-A hátlappal a kezében fektesse a raklap nyugtanyomat mellé. Összehasonlítja a visszaállított háttérnyomtatási időbélyeget a raklapbevételi rekordokkal. Az időbélyeg nem egyezik az eredeti részleges raklap helyével. Mielőtt visszatérne a folyosóra, megjegyzi az eltérést az ügy aktájában. **Mit csinálsz?**
+**Time cost:** 5 min
 
-- Visszatérés a C folyosó menüjéhez. <!-- unit:unit-temp-live -->
-### Élő hőmérséklet kijelző
+You go over the floor and raklap faces inch by inch, ignoring the cold in your fingers. You recover a strip of label backing with fresh adhesive trace. You bag the strip carefully and head back toward the aisle entrance.
+**What do you do?**
 
-**Időköltség:** 1 perc
+- Return to aisle C menu.
 
-A tiszta leolvasás érdekében letörli a dér az érzékelő kijelzőjét. Az élő kijelzőn CZ-1 a befúvott levegő a hideglánc küszöbértéke feletti tartós emelkedésnél. Regisztrálja a számot, és visszafordul a terem többi része felé. **Mit csinálsz?**
+<!-- unit:unit-label-fail -->
+### Label search — failure
 
-- Vissza a hűtőcsarnokba. <!-- unit:unit-term-02-menu -->
-### Mérnöki munkaállomás
+**Time cost:** 5 min
 
-**Időköltség:** 1 perc
+You go over the floor and raklap faces as closely as you can manage. The floor and raklap faces show routine warehouse wear; no distinctive trace stands out. You come up empty and step back toward the aisle entrance.
+**What do you do?**
 
-A munkaállomás képernyője még mindig világít, pontosan úgy, ahogy valaki órákkal ezelőtt hagyta. Az CTRL-TERM-02 mérnöki munkaállomás ébren van. A terminál nem záródik be, miközben Ön eldönti, hogy mit nyit meg először. **Mit csinálsz?**
+- Return to aisle C menu.
 
-- Tekintse át a BMS parancsnaplóját ezen a terminálon. - Nyissa meg a CZ-1 zárt karbantartási jegyét. - Exportálja a CZ-1 befúvott levegő hőmérsékleti trendjét. - Vissza a vezérlőterembe. <!-- unit:unit-bms-command -->
-### BMS parancsnapló
+<!-- unit:unit-label-detail -->
+### Label timestamp comparison
 
-**Időköltség:** 4 perc
+**Time cost:** 4 min
 
-Megnyitja a parancselőzményeket, és visszagörget az első riasztás körüli ablakhoz. A parancsnaplóban megjelenik a CMD-CZ1-MUTE-STAGE, amelyet 11:22 p.m.-kor adtak ki, az SVC-REFRG-MAINT karbantartási munkamenet alatt. Másolja a bejegyzést a jegyzeteibe, és visszalép a munkaállomás menüjébe. **Mit csinálsz?**
+With the backing strip in hand, you lay it next to the raklap receipt printout. You compare the recovered backing print timestamp to raklap receipt records. The timestamp does not match the original partial-raklap location. You note the mismatch in your case file before returning to the aisle.
+**What do you do?**
 
-- Visszatérés a mérnöki munkaállomás menühöz. <!-- unit:unit-maint-ticket -->
-### Karbantartási jegy
+- Return to aisle C menu.
 
-**Időköltség:** 3 perc
+<!-- unit:unit-temp-live -->
+### Live temperature display
 
-Felhúzza a karbantartási jegyek sorát, és megtalálja a legutóbb lezárt bejegyzést a CZ-1 számára. A CLO-1847 jegyet 6:30 p.m.-kor zártuk, azzal a megjegyzéssel, hogy a SVC-REFRG-MAINT szekció zárolva maradt. Megjegyzi a lezárási megjegyzést, és visszatér a munkaállomás menüjébe. **Mit csinálsz?**
+**Time cost:** 1 min
 
-- Visszatérés a mérnöki munkaállomás menühöz. <!-- unit:unit-trend-success -->
-### Trendexport – siker
+You wipe frost off the sensor display to get a clean reading. The live display reads CZ-1 supply air at a sustained rise above the cold-chain threshold. You log the number and turn back toward the rest of the hall.
+**What do you do?**
 
-**Időköltség:** 5 perc
+- Return to the cold storage hall.
 
-Elindítja az exportálást, és kivárja a folyamatjelző sávot, miközben figyeli, ahogy felmászik. A trendexportálás befejeződött. A befúvott levegő 11:27 p.m. után felfelé hajlik Ön elmenti az exportálást helyben, és visszalép a termináltól. **Mit csinálsz?**
+<!-- unit:unit-term-02-menu -->
+### Engineering workstation
 
-- Visszatérés a mérnöki munkaállomás menühöz. <!-- unit:unit-trend-fail -->
-### Trend export — hiba
+**Time cost:** 1 min
 
-**Időköltség:** 5 perc
+The workstation screen is still lit, exactly the way someone left it hours ago. Engineering workstation CTRL-TERM-02 is awake. The terminal is not locking itself while you decide what to open first.
+**What do you do?**
 
-Elindítja az exportálást, és kivárja a folyamatjelző sávot. Az exportálási varázsló hibával záródik be; nincs trendfájl mentve. Bezárja a sikertelen párbeszédablakot, és visszalép a terminálból. **Mit csinálsz?**
+- Review the BMS command log on this terminal.
+- Open the closed maintenance ticket for CZ-1.
+- Export the CZ-1 supply air temperature trend.
+- Return to the control room.
 
-- Visszatérés a mérnöki munkaállomás menühöz. <!-- unit:unit-staging-panel -->
-### Megszakításjelző panel
+<!-- unit:unit-bms-command -->
+### BMS command log
 
-**Időköltség:** 3 perc
+**Time cost:** 4 min
 
-Egyetlen borostyánsárga jelzőfény a vezérlőpanelen az egyetlen, ami nem villog egymás után. A CZ-1 szakaszoló panelen a kompresszor felfüggesztése látható. Felírod a panel állapotát, és visszafordulsz a szoba felé. **Mit csinálsz?**
+You open the command history and scroll back to the window around the first alarm. The command log shows CMD-CZ1-MUTE-STAGE issued at 11:22 p.m. under maintenance session SVC-REFRG-MAINT. You copy the entry into your notes and back out to the workstation menu.
+**What do you do?**
 
-- Vissza a vezérlőterembe. <!-- unit:unit-alarm-history -->
-### Riasztási előzmények
+- Return to the engineering workstation menu.
 
-**Időköltség:** 3 perc
+<!-- unit:unit-maint-ticket -->
+### Maintenance ticket
 
-Visszagörgeted a riasztópanel előzményeit a ma esti egyéb értesítések zaján túl. A ALM-COLD-DOOR-AJAR riasztási előzmények listája a 11:18 p.m. és a ALM-COLD-HIGH a 11:30 p.m. helyen Mindkét időbélyeget lemásolja, mielőtt visszalép a panelről. **Mit csinálsz?**
+**Time cost:** 3 min
 
-- Vissza a biztonsági irodába. <!-- unit:unit-belépőkártya-archive-menu -->
-### Jelvényarchívum terminál
+You pull up the maintenance ticket queue and find the most recently closed entry for CZ-1. Ticket CLO-1847 closed at 6:30 p.m. with a note that session SVC-REFRG-MAINT was left unlocked. You note the closeout comment and return to the workstation menu.
+**What do you do?**
 
-**Időköltség:** 2 perc
+- Return to the engineering workstation menu.
 
-Az archív terminál állapotmezője az első dolog, amit ellenőrizni kell a lekérdezés futtatása előtt. A jelvényarchívum terminál mutatja, hogy a ma esti kötegelt feltöltés befejeződött-e. Bármit is mond a szinkronizálási állapot, a lekérdezési menü továbbra is Ön előtt van. **Mit csinálsz?**
+<!-- unit:unit-trend-success -->
+### Trend export — success
 
-- Lekérdezheti a hűtőházi bejövő jelvény bejegyzéseit ma estére. - Kérdezze le a vezérlőterem ajtaját ma estére. - Húzza ki a vállalkozó kimenő dokkoló szkennelési rekordját. - Vissza a biztonsági irodába. <!-- unit:unit-belépőkártya-cold-entry -->
-### Hűtőtároló jelvény lekérdezése
+**Time cost:** 5 min
 
-**Időköltség:** 4 perc
+You start the export and wait through the progress bar, watching it climb. The trend export completes. Supply air inflects upward after 11:27 p.m. You save the export locally and step back from the terminal.
+**What do you do?**
 
-Leszűri a jelvényarchívumot a ma esti műszak hűtőházi bejegyzéseire. A hidegtároló bejövő naplójában a belépőkártya-DEV-TEMP hitelesítési adatok a 11:14 p.m. címen láthatók. Mielőtt visszatérne az archívum menübe, jegyezze fel a hitelesítési adatokat és az időbélyeget. **Mit csinálsz?**
+- Return to the engineering workstation menu.
 
-- Visszatérés a jelvényarchívum menühöz. <!-- unit:unit-belépőkártya-control-entry -->
-### A vezérlőterem jelvényének lekérdezése
+<!-- unit:unit-trend-fail -->
+### Trend export — failure
 
-**Időköltség:** 3 perc
+**Time cost:** 5 min
 
-A szűrőt átkapcsolja ugyanahhoz az ablakhoz a vezérlőterem ajtóbemeneteire. A vezérlőterem belépési naplójában a belépőkártya-LORI jelvény a 11:20 p.m. címen látható. Az archív menübe való visszatérés előtt jegyezze fel a jelvényt és az időbélyeget. **Mit csinálsz?**
+You start the export and wait through the progress bar. The export wizard closes with an error; no trend file is saved. You close the failed dialog and step back from the terminal.
+**What do you do?**
 
-- Visszatérés a jelvényarchívum menühöz. <!-- unit:unit-exit-scan -->
-### Vállalkozó kilépési vizsgálata
+- Return to the engineering workstation menu.
 
-**Időköltség:** 3 perc
+<!-- unit:unit-staging-panel -->
+### Staging indicator panel
 
-Lehúzza a kimenő dokk vizsgálati naplót, hogy ellenőrizze a vállalkozó távozását. A kimenő dokkolóvizsgálat azt mutatja, hogy Dev Santos 7:02 p.m.-kor kilépett. Az archív menübe való visszatérés előtt jegyezze fel a kilépési időt. **Mit csinálsz?**
+**Time cost:** 3 min
 
-- Visszatérés a jelvényarchívum menühöz. <!-- unit:unit-bevételezési jegyzék-menu -->
-### Fogadó munkaállomás
+A single amber indicator on the staging panel is the only thing not blinking in sequence. The CZ-1 staging panel shows compressor staging suspended. You write down the panel state and turn back toward the room.
+**What do you do?**
 
-**Időköltség:** 2 perc
+- Return to the control room.
 
-Az egyeztető képernyő pontosan olyan, ahogy hagyták, a kivételjelző továbbra is világít. A fogadó képernyő továbbra is a MNF-IN-4471 bevételezési jegyzéket jelzi. A kivétel továbbra is fennáll, és arra vár, hogy melyik rekordot ellenőrzi először. **Mit csinálsz?**
+<!-- unit:unit-alarm-history -->
+### riasztástörténet
 
-- Hasonlítsa össze a MNF-IN-4471 jegyzéket a szállítói kézbesítési rekorddal. - Kereszthivatkozás az aláírt szolgáltatói POD-ra a kiosztásokhoz. - Vissza a vezetői irodába. <!-- unit:unit-bevételezési jegyzék-gap -->
-### Nyilvánvaló összehasonlítás
+**Time cost:** 3 min
 
-**Időköltség:** 5 perc
+You scroll the alarm panel's history back past the noise of tonight's other notifications. riasztástörténet lists ALM-COLD-DOOR-AJAR at 11:18 p.m. and ALM-COLD-HIGH at 11:30 p.m. You copy both timestamps down before stepping back from the panel.
+**What do you do?**
 
-A jegyzéket egymás mellé húzza a beolvasott kézbesítési rekorddal. A MNF-IN-4471 jegyzék nyolc beérkezett esetet mutat, míg a POD-4471 szolgáltató negyvennyolcat. Jegyezze fel a mennyiségi hiányt, mielőtt visszatérne a fogadó munkaállomásra. **Mit csinálsz?**
+- Return to the security office.
 
-- Visszatérés a bevételezési jegyzék menübe. <!-- unit:unit-pod-crossref -->
-### Carrier POD kereszthivatkozás
+<!-- unit:unit-badge-archive-menu -->
+### belépőkártya archive terminal
 
-**Időköltség:** 3 perc
+**Time cost:** 2 min
 
-Felnyitja a hordozó POD-összekötőt, hogy ellenőrizze a rekesz hozzárendelését a ténylegesen naplózott adatokkal. Az aláírt POD a teljes szállítmányt a C3 rekeszhez rendeli, és a tétel teljes vizsgálatát várja. A fogadó munkaállomásra való visszatérés előtt jegyezze fel a hozzárendelést. **Mit csinálsz?**
+The archive terminal's status field is the first thing you check before running any query. The belépőkártya archive terminal shows whether tonight's batch upload has finished. Whatever the sync status says, the query menu is still in front of you.
+**What do you do?**
 
-- Visszatérés a bevételezési jegyzék menübe. <!-- unit:unit-locker-menu -->
-### Személyzeti szekrény bank
+- Query cold storage inbound badge entries for tonight.
+- Query control room door entries for tonight.
+- Pull the contractor outbound dock scan record.
+- Return to the security office.
 
-**Időköltség:** 2 perc
+<!-- unit:unit-badge-cold-entry -->
+### hűtőtár belépőkártya query
 
-A szekrénysor hideg kávé- és tisztítószer-szagú, többnyire háborítatlanul. Több szekrény zárva van. Az egyik vállalkozó szekrény ajtaja kissé nyitva van. A nyitott szekrény ajtaja nem fog becsukódni, amíg Ön dönt. **Mit csinálsz?**
+**Time cost:** 4 min
 
-- Vizsgálja meg a nyitott vállalkozói szekrényt. - Menj vissza a pihenőszobába. <!-- unit:unit-locker-success -->
-### A szekrény ellenőrzése – siker
+You filter the belépőkártya archive down to hűtőtár entries for tonight's shift. hűtőtár inbound log shows credential belépőkártya-DEV-TEMP at 11:14 p.m. You note the credential and timestamp before returning to the archive menu.
+**What do you do?**
 
-**Időköltség:** 3 perc
+- Return to the badge archive menu.
 
-Kinyitja a résnyire nyitott ajtót, és átnézi a benne lévő összehajtott kezeslábast. A szekrény belsejében egy ideiglenes vállalkozói jelvényt talál, amelyet nem adtak vissza a kilépéskor. Megjegyzi a jelvényt, és hátralép a szekrényből. **Mit csinálsz?**
+<!-- unit:unit-badge-control-entry -->
+### automatika vezérlő belépőkártya query
 
-- Visszatérés a szekrény menüjéhez. <!-- unit:unit-locker-fail -->
-### A szekrény ellenőrzése – hiba
+**Time cost:** 3 min
 
-**Időköltség:** 3 perc
+You switch the filter to automatika vezérlő door entries for the same window. automatika vezérlő entry log shows belépőkártya belépőkártya-LORI at 11:20 p.m. You note the belépőkártya and timestamp before returning to the archive menu.
+**What do you do?**
 
-Kinyitja a résnyire nyitott ajtót, és megnézi, mi van benne. A szekrény belseje első pillantásra figyelemre méltónak tűnik. Semmi sem tűnik fel, így hátrébb lépsz a szekrényből. **Mit csinálsz?**
+- Return to the badge archive menu.
 
-- Visszatérés a szekrény menüjéhez. <!-- unit:unit-dock-view -->
-### Kilátás a kikötőből a pihenőből
+<!-- unit:unit-exit-scan -->
+### Contractor exit scan
 
-**Időköltség:** 1 perc
+**Time cost:** 3 min
 
-Kinézel a pihenőszoba ablakán a dokk felé, ahonnan most jöttél. Az ablakon keresztül a dokk-öböl látható nátriumlámpák alatt. Visszafordulsz a szobába, ha már eleget láttál. **Mit csinálsz?**
+You pull the outbound dock scan log to check the contractor's departure. Outbound dock scan shows Dev Santos exited at 7:02 p.m. You note the exit time before returning to the archive menu.
+**What do you do?**
 
-- Menj vissza a pihenőszobába. <!-- unit:unit-chk-latch-decl -->
-### Reteszészlelés ellenőrzése
+- Return to the badge archive menu.
 
-**Ellenőrzés:** egy kísérlet
+<!-- unit:unit-manifest-menu -->
+### Receiving workstation
 
-Elkötelezi magát, hogy egyetlen alapos pillantást vet a reteszre – ha már eldöntötte, ezt nem lehet újra megtenni. Ehhez a művelethez dobjon egyszer d20-at és a felsorolt ​​módosítót. **Mit csinálsz?**
+**Time cost:** 2 min
 
-- Lépjen tovább a dobása által jelzett siker vagy kudarc részhez. <!-- unit:unit-chk-label-decl -->
-### Címkekeresés ellenőrzése
+The reconciliation screen is exactly how it was left, exception flag still lit. The receiving screen still flags bevételezési jegyzék MNF-IN-4471. The exception is still open, waiting on whichever record you check first.
+**What do you do?**
 
-**Ellenőrzés:** egy kísérlet
+- Compare manifest MNF-IN-4471 to the carrier delivery record.
+- Cross-reference the signed carrier POD against bay assignments.
+- Return to the manager office.
 
-Elkötelezi magát a folyosó padlójának és a raklapfelületek alapos átvizsgálására – egy menet, nincs második pillantás. Ehhez a művelethez dobjon egyszer d20-at és a felsorolt ​​módosítót. **Mit csinálsz?**
+<!-- unit:unit-manifest-gap -->
+### bevételezési jegyzék comparison
 
-- Lépjen tovább a dobása által jelzett siker vagy kudarc részhez. <!-- unit:unit-chk-trend-decl -->
-### Trend export ellenőrzés
+**Time cost:** 5 min
 
-**Ellenőrzés:** egy kísérlet
+You pull the bevételezési jegyzék up side by side with the scanned delivery record. bevételezési jegyzék MNF-IN-4471 shows eight cases received while carrier POD-4471 lists forty-eight. You note the quantity gap before returning to the receiving workstation.
+**What do you do?**
 
-Ön vállalja, hogy az exportálást a BMS-menükön keresztül futtatja – egy próbálkozás, és a felület nem bocsát meg egy rossz kattintást. Ehhez a művelethez dobjon egyszer d20-at és a felsorolt ​​módosítót. **Mit csinálsz?**
+- Return to the manifest menu.
 
-- Lépjen tovább a dobása által jelzett siker vagy kudarc részhez. <!-- unit:unit-chk-locker-decl -->
-### Locker észlelés ellenőrzése
+<!-- unit:unit-pod-crossref -->
+### Carrier POD cross-reference
 
-**Ellenőrzés:** egy kísérlet
+**Time cost:** 3 min
 
-Ön vállalja, hogy megfelelően ellenőrzi a nyitott szekrény belsejét – egy pillantás, nem egy gyors pillantás. Ehhez a művelethez dobjon egyszer d20-at és a felsorolt ​​módosítót. **Mit csinálsz?**
+You flip open the carrier POD binder to check the bay assignment against what was actually logged. The signed POD assigns the full shipment to bay C3 expecting a complete lot scan. You note the assignment before returning to the receiving workstation.
+**What do you do?**
 
-- Lépjen tovább a dobása által jelzett siker vagy kudarc részhez.
+- Return to the manifest menu.
+
+<!-- unit:unit-locker-menu -->
+### Staff locker bank
+
+**Time cost:** 2 min
+
+The locker row smells like cold coffee and cleaning solution, mostly undisturbed. Several lockers are closed. One contractor locker door sits slightly open. The open locker door is not going to close itself while you decide.
+**What do you do?**
+
+- Inspect the ajar contractor locker.
+- Return to the break room.
+
+<!-- unit:unit-locker-success -->
+### Locker inspect — success
+
+**Time cost:** 3 min
+
+You ease the ajar door open and check past the folded coveralls inside. Inside the locker you find a contractor temporary belépőkártya that was not returned at exit. You note the belépőkártya and step back from the locker bank.
+**What do you do?**
+
+- Return to the locker menu.
+
+<!-- unit:unit-locker-fail -->
+### Locker inspect — failure
+
+**Time cost:** 3 min
+
+You ease the ajar door open and check what is inside. The locker interior looks unremarkable at a glance. Nothing stands out, so you step back from the locker bank.
+**What do you do?**
+
+- Return to the locker menu.
+
+<!-- unit:unit-dock-view -->
+### Dock view from break room
+
+**Time cost:** 1 min
+
+You glance out the break room window toward the dock you just came from. Through the window you see the dock bay under sodium lights. You turn back into the room once you have seen enough.
+**What do you do?**
+
+- Return to the break room.
+
+<!-- unit:unit-chk-latch-decl -->
+### Latch észlelési ellenőrzés
+
+**Check:** one attempt
+
+You commit to a single careful look at the latch — there is no redoing this once you have decided. Roll d20 plus your listed modifier once for this action.
+**What do you do?**
+
+- Proceed to the success or failure section indicated by your roll.
+
+<!-- unit:unit-chk-label-decl -->
+### Label search check
+
+**Check:** one attempt
+
+You commit to a close search of the aisle floor and raklap faces — one pass, no second look. Roll d20 plus your listed modifier once for this action.
+**What do you do?**
+
+- Proceed to the success or failure section indicated by your roll.
+
+<!-- unit:unit-chk-trend-decl -->
+### Trend export check
+
+**Check:** one attempt
+
+You commit to running the export through the BMS menus — one attempt, and the interface will not be forgiving of a wrong click. Roll d20 plus your listed modifier once for this action.
+**What do you do?**
+
+- Proceed to the success or failure section indicated by your roll.
+
+<!-- unit:unit-chk-locker-decl -->
+### Locker észlelési ellenőrzés
+
+**Check:** one attempt
+
+You commit to checking inside the ajar locker properly — one look, not a quick glance. Roll d20 plus your listed modifier once for this action.
+**What do you do?**
+
+- Proceed to the success or failure section indicated by your roll.

@@ -11,7 +11,7 @@
     "choices": [
       {
         "choice_id": "CHO-INFERENCE-0",
-        "player_label": "Hűtőszekrény bejövő jelvény bejegyzés (biztonsági iroda archívum)",
+        "player_label": "Cold storage inbound badge entry (security office archive)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -19,7 +19,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-1",
-        "player_label": "Vállalkozó kimenő dokkoló szkennelése (biztonsági iroda archívuma)",
+        "player_label": "Contractor outbound dock scan (security office archive)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -27,7 +27,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-2",
-        "player_label": "A vállalkozó saját beszámolója a hátrahagyott jelvényről (szüneti szekrény vagy interjú)",
+        "player_label": "Contractor's own account of the badge left behind (break room locker or interview)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -35,7 +35,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-3",
-        "player_label": "BMS parancsnapló (vezérlőterem munkaállomás)",
+        "player_label": "BMS command log (control room workstation)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -43,7 +43,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-4",
-        "player_label": "CZ-1 állomásjelző panel (vezérlőterem)",
+        "player_label": "CZ-1 staging indicator panel (control room)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -51,7 +51,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-5",
-        "player_label": "CZ-1 befújt levegő hőmérsékleti trend exportálása (vezérlőterem munkaállomás)",
+        "player_label": "CZ-1 supply air temperature trend export (control room workstation)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -59,7 +59,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-6",
-        "player_label": "Címkeragasztó-maradék és időbélyeg összehasonlítása (C folyosó)",
+        "player_label": "Label adhesive residue and timestamp comparison (aisle C)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -67,7 +67,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-7",
-        "player_label": "bevételezési jegyzék MNF-IN-4471 versus szolgáltató POD-4471 (vezetői iroda)",
+        "player_label": "Manifest MNF-IN-4471 versus carrier POD-4471 (manager office)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -75,7 +75,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-8",
-        "player_label": "Koordinátor beszámolója a fogadó kivételről (vezetői irodai interjú)",
+        "player_label": "Coordinator's account of the receiving exception (manager office interview)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -83,7 +83,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-9",
-        "player_label": "Vezérlőterem ajtó jelvény bejegyzés (biztonsági iroda archívuma)",
+        "player_label": "Control room door badge entry (security office archive)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -91,7 +91,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-10",
-        "player_label": "BMS parancsnapló és munkamenet azonosító (vezérlőterem munkaállomás)",
+        "player_label": "BMS command log and session identifier (control room workstation)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -99,7 +99,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-11",
-        "player_label": "Everything you have gathered on belépőkártya access, automatika vezérlő entry, and bevételezési jegyzék fraud",
+        "player_label": "Everything you have gathered on badge access, control room entry, and manifest fraud",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -107,7 +107,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-12",
-        "player_label": "Kereszthivatkozásos időbélyegek a biztonsági hivataltól",
+        "player_label": "Cross-referenced timestamps from the security office",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -115,7 +115,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-13",
-        "player_label": "A fenti munkalapokon felsorolt ​​összes rekordszál",
+        "player_label": "Every record thread listed in the worksheets above",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -123,7 +123,7 @@
       },
       {
         "choice_id": "CHO-INFERENCE-14",
-        "player_label": "A karbantartási jegy és az ajtónyitott riasztó előzményei (irányítóterem és biztonsági iroda)",
+        "player_label": "The maintenance ticket and door-ajar alarm history (control room and security office)",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -131,7 +131,7 @@
       },
       {
         "choice_id": "CHO-LOCATIONS-15",
-        "player_label": "Menjen át a dokkfolyosón a hűtőcsarnokba.",
+        "player_label": "Walk through the dock corridor to the cold storage hall.",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -139,7 +139,7 @@
       },
       {
         "choice_id": "CHO-LOCATIONS-16",
-        "player_label": "Menj be a személyzeti pihenőszobába.",
+        "player_label": "Head inside to the staff break room.",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -147,7 +147,7 @@
       },
       {
         "choice_id": "CHO-LOCATIONS-17",
-        "player_label": "A raktár folyosóján át a biztonsági irodába.",
+        "player_label": "Cut through the warehouse corridor to the security office.",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -155,7 +155,7 @@
       },
       {
         "choice_id": "CHO-LOCATIONS-18",
-        "player_label": "Az irodaszárny folyosóján menjen a raktárvezető irodájába.",
+        "player_label": "Take the office wing corridor to the warehouse manager office.",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -163,7 +163,7 @@
       },
       {
         "choice_id": "CHO-LOCATIONS-19",
-        "player_label": "Tekintse át a felügyelői eligazítási területet.",
+        "player_label": "Review the supervisor briefing area.",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -171,7 +171,7 @@
       },
       {
         "choice_id": "CHO-LOCATIONS-20",
-        "player_label": "Kérjen kísérő engedélyt az automatizálási vezérlőterembe.",
+        "player_label": "Request escort clearance to the automation control room.",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -179,7 +179,7 @@
       },
       {
         "choice_id": "CHO-LOCATIONS-21",
-        "player_label": "Examine the hűtőtár door latch and reader.",
+        "player_label": "Examine the cold storage door latch and reader.",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -187,7 +187,7 @@
       },
       {
         "choice_id": "CHO-LOCATIONS-22",
-        "player_label": "Járja be a C folyosó hosszát a raklapsorok között.",
+        "player_label": "Walk the length of aisle C between the pallet rows.",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -195,7 +195,7 @@
       },
       {
         "choice_id": "CHO-LOCATIONS-23",
-        "player_label": "Olvassa el az élő CZ-1 befúvott levegő hőmérséklet kijelzőjét.",
+        "player_label": "Read the live CZ-1 supply air temperature display.",
         "bare_code": false,
         "unexplained_choice": false,
         "fake_branch": false,
@@ -617,60 +617,60 @@
     {
       "review_id": "DF-B-AGENCY-NAV",
       "category": "player_agency",
-      "expected": "A navigáció és az objektumválasztás diegetikus marad, csupasz kódok nélkül",
+      "expected": "Navigation and object choices remain diegetic with no bare codes",
       "resolved": false,
       "player_excerpt_refs": [
         {
           "file": "PLAYER/LOCATIONS.md",
-          "anchor": "Betöltési dokkoló"
+          "anchor": "Loading dock"
         },
         {
           "file": "PLAYER/OBJECTS.md",
-          "anchor": "Jelvényarchívum terminál"
+          "anchor": "Badge archive terminal"
         }
       ]
     },
     {
       "review_id": "DF-B-INFERENCE-QUALITY",
       "category": "inference_quality",
-      "expected": "A következtetési munkalapok több rekordból álló szintézist igényelnek beágyazott válaszok nélkül",
+      "expected": "Inference worksheets require multi-record synthesis without embedded answers",
       "resolved": false,
       "player_excerpt_refs": [
         {
           "file": "PLAYER/INFERENCE.md",
-          "anchor": "A jelvény helytelenül van feltüntetve"
+          "anchor": "Badge misattributed"
         },
         {
           "file": "PLAYER/INFERENCE.md",
-          "anchor": "Tökéletes rekonstrukció"
+          "anchor": "Perfect reconstruction"
         }
       ]
     },
     {
       "review_id": "DF-B-NPC-NEUTRALITY",
       "category": "conversation_agency",
-      "expected": "Az NPC párbeszéd megőrzi a gyanús semlegességet és a bizalomfüggő hangszínváltásokat",
+      "expected": "NPC dialogue preserves suspect neutrality and trust-gated tone shifts",
       "resolved": false,
       "player_excerpt_refs": [
         {
           "file": "PLAYER/NPCS.md",
-          "anchor": "Marcus retesz"
+          "anchor": "Marcus latch"
         },
         {
           "file": "PLAYER/NPCS.md",
-          "anchor": "Lori címke"
+          "anchor": "Lori label"
         }
       ]
     },
     {
       "review_id": "DF-B-ENDING-OPACITY",
       "category": "ending_causality",
-      "expected": "A tökéletlen befejezések átlátszatlanok maradnak; A tökéletes befejezés teljes támogatott rekonstrukciót igényel",
+      "expected": "Imperfect endings remain opaque; perfect ending requires full supported reconstruction",
       "resolved": false,
       "player_excerpt_refs": [
         {
           "file": "PLAYER/ENDINGS.md",
-          "anchor": "Részben hiányos"
+          "anchor": "Partial incomplete"
         },
         {
           "file": "PLAYER/ENDINGS.md",
@@ -681,16 +681,16 @@
     {
       "review_id": "DF-B-TIME-PRESSURE",
       "category": "time_pressure",
-      "expected": "Az óra által vezérelt jelenetek változásai láthatók a PLAYER revisit prózában",
+      "expected": "Clock-driven scene changes are visible in PLAYER revisit prose",
       "resolved": false,
       "player_excerpt_refs": [
         {
           "file": "PLAYER/SCENES.md",
-          "anchor": "Az archívum függőben van"
+          "anchor": "Archive pending"
         },
         {
           "file": "PLAYER/SCENES.md",
-          "anchor": "Dokk korlátozás aktív"
+          "anchor": "Dock restriction active"
         }
       ]
     }

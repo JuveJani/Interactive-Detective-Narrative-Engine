@@ -5,12 +5,12 @@
     {
       "npc_id": "NPC-LORI",
       "public_name": "Lori Okonkwo",
-      "role": "Logisztikai koordinátor",
-      "responsibilities": "Bejövő jegyzék-egyeztetés, WMS tételkövetés, hónap végi fogadási kivételek",
-      "personal_stakes": "A bejövő eltérések kitettségének ellenőrzése; karrier és aláírás aláírásához szükséges papírokat",
-      "technical_competence": "WMS és bevételezési jegyzék munkafolyamatok; korlátozott BMS-műveltség; nincs hűtőmérnöki bizonyítvány",
+      "role": "Logistics coordinator",
+      "responsibilities": "Inbound manifest reconciliation, WMS lot tracking, month-end receiving exceptions",
+      "personal_stakes": "Audit exposure on inbound discrepancies; career and clearance to sign receiving paperwork",
+      "technical_competence": "WMS and manifest workflows; limited BMS literacy; no refrigeration engineering credential",
       "static_properties": {
-        "motivation": "A fogadó kivétel elrejtése a negyedéves ellenőrzési mintavétel előtt",
+        "motivation": "Hide receiving exception before quarterly audit sampling",
         "honesty": 0.35,
         "deception": 0.75,
         "manipulation": 0.45,
@@ -51,12 +51,12 @@
     {
       "npc_id": "NPC-MARCUS",
       "public_name": "Marcus Hale",
-      "role": "Éjszakai biztonsági őr",
-      "responsibilities": "Door rounds, alarm panel monitoring, belépőkártya escort coordination",
-      "personal_stakes": "Kerülje el az elmulasztott jelvény áttekintését a riasztási válaszadás során",
-      "technical_competence": "Fizikai biztonsági körök; alap riasztópanel leolvasás; nem képezték ki BMS-en",
+      "role": "Night security guard",
+      "responsibilities": "Door rounds, alarm panel monitoring, badge escort coordination",
+      "personal_stakes": "Avoid write-up for missed badge review during alarm response",
+      "technical_competence": "Physical security rounds; basic alarm panel reading; not trained on BMS",
       "static_properties": {
-        "motivation": "A demonstrációs helyszín megfelelően biztosított volt",
+        "motivation": "Demonstrate site was properly secured",
         "honesty": 0.75,
         "deception": 0.15,
         "manipulation": 0.1,
@@ -90,12 +90,12 @@
     {
       "npc_id": "NPC-DEV",
       "public_name": "Dev Santos",
-      "role": "Hűtéstechnikai vállalkozó",
-      "responsibilities": "CZ-1 karbantartás CLO-1847 jegy alatt; hűtéstechnikai terminálmunka",
-      "personal_stakes": "Szerződés megújítása; professzionális hírnév a megbízható bezárásért",
-      "technical_competence": "Hűtőrendszerek, BMS karbantartási munkamenetek, kompresszor-beállítási koncepciók",
+      "role": "Refrigeration contractor",
+      "responsibilities": "CZ-1 maintenance under ticket CLO-1847; refrigeration engineering terminal work",
+      "personal_stakes": "Contract renewal; professional reputation for reliable closeout",
+      "technical_competence": "Refrigeration systems, BMS maintenance sessions, compressor staging concepts",
       "static_properties": {
-        "motivation": "Név törlése a jelvénynapló-implikációból",
+        "motivation": "Clear name from badge log implication",
         "honesty": 0.85,
         "deception": 0.15,
         "manipulation": 0.05,
@@ -130,12 +130,12 @@
     {
       "npc_id": "NPC-ELENA",
       "public_name": "Elena Morales",
-      "role": "Ügyeleti raktárfelügyelő",
-      "responsibilities": "Üzemi parancs riasztás közben; hozzáférési korlátozások; vállalkozó visszahívása",
-      "personal_stakes": "Megakadályozza a termékleírást; dokumentálja a megfelelésre vonatkozó elszámoltatható választ",
-      "technical_competence": "Raktári műveletek; politika érvényesítése; nem hűtési szakember",
+      "role": "On-call warehouse supervisor",
+      "responsibilities": "Operational command during alarm; access restrictions; contractor recall",
+      "personal_stakes": "Prevent product write-off; document accountable response for compliance",
+      "technical_competence": "Warehouse operations; policy enforcement; not refrigeration specialist",
       "static_properties": {
-        "motivation": "Helyezze vissza a hidegláncot és akadályozza meg a működési csapadékot",
+        "motivation": "Restore cold chain and contain operational fallout",
         "honesty": 0.8,
         "deception": 0.2,
         "manipulation": 0.25,
@@ -174,12 +174,12 @@
     {
       "npc_id": "NPC-PAT",
       "public_name": "Pat Nguyen",
-      "role": "Takarító személyzet vezetése",
-      "responsibilities": "Kikötők és betörési területek higiénia; műszak végi takarítás",
-      "personal_stakes": "Fejezze be a műszakot anélkül, hogy csalásvizsgálatba vonná magát",
+      "role": "Cleaning crew lead",
+      "responsibilities": "Dock and break-area sanitation; end-of-shift cleanup",
+      "personal_stakes": "Finish shift without being drawn into fraud investigation",
       "technical_competence": "Facility layout familiarity; no systems access",
       "static_properties": {
-        "motivation": "Töltsd be a műszakot és menj haza",
+        "motivation": "Complete shift and go home",
         "honesty": 0.7,
         "deception": 0.15,
         "manipulation": 0.05,
@@ -206,13 +206,13 @@
     },
     {
       "npc_id": "NPC-IT",
-      "public_name": "Jordan Reeves (íróasztal)",
-      "role": "Jelvény hozzáférési rendszergazda (csak rekordok)",
-      "responsibilities": "Éjszakai jelvényarchívum kötegelt szinkronizálása; hozzáférési rekordmegőrzési szabályzat",
-      "personal_stakes": "Nincs a helyszínen; csak az eljárási pontosság",
-      "technical_competence": "Hozzáférés az archívumrendszerekhez; ütemezések szinkronizálása",
+      "public_name": "Jordan Reeves (records desk)",
+      "role": "Badge access administrator (records-only)",
+      "responsibilities": "Nightly badge archive batch sync; access record retention policy",
+      "personal_stakes": "None on-site; procedural accuracy only",
+      "technical_competence": "Access archive systems; sync schedules",
       "static_properties": {
-        "motivation": "Adjon pontos nyilvántartást, ha megfelelő csatornákon keresztül kérik",
+        "motivation": "Provide accurate records when requested through proper channels",
         "honesty": 0.95,
         "deception": 0.0,
         "manipulation": 0.0,
@@ -280,7 +280,7 @@
       "knowledge_id": "KNOW-LORI-MANIFEST-EXCEPTION",
       "topic_id": "TOPIC-RECEIVING-EXCEPTION",
       "provenance_category": "direct_action",
-      "provenance_note": "MNF-IN-4471 egyeztetve 22:35-kor"
+      "provenance_note": "Reconciled MNF-IN-4471 at 22:35"
     },
     {
       "info_id": "INFO-LORI-02",
@@ -288,7 +288,7 @@
       "knowledge_id": "KNOW-LORI-COLD-ACCESS",
       "topic_id": "TOPIC-COLD-ACCESS-DENY",
       "provenance_category": "direct_action",
-      "provenance_note": "Használt kölcsönjelvény; tagadni fogja, hacsak nem nyomást gyakorolnak rá"
+      "provenance_note": "Used borrowed badge; will deny unless pressured"
     },
     {
       "info_id": "INFO-LORI-03",
@@ -296,7 +296,7 @@
       "knowledge_id": "KNOW-LORI-CONTROL-PRESENCE",
       "topic_id": "TOPIC-CONTROL-ROOM",
       "provenance_category": "direct_action",
-      "provenance_note": "Belépett a vezérlőterembe; minimalizálja a terminál érintkezését"
+      "provenance_note": "Entered control room; will minimize terminal contact"
     },
     {
       "info_id": "INFO-LORI-04",
@@ -304,7 +304,7 @@
       "knowledge_id": "KNOW-LORI-DOOR-ALARM",
       "topic_id": "TOPIC-DOOR-AJAR-MUTE",
       "provenance_category": "direct_observation",
-      "provenance_note": "Az átcímkézés során ajtónyitottsági riasztást hallott/látott"
+      "provenance_note": "Heard/saw door-ajar alarm during relabeling"
     },
     {
       "info_id": "INFO-LORI-05",
@@ -312,7 +312,7 @@
       "knowledge_id": "KNOW-LORI-RELABEL",
       "topic_id": "TOPIC-LABEL-WORK",
       "provenance_category": "direct_action",
-      "provenance_note": "Végzett átcímkézés; elrejtve, hacsak nem ismert a nagy nyomás plusz fizikai bizonyíték"
+      "provenance_note": "Performed relabeling; concealed unless high pressure plus physical evidence known"
     },
     {
       "info_id": "INFO-MARCUS-01",
@@ -320,7 +320,7 @@
       "knowledge_id": "KNOW-MARCUS-LATCH-CHECK",
       "topic_id": "TOPIC-DOOR-ROUNDS",
       "provenance_category": "direct_observation",
-      "provenance_note": "A retesz 23:00-kor vizuálisan reteszelődik"
+      "provenance_note": "Latch visually engaged at 23:00"
     },
     {
       "info_id": "INFO-MARCUS-02",
@@ -328,7 +328,7 @@
       "knowledge_id": "KNOW-MARCUS-HIGH-TEMP-ALARM",
       "topic_id": "TOPIC-ALARM-PANEL",
       "provenance_category": "direct_observation",
-      "provenance_note": "Látta ALM-COLD-HIGH 23:30-kor"
+      "provenance_note": "Saw ALM-COLD-HIGH at 23:30"
     },
     {
       "info_id": "INFO-MARCUS-03",
@@ -336,7 +336,7 @@
       "knowledge_id": "KNOW-MARCUS-BADGE-UNREVIEWED",
       "topic_id": "TOPIC-BADGE-REVIEW-GAP",
       "provenance_category": "incorrect_assumption",
-      "provenance_note": "A feltételezett jelvényolvasó megfelelt a reteszellenőrzésnek; még nem nézte át a naplót"
+      "provenance_note": "Assumed badge reader matched latch check; had not reviewed log yet"
     },
     {
       "info_id": "INFO-DEV-01",
@@ -344,7 +344,7 @@
       "knowledge_id": "KNOW-DEV-CLO1847",
       "topic_id": "TOPIC-MAINT-CLOSEOUT",
       "provenance_category": "direct_action",
-      "provenance_note": "Törvényesen kitöltve CLO-1847"
+      "provenance_note": "Completed CLO-1847 legitimately"
     },
     {
       "info_id": "INFO-DEV-02",
@@ -352,7 +352,7 @@
       "knowledge_id": "KNOW-DEV-EXIT-TIME",
       "topic_id": "TOPIC-CONTRACTOR-SCHEDULE",
       "provenance_category": "direct_action",
-      "provenance_note": "Kilépés 19:02"
+      "provenance_note": "Exited 19:02"
     },
     {
       "info_id": "INFO-DEV-03",
@@ -360,7 +360,7 @@
       "knowledge_id": "KNOW-DEV-BADGE-LEFT",
       "topic_id": "TOPIC-FORGOTTEN-BADGE",
       "provenance_category": "direct_action",
-      "provenance_note": "Ismeri a szekrényben hagyott jelvényt; szégyellni beismerni"
+      "provenance_note": "Knows badge left in locker; embarrassed to admit"
     },
     {
       "info_id": "INFO-DEV-04",
@@ -368,7 +368,7 @@
       "knowledge_id": "KNOW-DEV-SESSION-LEFT",
       "topic_id": "TOPIC-UNLOCKED-SESSION",
       "provenance_category": "direct_action",
-      "provenance_note": "A SVC-REFRG-MAINT munkamenet feloldva maradt; elrejtőzik, amíg a bizalom magas"
+      "provenance_note": "Left SVC-REFRG-MAINT session unlocked; hides until trust high"
     },
     {
       "info_id": "INFO-ELENA-01",
@@ -376,7 +376,7 @@
       "knowledge_id": "KNOW-ELENA-ALARM-CALL",
       "topic_id": "TOPIC-OPERATIONS-URGENCY",
       "provenance_category": "told",
-      "provenance_note": "Értesítés ALM-COLD-HIGH ügyeletről"
+      "provenance_note": "Notified of ALM-COLD-HIGH on call"
     },
     {
       "info_id": "INFO-ELENA-02",
@@ -384,7 +384,7 @@
       "knowledge_id": "KNOW-ELENA-DOCK-RESTRICT",
       "topic_id": "TOPIC-ACCESS-RESTRICTION",
       "provenance_category": "direct_action",
-      "provenance_note": "Kikötőkorlátozást rendeltek el 03:15-kor"
+      "provenance_note": "Ordered dock restriction at 03:15"
     },
     {
       "info_id": "INFO-ELENA-03",
@@ -392,7 +392,7 @@
       "knowledge_id": "KNOW-ELENA-LORI-LATE",
       "topic_id": "TOPIC-STAFF-PRESENCE",
       "provenance_category": "inferred",
-      "provenance_note": "Tudja, hogy Lori későn dolgozott a manifeszteken; nincs ismerete az átcímkézésről"
+      "provenance_note": "Knows Lori worked late on manifests; no knowledge of relabeling"
     },
     {
       "info_id": "INFO-PAT-01",
@@ -400,7 +400,7 @@
       "knowledge_id": "KNOW-PAT-PROPPED-DOOR",
       "topic_id": "TOPIC-DOCK-ACTIVITY",
       "provenance_category": "direct_observation",
-      "provenance_note": "Megtámasztott dokkajtó a kocsihoz 23:40-kor"
+      "provenance_note": "Propped dock door for cart at 23:40"
     },
     {
       "info_id": "INFO-PAT-02",
@@ -408,7 +408,7 @@
       "knowledge_id": "KNOW-PAT-SILHOUETTE",
       "topic_id": "TOPIC-SILHOUETTE",
       "provenance_category": "direct_observation",
-      "provenance_note": "Ismeretlen személyt láttam a hűtőcsarnok közelében; nincs azonosítás"
+      "provenance_note": "Saw unidentified person near cold hall; no identification"
     },
     {
       "info_id": "INFO-IT-01",
@@ -416,7 +416,7 @@
       "knowledge_id": "KNOW-IT-SYNC-SCHEDULE",
       "topic_id": "TOPIC-ARCHIVE-SYNC",
       "provenance_category": "policy",
-      "provenance_note": "Csak rekordok; A kötegelt szinkronizálás 02:30-kor szabványos"
+      "provenance_note": "Records-only; batch sync at 02:30 is standard"
     }
   ],
   "topics": [
@@ -658,7 +658,7 @@
       "nodes": [
         {
           "node_id": "CN-MARCUS-01",
-          "player_label": "Kérdezd meg, mit ellenőriztél a hűtőkamra ajtaján a körök során.",
+          "player_label": "Ask what you checked on the cold storage door during rounds.",
           "npc_response_unit": "UNIT-MARCUS-LATCH",
           "response_category": "truthful_incomplete",
           "grants_knowledge_id": "KNOW-MARCUS-LATCH-CHECK",
@@ -669,7 +669,7 @@
         },
         {
           "node_id": "CN-MARCUS-02",
-          "player_label": "Kérdezze meg, hogy a jelvényolvasó naplója eltérhet-e a reteszellenőrzéstől.",
+          "player_label": "Ask whether the badge reader log could differ from a latch check.",
           "npc_response_unit": "UNIT-MARCUS-GAP",
           "response_category": "mistaken_honest",
           "requires": {
@@ -696,7 +696,7 @@
       "nodes": [
         {
           "node_id": "CN-MARCUS-03",
-          "player_label": "Kérdezze meg, mikor jelent meg először a magas hőmérsékleti riasztás a panelen.",
+          "player_label": "Ask when the high-temperature alarm first appeared on your panel.",
           "npc_response_unit": "UNIT-MARCUS-ALARM",
           "response_category": "truthful_observation",
           "grants_knowledge_id": "KNOW-MARCUS-HIGH-TEMP-ALARM"
@@ -716,14 +716,14 @@
       "nodes": [
         {
           "node_id": "CN-DEV-01",
-          "player_label": "Erősítse meg, mikor hagyta el ma este a webhelyet.",
+          "player_label": "Confirm when you left the site tonight.",
           "npc_response_unit": "UNIT-DEV-EXIT",
           "response_category": "truthful_action",
           "grants_knowledge_id": "KNOW-DEV-EXIT-TIME"
         },
         {
           "node_id": "CN-DEV-02",
-          "player_label": "Kérdezzen a CLO-1847 bezárási részleteiről.",
+          "player_label": "Ask about CLO-1847 closeout details.",
           "npc_response_unit": "UNIT-DEV-CLO1847",
           "response_category": "truthful_action",
           "grants_knowledge_id": "KNOW-DEV-CLO1847",
@@ -733,7 +733,7 @@
         },
         {
           "node_id": "CN-DEV-03",
-          "player_label": "Nyomd meg, hogy a vállalkozói jelvényed elhagyta-e az épületet.",
+          "player_label": "Press about whether your contractor badge left the building with you.",
           "npc_response_unit": "UNIT-DEV-BADGE",
           "response_category": "reluctant_truth",
           "requires": {
@@ -748,7 +748,7 @@
         },
         {
           "node_id": "CN-DEV-04",
-          "player_label": "Kérdezze meg, hogy maradt-e aktív karbantartási munkamenet a CTRL-TERM-02 napon.",
+          "player_label": "Ask whether any maintenance session was left active on CTRL-TERM-02.",
           "npc_response_unit": "UNIT-DEV-SESSION",
           "response_category": "embarrassed_confession",
           "requires": {
@@ -772,14 +772,14 @@
       "nodes": [
         {
           "node_id": "CN-LORI-01",
-          "player_label": "Kérdezze meg, hogy belépett-e a hűtőházba a munkaidő után.",
+          "player_label": "Ask whether you entered cold storage after hours.",
           "npc_response_unit": "UNIT-LORI-DENY-COLD",
           "response_category": "evasive_denial",
           "grants_knowledge_id": "KNOW-LORI-EVASIVE-COLD"
         },
         {
           "node_id": "CN-LORI-02",
-          "player_label": "Érdeklődjön a vezérlőterem látogatásáról 23:20 körül.",
+          "player_label": "Ask about your control room visit around 23:20.",
           "npc_response_unit": "UNIT-LORI-CONTROL-MIN",
           "response_category": "minimizing_truth",
           "requires": {
@@ -789,7 +789,7 @@
         },
         {
           "node_id": "CN-LORI-03",
-          "player_label": "Szembesüljön a MNF-IN-4471 nyilvánvaló kivételes bizonyítékaival.",
+          "player_label": "Confront with manifest exception evidence from MNF-IN-4471.",
           "npc_response_unit": "UNIT-LORI-PRESSURE",
           "response_category": "partial_admission",
           "requires": {
@@ -803,7 +803,7 @@
         },
         {
           "node_id": "CN-LORI-04",
-          "player_label": "Nyomja meg a C folyosón talált címkemaradékról.",
+          "player_label": "Press about label residue found in aisle C.",
           "npc_response_unit": "UNIT-LORI-LABEL",
           "response_category": "high_pressure_break",
           "requires": {
@@ -831,14 +831,14 @@
       "nodes": [
         {
           "node_id": "CN-ELENA-01",
-          "player_label": "Kérdezze meg, milyen műveleti lépéseket rendelt el a riasztás után.",
+          "player_label": "Ask what operational steps you ordered after the alarm.",
           "npc_response_unit": "UNIT-ELENA-URGENCY",
           "response_category": "institutional_pressure",
           "grants_knowledge_id": "KNOW-ELENA-ALARM-CALL"
         },
         {
           "node_id": "CN-ELENA-02",
-          "player_label": "Kérdezd meg, hogy ki dolgozott még a helyszínen későn.",
+          "player_label": "Ask who was still on site working late.",
           "npc_response_unit": "UNIT-ELENA-STAFF",
           "response_category": "inferred_workflow",
           "requires": {
@@ -848,7 +848,7 @@
         },
         {
           "node_id": "CN-ELENA-03",
-          "player_label": "Kérdezzen a dokkoló hozzáférési korlátozásairól.",
+          "player_label": "Ask about dock access restrictions.",
           "npc_response_unit": "UNIT-ELENA-RESTRICT",
           "response_category": "policy_action",
           "requires": {
@@ -871,14 +871,14 @@
       "nodes": [
         {
           "node_id": "CN-PAT-01",
-          "player_label": "Kérdezzen a dokk és a hűtőcsarnok közelében végzett szokatlan tevékenységekről.",
+          "player_label": "Ask about unusual activity near the dock and cold hall.",
           "npc_response_unit": "UNIT-PAT-DOOR",
           "response_category": "truthful_partial",
           "grants_knowledge_id": "KNOW-PAT-PROPPED-DOOR"
         },
         {
           "node_id": "CN-PAT-02",
-          "player_label": "Kérdezze meg, hogy be tudja-e azonosítani a látott személyt.",
+          "player_label": "Ask whether you could identify the person you saw.",
           "npc_response_unit": "UNIT-PAT-SIL",
           "response_category": "honest_limit",
           "requires": {
@@ -1012,7 +1012,7 @@
           "until": "2026-03-13T05:00:00",
           "location_id": "LOC-BREAK",
           "cooperation": "unavailable",
-          "reason": "kötelező_szünet"
+          "reason": "mandatory_break"
         }
       ]
     },

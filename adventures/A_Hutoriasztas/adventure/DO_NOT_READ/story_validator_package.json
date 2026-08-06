@@ -5,12 +5,12 @@
     "single_investigator"
   ],
   "story_frame": {
-    "investigation_starts_where": "rakodó dokk",
-    "investigation_starts_when": "1:00 a.m. március 13., péntek",
-    "incident_description": "magas hőmérséklet riasztás a hideg zónában CZ-1",
+    "investigation_starts_where": "loading dock",
+    "investigation_starts_when": "1:00 a.m. Friday March 13",
+    "incident_description": "high-temperature alarm on cold zone CZ-1",
     "incident_when": "11:30 p.m.",
-    "investigator_involvement": "ügyeletes hűtőtechnikus, akit a felügyelő hívott",
-    "deadline_or_constraint": "5:00 a.m. compliance selejtezés threshold",
+    "investigator_involvement": "on-call refrigeration technician called in by supervisor",
+    "deadline_or_constraint": "5:00 a.m. compliance write-off threshold",
     "reveals_culprit": false,
     "reveals_motive": false,
     "reveals_hidden_relationships": false,
@@ -22,7 +22,7 @@
       "anchor_id": "T-INV-START"
     },
     "incident_date": {
-      "label": "2026-03-12 éjszakai műszak",
+      "label": "2026-03-12 night shift",
       "anchor_id": "T-INCIDENT-DATE"
     },
     "incident_time": {
@@ -38,7 +38,7 @@
     "events": [
       {
         "event_id": "EVT-014",
-        "label": "Magas hőmérsékletű riasztó",
+        "label": "High-temperature alarm",
         "anchor_id": "T-INCIDENT-TIME",
         "ordering_index": 1,
         "ambiguous_day": false,
@@ -58,7 +58,7 @@
       },
       {
         "event_id": "EVT-019",
-        "label": "Jelvényarchívum szinkronizálása",
+        "label": "Badge archive sync",
         "anchor_id": "T-ARCHIVE-SYNC",
         "ordering_index": 3,
         "ambiguous_day": false,
@@ -68,7 +68,7 @@
       },
       {
         "event_id": "EVT-022",
-        "label": "megfelelőségi határidő",
+        "label": "Compliance deadline",
         "anchor_id": "T-DEADLINE",
         "ordering_index": 4,
         "ambiguous_day": false,
@@ -109,7 +109,7 @@
       ],
       "consequences": [
         "supervisor notification",
-        "nyomozó feladás"
+        "investigator dispatch"
       ],
       "actors": [
         "NPC-MARCUS",
@@ -133,7 +133,7 @@
   "information_facts": [
     {
       "fact_id": "FACT-BMS",
-      "term": "BMS parancsnapló",
+      "term": "BMS command log",
       "first_mention_scene": "UNIT-TERM-02-MENU",
       "explanation_scene": "UNIT-BMS-COMMAND",
       "player_understandable_at_first_use": true,
@@ -148,7 +148,7 @@
     },
     {
       "fact_id": "FACT-MANIFEST",
-      "term": "manifeszt MNF-IN-4471",
+      "term": "manifest MNF-IN-4471",
       "first_mention_scene": "UNIT-MANIFEST-MENU",
       "explanation_scene": "UNIT-MANIFEST-GAP",
       "player_understandable_at_first_use": true,
@@ -397,7 +397,7 @@
   "inference_questions": [
     {
       "question_id": "INF-BADGE-MISATTRIBUTED",
-      "player_facing_text": "A hűtőházi jelvény bejegyzése a kilépési idők összehasonlítása után is érinti a vállalkozót?",
+      "player_facing_text": "Does the cold-storage badge entry still implicate the contractor after comparing exit timing?",
       "terms_defined": true,
       "grammatically_clear": true,
       "subject_explicit": true,
@@ -410,7 +410,7 @@
     },
     {
       "question_id": "INF-STAGING-ROOT-CAUSE",
-      "player_facing_text": "Vajon a felfüggesztés – nem egyedül az ajtóriasztó – okozta a tartós hőmérséklet-emelkedést?",
+      "player_facing_text": "Did staging suspension\u2014not the door alarm alone\u2014drive the sustained temperature rise?",
       "terms_defined": true,
       "grammatically_clear": true,
       "subject_explicit": true,
@@ -423,7 +423,7 @@
     },
     {
       "question_id": "INF-RELABEL-FRAUD",
-      "player_facing_text": "Raklap átcímkézést alkalmaztak a bejövő mennyiség elrejtésére?",
+      "player_facing_text": "Was pallet relabeling used to hide the inbound quantity short-ship?",
       "terms_defined": true,
       "grammatically_clear": true,
       "subject_explicit": true,
@@ -436,7 +436,7 @@
     },
     {
       "question_id": "INF-CONTROL-ACCESS-MISMATCH",
-      "player_facing_text": "Ki adhatná ki a BMS némítási parancsot hűtőmérnöki jogosultság nélkül?",
+      "player_facing_text": "Who could issue the BMS mute command without refrigeration engineering privilege?",
       "terms_defined": true,
       "grammatically_clear": true,
       "subject_explicit": true,
@@ -449,7 +449,7 @@
     },
     {
       "question_id": "INF-CULPRIT-SUPPORTED",
-      "player_facing_text": "Melyik szerepkört támogatják a független hozzáférés, a csalások és a vezérlőterem nyilvántartása?",
+      "player_facing_text": "Which role is supported by independent access, fraud, and control-room records?",
       "terms_defined": true,
       "grammatically_clear": true,
       "subject_explicit": true,
@@ -462,7 +462,7 @@
     },
     {
       "question_id": "INF-PERFECT-RECONSTRUCTION",
-      "player_facing_text": "Rekonstruálhatja-e a csalás eltitkolását, az illetéktelen hozzáférést és a felfüggesztést egy támogatott idővonalként?",
+      "player_facing_text": "Can you reconstruct fraud concealment, unauthorized access, and staging suspension as one supported timeline?",
       "terms_defined": true,
       "grammatically_clear": true,
       "subject_explicit": true,
@@ -599,16 +599,30 @@
       "CZ",
       "DEV",
       "DOOR",
+      "ENDINGS",
+      "GAMEBOOK",
       "HIGH",
+      "HOW",
       "IN",
+      "INDEX",
+      "INFERENCE",
       "IT",
+      "LED",
+      "LOCATIONS",
       "LORI",
       "MAINT",
       "MNF",
       "MUTE",
+      "NAVIGATION",
+      "NPCS",
+      "OBJECTS",
       "OPENING",
+      "PLAYER",
       "POD",
+      "README",
+      "RECOVERY",
       "REFRG",
+      "SCENES",
       "STAGE",
       "SVC",
       "TEMP",
@@ -622,11 +636,11 @@
       ],
       "Marcus Hale": [
         "Marcus",
-        "biztonsági őr"
+        "security guard"
       ],
       "Lori Okonkwo": [
         "Lori",
-        "logisztikai koordinátor"
+        "logistics coordinator"
       ],
       "Dev Santos": [
         "Dev",
@@ -634,7 +648,7 @@
       ],
       "Pat Nguyen": [
         "Pat",
-        "takarító személyzet vezetése"
+        "cleaning crew lead"
       ]
     },
     "entries": [

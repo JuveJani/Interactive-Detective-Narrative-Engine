@@ -1,80 +1,80 @@
-# Képességellenőrzés jóváhagyási jelentés – JÁTÉKOS TEST TULAJDONOS (Spoilermentes)
+# képességellenőrzéss Approval Report — PLAYER TEST OWNER (Spoiler-Free)
 
-**Kaland:** A hűtőház riasztója  
+**Adventure:** A hűtőriasztás  
 **Stage gate:** `capability_checks`  
-**Állapot:** `VÁRAKOZÁS_JÓVÁHAGYÁS`
+**Status:** `AWAITING_APPROVAL`
 
 ---
 
-## Spoilermentes képesség-ellenőrzés
+## Spoiler-free capability-check assessment
 
-| Követelmény | Állapot |
+| Requirement | Status |
 |-------------|--------|
-| Minden hivatkozott ellenőrzés meghatározott | Igen – 4 ellenőrzés megoldja az objektum-interakciós kötéseket |
-| Rögzített igazság és bizonyíték megőrizve | Igen – minden invariáns nem deklarál világigazság mutációt |
-| Az ellenőrzések csak az észlelést/hozzáférést/művelet sikerességét érintik | Igen – nincs bizonyíték létrehozása vagy dokumentum átírása |
-| Egy kísérletes alapértelmezett | Igen – minden ellenőrzés `one_attempt` házirendet használ |
-| Külön siker és kudarc célpontok | Igen – csekkenként külön rendeltetési egységek |
-| A kudarc nem fedi fel rejtett sikertartalmat | Igen – a hiba egységek nem utalnak; validátor CAP-FAIL-LEAK PASS |
-| A DC-k indokoltak és következetesek | Igen – dc_justification minden ellenőrzésnél; sávok 11–14 |
-| A nyomozói jogosultság kifejezett | Igen – aktív nyomozó / helyszíni kétjátékos |
-| Nincs ingyenes újrapróbálkozás | Igen — egy_kísérlet csak jövőbeli bővítési ponttal |
-| Nincs hamis ellenőrzés | Igen – minden ellenőrzés kapuja a valós opcionális vagy alternatív megfigyeléseket |
-| Nincs külön kirakós mechanika | Igen – standard d20 + módosító felbontás |
-| A csekk nélküli végleges megoldás | Igen – a siker csak megfigyelési szintű tudást biztosít |
-| Az elérhetőséggel kompatibilis befejezés | Igen — A vizsgálat-ellenőrző állapotgráf PASS (131 072 állapot) |
+| All referenced checks defined | Yes — 4 checks resolve object-interaction bindings |
+| Fixed truth and evidence preserved | Yes — all invariants declare no world-truth mutation |
+| Checks affect perception/access/action success only | Yes — no evidence creation or document rewriting |
+| One-attempt default | Yes — all checks use `one_attempt` policy |
+| Separate success and failure destinations | Yes — distinct destination units per check |
+| Failure does not reveal hidden success content | Yes — failure units flagged no-hint; validator CAP-FAIL-LEAK PASS |
+| DCs justified and consistent | Yes — dc_justification on all checks; bands 11–14 |
+| Investigator eligibility explicit | Yes — active investigator / at-scene for two-player |
+| No free retries | Yes — one_attempt with future extension point only |
+| No false checks | Yes — all checks gate real optional-or-alternate observations |
+| No dedicated puzzle mechanics | Yes — standard d20 + modifier resolution |
+| No check grants final solution | Yes — success grants observation-level knowledge only |
+| Ending reachability compatible | Yes — Investigation Validator state graph PASS (131,072 states) |
 
-| Kategória ellenőrzése | Gróf | Megjegyzések |
-|-----------------|------:|-------|
-| Érzékelés / megfigyelés | 3 | Hideg folyosó keresése, reteszkopás, szekrény ellenőrzése |
-| Műszaki üzemeltetés | 1 | Mérnöki terminál trend export |
-| Szociális | 0 | Nincs NPC ellenőrzés ebben a kalandban |
-
----
-
-## Spoilermentes hiba- és helyreállítási értékelés
-
-| Csekk típusa | Hiba esetén | A nyomozás megőrizve: |
-|------------|------------|-----------------------------|
-| Fizikai keresés (folyosó) | Nem találtak nyomot | bevételezési jegyzék rekordok és interjúszálak kezelője |
-| Fizikai keresés (szekrény) | Locker nem meggyőző | Biztonsági archív jelvény lekérdezések |
-| Fizikai keresés (retesz) | A hardver rutinszerűnek tűnik | Biztonsági archívum és tanúvallomások |
-| Műszaki export | Exportálási hiba | Élő hőmérséklet-kijelző és állomásozó panel áttekintése |
-
-Mind a négy ellenőrzés kijelenti, hogy az "alternate_route_exists: true" a helyreállítási útvonalak már szerepelnek a vizsgálati folyamatrétegben. A címkék és a trendek meghibásodása esetén a folyamat-újralátogatások továbbra is vezetékesek maradnak. Egyetlen kötelező útvonal-ellenőrzés sem tönkreteheti az összes útvonalat (IV-CHECK-FAIRNESS PASS).
+| Check category | Count | Notes |
+|----------------|------:|-------|
+| Perception / observation | 3 | Cold aisle search, latch wear, locker inspect |
+| Technical operation | 1 | Engineering terminal trend export |
+| Social | 0 | No NPC checks in this adventure |
 
 ---
 
-## Fennmaradó strukturális aggályok
+## Spoiler-free failure and recovery assessment
 
-1. PLAYER kézbesítési próza nincs szerződve – a célegység player_text csak strukturális helyőrző.
-2. A reteszelés és a szekrényellenőrzés sikertelensége esetén a folyamatjelzők deklarálva vannak a képesség metaadatai között, de még nem tükröződnek az áramlás kezdeti állapotában (opcionális ízellenőrzések).
-3. Az NPC-csomag továbbra is tartalmaz örökölt helyőrző-azonosítókat; A futásidejű felbontás a vizsgálati magtérképen keresztül folytatódik.
-4. Tier B játékteszt ajánlott annak megerősítésére, hogy a próza tisztességesnek érzi magát az asztalnál anélkül, hogy utalna a kihagyott tartalomra.
-5. Fizetett újrapróbálkozási bővítési pont lefoglalva, de a motorban nincs implementálva.
+| Check type | On failure | Investigation preserved via |
+|------------|------------|----------------------------|
+| Physical search (aisle) | No trace recovered | Manager bevételezési jegyzék records and interview threads |
+| Physical search (locker) | Locker inconclusive | Security archive belépőkártya queries |
+| Physical search (latch) | Hardware appears routine | Security archive and rounds vallomás |
+| Technical export | Export error | Live temperature display and staging panel review |
 
----
-
-## Pontos jóváhagyási lehetőségek
-
-| Választás | Akció |
-|--------|---------|
-| **A képességellenőrzések jóváhagyása** | Tovább a PLAYER (`story_player`) generációhoz |
-| **Felülvizsgálat kérése** | Adja meg a DC, a hiba vagy az alternatív útvonal módosításainak ellenőrzését |
-| **Elutasítás** | Csővezeték leállítása; ne generáljon PLAYER tartalmat |
-
-**Jelenlegi kapu:** `capability_checks` — **AWAITING_APPROVAL**
+All four checks declare `alternate_route_exists: true` with helyreállítási úts already authored in the investigation flow layer. Flow revisit alternates for label and trend failures remain wired. No mandatory-path check can destroy all routes (IV-CHECK-FAIRNESS PASS).
 
 ---
 
-## Érvényesítés állapota
+## Remaining structural concerns
 
-- Képességellenőrzés - **PASS**
-- Vizsgálati folyamat ellenőrzése – **PASS**
-- Vizsgálat Ellenőrző – **PASS**
-- Objektum interakció – **PASS**
-- NPC - **PASS**
-- Vizsgálati mag – **PASS**
-- Világelső – **PASS**
+1. PLAYER delivery prose not authored — destination unit player_text is structural placeholder only.
+2. Flow flags for latch and locker check failure are declared in capability metadata but not yet mirrored in flow initial state (optional flavour checks).
+3. NPC package still contains legacy placeholder IDs; runtime resolution continues via investigation-core map.
+4. Tier B playtest recommended to confirm failure prose feels fair at the table without hinting missed content.
+5. Paid retry extension point reserved but not implemented in engine.
 
-Nincs PLAYER, játékidő, DM-feeling vagy csomagexportálás.
+---
+
+## Exact approval choices
+
+| Choice | Action |
+|--------|--------|
+| **Approve képességellenőrzéss** | Proceed to PLAYER (`story_player`) generation |
+| **Request revision** | Specify check DC, failure, or alternate-route changes |
+| **Reject** | Halt pipeline; do not generate PLAYER content |
+
+**Current gate:** `capability_checks` — **AWAITING_APPROVAL**
+
+---
+
+## Validation status
+
+- képességellenőrzés validation — **PASS**
+- Investigation Flow validation — **PASS**
+- Investigation Validator — **PASS**
+- Object Interaction — **PASS**
+- NPC — **PASS**
+- nyomozási mag — **PASS**
+- World First — **PASS**
+
+No PLAYER, playtime, DM-feeling, or package export generated.

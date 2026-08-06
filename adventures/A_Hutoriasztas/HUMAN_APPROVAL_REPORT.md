@@ -96,7 +96,7 @@ Az emelkedő tárolási hőmérséklet és a közeledő leírási vagy megfelel�
 | Jövő: `investigation_flow` | A befejező szerkezet és az útvonal logika jóváhagyása |
 | Jövő: "csomagexport" | Playteszt előtti csomagexportálás jóváhagyása |
 
-**A rövid szakasz jóváhagyásához:** rögzítse a jóváhagyást generálási állapotban (`human_approvals.adventure_brief`), vagy futtassa újra a generátort dokumentált kijelentkezéssel az `ADVENTURE_GENERATOR_V2_WORKFLOW.md` szerint. ---
+**A rövid szakasz jóváhagyásához:** rögzítse a jóváhagyást generálási állapotban ("human_approvals.adventure_brief"), vagy futtassa újra a generátort dokumentált aláírással a `ADVENTURE_GENERATOR_V2_WORKFLOW.md` szerint. ---
 
 ## Generációs állapot
 

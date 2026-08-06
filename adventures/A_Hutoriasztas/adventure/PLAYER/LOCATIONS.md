@@ -2,90 +2,85 @@
 <!-- unit:unit-dock-base -->
 ### Dokk betöltése
 
-**Helyszín:** Rakodási dokk | **Időköltség:** 0 perc
+**Location:** Rakodási dokk | **Time cost:** 0 perc
 
 A rakodó dokkolót nátrium-lámpatestek világítják meg. A targoncák tétlenül ülnek. Elena Morales az öböl ajtaját figyeli, miközben a személyzet a dokk és az irodaszárny között mozog. A hideg hullámokban gördül le az öbölről, amikor egy ajtó megfordul, és a levegőben dízel és hűtőközeg szaga száll. Valahol 1:00 a.m. után az épület beilleszkedett egy műszak furcsa csendjébe, amely már elromlott.
 
-**Mit csinálsz?**
+**What do you do?**
 
-- Menjen át a dokkfolyosón a hűtőcsarnokba.
-- Menjen be a személyzeti pihenőszobába.
-- Vágjon át a raktár folyosóján a biztonsági irodába.
-- Az irodaszárny folyosóján menjen a raktárvezetői irodába.
-- Tekintse át a felügyelői eligazítási területet.
-- Kérjen kísérő engedélyt az automatizálási vezérlőterembe.
+- Walk through the dock corridor to the cold storage hall.
+- Head inside to the staff break room.
+- Cut through the warehouse corridor to the security office.
+- Take the office wing corridor to the warehouse manager office.
+- Review the supervisor briefing area.
+- Request escort clearance to the automation control room.
 
 <!-- unit:unit-cold-base -->
 ### Hűtőcsarnok
 
-**Helyszín:** Hűtőcsarnok | **Időköltség:** 0 perc
+**Location:** Hűtőcsarnok | **Time cost:** 0 perc
 
-Hideg levegő árad az előszoba ajtajából. A raklapsorok a CZ-1 zóna felé nyúlnak. A lélegzeted bepárásodik abban a pillanatban, amikor átléped a küszöböt, és a kompresszor zümmögése egy regiszterrel alacsonyabban szól a kelleténél. A CZ-1 befúvott levegő kijelzője a csarnok túlsó végében világít, mintha pontozná.
+Hideg levegő árad az előszoba ajtajából. A raklapsorok a CZ-1 zóna felé nyúlnak. A lélegzeted bepárásodik abban a pillanatban, amikor átléped a küszöböt, és a kompresszor zümmögése egy regiszterrel alacsonyabban szól a kelleténél. Az CZ-1 befúvott levegő kijelzője a csarnok túlsó végében világít, mintha pontozná.
+**What do you do?**
 
-**Mit csinálsz?**
-
-- Vizsgálja meg a hűtőház ajtajának reteszét és az olvasót.
-- Járja be a C folyosó hosszát a raklapsorok között.
-- Olvassa el az élő CZ-1 befúvott levegő hőmérséklet kijelzőjét.
-- Kövesse a mérnöki átjárót az automatizálási vezérlőterembe.
-- Menjen vissza a rakodó dokkba.
-- Menjen vissza a pihenőszoba folyosója felé.
+- Examine the cold storage door latch and reader.
+- Walk the length of aisle C between the pallet rows.
+- Read the live CZ-1 supply air temperature display.
+- Follow the engineering passage to the automation control room.
+- Return to the loading dock.
+- Return toward the break room corridor.
 
 <!-- unit:unit-control-base -->
 ### Automatizálási vezérlőterem
 
-**Helyszín:** Automatizálási vezérlőterem | **Időköltség:** 0 perc
+**Location:** Automatizálási vezérlőterem | **Time cost:** 0 perc
 
 Az automatizálási vezérlőteremben mérnöki munkaállomások és egy CZ-1 állomásjelző panel található. A szerverventilátorok folyamatosan zúgnak a fluoreszkáló fény alatt, és az állapotjelző LED-ek sorai villognak a szokásos mintájukban – kivéve egy panelt, amely egyáltalán nem villog.
+**What do you do?**
 
-**Mit csinálsz?**
-
-- Közelítse meg a mérnöki munkaállomást.
-- Ellenőrizze a CZ-1 szakaszolásjelző panelt.
-- Vissza a hűtőcsarnokba.
-- Térjen vissza a rakodó dokkba a felügyelővel.
-- Vissza a biztonsági irodába.
+- Approach the engineering workstation.
+- Inspect the CZ-1 staging indicator panel.
+- Return to the cold storage hall.
+- Return to the loading dock with the supervisor.
+- Return to the security office.
 
 <!-- unit:unit-security-base -->
 ### Biztonsági iroda
 
-**Helyszín:** Biztonsági iroda | **Időköltség:** 0 perc
+**Location:** Biztonsági iroda | **Time cost:** 0 perc
 
 A biztonsági iroda rendelkezik egy riasztó panellel és egy jelvényarchívum terminállal. Kis monitorok fala cikázik az üres folyosókon, és a riasztópanel hangszórója időnként kattog, mintha mondani akarna valamit, mielőtt ismét elhallgat.
+**What do you do?**
 
-**Mit csinálsz?**
-
-- Tekintse át a legutóbbi riasztási előzményeket a biztonsági panelen.
-- Nyissa meg a jelvény-hozzáférési archív terminált.
-- Menjen vissza a rakodó dokkba.
-- Menj vissza a pihenőszobába.
+- Review recent alarm history on the security panel.
+- Open the badge access archive terminal.
+- Return to the loading dock.
+- Return to the break room.
 
 <!-- unit:unit-manager-base -->
 ### Raktárvezetői iroda
 
-**Helyszín:** Raktárvezető iroda | **Időköltség:** 0 perc
+**Location:** Raktárvezető iroda | **Time cost:** 0 perc
 
 A raktárvezetői iroda vészhelyzetre nyitva tart. Lori Okonkwo fogadó munkaállomása továbbra is aktív egyeztetési képernyőt mutat. Az íróasztal nagy részét a jegyzéknyomatok kötegei borítják, és a fluoreszkáló lámpa a fej fölött éppen annyira villog, hogy észrevegye. Lori nem hagyta el tovább ezt a széket, mint amennyit a ma esti ébresztő önmagában megmagyarázna.
+**What do you do?**
 
-**Mit csinálsz?**
-
-- Tekintse át a nyitott fogadási egyeztetési képernyőt.
-- Beszéljen Lori Okonkwóval a feloldott témák fogadásáról és eléréséről.
-- Menjen vissza a rakodó dokkba.
-- Menj vissza a pihenőszobába.
+- Review the open receiving reconciliation screen.
+- Speak with Lori Okonkwo about receiving and access topics you have unlocked.
+- Return to the loading dock.
+- Return to the break room.
 
 <!-- unit:unit-break-base -->
 ### A személyzet pihenőszobája
 
-**Helyszín:** A személyzet pihenőszobája | **Időköltség:** 0 perc
+**Location:** A személyzet pihenőszobája | **Time cost:** 0 perc
 
 A személyzeti pihenőhelyiségben automaták, zárható szekrények és a kikötő felé néző ablak található. Az automaták zümmögnek az egyik fal mellett, és egy félkész kávéscsésze elhagyottan hever az asztalon, ma este minden mással együtt kihűlt.
+**What do you do?**
 
-**Mit csinálsz?**
-
-- Sétáljon a személyzeti szekrény mellett.
-- Nézzen a dokk rakodóterülete felé.
-- Menjen vissza a rakodó dokkba.
-- Sétáljon a vezetői irodába a személyzeti folyosón.
-- Kövesse a belső folyosót a biztonsági iroda felé.
-- Menjen az oldalsó átjárón a hűtőcsarnok felé.
+- Walk along the staff locker bank.
+- Look out toward the dock loading area.
+- Return to the loading dock.
+- Walk to the manager office through the staff corridor.
+- Follow the interior hallway to the security office.
+- Take the side passage toward the cold storage hall.

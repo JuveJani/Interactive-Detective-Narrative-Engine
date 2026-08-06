@@ -1,57 +1,71 @@
-# Fordítási glosszárium — A hűtőriasztás
+# Glosszárium — A hűtőriasztás
 
-**Angol mű cím:** A hűtőriasztás  
-**Magyar mű cím:** A hűtőriasztás  
-**Mappa:** `adventures/A_Hutoriasztas/`
+Következetes terminológia az angol forrás magyar tükörfordításához.
 
-## Kötelező terminológia
+| Angol | Magyar |
+|-------|--------|
+| cold storage hall | hűtőtár csarnok |
+| cold storage | hűtőtár |
+| cold zone | hűtőzóna |
+| loading dock | rakodópart |
+| control room | automatika vezérlő |
+| automation control room | automatika vezérlő |
+| access log | belépési napló |
+| badge log | belépőkártya-napló |
+| badge reader | belépőkártya-olvasó |
+| badge scan | belépőkártya-olvasás |
+| badge | belépőkártya |
+| refrigeration staging | hűtési staging szabályozás |
+| staging control | staging szabályozás |
+| alarm history | riasztástörténet |
+| compliance deadline | megfelelőségi határidő |
+| compliance threshold | megfelelőségi küszöb |
+| compliance procedures | megfelelősési eljárások |
+| capability check | képességellenőrzés |
+| perception check | észlelési ellenőrzés |
+| technical check | műszaki ellenőrzés |
+| recovery route | helyreállítási út |
+| world truth | világigazság |
+| causal timeline | okozati idővonal |
+| world-state timeline | világállapot-idővonal |
+| world state timeline | világállapot-idővonal |
+| investigation core | nyomozási mag |
+| imperfect ending | tökéletlen befejezés |
+| perfect ending | tökéletes befejezés |
+| pre-playtest | játékteszt előtti |
+| conditional pass | feltételes megfelelés |
+| player-facing | játékosnak szóló |
+| author-only | csak szerzőnek |
+| quarantine area | karanténterület |
+| write-off | selejtezés |
+| manifest | bevételezési jegyzék |
+| pallet | raklap |
+| testimony | vallomás |
+| inference | következtetés |
+| The Cold Storage Alarm | A hűtőriasztás |
+| Cold Storage Alarm | A hűtőriasztás |
 
-| Angol | Magyar | Megjegyzés |
-|-------|--------|------------|
-| cold storage | hűtőtár / hűtőtároló csarnok | Kontextustól függően; a nagy teret „hűtőtár”, a funkciót „hűtőtárolás” |
-| cold zone | hűtőzóna | Pl. CZ-1 változatlan |
-| loading dock | rakodópart / rakodórampa | Éjjeli jelenetekben: rakodópart |
-| control room | vezérlőszoba / automatika vezérlő | BMS/automatika kontextusban: automatika vezérlő |
-| badge | belépőkártya / jelvény | Hozzáférésnél: belépőkártya |
-| access log | belépési napló / hozzáférési napló | |
-| BMS | BMS | Rövidítés változatlan |
-| refrigeration staging | hűtési előkészítés / staging szabályozás | Műszaki kontextusban: staging szabályozás |
-| alarm history | riasztástörténet / riasztási előzmények | |
-| manifest | árujegyzék / bevételezési jegyzék | MNF kontextusban: bevételezési jegyzék |
-| pallet | raklap | |
-| quarantine area | karanténterület | |
-| compliance deadline | megfelelőségi határidő | |
-| capability check | képességellenőrzés | |
-| perception check | észlelési ellenőrzés | |
-| technical check | műszaki ellenőrzés | |
-| testimony | tanúvallomás / vallomás | |
-| inference | következtetés / összefüggéslevonás | Játékos feladatnál: következtetés |
-| recovery route | helyreállítási út / visszatérési út | |
-| world truth | világigazság | Szerzői/validátor kontextus |
-| causal timeline | okozati idővonal | |
-| world-state timeline | világállapot-idővonal | |
-| investigation core | nyomozási mag | |
-| proof | bizonyíték | Logikai rétegben |
-| conclusion | következtetés / konklúzió | |
-| imperfect ending | tökéletlen befejezés | |
-| perfect ending | tökéletes befejezés | |
-| pre-playtest | játékteszt előtti | |
-| conditional pass | feltételes megfelelés | Validátor státusz |
-| blocked | blokkolva | Validátor státusz |
-| player-facing | játékosnak szóló | |
-| author-only | csak szerzőnek | |
+## Védett fájlnevek
 
-## Meg nem változtatandó elemek
+A játékosnak szóló utasításokban soha ne fordítsd le:
 
-- Személynevek: Elena Morales, Marcus, Lori, Pat, Dev Santos, stb.
-- Helyszínazonosítók: LOC-*, OBJ-*, NPC-*, KNOW-*, EVT-*, FACT-*, END-*, stb.
-- Műszaki kódok: CZ-1, CMD-CZ1-MUTE-STAGE, ALM-COLD-HIGH, BADGE-DEV-TEMP, stb.
-- Időbélyegek, számok, hash-ek, sémaverziók
-- JSON kulcsok, enum értékek, fájlútvonalak
+- `CASE_FILE.md`
+- `CHARACTER_SHEET.md`
+- `ENDINGS.md`
+- `GAMEBOOK.md`
+- `HOW_TO_PLAY.md`
+- `INFERENCE.md`
+- `LOCATIONS.md`
+- `NAVIGATION_INDEX.md`
+- `NPCS.md`
+- `OBJECTS.md`
+- `OPENING.md`
+- `PLAY.md`
+- `README.md`
+- `RECOVERY.md`
+- `SCENES.md`
 
-## Hang és stílus
+## Megszólítás
 
-- Felnőtt, világos magyar; kerüljük a szó szerinti angol szórendet.
-- Gyanúsított semlegesség megmarad; a játékos nem kap korai megoldást.
-- Műszaki pontosság: raktár, hűtés, automatika, logisztika, biztonság szétválasztása.
-- NPC-k hangja megkülönböztethető marad (Elena: felügyeleti; Marcus: biztonsági; Lori: logisztikai).
+Minden játékosnak szóló szövegben tegezés: nyisd meg, kezdd, válassz, menj.
+

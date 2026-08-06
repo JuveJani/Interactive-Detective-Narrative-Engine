@@ -189,6 +189,8 @@ def translate_text(text: str, *, use_cache: bool = True) -> str:
             translated = translator.translate(protected)
     except Exception:
         translated = protected
+    if translated is None:
+        translated = protected
     result = _restore_tokens(translated, mapping)
     result = _apply_glossary(result)
     if use_cache:
@@ -197,6 +199,8 @@ def translate_text(text: str, *, use_cache: bool = True) -> str:
 
 
 def translate_json_value(key: str | None, value: object) -> object:
+    if value is None:
+        return None
     if isinstance(value, dict):
         return {k: translate_json_value(k, v) for k, v in value.items()}
     if isinstance(value, list):

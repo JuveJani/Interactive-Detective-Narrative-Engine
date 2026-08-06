@@ -187,13 +187,13 @@
     {
       "question_id": "INF-BADGE-MISATTRIBUTED",
       "hypothesis_id": "HYP-BADGE-MISATTRIBUTED",
-      "player_facing_text": "A hűtőházi jelvény bejegyzése a kilépési idők összehasonlítása után is érinti a vállalkozót?",
+      "player_facing_text": "Does the cold-storage badge entry still implicate the contractor after comparing exit timing?",
       "defined_terms": [
         "badge",
         "manifest",
         "staging",
         "relabel",
-        "irányítóterem",
+        "control room",
         "temperature"
       ],
       "undefined_terms": [],
@@ -210,13 +210,13 @@
     {
       "question_id": "INF-STAGING-ROOT-CAUSE",
       "hypothesis_id": "HYP-STAGING-ROOT-CAUSE",
-      "player_facing_text": "Vajon a felfüggesztés – nem egyedül az ajtóriasztó – okozta a tartós hőmérséklet-emelkedést?",
+      "player_facing_text": "Did staging suspension\u2014not the door alarm alone\u2014drive the sustained temperature rise?",
       "defined_terms": [
         "badge",
         "manifest",
         "staging",
         "relabel",
-        "irányítóterem",
+        "control room",
         "temperature"
       ],
       "undefined_terms": [],
@@ -234,13 +234,13 @@
     {
       "question_id": "INF-RELABEL-FRAUD",
       "hypothesis_id": "HYP-RELABEL-FRAUD",
-      "player_facing_text": "Raklap átcímkézést alkalmaztak a bejövő mennyiség elrejtésére?",
+      "player_facing_text": "Was pallet relabeling used to hide the inbound quantity short-ship?",
       "defined_terms": [
         "badge",
         "manifest",
         "staging",
         "relabel",
-        "irányítóterem",
+        "control room",
         "temperature"
       ],
       "undefined_terms": [],
@@ -258,13 +258,13 @@
     {
       "question_id": "INF-CONTROL-ACCESS-MISMATCH",
       "hypothesis_id": "HYP-CONTROL-ACCESS-MISMATCH",
-      "player_facing_text": "Ki adhatná ki a BMS némítási parancsot hűtőmérnöki jogosultság nélkül?",
+      "player_facing_text": "Who could issue the BMS mute command without refrigeration engineering privilege?",
       "defined_terms": [
         "badge",
         "manifest",
         "staging",
         "relabel",
-        "irányítóterem",
+        "control room",
         "temperature"
       ],
       "undefined_terms": [],
@@ -281,13 +281,13 @@
     {
       "question_id": "INF-CULPRIT-SUPPORTED",
       "hypothesis_id": "HYP-CULPRIT-SUPPORTED",
-      "player_facing_text": "Melyik szerepkört támogatják a független hozzáférés, a csalások és a vezérlőterem nyilvántartása?",
+      "player_facing_text": "Which role is supported by independent access, fraud, and control-room records?",
       "defined_terms": [
         "badge",
         "manifest",
         "staging",
         "relabel",
-        "irányítóterem",
+        "control room",
         "temperature"
       ],
       "undefined_terms": [],
@@ -306,13 +306,13 @@
     {
       "question_id": "INF-PERFECT-RECONSTRUCTION",
       "hypothesis_id": "HYP-PERFECT-RECONSTRUCTION",
-      "player_facing_text": "Rekonstruálhatja-e a csalás eltitkolását, az illetéktelen hozzáférést és a felfüggesztést egy támogatott idővonalként?",
+      "player_facing_text": "Can you reconstruct fraud concealment, unauthorized access, and staging suspension as one supported timeline?",
       "defined_terms": [
         "badge",
         "manifest",
         "staging",
         "relabel",
-        "irányítóterem",
+        "control room",
         "temperature"
       ],
       "undefined_terms": [],
@@ -457,7 +457,7 @@
       "route_id": "REC-SECURITY-ARCHIVE",
       "trigger": "inference_incomplete",
       "inference_id": "INF-BADGE-MISATTRIBUTED",
-      "player_action_label": "Térjen vissza a biztonsági iroda jelvényarchívum-termináljához.",
+      "player_action_label": "Return to the security office badge archive terminal.",
       "destination_ref": "LOC-SECURITY",
       "action_ref": "ACT-APPROACH-BADGE-ARCHIVE",
       "destination_legal": true,
@@ -471,7 +471,7 @@
       "route_id": "REC-BREAK-LOCKER",
       "trigger": "inference_incomplete",
       "inference_id": "INF-BADGE-MISATTRIBUTED",
-      "player_action_label": "Vizsgálja meg a személyzeti szekrényt a szünetben.",
+      "player_action_label": "Inspect the staff locker bank in the break room.",
       "destination_ref": "LOC-BREAK",
       "action_ref": "ACT-APPROACH-LOCKERS",
       "destination_legal": true,
@@ -485,7 +485,7 @@
       "route_id": "REC-CONTROL-TERM",
       "trigger": "inference_incomplete",
       "inference_id": "INF-STAGING-ROOT-CAUSE",
-      "player_action_label": "Tekintse át a mérnöki munkaállomást a vezérlőteremben.",
+      "player_action_label": "Review the engineering workstation in the control room.",
       "destination_ref": "LOC-CONTROL",
       "action_ref": "ACT-APPROACH-TERM-02",
       "destination_legal": true,
@@ -513,7 +513,7 @@
       "route_id": "REC-COLD-AISLE",
       "trigger": "inference_incomplete",
       "inference_id": "INF-RELABEL-FRAUD",
-      "player_action_label": "Keresse meg a C folyosón a címkemaradványokat.",
+      "player_action_label": "Search aisle C for label residue.",
       "destination_ref": "LOC-COLD",
       "action_ref": "ACT-SEARCH-LABEL-RESIDUE",
       "destination_legal": true,
@@ -527,7 +527,7 @@
       "route_id": "REC-MANAGER-MANIFEST",
       "trigger": "inference_incomplete",
       "inference_id": "INF-RELABEL-FRAUD",
-      "player_action_label": "Hasonlítsa össze a MNF-IN-4471 jegyzéket a menedzser munkaállomáson.",
+      "player_action_label": "Compare manifest MNF-IN-4471 at the manager workstation.",
       "destination_ref": "LOC-MANAGER",
       "action_ref": "ACT-REVIEW-MNF-4471",
       "destination_legal": true,
@@ -541,7 +541,7 @@
       "route_id": "REC-MANAGER-INTERVIEW",
       "trigger": "inference_incomplete",
       "inference_id": "INF-CULPRIT-SUPPORTED",
-      "player_action_label": "Beszéljen a logisztikai koordinátorral a menedzser irodában.",
+      "player_action_label": "Speak with the logistics coordinator in the manager office.",
       "destination_ref": "LOC-MANAGER",
       "action_ref": "TOPIC-RECEIVING-EXCEPTION",
       "destination_legal": true,
@@ -555,7 +555,7 @@
       "route_id": "REC-SECURITY-CROSSREF",
       "trigger": "inference_incomplete",
       "inference_id": "INF-CULPRIT-SUPPORTED",
-      "player_action_label": "Kereszthivatkozási jelvény és riasztási nyilvántartás a biztonságinál.",
+      "player_action_label": "Cross-reference badge and alarm records at security.",
       "destination_ref": "LOC-SECURITY",
       "action_ref": "ACT-REVIEW-ALARM-HISTORY",
       "destination_legal": true,

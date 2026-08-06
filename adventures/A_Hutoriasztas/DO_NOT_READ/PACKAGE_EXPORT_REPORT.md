@@ -1,68 +1,70 @@
-# Csomagexportálási jelentés — A hűtőriasztás
+# Package Export Report — A hűtőriasztás
 
-**Stádium:** "csomagexport".  
-**Dátum:** 2026-08-06  
-**Csomag állapota:** `PRE_PLAYTEST`
+**Stage:** `package_export`  
+**Date:** 2026-08-06  
+**Package status:** `PRE_PLAYTEST`
 
 ---
 
-## Exportált műtermék
+## Exported artifact
 
-| Mező | Érték |
+| Field | Value |
+|-------|-------|
+| **File** | `adventures/The_Cold_Storage_Alarm/The_Cold_Storage_Alarm.idne` |
+| **Adventure ID** | `The_Cold_Storage_Alarm` |
+| **Package schema version** | `1.0` |
+| **Archive entries** | 51 bevételezési jegyzék-tracked files (52 ZIP members incl. bevételezési jegyzék + checksum) |
+| **SHA-256** | `61868211e1685c3c0565df8b040a8df3bcb9a6e07255a9ead53f92b28618da49` |
+| **Size** | ~89 KB |
+
+---
+
+## Package integrity validation
+
+| Check | Result |
 |-------|--------|
-| **Fájl** | `adventures/The_Cold_Storage_Alarm/The_Cold_Storage_Alarm.idne` |
-| **Kalandazonosító** | `The_Cold_Storage_Alarm` |
-| **Csomagséma verzió** | "1,0" |
-| **Archív bejegyzések** | 51 jegyzékben nyomon követett fájl (52 ZIP-tag jegyzékkel + ellenőrző összeggel) |
-| **SHA-256** | "61868211e1685c3c0565df8b040a8df3bcb9a6e07255a9ead53f92b28618da49" |
-| **Méret** | ~89 KB |
+| `package_bevételezési jegyzék.json` present | PASS |
+| `package_checksum.sha256` present | PASS |
+| Per-entry SHA-256 vs bevételezési jegyzék | PASS |
+| Checksum file vs extracted files | PASS |
+| `read_idne_package` status | PASS |
+| `verify_extracted_package` | PASS |
 
 ---
 
-## A csomag integritásának ellenőrzése
+## Required layers included
 
-| Ellenőrizze | Eredmény |
-|-------|---------|
-| `package_bevételezési jegyzék.json` jelen | PASS |
-| `package_checksum.sha256` jelen | PASS |
-| Bejegyzésenkénti SHA-256 vs jegyzék | PASS |
-| Ellenőrzőösszeg fájl vs kibontott fájl | PASS |
-| `read_idne_package` állapot | PASS |
-| `ellenőrizze_kivont_csomagot` | PASS |
+### Adventure root (`adventure/`)
 
----
-
-## A szükséges rétegeket tartalmazza
-
-### Kaland gyökér (`kaland/`)
-
-- "generation_bevételezési jegyzék.json".
-- "play_bevételezési jegyzék.json".
-- `PLAYER/` — teljes, játékosra néző próza (96 feltérképezett egység)
-- Logikai csomagok a `DO_NOT_READ/` alatt:
-  - világ_igazság
-  - környezet
-  - objektum_interakció
-  - vizsgálati_mag
+- `generation_bevételezési jegyzék.json`
+- `play_bevételezési jegyzék.json`
+- `PLAYER/` — full játékosnak szóló prose (96 mapped units)
+- Logic packages under `DO_NOT_READ/`:
+  - world_truth
+  - environment
+  - object_interaction
+  - investigation_core
   - npc_investigation
-  - vizsgálati_folyamat
-  - képesség_ellenőrzés
+  - investigation_flow
+  - capability_check
   - story_validator
   - playtime_calibration
   - dm_feeling_validator
-  - vizsgálati_ellenőrző (IV kábelköteg)
-- Megnyilvánulások minden réteghez
+  - investigation_validator (IV harness)
+- bevételezési jegyzéks for each layer
 
-### Extra gyökerek
+### Extra roots
 
-| Előtag | Forrás | Cél |
-|--------|---------|---------|
-| "generáció/" | `.generáció/` | Generációs állapot és jelentések |
-| `rövid/` | `rövid/` | Kanonikus kalandfilm |
+| Prefix | Source | Purpose |
+|--------|--------|---------|
+| `generation/` | `.generation/` | Generation state and reports |
+| `brief/` | `brief/` | Canonical adventure brief |
 
 ---
 
-## Építési parancs (reprodukálható)```bash
+## Build command (reproducible)
+
+```bash
 python3 -c "
 from pathlib import Path
 from idne.idne_package import build_idne_package

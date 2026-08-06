@@ -1,121 +1,187 @@
-# Idő és nézze meg újra a jeleneteket
-<!-- unit:sc-dock-arrival -->
+# Idő és nézze meg újra a jeleneteket<!-- unit:sc-dock-arrival -->
 ### Dokk érkezési eligazítás
 
-**Jeleet átmenet**
+**Scene transition**
 
-Elena végigvezeti az idővonalon az eligazító asztalnál: a 11:30 p.m. riasztást, az általa megrendelt állomásellenőrzéseket és a vezérlőterem kísérési szabályát. Gyorsan beszél, ahogy az emberek, amikor ma este már kétszer elmagyaráztak valamit, és arra számítanak, hogy újra elmagyarázzák. **Mit csinálsz?**
+Elena végigvezeti az idővonalon az eligazító asztalnál: a 11:30 p.m. riasztást, az általa megrendelt állomásellenőrzéseket és a vezérlőterem kísérési szabályát. Gyorsan beszél, ahogy az emberek, amikor ma este már kétszer elmagyaráztak valamit, és arra számítanak, hogy újra elmagyarázzák.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-dock-initial-survey -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-dock-initial-survey -->
 ### Első dokkfelmérés
 
-**Jeleet átmenet**
+**Scene transition**
 
-Még semmi sem dőlt el. Sétál a dokk nyitott padlóján, és megjegyzi, hogy mely folyosókon jut el a hűtőház, az irodák és a biztonság – ez az elrendezés, amelyen egész éjszaka át-hátra fog menni. **Mit csinálsz?**
+Még semmi sem dőlt el. Sétál a dokk nyitott padlóján, és megjegyzi, hogy mely folyosókon jut el a hűtőház, az irodák és a biztonság – ez az elrendezés, amelyen egész éjszaka át-hátra fog menni.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-security-archive-open -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-security-archive-open -->
 ### Az archívum szinkronizálása befejeződött
 
-**Jeleet átmenet**
+**Scene transition**
 
-Az archív terminál egyszer csenget, pontosan az ütemezés szerint, és a szinkronizálásra váró szalaghirdetés törlődik. A ma esti jelvényes tevékenység teljes rekordja végre ott áll, és arra vár, hogy lekérdezzék. **Mit csinálsz?**
+Az archív terminál egyszer csenget, pontosan az ütemezés szerint, és a szinkronizálásra váró szalaghirdetés törlődik. A ma esti jelvényes tevékenység teljes rekordja végre ott áll, és arra vár, hogy lekérdezzék.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-dock-restricted -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-dock-restricted -->
 ### Dokk korlátozás aktív
 
-**Jeleet átmenet**
+**Scene transition**
 
-A szalag most két öbölsávon fut át, és Elena maga hajtja végre. A dokkolón áthaladó lényegtelen mozgás itt megáll, amíg az áttekintése be nem fejeződik. **Mit csinálsz?**
+A szalag most két öbölsávon fut át, és Elena maga hajtja végre. A dokkolón áthaladó lényegtelen mozgás itt megáll, amíg az áttekintése be nem fejeződik.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-security-unstaffed -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-security-unstaffed -->
 ### A biztonsági pult személyzet nélkül
 
-**Jeleet átmenet**
+**Scene transition**
 
-Marcus széke üres – a menetrend szerint kötelező szünet –, de az archív terminál még mindig be van jelentkezve, és a riasztóközpont csendben végzi a dolgát nélküle. **Mit csinálsz?**
+Marcus széke üres – a menetrend szerint kötelező szünet –, de az archív terminál még mindig be van jelentkezve, és a riasztóközpont csendben végzi a dolgát nélküle.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-accusation-prep -->
-### Az elszámoltathatóság előkészítése
+**What do you do?**
 
-**Jeleet átmenet**
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-accusation-prep -->
+### Az elszámoltatás előkészítése
 
-A jegyzeteit szétteríti az eligazító asztalon, és elkezdi őket egy négyrészes elszámoltathatósági nyilatkozatba rendezni: ki, hogyan, mit és miért. Írás közben nem áll meg az óra. **Mit csinálsz?**
+**Scene transition**
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-security-archive-ready -->
+A jegyzeteit szétteríti az eligazító asztalon, és elkezdi őket egy négyrészes elszámoltathatósági nyilatkozatba rendezni: ki, hogyan, mit és miért. Írás közben nem áll meg az óra.
+
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-security-archive-ready -->
 ### Az archívum készen áll
 
-**Jeleet átmenet**
+**Scene transition**
 
-Az archív terminál minden lekérdezési mezője aktív. A hűtőház-bejegyzések, a vezérlőterem-bejegyzések és a kivitelező kilépési szkennelése mind egy választásra van. **Mit csinálsz?**
+Az archív terminál minden lekérdezési mezője aktív. A hűtőház-bejegyzések, a vezérlőterem-bejegyzések és a kivitelező kilépési szkennelése mind egy választásra van.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-security-archive-pending -->
-### Archívum függőben
+**What do you do?**
 
-**Jeleet átmenet**
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-security-archive-pending -->
+### Az archívum függőben van
 
-Egy kis szinkronizálási ikon található a lekérdezési menü felében. Egyes jelvénymezők teljesen ki vannak szürkítve – a kötegelt feltöltés még nem fejeződött be, és egyetlen kattintás sem gyorsítja fel. **Mit csinálsz?**
+**Scene transition**
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-control-approach -->
+Egy kis szinkronizálási ikon található a lekérdezési menü felében. Egyes jelvénymezők teljesen ki vannak szürkítve – a kötegelt feltöltés még nem fejeződött be, és egyetlen kattintás sem gyorsítja fel.
+
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-control-approach -->
 ### Vezérlőterem megközelítés
 
-**Jeleet átmenet**
+**Scene transition**
 
-A vezérlőterem ajtaján van egy jelvényolvasó, amelyet nem használhat önállóan. Az, hogy most bejut, attól függ, hogy Elena aláírta-e már a kíséretet. **Mit csinálsz?**
+A vezérlőterem ajtaján van egy jelvényolvasó, amelyet nem használhat önállóan. Az, hogy most bejut, attól függ, hogy Elena aláírta-e már a kíséretet.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-control-cleared -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-control-cleared -->
 ### A vezérlőterem törölve
 
-**Jeleet átmenet**
+**Scene transition**
 
-Az ajtó panasz nélkül kinyílik. A feljegyzett kísérőengedélynek köszönhetően a mérnöki munkaállomásokon és a felállítási panelen felügyelet mellett dolgozhat. **Mit csinálsz?**
+Az ajtó panasz nélkül kinyílik. A feljegyzett kísérőengedélynek köszönhetően a mérnöki munkaállomásokon és a felállítási panelen felügyelet mellett dolgozhat.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-control-escort-required -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-control-escort-required -->
 ### Escort szükséges
 
-**Jeleet átmenet**
+**Scene transition**
 
-Az olvasó pirosan villog. Vissza kell mennie a dokkba, és meg kell kérnie Elenát, hogy írja alá a kísérőnaplót, mielőtt ez az ajtó kinyílik előtte. **Mit csinálsz?**
+Az olvasó pirosan villog. Vissza kell mennie a dokkba, és meg kell kérnie Elenát, hogy írja alá a kísérőnaplót, mielőtt ez az ajtó kinyílik előtte.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-security-crossref -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-security-crossref -->
 ### Biztonsági kereszthivatkozás
 
-**Jeleet átmenet**
+**Scene transition**
 
-Ha végre a kezében van egy jelvényrekord, az ébresztési előzmények mellé helyezi, és elkezdi egymás mellé sorba állítani az időbélyegeket – ajtót, jelvényt és riasztót, mind ugyanazon az órán. **Mit csinálsz?**
+Ha végre a kezében van egy jelvényrekord, az ébresztési előzmények mellé helyezi, és elkezdi egymás mellé sorba állítani az időbélyegeket – ajtót, jelvényt és riasztót, mind ugyanazon az órán.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-cold-aisle-focused -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-cold-aisle-focused -->
 ### Fókuszált folyosói újralátogatás
 
-**Jeleet átmenet**
+**Scene transition**
 
-Most, hogy látta a nyilvánvaló rést, a C folyosó másképp olvas. Ön már nem csak halad a sorban – nagyjából tudja, melyik raklapköteg érdemes egy második, közelebbi pillantást vetni. **Mit csinálsz?**
+Most, hogy látta a nyilvánvaló rést, a C folyosó másképp olvas. te már nem csak halad a sorban – nagyjából tudja, melyik raklapköteg érdemes egy második, közelebbi pillantást vetni.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-cold-label-detail -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-cold-label-detail -->
 ### A címke részleteinek újralátogatása
 
-**Jeleet átmenet**
+**Scene transition**
 
-Mivel a helyreállított címkeháttér már megtalálható az ügyiratban, visszaléphet, és összehasonlíthatja a nyomtatási időbélyegét a raklap átvételi rekordjaival anélkül, hogy újból a semmiből keresne. **Mit csinálsz?**
+Mivel a helyreállított címkeháttér már megtalálható az ügyiratban, visszaléphet, és összehasonlíthatja a nyomtatási időbélyegét a raklap átvételi rekordjaival anélkül, hogy újból a semmiből keresne.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-control-bms-review -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-control-bms-review -->
 ### BMS felülvizsgálati jelenet
 
-**Jeleet átmenet**
+**Scene transition**
 
-Miután egyszer elolvasta a parancsnaplót, most beállíthatja egymás mellett a felfüggesztési felfüggesztést és a némítási parancs időzítését, és megnézheti, milyen szorosan illeszkednek egymáshoz. **Mit csinálsz?**
+Miután egyszer elolvasta a parancsnaplót, most beállíthatja egymás mellett a felfüggesztési felfüggesztést és a némítási parancs időzítését, és megnézheti, milyen szorosan illeszkednek egymáshoz.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-manager-pressure-topic -->
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-manager-pressure-topic -->
 ### Menedzser interjú nyomás
 
-**Jeleet átmenet**
+**Scene transition**
 
-A C folyosóból származó fizikai nyomok vagy maga a nyilvánvaló kivétel valami konkrétumot ad, amit Lori elé kell helyezni – és a válaszai megváltoznak, ha megteszi. **Mit csinálsz?**
+A C folyosóból származó fizikai nyomok vagy maga a nyilvánvaló kivétel valami konkrétumot ad, amit Lori elé kell helyezni – és a válaszai megváltoznak, ha megteszi.
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához. <!-- unit:sc-break-locker-branch -->
-### Választható szekrény ág
+**What do you do?**
 
-**Jeleet átmenet**
+- Continue this scene thread.
+- Return to the location base section for this area.
+<!-- unit:sc-break-locker-branch -->
+### Opcionális szekrény ág
 
-A pihenőszoba öltözősora továbbra is elérhető, amikor csak akarja. Semmi sem jár le, és semmi sem kényszeríti arra, hogy ellenőrizze. **Mit csinálsz?**
+**Scene transition**
 
-- Folytasd ezt a jelenetszálat. - Térjen vissza a terület alapszakaszához.
+A pihenőszoba öltözősora továbbra is elérhető, amikor csak akarja. Semmi sem jár le, és semmi sem kényszeríti arra, hogy ellenőrizze.
+
+**What do you do?**
+
+- Continue this scene thread.
+- Return to the location base section for this area.

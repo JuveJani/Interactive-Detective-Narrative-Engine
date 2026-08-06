@@ -35,7 +35,7 @@ Nincs ".idne" csomagexportálás. Nincs PLAYER prózai változás. Nincs upstrea
 **Cél:** 120 perc  
 **Medián vs. cél:** 136% — **túlhosszú nagy figyelmeztetés** (őszinte észlelés; nincs párnázott a PASS kényszerhez)  
 **Legrövidebb vs  
-**Időhiány:** A kimerítő felfedezés nem fér el kényelmesen a 5:00 a.m.-i határidő előtt
+**Időhiány:** a kimerítő feltárás nem fér el kényelmesen a 5:00 a.m.-i határidő előtt
 
 ---
 
@@ -59,7 +59,7 @@ Minden Tier A szerkezeti ellenőrzés MEGFELEL. Nincsenek koholt játékteszt-me
 **Játékidő:** PT-B-PATH-MEDIAN, PT-B-SCARCITY  
 **DM érzés:** DF-B-AGENCY-NAV, DF-B-következtetés-QUALITY, DF-B-NPC-NEUTRALITY, DF-B-ENDING-OPACITY, DF-B-TIME-PRESSURE
 
-Lásd a `PLAYTIME_DM_FEELING_TIER_B_REVIEW.md` a PLAYER részleteket.
+Lásd `PLAYTIME_DM_FEELING_TIER_B_REVIEW.md` a JÁTÉKOS részletekért.
 
 ---
 

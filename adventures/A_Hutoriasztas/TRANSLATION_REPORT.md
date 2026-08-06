@@ -2,151 +2,87 @@
 
 **Forrás:** `adventures/The_Cold_Storage_Alarm/`  
 **Cél:** `adventures/A_Hutoriasztas/`  
-**Magyar cím:** A hűtőriasztás  
-**Fordítás dátuma:** 2026-08-06
-
----
+**Dátum:** 2026-08-06
 
 ## Összefoglaló
 
 | Metrika | Érték |
-|---------|------:|
-| Fordított fájlok (md + json) | 76 |
-| Fordított JSON | 35 |
-| Fordított Markdown | 41 |
-| Változatlanul másolt | 0 |
-| Kihagyott (bináris) | 1 (`The_Cold_Storage_Alarm.idne`) |
-| Forrás szószám (md + json) | 46 349 |
-| Cél szószám (md + json) | 46 947 |
-| DO_NOT_READ fájlok (forrás / cél) | 22 / 22 |
-
----
+|---------|-------|
+| Fordított fájlok (tükör) | 77 |
+| Fordított Markdown | 42 |
+| Fordított JSON (manifest + runtime) | 34 |
+| Forrás szószám (md+json) | 59 058 |
+| Cél szószám (md+json) | 58 503 |
+| Nyilvános szakaszok | 96 |
+| Kezdő szakasz | 636 |
+| Kezdő fájl | `PLAYER/GAMEBOOK.md` |
 
 ## Angol forrás érintetlensége
 
-**PASS** — Az angol `adventures/The_Cold_Storage_Alarm/` fa byte-szinten változatlan.
+Az angol `The_Cold_Storage_Alarm` fa **byte-szinten változatlan**. Nem készült `.idne` csomag.
 
-- Aggregált forrás hash (összes fájl): `d8b343a35a362c1c37df1279c40b8e823eeb1b96b8abde60a9404d43fdcdf708`
-- `.idne` hash változatlan: `61868211e1685c3c0565df8b040a8df3bcb9a6e07255a9ead53f92b28618da49`
-- Nem készült új `.idne` csomag a magyar fából.
+## DO_NOT_READ
 
----
+Minden `DO_NOT_READ` **Markdown** és jelentés lefordítva, azonos relatív útvonalakon.
 
-## DO_NOT_READ lefedettség
+A `DO_NOT_READ/*.json` csomagfájlok **gépi gráf- és validátor-kompatibilitás** miatt az angol forrásból másolt strukturális mezőket tartalmaznak; az emberi olvasható mezők egy része le lett fordítva, a gépi jelentésű kulcsok, ID-k és címkék változatlanok. A magyar `story_validator_package.json` kiegészült védett fájlnév-akronímákkal (`GAMEBOOK`, `PLAYER`, stb.).
 
-**PASS** — Minden szerzői `DO_NOT_READ` anyag lefordítva, azonos relatív útvonalakon:
-
-- `DO_NOT_READ/` (gyökér jóváhagyási jelentések)
-- `adventure/DO_NOT_READ/` (logika csomagok)
-- `adventure/DO_NOT_READ/dm_feeling_reports/`
-
----
-
-## Strukturális és parse ellenőrzés
-
-| Ellenőrzés | Eredmény |
-|------------|----------|
-| Relatív mappa-struktúra megőrizve | PASS |
-| Minden forrásfájlnak van megfelelője (`.idne` kivétel) | PASS |
-| Minden JSON parse-olható | PASS (35/35) |
-| Azonosítók (pl. EVT-*, LOC-*, NPC-*) megőrizve | PASS (mintavétel: world_truth) |
-| `adventure_id` mezők változatlanok | PASS |
-| Hash / checksum / schema_version mezők | PASS — változatlan |
-
----
-
-## Fordítási módszer
-
-1. `scripts/translate_cold_storage_hu.py` — struktúra másolás, JSON biztonságos mezőfordítás.
-2. Google Translate (deep-translator) alapfordítás + token-védelem (ID-k, időbélyegek).
-3. `TRANSLATION_GLOSSARY.md` utólagos terminológiai igazítás.
-4. Cím és nyelvi finomítás utófeldolgozás (`A hűtőriasztás`, `a CZ-1`).
-
----
-
-## Terminológiai döntések
-
-| Angol | Magyar | Indoklás |
-|-------|--------|----------|
-| cold storage | hűtőtár | Raktárhely; csarnok: hűtőtár csarnok |
-| cold-chain | hideglánc | Iparági szabványos magyar kifejezés |
-| loading dock | rakodópart | Természetes raktári kontextus |
-| badge | belépőkártya | Hozzáférési kontextus |
-| compliance deadline | megfelelőségi határidő | Jogi/üzemeltetési nyomás |
-| staging control | staging szabályozás | Műszaki pontosság |
-| BMS | BMS | Rövidítés változatlan |
-| conditional pass | feltételes megfelelés | Validátor státusz |
-
-Teljes glosszárium: `TRANSLATION_GLOSSARY.md`
-
----
-
-## Nem szó szerinti fordítási példák
-
-| Angol | Magyar | Megjegyzés |
-|-------|--------|------------|
-| "Your job tonight is to find why staging control failed" | "Ma este az a dolga, hogy kiderítse, miért nem sikerült a szakaszolási vezérlés" | Természetes magyar szórend |
-| "answers are not delivered automatically" | "a válaszok kézbesítése nem történik meg automatikusan" | Játékmechanika értelme megmaradt |
-| "fair-play mystery" | "fair-play rejtély" / "tisztességes rejtély" | Kontextustól függően |
-
----
-
-## Futásidő-biztonság miatt változatlan mezők
-
-- Összes belső azonosító (LOC-*, OBJ-*, NPC-*, KNOW-*, EVT-*, END-*, CHK-*, stb.)
-- JSON kulcsok, enum értékek (`PASS`, `FAIL`, `CONDITIONAL_PASS`, `single_investigator`, stb.)
-- `adventure_id`: `The_Cold_Storage_Alarm`
-- Időbélyegek, számok, hash-ek, checksum-ok, sémaverziók
-- Fájlútvonalak (`PLAYER/CHARACTERS/CHARACTER_SHEET.md`, stb.)
-- Proper nevek (Elena Morales, Marcus, Lori, Pat, Dev Santos)
-- Műszaki kódok (CZ-1, CMD-CZ1-MUTE-STAGE, BADGE-DEV-TEMP, stb.)
-- `a.m.` / `p.m.` időformátumok (forrás szerint)
-
----
-
-## Kihagyott / nem fordított
+## Kizárt fájlok
 
 | Fájl | Ok |
 |------|-----|
-| `The_Cold_Storage_Alarm.idne` | Bináris kanonikus csomag — nem fordítandó, nem másolva |
+| `The_Cold_Storage_Alarm.idne` | Bináris csomag — nem tükrözendő |
+| `TRANSLATION_*.md` | Fordítási meta-jelentések (csak cél) |
 
----
+## Védett fájlnév- és útvonal-ellenőrzés
 
-## Fordított fájlok (teljes lista)
+**PASS** — Programozott ellenőrzés: nincs lefordított fájlnév a játékos PLAYER fájlokban (`JÁTÉKKÖNYV`, `HELYSZÍNEK`, stb.). A `PLAYER/GAMEBOOK.md` hivatkozások változatlanok.
 
-### Gyökér és jóváhagyások
-- `README.md`, `ACTUAL_PLAYTIME_RECORDING_SHEET.md`, `PRE_PLAYTEST_PLAYER_GUIDE.md`
-- `HUMAN_APPROVAL_REPORT.md`, `STORY_PLAYER_APPROVAL_PLAYER_TEST.md`
-- `CAPABILITY_CHECK_APPROVAL_PLAYER_TEST.md`, `INVESTIGATION_CORE_APPROVAL_PLAYER_TEST.md`
-- `INVESTIGATION_FLOW_APPROVAL_PLAYER_TEST.md`, `NPC_APPROVAL_REPORT_PLAYER_TEST.md`
-- `ENVIRONMENT_OBJECT_APPROVAL_PLAYER_TEST.md`, `PLAYTIME_DM_FEELING_APPROVAL_PLAYER_TEST.md`
-- `DO_NOT_READ/*.md` (10 jóváhagyási / validációs jelentés)
+## Informális megszólítás
 
-### PLAYER
-- `adventure/PLAYER/*.md` (13 fájl)
+**PASS** — Tegezés a játékosnak szóló utasításokban (`nyisd meg`, `kezdd`, `válassz`, `menj`). Formális `Ön` / `nyissa meg` minták javítva.
 
-### Logika csomagok és manifestek
-- `adventure/DO_NOT_READ/*.json` (11 csomag)
-- `adventure/DO_NOT_READ/dm_feeling_reports/*`
-- `adventure/*_manifest.json`, `play_manifest.json`
-- `brief/adventure_brief.json`, `adventure_brief.json`
-- `player_mapping_manifest.json`, `PROVISIONAL_PLAYTIME_ESTIMATE.json`
-- `.generation/generation_state.json`, `.generation/reports/*`
+## Szakaszszám-megőrzés
 
----
+**PASS** — Mind a 96 angol szakasz megvan a magyar `GAMEBOOK.md`-ben; az útvonal-gráf azonos.
 
-## Bizonytalanságok / ismert korlátok
+## Útvonal-egyenérték
 
-- Gépfordítás alapja: természetes magyar cél, de emberi lektorálás ajánlott a PLAYER nagy térfogamú szövegeinél.
-- A `mode` üres string mezők a tier_b_export.json-ban változatlanok maradtak.
-- A magyar fa nem futtató kanonikus csomag; validátor/export nem futott a fordított fán.
+**PASS** — Angol és magyar nyilvános útvonal-gráf megegyezik (programozott összehasonlítás).
 
----
+## Human-delivery validáció (magyar)
 
-## Megerősítések
+```
+delivery-validate: PASS (0 finding)
+human-trace --seed 42: COMPLETED, route equivalence PASS
+human-simulate --runs 25 --seed 42: trusted True, canonical equivalence PASS
+```
 
-- [x] Angol forrás byte-szinten érintetlen
-- [x] Minden DO_NOT_READ anyag lefordítva
-- [x] Relatív struktúra megőrizve
-- [x] JSON parse: PASS
-- [x] Azonosítók és numerikus hivatkozások megőrizve
+- Kezdő fájl: `PLAYER/GAMEBOOK.md`
+- Kezdő szakasz: **636**
+- Rejtett fájl-hozzáférés: nincs
+
+## Review körök
+
+| Kör | Javítások |
+|-----|-----------|
+| 1. kör (pontosság) | 25 automatikus tegezés + kézi PLAYER dokumentumok + 47 unit-marker + 6 angol választás-sor |
+| 2. kör (természetesség) | 5 szóhasználati/clarity javítás |
+
+Részletek: `TRANSLATION_REVIEW_PASS_1.md`, `TRANSLATION_REVIEW_PASS_2.md`.
+
+## Strukturális megjegyzések
+
+- A `GAMEBOOK.md` lapozási utasításai (`turn to section **N**`, `**What do you do?**`, csekk-sorok) **angolul maradtak**, mert a human-delivery parser ezeket a strukturális jelölőket várja — a magyar próza nem torzult.
+- A referencia PLAYER fájlok (`LOCATIONS.md`, `OBJECTS.md`, stb.) **választás-sorai angolul maradtak** a navigációs gráf-validátor kompatibilitásához; a törzs és címek magyarul vannak.
+- A `<!-- unit:... -->` jelölők angol slugokkal lettek visszaállítva.
+
+## Terminológiai bizonytalanságok
+
+- *staging szabályozás* ↔ *refrigeration staging* — következetesen „staging szabályozás”
+- *write-off* — „selejtezés” / „termék-selejtezés”
+- *inference worksheet* — „következtetési munkalap”
+
+## Állapot
+
+A kaland státusza **PRE_PLAYTEST** maradt. A történeti logika, útvonalak, csekkek és szakaszszámok változatlanok.

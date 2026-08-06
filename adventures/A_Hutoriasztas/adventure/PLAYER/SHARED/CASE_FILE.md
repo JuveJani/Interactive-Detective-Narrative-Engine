@@ -1,19 +1,19 @@
-# Ügyirat
+# Case file
 
-Használja ezt a sablont a tanultak naplózásához. Itt nincs kitöltve az Ön helyett – a nyomozás csak akkor működik, ha leírja, mit talált valójában.
+Use this template to log what you learn. Nothing here is filled in for you — the investigation only works if you write down what you actually find.
 
-## Az incidens összefoglalója
+## Incident summary
 
-- A riasztó először megszólalt: _________________________
-- Az Ön érkezési ideje: _________________________
-- Megfelelési határidő: _________________________
-- Érintett zóna: _________________________
+- Alarm first sounded: ______________________
+- Your arrival time: ______________________
+- megfelelőségi határidő: ______________________
+- Zone affected: ______________________
 
-## Idővonal napló
+## Timeline log
 
-Rögzítsen minden megerősített időbélyeget, abban a sorrendben, ahogy megtanulja (nem feltétlenül abban a sorrendben, ahogyan megtörtént).
+Record each timestamp you confirm, in the order you learn it (not necessarily the order it happened).
 
-| Idő | Mi történt | Forrás |
+| Time | What happened | Source |
 |---|---|---|
 | | | |
 | | | |
@@ -21,20 +21,20 @@ Rögzítsen minden megerősített időbélyeget, abban a sorrendben, ahogy megta
 | | | |
 | | | |
 
-## Emberek felvették a kapcsolatot
+## People contacted
 
-| Személy | Szerep | Témák | Még kérdezni |
+| Person | Role | Topics covered | Still to ask |
 |---|---|---|---|
-| Marcus Hale | Éjszakai biztonsági őr | | |
-| Dev Santos | Hűtéstechnikai vállalkozó | | |
-| Lori Okonkwo | Logisztikai koordinátor | | |
-| Elena Morales | Ügyeleti felügyelő | | |
-| Pat Nguyen | Takarító személyzet vezetése | | |
-| Iratíróasztal | Jelvényarchívum szabályzat | | |
+| Marcus Hale | Night security guard | | |
+| Dev Santos | Refrigeration contractor | | |
+| Lori Okonkwo | Logistics coordinator | | |
+| Elena Morales | On-call supervisor | | |
+| Pat Nguyen | Cleaning crew lead | | |
+| Records desk | belépőkártya archive policy | | |
 
-## Bizonyítéknapló
+## Evidence log
 
-| Feljegyzés vagy tárgy | Mit mutat | Hol találtad |
+| Record or object | What it shows | Where you found it |
 |---|---|---|
 | | | |
 | | | |
@@ -42,29 +42,29 @@ Rögzítsen minden megerősített időbélyeget, abban a sorrendben, ahogy megta
 | | | |
 | | | |
 
-## Munkaelmélet
+## Working theory
 
-- **Mi történt:** _______________________________________________________
-- **Hogyan történt:** ___________________________________________________
-- **Ki a felelős:** ___________________________________________________
-- **Miért:** ___________________________________________________
+- **What happened:** ______________________________________________
+- **How it happened:** ______________________________________________
+- **Who is accountable:** ______________________________________________
+- **Why:** ______________________________________________
 
-## Következtetéskövető
+## következtetés tracker
 
-Jelölje meg az egyes munkalapokat, miután megpróbálta. A bejelölt jelölőnégyzet nem jelenti azt, hogy sikeres volt, csak azt, hogy jó vagy rossz következtetésre jutott.
+Mark each worksheet once you have attempted it. A checked box does not mean you succeeded — only that you have reached a conclusion, right or wrong.
 
-- [ ] A jelvény helytelenül van feltüntetve
-- [ ] A kiváltó ok megszakítása
-- [ ] Újracímkézési csalás
-- [ ] A hozzáférési eltérés szabályozása
-- [ ] Bűnös támogatott
-- [ ] Tökéletes rekonstrukció
+- [ ] belépőkártya misattributed
+- [ ] Staging root cause
+- [ ] Relabel fraud
+- [ ] Control access mismatch
+- [ ] Culprit supported
+- [ ] Perfect reconstruction
 
-## Végső elszámoltathatósági nyilatkozat (tervezet)
+## Final accountability statement (draft)
 
-Írja ide a választ az egyes vádaskodási kérdésekre, mielőtt elkötelezi magát.
+Write your answer to each accusation question here before you commit to it.
 
-- **Ki a felelős a ma esti jogosulatlan cselekményekért?** ___________________________________________________
-- **Milyen mechanizmussal függesztett fel hidegláncot?** ____________________________________________________
-- **Milyen elsődleges működési hiba okozta a termékkockázat növekedését?** ____________________________________________________
-- **Kinek volt az indítéka a bejövő nyilvánvaló eltérésekhez?** ____________________________________________________
+- **Who is accountable for the unauthorized actions tonight?** ______________________________________________
+- **What mechanism suspended cold-chain staging?** ______________________________________________
+- **What primary operational failure caused product-risk escalation?** ______________________________________________
+- **Who had motive tied to inbound bevételezési jegyzék discrepancies?** ______________________________________________

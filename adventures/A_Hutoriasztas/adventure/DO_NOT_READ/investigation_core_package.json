@@ -35,119 +35,119 @@
   "world_facts": [
     {
       "fact_id": "FACT-001",
-      "statement": "A Dev Santos jogszerűen kitöltötte a hűtőkarbantartási jegyet CLO-1847, CZ-1, 18:30",
+      "statement": "Dev Santos legitimately completed refrigeration maintenance ticket CLO-1847 on CZ-1 at 18:30",
       "immutable": true
     },
     {
       "fact_id": "FACT-002",
-      "statement": "Dev Santos 19:02-kor hagyta el a létesítményt a kimenő jelvény beolvasásával a rakodókon.",
+      "statement": "Dev Santos exited the facility at 19:02 with an outbound badge scan at the loading dock",
       "immutable": true
     },
     {
       "fact_id": "FACT-003",
-      "statement": "Dev ideiglenes jelvénye belépőkártya-DEV-TEMP a pihenőszoba öltözőszekrényében maradt, miután távozott",
+      "statement": "Dev's temporary badge BADGE-DEV-TEMP remained in the break room locker after he departed",
       "immutable": true
     },
     {
       "fact_id": "FACT-004",
-      "statement": "Marcus Hale éjszakai őr vizuálisan megerősítette, hogy a hűtőkamra ajtaja 23:00-kor bereteszelt",
+      "statement": "Night guard Marcus Hale visually confirmed the cold storage door latch engaged at 23:00",
       "immutable": true
     },
     {
       "fact_id": "FACT-005",
-      "statement": "A hűtőház jelvényolvasója 23:14:08-kor naplózott egy bejövő bejegyzést a belépőkártya-DEV-TEMP hitelesítő adatokkal",
+      "statement": "The cold storage badge reader logged an inbound entry at 23:14:08 using credential BADGE-DEV-TEMP",
       "immutable": true
     },
     {
       "fact_id": "FACT-006",
-      "statement": "Lori eltávolította az LBL-4471-A címkét (NL-20260312-4471A sorozat) a PLT-4471-A 8 tokos részleges raklapról és az LBL-Q118-B címkét a PLT-Q118-B karantén raklapról, majd ráragasztotta az LBL-4471-A címkét és (4471-2) LBL-Q118-B a 8 esetes részleges köteghez, így a WMS-vizsgálatok azt mutatják, hogy az L-4471 tele van a C3-as öbölben, míg a rövid hajó karanténcímke alatt van.",
+      "statement": "Lori removed label LBL-4471-A (serial NL-20260312-4471A) from 8-case partial pallet PLT-4471-A and label LBL-Q118-B from quarantine pallet PLT-Q118-B, then affixed LBL-4471-A to PLT-Q118-B (48 cases) and LBL-Q118-B to the 8-case partial stack so WMS scans would show L-4471 full at bay C3 while the short-ship sat under quarantine label",
       "immutable": true
     },
     {
       "fact_id": "FACT-007",
-      "statement": "Lori Okonkwo jelvénye belépőkártya-LORI bejelentkezett az automatizálási vezérlőterembe 23:20:41-kor, de Lori nem rendelkezik REFRG_TECH mérnöki jogosultsággal",
+      "statement": "Lori Okonkwo's badge BADGE-LORI logged door entry to the automation control room at 23:20:41 but Lori holds no REFRG_TECH engineering privilege",
       "immutable": true
     },
     {
       "fact_id": "FACT-008",
-      "statement": "BMS terminál CTRL-TERM-02 naplózott parancs CMD-CZ1-MUTE-STAGE 23:22:17-kor karbantartás alatt SVC-REFRG-MAINT; a parancsnapló csak a terminált és a munkamenetet rögzíti, a kezelő személyi jelvényét nem",
+      "statement": "BMS terminal CTRL-TERM-02 logged command CMD-CZ1-MUTE-STAGE at 23:22:17 under maintenance session SVC-REFRG-MAINT; the command log records terminal and session only, not the operator's personal badge",
       "immutable": true
     },
     {
       "fact_id": "FACT-009",
-      "statement": "CMD-CZ1-MUTE-STAGE felfüggeszti a CZ-1 igény fokozatba állítását és a kompresszor forgását, miközben elnémítja az ajtónyitottság jelzését a kiválasztott zónateszt ablakban",
+      "statement": "CMD-CZ1-MUTE-STAGE suspends CZ-1 demand staging and compressor rotation while muting door-ajar annunciation for the selected zone test window",
       "immutable": true
     },
     {
       "fact_id": "FACT-010",
-      "statement": "CZ-1 a befúvott levegő hőmérséklete tartósan emelkedni kezdett 23:27-kor a felfüggesztés után, miközben a hőtömeg elfedte a korai sodródást",
+      "statement": "CZ-1 supply air temperature began a sustained rise at 23:27 after staging suspension while thermal mass masked early drift",
       "immutable": true
     },
     {
       "fact_id": "FACT-011",
-      "statement": "Magas hőmérsékleti riasztás ALM-COLD-HIGH 23:30-kor aktiválódott, amikor CZ-1 befújt levegő átlépte a -14C küszöböt",
+      "statement": "High-temperature alarm ALM-COLD-HIGH activated at 23:30 when CZ-1 supply air crossed the -14C threshold",
       "immutable": true
     },
     {
       "fact_id": "FACT-012",
-      "statement": "Lori belépett a hűtőházba, hogy elrejtse a MNF-IN-4471 rövidzárlatot, mielőtt az L-4471 bejövő tételből auditált mintát vett volna",
+      "statement": "Lori entered cold storage to hide the MNF-IN-4471 short-ship before audit sampling of inbound lot L-4471",
       "immutable": true
     },
     {
       "fact_id": "FACT-013",
-      "statement": "A takarítóvezető Pat Nguyen 23:40-kor látta a dokk ajtaját megtámasztva és egy ismeretlen személyt a hűtőcsarnok közelében anélkül, hogy arcot látott volna.",
+      "statement": "Cleaning lead Pat Nguyen saw the dock door propped and an unidentified person near the cold hall at 23:40 without seeing a face",
       "immutable": true
     },
     {
       "fact_id": "FACT-014",
-      "statement": "Az éjszakai jelvénynapló kötegelt feltöltése a hozzáférési archívumba 02:30-kor befejeződött a szabványos informatikai szinkronizálási késés miatt",
+      "statement": "The nightly badge log batch upload to the access archive completed at 02:30 due to standard IT sync delay",
       "immutable": true
     },
     {
       "fact_id": "FACT-015",
-      "statement": "Ha 05:00-kor a CZ-1 -12C felett marad, a Northline-nak kezdeményeznie kell a termékleírást és az egészségügyi megfelelőségről szóló értesítést",
+      "statement": "If CZ-1 remains above -12C at 05:00, Northline must initiate product write-off and health compliance notification",
       "immutable": true
     },
     {
       "fact_id": "FACT-016",
-      "statement": "Lori szándéka szerint CMD-CZ1-MUTE-STAGE csak az ajtónyitott ajtó riasztót akarta elnémítani, és nem értette, hogy a felfüggesztés továbbra is fennáll, miután elhagyta a terminált",
+      "statement": "Lori intended CMD-CZ1-MUTE-STAGE to silence the door-ajar alarm only and did not understand staging suspension would persist after she left the terminal",
       "immutable": true
     },
     {
       "fact_id": "FACT-017",
-      "statement": "A termékkockázat kiváltó oka a CMD-CZ1-MUTE-STAGE-tól kezdődő, felügyelet nélküli szakaszos felfüggesztés, nem csak az átcímkézés",
+      "statement": "Root cause of product risk is unattended staging suspension from CMD-CZ1-MUTE-STAGE, not the relabeling alone",
       "immutable": true
     },
     {
       "fact_id": "FACT-018",
-      "statement": "A fejlesztő a SVC-REFRG-MAINT karbantartási munkamenetet feloldva hagyta a CTRL-TERM-02 mérnöki munkaállomáson, amikor a CLO-1847 18:30-kor bezárt",
+      "statement": "Dev left maintenance session SVC-REFRG-MAINT unlocked on engineering workstation CTRL-TERM-02 when CLO-1847 was closed at 18:30",
       "immutable": true
     },
     {
       "fact_id": "FACT-019",
-      "statement": "A fuvarozó kézbesítési igazolása POD-4471 48 esetet sorol fel az PLT-4471-A oldalon a SKU-FBC-12KG BATCH-2026-0310-A ​​tételhez, de a fogadó csak 8 esetet rögzített a MNF-IN-4471 jegyzékben",
+      "statement": "Carrier proof-of-delivery POD-4471 lists 48 cases on PLT-4471-A for SKU-FBC-12KG batch BATCH-2026-0310-A but receiving recorded only 8 cases on manifest MNF-IN-4471",
       "immutable": true
     },
     {
       "fact_id": "FACT-020",
-      "statement": "A ALM-COLD-DOOR-AJAR riasztás 23:18:45-kor aktiválódott, mert a hűtőház ajtaját több mint 90 másodpercig nyitva tartották Lori átcímkézési munkája során",
+      "statement": "Alarm ALM-COLD-DOOR-AJAR activated at 23:18:45 because the cold storage door was held open more than 90 seconds during Lori's relabeling work",
       "immutable": true
     },
     {
       "fact_id": "FACT-021",
-      "statement": "A C folyosón a fizikai maradványok közé tartozott az NL-20260312-4471A öntapadó hátlapja, valamint egy nem egyező címkenyomtatási időbélyeg, amelyen az LBL-4471-A látható az eredeti részleges raklap átvételi helyétől távol.",
+      "statement": "Physical residue in aisle C included adhesive backing for NL-20260312-4471A and a mismatched label print timestamp showing LBL-4471-A re-applied away from its original partial-pallet receipt location",
       "immutable": true
     },
     {
       "fact_id": "FACT-022",
-      "statement": "Lori WMS-egyeztetési sora MNF-IN-4471 mennyiségi kivételt jelölt meg 22:35-kor, mielőtt elkezdte az átcímkézést",
+      "statement": "Lori's WMS reconciliation queue flagged MNF-IN-4471 quantity exception at 22:35 before she began relabeling",
       "immutable": true
     }
   ],
   "observations": [
     {
       "observation_id": "OBS-BADGE-COLD-ENTRY",
-      "description": "Hűtőszekrény bejövő jelvényolvasó exportálása",
+      "description": "Cold storage inbound badge reader export",
       "location_id": "LOC-SECURITY",
       "acquisition": {
         "via": "object_interaction",
@@ -159,7 +159,7 @@
     },
     {
       "observation_id": "OBS-CONTROL-ENTRY",
-      "description": "Vezérlőterem ajtó jelvény bejegyzés export",
+      "description": "Control room door badge entry export",
       "location_id": "LOC-SECURITY",
       "acquisition": {
         "via": "object_interaction",
@@ -171,7 +171,7 @@
     },
     {
       "observation_id": "OBS-EXIT-SCAN",
-      "description": "Vállalkozó kimenő dokkoló szkennelési rekordja",
+      "description": "Contractor outbound dock scan record",
       "location_id": "LOC-SECURITY",
       "acquisition": {
         "via": "object_interaction",
@@ -183,7 +183,7 @@
     },
     {
       "observation_id": "OBS-BMS-COMMAND",
-      "description": "BMS parancsnapló kivonat",
+      "description": "BMS command log excerpt",
       "location_id": "LOC-CONTROL",
       "acquisition": {
         "via": "object_interaction",
@@ -195,7 +195,7 @@
     },
     {
       "observation_id": "OBS-MAINT-TICKET",
-      "description": "Lezárt karbantartási jegy CLO-1847",
+      "description": "Closed maintenance ticket CLO-1847",
       "location_id": "LOC-CONTROL",
       "acquisition": {
         "via": "object_interaction",
@@ -207,7 +207,7 @@
     },
     {
       "observation_id": "OBS-TEMP-TREND",
-      "description": "CZ-1 befújt levegő hőmérséklet trend export",
+      "description": "CZ-1 supply air temperature trend export",
       "location_id": "LOC-CONTROL",
       "acquisition": {
         "via": "object_interaction",
@@ -219,7 +219,7 @@
     },
     {
       "observation_id": "OBS-STAGING-PANEL",
-      "description": "CZ-1 szakaszolásjelző olvasás",
+      "description": "CZ-1 staging indicator reading",
       "location_id": "LOC-CONTROL",
       "acquisition": {
         "via": "object_interaction",
@@ -231,7 +231,7 @@
     },
     {
       "observation_id": "OBS-DOOR-AJAR",
-      "description": "Nyitott ajtóriasztó történeti kivonat",
+      "description": "Door-ajar alarm history excerpt",
       "location_id": "LOC-SECURITY",
       "acquisition": {
         "via": "object_interaction",
@@ -243,7 +243,7 @@
     },
     {
       "observation_id": "OBS-LABEL-RESIDUE",
-      "description": "A C folyosón felcímkézni a ragasztómaradványokat",
+      "description": "Label adhesive residue in aisle C",
       "location_id": "LOC-COLD",
       "acquisition": {
         "via": "object_interaction",
@@ -255,7 +255,7 @@
     },
     {
       "observation_id": "OBS-LABEL-TIMESTAMP",
-      "description": "Nem egyező címkenyomtatási időbélyeg összehasonlítása",
+      "description": "Mismatched label print timestamp comparison",
       "location_id": "LOC-COLD",
       "acquisition": {
         "via": "object_interaction",
@@ -267,7 +267,7 @@
     },
     {
       "observation_id": "OBS-MANIFEST-GAP",
-      "description": "MNF-IN-4471 versus POD-4471 mennyiségi összehasonlítás",
+      "description": "MNF-IN-4471 versus POD-4471 quantity comparison",
       "location_id": "LOC-MANAGER",
       "acquisition": {
         "via": "object_interaction",
@@ -279,7 +279,7 @@
     },
     {
       "observation_id": "OBS-POD-DETAIL",
-      "description": "A hordozó POD-rekesz kiosztásának kereszthivatkozása",
+      "description": "Carrier POD bay assignment cross-reference",
       "location_id": "LOC-MANAGER",
       "acquisition": {
         "via": "object_interaction",
@@ -291,7 +291,7 @@
     },
     {
       "observation_id": "OBS-BADGE-LOCKER",
-      "description": "A vállalkozó ideiglenes jelvénye a szekrényben maradt",
+      "description": "Contractor temporary badge left in locker",
       "location_id": "LOC-BREAK",
       "acquisition": {
         "via": "object_interaction",
@@ -303,7 +303,7 @@
     },
     {
       "observation_id": "OBS-LATCH-DISTURBANCE",
-      "description": "Hűtőtároló reteszelő hardverzavar jelei",
+      "description": "Cold storage latch hardware disturbance signs",
       "location_id": "LOC-COLD",
       "acquisition": {
         "via": "object_interaction",
@@ -315,7 +315,7 @@
     },
     {
       "observation_id": "OBS-TEMP-LIVE",
-      "description": "Élő CZ-1 befúvott levegő leolvasás",
+      "description": "Live CZ-1 supply air reading",
       "location_id": "LOC-COLD",
       "acquisition": {
         "via": "object_interaction",
@@ -329,7 +329,7 @@
   "physical_evidence": [
     {
       "evidence_id": "EVD-BADGE-LOG",
-      "description": "Hűtőszekrény bejövő jelvényolvasó bejegyzési rekordja",
+      "description": "Cold storage inbound badge reader entry record",
       "evidence_type": "document",
       "provenance": {
         "source_event_id": "EVT-007",
@@ -344,7 +344,7 @@
     },
     {
       "evidence_id": "EVD-EXIT-SCAN",
-      "description": "Vállalkozó kimenő dokkjelvény-ellenőrzése",
+      "description": "Contractor outbound dock badge scan",
       "evidence_type": "document",
       "provenance": {
         "source_event_id": "EVT-002",
@@ -359,7 +359,7 @@
     },
     {
       "evidence_id": "EVD-MAINT-CLO1847",
-      "description": "Lezárt karbantartási jegy CLO-1847 munkamenet megjegyzéssel a következőhöz: CTRL-TERM-02",
+      "description": "Closed maintenance ticket CLO-1847 with session note for CTRL-TERM-02",
       "evidence_type": "document",
       "provenance": {
         "source_event_id": "EVT-001",
@@ -375,7 +375,7 @@
     },
     {
       "evidence_id": "EVD-MANIFEST-POD",
-      "description": "MNF-IN-4471 fogadó rekord kereszthivatkozással a szolgáltatóra POD-4471",
+      "description": "MNF-IN-4471 receiving record cross-referenced to carrier POD-4471",
       "evidence_type": "document",
       "provenance": {
         "source_event_id": "EVT-004",
@@ -392,7 +392,7 @@
     },
     {
       "evidence_id": "EVD-LABEL-RESIDUE",
-      "description": "Öntapadó hátlap sorozat NL-20260312-4471A és nem megfelelő címkenyomtatási maradék a C folyosón",
+      "description": "Adhesive backing serial NL-20260312-4471A and mismatched label print residue in aisle C",
       "evidence_type": "physical",
       "provenance": {
         "source_event_id": "EVT-008",
@@ -409,7 +409,7 @@
     },
     {
       "evidence_id": "EVD-BMS-COMMAND",
-      "description": "BMS parancsnapló a CMD-CZ1-MUTE-STAGE-hez a CTRL-TERM-02-n a SVC-REFRG-MAINT munkamenet alatt",
+      "description": "BMS command log for CMD-CZ1-MUTE-STAGE on CTRL-TERM-02 under session SVC-REFRG-MAINT",
       "evidence_type": "document",
       "provenance": {
         "source_event_id": "EVT-011",
@@ -426,7 +426,7 @@
     },
     {
       "evidence_id": "EVD-TEMP-TREND",
-      "description": "CZ-1 befúvott levegő hőmérséklet trend export, amely 23:27 után inflexiót mutat",
+      "description": "CZ-1 supply air temperature trend export showing inflection after 23:27",
       "evidence_type": "document",
       "provenance": {
         "source_event_id": "EVT-013",
@@ -442,7 +442,7 @@
     },
     {
       "evidence_id": "EVD-DOOR-ALARM",
-      "description": "Nyitott ajtóriasztás előzményei ALM-COLD-DOOR-AJAR, 23:18:45",
+      "description": "Door-ajar alarm history ALM-COLD-DOOR-AJAR at 23:18:45",
       "evidence_type": "document",
       "provenance": {
         "source_event_id": "EVT-009",
@@ -457,7 +457,7 @@
     },
     {
       "evidence_id": "EVD-CONTROL-ENTRY",
-      "description": "A vezérlőterem ajtajának belépési naplója belépőkártya-LORI 23:20:41-kor",
+      "description": "Control room door badge entry log for BADGE-LORI at 23:20:41",
       "evidence_type": "document",
       "provenance": {
         "source_event_id": "EVT-010",
@@ -602,7 +602,7 @@
   "knowledge": [
     {
       "knowledge_id": "KNOW-BADGE-COLD-ENTRY",
-      "statement": "A hűtőház bejövő jelvény bejegyzést rögzített a vállalkozó ideiglenes hitelesítésével a vállalkozó dokkból való kilépése után",
+      "statement": "Cold storage recorded an inbound badge entry using contractor temporary credential after contractor dock exit",
       "category": "documentary_record",
       "acquisition": {
         "source_type": "observation",
@@ -612,7 +612,7 @@
     },
     {
       "knowledge_id": "KNOW-CONTROL-ENTRY",
-      "statement": "Logisztikai koordinátori jelvény hűtésmérnöki jogosultság nélkül lépett be az automatizálási vezérlőterembe",
+      "statement": "Logistics coordinator badge entered automation control room without refrigeration engineering privilege",
       "category": "documentary_record",
       "acquisition": {
         "source_type": "observation",
@@ -622,7 +622,7 @@
     },
     {
       "knowledge_id": "KNOW-EXIT-SCAN",
-      "statement": "A hűtési vállalkozó kimenő dokk jelvényének vizsgálata az éjszakai hűtőházba való belépés előtt történt",
+      "statement": "Refrigeration contractor outbound dock badge scan occurred before night cold-storage entry",
       "category": "documentary_record",
       "acquisition": {
         "source_type": "observation",
@@ -632,7 +632,7 @@
     },
     {
       "knowledge_id": "KNOW-BMS-COMMAND",
-      "statement": "BMS terminál naplózva CMD-CZ1-MUTE-STAGE felügyelet nélküli karbantartási munkamenet alatt SVC-REFRG-MAINT",
+      "statement": "BMS terminal logged CMD-CZ1-MUTE-STAGE under unattended maintenance session SVC-REFRG-MAINT",
       "category": "technical_record",
       "acquisition": {
         "source_type": "observation",
@@ -642,7 +642,7 @@
     },
     {
       "knowledge_id": "KNOW-MAINT-SESSION",
-      "statement": "Karbantartási jegy CLO-1847 lezárva, mérnöki munkamenet zárolatlan maradt CTRL-TERM-02",
+      "statement": "Maintenance ticket CLO-1847 closed with engineering session left unlocked on CTRL-TERM-02",
       "category": "technical_record",
       "acquisition": {
         "source_type": "observation",
@@ -652,7 +652,7 @@
     },
     {
       "knowledge_id": "KNOW-TEMP-TREND",
-      "statement": "CZ-1 a befúvott levegő trendje felfelé ívelt a fokozatos felfüggesztés megkezdése után",
+      "statement": "CZ-1 supply air trend inflected upward after staging suspension began",
       "category": "technical_record",
       "acquisition": {
         "source_type": "observation",
@@ -662,7 +662,7 @@
     },
     {
       "knowledge_id": "KNOW-STAGING-SUSPEND",
-      "statement": "CZ-1 a kompresszor állomásozása felfüggesztve maradt a némítási parancs után",
+      "statement": "CZ-1 compressor staging remained suspended after mute command",
       "category": "technical_record",
       "acquisition": {
         "source_type": "observation",
@@ -672,7 +672,7 @@
     },
     {
       "knowledge_id": "KNOW-DOOR-AJAR",
-      "statement": "Hűtőszekrény ajtó-nyitott riasztás aktiválva hosszabb ajtónyitási intervallum alatt",
+      "statement": "Cold storage door-ajar alarm activated during extended door open interval",
       "category": "documentary_record",
       "acquisition": {
         "source_type": "observation",
@@ -682,7 +682,7 @@
     },
     {
       "knowledge_id": "KNOW-LABEL-RESIDUE",
-      "statement": "A fizikai címkeragasztó-maradvány a tételazonosító cserét mutatja a C folyosón",
+      "statement": "Physical label adhesive residue shows lot identity swap in aisle C",
       "category": "physical_evidence",
       "acquisition": {
         "source_type": "observation",
@@ -692,7 +692,7 @@
     },
     {
       "knowledge_id": "KNOW-LABEL-TIMESTAMP",
-      "statement": "A visszaállított címke hátulsó időbélyege nem egyezik az eredeti részleges raklap átvételi helyével",
+      "statement": "Recovered label backing timestamp mismatches original partial-pallet receipt location",
       "category": "physical_evidence",
       "acquisition": {
         "source_type": "observation",
@@ -702,7 +702,7 @@
     },
     {
       "knowledge_id": "KNOW-MANIFEST-GAP",
-      "statement": "A MNF-IN-4471 bejövő jegyzék nyolc esetet kapott, míg a szolgáltató POD negyvennyolc esetet tartalmaz",
+      "statement": "Inbound manifest MNF-IN-4471 received eight cases while carrier POD lists forty-eight",
       "category": "documentary_record",
       "acquisition": {
         "source_type": "observation",
@@ -712,7 +712,7 @@
     },
     {
       "knowledge_id": "KNOW-RECON-EXCEPTION",
-      "statement": "A WMS-egyeztetés MNF-IN-4471 mennyiségi kivételt jelölt meg az ablak átcímkézése előtt",
+      "statement": "WMS reconciliation flagged MNF-IN-4471 quantity exception before relabeling window",
       "category": "documentary_record",
       "acquisition": {
         "source_type": "observation",
@@ -722,7 +722,7 @@
     },
     {
       "knowledge_id": "KNOW-POD-DETAIL",
-      "statement": "Az aláírt szállítói POD a teljes szállítmányt hozzárendeli az öbölhöz, és a tétel teljes vizsgálatát várja",
+      "statement": "Signed carrier POD assigns full shipment to bay expecting complete lot scan",
       "category": "documentary_record",
       "acquisition": {
         "source_type": "observation",
@@ -733,7 +733,7 @@
     },
     {
       "knowledge_id": "KNOW-BADGE-LOCKER",
-      "statement": "Vállalkozó ideiglenes jelvénye az engedélyezett kilépés után a pihenőszekrényben maradt",
+      "statement": "Contractor temporary badge remained in break-room locker after authorized exit",
       "category": "physical_evidence",
       "acquisition": {
         "source_type": "observation",
@@ -744,7 +744,7 @@
     },
     {
       "knowledge_id": "KNOW-LATCH-DISTURBANCE",
-      "statement": "A hűtőház reteszelője a közelmúltban végzett kezelést mutatja, amely nem egyeztethető össze egyetlen biztonságos ellenőrzéssel",
+      "statement": "Cold storage latch shows recent handling inconsistent with a single secure check",
       "category": "physical_evidence",
       "acquisition": {
         "source_type": "observation",
@@ -755,7 +755,7 @@
     },
     {
       "knowledge_id": "KNOW-TEMP-LIVE",
-      "statement": "A CZ-1 élő olvasás a hideglánc küszöbérték feletti tartós emelkedést mutatja",
+      "statement": "Live CZ-1 reading shows sustained rise above cold-chain threshold",
       "category": "technical_record",
       "acquisition": {
         "source_type": "observation",
@@ -766,7 +766,7 @@
     },
     {
       "knowledge_id": "KNOW-MARCUS-LATCH-CHECK",
-      "statement": "A biztonsági körök során megfigyelték, hogy a hűtőtároló retesz 23:00-kor vizuálisan bekattant",
+      "statement": "Security rounds observed cold storage latch visually engaged at 23:00",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -777,7 +777,7 @@
     },
     {
       "knowledge_id": "KNOW-MARCUS-BADGE-UNREVIEWED",
-      "statement": "A biztonsági feltételezett zárellenőrzés megfelelt a jelvényolvasónak a napló áttekintése nélkül",
+      "statement": "Security assumed latch check matched badge reader without reviewing log yet",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -788,7 +788,7 @@
     },
     {
       "knowledge_id": "KNOW-MARCUS-HIGH-TEMP-ALARM",
-      "statement": "A biztonsági panel magas hőmérsékletű riasztás aktiválását mutatta",
+      "statement": "Security panel showed high-temperature alarm activation",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -799,7 +799,7 @@
     },
     {
       "knowledge_id": "KNOW-DEV-EXIT-TIME",
-      "statement": "Vállalkozó elhagyta a létesítményt a kimenő dokk vizsgálattal az esemény ablaka előtt",
+      "statement": "Contractor departed facility with outbound dock scan before incident window",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -810,7 +810,7 @@
     },
     {
       "knowledge_id": "KNOW-DEV-BADGE-LEFT",
-      "statement": "A vállalkozó elismeri, hogy az ideiglenes jelvényt elhagyhatták",
+      "statement": "Contractor acknowledges temporary badge may have been left behind",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -820,7 +820,7 @@
     },
     {
       "knowledge_id": "KNOW-DEV-CLO1847",
-      "statement": "A vállalkozó elvégezte a jogszerű CZ-1 karbantartást az CLO-1847 alatt",
+      "statement": "Contractor completed legitimate CZ-1 maintenance under CLO-1847",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -831,7 +831,7 @@
     },
     {
       "knowledge_id": "KNOW-DEV-SESSION-LEFT",
-      "statement": "A vállalkozó a hűtőkarbantartási munkamenetet zárolva hagyta a műszaki terminálon",
+      "statement": "Contractor left refrigeration maintenance session unlocked on engineering terminal",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -841,7 +841,7 @@
     },
     {
       "knowledge_id": "KNOW-LORI-EVASIVE-COLD",
-      "statement": "A logisztikai koordinátor az első kihallgatáskor megtagadja a hozzáférést a munkaidőn túli hűtőházhoz",
+      "statement": "Logistics coordinator denies after-hours cold storage access when first questioned",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -852,7 +852,7 @@
     },
     {
       "knowledge_id": "KNOW-LORI-CONTROL-PRESENCE",
-      "statement": "A logisztikai koordinátor engedélyezi a belépést a vezérlőhelyiségbe a riasztási válaszidő ablakában",
+      "statement": "Logistics coordinator admits entering control room during alarm response window",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -863,7 +863,7 @@
     },
     {
       "knowledge_id": "KNOW-LORI-MANIFEST-EXCEPTION",
-      "statement": "A logisztikai koordinátor tudatában van a MNF-IN-4471 bejövő mennyiségi kivételnek",
+      "statement": "Logistics coordinator aware of inbound quantity exception on MNF-IN-4471",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -873,7 +873,7 @@
     },
     {
       "knowledge_id": "KNOW-LORI-RELABEL",
-      "statement": "A logisztikai koordinátor elfogadja a raklap átcímkézést dokumentált és fizikai nyomás alatt",
+      "statement": "Logistics coordinator admits pallet relabeling under documentary and physical pressure",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -884,7 +884,7 @@
     },
     {
       "knowledge_id": "KNOW-LORI-DOOR-ALARM",
-      "statement": "A logisztikai koordinátor tudatában résnyitó riasztás történt hidegcsarnoki munka közben",
+      "statement": "Logistics coordinator aware door-ajar alarm occurred during cold hall work",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -895,7 +895,7 @@
     },
     {
       "knowledge_id": "KNOW-ELENA-ALARM-CALL",
-      "statement": "A felügyelőt a kritikus hideglánc-riasztásról értesítették",
+      "statement": "Supervisor notified of critical cold-chain alarm on call",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -906,7 +906,7 @@
     },
     {
       "knowledge_id": "KNOW-ELENA-DOCK-RESTRICT",
-      "statement": "A felügyelő a vizsgálat során a dokk hozzáférés korlátozását rendelte el",
+      "statement": "Supervisor ordered dock access restriction during investigation",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -917,7 +917,7 @@
     },
     {
       "knowledge_id": "KNOW-ELENA-LORI-LATE",
-      "statement": "A felügyelő megfigyelte, hogy a logisztikai koordinátor későn dolgozott a papírok átvételén",
+      "statement": "Supervisor observed logistics coordinator working late on receiving paperwork",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -928,7 +928,7 @@
     },
     {
       "knowledge_id": "KNOW-PAT-PROPPED-DOOR",
-      "statement": "Tisztító ólommal megtámasztott dokkolóajtó a kocsi mozgatásához a hidegcsarnok közelében",
+      "statement": "Cleaning lead propped dock door for cart movement near cold hall",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -939,7 +939,7 @@
     },
     {
       "knowledge_id": "KNOW-PAT-SILHOUETTE",
-      "statement": "A tisztítóvezeték fűrészelt azonosítatlan személyt a hűtőcsarnok közelében arcfelismerés nélkül",
+      "statement": "Cleaning lead saw unidentified person near cold hall without facial identification",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -950,7 +950,7 @@
     },
     {
       "knowledge_id": "KNOW-IT-SYNC-SCHEDULE",
-      "statement": "A jelvényarchívum kötegelt szinkronizálása a szabványos IT-késleltetési ütemterv szerint fejeződik be",
+      "statement": "Badge archive batch sync completes on standard IT delay schedule",
       "category": "testimony",
       "acquisition": {
         "source_type": "testimony",
@@ -961,7 +961,7 @@
     },
     {
       "knowledge_id": "KNOW-BADGE-MISATTRIBUTED",
-      "statement": "A hűtőraktárban a vállalkozó kilépése után rögzített vállalkozói jelvény hitelesítő kölcsönzést jelent",
+      "statement": "Contractor badge recorded at cold storage after contractor exit implies credential borrowing",
       "category": "investigative",
       "acquisition": {
         "source_type": "synthesis",
@@ -971,7 +971,7 @@
     },
     {
       "knowledge_id": "KNOW-STAGING-ROOT-CAUSE",
-      "statement": "Tartós CZ-1 hőmérséklet-emelkedés követi a BMS fokozatos felfüggesztést, nem pedig egyedül az ajtóriasztót",
+      "statement": "Sustained CZ-1 temperature rise follows BMS staging suspension rather than door alarm alone",
       "category": "investigative",
       "acquisition": {
         "source_type": "synthesis",
@@ -981,7 +981,7 @@
     },
     {
       "knowledge_id": "KNOW-RELABEL-FRAUD",
-      "statement": "Raklap átcímkézés rejtett bejövő rövid szállítás a jegyzékben MNF-IN-4471",
+      "statement": "Pallet relabeling concealed inbound short-ship on manifest MNF-IN-4471",
       "category": "investigative",
       "acquisition": {
         "source_type": "synthesis",
@@ -991,7 +991,7 @@
     },
     {
       "knowledge_id": "KNOW-CONTROL-ACCESS-MISMATCH",
-      "statement": "A logisztikai személyzet a némítási parancs ablaka közben hűtési hitelesítés nélkül lépett be a mérnöki vezérlőterembe",
+      "statement": "Logistics staff entered engineering control room without refrigeration credential during mute command window",
       "category": "investigative",
       "acquisition": {
         "source_type": "synthesis",
@@ -1001,7 +1001,7 @@
     },
     {
       "knowledge_id": "KNOW-CULPRIT-SUPPORTED",
-      "statement": "Független dokumentum-, fizikai és hozzáférési nyilvántartások azonosítják a logisztikai koordinátort, mint felelős szereplőt",
+      "statement": "Independent documentary, physical, and access records identify logistics coordinator as accountable actor",
       "category": "investigative",
       "acquisition": {
         "source_type": "synthesis",
@@ -1011,7 +1011,7 @@
     },
     {
       "knowledge_id": "KNOW-PERFECT-RECONSTRUCTION",
-      "statement": "A teljes támogatott rekonstrukció összekapcsolja a csalás eltitkolását, az illetéktelen hozzáférést és a felfüggesztést a termékkockázattal",
+      "statement": "Complete supported reconstruction links fraud concealment, unauthorized access, and staging suspension to product risk",
       "category": "investigative",
       "acquisition": {
         "source_type": "synthesis",
@@ -1081,7 +1081,7 @@
   "hypotheses": [
     {
       "hypothesis_id": "HYP-BADGE-MISATTRIBUTED",
-      "statement": "A hűtőraktárban a vállalkozó kilépése után rögzített vállalkozói jelvény hitelesítő kölcsönzést jelent",
+      "statement": "Contractor badge recorded at cold storage after contractor exit implies credential borrowing",
       "requires_knowledge_ids": [
         "KNOW-BADGE-COLD-ENTRY",
         "KNOW-EXIT-SCAN",
@@ -1092,7 +1092,7 @@
     },
     {
       "hypothesis_id": "HYP-STAGING-ROOT-CAUSE",
-      "statement": "Tartós CZ-1 hőmérséklet-emelkedés követi a BMS fokozatos felfüggesztést, nem pedig egyedül az ajtóriasztót",
+      "statement": "Sustained CZ-1 temperature rise follows BMS staging suspension rather than door alarm alone",
       "requires_knowledge_ids": [
         "KNOW-TEMP-TREND",
         "KNOW-STAGING-SUSPEND",
@@ -1103,7 +1103,7 @@
     },
     {
       "hypothesis_id": "HYP-RELABEL-FRAUD",
-      "statement": "Raklap átcímkézés rejtett bejövő rövid szállítás a jegyzékben MNF-IN-4471",
+      "statement": "Pallet relabeling concealed inbound short-ship on manifest MNF-IN-4471",
       "requires_knowledge_ids": [
         "KNOW-LABEL-RESIDUE",
         "KNOW-MANIFEST-GAP",
@@ -1115,7 +1115,7 @@
     },
     {
       "hypothesis_id": "HYP-CONTROL-ACCESS-MISMATCH",
-      "statement": "A logisztikai személyzet a némítási parancs ablaka közben hűtési hitelesítés nélkül lépett be a mérnöki vezérlőterembe",
+      "statement": "Logistics staff entered engineering control room without refrigeration credential during mute command window",
       "requires_knowledge_ids": [
         "KNOW-CONTROL-ENTRY",
         "KNOW-BMS-COMMAND",
@@ -1126,7 +1126,7 @@
     },
     {
       "hypothesis_id": "HYP-CULPRIT-SUPPORTED",
-      "statement": "Független dokumentum-, fizikai és hozzáférési nyilvántartások azonosítják a logisztikai koordinátort, mint felelős szereplőt",
+      "statement": "Independent documentary, physical, and access records identify logistics coordinator as accountable actor",
       "requires_knowledge_ids": [
         "KNOW-BADGE-MISATTRIBUTED",
         "KNOW-CONTROL-ACCESS-MISMATCH",
@@ -1138,7 +1138,7 @@
     },
     {
       "hypothesis_id": "HYP-PERFECT-RECONSTRUCTION",
-      "statement": "A teljes támogatott rekonstrukció összekapcsolja a csalás eltitkolását, az illetéktelen hozzáférést és a felfüggesztést a termékkockázattal",
+      "statement": "Complete supported reconstruction links fraud concealment, unauthorized access, and staging suspension to product risk",
       "requires_knowledge_ids": [
         "KNOW-CULPRIT-SUPPORTED",
         "KNOW-STAGING-ROOT-CAUSE",
@@ -1154,14 +1154,14 @@
     {
       "inference_id": "INF-BADGE-MISATTRIBUTED",
       "hypothesis_id": "HYP-BADGE-MISATTRIBUTED",
-      "player_facing_question": "A hűtőházi jelvény bejegyzése a kilépési idők összehasonlítása után is érinti a vállalkozót?",
+      "player_facing_question": "Does the cold-storage badge entry still implicate the contractor after comparing exit timing?",
       "required_obtainable_inputs": [
         "KNOW-BADGE-COLD-ENTRY",
         "KNOW-EXIT-SCAN"
       ],
       "valid_answer_structure": {
         "type": "boolean_with_actor",
-        "accepted": "credential_kölcsönzött_after_contractor_exit"
+        "accepted": "credential_borrowed_after_contractor_exit"
       },
       "failure_effect": "contractor_remains_primary_suspect",
       "recovery_routes": [
@@ -1177,7 +1177,7 @@
     {
       "inference_id": "INF-STAGING-ROOT-CAUSE",
       "hypothesis_id": "HYP-STAGING-ROOT-CAUSE",
-      "player_facing_question": "Vajon a felfüggesztés – nem egyedül az ajtóriasztó – okozta a tartós hőmérséklet-emelkedést?",
+      "player_facing_question": "Did staging suspension\u2014not the door alarm alone\u2014drive the sustained temperature rise?",
       "required_obtainable_inputs": [
         "KNOW-TEMP-TREND",
         "KNOW-STAGING-SUSPEND",
@@ -1202,7 +1202,7 @@
     {
       "inference_id": "INF-RELABEL-FRAUD",
       "hypothesis_id": "HYP-RELABEL-FRAUD",
-      "player_facing_question": "Raklap átcímkézést alkalmaztak a bejövő mennyiség elrejtésére?",
+      "player_facing_question": "Was pallet relabeling used to hide the inbound quantity short-ship?",
       "required_obtainable_inputs": [
         "KNOW-LABEL-RESIDUE",
         "KNOW-MANIFEST-GAP",
@@ -1227,7 +1227,7 @@
     {
       "inference_id": "INF-CONTROL-ACCESS-MISMATCH",
       "hypothesis_id": "HYP-CONTROL-ACCESS-MISMATCH",
-      "player_facing_question": "Ki adhatná ki a BMS némítási parancsot hűtőmérnöki jogosultság nélkül?",
+      "player_facing_question": "Who could issue the BMS mute command without refrigeration engineering privilege?",
       "required_obtainable_inputs": [
         "KNOW-CONTROL-ENTRY",
         "KNOW-BMS-COMMAND"
@@ -1251,7 +1251,7 @@
     {
       "inference_id": "INF-CULPRIT-SUPPORTED",
       "hypothesis_id": "HYP-CULPRIT-SUPPORTED",
-      "player_facing_question": "Melyik szerepkört támogatják a független hozzáférés, a csalások és a vezérlőterem nyilvántartása?",
+      "player_facing_question": "Which role is supported by independent access, fraud, and control-room records?",
       "required_obtainable_inputs": [
         "KNOW-BADGE-MISATTRIBUTED",
         "KNOW-CONTROL-ACCESS-MISMATCH",
@@ -1267,7 +1267,7 @@
         "REC-MANAGER-INTERVIEW",
         "REC-SECURITY-CROSSREF"
       ],
-      "state_consequence": "lehetővé teszi a tökéletlen_nem_tökéletes_következtetéseket",
+      "state_consequence": "enables_imperfect_not_perfect_conclusions",
       "downstream_conclusions_affected": [
         "CONC-WHO",
         "CONC-PERFECT"
@@ -1276,7 +1276,7 @@
     {
       "inference_id": "INF-PERFECT-RECONSTRUCTION",
       "hypothesis_id": "HYP-PERFECT-RECONSTRUCTION",
-      "player_facing_question": "Rekonstruálhatja-e a csalás eltitkolását, az illetéktelen hozzáférést és a felfüggesztést egy támogatott idővonalként?",
+      "player_facing_question": "Can you reconstruct fraud concealment, unauthorized access, and staging suspension as one supported timeline?",
       "required_obtainable_inputs": [
         "KNOW-CULPRIT-SUPPORTED",
         "KNOW-STAGING-ROOT-CAUSE",

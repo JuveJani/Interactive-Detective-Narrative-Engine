@@ -16,7 +16,7 @@ Emberi szemantikai áttekintés a játékidő és a DM érzés kapuihoz. PLAYER 
 
 ### DF-B-AGENCY-NAV (player_agency)
 - **Várható:** A navigáció és az objektumválasztás diegetikus marad, csupasz kódok nélkül
-- **Kivonat** `PLAYER/LOCATIONS.md` / Dokkoló betöltése:```
+- **Kivonat** `PLAYER/LOCATIONS.md` / Dokk betöltése:```
 ### Loading dock
 
 **Location:** Loading dock | **Time cost:** 0 min
@@ -45,7 +45,7 @@ The archive terminal's status field is the first thing you check before running 
 <!-- unit:unit-badge-cold-entry -->
 ```### DF-B-következtetés-QUALITY (következtetési minőség)
 - **Várható:** A következtetési munkalapok több rekordból álló szintézist igényelnek beágyazott válaszok nélkül
-- **Kivonat** `PLAYER/következtetés.md` / A jelvény helytelenül hozzárendelve:```
+- **Kivonat** `PLAYER/INFERENCE.md` / A jelvény helytelenül hozzárendelve:```
 ### Badge misattributed
 
 **Question:** Does the cold-storage badge entry still implicate the contractor after comparing exit timing?
@@ -61,7 +61,7 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 - Mark synthesis complete if your answer is supported.
 - Mark synthesis incomplete and follow a recovery prompt in the rec
-```- **Kivonat** `PLAYER/következtetés.md` / Tökéletes rekonstrukció:```
+```- **Kivonat** `PLAYER/INFERENCE.md` / Tökéletes rekonstrukció:```
 ### Perfect reconstruction
 
 **Question:** Can you connect fraud concealment, unauthorized access, and staging suspension into one supported timeline?
@@ -96,7 +96,11 @@ He taps the time into the air like it settles the matter.
 - Return to your current location menu or continue the conversation.
 
 <!-- unit
-```- **Kivonat** `PLAYER/NPCS.md` / Lori címke:```
+```
+
+- **Excerpt** `PLAYER/NPCS.md` / Lori label:
+
+```
 ### Lori label
 
 **Time cost:** varies by topic
@@ -116,7 +120,7 @@ It is the closest she comes to sounding sorry.
 <!-- unit:unit-elena-urgency -->
 ```### DF-B-ENDING-OPACITY (befejező_oksági összefüggés)
 - **Várható:** A tökéletlen befejezések átlátszatlanok maradnak; A tökéletes befejezés teljes támogatott rekonstrukciót igényel
-- **Kivonat** `PLAYER/ENDINGS.md` / Részlegesen hiányos:```
+- **Kivonat** `PLAYER/ENDINGS.md` / Részben hiányos:```
 ### Partial incomplete
 
 Compliance documents operational response gaps — the alarm history, supervisor actions, and temperature readings are on file, but several record threads never made it into your statement. Without a completed synthesis, the write-off review proceeds on the operational facts alone, and the question of exactly who caused tonight's failure stays open past your shift.

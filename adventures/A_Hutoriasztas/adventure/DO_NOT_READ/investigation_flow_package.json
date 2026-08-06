@@ -100,7 +100,7 @@
         {
           "step_id": "SC-DOCK-ARRIVAL",
           "scene_unit_id": "SC-DOCK-ARRIVAL",
-          "player_label": "Receive supervisor briefing at the rakodópart.",
+          "player_label": "Receive supervisor briefing at the loading dock.",
           "location_id": "LOC-DOCK",
           "requires_state": {
             "accusation_complete": false
@@ -109,7 +109,7 @@
         {
           "step_id": "SC-DOCK-INITIAL-SURVEY",
           "scene_unit_id": "SC-DOCK-INITIAL-SURVEY",
-          "player_label": "Mérje fel a dokkot és a szomszédos folyosókat.",
+          "player_label": "Survey the dock and adjacent corridors.",
           "location_id": "LOC-DOCK",
           "allows_prior_acquisition": true
         }
@@ -123,7 +123,7 @@
         {
           "step_id": "SC-SECURITY-ARCHIVE-OPEN",
           "scene_unit_id": "SC-SECURITY-ARCHIVE-OPEN",
-          "player_label": "A jelvényarchívum szinkronizálása után térjen vissza a biztonsághoz.",
+          "player_label": "Return to security after the badge archive sync completes.",
           "location_id": "LOC-SECURITY",
           "state_updates": {
             "archive_sync_complete": true
@@ -151,7 +151,7 @@
         {
           "step_id": "SC-DOCK-RESTRICTED",
           "scene_unit_id": "SC-DOCK-RESTRICTED",
-          "player_label": "Munkavégzés a felügyelő dokk korlátozásának végrehajtása alatt.",
+          "player_label": "Work under supervisor dock restriction enforcement.",
           "location_id": "LOC-DOCK",
           "state_updates": {
             "dock_restricted_active": true
@@ -178,7 +178,7 @@
         {
           "step_id": "SC-ACCUSATION-PREP",
           "scene_unit_id": "SC-ACCUSATION-PREP",
-          "player_label": "A megfelelőségi küszöb előtt készítse el a végső elszámoltathatósági dokumentációt.",
+          "player_label": "Prepare final accountability documentation before the compliance threshold.",
           "location_id": "LOC-DOCK",
           "requires_state": {
             "ready_to_accuse": true
@@ -261,7 +261,7 @@
           "state_updates": {
             "archive_sync_complete": true
           },
-          "player_label": "Térjen vissza a szinkronizált jelvényarchívum lekérdezéséhez."
+          "player_label": "Return to query the synced badge archive."
         },
         {
           "rule_id": "REV-BADGE-QUERIED",
@@ -313,7 +313,7 @@
             "control_escort_cleared": true
           },
           "unlocks_scene_unit_id": "SC-CONTROL-CLEARED",
-          "player_label": "A kísérő engedélye után lépjen be a vezérlőterembe."
+          "player_label": "Enter the control room after escort clearance."
         },
         {
           "rule_id": "REV-BMS-REVIEW",
@@ -351,7 +351,7 @@
           "rule_id": "REV-LOCKER-OPTIONAL",
           "unlocks_scene_unit_id": "SC-BREAK-LOCKER-BRANCH",
           "optional_branch": true,
-          "player_label": "Opcionálisan ellenőrizze a személyzeti szekrény bankját."
+          "player_label": "Optionally inspect the staff locker bank."
         }
       ]
     }
@@ -474,55 +474,55 @@
   "recovery_routes": [
     {
       "route_id": "REC-SECURITY-ARCHIVE",
-      "player_action_label": "Térjen vissza a biztonsági iroda jelvényarchívum-termináljához.",
+      "player_action_label": "Return to the security office badge archive terminal.",
       "destination_ref": "LOC-SECURITY",
       "action_ref": "ACT-APPROACH-BADGE-ARCHIVE"
     },
     {
       "route_id": "REC-BREAK-LOCKER",
-      "player_action_label": "Vizsgálja meg a személyzeti szekrényt a szünetben.",
+      "player_action_label": "Inspect the staff locker bank in the break room.",
       "destination_ref": "LOC-BREAK",
       "action_ref": "ACT-APPROACH-LOCKERS"
     },
     {
       "route_id": "REC-CONTROL-TERM",
-      "player_action_label": "Tekintse át a mérnöki munkaállomást a vezérlőteremben.",
+      "player_action_label": "Review the engineering workstation in the control room.",
       "destination_ref": "LOC-CONTROL",
       "action_ref": "ACT-APPROACH-TERM-02"
     },
     {
       "route_id": "REC-COLD-DISPLAY",
-      "player_action_label": "Olvassa el az élő CZ-1 befúvott levegő kijelzőt.",
+      "player_action_label": "Read the live CZ-1 supply air display.",
       "destination_ref": "LOC-COLD",
       "action_ref": "ACT-READ-TEMP-DISPLAY"
     },
     {
       "route_id": "REC-COLD-AISLE",
-      "player_action_label": "Keresse meg a C folyosón a címkemaradványokat.",
+      "player_action_label": "Search aisle C for label residue.",
       "destination_ref": "LOC-COLD",
       "action_ref": "ACT-SEARCH-LABEL-RESIDUE"
     },
     {
       "route_id": "REC-MANAGER-MANIFEST",
-      "player_action_label": "Hasonlítsa össze a MNF-IN-4471 jegyzéket a menedzser munkaállomáson.",
+      "player_action_label": "Compare manifest MNF-IN-4471 at the manager workstation.",
       "destination_ref": "LOC-MANAGER",
       "action_ref": "ACT-REVIEW-MNF-4471"
     },
     {
       "route_id": "REC-MANAGER-INTERVIEW",
-      "player_action_label": "Interjú a logisztikai koordinátorral a kivételek fogadásáról.",
+      "player_action_label": "Interview the logistics coordinator about receiving exceptions.",
       "destination_ref": "LOC-MANAGER",
       "action_ref": "TOPIC-RECEIVING-EXCEPTION"
     },
     {
       "route_id": "REC-SECURITY-CROSSREF",
-      "player_action_label": "Cross-reference belépőkártya and alarm records at security.",
+      "player_action_label": "Cross-reference badge and alarm records at security.",
       "destination_ref": "LOC-SECURITY",
       "action_ref": "ACT-REVIEW-ALARM-HISTORY"
     },
     {
       "route_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
-      "player_action_label": "Keresse fel újra azokat a helyeket, ahol az áttekintés még mindig nem fejeződött be.",
+      "player_action_label": "Revisit any location where review remains incomplete.",
       "destination_ref": "LOC-DOCK",
       "action_ref": "NAV-DOCK-SECURITY"
     }
@@ -536,25 +536,25 @@
         "question_id": "Q-WHO",
         "conclusion_id": "CONC-WHO",
         "answer_type": "npc_id",
-        "player_label": "Ki a felelős a ma esti jogosulatlan cselekedetekért?"
+        "player_label": "Who is accountable for the unauthorized actions tonight?"
       },
       {
         "question_id": "Q-HOW",
         "conclusion_id": "CONC-HOW",
         "answer_type": "entity_id",
-        "player_label": "Milyen mechanizmus függesztette fel a hidegláncos fokozatot?"
+        "player_label": "What mechanism suspended cold-chain staging?"
       },
       {
         "question_id": "Q-WHAT",
         "conclusion_id": "CONC-WHAT",
         "answer_type": "entity_id",
-        "player_label": "Milyen elsődleges működési hiba okozta a termékkockázat eszkalációját?"
+        "player_label": "What primary operational failure caused product-risk escalation?"
       },
       {
         "question_id": "Q-MOTIVE",
         "conclusion_id": "CONC-MOTIVE",
         "answer_type": "npc_id",
-        "player_label": "Kinek volt indítéka a bejövő nyilvánvaló eltérésekhez?"
+        "player_label": "Who had motive tied to inbound manifest discrepancies?"
       }
     ],
     "accusation_complete_state_flag": "accusation_complete"
@@ -626,7 +626,7 @@
         }
       },
       "investigation_preserving": true,
-      "opacity_note": "Dokumentálja az operatív válaszreakciók hiányosságait anélkül, hogy megnevezné a teljes csalási rekonstrukciót"
+      "opacity_note": "Documents operational response gaps without naming full fraud reconstruction"
     },
     {
       "ending_id": "END-PARTIAL-WRONG-CULPRIT",
@@ -720,7 +720,7 @@
         "deadline_not_expired": true
       },
       "investigation_preserving": true,
-      "note": "Képviseli a folyamatos vizsgálatot, amikor a vádemelést elhalasztották; nem egy igazságfeltáró végállapot"
+      "note": "Represents continued inquiry when accusation deferred; not a truth-revealing terminal state"
     },
     {
       "ending_id": "END-HIDDEN-RECORDS",
