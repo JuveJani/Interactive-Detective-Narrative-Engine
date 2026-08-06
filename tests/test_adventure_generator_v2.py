@@ -14,7 +14,12 @@ from idne.generate.pipeline import GenerationPipeline, invalidate_and_regenerate
 from idne.generate.repair import can_auto_repair, would_change_fixed_truth
 from idne.generate.stages import STAGE_ORDER
 from idne.generate.state import GenerationStateManager
-from idne.idne_package import build_idne_package, read_idne_package, verify_extracted_package
+from idne.idne_package import (
+    CHECKSUM_NAME,
+    build_idne_package,
+    read_idne_package,
+    verify_extracted_package,
+)
 from idne.model_adapter.base import ModelConfig, ModelRequest
 from idne.model_adapter.mock import build_mock_adapter
 from idne.model_adapter.registry import create_adapter
@@ -24,6 +29,26 @@ FIXTURES = Path(__file__).resolve().parent / "fixtures"
 HARBORVIEW = Path(__file__).resolve().parents[1] / "adventures" / "CASE_BENCHMARK_v0.4"
 BRIEF_SOLO = FIXTURES / "gen_v2_brief_solo.json"
 BRIEF_TWO = FIXTURES / "gen_v2_brief_two_player.json"
+
+
+def _first_checksum_covered_adventure_file(extract_dir: Path) -> Path:
+    """Return the lexicographically first checksum-covered regular file under adventure/."""
+    checksum_path = extract_dir / CHECKSUM_NAME
+    if not checksum_path.is_file():
+        raise AssertionError(f"missing {CHECKSUM_NAME}")
+    covered_adventure_files: list[Path] = []
+    for line in checksum_path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        _digest, rel_path = line.split("  ", 1)
+        if not rel_path.startswith("adventure/"):
+            continue
+        candidate = extract_dir / rel_path
+        if candidate.is_file():
+            covered_adventure_files.append(candidate)
+    if not covered_adventure_files:
+        raise AssertionError("no checksum-covered regular file exists under adventure/")
+    return sorted(covered_adventure_files)[0]
 
 
 class TestAdventureGeneratorV2(unittest.TestCase):
@@ -226,9 +251,8 @@ class TestAdventureGeneratorV2(unittest.TestCase):
         extract = ws / "extracted"
         result = read_idne_package(out, extract)
         self.assertTrue(result.checksum_valid)
-        adventure_files = list((extract / "adventure").rglob("*"))
-        self.assertTrue(adventure_files)
-        adventure_files[0].write_bytes(b"corrupted-content")
+        target = _first_checksum_covered_adventure_file(extract)
+        target.write_bytes(b"corrupted-content")
         self.assertFalse(verify_extracted_package(extract))
 
     def test_integrated_validation_command(self):
