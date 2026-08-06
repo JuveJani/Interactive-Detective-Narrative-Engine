@@ -478,6 +478,17 @@ def validate_investigation(adventure_root: str | Path) -> ValidationResult:
         "truncated": graph.truncated,
         "blocked": graph.blocked,
         "reason": graph.reason,
+        "unique_states_explored": graph.unique_states_explored,
+        "states_scheduled": graph.states_scheduled,
+        "attempted_transitions": graph.attempted_transitions,
+        "duplicate_states_skipped": graph.duplicate_states_skipped,
+        "peak_queue_size": graph.peak_queue_size,
+        "maximum_depth": graph.maximum_depth,
+        "elapsed_seconds": graph.elapsed_seconds,
+        "complete": graph.complete,
+        "termination_reason": graph.termination_reason,
+        "exceeded_limit": graph.exceeded_limit,
+        "transition_counts_by_type": dict(graph.transition_counts_by_type),
     }
     if graph.blocked:
         result.checks["IV-STATE-GRAPH"] = "BLOCKED"
