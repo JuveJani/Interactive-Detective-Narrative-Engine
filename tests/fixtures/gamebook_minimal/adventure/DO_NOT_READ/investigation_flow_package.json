@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "gamebook_minimal",
+  "scene_chains": [],
+  "location_revisits": [],
+  "world_state_variants": [],
+  "inference_flow_gates": [],
+  "recovery_routes": [],
+  "endings": [{"ending_id": "END-DONE"}]
+}

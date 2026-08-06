@@ -1,15 +1,17 @@
-# Hogyan játssz – A hűtőriasztás
+# Hogyan játssz — A hűtőriasztás
 
-**Mód:** Egyetlen nyomozó (az ügyeletes technikust játszod).
+**Mód:** Egyetlen nyomozó (te vagy az ügyeletes hűtőtechnikus).
 
-**Idő:** Minden művelet az időköltséget mutatja percben. A belső világóra előremegy. Nem utazhatsz vissza egy korábbi időpontba.
+**Lejátszható fájl:** Játék közben kizárólag a `PLAYER/GAMEBOOK.md` `PLAYER/GAMEBOOK.md` fájlt használd navigációs forrásként. Ez tartalmaz minden szakaszt, számozva a lapozós navigációhoz. A többi tematikus fájl referenciaanyag; nem kell belső egységkódokat keresned.
 
-**Ellenőrzések:** Egyes műveletekhez d20 dobásra és karaktermódosítóra van szükség. Minden ellenőrzés **egy kísérletet** engedélyez. A siker és a kudarc külön eredményszöveget használ.
+**Kezdő szakasz:** **636** (rakodópart alapmenü). Olvasd el a nyitó részt a `PLAYER/GAMEBOOK.md` fájl elején, majd lapozz a **636**. szakaszra.
 
-**Megjegyzések:** Jegyezze fel a tanult tényeket. A szintézis lépései arra kérik, hogy kapcsolja össze a már megtalált rekordokat – a válaszok kézbesítése nem történik meg automatikusan.
+**Idő:** Minden művelet percben mutatja az időköltséget. A játékbeli óra előremegy. Nem utazhatsz vissza egy korábbi időpontra.
 
-**Határidő:** **5:00 a.m.**-kor a megfelelőségi eljárások lezárhatják a vizsgálati időszakot.
+**Ellenőrzések:** Egyes műveletekhez d20 dobás plusz a karaktered módosítója kell. Minden ellenőrzésnél **egy próbálkozásod** van. Ha egy szakasz dobást kér, kövesd a külön **siker** vagy **kudarc** lapozási utasítást — soha ne használd ugyanazt a szakaszt mindkét kimenetelhez.
 
-**Mielőtt elkezdené:** olvassa el a karakterlapon a csekkmódosítókat, és tartsa nyitva az ügyiratot maga mellett, hogy nyomokat naplózzon, amikor megtalálja őket.
+**Megjegyzések:** Jegyezd fel az ügyiratodba a megtudott tényeket. A szintézis-lépések azt kérik, hogy kösd össze a már megtalált nyilvántartásokat — a válaszok nem érkeznek meg automatikusan. Ha egy választás szakaszszámot ad meg, csak arra a szakaszra lapozz.
 
-Először olvassa el a nyitó részt, majd használja az egyes helyek alapszakaszát a helyfájlban menüként az adott helyen.
+**Határidő:** **5:00 a.m.**-kor a megfelelőségi eljárások lezárhatják a nyomozási időablakodat.
+
+**Indulás előtt:** olvasd el a karakterlapodat a csekkmódosítóidért, és tartsd nyitva az ügyiratodat a nyomok feljegyzéséhez.

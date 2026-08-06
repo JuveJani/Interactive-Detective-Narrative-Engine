@@ -8,7 +8,7 @@
   "locations": [
     {
       "location_id": "LOC-FACILITY",
-      "public_name": "Northline hidegláncos raktár",
+      "public_name": "Northline cold-chain warehouse",
       "parent_location_id": null,
       "location_type": "building",
       "description_source": "DESC-FACILITY",
@@ -21,120 +21,73 @@
     },
     {
       "location_id": "LOC-DOCK",
-      "public_name": "Betöltési dokkoló",
+      "public_name": "Loading dock",
       "parent_location_id": "LOC-FACILITY",
       "location_type": "exterior_dock",
       "description_source": "DESC-DOCK",
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-015",
-          "EVT-016",
-          "EVT-018",
-          "EVT-020"
-        ],
-        "fact_ids": [
-          "FACT-013"
-        ]
+        "event_ids": ["EVT-015", "EVT-016", "EVT-018", "EVT-020"],
+        "fact_ids": ["FACT-013"]
       },
       "state_owner": "environment_package"
     },
     {
       "location_id": "LOC-COLD",
-      "public_name": "Hűtőcsarnok",
+      "public_name": "Cold storage hall",
       "parent_location_id": "LOC-FACILITY",
       "location_type": "refrigerated_storage",
       "description_source": "DESC-COLD",
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-006",
-          "EVT-007",
-          "EVT-008",
-          "EVT-009",
-          "EVT-013",
-          "EVT-022"
-        ],
-        "fact_ids": [
-          "FACT-004",
-          "FACT-005",
-          "FACT-006",
-          "FACT-010",
-          "FACT-021"
-        ]
+        "event_ids": ["EVT-006", "EVT-007", "EVT-008", "EVT-009", "EVT-013", "EVT-022"],
+        "fact_ids": ["FACT-004", "FACT-005", "FACT-006", "FACT-010", "FACT-021"]
       },
       "state_owner": "environment_package"
     },
     {
       "location_id": "LOC-CONTROL",
-      "public_name": "Automatizálási vezérlőterem",
+      "public_name": "Automation control room",
       "parent_location_id": "LOC-FACILITY",
       "location_type": "engineering_room",
       "description_source": "DESC-CONTROL",
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-001",
-          "EVT-010",
-          "EVT-011"
-        ],
-        "fact_ids": [
-          "FACT-001",
-          "FACT-007",
-          "FACT-008",
-          "FACT-009",
-          "FACT-018"
-        ]
+        "event_ids": ["EVT-001", "EVT-010", "EVT-011"],
+        "fact_ids": ["FACT-001", "FACT-007", "FACT-008", "FACT-009", "FACT-018"]
       },
       "state_owner": "environment_package"
     },
     {
       "location_id": "LOC-SECURITY",
-      "public_name": "Biztonsági iroda",
+      "public_name": "Security office",
       "parent_location_id": "LOC-FACILITY",
       "location_type": "security_office",
       "description_source": "DESC-SECURITY",
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-014",
-          "EVT-019",
-          "EVT-021"
-        ],
-        "fact_ids": [
-          "FACT-011",
-          "FACT-014"
-        ]
+        "event_ids": ["EVT-014", "EVT-019", "EVT-021"],
+        "fact_ids": ["FACT-011", "FACT-014"]
       },
       "state_owner": "environment_package"
     },
     {
       "location_id": "LOC-MANAGER",
-      "public_name": "Raktárvezetői iroda",
+      "public_name": "Warehouse manager office",
       "parent_location_id": "LOC-FACILITY",
       "location_type": "office",
       "description_source": "DESC-MANAGER",
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-004"
-        ],
-        "fact_ids": [
-          "FACT-019",
-          "FACT-022"
-        ]
+        "event_ids": ["EVT-004"],
+        "fact_ids": ["FACT-019", "FACT-022"]
       },
       "state_owner": "environment_package"
     },
     {
       "location_id": "LOC-BREAK",
-      "public_name": "A személyzet pihenőszobája",
+      "public_name": "Staff break room",
       "parent_location_id": "LOC-FACILITY",
       "location_type": "staff_area",
       "description_source": "DESC-BREAK",
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-003",
-          "EVT-005"
-        ],
-        "fact_ids": [
-          "FACT-003"
-        ]
+        "event_ids": ["EVT-003", "EVT-005"],
+        "fact_ids": ["FACT-003"]
       },
       "state_owner": "environment_package"
     }
@@ -143,7 +96,7 @@
     {
       "state_id": "LOC-DOCK:default",
       "location_id": "LOC-DOCK",
-      "variant_label": "vizsgálat_kezdete",
+      "variant_label": "investigation_start",
       "attributes": {
         "access": "open",
         "supervisor_present": "true",
@@ -172,7 +125,7 @@
     {
       "state_id": "LOC-COLD:default",
       "location_id": "LOC-COLD",
-      "variant_label": "belépőkártya_required",
+      "variant_label": "badge_required",
       "attributes": {
         "access": "badge_required",
         "temperature_trend": "rising",
@@ -186,7 +139,7 @@
     {
       "state_id": "LOC-COLD:emergency",
       "location_id": "LOC-COLD",
-      "variant_label": "megfelelési_küszöb",
+      "variant_label": "compliance_threshold",
       "attributes": {
         "access": "emergency_protocol",
         "temperature_trend": "critical",
@@ -227,7 +180,7 @@
     {
       "state_id": "LOC-SECURITY:default",
       "location_id": "LOC-SECURITY",
-      "variant_label": "személyzeti_részleges_rekordok",
+      "variant_label": "staffed_partial_records",
       "attributes": {
         "access": "staff_only",
         "records": "badge_logs_partial",
@@ -256,7 +209,7 @@
     {
       "state_id": "LOC-SECURITY:unstaffed",
       "location_id": "LOC-SECURITY",
-      "variant_label": "őr_szünetben",
+      "variant_label": "guard_on_break",
       "attributes": {
         "access": "unstaffed_temporarily",
         "records": "full_archive",
@@ -271,7 +224,7 @@
     {
       "state_id": "LOC-MANAGER:default",
       "location_id": "LOC-MANAGER",
-      "variant_label": "koordinátor_dolgozó",
+      "variant_label": "coordinator_working",
       "attributes": {
         "access": "open",
         "occupant": "logistics_coordinator"
@@ -284,7 +237,7 @@
     {
       "state_id": "LOC-BREAK:default",
       "location_id": "LOC-BREAK",
-      "variant_label": "műszak vége",
+      "variant_label": "end_of_shift",
       "attributes": {
         "access": "open",
         "cleaning_crew_present": "until_0300"
@@ -304,9 +257,7 @@
       "broad_state": "propped_earlier",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-015"
-        ]
+        "event_ids": ["EVT-015"]
       }
     },
     {
@@ -317,10 +268,7 @@
       "broad_state": "latched",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-006",
-          "EVT-007"
-        ]
+        "event_ids": ["EVT-006", "EVT-007"]
       }
     },
     {
@@ -331,9 +279,7 @@
       "broad_state": "occupied",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-008"
-        ]
+        "event_ids": ["EVT-008"]
       }
     },
     {
@@ -344,10 +290,7 @@
       "broad_state": "active_alarm",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-013",
-          "EVT-014"
-        ]
+        "event_ids": ["EVT-013", "EVT-014"]
       }
     },
     {
@@ -358,10 +301,7 @@
       "broad_state": "session_active",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-001",
-          "EVT-011"
-        ]
+        "event_ids": ["EVT-001", "EVT-011"]
       }
     },
     {
@@ -372,9 +312,7 @@
       "broad_state": "staging_suspended",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-012"
-        ]
+        "event_ids": ["EVT-012"]
       }
     },
     {
@@ -385,9 +323,7 @@
       "broad_state": "alarms_active",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-014"
-        ]
+        "event_ids": ["EVT-014"]
       }
     },
     {
@@ -398,9 +334,7 @@
       "broad_state": "sync_pending",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-019"
-        ]
+        "event_ids": ["EVT-019"]
       }
     },
     {
@@ -411,9 +345,7 @@
       "broad_state": "reconciliation_open",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-004"
-        ]
+        "event_ids": ["EVT-004"]
       }
     },
     {
@@ -424,10 +356,7 @@
       "broad_state": "mixed_occupancy",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-003",
-          "EVT-005"
-        ]
+        "event_ids": ["EVT-003", "EVT-005"]
       }
     },
     {
@@ -438,9 +367,7 @@
       "broad_state": "dock_view",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-015"
-        ]
+        "event_ids": ["EVT-015"]
       }
     },
     {
@@ -451,10 +378,7 @@
       "broad_state": "supervisor_briefing",
       "has_further_interaction": true,
       "world_first_provenance": {
-        "event_ids": [
-          "EVT-016",
-          "EVT-018"
-        ]
+        "event_ids": ["EVT-016", "EVT-018"]
       }
     }
   ],
@@ -463,7 +387,7 @@
       "nav_id": "NAV-DOCK-COLD",
       "source_location_id": "LOC-DOCK",
       "destination_location_id": "LOC-COLD",
-      "player_label": "Menjen át a dokkfolyosón a hűtőcsarnokba.",
+      "player_label": "Walk through the dock corridor to the cold storage hall.",
       "travel_cost_minutes": 3,
       "access_condition": {
         "type": "always"
@@ -475,7 +399,7 @@
       "nav_id": "NAV-COLD-DOCK",
       "source_location_id": "LOC-COLD",
       "destination_location_id": "LOC-DOCK",
-      "player_label": "Térjen vissza a rakodó dokkhoz.",
+      "player_label": "Return to the loading dock.",
       "travel_cost_minutes": 3,
       "access_condition": {
         "type": "always"
@@ -486,7 +410,7 @@
       "nav_id": "NAV-DOCK-BREAK",
       "source_location_id": "LOC-DOCK",
       "destination_location_id": "LOC-BREAK",
-      "player_label": "Menj be a személyzeti pihenőszobába.",
+      "player_label": "Head inside to the staff break room.",
       "travel_cost_minutes": 2,
       "access_condition": {
         "type": "always"
@@ -498,7 +422,7 @@
       "nav_id": "NAV-BREAK-DOCK",
       "source_location_id": "LOC-BREAK",
       "destination_location_id": "LOC-DOCK",
-      "player_label": "Menj vissza a rakodó dokkhoz.",
+      "player_label": "Go back out to the loading dock.",
       "travel_cost_minutes": 2,
       "access_condition": {
         "type": "always"
@@ -509,7 +433,7 @@
       "nav_id": "NAV-DOCK-SECURITY",
       "source_location_id": "LOC-DOCK",
       "destination_location_id": "LOC-SECURITY",
-      "player_label": "A raktár folyosóján át a biztonsági irodába.",
+      "player_label": "Cut through the warehouse corridor to the security office.",
       "travel_cost_minutes": 4,
       "access_condition": {
         "type": "always"
@@ -521,7 +445,7 @@
       "nav_id": "NAV-SECURITY-DOCK",
       "source_location_id": "LOC-SECURITY",
       "destination_location_id": "LOC-DOCK",
-      "player_label": "Térjen vissza a rakodó dokkhoz.",
+      "player_label": "Return to the loading dock.",
       "travel_cost_minutes": 4,
       "access_condition": {
         "type": "always"
@@ -532,7 +456,7 @@
       "nav_id": "NAV-DOCK-MANAGER",
       "source_location_id": "LOC-DOCK",
       "destination_location_id": "LOC-MANAGER",
-      "player_label": "Menjen az irodaszárny folyosóján a vezetői irodába.",
+      "player_label": "Take the office wing corridor to the manager's office.",
       "travel_cost_minutes": 3,
       "access_condition": {
         "type": "always"
@@ -544,7 +468,7 @@
       "nav_id": "NAV-MANAGER-DOCK",
       "source_location_id": "LOC-MANAGER",
       "destination_location_id": "LOC-DOCK",
-      "player_label": "Térjen vissza a rakodó dokkhoz.",
+      "player_label": "Return to the loading dock.",
       "travel_cost_minutes": 3,
       "access_condition": {
         "type": "always"
@@ -555,7 +479,7 @@
       "nav_id": "NAV-BREAK-MANAGER",
       "source_location_id": "LOC-BREAK",
       "destination_location_id": "LOC-MANAGER",
-      "player_label": "Sétáljon a vezetői irodába a személyzeti folyosón.",
+      "player_label": "Walk to the manager's office through the staff corridor.",
       "travel_cost_minutes": 2,
       "access_condition": {
         "type": "always"
@@ -567,7 +491,7 @@
       "nav_id": "NAV-MANAGER-BREAK",
       "source_location_id": "LOC-MANAGER",
       "destination_location_id": "LOC-BREAK",
-      "player_label": "Vissza a pihenőszobába.",
+      "player_label": "Return to the break room.",
       "travel_cost_minutes": 2,
       "access_condition": {
         "type": "always"
@@ -578,7 +502,7 @@
       "nav_id": "NAV-BREAK-SECURITY",
       "source_location_id": "LOC-BREAK",
       "destination_location_id": "LOC-SECURITY",
-      "player_label": "Kövesse a belső folyosót a biztonsági iroda felé.",
+      "player_label": "Follow the interior hallway to the security office.",
       "travel_cost_minutes": 3,
       "access_condition": {
         "type": "always"
@@ -590,7 +514,7 @@
       "nav_id": "NAV-SECURITY-BREAK",
       "source_location_id": "LOC-SECURITY",
       "destination_location_id": "LOC-BREAK",
-      "player_label": "Vissza a pihenőszobába.",
+      "player_label": "Return to the break room.",
       "travel_cost_minutes": 3,
       "access_condition": {
         "type": "always"
@@ -601,7 +525,7 @@
       "nav_id": "NAV-BREAK-COLD",
       "source_location_id": "LOC-BREAK",
       "destination_location_id": "LOC-COLD",
-      "player_label": "Menjen az oldalsó átjárón a hűtőcsarnok felé.",
+      "player_label": "Take the side passage toward the cold storage hall.",
       "travel_cost_minutes": 4,
       "access_condition": {
         "type": "always"
@@ -613,7 +537,7 @@
       "nav_id": "NAV-COLD-BREAK",
       "source_location_id": "LOC-COLD",
       "destination_location_id": "LOC-BREAK",
-      "player_label": "Menjen vissza a pihenőszoba folyosója felé.",
+      "player_label": "Return toward the break room corridor.",
       "travel_cost_minutes": 4,
       "access_condition": {
         "type": "always"
@@ -624,7 +548,7 @@
       "nav_id": "NAV-COLD-CONTROL",
       "source_location_id": "LOC-COLD",
       "destination_location_id": "LOC-CONTROL",
-      "player_label": "Kövesse a mérnöki átjárót az automatizálási vezérlőterembe.",
+      "player_label": "Follow the engineering passage to the automation control room.",
       "travel_cost_minutes": 3,
       "access_condition": {
         "type": "location_state",
@@ -639,7 +563,7 @@
       "nav_id": "NAV-CONTROL-COLD",
       "source_location_id": "LOC-CONTROL",
       "destination_location_id": "LOC-COLD",
-      "player_label": "Vissza a hűtőcsarnokba.",
+      "player_label": "Return to the cold storage hall.",
       "travel_cost_minutes": 3,
       "access_condition": {
         "type": "always"
@@ -650,7 +574,7 @@
       "nav_id": "NAV-SECURITY-CONTROL",
       "source_location_id": "LOC-SECURITY",
       "destination_location_id": "LOC-CONTROL",
-      "player_label": "Használja a kísért mérnöki folyosót a vezérlőterembe.",
+      "player_label": "Use the escorted engineering corridor to the control room.",
       "travel_cost_minutes": 3,
       "access_condition": {
         "type": "location_state",
@@ -665,7 +589,7 @@
       "nav_id": "NAV-CONTROL-SECURITY",
       "source_location_id": "LOC-CONTROL",
       "destination_location_id": "LOC-SECURITY",
-      "player_label": "Vissza a biztonsági irodába.",
+      "player_label": "Return to the security office.",
       "travel_cost_minutes": 3,
       "access_condition": {
         "type": "always"
@@ -676,7 +600,7 @@
       "nav_id": "NAV-DOCK-CONTROL-ESCORT",
       "source_location_id": "LOC-DOCK",
       "destination_location_id": "LOC-CONTROL",
-      "player_label": "Kísérje el a felügyelőt az automatizálási vezérlőterembe.",
+      "player_label": "Accompany the supervisor to the automation control room.",
       "travel_cost_minutes": 5,
       "access_condition": {
         "type": "location_state",
@@ -691,7 +615,7 @@
       "nav_id": "NAV-CONTROL-DOCK",
       "source_location_id": "LOC-CONTROL",
       "destination_location_id": "LOC-DOCK",
-      "player_label": "Térjen vissza a rakodó dokkhoz a felügyelővel.",
+      "player_label": "Return to the loading dock with the supervisor.",
       "travel_cost_minutes": 5,
       "access_condition": {
         "type": "always"
@@ -768,12 +692,12 @@
     {
       "location_id": "LOC-COLD",
       "access": "reachable",
-      "reason": "fizikai_bizonyíték_és_hőmérséklet"
+      "reason": "physical_evidence_and_temperature"
     },
     {
       "location_id": "LOC-SECURITY",
       "access": "reachable",
-      "reason": "belépőkártya_and_alarm_records"
+      "reason": "badge_and_alarm_records"
     },
     {
       "location_id": "LOC-CONTROL",
@@ -783,7 +707,7 @@
     {
       "location_id": "LOC-MANAGER",
       "access": "reachable",
-      "reason": "bevételezési jegyzék_reconciliation_records"
+      "reason": "manifest_reconciliation_records"
     }
   ],
   "player_content_refs": {

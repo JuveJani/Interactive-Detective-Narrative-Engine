@@ -1,23 +1,23 @@
 # DM Feeling Validation Report
 
-**Állapot:** CONDITIONAL_PASS
-**Kaland:** /workspace/adventures/The_Cold_Storage_Alarm/adventure
+**Status:** CONDITIONAL_PASS
+**Adventure:** /workspace/adventures/A_Hutoriasztas/adventure
 
-## Kategória pontszámok
+## Category scores
 
-- **Játékos ügynökség:** CONDITIONAL_PASS
-- **Felfedezés kontra kézbesítés:** PASS
-- **Kutatási mélység:** PASS
-- **Következtetés minősége:** CONDITIONAL_PASS
-- **Aha potenciál:** PASS
-- **Világérzékenység:** PASS
-- **Időnyomás:** CONDITIONAL_PASS
-- **Hiba minősége:** PASS
-- **Beszéltető iroda:** CONDITIONAL_PASS
-- **Az okozati összefüggés vége:** CONDITIONAL_PASS
-- **Módspecifikus minőség:** CONDITIONAL_PASS
+- **Player agency:** CONDITIONAL_PASS
+- **Discovery vs delivery:** PASS
+- **Exploration depth:** PASS
+- **Inference quality:** CONDITIONAL_PASS
+- **Aha potential:** PASS
+- **World responsiveness:** PASS
+- **Time pressure:** CONDITIONAL_PASS
+- **Failure quality:** PASS
+- **Conversation agency:** CONDITIONAL_PASS
+- **Ending causality:** CONDITIONAL_PASS
+- **Mode-specific quality:** CONDITIONAL_PASS
 
-## Ellenőrzések
+## Checks
 
 - `DF-AGENCY`: PASS
 - `DF-AHA`: PASS
@@ -26,7 +26,7 @@
 - `DF-ENDING`: PASS
 - `DF-EXPLORATION`: PASS
 - `DF-FAILURE`: PASS
-- `DF-következtetés`: PASS
+- `DF-INFERENCE`: PASS
 - `DF-MODE`: PASS
 - `DF-PKG-PRESENT`: PASS
 - `DF-PLAYTIME-DELEGATE`: PASS
@@ -34,23 +34,23 @@
 - `DF-TIME`: PASS
 - `DF-WORLD`: PASS
 
-## Megállapítások (összefoglaló)
+## Findings (summary)
 
-- `DF-TIER-B-DF-B-AGENCY-NAV` (játékos_ügynökség, szak): függőben
-- `DF-TIER-B-DF-B-következtetés-QUALITY` (következtetési_minőség, szak): függőben
-- `DF-TIER-B-DF-B-NPC-NEUTRALITY` (beszélgetési_ügynökség, szak): függőben
-- `DF-TIER-B-DF-B-ENDING-OPACITY` (befejező_oksági kapcsolat, fő): függőben
-- `DF-TIER-B-DF-B-TIME-PRESSURE` (időnyomás, fő): függőben
-- `DF-TIER-C-MISSING` (mode_specific, major): a lejátszási teszt nem fejeződött be
+- `DF-TIER-B-DF-B-AGENCY-NAV` (player_agency, major): pending
+- `DF-TIER-B-DF-B-INFERENCE-QUALITY` (inference_quality, major): pending
+- `DF-TIER-B-DF-B-NPC-NEUTRALITY` (conversation_agency, major): pending
+- `DF-TIER-B-DF-B-ENDING-OPACITY` (ending_causality, major): pending
+- `DF-TIER-B-DF-B-TIME-PRESSURE` (time_pressure, major): pending
+- `DF-TIER-C-MISSING` (mode_specific, major): playtest not completed
 
-## B szint függőben
+## Tier B pending
 
 - DF-B-AGENCY-NAV
-- DF-B-következtetés-QUALITY
+- DF-B-INFERENCE-QUALITY
 - DF-B-NPC-NEUTRALITY
 - DF-B-ENDING-OPACITY
 - DF-B-TIME-PRESSURE
 
-## C szint
+## Tier C
 
-Emberi játékteszt bizonyíték szükséges.
+Human playtest evidence required.

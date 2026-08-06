@@ -124,7 +124,7 @@ A teljes bejárást **nem** futtatták (csak korlátozott füst; az állapot rob
 
 ## Csomagexport
 
-Lásd: `PACKAGE_EXPORT_REPORT.md`. Kanonikus csomag: `The_Cold_Storage_Alarm.idne`.
+Lásd: „PACKAGE_EXPORT_REPORT.md”. Kanonikus csomag: `The_Cold_Storage_Alarm.idne`.
 
 **Készenléti állapot:** `PRE_PLAYTEST`  
 **Kalandra kész:** Tilos a Tier C bizonyítványig és az integrált PASS-ig.

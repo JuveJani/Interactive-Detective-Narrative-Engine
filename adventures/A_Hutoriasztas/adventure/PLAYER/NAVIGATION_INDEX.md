@@ -1,14 +1,18 @@
 # Navigációs index
 
-Ne olvasson előre ezekben a fájlokban.
+**Lejátszható fájl:** `PLAYER/GAMEBOOK.md` ebben a mappában.
 
-- A nyitó tájékoztató a nyitófájlt használja.
-- A statisztikái és a csekkmódosítói a karakterlapfájlt használják.
-- A nyomjegyzetek és a munkaelméletek az ügyirat-sablont használják.
-- Az alaphelyek a helyfájlt használják.
-- Az objektum eredmények az objektumfájlt használják.
-- Az emberek a helyszínen használják a személyfájlt.
-- Az időjelenetek a jelenetek fájlt használják.
-- A következtetési munkalapok a következtetési fájlt használják.
-- A helyreállítási felszólítások a helyreállítási fájlt használják.
-- A végződések a végződés fájlt használják.
+**Kezdő szakasz:** **636** (rakodópart alapmenü).
+
+**Hogyan kövesd a játékot:**
+- Olvasd el a nyitót a `PLAYER/GAMEBOOK.md` fájl tetején.
+- Lapozz a **636**. szakaszra a kezdéshez.
+- Kövesd kizárólag az egyes választásokban megadott számozott lapozási utasításokat.
+- d20 csekkek után használd a külön siker- vagy kudarc-szakaszszámokat.
+- Tartsd nyitva a karakterlapodat és az ügyiratodat a módosítók és jegyzetek miatt.
+
+**Referenciaanyag (opcionális játék közben):**
+- Karakterlap és ügyirat-sablon
+- Tematikus forrásfájlok (a tartalom a GAMEBOOK.md-ben is megvan)
+
+Játék közben ne olvass előre a befejező szakaszokban.

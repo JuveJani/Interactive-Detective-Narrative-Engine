@@ -6,7 +6,7 @@ Töltse ki ezt az űrlapot **a játékmenet után**. A csomagból előre jelzett
 
 ## Munkamenet azonosítás
 
-| Mező | Az Ön bejegyzése |
+| Mező | Az te bejegyzése |
 |-------|-------------|
 | Játékteszt dátuma | |
 | Játékos neve / azonosító | |
@@ -17,7 +17,7 @@ Töltse ki ezt az űrlapot **a játékmenet után**. A csomagból előre jelzett
 
 ## Falióra időzítése
 
-| Mező | Az Ön bejegyzése |
+| Mező | Az te bejegyzése |
 |-------|-------------|
 | **Kezdési időpont** (az óraidőszak megkezdődött) | |
 | **Befejezési idő** (az óraidő szerinti munkamenet véget ért) | |
@@ -41,7 +41,7 @@ Töltse ki ezt az űrlapot **a játékmenet után**. A csomagból előre jelzett
 
 ## Interakció minősége
 
-| Mező | Az Ön bejegyzése |
+| Mező | Az te bejegyzése |
 |-------|-------------|
 | **A zavaró választások száma** (szám) | |
 | **Ahányszor egy kívánt logikai művelet nem volt elérhető** (számlálás) | |
@@ -61,7 +61,7 @@ Töltse ki ezt az űrlapot **a játékmenet után**. A csomagból előre jelzett
 
 ## Eredmény
 
-| Mező | Az Ön bejegyzése |
+| Mező | Az te bejegyzése |
 |-------|-------------|
 | **Elérte a végét** (a PLAYER szövegből származó befejező azonosító vagy cím) | |
 | **Összességes értékelés** (1–5, 5 = kiváló) | |
@@ -85,7 +85,7 @@ Sorolja fel a JÁTÉKOS részeket vagy helyeket, amelyek **túl rövidnek** vagy
 | Mező | Érték |
 |-------|------:|
 | Előre jelzett várható vizsgálati percek (csomagmodell) | ~163 |
-| Az Ön nettó játékpercei | |
+| Az te nettó játékpercei | |
 | Arány (tényleges ÷ előrejelzett) | |
 
 **Irányelv:** Ne kalibrálja újra a játékidő-szabályokat, amíg legalább egy teljes emberi munkamenetet nem rögzít itt.

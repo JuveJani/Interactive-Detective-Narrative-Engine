@@ -15,6 +15,21 @@ simulator_v2/trust_gate.py  Quantitative trust
 simulator_v2/explainer.py   Human explanations
 simulator_v2/repair_advisor.py  Repair suggestions
 simulator_v2/ai_context.py  Offline AI export
+simulator_v2/human_delivery/  Static gamebook human-delivery simulation
+```
+
+## Human-delivery layer
+
+Parallel to canonical simulation (`simulator_v2/engine.py`), `simulator_v2/human_delivery/` walks the exported static gamebook using only player-visible section numbers and choices. It validates delivery separately from canonical graph simulation; a canonical PASS does not imply human-delivery PASS.
+
+```
+simulator_v2/human_delivery/loader.py    Unpacked workspace resolution (rejects .idne)
+simulator_v2/human_delivery/parse.py     Deterministic GAMEBOOK.md parsing
+simulator_v2/human_delivery/player_view.py  Restricted strategy boundary
+simulator_v2/human_delivery/validate.py  Delivery findings + gamebook cross-check
+simulator_v2/human_delivery/engine.py    Trace + Monte Carlo
+simulator_v2/human_delivery/trust.py     Human-delivery trust gate
+simulator_v2/human_delivery/runner.py    CLI handlers
 ```
 
 ## Data flow

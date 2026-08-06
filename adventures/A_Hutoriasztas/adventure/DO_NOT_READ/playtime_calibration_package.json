@@ -1634,12 +1634,12 @@
   "tier_b_mandatory": [
     {
       "review_id": "PT-B-PATH-MEDIAN",
-      "expected": "Erősítse meg a várható 120 perces egyéni munkamenet medián várható útvonalát",
+      "expected": "Confirm median expected path matches intended 120-minute solo session",
       "resolved": false
     },
     {
       "review_id": "PT-B-SCARCITY",
-      "expected": "A teljes körű feltárás befejezése előtt erősítse meg, hogy nyomást érez a határidőre",
+      "expected": "Confirm deadline pressure is felt before exhaustive exploration completes",
       "resolved": false
     }
   ]

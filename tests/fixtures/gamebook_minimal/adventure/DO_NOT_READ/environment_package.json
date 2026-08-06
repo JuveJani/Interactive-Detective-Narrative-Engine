@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "gamebook_minimal",
+  "start_location_id": "LOC-DOCK",
+  "locations": [
+    {"location_id": "LOC-DOCK", "public_name": "Dock"}
+  ],
+  "navigation": [
+    {
+      "nav_id": "NAV-START-MIDDLE",
+      "source_location_id": "LOC-DOCK",
+      "destination_location_id": "LOC-DOCK",
+      "player_label": "Go to the middle section."
+    }
+  ]
+}

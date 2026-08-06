@@ -3,708 +3,120 @@
   "adventure_id": "The_Cold_Storage_Alarm",
   "fixed_truth": {
     "culprit_id": "NPC-LORI",
-    "motive": "A fuvarozó rövid kézbesítésének elrejtése a MNF-IN-4471 bejövő jegyzéken (40 hiányzó SKU-FBC-12KG eset) a negyedéves raklapcímke-ellenőrzési mintavétel előtt",
-    "method": "A Fejlesztő elfelejtett jelvényét használta a hűtőtárolóba való belépéshez, átcímkézte a raklapokat a tételazonosító helytelen hozzárendeléséhez anélkül, hogy hiányzó készletet hozna létre, majd a fejlesztő felügyelet nélküli BMS-karbantartási munkamenetét használta a zóna némítási parancsának kibocsátására, amely felfüggesztette a CZ-1 kompresszor szakaszolását.",
-    "opportunity": "A hónap végi manifeszt megbékélés feltárta a rövid hajót; Lorinak volt WMS-hozzáférése, a hűtőház szomszédságában a késői műszakban, és a Dev zárolatlan hűtőkarbantartási munkamenete továbbra is aktív CTRL-TERM-02 napon",
+    "motive": "Conceal carrier short-delivery on inbound manifest MNF-IN-4471 (40 missing cases of SKU-FBC-12KG) before quarterly pallet-label audit sampling",
+    "method": "Used Dev's forgotten badge to enter cold storage, relabeled pallets to misassign lot identity without creating missing stock, then used Dev's unattended BMS maintenance session to issue a zone mute command that suspended CZ-1 compressor staging",
+    "opportunity": "Month-end manifest reconciliation exposed the short-ship; Lori had WMS access, cold-storage adjacency during late shift, and found Dev's unlocked refrigeration maintenance session still active on CTRL-TERM-02",
     "immutable_facts": [
-      {
-        "fact_id": "FACT-001",
-        "statement": "A Dev Santos jogszerűen kitöltötte a hűtőkarbantartási jegyet CLO-1847, CZ-1, 18:30"
-      },
-      {
-        "fact_id": "FACT-002",
-        "statement": "Dev Santos 19:02-kor hagyta el a létesítményt a kimenő jelvény beolvasásával a rakodókon."
-      },
-      {
-        "fact_id": "FACT-003",
-        "statement": "Dev ideiglenes jelvénye belépőkártya-DEV-TEMP a pihenőszoba öltözőszekrényében maradt, miután távozott"
-      },
-      {
-        "fact_id": "FACT-004",
-        "statement": "Marcus Hale éjszakai őr vizuálisan megerősítette, hogy a hűtőkamra ajtaja 23:00-kor bereteszelt"
-      },
-      {
-        "fact_id": "FACT-005",
-        "statement": "A hűtőház jelvényolvasója 23:14:08-kor naplózott egy bejövő bejegyzést a belépőkártya-DEV-TEMP hitelesítő adatokkal"
-      },
-      {
-        "fact_id": "FACT-006",
-        "statement": "Lori eltávolította az LBL-4471-A címkét (NL-20260312-4471A sorozat) a PLT-4471-A 8 tokos részleges raklapról és az LBL-Q118-B címkét a PLT-Q118-B karantén raklapról, majd ráragasztotta az LBL-4471-A címkét és (4471-2) LBL-Q118-B a 8 esetes részleges köteghez, így a WMS-vizsgálatok azt mutatják, hogy az L-4471 tele van a C3-as öbölben, míg a rövid hajó karanténcímke alatt van."
-      },
-      {
-        "fact_id": "FACT-007",
-        "statement": "Lori Okonkwo jelvénye belépőkártya-LORI bejelentkezett az automatizálási vezérlőterembe 23:20:41-kor, de Lori nem rendelkezik REFRG_TECH mérnöki jogosultsággal"
-      },
-      {
-        "fact_id": "FACT-008",
-        "statement": "BMS terminál CTRL-TERM-02 naplózott parancs CMD-CZ1-MUTE-STAGE 23:22:17-kor karbantartás alatt SVC-REFRG-MAINT; a parancsnapló csak a terminált és a munkamenetet rögzíti, a kezelő személyi jelvényét nem"
-      },
-      {
-        "fact_id": "FACT-009",
-        "statement": "CMD-CZ1-MUTE-STAGE felfüggeszti a CZ-1 igény fokozatba állítását és a kompresszor forgását, miközben elnémítja az ajtónyitottság jelzését a kiválasztott zónateszt ablakban"
-      },
-      {
-        "fact_id": "FACT-010",
-        "statement": "CZ-1 a befúvott levegő hőmérséklete tartósan emelkedni kezdett 23:27-kor a felfüggesztés után, miközben a hőtömeg elfedte a korai sodródást"
-      },
-      {
-        "fact_id": "FACT-011",
-        "statement": "Magas hőmérsékleti riasztás ALM-COLD-HIGH 23:30-kor aktiválódott, amikor CZ-1 befújt levegő átlépte a -14C küszöböt"
-      },
-      {
-        "fact_id": "FACT-012",
-        "statement": "Lori belépett a hűtőházba, hogy elrejtse a MNF-IN-4471 rövidzárlatot, mielőtt az L-4471 bejövő tételből auditált mintát vett volna"
-      },
-      {
-        "fact_id": "FACT-013",
-        "statement": "A takarítóvezető Pat Nguyen 23:40-kor látta a dokk ajtaját megtámasztva és egy ismeretlen személyt a hűtőcsarnok közelében anélkül, hogy arcot látott volna."
-      },
-      {
-        "fact_id": "FACT-014",
-        "statement": "Az éjszakai jelvénynapló kötegelt feltöltése a hozzáférési archívumba 02:30-kor befejeződött a szabványos informatikai szinkronizálási késés miatt"
-      },
-      {
-        "fact_id": "FACT-015",
-        "statement": "Ha 05:00-kor a CZ-1 -12C felett marad, a Northline-nak kezdeményeznie kell a termékleírást és az egészségügyi megfelelőségről szóló értesítést"
-      },
-      {
-        "fact_id": "FACT-016",
-        "statement": "Lori szándéka szerint CMD-CZ1-MUTE-STAGE csak az ajtónyitott ajtó riasztót akarta elnémítani, és nem értette, hogy a felfüggesztés továbbra is fennáll, miután elhagyta a terminált"
-      },
-      {
-        "fact_id": "FACT-017",
-        "statement": "A termékkockázat kiváltó oka a CMD-CZ1-MUTE-STAGE-tól kezdődő, felügyelet nélküli szakaszos felfüggesztés, nem csak az átcímkézés"
-      },
-      {
-        "fact_id": "FACT-018",
-        "statement": "A fejlesztő a SVC-REFRG-MAINT karbantartási munkamenetet feloldva hagyta a CTRL-TERM-02 mérnöki munkaállomáson, amikor a CLO-1847 18:30-kor bezárt"
-      },
-      {
-        "fact_id": "FACT-019",
-        "statement": "A fuvarozó kézbesítési igazolása POD-4471 48 esetet sorol fel az PLT-4471-A oldalon a SKU-FBC-12KG BATCH-2026-0310-A ​​tételhez, de a fogadó csak 8 esetet rögzített a MNF-IN-4471 jegyzékben"
-      },
-      {
-        "fact_id": "FACT-020",
-        "statement": "A ALM-COLD-DOOR-AJAR riasztás 23:18:45-kor aktiválódott, mert a hűtőház ajtaját több mint 90 másodpercig nyitva tartották Lori átcímkézési munkája során"
-      },
-      {
-        "fact_id": "FACT-021",
-        "statement": "A C folyosón a fizikai maradványok közé tartozott az NL-20260312-4471A öntapadó hátlapja, valamint egy nem egyező címkenyomtatási időbélyeg, amelyen az LBL-4471-A látható az eredeti részleges raklap átvételi helyétől távol."
-      },
-      {
-        "fact_id": "FACT-022",
-        "statement": "Lori WMS-egyeztetési sora MNF-IN-4471 mennyiségi kivételt jelölt meg 22:35-kor, mielőtt elkezdte az átcímkézést"
-      }
+      { "fact_id": "FACT-001", "statement": "Dev Santos legitimately completed refrigeration maintenance ticket CLO-1847 on CZ-1 at 18:30" },
+      { "fact_id": "FACT-002", "statement": "Dev Santos exited the facility at 19:02 with an outbound badge scan at the loading dock" },
+      { "fact_id": "FACT-003", "statement": "Dev's temporary badge BADGE-DEV-TEMP remained in the break room locker after he departed" },
+      { "fact_id": "FACT-004", "statement": "Night guard Marcus Hale visually confirmed the cold storage door latch engaged at 23:00" },
+      { "fact_id": "FACT-005", "statement": "The cold storage badge reader logged an inbound entry at 23:14:08 using credential BADGE-DEV-TEMP" },
+      { "fact_id": "FACT-006", "statement": "Lori removed label LBL-4471-A (serial NL-20260312-4471A) from 8-case partial pallet PLT-4471-A and label LBL-Q118-B from quarantine pallet PLT-Q118-B, then affixed LBL-4471-A to PLT-Q118-B (48 cases) and LBL-Q118-B to the 8-case partial stack so WMS scans would show L-4471 full at bay C3 while the short-ship sat under quarantine label" },
+      { "fact_id": "FACT-007", "statement": "Lori Okonkwo's badge BADGE-LORI logged door entry to the automation control room at 23:20:41 but Lori holds no REFRG_TECH engineering privilege" },
+      { "fact_id": "FACT-008", "statement": "BMS terminal CTRL-TERM-02 logged command CMD-CZ1-MUTE-STAGE at 23:22:17 under maintenance session SVC-REFRG-MAINT; the command log records terminal and session only, not the operator's personal badge" },
+      { "fact_id": "FACT-009", "statement": "CMD-CZ1-MUTE-STAGE suspends CZ-1 demand staging and compressor rotation while muting door-ajar annunciation for the selected zone test window" },
+      { "fact_id": "FACT-010", "statement": "CZ-1 supply air temperature began a sustained rise at 23:27 after staging suspension while thermal mass masked early drift" },
+      { "fact_id": "FACT-011", "statement": "High-temperature alarm ALM-COLD-HIGH activated at 23:30 when CZ-1 supply air crossed the -14C threshold" },
+      { "fact_id": "FACT-012", "statement": "Lori entered cold storage to hide the MNF-IN-4471 short-ship before audit sampling of inbound lot L-4471" },
+      { "fact_id": "FACT-013", "statement": "Cleaning lead Pat Nguyen saw the dock door propped and an unidentified person near the cold hall at 23:40 without seeing a face" },
+      { "fact_id": "FACT-014", "statement": "The nightly badge log batch upload to the access archive completed at 02:30 due to standard IT sync delay" },
+      { "fact_id": "FACT-015", "statement": "If CZ-1 remains above -12C at 05:00, Northline must initiate product write-off and health compliance notification" },
+      { "fact_id": "FACT-016", "statement": "Lori intended CMD-CZ1-MUTE-STAGE to silence the door-ajar alarm only and did not understand staging suspension would persist after she left the terminal" },
+      { "fact_id": "FACT-017", "statement": "Root cause of product risk is unattended staging suspension from CMD-CZ1-MUTE-STAGE, not the relabeling alone" },
+      { "fact_id": "FACT-018", "statement": "Dev left maintenance session SVC-REFRG-MAINT unlocked on engineering workstation CTRL-TERM-02 when CLO-1847 was closed at 18:30" },
+      { "fact_id": "FACT-019", "statement": "Carrier proof-of-delivery POD-4471 lists 48 cases on PLT-4471-A for SKU-FBC-12KG batch BATCH-2026-0310-A but receiving recorded only 8 cases on manifest MNF-IN-4471" },
+      { "fact_id": "FACT-020", "statement": "Alarm ALM-COLD-DOOR-AJAR activated at 23:18:45 because the cold storage door was held open more than 90 seconds during Lori's relabeling work" },
+      { "fact_id": "FACT-021", "statement": "Physical residue in aisle C included adhesive backing for NL-20260312-4471A and a mismatched label print timestamp showing LBL-4471-A re-applied away from its original partial-pallet receipt location" },
+      { "fact_id": "FACT-022", "statement": "Lori's WMS reconciliation queue flagged MNF-IN-4471 quantity exception at 22:35 before she began relabeling" }
     ]
   },
   "causal_timeline": {
     "clock_start": "2026-03-12T18:00:00",
     "events": [
-      {
-        "event_id": "EVT-001",
-        "timestamp": "2026-03-12T18:30:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-CONTROL",
-        "description": "A fejlesztő befejezi a CLO-1847-t, és az SVC-REFRG-MAINT munkamenetet feloldva hagyja a CTRL-TERM-02-n",
-        "participants": [
-          "NPC-DEV"
-        ],
-        "causes": [],
-        "reveals_facts": [
-          "FACT-001",
-          "FACT-018"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-002",
-        "timestamp": "2026-03-12T19:02:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-DOCK",
-        "description": "Fejlesztői kimenő jelvény vizsgálat a betöltődokknál",
-        "participants": [
-          "NPC-DEV"
-        ],
-        "causes": [
-          "EVT-001"
-        ],
-        "reveals_facts": [
-          "FACT-002"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-003",
-        "timestamp": "2026-03-12T19:05:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-BREAK",
-        "description": "A fejlesztő a szekrényben hagyja az ideiglenes jelvényt, miközben leveszi a kezeslábast",
-        "participants": [
-          "NPC-DEV"
-        ],
-        "causes": [
-          "EVT-002"
-        ],
-        "reveals_facts": [
-          "FACT-003"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-004",
-        "timestamp": "2026-03-12T22:35:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-MANAGER",
-        "description": "Lori kibékíti a MNF-IN-4471-t, és felfedezi, hogy 8 kapott a 48-cal szemben az POD-4471-n",
-        "participants": [
-          "NPC-LORI"
-        ],
-        "causes": [],
-        "reveals_facts": [
-          "FACT-019",
-          "FACT-022",
-          "FACT-012"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-005",
-        "timestamp": "2026-03-12T22:48:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-BREAK",
-        "description": "Lori előveszi Dev elfelejtett ideiglenes jelvényét a szekrényből",
-        "participants": [
-          "NPC-LORI"
-        ],
-        "causes": [
-          "EVT-003",
-          "EVT-004"
-        ],
-        "reveals_facts": [
-          "FACT-003"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-006",
-        "timestamp": "2026-03-12T23:00:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-COLD",
-        "description": "Marcus a körök alatt ellenőrzi a hűtőkamra ajtajának reteszét",
-        "participants": [
-          "NPC-MARCUS"
-        ],
-        "causes": [],
-        "reveals_facts": [
-          "FACT-004"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-007",
-        "timestamp": "2026-03-12T23:14:08",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-COLD",
-        "description": "Jogosulatlan belépés a hűtőházba a belépőkártya-DEV-TEMP használatával",
-        "participants": [
-          "NPC-LORI"
-        ],
-        "causes": [
-          "EVT-005"
-        ],
-        "reveals_facts": [
-          "FACT-005"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-008",
-        "timestamp": "2026-03-12T23:17:30",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-COLD",
-        "description": "Lori átcímkézi a PLT-4471-A és PLT-Q118-B számokat, hogy felcserélje a tételazonosítót a WMS-vizsgálatoknál",
-        "participants": [
-          "NPC-LORI"
-        ],
-        "causes": [
-          "EVT-007"
-        ],
-        "reveals_facts": [
-          "FACT-006",
-          "FACT-021"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-009",
-        "timestamp": "2026-03-12T23:18:45",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-COLD",
-        "description": "ALM-COLD-DOOR-AJAR kiold az átcímkézés során nyitva tartott ajtóból",
-        "participants": [
-          "NPC-LORI"
-        ],
-        "causes": [
-          "EVT-008"
-        ],
-        "reveals_facts": [
-          "FACT-020"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-010",
-        "timestamp": "2026-03-12T23:20:41",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-CONTROL",
-        "description": "Lori logisztikai jelvénnyel lép be az automatizálási vezérlőterembe belépőkártya-LORI",
-        "participants": [
-          "NPC-LORI"
-        ],
-        "causes": [
-          "EVT-009"
-        ],
-        "reveals_facts": [
-          "FACT-007"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-011",
-        "timestamp": "2026-03-12T23:22:17",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-CONTROL",
-        "description": "CMD-CZ1-MUTE-STAGE kiadása CTRL-TERM-02 időponttól, felügyelet nélküli SVC-REFRG-MAINT munkamenet alatt",
-        "participants": [
-          "NPC-LORI"
-        ],
-        "causes": [
-          "EVT-010"
-        ],
-        "reveals_facts": [
-          "FACT-008",
-          "FACT-009",
-          "FACT-016"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-012",
-        "timestamp": "2026-03-12T23:24:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-COLD",
-        "description": "Belső ALM-CZ1-STAGE-SUSP tanácsadó naplók átmeneti felfüggesztése",
-        "participants": [],
-        "causes": [
-          "EVT-011"
-        ],
-        "reveals_facts": [
-          "FACT-009"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-013",
-        "timestamp": "2026-03-12T23:27:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-COLD",
-        "description": "CZ-1 a befúvott levegő trendje felfelé ível, mivel a szakaszolás felfüggesztve marad",
-        "participants": [],
-        "causes": [
-          "EVT-012"
-        ],
-        "reveals_facts": [
-          "FACT-010",
-          "FACT-017"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-014",
-        "timestamp": "2026-03-12T23:30:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-SECURITY",
-        "description": "ALM-COLD-HIGH jelenik meg a biztonsági felügyeleti panelen",
-        "participants": [
-          "NPC-MARCUS"
-        ],
-        "causes": [
-          "EVT-013"
-        ],
-        "reveals_facts": [
-          "FACT-011"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-015",
-        "timestamp": "2026-03-12T23:40:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-DOCK",
-        "description": "Pat megfigyeli a kitámasztott dokkajtót és a sziluettet a hideg csarnok közelében",
-        "participants": [
-          "NPC-PAT"
-        ],
-        "causes": [],
-        "reveals_facts": [
-          "FACT-013"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-016",
-        "timestamp": "2026-03-13T00:10:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-DOCK",
-        "description": "Elena Morales felügyelő ALM-COLD-HIGH értesítés után érkezik a hívásra",
-        "participants": [
-          "NPC-ELENA"
-        ],
-        "causes": [
-          "EVT-014"
-        ],
-        "reveals_facts": [
-          "FACT-011"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-017",
-        "timestamp": "2026-03-13T00:35:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-DOCK",
-        "description": "Dev Santost telefonon visszahívják, és beleegyezik a visszatérésbe",
-        "participants": [
-          "NPC-DEV"
-        ],
-        "causes": [
-          "EVT-014"
-        ],
-        "reveals_facts": [],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-018",
-        "timestamp": "2026-03-13T01:00:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-DOCK",
-        "description": "A nyomozó technikus érkezik a helyszínre",
-        "participants": [
-          "PC-TECH"
-        ],
-        "causes": [
-          "EVT-016"
-        ],
-        "reveals_facts": [],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-019",
-        "timestamp": "2026-03-13T02:30:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-SECURITY",
-        "description": "A késleltetett jelvénynapló kötegelt feltöltése befejeződött",
-        "participants": [],
-        "causes": [],
-        "reveals_facts": [
-          "FACT-014"
-        ],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-020",
-        "timestamp": "2026-03-13T03:15:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-DOCK",
-        "description": "Elena a felülvizsgálatig korlátozza a betöltődokk hozzáférését",
-        "participants": [
-          "NPC-ELENA"
-        ],
-        "causes": [
-          "EVT-018"
-        ],
-        "reveals_facts": [],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-021",
-        "timestamp": "2026-03-13T04:30:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-BREAK",
-        "description": "Marcus megkezdi a kötelező szünetet a biztonsági pult elhagyásával",
-        "participants": [
-          "NPC-MARCUS"
-        ],
-        "causes": [],
-        "reveals_facts": [],
-        "effects": []
-      },
-      {
-        "event_id": "EVT-022",
-        "timestamp": "2026-03-13T05:00:00",
-        "day_label": "Éjszaka 1",
-        "location_id": "LOC-COLD",
-        "description": "Megfelelőségi leírási küszöbérték értékelési pillanata",
-        "participants": [],
-        "causes": [
-          "EVT-013"
-        ],
-        "reveals_facts": [
-          "FACT-015"
-        ],
-        "effects": []
-      }
+      { "event_id": "EVT-001", "timestamp": "2026-03-12T18:30:00", "day_label": "Night 1", "location_id": "LOC-CONTROL", "description": "Dev completes CLO-1847 and leaves SVC-REFRG-MAINT session unlocked on CTRL-TERM-02", "participants": ["NPC-DEV"], "causes": [], "reveals_facts": ["FACT-001", "FACT-018"], "effects": [] },
+      { "event_id": "EVT-002", "timestamp": "2026-03-12T19:02:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Dev outbound badge scan at loading dock", "participants": ["NPC-DEV"], "causes": ["EVT-001"], "reveals_facts": ["FACT-002"], "effects": [] },
+      { "event_id": "EVT-003", "timestamp": "2026-03-12T19:05:00", "day_label": "Night 1", "location_id": "LOC-BREAK", "description": "Dev leaves temporary badge in locker while removing coveralls", "participants": ["NPC-DEV"], "causes": ["EVT-002"], "reveals_facts": ["FACT-003"], "effects": [] },
+      { "event_id": "EVT-004", "timestamp": "2026-03-12T22:35:00", "day_label": "Night 1", "location_id": "LOC-MANAGER", "description": "Lori reconciles MNF-IN-4471 and discovers 8 received versus 48 on POD-4471", "participants": ["NPC-LORI"], "causes": [], "reveals_facts": ["FACT-019", "FACT-022", "FACT-012"], "effects": [] },
+      { "event_id": "EVT-005", "timestamp": "2026-03-12T22:48:00", "day_label": "Night 1", "location_id": "LOC-BREAK", "description": "Lori retrieves Dev's forgotten temporary badge from locker", "participants": ["NPC-LORI"], "causes": ["EVT-003", "EVT-004"], "reveals_facts": ["FACT-003"], "effects": [] },
+      { "event_id": "EVT-006", "timestamp": "2026-03-12T23:00:00", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "Marcus checks cold storage door latch during rounds", "participants": ["NPC-MARCUS"], "causes": [], "reveals_facts": ["FACT-004"], "effects": [] },
+      { "event_id": "EVT-007", "timestamp": "2026-03-12T23:14:08", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "Unauthorized cold storage entry using BADGE-DEV-TEMP", "participants": ["NPC-LORI"], "causes": ["EVT-005"], "reveals_facts": ["FACT-005"], "effects": [] },
+      { "event_id": "EVT-008", "timestamp": "2026-03-12T23:17:30", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "Lori relabels PLT-4471-A and PLT-Q118-B to swap lot identity on WMS scans", "participants": ["NPC-LORI"], "causes": ["EVT-007"], "reveals_facts": ["FACT-006", "FACT-021"], "effects": [] },
+      { "event_id": "EVT-009", "timestamp": "2026-03-12T23:18:45", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "ALM-COLD-DOOR-AJAR triggers from door held open during relabeling", "participants": ["NPC-LORI"], "causes": ["EVT-008"], "reveals_facts": ["FACT-020"], "effects": [] },
+      { "event_id": "EVT-010", "timestamp": "2026-03-12T23:20:41", "day_label": "Night 1", "location_id": "LOC-CONTROL", "description": "Lori enters automation control room under logistics badge BADGE-LORI", "participants": ["NPC-LORI"], "causes": ["EVT-009"], "reveals_facts": ["FACT-007"], "effects": [] },
+      { "event_id": "EVT-011", "timestamp": "2026-03-12T23:22:17", "day_label": "Night 1", "location_id": "LOC-CONTROL", "description": "CMD-CZ1-MUTE-STAGE issued from CTRL-TERM-02 under unattended SVC-REFRG-MAINT session", "participants": ["NPC-LORI"], "causes": ["EVT-010"], "reveals_facts": ["FACT-008", "FACT-009", "FACT-016"], "effects": [] },
+      { "event_id": "EVT-012", "timestamp": "2026-03-12T23:24:00", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "Internal ALM-CZ1-STAGE-SUSP advisory logs staging suspension", "participants": [], "causes": ["EVT-011"], "reveals_facts": ["FACT-009"], "effects": [] },
+      { "event_id": "EVT-013", "timestamp": "2026-03-12T23:27:00", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "CZ-1 supply air trend inflects upward as staging remains suspended", "participants": [], "causes": ["EVT-012"], "reveals_facts": ["FACT-010", "FACT-017"], "effects": [] },
+      { "event_id": "EVT-014", "timestamp": "2026-03-12T23:30:00", "day_label": "Night 1", "location_id": "LOC-SECURITY", "description": "ALM-COLD-HIGH appears on security monitoring panel", "participants": ["NPC-MARCUS"], "causes": ["EVT-013"], "reveals_facts": ["FACT-011"], "effects": [] },
+      { "event_id": "EVT-015", "timestamp": "2026-03-12T23:40:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Pat observes propped dock door and silhouette near cold hall", "participants": ["NPC-PAT"], "causes": [], "reveals_facts": ["FACT-013"], "effects": [] },
+      { "event_id": "EVT-016", "timestamp": "2026-03-13T00:10:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Supervisor Elena Morales arrives on call after ALM-COLD-HIGH notification", "participants": ["NPC-ELENA"], "causes": ["EVT-014"], "reveals_facts": ["FACT-011"], "effects": [] },
+      { "event_id": "EVT-017", "timestamp": "2026-03-13T00:35:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Dev Santos is recalled by phone and agrees to return", "participants": ["NPC-DEV"], "causes": ["EVT-014"], "reveals_facts": [], "effects": [] },
+      { "event_id": "EVT-018", "timestamp": "2026-03-13T01:00:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Investigator technician arrives on site", "participants": ["PC-TECH"], "causes": ["EVT-016"], "reveals_facts": [], "effects": [] },
+      { "event_id": "EVT-019", "timestamp": "2026-03-13T02:30:00", "day_label": "Night 1", "location_id": "LOC-SECURITY", "description": "Delayed badge log batch upload completes", "participants": [], "causes": [], "reveals_facts": ["FACT-014"], "effects": [] },
+      { "event_id": "EVT-020", "timestamp": "2026-03-13T03:15:00", "day_label": "Night 1", "location_id": "LOC-DOCK", "description": "Elena restricts loading dock access pending review", "participants": ["NPC-ELENA"], "causes": ["EVT-018"], "reveals_facts": [], "effects": [] },
+      { "event_id": "EVT-021", "timestamp": "2026-03-13T04:30:00", "day_label": "Night 1", "location_id": "LOC-BREAK", "description": "Marcus begins mandatory break leaving security desk", "participants": ["NPC-MARCUS"], "causes": [], "reveals_facts": [], "effects": [] },
+      { "event_id": "EVT-022", "timestamp": "2026-03-13T05:00:00", "day_label": "Night 1", "location_id": "LOC-COLD", "description": "Compliance write-off threshold evaluation moment", "participants": [], "causes": ["EVT-013"], "reveals_facts": ["FACT-015"], "effects": [] }
     ]
   },
   "world_state_timeline": {
     "snapshots": [
-      {
-        "at_event_id": "EVT-006",
-        "people_locations": {
-          "NPC-MARCUS": "LOC-COLD"
-        },
-        "object_states": {
-          "OBJ-COLD-DOOR": "latched",
-          "OBJ-CZ1-TEMP": "-18.4C"
-        },
-        "access_states": {
-          "LOC-COLD": "badge_required"
-        },
-        "evidence_conditions": {}
-      },
-      {
-        "at_event_id": "EVT-009",
-        "people_locations": {
-          "NPC-LORI": "LOC-COLD"
-        },
-        "object_states": {
-          "OBJ-COLD-DOOR": "ajar_held",
-          "OBJ-ALARM-PANEL": "ALM-COLD-DOOR-AJAR_active"
-        },
-        "access_states": {
-          "LOC-COLD": "badge_required"
-        },
-        "evidence_conditions": {}
-      },
-      {
-        "at_event_id": "EVT-011",
-        "people_locations": {
-          "NPC-LORI": "LOC-CONTROL"
-        },
-        "object_states": {
-          "OBJ-CTRL-TERM-02": "session_SVC-REFRG-MAINT",
-          "OBJ-CZ1-STAGING": "suspended",
-          "OBJ-CZ1-TEMP": "-18.1C"
-        },
-        "access_states": {
-          "LOC-CONTROL": "badge_required"
-        },
-        "evidence_conditions": {}
-      },
-      {
-        "at_event_id": "EVT-013",
-        "people_locations": {},
-        "object_states": {
-          "OBJ-CZ1-TEMP": "-16.8C_rising",
-          "OBJ-COMPRESSOR-STAGE": "rotation_disabled"
-        },
-        "access_states": {
-          "LOC-COLD": "badge_required"
-        },
-        "evidence_conditions": {
-          "EVD-LABEL-RESIDUE": "present"
-        }
-      },
-      {
-        "at_event_id": "EVT-014",
-        "people_locations": {
-          "NPC-MARCUS": "LOC-SECURITY"
-        },
-        "object_states": {
-          "OBJ-ALARM-PANEL": "ALM-COLD-HIGH_active",
-          "OBJ-CZ1-TEMP": "-14.6C_rising"
-        },
-        "access_states": {
-          "LOC-SECURITY": "staff_only"
-        },
-        "evidence_conditions": {}
-      },
-      {
-        "at_event_id": "EVT-018",
-        "people_locations": {
-          "PC-TECH": "LOC-DOCK"
-        },
-        "object_states": {
-          "OBJ-CZ1-TEMP": "-11.9C_rising",
-          "OBJ-ALARM-PANEL": "ALM-COLD-HIGH_active",
-          "OBJ-CZ1-STAGING": "suspended"
-        },
-        "access_states": {
-          "LOC-DOCK": "open",
-          "LOC-COLD": "badge_required",
-          "LOC-CONTROL": "supervisor_escort"
-        },
-        "evidence_conditions": {
-          "EVD-LABEL-RESIDUE": "present",
-          "EVD-MANIFEST-POD": "available"
-        }
-      },
-      {
-        "at_event_id": "EVT-019",
-        "people_locations": {},
-        "object_states": {
-          "OBJ-BADGE-ARCHIVE": "sync_complete"
-        },
-        "access_states": {
-          "LOC-SECURITY": "records_available"
-        },
-        "evidence_conditions": {}
-      },
-      {
-        "at_event_id": "EVT-020",
-        "people_locations": {
-          "NPC-ELENA": "LOC-DOCK"
-        },
-        "object_states": {
-          "OBJ-CZ1-TEMP": "-10.6C_rising"
-        },
-        "access_states": {
-          "LOC-DOCK": "restricted",
-          "LOC-COLD": "badge_required"
-        },
-        "evidence_conditions": {}
-      },
-      {
-        "at_event_id": "EVT-021",
-        "people_locations": {
-          "NPC-MARCUS": "LOC-BREAK"
-        },
-        "object_states": {},
-        "access_states": {
-          "LOC-SECURITY": "unstaffed_temporarily"
-        },
-        "evidence_conditions": {}
-      },
-      {
-        "at_event_id": "EVT-022",
-        "people_locations": {},
-        "object_states": {
-          "OBJ-CZ1-TEMP": "-9.8C_critical",
-          "OBJ-PRODUCT-RISK": "writeoff_imminent"
-        },
-        "access_states": {
-          "LOC-COLD": "emergency_protocol"
-        },
-        "evidence_conditions": {}
-      }
+      { "at_event_id": "EVT-006", "people_locations": { "NPC-MARCUS": "LOC-COLD" }, "object_states": { "OBJ-COLD-DOOR": "latched", "OBJ-CZ1-TEMP": "-18.4C" }, "access_states": { "LOC-COLD": "badge_required" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-009", "people_locations": { "NPC-LORI": "LOC-COLD" }, "object_states": { "OBJ-COLD-DOOR": "ajar_held", "OBJ-ALARM-PANEL": "ALM-COLD-DOOR-AJAR_active" }, "access_states": { "LOC-COLD": "badge_required" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-011", "people_locations": { "NPC-LORI": "LOC-CONTROL" }, "object_states": { "OBJ-CTRL-TERM-02": "session_SVC-REFRG-MAINT", "OBJ-CZ1-STAGING": "suspended", "OBJ-CZ1-TEMP": "-18.1C" }, "access_states": { "LOC-CONTROL": "badge_required" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-013", "people_locations": {}, "object_states": { "OBJ-CZ1-TEMP": "-16.8C_rising", "OBJ-COMPRESSOR-STAGE": "rotation_disabled" }, "access_states": { "LOC-COLD": "badge_required" }, "evidence_conditions": { "EVD-LABEL-RESIDUE": "present" } },
+      { "at_event_id": "EVT-014", "people_locations": { "NPC-MARCUS": "LOC-SECURITY" }, "object_states": { "OBJ-ALARM-PANEL": "ALM-COLD-HIGH_active", "OBJ-CZ1-TEMP": "-14.6C_rising" }, "access_states": { "LOC-SECURITY": "staff_only" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-018", "people_locations": { "PC-TECH": "LOC-DOCK" }, "object_states": { "OBJ-CZ1-TEMP": "-11.9C_rising", "OBJ-ALARM-PANEL": "ALM-COLD-HIGH_active", "OBJ-CZ1-STAGING": "suspended" }, "access_states": { "LOC-DOCK": "open", "LOC-COLD": "badge_required", "LOC-CONTROL": "supervisor_escort" }, "evidence_conditions": { "EVD-LABEL-RESIDUE": "present", "EVD-MANIFEST-POD": "available" } },
+      { "at_event_id": "EVT-019", "people_locations": {}, "object_states": { "OBJ-BADGE-ARCHIVE": "sync_complete" }, "access_states": { "LOC-SECURITY": "records_available" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-020", "people_locations": { "NPC-ELENA": "LOC-DOCK" }, "object_states": { "OBJ-CZ1-TEMP": "-10.6C_rising" }, "access_states": { "LOC-DOCK": "restricted", "LOC-COLD": "badge_required" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-021", "people_locations": { "NPC-MARCUS": "LOC-BREAK" }, "object_states": {}, "access_states": { "LOC-SECURITY": "unstaffed_temporarily" }, "evidence_conditions": {} },
+      { "at_event_id": "EVT-022", "people_locations": {}, "object_states": { "OBJ-CZ1-TEMP": "-9.8C_critical", "OBJ-PRODUCT-RISK": "writeoff_imminent" }, "access_states": { "LOC-COLD": "emergency_protocol" }, "evidence_conditions": {} }
     ]
   },
   "npc_knowledge": {
     "npcs": [
       {
         "npc_id": "NPC-LORI",
-        "knows": [
-          "FACT-005",
-          "FACT-006",
-          "FACT-007",
-          "FACT-008",
-          "FACT-009",
-          "FACT-012",
-          "FACT-016",
-          "FACT-019",
-          "FACT-020",
-          "FACT-021",
-          "FACT-022"
-        ],
+        "knows": ["FACT-005", "FACT-006", "FACT-007", "FACT-008", "FACT-009", "FACT-012", "FACT-016", "FACT-019", "FACT-020", "FACT-021", "FACT-022"],
         "believes_incorrectly": [],
-        "witnessed_events": [
-          "EVT-004",
-          "EVT-005",
-          "EVT-007",
-          "EVT-008",
-          "EVT-009",
-          "EVT-010",
-          "EVT-011"
-        ],
-        "hides": [
-          "FACT-005",
-          "FACT-006",
-          "FACT-008",
-          "FACT-012",
-          "FACT-016",
-          "FACT-019",
-          "FACT-022"
-        ],
-        "behavior_rationale": "Elrejti a könyvvizsgálati csalást és a rosszul megítélt BMS-elnémítási kísérletet; kerülni fogja a munkaidőn túli hűtőházi hozzáférést, és megtagadja a műszaki terminál érintését"
+        "witnessed_events": ["EVT-004", "EVT-005", "EVT-007", "EVT-008", "EVT-009", "EVT-010", "EVT-011"],
+        "hides": ["FACT-005", "FACT-006", "FACT-008", "FACT-012", "FACT-016", "FACT-019", "FACT-022"],
+        "behavior_rationale": "Conceals audit fraud and misjudged BMS mute attempt; will be evasive about after-hours cold storage access and deny touching engineering terminal"
       },
       {
         "npc_id": "NPC-MARCUS",
-        "knows": [
-          "FACT-004",
-          "FACT-011"
-        ],
+        "knows": ["FACT-004", "FACT-011"],
         "believes_incorrectly": [
-          {
-            "belief_fact_id": "FACT-004",
-            "actual_fact_id": "FACT-005",
-            "cause": "Csak a kézi zárat ellenőrizték, és még nem ellenőrizték a jelvényolvasót, amikor először megállapították, hogy az ajtó biztonságos"
-          }
+          { "belief_fact_id": "FACT-004", "actual_fact_id": "FACT-005", "cause": "Checked manual latch only and had not yet reviewed badge reader when first stating door was secure" }
         ],
-        "witnessed_events": [
-          "EVT-006",
-          "EVT-014"
-        ],
+        "witnessed_events": ["EVT-006", "EVT-014"],
         "hides": [],
-        "behavior_rationale": "Őszinte, de túlságosan magabiztos az ajtóbiztonsággal kapcsolatban a reteszellenőrzés alapján"
+        "behavior_rationale": "Truthful but overconfident about door security based on latch check"
       },
       {
         "npc_id": "NPC-DEV",
-        "knows": [
-          "FACT-001",
-          "FACT-002",
-          "FACT-018"
-        ],
+        "knows": ["FACT-001", "FACT-002", "FACT-018"],
         "believes_incorrectly": [
-          {
-            "belief_fact_id": "FACT-002",
-            "actual_fact_id": "FACT-003",
-            "cause": "A feltételezett jelvény a karbantartás utáni gyors távozáskor a személyen maradt"
-          }
+          { "belief_fact_id": "FACT-002", "actual_fact_id": "FACT-003", "cause": "Assumed badge remained on person when leaving quickly after maintenance" }
         ],
-        "witnessed_events": [
-          "EVT-001",
-          "EVT-002",
-          "EVT-003"
-        ],
-        "hides": [
-          "FACT-018"
-        ],
-        "behavior_rationale": "A szövetkezeti szakember zavarban van az elfelejtett jelvény és a feloldott karbantartás miatt; a jelvénynaplóval érintettnek tűnik, amíg az idővonalat nem törlik"
+        "witnessed_events": ["EVT-001", "EVT-002", "EVT-003"],
+        "hides": ["FACT-018"],
+        "behavior_rationale": "Cooperative specialist embarrassed about forgotten badge and unlocked maintenance session; appears implicated by badge log until timeline cleared"
       },
       {
         "npc_id": "NPC-ELENA",
-        "knows": [
-          "FACT-011"
-        ],
+        "knows": ["FACT-011"],
         "believes_incorrectly": [],
-        "witnessed_events": [
-          "EVT-016",
-          "EVT-020"
-        ],
+        "witnessed_events": ["EVT-016", "EVT-020"],
         "hides": [],
-        "behavior_rationale": "Intézményi nyomás a hideglánc helyreállítására és az elszámoltathatóság dokumentálására"
+        "behavior_rationale": "Institutional pressure to restore cold chain and document accountability"
       },
       {
         "npc_id": "NPC-PAT",
-        "knows": [
-          "FACT-013"
-        ],
+        "knows": ["FACT-013"],
         "believes_incorrectly": [],
-        "witnessed_events": [
-          "EVT-015"
-        ],
+        "witnessed_events": ["EVT-015"],
         "hides": [],
-        "behavior_rationale": "Őszinte megfigyelő, aki nem tudja azonosítani a sziluettet"
+        "behavior_rationale": "Honest observer who cannot identify the silhouette"
       },
       {
         "npc_id": "NPC-IT",
@@ -712,310 +124,44 @@
         "believes_incorrectly": [],
         "witnessed_events": [],
         "hides": [],
-        "behavior_rationale": "Csak rekordok szerepe; Az archiválási késés rutin, nem rosszindulat"
+        "behavior_rationale": "Records-only role; archive delay is routine not malice"
       }
     ]
   },
   "evidence_provenance": {
     "evidence": [
-      {
-        "evidence_id": "EVD-BADGE-LOG",
-        "source_event_id": "EVT-007",
-        "type": "document",
-        "description": "Hűtőszekrény bejövő jelvényolvasó bejegyzési rekordja",
-        "establishes_fact_ids": [
-          "FACT-005"
-        ],
-        "misleading": true,
-        "misleading_cause": "A megbízólevélen a vállalkozó jelvénye látható, miközben a vállalkozó már kilépett"
-      },
-      {
-        "evidence_id": "EVD-EXIT-SCAN",
-        "source_event_id": "EVT-002",
-        "type": "document",
-        "description": "Vállalkozó kimenő dokkjelvény-ellenőrzése",
-        "establishes_fact_ids": [
-          "FACT-002"
-        ],
-        "misleading": false,
-        "misleading_cause": null
-      },
-      {
-        "evidence_id": "EVD-MAINT-CLO1847",
-        "source_event_id": "EVT-001",
-        "type": "document",
-        "description": "Lezárt karbantartási jegy CLO-1847 munkamenet megjegyzéssel a következőhöz: CTRL-TERM-02",
-        "establishes_fact_ids": [
-          "FACT-001",
-          "FACT-018"
-        ],
-        "misleading": false,
-        "misleading_cause": null
-      },
-      {
-        "evidence_id": "EVD-MANIFEST-POD",
-        "source_event_id": "EVT-004",
-        "type": "document",
-        "description": "MNF-IN-4471 fogadó rekord kereszthivatkozással a szolgáltatóra POD-4471",
-        "establishes_fact_ids": [
-          "FACT-019",
-          "FACT-022"
-        ],
-        "misleading": false,
-        "misleading_cause": null
-      },
-      {
-        "evidence_id": "EVD-LABEL-RESIDUE",
-        "source_event_id": "EVT-008",
-        "type": "physical",
-        "description": "Öntapadó hátlap sorozat NL-20260312-4471A és nem megfelelő címkenyomtatási maradék a C folyosón",
-        "establishes_fact_ids": [
-          "FACT-006",
-          "FACT-021"
-        ],
-        "misleading": false,
-        "misleading_cause": null
-      },
-      {
-        "evidence_id": "EVD-BMS-COMMAND",
-        "source_event_id": "EVT-011",
-        "type": "document",
-        "description": "BMS parancsnapló a CMD-CZ1-MUTE-STAGE-hez a CTRL-TERM-02-n a SVC-REFRG-MAINT munkamenet alatt",
-        "establishes_fact_ids": [
-          "FACT-008",
-          "FACT-009"
-        ],
-        "misleading": false,
-        "misleading_cause": null
-      },
-      {
-        "evidence_id": "EVD-TEMP-TREND",
-        "source_event_id": "EVT-013",
-        "type": "document",
-        "description": "CZ-1 befúvott levegő hőmérséklet trend export, amely 23:27 után inflexiót mutat",
-        "establishes_fact_ids": [
-          "FACT-010",
-          "FACT-017"
-        ],
-        "misleading": false,
-        "misleading_cause": null
-      },
-      {
-        "evidence_id": "EVD-DOOR-ALARM",
-        "source_event_id": "EVT-009",
-        "type": "document",
-        "description": "Nyitott ajtóriasztás előzményei ALM-COLD-DOOR-AJAR, 23:18:45",
-        "establishes_fact_ids": [
-          "FACT-020"
-        ],
-        "misleading": false,
-        "misleading_cause": null
-      },
-      {
-        "evidence_id": "EVD-CONTROL-ENTRY",
-        "source_event_id": "EVT-010",
-        "type": "document",
-        "description": "A vezérlőterem ajtajának belépési naplója belépőkártya-LORI 23:20:41-kor",
-        "establishes_fact_ids": [
-          "FACT-007"
-        ],
-        "misleading": false,
-        "misleading_cause": null
-      }
+      { "evidence_id": "EVD-BADGE-LOG", "source_event_id": "EVT-007", "type": "document", "description": "Cold storage inbound badge reader entry record", "establishes_fact_ids": ["FACT-005"], "misleading": true, "misleading_cause": "Credential shows contractor badge while contractor had already exited" },
+      { "evidence_id": "EVD-EXIT-SCAN", "source_event_id": "EVT-002", "type": "document", "description": "Contractor outbound dock badge scan", "establishes_fact_ids": ["FACT-002"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-MAINT-CLO1847", "source_event_id": "EVT-001", "type": "document", "description": "Closed maintenance ticket CLO-1847 with session note for CTRL-TERM-02", "establishes_fact_ids": ["FACT-001", "FACT-018"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-MANIFEST-POD", "source_event_id": "EVT-004", "type": "document", "description": "MNF-IN-4471 receiving record cross-referenced to carrier POD-4471", "establishes_fact_ids": ["FACT-019", "FACT-022"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-LABEL-RESIDUE", "source_event_id": "EVT-008", "type": "physical", "description": "Adhesive backing serial NL-20260312-4471A and mismatched label print residue in aisle C", "establishes_fact_ids": ["FACT-006", "FACT-021"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-BMS-COMMAND", "source_event_id": "EVT-011", "type": "document", "description": "BMS command log for CMD-CZ1-MUTE-STAGE on CTRL-TERM-02 under session SVC-REFRG-MAINT", "establishes_fact_ids": ["FACT-008", "FACT-009"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-TEMP-TREND", "source_event_id": "EVT-013", "type": "document", "description": "CZ-1 supply air temperature trend export showing inflection after 23:27", "establishes_fact_ids": ["FACT-010", "FACT-017"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-DOOR-ALARM", "source_event_id": "EVT-009", "type": "document", "description": "Door-ajar alarm history ALM-COLD-DOOR-AJAR at 23:18:45", "establishes_fact_ids": ["FACT-020"], "misleading": false, "misleading_cause": null },
+      { "evidence_id": "EVD-CONTROL-ENTRY", "source_event_id": "EVT-010", "type": "document", "description": "Control room door badge entry log for BADGE-LORI at 23:20:41", "establishes_fact_ids": ["FACT-007"], "misleading": false, "misleading_cause": null }
     ]
   },
   "observable_information": {
     "observations": [
-      {
-        "observation_id": "OBS-001",
-        "learnable_fact_id": "FACT-005",
-        "source_evidence_id": "EVD-BADGE-LOG",
-        "requires": {
-          "action": "review_records",
-          "location_id": "LOC-SECURITY",
-          "prior_knowledge": [],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      },
-      {
-        "observation_id": "OBS-002",
-        "learnable_fact_id": "FACT-008",
-        "source_evidence_id": "EVD-BMS-COMMAND",
-        "requires": {
-          "action": "review_logs",
-          "location_id": "LOC-CONTROL",
-          "prior_knowledge": [],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      },
-      {
-        "observation_id": "OBS-003",
-        "learnable_fact_id": "FACT-006",
-        "source_evidence_id": "EVD-LABEL-RESIDUE",
-        "requires": {
-          "action": "inspect",
-          "location_id": "LOC-COLD",
-          "prior_knowledge": [],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      },
-      {
-        "observation_id": "OBS-004",
-        "learnable_fact_id": "FACT-010",
-        "source_evidence_id": "EVD-TEMP-TREND",
-        "requires": {
-          "action": "review_logs",
-          "location_id": "LOC-CONTROL",
-          "prior_knowledge": [],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      },
-      {
-        "observation_id": "OBS-005",
-        "learnable_fact_id": "FACT-002",
-        "source_evidence_id": "EVD-EXIT-SCAN",
-        "requires": {
-          "action": "review_records",
-          "location_id": "LOC-SECURITY",
-          "prior_knowledge": [],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      },
-      {
-        "observation_id": "OBS-006",
-        "learnable_fact_id": "FACT-019",
-        "source_evidence_id": "EVD-MANIFEST-POD",
-        "requires": {
-          "action": "review_records",
-          "location_id": "LOC-MANAGER",
-          "prior_knowledge": [],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      },
-      {
-        "observation_id": "OBS-007",
-        "learnable_fact_id": "FACT-007",
-        "source_evidence_id": "EVD-CONTROL-ENTRY",
-        "requires": {
-          "action": "review_records",
-          "location_id": "LOC-SECURITY",
-          "prior_knowledge": [],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      },
-      {
-        "observation_id": "OBS-008",
-        "learnable_fact_id": "FACT-018",
-        "source_evidence_id": "EVD-MAINT-CLO1847",
-        "requires": {
-          "action": "review_records",
-          "location_id": "LOC-CONTROL",
-          "prior_knowledge": [],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      },
-      {
-        "observation_id": "OBS-009",
-        "learnable_fact_id": "FACT-020",
-        "source_evidence_id": "EVD-DOOR-ALARM",
-        "requires": {
-          "action": "review_logs",
-          "location_id": "LOC-SECURITY",
-          "prior_knowledge": [],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      },
-      {
-        "observation_id": "OBS-010",
-        "learnable_fact_id": "FACT-021",
-        "source_evidence_id": "EVD-LABEL-RESIDUE",
-        "requires": {
-          "action": "inspect",
-          "location_id": "LOC-COLD",
-          "prior_knowledge": [
-            "FACT-006"
-          ],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      },
-      {
-        "observation_id": "OBS-011",
-        "learnable_fact_id": "FACT-013",
-        "source_evidence_id": "EVD-LABEL-RESIDUE",
-        "requires": {
-          "action": "interview",
-          "location_id": "LOC-BREAK",
-          "prior_knowledge": [],
-          "item_id": null,
-          "check_id": null
-        },
-        "hidden_if_not_met": true
-      }
+      { "observation_id": "OBS-001", "learnable_fact_id": "FACT-005", "source_evidence_id": "EVD-BADGE-LOG", "requires": { "action": "review_records", "location_id": "LOC-SECURITY", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-002", "learnable_fact_id": "FACT-008", "source_evidence_id": "EVD-BMS-COMMAND", "requires": { "action": "review_logs", "location_id": "LOC-CONTROL", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-003", "learnable_fact_id": "FACT-006", "source_evidence_id": "EVD-LABEL-RESIDUE", "requires": { "action": "inspect", "location_id": "LOC-COLD", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-004", "learnable_fact_id": "FACT-010", "source_evidence_id": "EVD-TEMP-TREND", "requires": { "action": "review_logs", "location_id": "LOC-CONTROL", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-005", "learnable_fact_id": "FACT-002", "source_evidence_id": "EVD-EXIT-SCAN", "requires": { "action": "review_records", "location_id": "LOC-SECURITY", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-006", "learnable_fact_id": "FACT-019", "source_evidence_id": "EVD-MANIFEST-POD", "requires": { "action": "review_records", "location_id": "LOC-MANAGER", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-007", "learnable_fact_id": "FACT-007", "source_evidence_id": "EVD-CONTROL-ENTRY", "requires": { "action": "review_records", "location_id": "LOC-SECURITY", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-008", "learnable_fact_id": "FACT-018", "source_evidence_id": "EVD-MAINT-CLO1847", "requires": { "action": "review_records", "location_id": "LOC-CONTROL", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-009", "learnable_fact_id": "FACT-020", "source_evidence_id": "EVD-DOOR-ALARM", "requires": { "action": "review_logs", "location_id": "LOC-SECURITY", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-010", "learnable_fact_id": "FACT-021", "source_evidence_id": "EVD-LABEL-RESIDUE", "requires": { "action": "inspect", "location_id": "LOC-COLD", "prior_knowledge": ["FACT-006"], "item_id": null, "check_id": null }, "hidden_if_not_met": true },
+      { "observation_id": "OBS-011", "learnable_fact_id": "FACT-013", "source_evidence_id": "EVD-LABEL-RESIDUE", "requires": { "action": "interview", "location_id": "LOC-BREAK", "prior_knowledge": [], "item_id": null, "check_id": null }, "hidden_if_not_met": true }
     ]
   },
   "conclusion_requirements": {
     "questions": [
-      {
-        "question_id": "Q-WHAT",
-        "answer_entity_id": "CMD-CZ1-MUTE-STAGE",
-        "required_fact_ids": [
-          "FACT-010",
-          "FACT-009",
-          "FACT-020"
-        ],
-        "category": "custom"
-      },
-      {
-        "question_id": "Q-HOW",
-        "answer_entity_id": "CMD-CZ1-MUTE-STAGE",
-        "required_fact_ids": [
-          "FACT-008",
-          "FACT-009",
-          "FACT-018"
-        ],
-        "category": "method"
-      },
-      {
-        "question_id": "Q-WHO",
-        "answer_entity_id": "NPC-LORI",
-        "required_fact_ids": [
-          "FACT-005",
-          "FACT-007",
-          "FACT-006",
-          "FACT-019"
-        ],
-        "category": "culprit"
-      },
-      {
-        "question_id": "Q-MOTIVE",
-        "answer_entity_id": "NPC-LORI",
-        "required_fact_ids": [
-          "FACT-019",
-          "FACT-022",
-          "FACT-006"
-        ],
-        "category": "motive"
-      }
+      { "question_id": "Q-WHAT", "answer_entity_id": "CMD-CZ1-MUTE-STAGE", "required_fact_ids": ["FACT-010", "FACT-009", "FACT-020"], "category": "custom" },
+      { "question_id": "Q-HOW", "answer_entity_id": "CMD-CZ1-MUTE-STAGE", "required_fact_ids": ["FACT-008", "FACT-009", "FACT-018"], "category": "method" },
+      { "question_id": "Q-WHO", "answer_entity_id": "NPC-LORI", "required_fact_ids": ["FACT-005", "FACT-007", "FACT-006", "FACT-019"], "category": "culprit" },
+      { "question_id": "Q-MOTIVE", "answer_entity_id": "NPC-LORI", "required_fact_ids": ["FACT-019", "FACT-022", "FACT-006"], "category": "motive" }
     ]
   }
 }

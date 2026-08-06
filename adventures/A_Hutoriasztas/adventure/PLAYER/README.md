@@ -1,11 +1,13 @@
-# A hűtőriasztás — lejátszó csomag
+# A hűtőriasztás — Játékos csomag
 
 **Mód:** Egyetlen nyomozó
 **Becsült játékidő:** Körülbelül két óra
-**Világon belüli időtartam:** Egy éjszakai műszak (nagyjából négy óra)
+**Játékbeli időtartam:** Egy éjszakai műszak (nagyjából négy óra)
 
-Csak olvasható fájlok ebben a mappában. Ne nyissa meg a „DO_NOT_READ/” vagy más lerakat-útvonalakat.
+Csak ebben a mappában lévő fájlokat olvass. Ne nyisd meg a `DO_NOT_READ/` mappát vagy más tároló-útvonalakat.
 
-Ez a csomag egy karakterlapot is tartalmaz az ellenőrzési módosítókkal és egy üres esetfájl-sablont a nyomok naplózásához, a szokásos hely, objektum, személyek, jelenet, következtetés, helyreállítás és befejező szakaszok mellett.
+**A kalandot a `PLAYER/GAMEBOOK.md` statikus játékkönyv-fájlból játssz.** Ez a teljes, számozott játékkönyv lapozási utasításokkal és a nyitó brífinggel. A nyitó elolvasása után a **636**. szakasznál kezdj.
 
-Kezdje a nyitó résszel, majd a hogyan kell játszani. Kövesse a szakasz utasításait sorrendben; ne olvassa előre a befejező részeket.
+A csomag tartalmazza a karakterlapodat a csekkmódosítóiddal és egy üres ügyirat-sablont a nyomok naplózásához. A többi tematikus fájl (LOCATIONS.md, OBJECTS.md, NPCS.md, SCENES.md, INFERENCE.md, RECOVERY.md, ENDINGS.md) forrásanyag marad, de játék közben nem kell navigációhoz.
+
+Kezdd a nyitóval és a hogyan-játssz jegyzetekkel ebben a mappában, majd játssz a `PLAYER/GAMEBOOK.md` fájlból.

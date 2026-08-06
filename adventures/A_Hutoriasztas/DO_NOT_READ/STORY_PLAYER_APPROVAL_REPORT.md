@@ -15,7 +15,7 @@
 | Objektum/eredmények ellenőrzése | 36 | `adventure/PLAYER/OBJECTS.md` |
 | NPC párbeszéd | 17 | `adventure/PLAYER/NPCS.md` |
 | Flow jelenetek | 17 | `adventure/PLAYER/SCENES.md` |
-| Következtetési munkalapok | 6 | `adventure/PLAYER/következtetés.md` |
+| Következtetési munkalapok | 6 | `kaland/PLAYER/INFERENCE.md` |
 | Helyreállítási útvonalak | 9 | `adventure/PLAYER/RECOVERY.md` |
 | Befejezések | 8 | `adventure/PLAYER/ENDINGS.md` |
 | Keret / szabályok | 4 | nyitó, hogyan kell játszani, readme, navigációs index |
@@ -48,7 +48,7 @@ Nincsenek módosított upstream logikai csomagok.
 | END-TIMEOUT | Megfelelés lezárása; nincs ügyfeloldás |
 | END-NARRATIVE-CONTINUE | Explicit nyomozás folytatása; nem terminális |
 
-Nagynyomású Lori párbeszéd (`UNIT-LORI-LABEL`), amelyet a maradék + nyomás zár be az NPC rétegben; próza KNOW-LORI-RELABEL támogatást támogat.
+Nagynyomású Lori párbeszéd (`UNIT-LORI-LABEL`), amelyet a maradék + nyomás zár le az NPC rétegben; próza KNOW-LORI-RELABEL támogatást támogat.
 
 ---
 

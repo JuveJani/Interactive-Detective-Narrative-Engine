@@ -6,6 +6,8 @@
 
 Read only files in this folder. Do not open `DO_NOT_READ/` or other repository paths.
 
-This package also includes a character sheet with your check modifiers and a blank case file template for logging clues, alongside the usual location, object, people, scene, inference, recovery, and ending sections.
+**Play the adventure using the static gamebook file in this folder.** That file is the complete numbered gamebook with turn-to instructions and the opening briefing. Begin at **section 636** after reading the opening.
 
-Start with the opening section, then the how-to-play notes. Follow section prompts in order; do not read ahead in ending sections.
+This package also includes a character sheet with your check modifiers and a blank case file template for logging clues. The other thematic files (locations, objects, people, scenes, inference, recovery, endings) remain as source material but are not required for navigation during play.
+
+Start with the opening and how-to-play notes in this folder, then play from the static gamebook file.

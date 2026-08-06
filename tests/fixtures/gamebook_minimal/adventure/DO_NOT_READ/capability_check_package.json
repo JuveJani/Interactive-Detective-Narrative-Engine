@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "gamebook_minimal",
+  "checks": [
+    {
+      "check_id": "CHK-MINIMAL",
+      "destinations": {
+        "action_unit_id": "UNIT-CHECK-DECL",
+        "success_destination": "END-DONE",
+        "failure_destination": "UNIT-MIDDLE"
+      }
+    }
+  ]
+}

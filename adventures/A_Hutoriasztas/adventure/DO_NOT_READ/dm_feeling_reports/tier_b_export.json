@@ -13,7 +13,7 @@
       "source_file": "dm_feeling_validator_package.json",
       "entity_id": "DF-B-AGENCY-NAV",
       "player_excerpt": "",
-      "expected_rule": "A navigáció és az objektumválasztás diegetikus marad, csupasz kódok nélkül",
+      "expected_rule": "Navigation and object choices remain diegetic with no bare codes",
       "observed_behavior": "pending",
       "affected_paths": [],
       "review_owner": "tier_b",
@@ -29,7 +29,7 @@
       "source_file": "dm_feeling_validator_package.json",
       "entity_id": "DF-B-INFERENCE-QUALITY",
       "player_excerpt": "",
-      "expected_rule": "A következtetési munkalapok több rekordból álló szintézist igényelnek beágyazott válaszok nélkül",
+      "expected_rule": "Inference worksheets require multi-record synthesis without embedded answers",
       "observed_behavior": "pending",
       "affected_paths": [],
       "review_owner": "tier_b",
@@ -45,7 +45,7 @@
       "source_file": "dm_feeling_validator_package.json",
       "entity_id": "DF-B-NPC-NEUTRALITY",
       "player_excerpt": "",
-      "expected_rule": "Az NPC párbeszéd megőrzi a gyanús semlegességet és a bizalomfüggő hangszínváltásokat",
+      "expected_rule": "NPC dialogue preserves suspect neutrality and trust-gated tone shifts",
       "observed_behavior": "pending",
       "affected_paths": [],
       "review_owner": "tier_b",
@@ -61,7 +61,7 @@
       "source_file": "dm_feeling_validator_package.json",
       "entity_id": "DF-B-ENDING-OPACITY",
       "player_excerpt": "",
-      "expected_rule": "A tökéletlen befejezések átlátszatlanok maradnak; A tökéletes befejezés teljes támogatott rekonstrukciót igényel",
+      "expected_rule": "Imperfect endings remain opaque; perfect ending requires full supported reconstruction",
       "observed_behavior": "pending",
       "affected_paths": [],
       "review_owner": "tier_b",
@@ -77,7 +77,7 @@
       "source_file": "dm_feeling_validator_package.json",
       "entity_id": "DF-B-TIME-PRESSURE",
       "player_excerpt": "",
-      "expected_rule": "Az óra által vezérelt jelenetek változásai láthatók a PLAYER revisit prózában",
+      "expected_rule": "Clock-driven scene changes are visible in PLAYER revisit prose",
       "observed_behavior": "pending",
       "affected_paths": [],
       "review_owner": "tier_b",
@@ -89,177 +89,202 @@
     {
       "file": "PLAYER/OPENING.md",
       "line": 1,
-      "text": "Március 13-án, pénteken **1:00 a.m.**-kor érkezik meg a Northline hidegláncos raktár **rakodó dokkjába**."
+      "text": "# A h\u0171t\u0151riaszt\u00e1s \u2014 Nyit\u00f3"
     },
     {
       "file": "PLAYER/OPENING.md",
       "line": 3,
-      "text": "**Elena Morales** felügyelő behívta Önt, mint ügyeletes **hűtőtechnikust**. A hideg zónában CZ-1 magas hőmérsékleti riasztás **11:30 p.m.**-kor szólalt meg. A hűtőcsarnok befúvott levegője továbbra is emelkedik. Ha a CZ-1 a megfelelőségi küszöb felett marad **5:00 a.m.**-ig, a létesítményt el kell kezdeni"
+      "text": "M\u00e1rcius 13-\u00e1n, p\u00e9nteken **1:00 a.m.**-kor \u00e9rkezel a Northline hidegl\u00e1nc rakt\u00e1r **loading dock** rakod\u00f3partj\u00e1ra."
     },
     {
       "file": "PLAYER/OPENING.md",
       "line": 5,
-      "text": "Ma este az a dolga, hogy kiderítse, miért nem sikerült a szakaszolási vezérlés, kinek volt hozzáférése, és hogy a fogadó rekordok magyarázatot adnak-e az esetleges eltérésekre – még mielőtt a megfelelőségi határidő lejárna a műszakban."
+      "text": "**Elena Morales** fel\u00fcgyel\u0151 beh\u00edvott t\u00e9ged **on-call refrigeration technician** / \u00fcgyeletes h\u0171t\u0151technikusk\u00e9nt. **high-temperature alarm on cold zone CZ-1**: a CZ-1 hideg z\u00f3n\u00e1ban magas h\u0151m\u00e9rs\u00e9klet-riaszt\u00e1s sz\u00f3lt **11:30 p.m.**-kor. A h\u0171t\u0151t\u00e1r csarnok bef\u00favott leveg\u0151j\u00e9nek h\u0151m\u00e9rs\u00e9klete m\u00e9g mindig emelke"
+    },
+    {
+      "file": "PLAYER/OPENING.md",
+      "line": 7,
+      "text": "Ma \u00e9jjel a feladatod: kider\u00edteni, mi\u00e9rt hib\u00e1sodott meg a staging szab\u00e1lyoz\u00e1s, kinek volt hozz\u00e1f\u00e9r\u00e9se, \u00e9s magyar\u00e1znak-e valamit a bev\u00e9telez\u00e9si nyilv\u00e1ntart\u00e1sok az elt\u00e9r\u00e9sekre \u2014 miel\u0151tt a megfelel\u0151s\u00e9gi hat\u00e1rid\u0151 lez\u00e1rja a m\u0171szakot."
+    },
+    {
+      "file": "PLAYER/OPENING.md",
+      "line": 9,
+      "text": "**Kezdd a `PLAYER/GAMEBOOK.md` f\u00e1jlban a 636. szakaszn\u00e1l.**"
     },
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 1,
-      "text": "# Hogyan játssz – A hűtőriasztás"
+      "text": "# Hogyan j\u00e1tssz \u2014 A h\u0171t\u0151riaszt\u00e1s"
     },
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 3,
-      "text": "**Mód:** Egyetlen nyomozó (az ügyeletes technikust játszod)."
+      "text": "**M\u00f3d:** Egyetlen nyomoz\u00f3 (te vagy az \u00fcgyeletes h\u0171t\u0151technikus)."
     },
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 5,
-      "text": "**Idő:** Minden művelet az időköltséget mutatja percben. A belső világóra előremegy. Nem utazhatsz vissza egy korábbi időpontba."
+      "text": "**Lej\u00e1tszhat\u00f3 f\u00e1jl:** J\u00e1t\u00e9k k\u00f6zben kiz\u00e1r\u00f3lag a `PLAYER/GAMEBOOK.md` `PLAYER/GAMEBOOK.md` f\u00e1jlt haszn\u00e1ld navig\u00e1ci\u00f3s forr\u00e1sk\u00e9nt. Ez tartalmaz minden szakaszt, sz\u00e1mozva a lapoz\u00f3s navig\u00e1ci\u00f3hoz. A t\u00f6bbi tematikus f\u00e1jl referenciaanyag; nem kell bels\u0151 egys\u00e9gk\u00f3dokat keresned."
     },
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 7,
-      "text": "**Ellenőrzések:** Egyes műveletekhez d20 dobásra és karaktermódosítóra van szükség. Minden ellenőrzés **egy kísérletet** engedélyez. A siker és a kudarc külön eredményszöveget használ."
+      "text": "**Kezd\u0151 szakasz:** **636** (rakod\u00f3part alapmen\u00fc). Olvasd el a nyit\u00f3 r\u00e9szt a `PLAYER/GAMEBOOK.md` f\u00e1jl elej\u00e9n, majd lapozz a **636**. szakaszra."
     },
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 9,
-      "text": "**Megjegyzések:** Jegyezze fel a tanult tényeket. A szintézis lépései arra kérik, hogy kapcsolja össze a már megtalált rekordokat – a válaszok kézbesítése nem történik meg automatikusan."
+      "text": "**Id\u0151:** Minden m\u0171velet percben mutatja az id\u0151k\u00f6lts\u00e9get. A j\u00e1t\u00e9kbeli \u00f3ra el\u0151remegy. Nem utazhatsz vissza egy kor\u00e1bbi id\u0151pontra."
     },
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 11,
-      "text": "**Határidő:** **5:00 a.m.**-kor a megfelelőségi eljárások lezárhatják a vizsgálati időszakot."
+      "text": "**Ellen\u0151rz\u00e9sek:** Egyes m\u0171veletekhez d20 dob\u00e1s plusz a karaktered m\u00f3dos\u00edt\u00f3ja kell. Minden ellen\u0151rz\u00e9sn\u00e9l **egy pr\u00f3b\u00e1lkoz\u00e1sod** van. Ha egy szakasz dob\u00e1st k\u00e9r, k\u00f6vesd a k\u00fcl\u00f6n **siker** vagy **kudarc** lapoz\u00e1si utas\u00edt\u00e1st \u2014 soha ne haszn\u00e1ld ugyanazt a szakaszt mindk\u00e9t kimenetelhez."
     },
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 13,
-      "text": "**Mielőtt elkezdené:** olvassa el a karakterlapon a csekkmódosítókat, és tartsa nyitva az ügyiratot maga mellett, hogy nyomokat naplózzon, amikor megtalálja őket."
+      "text": "**Megjegyz\u00e9sek:** Jegyezd fel az \u00fcgyiratodba a megtudott t\u00e9nyeket. A szint\u00e9zis-l\u00e9p\u00e9sek azt k\u00e9rik, hogy k\u00f6sd \u00f6ssze a m\u00e1r megtal\u00e1lt nyilv\u00e1ntart\u00e1sokat \u2014 a v\u00e1laszok nem \u00e9rkeznek meg automatikusan. Ha egy v\u00e1laszt\u00e1s szakaszsz\u00e1mot ad meg, csak arra a szakaszra lapozz."
     },
     {
       "file": "PLAYER/HOW_TO_PLAY.md",
       "line": 15,
-      "text": "Először olvassa el a nyitó részt, majd használja az egyes helyek alapszakaszát a helyfájlban menüként az adott helyen."
+      "text": "**Hat\u00e1rid\u0151:** **5:00 a.m.**-kor a megfelel\u0151s\u00e9gi elj\u00e1r\u00e1sok lez\u00e1rhatj\u00e1k a nyomoz\u00e1si id\u0151ablakodat."
+    },
+    {
+      "file": "PLAYER/HOW_TO_PLAY.md",
+      "line": 17,
+      "text": "**Indul\u00e1s el\u0151tt:** olvasd el a karakterlapodat a csekkm\u00f3dos\u00edt\u00f3id\u00e9rt, \u00e9s tartsd nyitva az \u00fcgyiratodat a nyomok feljegyz\u00e9s\u00e9hez."
     },
     {
       "file": "PLAYER/README.md",
       "line": 1,
-      "text": "# A hűtőriasztás — lejátszó csomag"
+      "text": "# A h\u0171t\u0151riaszt\u00e1s \u2014 J\u00e1t\u00e9kos csomag"
     },
     {
       "file": "PLAYER/README.md",
       "line": 3,
-      "text": "**Mód:** Egyetlen nyomozó"
+      "text": "**M\u00f3d:** Egyetlen nyomoz\u00f3"
     },
     {
       "file": "PLAYER/README.md",
       "line": 4,
-      "text": "**Becsült játékidő:** Körülbelül két óra"
+      "text": "**Becs\u00fclt j\u00e1t\u00e9kid\u0151:** K\u00f6r\u00fclbel\u00fcl k\u00e9t \u00f3ra"
     },
     {
       "file": "PLAYER/README.md",
       "line": 5,
-      "text": "**Világon belüli időtartam:** Egy éjszakai műszak (nagyjából négy óra)"
+      "text": "**J\u00e1t\u00e9kbeli id\u0151tartam:** Egy \u00e9jszakai m\u0171szak (nagyj\u00e1b\u00f3l n\u00e9gy \u00f3ra)"
     },
     {
       "file": "PLAYER/README.md",
       "line": 7,
-      "text": "Csak olvasható fájlok ebben a mappában. Ne nyissa meg a „DO_NOT_READ/” vagy más lerakat-útvonalakat."
+      "text": "Csak ebben a mapp\u00e1ban l\u00e9v\u0151 f\u00e1jlokat olvass. Ne nyisd meg a `DO_NOT_READ/` mapp\u00e1t vagy m\u00e1s t\u00e1rol\u00f3-\u00fatvonalakat."
     },
     {
       "file": "PLAYER/README.md",
       "line": 9,
-      "text": "Ez a csomag egy karakterlapot is tartalmaz az ellenőrzési módosítókkal és egy üres esetfájl-sablont a nyomok naplózásához, a szokásos hely, objektum, személyek, jelenet, következtetés, helyreállítás és befejező szakaszok mellett."
+      "text": "**A kalandot a `PLAYER/GAMEBOOK.md` statikus j\u00e1t\u00e9kk\u00f6nyv-f\u00e1jlb\u00f3l j\u00e1tssz.** Ez a teljes, sz\u00e1mozott j\u00e1t\u00e9kk\u00f6nyv lapoz\u00e1si utas\u00edt\u00e1sokkal \u00e9s a nyit\u00f3 br\u00edfinggel. A nyit\u00f3 elolvas\u00e1sa ut\u00e1n a **636**. szakaszn\u00e1l kezdj."
     },
     {
       "file": "PLAYER/README.md",
       "line": 11,
-      "text": "Kezdje a nyitó résszel, majd a hogyan kell játszani. Kövesse a szakasz utasításait sorrendben; ne olvassa előre a befejező részeket."
+      "text": "A csomag tartalmazza a karakterlapodat a csekkm\u00f3dos\u00edt\u00f3iddal \u00e9s egy \u00fcres \u00fcgyirat-sablont a nyomok napl\u00f3z\u00e1s\u00e1hoz. A t\u00f6bbi tematikus f\u00e1jl (LOCATIONS.md, OBJECTS.md, NPCS.md, SCENES.md, INFERENCE.md, RECOVERY.md, ENDINGS.md) forr\u00e1sanyag marad, de j\u00e1t\u00e9k k\u00f6zben nem kell navig\u00e1ci\u00f3hoz."
+    },
+    {
+      "file": "PLAYER/README.md",
+      "line": 13,
+      "text": "Kezdd a nyit\u00f3val \u00e9s a hogyan-j\u00e1tssz jegyzetekkel ebben a mapp\u00e1ban, majd j\u00e1tssz a `PLAYER/GAMEBOOK.md` f\u00e1jlb\u00f3l."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 1,
-      "text": "# Navigációs index"
+      "text": "# Navig\u00e1ci\u00f3s index"
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 3,
-      "text": "Ne olvasson előre ezekben a fájlokban."
+      "text": "**Lej\u00e1tszhat\u00f3 f\u00e1jl:** `PLAYER/GAMEBOOK.md` ebben a mapp\u00e1ban."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 5,
-      "text": "- A nyitó tájékoztató a nyitófájlt használja."
-    },
-    {
-      "file": "PLAYER/NAVIGATION_INDEX.md",
-      "line": 6,
-      "text": "- A statisztikái és a csekkmódosítói a karakterlapfájlt használják."
+      "text": "**Kezd\u0151 szakasz:** **636** (rakod\u00f3part alapmen\u00fc)."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 7,
-      "text": "- A nyomjegyzetek és a munkaelméletek az ügyirat-sablont használják."
+      "text": "**Hogyan k\u00f6vesd a j\u00e1t\u00e9kot:**"
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 8,
-      "text": "- Az alaphelyek a helyfájlt használják."
+      "text": "- Olvasd el a nyit\u00f3t a `PLAYER/GAMEBOOK.md` f\u00e1jl tetej\u00e9n."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 9,
-      "text": "- Az objektum eredmények az objektumfájlt használják."
+      "text": "- Lapozz a **636**. szakaszra a kezd\u00e9shez."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 10,
-      "text": "- Az emberek a helyszínen használják a személyfájlt."
+      "text": "- K\u00f6vesd kiz\u00e1r\u00f3lag az egyes v\u00e1laszt\u00e1sokban megadott sz\u00e1mozott lapoz\u00e1si utas\u00edt\u00e1sokat."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 11,
-      "text": "- Az időjelenetek a jelenetek fájlt használják."
+      "text": "- d20 csekkek ut\u00e1n haszn\u00e1ld a k\u00fcl\u00f6n siker- vagy kudarc-szakaszsz\u00e1mokat."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 12,
-      "text": "- A következtetési munkalapok a következtetési fájlt használják."
-    },
-    {
-      "file": "PLAYER/NAVIGATION_INDEX.md",
-      "line": 13,
-      "text": "- A helyreállítási felszólítások a helyreállítási fájlt használják."
+      "text": "- Tartsd nyitva a karakterlapodat \u00e9s az \u00fcgyiratodat a m\u00f3dos\u00edt\u00f3k \u00e9s jegyzetek miatt."
     },
     {
       "file": "PLAYER/NAVIGATION_INDEX.md",
       "line": 14,
-      "text": "- A végződések a végződés fájlt használják."
+      "text": "**Referenciaanyag (opcion\u00e1lis j\u00e1t\u00e9k k\u00f6zben):**"
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 15,
+      "text": "- Karakterlap \u00e9s \u00fcgyirat-sablon"
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 16,
+      "text": "- Tematikus forr\u00e1sf\u00e1jlok (a tartalom a GAMEBOOK.md-ben is megvan)"
+    },
+    {
+      "file": "PLAYER/NAVIGATION_INDEX.md",
+      "line": 18,
+      "text": "J\u00e1t\u00e9k k\u00f6zben ne olvass el\u0151re a befejez\u0151 szakaszokban."
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 1,
-      "text": "# Karakterlap — ügyeletes hűtőtechnikus"
+      "text": "# Karakterlap \u2014 \u00fcgyeletes h\u0171t\u0151technikus"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 3,
-      "text": "You are the on-call refrigeration technician for the Northline cold-chain warehouse. You know compressor staging, BMS terminals, and cold-chain compliance rules well enough that Elena calls you first when CZ-1 misbehaves at 1:00 a.m. You are not a police investigator, an auditor, or an interrogator "
+      "text": "te a Northline hidegl\u00e1ncos rakt\u00e1r \u00fcgyeletes h\u0171t\u0151technikusa. El\u00e9g j\u00f3l ismeri a kompresszorok \u00e1llom\u00e1soztat\u00e1s\u00e1t, a BMS-termin\u00e1lokat \u00e9s a hidegl\u00e1nc-megfelel\u0151s\u00e9gi szab\u00e1lyokat ahhoz, hogy Elena el\u0151sz\u00f6r t\u00e9ged h\u00edvja fel, ha CZ-1 rosszul viselkedik 1:00 a.m.-kor. te nem rend\u0151rs\u00e9gi nyomoz\u00f3, revizor vagy kihal"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 5,
-      "text": "## Ellenőrizze a módosítókat"
+      "text": "## Ellen\u0151rizze a m\u00f3dos\u00edt\u00f3kat"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 7,
-      "text": "Amikor egy jelenet ellenőrzést kér, dobj **1d20**-at, és add hozzá a felsorolt ​​képesség módosítóját. Hasonlítsd össze az összeget az adott jelenet nehézségével – a célszám nem jelenik meg előre, és minden ellenőrzés **egy kísérletet** tesz lehetővé. A sikertelen ellenőrzés soha nem fejezi be a vizsgálatot; csak az"
+      "text": "Amikor egy jelenet ellen\u0151rz\u00e9st k\u00e9r, dobj **1d20**-at, \u00e9s add hozz\u00e1 a felsorolt k\u00e9pess\u00e9g m\u00f3dos\u00edt\u00f3j\u00e1t. Hasonl\u00edtsd \u00f6ssze az \u00f6sszeget az adott jelenet neh\u00e9zs\u00e9g\u00e9vel \u2013 a c\u00e9lsz\u00e1m nem jelenik meg el\u0151re, \u00e9s minden ellen\u0151rz\u00e9s **egy k\u00eds\u00e9rletet** tesz lehet\u0151v\u00e9. A sikertelen ellen\u0151rz\u00e9s soha nem fejezi be a vizsg"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 9,
-      "text": "| Képesség | Módosító | Amikor érvényes |"
+      "text": "| K\u00e9pess\u00e9g | M\u00f3dos\u00edt\u00f3 | Amikor \u00e9rv\u00e9nyes |"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
@@ -269,73 +294,48 @@
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 11,
-      "text": "| **Érzékelés** | **+3** | Zárja le a fizikai kereséseket – hardverkopás, ragasztómaradványok, szekrények tartalma, bármi, amit alaposan meg kell keresnie. |"
+      "text": "| **\u00c9rz\u00e9kel\u00e9s** | **+3** | Z\u00e1rja le a fizikai keres\u00e9seket \u2013 hardverkop\u00e1s, ragaszt\u00f3maradv\u00e1nyok, szekr\u00e9nyek tartalma, b\u00e1rmi, amit alaposan meg kell keresned. |"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 12,
-      "text": "| **Műszaki** | **+3** | Műszaki rendszerek üzemeltetése — BMS-exportok, terminálmenük, bármi, ami az automatizálási hálózaton fut. |"
+      "text": "| **M\u0171szaki** | **+3** | M\u0171szaki rendszerek \u00fczemeltet\u00e9se \u2014 BMS-exportok, termin\u00e1lmen\u00fck, b\u00e1rmi, ami az automatiz\u00e1l\u00e1si h\u00e1l\u00f3zaton fut. |"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 13,
-      "text": "| Reasoning | +2 | Reading and connecting records once you already hold them. |"
+      "text": "| Indokl\u00e1s | +2 | Rekordok olvas\u00e1sa \u00e9s \u00f6sszekapcsol\u00e1sa, ha m\u00e1r rendelkezik vel\u00fck. |"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 14,
-      "text": "| Meggyőzés | +1 | Hogy valaki még jobban megnyíljon a beszélgetésben. |"
+      "text": "| Meggy\u0151z\u00e9s | +1 | Hogy valaki m\u00e9g jobban megny\u00edljon a besz\u00e9lget\u00e9sben. |"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 15,
-      "text": "| Megfélemlítés | +0 | Nyomást gyakorolni valakire, aki már kitérő. |"
+      "text": "| Megf\u00e9leml\u00edt\u00e9s | +0 | Nyom\u00e1st gyakorolni valakire, aki m\u00e1r kit\u00e9r\u0151. |"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 16,
-      "text": "| Agility | +1 | Physical movement under time pressure. |"
+      "text": "| Agility | +1 | Fizikai mozg\u00e1s id\u0151nyom\u00e1s alatt. |"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 17,
-      "text": "| Erő | +1 | Erőt igénylő kézi feladatok. |"
+      "text": "| Er\u0151 | +1 | Er\u0151t ig\u00e9nyl\u0151 k\u00e9zi feladatok. |"
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 19,
-      "text": "Az Ön képzése az **észlelés** és **műszaki** munka felé halad – a karrier azzal töltötte, hogy észreveszi, mi a hűtési hardveren és a BMS-naplókon kissé helytelen. Ön kompetens a beszélgetésben, de nincs szakember kihallgatója, ami az alacsonyabb szociális módosítóiban is megmutatkozik."
+      "text": "Az te k\u00e9pz\u00e9se az **\u00e9szlel\u00e9s** \u00e9s **m\u0171szaki** munka fel\u00e9 halad \u2013 a karrier azzal t\u00f6lt\u00f6tte, hogy \u00e9szreveszi, mi a h\u0171t\u00e9si hardveren \u00e9s a BMS-napl\u00f3kon kiss\u00e9 helytelen. te kompetens a besz\u00e9lget\u00e9sben, de nincs szakember kihallgat\u00f3ja, ami az alacsonyabb szoci\u00e1lis m\u00f3dos\u00edt\u00f3iban is megmutatkozik."
     },
     {
       "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
       "line": 21,
-      "text": "## Equipment"
-    },
-    {
-      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
-      "line": 23,
-      "text": "- Létesítmény által kibocsátott zseblámpa és többfunkciós szerszám"
-    },
-    {
-      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
-      "line": 24,
-      "text": "- Kétirányú rádió (közvetlen vonal Elenához és a biztonsági pulthoz)"
-    },
-    {
-      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
-      "line": 25,
-      "text": "- Fényképes igazolvány és saját, munkaidőn kívüli belépőjegy"
-    },
-    {
-      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
-      "line": 26,
-      "text": "- Jegyzettömb – használja a „PLAYER/SHARED/CASE_FILE.md” fájlt ügyiratsablonként"
-    },
-    {
-      "file": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
-      "line": 28,
-      "text": "## Személyes tét"
+      "text": "## Berendez\u00e9s"
     }
   ],
-  "review_prompt": "Mérje fel, hogy a PLAYER próza támogatja-e az ügynökséget, a felfedezést és a semlegességet."
+  "review_prompt": "Assess whether PLAYER prose supports agency, discovery, and neutrality."
 }

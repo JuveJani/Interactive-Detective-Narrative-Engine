@@ -31,7 +31,7 @@ Használja a teljes játékmenet után. A PLAYER szövegét idézze, ahol kérik
 12. Amikor az ellenőrzések kudarcot vallottak, megváltozott valami jelentőségteljes?
 
 ## Beszélgetés
-13. Az NPC párbeszéd reagált az Ön megközelítésére? (1–5)
+13. Az NPC párbeszéd reagált az te megközelítésére? (1–5)
 
 ## Vége
 14. A vége a nyomozásból következett? (1–5)
