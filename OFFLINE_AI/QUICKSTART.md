@@ -1,49 +1,75 @@
-# Local AI Quickstart (Step 1)
+# Local AI Quickstart
 
-Deterministic task preparation only — **no model calls**.
+## 1. Configure (optional)
 
-## Prerequisites
+Copy `OFFLINE_AI/local_ai.example.toml` to `local_ai.toml` in the repository root.
 
-- Python 3.10+
-- Repository clone with normative specs present
-- No network access required
+Default endpoint: `http://127.0.0.1:1234/v1`
 
-## Windows
+Optional API token: set environment variable named in config (default `LM_STUDIO_API_TOKEN`).
+
+## 2. Start LM Studio (Windows)
+
+1. Open LM Studio.
+2. Download/load a local model.
+3. Start the **Local Server** (OpenAI-compatible).
+4. Note the model id from the Models tab.
+
+## 3. Doctor
 
 ```powershell
-cd D:\Repositories\IDNE\Interactive-Detective-Narrative-Engine
 python -m idne.local_ai doctor
+python -m idne.local_ai doctor --test-completion
+```
+
+Mock (no server):
+
+```powershell
+python -m idne.local_ai doctor --mock --test-completion
+```
+
+## 4. Prepare task
+
+```powershell
 python -m idne.local_ai prepare --task-type adventure_brief --input OFFLINE_AI/examples/adventure_brief_input.md
 ```
 
-Inspect the prepared prompt:
+## 5. Run task
 
 ```powershell
-python -m idne.local_ai show-prompt .local_ai_runs\<task-id>
-python -m idne.local_ai inspect-context .local_ai_runs\<task-id>
-python -m idne.local_ai status .local_ai_runs\<task-id>
+python -m idne.local_ai run .local_ai_runs\<task-id>
 ```
 
-## Termux / Linux
+Mock:
+
+```powershell
+python -m idne.local_ai run .local_ai_runs\<task-id> --mock
+```
+
+## 6. Inspect
+
+```powershell
+python -m idne.local_ai show-response .local_ai_runs\<task-id>
+python -m idne.local_ai transport-report .local_ai_runs\<task-id>
+python -m idne.local_ai models
+```
+
+## Termux
+
+Mock workflow on Pixel:
 
 ```bash
-cd ~/Interactive-Detective-Narrative-Engine
-python -m idne.local_ai doctor
+python -m idne.local_ai doctor --mock
 python -m idne.local_ai prepare --task-type adventure_brief --input OFFLINE_AI/examples/adventure_brief_input.md
-python -m idne.local_ai show-prompt .local_ai_runs/<task-id>
+python -m idne.local_ai run .local_ai_runs/<task-id> --mock
 ```
 
-## What you should see
+LAN to laptop: edit `local_ai.toml` with laptop IP and `allow_remote_endpoint = true`.
 
-- Doctor status `READY` or `DEGRADED` (if Git unavailable)
-- Prepare prints task directory, included files, context size, and duration
-- Final task status `READY_FOR_MODEL`
-- `prompt.txt` requests structured JSON only
+## Limitation
 
-## Next step (not in Step 1)
-
-Configure a local OpenAI-compatible endpoint and add a model adapter that reads `prompt.txt`, never the whole repository.
+Step 2 does **not** validate or apply model JSON to the repository. See `OFFLINE_AI/OFFLINE_CHECKLIST.md`.
 
 ## Cline
 
-Do not use Cline for this workflow.
+Not part of this workflow.

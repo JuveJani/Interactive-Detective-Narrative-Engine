@@ -3,39 +3,27 @@
 **Last updated:** 2026-08-06  
 **Base branch:** `main`
 
-## Completed milestones
+## Local AI Orchestrator
 
-| Milestone | Scope |
-|-----------|--------|
-| 1–11 | World First through Adventure Generator v2 |
-| Simulator v2 | Canonical package loader, human delivery, diagnostics |
-| Epistemic progression | State-gated scene progression engine + Cold Storage migration |
-| Investigation graph fix | Deterministic BFS deduplication for IV state graph |
-| Checksum test fix | Cross-platform file selection in package tests |
-| **Local AI Step 1** | Deterministic orchestrator core (`idne/local_ai/`) |
-
-## Local AI Orchestrator (Step 1)
+| Step | Status |
+|------|--------|
+| Step 1 | Deterministic task preparation → `READY_FOR_MODEL` |
+| Step 2 | LM Studio OpenAI-compatible transport → `RESPONSE_RECEIVED` |
+| Step 3 | Semantic validation + apply (not started) |
 
 - CLI: `python -m idne.local_ai`
-- Supported task type: `adventure_brief` (prepare only)
-- Run workspace: `.local_ai_runs/` (gitignored)
-- Status reached: `READY_FOR_MODEL`
-- **No model adapter yet** — no LM Studio calls
-
-See `OFFLINE_AI/LOCAL_AI_ARCHITECTURE.md` and `OFFLINE_AI/QUICKSTART.md`.
+- Config: `OFFLINE_AI/local_ai.example.toml` → `local_ai.toml`
+- Mock adapter for CI and Termux: `--mock`
+- **No semantic validation or repository apply yet**
 
 ## Test status
 
-Run: `python -m unittest discover -s tests`
+Run: `python -m unittest discover -s tests` (552+ tests)
 
 ## Next goal
 
-1. Local model adapter (OpenAI-compatible endpoint) for `READY_FOR_MODEL` tasks
-2. Response validation and brief JSON application through existing Generator v2 paths
-3. Measure one real brief generation with LM Studio; record settings in `LOCAL_SETUP.md`
+Step 3: validate model JSON against brief schema; apply through Generator v2 paths.
 
-## Do not assume
+## Cline
 
-- Cline is required or used
-- Any prepared prompt has been sent to a model
-- Chat history is authoritative
+Not used for Local AI workflow.

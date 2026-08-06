@@ -1,14 +1,17 @@
-"""Environment diagnostics for Local AI orchestrator Step 1."""
+"""Environment diagnostics for Local AI orchestrator."""
 
 from __future__ import annotations
 
-import json
 import subprocess
-import sys
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from idne.local_ai.config import LocalAIConfig, endpoint_for_display, load_config
+from idne.local_ai.errors import ModelSelectionError, TransportError
+from idne.local_ai.mock_adapter import doctor_completion
+from idne.local_ai.model_adapter import create_adapter, select_model
 from idne.local_ai.paths import find_repo_root, normalize_allowlist
 from idne.local_ai.platform_runtime import detect_platform_runtime, local_ai_runs_root
 from idne.local_ai.task_builder import TASK_DEFINITIONS
@@ -71,7 +74,50 @@ def _git_status(repo_root: Path) -> dict[str, Any]:
     return {"available": True, "dirty": bool(lines), "changed_files": len(lines)}
 
 
-def run_doctor(start: Path | None = None) -> DoctorReport:
+def _adapter_checks(
+    cfg: LocalAIConfig,
+    *,
+    mock: bool,
+) -> dict[str, Any]:
+    adapter = create_adapter(cfg, mock=mock)
+    result: dict[str, Any] = {
+        "adapter": adapter.name,
+        "endpoint": endpoint_for_display(cfg.base_url),
+        "endpoint_policy": "allowed",
+        "configured_model": cfg.model,
+        "connect_timeout_seconds": cfg.connect_timeout_seconds,
+        "response_timeout_seconds": cfg.response_timeout_seconds,
+        "max_output_tokens": cfg.max_output_tokens,
+        "reachable": False,
+        "available_models": [],
+        "selected_model": None,
+        "model_selection_status": "unknown",
+    }
+    try:
+        models = adapter.list_models(cfg)
+        result["reachable"] = True
+        result["available_models"] = [m.model_id for m in models]
+        selection = select_model(cfg, models)
+        result["selected_model"] = selection.model_id
+        result["model_selection_status"] = selection.reason
+    except ModelSelectionError as exc:
+        result["reachable"] = True
+        result["model_selection_status"] = "blocked"
+        result["model_selection_message"] = str(exc)
+        result["available_models"] = exc.available_models
+    except TransportError as exc:
+        result["model_selection_status"] = "blocked"
+        result["transport_error"] = {"classification": exc.classification, "message": str(exc)}
+    return result
+
+
+def run_doctor(
+    start: Path | None = None,
+    *,
+    config_path: Path | None = None,
+    mock: bool = False,
+    test_completion: bool = False,
+) -> DoctorReport:
     messages: list[str] = []
     checks: dict[str, Any] = {}
     blocked_reasons: list[str] = []
@@ -102,21 +148,18 @@ def run_doctor(start: Path | None = None) -> DoctorReport:
         probe.unlink(missing_ok=True)
     except OSError as exc:
         blocked_reasons.append(f"run directory not writable: {exc}")
-    checks["run_directory"] = {
-        "path": runs_root.as_posix(),
-        "writable": runs_writable,
-    }
+    checks["run_directory"] = {"path": runs_root.as_posix(), "writable": runs_writable}
     if not runs_writable:
         blocked_reasons.append("local AI run directory is not writable")
 
-    utf8_ok = _utf8_roundtrip_check(runs_root if runs_writable else runtime.temp_directory)
-    checks["utf8_roundtrip"] = utf8_ok
-    if not utf8_ok:
+    checks["utf8_roundtrip"] = _utf8_roundtrip_check(
+        runs_root if runs_writable else runtime.temp_directory
+    )
+    if not checks["utf8_roundtrip"]:
         blocked_reasons.append("UTF-8 read/write check failed")
 
-    ordering_ok = _deterministic_ordering_check(runtime.temp_directory)
-    checks["deterministic_ordering"] = ordering_ok
-    if not ordering_ok:
+    checks["deterministic_ordering"] = _deterministic_ordering_check(runtime.temp_directory)
+    if not checks["deterministic_ordering"]:
         blocked_reasons.append("deterministic path ordering check failed")
 
     required_files: dict[str, bool] = {}
@@ -135,10 +178,55 @@ def run_doctor(start: Path | None = None) -> DoctorReport:
         degraded_reasons.append("git unavailable — working tree status not reported")
 
     try:
-        sample = normalize_allowlist(["AGENTS.md"], runtime.repo_root)
-        checks["path_normalization_sample"] = sample
-    except Exception as exc:  # noqa: BLE001 — doctor must report, not crash
+        checks["path_normalization_sample"] = normalize_allowlist(["AGENTS.md"], runtime.repo_root)
+    except Exception as exc:  # noqa: BLE001
         blocked_reasons.append(f"path normalization failed: {exc}")
+
+    try:
+        cfg = load_config(config_path=config_path, repo_root=runtime.repo_root)
+        if mock:
+            cfg.adapter_type = "mock"
+        checks["config"] = cfg.to_dict()
+        checks["adapter"] = _adapter_checks(cfg, mock=mock)
+        adapter_info = checks["adapter"]
+        if not adapter_info.get("reachable"):
+            blocked_reasons.append("model server not reachable")
+        elif adapter_info.get("model_selection_status") == "blocked":
+            blocked_reasons.append(adapter_info.get("model_selection_message") or adapter_info.get("transport_error", {}).get("message", "model selection blocked"))
+    except TransportError as exc:
+        checks["adapter"] = {"transport_error": {"classification": exc.classification, "message": str(exc)}}
+        blocked_reasons.append(str(exc))
+
+    if test_completion:
+        completion_check: dict[str, Any] = {"requested": True}
+        try:
+            cfg = load_config(config_path=config_path, repo_root=runtime.repo_root)
+            if mock:
+                cfg.adapter_type = "mock"
+            start_time = time.perf_counter()
+            result = doctor_completion(cfg, mock=mock)
+            completion_check.update(
+                {
+                    "server_reachable": True,
+                    "model_available": True,
+                    "completion_successful": True,
+                    "duration_seconds": time.perf_counter() - start_time,
+                    "response_character_count": len(result.content),
+                }
+            )
+        except TransportError as exc:
+            completion_check.update(
+                {
+                    "server_reachable": exc.classification
+                    not in {"endpoint_rejected", "configuration_error"},
+                    "model_available": exc.classification != "model_selection_blocked",
+                    "completion_successful": False,
+                    "error": str(exc),
+                    "classification": exc.classification,
+                }
+            )
+            blocked_reasons.append(f"doctor completion failed: {exc}")
+        checks["completion_test"] = completion_check
 
     if blocked_reasons:
         status = "BLOCKED"
@@ -148,7 +236,8 @@ def run_doctor(start: Path | None = None) -> DoctorReport:
         messages.extend(degraded_reasons)
     else:
         status = "READY"
-        messages.append("Local AI deterministic core is ready (no model adapter configured).")
+        adapter_name = checks.get("adapter", {}).get("adapter", "unknown")
+        messages.append(f"Local AI adapter ready ({adapter_name}).")
 
     return DoctorReport(status=status, checks=checks, messages=messages)
 
@@ -160,6 +249,21 @@ def format_doctor_report(report: DoctorReport) -> str:
     lines.append(f"Python: {runtime.get('python_version', '?')}")
     lines.append(f"Repo: {runtime.get('repo_root', '?')}")
     lines.append(f"Runs: {report.checks.get('run_directory', {}).get('path', '?')}")
+    adapter = report.checks.get("adapter", {})
+    if adapter:
+        lines.append(f"Adapter: {adapter.get('adapter', '?')}")
+        lines.append(f"Endpoint: {adapter.get('endpoint', '?')}")
+        lines.append(f"Reachable: {adapter.get('reachable', False)}")
+        if adapter.get("selected_model"):
+            lines.append(f"Model: {adapter.get('selected_model')}")
+        if adapter.get("available_models"):
+            lines.append(f"Models: {', '.join(adapter['available_models'])}")
+    completion = report.checks.get("completion_test")
+    if completion:
+        lines.append(
+            f"Completion: {'OK' if completion.get('completion_successful') else 'FAIL'} "
+            f"({completion.get('duration_seconds', '?')}s)"
+        )
     for message in report.messages:
         lines.append(f"- {message}")
     return "\n".join(lines)

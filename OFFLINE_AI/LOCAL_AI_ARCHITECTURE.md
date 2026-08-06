@@ -1,63 +1,71 @@
-# Local AI Orchestrator — Architecture (Step 1)
+# Local AI Orchestrator — Architecture
 
-**Status:** Deterministic core only — no model adapter yet.
+**Status:** Step 2 — LM Studio transport adapter (no semantic validation yet)
 
 ## Purpose
 
-Prepare exact, validated Local AI task packages so a future local model receives
-only semantic work. Python performs all deterministic repository operations.
+Prepare exact, validated Local AI task packages and send `prompt.txt` to a local
+OpenAI-compatible model (LM Studio). Python performs all deterministic work.
 
-## What Python does now
+## What Python does
 
-- Detect platform runtime (`platform_runtime.py`)
-- Resolve safe repository-relative paths (`paths.py`)
-- Build versioned `LocalAITask` records (`task_model.py`)
-- Read explicit allowlisted files only (`context_builder.py`)
-- Enforce context budgets without silent truncation
-- Build deterministic prompts (`prompt_builder.py`)
-- Write run artifacts under `.local_ai_runs/<task-id>/`
-- Report doctor readiness (`doctor.py`)
+- Deterministic task preparation (Step 1)
+- Configuration loading and endpoint safety (`config.py`)
+- Model listing and chat completion transport (`lm_studio_client.py`, `model_adapter.py`)
+- Response capture inside task directories only (`response_capture.py`, `transport.py`)
+- Mock adapter for tests and Termux offline workflow (`mock_adapter.py`)
+- Doctor diagnostics (`doctor.py`)
 
-## What will later delegate to AI
+## What the model adapter does (transport only)
 
-- Semantic field authoring for briefs and canonical layers
-- Story/player prose generation per Generator v2 stage
-- Repair wording proposals after validator findings
+- `GET /v1/models` — list and select model
+- `POST /v1/chat/completions` — send prepared prompt
+- Save raw response, extracted content, transport metrics
+- Transition task `READY_FOR_MODEL` → `RESPONSE_RECEIVED`
 
-## What AI must never do
+## What the adapter must NOT do
 
-- Explore the repository or choose context files
-- Assign IDs, paths, manifests, or hashes
-- Write directly into the repository
-- Manage stage state or pick validators
+- Explore the repository or modify `prompt.txt`
+- Add chat history
+- Write outside `.local_ai_runs/<task-id>/`
+- Assign IDs, repair schemas, or apply output
 
-## Authority order
+## Network policy
 
-1. Specification files (`*_SPEC.md`, `AGENTS.md`)
-2. Workflow documentation (`*_WORKFLOW.md`)
-3. Implementation reports
-4. `OFFLINE_AI/` memory (orientation only)
-5. Chat history (never included automatically)
+Network requests occur **only** through the configured adapter endpoint.
+Default: loopback (`127.0.0.1`, `localhost`, `::1`) only.
+Set `allow_remote_endpoint = true` for trusted LAN (e.g. Termux → laptop).
 
-## Task directory contents
+## Task directory (after transport)
 
 | File | Purpose |
 |------|---------|
-| `task.json` | Versioned machine-readable task |
-| `context_manifest.json` | Sources, sizes, budget result |
-| `context.txt` | Concatenated authoritative context |
-| `prompt.txt` | Deterministic model-ready prompt |
-| `status.json` | Status + preparation metrics |
-| `diagnostics.json` | Blockers and file lists |
+| `task.json` | Versioned task record |
+| `prompt.txt` | Prepared prompt (unchanged by adapter) |
+| `request.json` | Outbound request metadata |
+| `raw_response.json` | Full model HTTP JSON |
+| `response.txt` | Extracted assistant content |
+| `transport_report.json` | Timing, usage, classification |
+| `status.json` | Updated status + attempt count |
 
-## Reuse
+## Configuration
 
-This layer orchestrates existing Generator v2 stage definitions (`idne/generate/stages.py`), brief field requirements (`idne/generate/brief.py`), and normative specs. It does **not** replace Adventure Generator v2.
+See `OFFLINE_AI/local_ai.example.toml`. User file: `local_ai.toml` (gitignored).
+
+Precedence: `--config` → `IDNE_LOCAL_AI_CONFIG` → `local_ai.toml` → defaults.
+
+## Termux modes
+
+1. **Mock only** — prepare/run with `--mock` on device
+2. **LAN adapter** — point `base_url` at laptop LM Studio with `allow_remote_endpoint = true`
+
+LM Studio does not run on Android.
+
+## Step 3 (not yet)
+
+- Semantic JSON validation
+- Repair and repository application
 
 ## Cline
 
-Cline is **not** part of this workflow. Use `python -m idne.local_ai` only.
-
-## Current limitation
-
-No LM Studio or other model adapter is configured in Step 1. Preparation stops at `READY_FOR_MODEL`.
+Not used. CLI: `python -m idne.local_ai`

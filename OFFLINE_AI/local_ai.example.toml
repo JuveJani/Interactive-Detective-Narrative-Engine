@@ -1,0 +1,22 @@
+# IDNE Local AI configuration example
+# Copy to local_ai.toml in the repository root (gitignored) and adjust.
+
+[adapter]
+type = "lm_studio"
+base_url = "http://127.0.0.1:1234/v1"
+# model = "your-model-id"  # optional; required when multiple models are loaded
+api_token_env = "LM_STUDIO_API_TOKEN"
+allow_remote_endpoint = false
+
+[transport]
+connect_timeout_seconds = 10.0
+response_timeout_seconds = 300.0
+retry_count = 2
+temperature = 0.1
+max_output_tokens = 2048
+# seed = 42  # optional deterministic seed
+
+[runtime]
+context_budget = 12000
+retain_raw_response = true
+log_requests = false

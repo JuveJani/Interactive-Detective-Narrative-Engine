@@ -45,6 +45,7 @@ llm_models/
 
 # Local AI orchestrator run workspace
 .local_ai_runs/
+local_ai.toml
 
 # Generated archives and temp reports
 *.log

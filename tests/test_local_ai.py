@@ -254,7 +254,7 @@ class TestPrepareEndToEnd(unittest.TestCase):
 
 class TestDoctor(unittest.TestCase):
     def test_doctor_ready_in_valid_repository(self):
-        report = run_doctor(REPO_ROOT)
+        report = run_doctor(start=REPO_ROOT, mock=True)
         self.assertIn(report.status, ("READY", "DEGRADED"))
         self.assertTrue(report.checks["utf8_roundtrip"])
         self.assertTrue(report.checks["deterministic_ordering"])
@@ -262,7 +262,7 @@ class TestDoctor(unittest.TestCase):
 
     def test_doctor_degraded_without_git(self):
         with mock.patch("idne.local_ai.doctor.subprocess.run", side_effect=FileNotFoundError("git")):
-            report = run_doctor(REPO_ROOT)
+            report = run_doctor(start=REPO_ROOT, mock=True)
         self.assertEqual(report.status, "DEGRADED")
         self.assertFalse(report.checks["git"]["available"])
 
@@ -275,14 +275,14 @@ class TestDoctor(unittest.TestCase):
                 target = root / spec.path
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_text(f"# {spec.path}\n\n{spec.excerpt_start or 'content'}\n", encoding="utf-8")
-            report = run_doctor(root)
+            report = run_doctor(start=root, mock=True)
             self.assertIn(report.status, ("READY", "DEGRADED"))
 
 
 class TestCLI(unittest.TestCase):
     def test_cli_doctor(self):
         proc = subprocess.run(
-            [sys.executable, "-m", "idne.local_ai", "doctor"],
+            [sys.executable, "-m", "idne.local_ai", "doctor", "--mock"],
             cwd=REPO_ROOT,
             capture_output=True,
             text=True,

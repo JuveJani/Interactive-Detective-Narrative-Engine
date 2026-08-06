@@ -10,7 +10,7 @@ from typing import Any
 from idne.local_ai.context_builder import ContextBuildResult
 from idne.local_ai.paths import safe_task_directory_name
 from idne.local_ai.platform_runtime import local_ai_runs_root
-from idne.local_ai.task_model import LocalAITask, TaskStatus, transition_task
+from idne.local_ai.task_model import LocalAITask, TaskStatus, sha256_text, transition_task
 
 
 @dataclass
@@ -48,12 +48,14 @@ def write_run_artifacts(
     write_json(run_dir / "context_manifest.json", context.to_manifest())
     (run_dir / "context.txt").write_text(context.context_text + "\n", encoding="utf-8")
     (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
+    prompt_sha256 = sha256_text(prompt)
     write_json(
         run_dir / "status.json",
         {
             "task_id": task.task_id,
             "status": task.status.value,
             "attempt_count": task.attempt_count,
+            "prompt_sha256": prompt_sha256,
             "metrics": metrics.to_dict(),
         },
     )

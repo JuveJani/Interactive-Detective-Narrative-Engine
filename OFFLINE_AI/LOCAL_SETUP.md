@@ -23,13 +23,36 @@ python -m unittest discover -s tests
 
 ---
 
-## LM Studio
+## LM Studio (Local AI Orchestrator)
 
 | Field | Value |
 |-------|-------|
-| LM Studio version | _TBD_ |
-| Local server URL | _TBD_ (e.g. `http://localhost:1234/v1`) |
-| API compatibility | OpenAI-compatible chat completions |
+| LM Studio version | _TBD — measure on your machine_ |
+| Local server URL | `http://127.0.0.1:1234/v1` (default) |
+| API compatibility | OpenAI-compatible (`/v1/models`, `/v1/chat/completions`) |
+| Config example | `OFFLINE_AI/local_ai.example.toml` |
+| User config | `local_ai.toml` (gitignored) |
+| CLI | `python -m idne.local_ai doctor` / `prepare` / `run` |
+
+### Doctor commands
+
+```powershell
+python -m idne.local_ai doctor
+python -m idne.local_ai doctor --test-completion
+python -m idne.local_ai doctor --mock --test-completion
+```
+
+### Transport verification (Step 2)
+
+| Step | Command |
+|------|---------|
+| Prepare | `python -m idne.local_ai prepare --task-type adventure_brief --input OFFLINE_AI/examples/adventure_brief_input.md` |
+| Run | `python -m idne.local_ai run .local_ai_runs/<task-id>` |
+| Inspect | `python -m idne.local_ai transport-report .local_ai_runs/<task-id>` |
+
+Semantic validation and repository application: **Step 3 (not yet)**.
+
+See `OFFLINE_AI/QUICKSTART.md`, `OFFLINE_AI/TROUBLESHOOTING.md`, `OFFLINE_AI/OFFLINE_CHECKLIST.md`.
 
 ### Loaded models
 

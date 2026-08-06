@@ -33,7 +33,7 @@ ALLOWED_TRANSITIONS: dict[TaskStatus, frozenset[TaskStatus]] = {
         {TaskStatus.RESPONSE_RECEIVED, TaskStatus.BLOCKED, TaskStatus.FAILED}
     ),
     TaskStatus.RESPONSE_RECEIVED: frozenset(
-        {TaskStatus.VALIDATED, TaskStatus.FAILED, TaskStatus.BLOCKED}
+        {TaskStatus.VALIDATED, TaskStatus.FAILED, TaskStatus.BLOCKED, TaskStatus.RESPONSE_RECEIVED}
     ),
     TaskStatus.VALIDATED: frozenset({TaskStatus.APPLIED, TaskStatus.FAILED}),
     TaskStatus.FAILED: frozenset({TaskStatus.CREATED, TaskStatus.PREPARED}),
