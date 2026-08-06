@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.local/schemas/local_ai_task.schema.json",
+  "title": "LocalAITask",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "task_type",
+    "created_at",
+    "source_content_identity",
+    "allowed_input_files",
+    "allowed_output_files",
+    "authoritative_sources",
+    "approved_prior_stage_facts",
+    "protected_values",
+    "expected_output_schema_ref",
+    "context_budget",
+    "generation_settings",
+    "validator_commands",
+    "status",
+    "attempt_count",
+    "run_directory"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "task_id": { "type": "string", "minLength": 1 },
+    "task_type": { "type": "string", "minLength": 1 },
+    "stage_name": { "type": ["string", "null"] },
+    "adventure_id": { "type": ["string", "null"] },
+    "created_at": { "type": "string", "minLength": 1 },
+    "source_content_identity": {
+      "type": "object",
+      "required": ["sha256", "path"],
+      "properties": {
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "path": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "allowed_input_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "allowed_output_files": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "authoritative_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "authority_rank", "kind", "heading", "char_count", "excerpt_chars"],
+        "properties": {
+          "path": { "type": "string" },
+          "authority_rank": { "type": "integer", "minimum": 1 },
+          "kind": { "type": "string" },
+          "heading": { "type": "string" },
+          "char_count": { "type": "integer", "minimum": 0 },
+          "excerpt_chars": { "type": "integer", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "approved_prior_stage_facts": { "type": "object" },
+    "protected_values": { "type": "object" },
+    "expected_output_schema_ref": { "type": "string" },
+    "context_budget": { "type": "integer", "minimum": 1 },
+    "generation_settings": { "type": "object" },
+    "validator_commands": { "type": "array", "items": { "type": "string" } },
+    "status": {
+      "type": "string",
+      "enum": [
+        "CREATED",
+        "PREPARED",
+        "BLOCKED",
+        "READY_FOR_MODEL",
+        "RESPONSE_RECEIVED",
+        "VALIDATED",
+        "FAILED",
+        "APPLIED"
+      ]
+    },
+    "attempt_count": { "type": "integer", "minimum": 0 },
+    "run_directory": { "type": "string" },
+    "task_instruction": { "type": "string" }
+  }
+}

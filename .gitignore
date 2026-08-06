@@ -43,6 +43,9 @@ credentials.json
 models/
 llm_models/
 
+# Local AI orchestrator run workspace
+.local_ai_runs/
+
 # Generated archives and temp reports
 *.log
 /tmp/
