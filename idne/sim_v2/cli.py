@@ -9,6 +9,11 @@ from pathlib import Path
 
 from simulator_v2.ai_context import export_ai_context
 from simulator_v2.config import RunnerConfig
+from simulator_v2.human_delivery.runner import (
+    cmd_delivery_validate,
+    cmd_human_simulate,
+    cmd_human_trace,
+)
 from simulator_v2.runner import (
     cmd_compare,
     cmd_diagnose,
@@ -56,6 +61,20 @@ def build_parser() -> argparse.ArgumentParser:
     c.add_argument("adventure", type=str)
     c.add_argument("--runs-per-strategy", type=int, default=100)
     c.add_argument("--seed", type=int, default=42)
+
+    hd = sub.add_parser("delivery-validate", help="Validate static gamebook human delivery")
+    hd.add_argument("adventure", type=str)
+
+    ht = sub.add_parser("human-trace", help="Deterministic human-delivery trace")
+    ht.add_argument("adventure", type=str)
+    ht.add_argument("--seed", type=int, default=42)
+    ht.add_argument("--strategy", type=str, default="human_random_legal")
+
+    hs = sub.add_parser("human-simulate", help="Human-delivery Monte Carlo simulation")
+    hs.add_argument("adventure", type=str)
+    hs.add_argument("--runs", type=int, default=100)
+    hs.add_argument("--seed", type=int, default=42)
+    hs.add_argument("--strategy", type=str, default="human_random_legal")
 
     x = sub.add_parser("export-ai-context", help="Export offline AI context for a finding")
     x.add_argument("output", type=str, help="Prior run output folder")
@@ -121,6 +140,19 @@ def main(argv: list[str] | None = None) -> int:
             result = cmd_compare(adventure, args.runs_per_strategy, args.seed, cfg)
             print(json.dumps(result, indent=2))
             return 0
+        if args.command == "delivery-validate":
+            result = cmd_delivery_validate(adventure)
+            print(json.dumps(result, indent=2))
+            return 0 if result.get("status") == "PASS" else 1
+        if args.command == "human-trace":
+            result = cmd_human_trace(adventure, seed=args.seed, strategy=args.strategy)
+            print(json.dumps(result, indent=2))
+            return 0 if result.get("result", {}).get("status") in ("COMPLETED", "INCOMPLETE") else 1
+        if args.command == "human-simulate":
+            result = cmd_human_simulate(adventure, runs=args.runs, seed=args.seed, strategy=args.strategy)
+            print(json.dumps(result, indent=2))
+            trust = result.get("result", {}).get("trust", {})
+            return 0 if trust.get("trusted") else 1
         if args.command == "export-ai-context":
             out = export_ai_context(Path(args.output), args.finding_id)
             print(json.dumps({"status": "COMPLETED", "context_dir": str(out)}, indent=2))
