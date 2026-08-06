@@ -291,8 +291,28 @@
   },
   "player_mapping_manifest": {
     "path": "player_mapping_manifest.json",
-    "unit_count": 96
+    "schema_version": "1.1",
+    "unit_count": 96,
+    "static_book_path": "adventure/PLAYER/GAMEBOOK.md",
+    "start_section": 636,
+    "start_unit_id": "UNIT-DOCK-BASE"
   },
+  "static_book": {
+    "delivery_mode": "static_book",
+    "gamebook_path": "adventure/PLAYER/GAMEBOOK.md",
+    "start_section": 636,
+    "start_unit_id": "UNIT-DOCK-BASE",
+    "public_section_count": 96,
+    "migrated_at": "2026-08-06T07:00:00+00:00"
+  },
+  "playtest_attempts": [
+    {
+      "attempt": 1,
+      "status": "failed_pre_play",
+      "reason": "Static navigation missing — player delivery had no public section numbers or turn-to instructions; could not be played as a static gamebook.",
+      "recorded_at": "2026-08-06T07:00:00+00:00"
+    }
+  ],
   "provisional_playtime_estimate": {
     "path": "PROVISIONAL_PLAYTIME_ESTIMATE.json",
     "shortest_minutes": 76.7,

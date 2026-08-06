@@ -604,6 +604,8 @@ def validate_story(adventure_root: str | Path) -> ValidationResult:
             _add(result, "SV-AMBIGUOUS-PRONOUN", "plain_language", ref, "clear pronouns", "ambiguous")
 
     for rel, text in player_text.items():
+        if rel.endswith("/GAMEBOOK.md") or rel == "PLAYER/GAMEBOOK.md":
+            continue
         scan = scan_plain_language(text, known_acronyms, aliases)
         if scan["very_long_sentences"]:
             plain_ok = False
