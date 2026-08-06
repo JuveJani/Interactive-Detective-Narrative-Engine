@@ -1,0 +1,1131 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "items_registry": [],
+  "objects": [
+    {
+      "object_id": "OBJ-DOCK-BRIEFING",
+      "parent_id": "LOC-DOCK",
+      "parent_type": "location",
+      "public_name": "Supervisor briefing area",
+      "object_type": "briefing_station",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-DOCK-BRIEFING",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "visible",
+      "world_first_source_event": "EVT-018",
+      "provenance": {
+        "event_ids": ["EVT-016", "EVT-018"]
+      }
+    },
+    {
+      "object_id": "OBJ-COLD-DOOR-ASM",
+      "parent_id": "LOC-COLD",
+      "parent_type": "location",
+      "public_name": "Cold storage door assembly",
+      "object_type": "secured_door",
+      "initial_state": "latched",
+      "current_state": "latched",
+      "visible_description": "DESC-COLD-DOOR",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached",
+      "world_first_source_event": "EVT-006",
+      "provenance": {
+        "event_ids": ["EVT-006", "EVT-007", "EVT-009"]
+      }
+    },
+    {
+      "object_id": "OBJ-COLD-AISLE-C",
+      "parent_id": "LOC-COLD",
+      "parent_type": "location",
+      "public_name": "Aisle C pallet row",
+      "object_type": "storage_aisle",
+      "initial_state": "undisturbed_surface",
+      "current_state": "undisturbed_surface",
+      "visible_description": "DESC-AISLE-C",
+      "visibility_requirement": "after_entering",
+      "interaction_depth_required": "approached",
+      "world_first_source_event": "EVT-008",
+      "provenance": {
+        "event_ids": ["EVT-008"]
+      }
+    },
+    {
+      "object_id": "OBJ-LABEL-RESIDUE",
+      "parent_id": "OBJ-COLD-AISLE-C",
+      "parent_type": "object",
+      "public_name": "Adhesive label residue",
+      "object_type": "physical_trace",
+      "initial_state": "concealed",
+      "current_state": "concealed",
+      "visibility_requirement": "hidden_until_discovered",
+      "contains_information": ["INFO-LABEL-RESIDUE", "INFO-LABEL-TIMESTAMP"],
+      "world_first_source_event": "EVT-008",
+      "provenance": {
+        "event_ids": ["EVT-008"],
+        "evidence_ids": ["EVD-LABEL-RESIDUE"]
+      }
+    },
+    {
+      "object_id": "OBJ-CZ1-TEMP-DISPLAY",
+      "parent_id": "LOC-COLD",
+      "parent_type": "location",
+      "public_name": "CZ-1 supply air display",
+      "object_type": "sensor_display",
+      "initial_state": "alarm_active",
+      "current_state": "alarm_active",
+      "visible_description": "DESC-CZ1-TEMP",
+      "visibility_requirement": "after_entering",
+      "interaction_depth_required": "approached",
+      "world_first_source_event": "EVT-013",
+      "provenance": {
+        "event_ids": ["EVT-013", "EVT-014"]
+      }
+    },
+    {
+      "object_id": "OBJ-CTRL-TERM-02",
+      "parent_id": "LOC-CONTROL",
+      "parent_type": "location",
+      "public_name": "Engineering workstation CTRL-TERM-02",
+      "object_type": "engineering_terminal",
+      "initial_state": "session_unlocked",
+      "current_state": "session_unlocked",
+      "visible_description": "DESC-CTRL-TERM-02",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached",
+      "world_first_source_event": "EVT-001",
+      "provenance": {
+        "event_ids": ["EVT-001", "EVT-011"],
+        "evidence_ids": ["EVD-BMS-COMMAND", "EVD-MAINT-CLO1847"]
+      }
+    },
+    {
+      "object_id": "OBJ-CZ1-STAGING-PANEL",
+      "parent_id": "LOC-CONTROL",
+      "parent_type": "location",
+      "public_name": "CZ-1 staging control panel",
+      "object_type": "control_panel",
+      "initial_state": "staging_suspended",
+      "current_state": "staging_suspended",
+      "visible_description": "DESC-STAGING-PANEL",
+      "visibility_requirement": "after_entering",
+      "interaction_depth_required": "approached",
+      "world_first_source_event": "EVT-012",
+      "provenance": {
+        "event_ids": ["EVT-012"]
+      }
+    },
+    {
+      "object_id": "OBJ-ALARM-PANEL",
+      "parent_id": "LOC-SECURITY",
+      "parent_type": "location",
+      "public_name": "Security alarm panel",
+      "object_type": "monitoring_panel",
+      "initial_state": "active_alarms",
+      "current_state": "active_alarms",
+      "visible_description": "DESC-ALARM-PANEL",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached",
+      "world_first_source_event": "EVT-014",
+      "provenance": {
+        "event_ids": ["EVT-014", "EVT-009"],
+        "evidence_ids": ["EVD-DOOR-ALARM"]
+      }
+    },
+    {
+      "object_id": "OBJ-BADGE-ARCHIVE",
+      "parent_id": "LOC-SECURITY",
+      "parent_type": "location",
+      "public_name": "Badge access archive terminal",
+      "object_type": "records_terminal",
+      "initial_state": "sync_pending",
+      "current_state": "sync_pending",
+      "visible_description": "DESC-BADGE-ARCHIVE",
+      "visibility_requirement": "after_entering",
+      "interaction_depth_required": "approached",
+      "world_first_source_event": "EVT-019",
+      "provenance": {
+        "event_ids": ["EVT-019", "EVT-007", "EVT-010", "EVT-002"],
+        "evidence_ids": ["EVD-BADGE-LOG", "EVD-CONTROL-ENTRY", "EVD-EXIT-SCAN"]
+      }
+    },
+    {
+      "object_id": "OBJ-MANIFEST-WORKSTATION",
+      "parent_id": "LOC-MANAGER",
+      "parent_type": "location",
+      "public_name": "Receiving reconciliation workstation",
+      "object_type": "workstation",
+      "initial_state": "exception_open",
+      "current_state": "exception_open",
+      "visible_description": "DESC-MANIFEST-WS",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached",
+      "world_first_source_event": "EVT-004",
+      "provenance": {
+        "event_ids": ["EVT-004"],
+        "evidence_ids": ["EVD-MANIFEST-POD"]
+      }
+    },
+    {
+      "object_id": "OBJ-POD-BINDER",
+      "parent_id": "OBJ-MANIFEST-WORKSTATION",
+      "parent_type": "object",
+      "public_name": "Carrier proof-of-delivery binder",
+      "object_type": "document_binder",
+      "initial_state": "on_desk",
+      "current_state": "on_desk",
+      "visible_description": "DESC-POD-BINDER",
+      "visibility_requirement": "after_parent_approached"
+    },
+    {
+      "object_id": "OBJ-LOCKER-BANK",
+      "parent_id": "LOC-BREAK",
+      "parent_type": "location",
+      "public_name": "Staff locker bank",
+      "object_type": "lockers",
+      "initial_state": "mixed_occupancy",
+      "current_state": "mixed_occupancy",
+      "visible_description": "DESC-LOCKER-BANK",
+      "visibility_requirement": "after_entering",
+      "interaction_depth_required": "approached",
+      "world_first_source_event": "EVT-003",
+      "provenance": {
+        "event_ids": ["EVT-003", "EVT-005"]
+      }
+    },
+    {
+      "object_id": "OBJ-DEV-LOCKER",
+      "parent_id": "OBJ-LOCKER-BANK",
+      "parent_type": "object",
+      "public_name": "Contractor locker 14",
+      "object_type": "locker",
+      "initial_state": "ajar",
+      "current_state": "ajar",
+      "visibility_requirement": "hidden_until_discovered",
+      "contains_information": ["INFO-BADGE-LOCKER"],
+      "world_first_source_event": "EVT-003",
+      "provenance": {
+        "event_ids": ["EVT-003"]
+      }
+    },
+    {
+      "object_id": "OBJ-BREAK-WINDOW",
+      "parent_id": "LOC-BREAK",
+      "parent_type": "location",
+      "public_name": "Dock-facing window",
+      "object_type": "window",
+      "initial_state": "clear_view",
+      "current_state": "clear_view",
+      "visible_description": "DESC-BREAK-WINDOW",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "visible",
+      "world_first_source_event": "EVT-015",
+      "provenance": {
+        "event_ids": ["EVT-015"]
+      }
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-APPROACH-DOCK-BRIEFING",
+      "object_id": "OBJ-DOCK-BRIEFING",
+      "player_label": "Review the supervisor's incident briefing notes.",
+      "interaction_depth": "approached",
+      "time_cost_minutes": 2,
+      "destination_unit": "UNIT-DOCK-BRIEFING-MENU",
+      "return_destination": "UNIT-DOCK-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "suppress_identical",
+      "eligibility": {
+        "type": "always"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-018"],
+        "evidence_ids": []
+      }
+    },
+    {
+      "action_id": "ACT-REQUEST-CONTROL-ESCORT",
+      "object_id": "OBJ-DOCK-BRIEFING",
+      "player_label": "Ask the on-call supervisor to escort you to the control room.",
+      "interaction_depth": "accessed",
+      "time_cost_minutes": 3,
+      "destination_unit": "UNIT-ESCORT-GRANTED",
+      "return_destination": "UNIT-DOCK-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "location_state",
+        "location_id": "LOC-CONTROL",
+        "attribute": "access",
+        "value": "supervisor_escort"
+      },
+      "state_effect": {
+        "transition_id": "TR-CONTROL-ESCORT-CLEARED",
+        "location_id": "LOC-CONTROL"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-018"],
+        "fact_ids": ["FACT-007"]
+      }
+    },
+    {
+      "action_id": "ACT-EXAMINE-COLD-DOOR",
+      "object_id": "OBJ-COLD-DOOR-ASM",
+      "player_label": "Examine the cold storage door latch and reader.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 3,
+      "destination_unit": "UNIT-COLD-DOOR-MENU",
+      "return_destination": "UNIT-COLD-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "suppress_identical",
+      "eligibility": {
+        "type": "always"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-006"],
+        "fact_ids": ["FACT-004"]
+      }
+    },
+    {
+      "action_id": "ACT-CHECK-LATCH-WEAR",
+      "object_id": "OBJ-COLD-DOOR-ASM",
+      "player_label": "Check the latch hardware for recent disturbance.",
+      "interaction_depth": "searched",
+      "time_cost_minutes": 4,
+      "return_destination": "UNIT-COLD-DOOR-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "prior_interaction",
+        "action_id": "ACT-EXAMINE-COLD-DOOR"
+      },
+      "check_binding": {
+        "check_id": "CHK-PERCEPTION-LATCH",
+        "capability": "perception",
+        "dc": 13,
+        "eligible_character": "investigator",
+        "one_attempt": true,
+        "success_destination": "UNIT-LATCH-SUCCESS",
+        "failure_destination": "UNIT-LATCH-FAIL",
+        "changes_world_truth": false,
+        "information_on_success": ["INFO-LATCH-DISTURBANCE"],
+        "information_on_failure": []
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-006", "EVT-009"],
+        "fact_ids": ["FACT-004", "FACT-020"]
+      }
+    },
+    {
+      "action_id": "ACT-APPROACH-AISLE-C",
+      "object_id": "OBJ-COLD-AISLE-C",
+      "player_label": "Walk the length of aisle C between the pallet rows.",
+      "interaction_depth": "approached",
+      "time_cost_minutes": 2,
+      "destination_unit": "UNIT-AISLE-C-MENU",
+      "return_destination": "UNIT-COLD-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "suppress_identical",
+      "eligibility": {
+        "type": "always"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-008"]
+      }
+    },
+    {
+      "action_id": "ACT-SEARCH-LABEL-RESIDUE",
+      "object_id": "OBJ-COLD-AISLE-C",
+      "player_label": "Search the floor and pallet faces for label adhesive residue.",
+      "interaction_depth": "searched",
+      "time_cost_minutes": 5,
+      "return_destination": "UNIT-AISLE-C-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "prior_interaction",
+        "action_id": "ACT-APPROACH-AISLE-C"
+      },
+      "check_binding": {
+        "check_id": "CHK-PERCEPTION-LABEL",
+        "capability": "perception",
+        "dc": 14,
+        "eligible_character": "investigator",
+        "one_attempt": true,
+        "success_destination": "UNIT-LABEL-SUCCESS",
+        "failure_destination": "UNIT-LABEL-FAIL",
+        "changes_world_truth": false,
+        "information_on_success": ["INFO-LABEL-RESIDUE"],
+        "information_on_failure": []
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-008"],
+        "evidence_ids": ["EVD-LABEL-RESIDUE"],
+        "fact_ids": ["FACT-006"]
+      }
+    },
+    {
+      "action_id": "ACT-EXAMINE-RESIDUE-DETAIL",
+      "object_id": "OBJ-LABEL-RESIDUE",
+      "player_label": "Compare the recovered label backing to pallet print timestamps.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 4,
+      "destination_unit": "UNIT-LABEL-DETAIL",
+      "return_destination": "UNIT-AISLE-C-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "information_held",
+        "info_id": "INFO-LABEL-RESIDUE"
+      },
+      "information_reference": "INFO-LABEL-TIMESTAMP",
+      "player_knowledge_placeholder": "KNOW-LABEL-RESIDUE",
+      "canonical_source": {
+        "event_ids": ["EVT-008"],
+        "fact_ids": ["FACT-021"]
+      }
+    },
+    {
+      "action_id": "ACT-READ-TEMP-DISPLAY",
+      "object_id": "OBJ-CZ1-TEMP-DISPLAY",
+      "player_label": "Read the live CZ-1 supply air temperature.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 1,
+      "destination_unit": "UNIT-TEMP-LIVE",
+      "return_destination": "UNIT-COLD-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "allow_with_time_cost",
+      "eligibility": {
+        "type": "always"
+      },
+      "information_reference": "INFO-TEMP-LIVE",
+      "canonical_source": {
+        "event_ids": ["EVT-013", "EVT-014"],
+        "fact_ids": ["FACT-011"]
+      }
+    },
+    {
+      "action_id": "ACT-APPROACH-TERM-02",
+      "object_id": "OBJ-CTRL-TERM-02",
+      "player_label": "Approach the engineering workstation.",
+      "interaction_depth": "approached",
+      "time_cost_minutes": 1,
+      "destination_unit": "UNIT-TERM-02-MENU",
+      "return_destination": "UNIT-CONTROL-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "suppress_identical",
+      "eligibility": {
+        "type": "location_state",
+        "location_id": "LOC-CONTROL",
+        "attribute": "access",
+        "value": "open"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-001"]
+      }
+    },
+    {
+      "action_id": "ACT-REVIEW-BMS-COMMAND-LOG",
+      "object_id": "OBJ-CTRL-TERM-02",
+      "player_label": "Review the BMS command log on this terminal.",
+      "interaction_depth": "accessed",
+      "time_cost_minutes": 4,
+      "destination_unit": "UNIT-BMS-COMMAND",
+      "return_destination": "UNIT-TERM-02-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "prior_interaction",
+        "action_id": "ACT-APPROACH-TERM-02"
+      },
+      "information_reference": "INFO-BMS-COMMAND",
+      "player_knowledge_placeholder": "KNOW-BMS-COMMAND-LOG",
+      "state_effect": {
+        "object_id": "OBJ-CTRL-TERM-02",
+        "to_state": "command_log_reviewed"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-011"],
+        "evidence_ids": ["EVD-BMS-COMMAND"],
+        "fact_ids": ["FACT-008"]
+      }
+    },
+    {
+      "action_id": "ACT-REVIEW-MAINT-TICKET",
+      "object_id": "OBJ-CTRL-TERM-02",
+      "player_label": "Open the closed maintenance ticket for CZ-1.",
+      "interaction_depth": "accessed",
+      "time_cost_minutes": 3,
+      "destination_unit": "UNIT-MAINT-TICKET",
+      "return_destination": "UNIT-TERM-02-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "prior_interaction",
+        "action_id": "ACT-APPROACH-TERM-02"
+      },
+      "information_reference": "INFO-MAINT-SESSION",
+      "canonical_source": {
+        "event_ids": ["EVT-001"],
+        "evidence_ids": ["EVD-MAINT-CLO1847"],
+        "fact_ids": ["FACT-001", "FACT-018"]
+      }
+    },
+    {
+      "action_id": "ACT-EXPORT-TEMP-TREND",
+      "object_id": "OBJ-CTRL-TERM-02",
+      "player_label": "Export the CZ-1 supply air temperature trend.",
+      "interaction_depth": "accessed",
+      "time_cost_minutes": 5,
+      "return_destination": "UNIT-TERM-02-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "prior_interaction",
+        "action_id": "ACT-APPROACH-TERM-02"
+      },
+      "check_binding": {
+        "check_id": "CHK-TECH-TEMP-TREND",
+        "capability": "technical",
+        "dc": 12,
+        "eligible_character": "investigator",
+        "one_attempt": true,
+        "success_destination": "UNIT-TREND-SUCCESS",
+        "failure_destination": "UNIT-TREND-FAIL",
+        "changes_world_truth": false,
+        "information_on_success": ["INFO-TEMP-TREND"],
+        "information_on_failure": []
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-013"],
+        "evidence_ids": ["EVD-TEMP-TREND"],
+        "fact_ids": ["FACT-010", "FACT-017"]
+      }
+    },
+    {
+      "action_id": "ACT-INSPECT-STAGING-PANEL",
+      "object_id": "OBJ-CZ1-STAGING-PANEL",
+      "player_label": "Inspect the CZ-1 staging indicator panel.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 3,
+      "destination_unit": "UNIT-STAGING-PANEL",
+      "return_destination": "UNIT-CONTROL-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "location_state",
+        "location_id": "LOC-CONTROL",
+        "attribute": "access",
+        "value": "open"
+      },
+      "information_reference": "INFO-STAGING-SUSPEND",
+      "canonical_source": {
+        "event_ids": ["EVT-012"],
+        "fact_ids": ["FACT-009"]
+      }
+    },
+    {
+      "action_id": "ACT-REVIEW-ALARM-HISTORY",
+      "object_id": "OBJ-ALARM-PANEL",
+      "player_label": "Review recent alarm history on the security panel.",
+      "interaction_depth": "accessed",
+      "time_cost_minutes": 3,
+      "destination_unit": "UNIT-ALARM-HISTORY",
+      "return_destination": "UNIT-SECURITY-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "always"
+      },
+      "information_reference": "INFO-DOOR-AJAR",
+      "player_knowledge_placeholder": "KNOW-DOOR-AJAR-ALARM",
+      "canonical_source": {
+        "event_ids": ["EVT-009", "EVT-014"],
+        "evidence_ids": ["EVD-DOOR-ALARM"],
+        "fact_ids": ["FACT-020", "FACT-011"]
+      }
+    },
+    {
+      "action_id": "ACT-APPROACH-BADGE-ARCHIVE",
+      "object_id": "OBJ-BADGE-ARCHIVE",
+      "player_label": "Open the badge access archive terminal.",
+      "interaction_depth": "approached",
+      "time_cost_minutes": 2,
+      "destination_unit": "UNIT-BADGE-ARCHIVE-MENU",
+      "return_destination": "UNIT-SECURITY-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "suppress_identical",
+      "eligibility": {
+        "type": "always"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-019"]
+      }
+    },
+    {
+      "action_id": "ACT-QUERY-COLD-ENTRY",
+      "object_id": "OBJ-BADGE-ARCHIVE",
+      "player_label": "Query cold storage inbound badge entries for tonight.",
+      "interaction_depth": "accessed",
+      "time_cost_minutes": 4,
+      "destination_unit": "UNIT-BADGE-COLD-ENTRY",
+      "return_destination": "UNIT-BADGE-ARCHIVE-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "location_state",
+        "location_id": "LOC-SECURITY",
+        "attribute": "records",
+        "value": "full_archive"
+      },
+      "information_reference": "INFO-BADGE-COLD-ENTRY",
+      "player_knowledge_placeholder": "KNOW-BADGE-ENTRY-RECORD",
+      "state_effect": {
+        "object_id": "OBJ-BADGE-ARCHIVE",
+        "to_state": "cold_entry_queried"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-007", "EVT-019"],
+        "evidence_ids": ["EVD-BADGE-LOG"],
+        "fact_ids": ["FACT-005"]
+      }
+    },
+    {
+      "action_id": "ACT-QUERY-CONTROL-ENTRY",
+      "object_id": "OBJ-BADGE-ARCHIVE",
+      "player_label": "Query control room door entries for tonight.",
+      "interaction_depth": "accessed",
+      "time_cost_minutes": 3,
+      "destination_unit": "UNIT-BADGE-CONTROL-ENTRY",
+      "return_destination": "UNIT-BADGE-ARCHIVE-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "location_state",
+        "location_id": "LOC-SECURITY",
+        "attribute": "records",
+        "value": "full_archive"
+      },
+      "information_reference": "INFO-CONTROL-ENTRY",
+      "player_knowledge_placeholder": "KNOW-CONTROL-ROOM-ENTRY",
+      "canonical_source": {
+        "event_ids": ["EVT-010", "EVT-019"],
+        "evidence_ids": ["EVD-CONTROL-ENTRY"],
+        "fact_ids": ["FACT-007"]
+      }
+    },
+    {
+      "action_id": "ACT-QUERY-EXIT-SCAN",
+      "object_id": "OBJ-BADGE-ARCHIVE",
+      "player_label": "Pull the contractor outbound dock scan record.",
+      "interaction_depth": "accessed",
+      "time_cost_minutes": 3,
+      "destination_unit": "UNIT-EXIT-SCAN",
+      "return_destination": "UNIT-BADGE-ARCHIVE-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "location_state",
+        "location_id": "LOC-SECURITY",
+        "attribute": "records",
+        "value": "full_archive"
+      },
+      "information_reference": "INFO-EXIT-SCAN",
+      "canonical_source": {
+        "event_ids": ["EVT-002", "EVT-019"],
+        "evidence_ids": ["EVD-EXIT-SCAN"],
+        "fact_ids": ["FACT-002"]
+      }
+    },
+    {
+      "action_id": "ACT-APPROACH-MANIFEST-WS",
+      "object_id": "OBJ-MANIFEST-WORKSTATION",
+      "player_label": "Review the open receiving reconciliation screen.",
+      "interaction_depth": "approached",
+      "time_cost_minutes": 2,
+      "destination_unit": "UNIT-MANIFEST-MENU",
+      "return_destination": "UNIT-MANAGER-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "suppress_identical",
+      "eligibility": {
+        "type": "always"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-004"]
+      }
+    },
+    {
+      "action_id": "ACT-REVIEW-MNF-4471",
+      "object_id": "OBJ-MANIFEST-WORKSTATION",
+      "player_label": "Compare manifest MNF-IN-4471 to the carrier delivery record.",
+      "interaction_depth": "accessed",
+      "time_cost_minutes": 5,
+      "destination_unit": "UNIT-MANIFEST-GAP",
+      "return_destination": "UNIT-MANIFEST-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "prior_interaction",
+        "action_id": "ACT-APPROACH-MANIFEST-WS"
+      },
+      "information_reference": "INFO-MANIFEST-GAP",
+      "player_knowledge_placeholder": "KNOW-MANIFEST-POD-GAP",
+      "state_effect": {
+        "object_id": "OBJ-MANIFEST-WORKSTATION",
+        "to_state": "exception_reviewed"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-004"],
+        "evidence_ids": ["EVD-MANIFEST-POD"],
+        "fact_ids": ["FACT-019", "FACT-022"]
+      }
+    },
+    {
+      "action_id": "ACT-CROSSREF-POD",
+      "object_id": "OBJ-POD-BINDER",
+      "player_label": "Cross-reference the signed carrier POD against bay assignments.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 3,
+      "destination_unit": "UNIT-POD-CROSSREF",
+      "return_destination": "UNIT-MANIFEST-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "prior_interaction",
+        "action_id": "ACT-APPROACH-MANIFEST-WS"
+      },
+      "information_reference": "INFO-POD-DETAIL",
+      "canonical_source": {
+        "event_ids": ["EVT-004"],
+        "evidence_ids": ["EVD-MANIFEST-POD"],
+        "fact_ids": ["FACT-019"]
+      }
+    },
+    {
+      "action_id": "ACT-APPROACH-LOCKERS",
+      "object_id": "OBJ-LOCKER-BANK",
+      "player_label": "Walk along the staff locker bank.",
+      "interaction_depth": "approached",
+      "time_cost_minutes": 2,
+      "destination_unit": "UNIT-LOCKER-MENU",
+      "return_destination": "UNIT-BREAK-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "suppress_identical",
+      "eligibility": {
+        "type": "always"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-003"]
+      }
+    },
+    {
+      "action_id": "ACT-INSPECT-LOCKER-14",
+      "object_id": "OBJ-LOCKER-BANK",
+      "player_label": "Inspect the ajar contractor locker.",
+      "interaction_depth": "searched",
+      "time_cost_minutes": 3,
+      "return_destination": "UNIT-LOCKER-MENU",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "once_per_adventure",
+      "eligibility": {
+        "type": "prior_interaction",
+        "action_id": "ACT-APPROACH-LOCKERS"
+      },
+      "check_binding": {
+        "check_id": "CHK-PERCEPTION-LOCKER",
+        "capability": "perception",
+        "dc": 11,
+        "eligible_character": "investigator",
+        "one_attempt": true,
+        "success_destination": "UNIT-LOCKER-SUCCESS",
+        "failure_destination": "UNIT-LOCKER-FAIL",
+        "changes_world_truth": false,
+        "information_on_success": ["INFO-BADGE-LOCKER"],
+        "information_on_failure": []
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-003", "EVT-005"],
+        "fact_ids": ["FACT-003"]
+      }
+    },
+    {
+      "action_id": "ACT-LOOK-TOWARD-DOCK",
+      "object_id": "OBJ-BREAK-WINDOW",
+      "player_label": "Look out toward the dock loading area.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 1,
+      "destination_unit": "UNIT-DOCK-VIEW",
+      "return_destination": "UNIT-BREAK-BASE",
+      "requires_return": true,
+      "cost_applied_once": true,
+      "repeat_policy": "suppress_identical",
+      "eligibility": {
+        "type": "always"
+      },
+      "canonical_source": {
+        "event_ids": ["EVT-015"],
+        "fact_ids": ["FACT-013"]
+      }
+    }
+  ],
+  "result_units": [
+    {
+      "unit_id": "UNIT-DOCK-BASE",
+      "return_destination": "UNIT-DOCK-BASE"
+    },
+    {
+      "unit_id": "UNIT-COLD-BASE",
+      "return_destination": "UNIT-COLD-BASE"
+    },
+    {
+      "unit_id": "UNIT-CONTROL-BASE",
+      "return_destination": "UNIT-CONTROL-BASE"
+    },
+    {
+      "unit_id": "UNIT-SECURITY-BASE",
+      "return_destination": "UNIT-SECURITY-BASE"
+    },
+    {
+      "unit_id": "UNIT-MANAGER-BASE",
+      "return_destination": "UNIT-MANAGER-BASE"
+    },
+    {
+      "unit_id": "UNIT-BREAK-BASE",
+      "return_destination": "UNIT-BREAK-BASE"
+    },
+    {
+      "unit_id": "UNIT-DOCK-BRIEFING-MENU",
+      "return_destination": "UNIT-DOCK-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-ESCORT-GRANTED",
+      "return_destination": "UNIT-DOCK-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-COLD-DOOR-MENU",
+      "return_destination": "UNIT-COLD-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LATCH-SUCCESS",
+      "reveals_information": ["INFO-LATCH-DISTURBANCE"],
+      "return_destination": "UNIT-COLD-DOOR-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LATCH-FAIL",
+      "reveals_information": [],
+      "hints_missed_content": false,
+      "return_destination": "UNIT-COLD-DOOR-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-AISLE-C-MENU",
+      "return_destination": "UNIT-COLD-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LABEL-SUCCESS",
+      "reveals_information": ["INFO-LABEL-RESIDUE"],
+      "reveals_child_objects": ["OBJ-LABEL-RESIDUE"],
+      "player_knowledge_placeholder": "KNOW-LABEL-RESIDUE",
+      "return_destination": "UNIT-AISLE-C-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LABEL-FAIL",
+      "reveals_information": [],
+      "hints_missed_content": false,
+      "return_destination": "UNIT-AISLE-C-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LABEL-DETAIL",
+      "reveals_information": ["INFO-LABEL-TIMESTAMP"],
+      "return_destination": "UNIT-AISLE-C-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TEMP-LIVE",
+      "reveals_information": ["INFO-TEMP-LIVE"],
+      "return_destination": "UNIT-COLD-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TERM-02-MENU",
+      "return_destination": "UNIT-CONTROL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-BMS-COMMAND",
+      "reveals_information": ["INFO-BMS-COMMAND", "INFO-STAGING-SUSPEND"],
+      "player_knowledge_placeholder": "KNOW-BMS-COMMAND-LOG",
+      "return_destination": "UNIT-TERM-02-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-MAINT-TICKET",
+      "reveals_information": ["INFO-MAINT-SESSION"],
+      "return_destination": "UNIT-TERM-02-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TREND-SUCCESS",
+      "reveals_information": ["INFO-TEMP-TREND"],
+      "return_destination": "UNIT-TERM-02-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TREND-FAIL",
+      "reveals_information": [],
+      "hints_missed_content": false,
+      "return_destination": "UNIT-TERM-02-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-STAGING-PANEL",
+      "reveals_information": ["INFO-STAGING-SUSPEND"],
+      "return_destination": "UNIT-CONTROL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-ALARM-HISTORY",
+      "reveals_information": ["INFO-DOOR-AJAR"],
+      "player_knowledge_placeholder": "KNOW-DOOR-AJAR-ALARM",
+      "return_destination": "UNIT-SECURITY-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-BADGE-ARCHIVE-MENU",
+      "return_destination": "UNIT-SECURITY-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-BADGE-COLD-ENTRY",
+      "reveals_information": ["INFO-BADGE-COLD-ENTRY"],
+      "player_knowledge_placeholder": "KNOW-BADGE-ENTRY-RECORD",
+      "return_destination": "UNIT-BADGE-ARCHIVE-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-BADGE-CONTROL-ENTRY",
+      "reveals_information": ["INFO-CONTROL-ENTRY"],
+      "player_knowledge_placeholder": "KNOW-CONTROL-ROOM-ENTRY",
+      "return_destination": "UNIT-BADGE-ARCHIVE-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-EXIT-SCAN",
+      "reveals_information": ["INFO-EXIT-SCAN"],
+      "return_destination": "UNIT-BADGE-ARCHIVE-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-MANIFEST-MENU",
+      "return_destination": "UNIT-MANAGER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-MANIFEST-GAP",
+      "reveals_information": ["INFO-MANIFEST-GAP", "INFO-RECON-EXCEPTION"],
+      "player_knowledge_placeholder": "KNOW-MANIFEST-POD-GAP",
+      "return_destination": "UNIT-MANIFEST-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-POD-CROSSREF",
+      "reveals_information": ["INFO-POD-DETAIL"],
+      "return_destination": "UNIT-MANIFEST-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LOCKER-MENU",
+      "return_destination": "UNIT-BREAK-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LOCKER-SUCCESS",
+      "reveals_information": ["INFO-BADGE-LOCKER"],
+      "reveals_child_objects": ["OBJ-DEV-LOCKER"],
+      "return_destination": "UNIT-LOCKER-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LOCKER-FAIL",
+      "reveals_information": [],
+      "hints_missed_content": false,
+      "return_destination": "UNIT-LOCKER-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-DOCK-VIEW",
+      "return_destination": "UNIT-BREAK-BASE",
+      "requires_return": true
+    }
+  ],
+  "state_transitions": [
+    {
+      "transition_id": "TR-AISLE-SEARCHED",
+      "object_id": "OBJ-COLD-AISLE-C",
+      "cause": {
+        "type": "player_action",
+        "ref": "ACT-SEARCH-LABEL-RESIDUE"
+      },
+      "from_state": "undisturbed_surface",
+      "to_state": "searched",
+      "persists_on_revisit": true
+    },
+    {
+      "transition_id": "TR-TERM-COMMAND-REVIEWED",
+      "object_id": "OBJ-CTRL-TERM-02",
+      "cause": {
+        "type": "player_action",
+        "ref": "ACT-REVIEW-BMS-COMMAND-LOG"
+      },
+      "from_state": "session_unlocked",
+      "to_state": "command_log_reviewed",
+      "persists_on_revisit": true
+    },
+    {
+      "transition_id": "TR-MANIFEST-REVIEWED",
+      "object_id": "OBJ-MANIFEST-WORKSTATION",
+      "cause": {
+        "type": "player_action",
+        "ref": "ACT-REVIEW-MNF-4471"
+      },
+      "from_state": "exception_open",
+      "to_state": "exception_reviewed",
+      "persists_on_revisit": true
+    },
+    {
+      "transition_id": "TR-BADGE-COLD-QUERIED",
+      "object_id": "OBJ-BADGE-ARCHIVE",
+      "cause": {
+        "type": "player_action",
+        "ref": "ACT-QUERY-COLD-ENTRY"
+      },
+      "from_state": "sync_pending",
+      "to_state": "cold_entry_queried",
+      "persists_on_revisit": true
+    },
+    {
+      "transition_id": "TR-ARCHIVE-SYNCED",
+      "object_id": "OBJ-BADGE-ARCHIVE",
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-019"
+      },
+      "from_state": "sync_pending",
+      "to_state": "archive_available",
+      "persists_on_revisit": true
+    }
+  ],
+  "revisit_rules": {
+    "persist_object_states": true,
+    "persist_discovered_information": true,
+    "reset_states_on_revisit": false
+  },
+  "mandatory_information": [
+    {
+      "info_id": "INFO-BADGE-COLD-ENTRY",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-CONTROL-ENTRY",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-BMS-COMMAND",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-STAGING-SUSPEND",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-MAINT-SESSION",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-TEMP-TREND",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-DOOR-AJAR",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-LABEL-RESIDUE",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-LABEL-TIMESTAMP",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-MANIFEST-GAP",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-RECON-EXCEPTION",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-EXIT-SCAN",
+      "required_for_conclusion": true,
+      "accessible_via_interaction": true
+    },
+    {
+      "info_id": "INFO-BADGE-LOCKER",
+      "required_for_conclusion": false,
+      "accessible_via_interaction": true
+    }
+  ],
+  "player_content_refs": {
+    "files": []
+  }
+}

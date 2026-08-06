@@ -62,6 +62,42 @@ def _entry(name: str, res: Any) -> dict[str, Any]:
     }
 
 
+def _read_json(path: Path) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def _solo_mode_required(root: Path) -> bool:
+    manifest = load_play_manifest(root)
+    if manifest:
+        try:
+            modes = normalize_play_modes(manifest.get("play_modes"))
+            if PLAY_MODE_SINGLE in modes:
+                return True
+        except ValueError:
+            pass
+
+    for candidate in (
+        root.parent / "brief" / "adventure_brief.json",
+        root.parent / "adventure_brief.json",
+    ):
+        brief = _read_json(candidate)
+        if brief and str(brief.get("player_mode", "")) == PLAY_MODE_SINGLE:
+            return True
+
+    story = _read_json(root / "DO_NOT_READ" / "story_validator_package.json")
+    if story:
+        modes = story.get("play_modes")
+        if isinstance(modes, list) and PLAY_MODE_SINGLE in modes:
+            return True
+    return False
+
+
 def _is_canonical_adventure(root: Path) -> bool:
     gen = load_generation_manifest(root)
     if gen and gen.get("generation_method") == "world_first":
@@ -88,8 +124,10 @@ def validate_adventure(adventure_root: str | Path) -> IntegratedValidationResult
         result.validators["legacy"] = {"status": "SKIP", "reason": "no canonical manifests"}
         return result
 
+    solo_required = _solo_mode_required(root)
+
     validators: list[tuple[str, ValidatorFn, bool]] = [
-        ("single_investigator", validate_single_investigator, False),
+        ("single_investigator", validate_single_investigator, solo_required),
         ("world_first", validate_world_first, True),
         ("environment", validate_environment, True),
         ("object_interaction", validate_object_interaction, True),
@@ -114,12 +152,30 @@ def validate_adventure(adventure_root: str | Path) -> IntegratedValidationResult
 
     applicable_statuses: list[str] = []
     for name, fn, mandatory_when_applicable in validators:
-        if name == "single_investigator" and not solo_declared:
-            result.validators[name] = {
-                "status": "SKIP",
-                "reason": "single_investigator not declared",
-            }
-            continue
+        if name == "single_investigator":
+            if not solo_required:
+                result.validators[name] = {
+                    "status": "SKIP",
+                    "reason": "single_investigator not declared",
+                }
+                continue
+            if not solo_declared:
+                result.validators[name] = {
+                    "status": "FAIL",
+                    "tier_b_pending": [],
+                    "tier_c_complete": False,
+                    "checks": {"QA-SI-MANIFEST": "FAIL"},
+                    "warnings": [],
+                    "findings_count": 0,
+                    "errors_count": 1,
+                    "errors": [
+                        "single_investigator required by brief/story package but play_manifest.json missing or incomplete"
+                    ],
+                }
+                applicable_statuses.append("FAIL")
+                if mandatory_when_applicable:
+                    result.mandatory_failures.append(name)
+                continue
 
         res = fn(root)
         entry = _entry(name, res)

@@ -2,7 +2,6 @@
   "schema_version": "1.0",
   "adventure_id": "df_valid_two_player",
   "play_modes": [
-    "single_investigator",
     "two_player"
   ],
   "delivery_modes": [

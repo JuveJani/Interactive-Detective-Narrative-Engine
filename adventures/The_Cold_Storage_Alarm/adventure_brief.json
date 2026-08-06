@@ -1,0 +1,33 @@
+{
+  "universe": "real world",
+  "genre": "detective mystery",
+  "realism_level": "grounded contemporary",
+  "player_mode": "single_investigator",
+  "investigator_character": "Facilities automation and refrigeration maintenance technician who enjoys solving mysteries in spare time",
+  "target_playtime_minutes": 120,
+  "in_world_duration": "one night shift (approximately four in-world hours)",
+  "tone": "methodical, urgent but not sensational",
+  "difficulty": "standard",
+  "location_scale": "single industrial warehouse and attached offices",
+  "content_boundaries": "no graphic violence; no supernatural elements; adult workplace themes including negligence, fraud, and institutional pressure; no sexual content",
+  "required_themes": [
+    "fair-play mystery",
+    "testimony versus physical evidence",
+    "meaningful time pressure",
+    "multiple investigation routes",
+    "one perfect ending and several imperfect endings",
+    "delayed-significance discovery"
+  ],
+  "forbidden_themes": [
+    "supernatural explanations",
+    "serial killer plots",
+    "magic or occult resolution",
+    "clue-counting puzzles",
+    "direct narrator solution delivery",
+    "unsupported inventory mechanics",
+    "retry systems",
+    "false checks",
+    "dedicated puzzle-system mechanics"
+  ],
+  "author_notes": "Codename: The Cold Storage Alarm. First real Generator v2 adventure. Setting: regional cold-chain distribution warehouse after hours. Central incident: critical cold-storage failure and unauthorized access alarms without obvious theft or violence. Bounded scale: five primary locations (loading dock, cold storage hall, automation control room, security office, warehouse manager office) with a staff break room as a secondary hub. Five primary NPCs (night security guard, on-call warehouse supervisor, refrigeration contractor, logistics coordinator, cleaning crew lead) plus badge-access records for a sixth IT administrator role without requiring a live interview. Investigation structure: technician called to diagnose an automation fault while storage temperature rises; fair paths through badge logs, building-management trend exports, refrigeration setpoints, witness statements, and physical inspection of doors, sensors, and override panels. Time pressure: rising storage temperature and an approaching write-off or compliance deadline closes interviews and deep inspections. Planned aha type: a routine maintenance timestamp that initially appears benign gains significance when correlated with an override sequence and access timing (delayed significance; no early spotlight). At least one testimony-versus-evidence contradiction required between a witness account and badge or sensor records. Endings: one fully supported perfect reconstruction; several imperfect endings that preserve investigation rather than hard-stopping play. Failure routes redirect to continued inquiry. Incident design space: industrial negligence, unauthorized access, or financial fraud — resolution not fixed in this brief."
+}

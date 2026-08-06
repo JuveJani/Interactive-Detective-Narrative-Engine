@@ -1,0 +1,716 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "start_location_id": "LOC-DOCK",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "locations": [
+    {
+      "location_id": "LOC-FACILITY",
+      "public_name": "Northline cold-chain warehouse",
+      "parent_location_id": null,
+      "location_type": "building",
+      "description_source": "DESC-FACILITY",
+      "world_first_provenance": {
+        "event_ids": [],
+        "fact_ids": [],
+        "explicit_adventure_extension": true
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-DOCK",
+      "public_name": "Loading dock",
+      "parent_location_id": "LOC-FACILITY",
+      "location_type": "exterior_dock",
+      "description_source": "DESC-DOCK",
+      "world_first_provenance": {
+        "event_ids": ["EVT-015", "EVT-016", "EVT-018", "EVT-020"],
+        "fact_ids": ["FACT-013"]
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-COLD",
+      "public_name": "Cold storage hall",
+      "parent_location_id": "LOC-FACILITY",
+      "location_type": "refrigerated_storage",
+      "description_source": "DESC-COLD",
+      "world_first_provenance": {
+        "event_ids": ["EVT-006", "EVT-007", "EVT-008", "EVT-009", "EVT-013", "EVT-022"],
+        "fact_ids": ["FACT-004", "FACT-005", "FACT-006", "FACT-010", "FACT-021"]
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-CONTROL",
+      "public_name": "Automation control room",
+      "parent_location_id": "LOC-FACILITY",
+      "location_type": "engineering_room",
+      "description_source": "DESC-CONTROL",
+      "world_first_provenance": {
+        "event_ids": ["EVT-001", "EVT-010", "EVT-011"],
+        "fact_ids": ["FACT-001", "FACT-007", "FACT-008", "FACT-009", "FACT-018"]
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-SECURITY",
+      "public_name": "Security office",
+      "parent_location_id": "LOC-FACILITY",
+      "location_type": "security_office",
+      "description_source": "DESC-SECURITY",
+      "world_first_provenance": {
+        "event_ids": ["EVT-014", "EVT-019", "EVT-021"],
+        "fact_ids": ["FACT-011", "FACT-014"]
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-MANAGER",
+      "public_name": "Warehouse manager office",
+      "parent_location_id": "LOC-FACILITY",
+      "location_type": "office",
+      "description_source": "DESC-MANAGER",
+      "world_first_provenance": {
+        "event_ids": ["EVT-004"],
+        "fact_ids": ["FACT-019", "FACT-022"]
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-BREAK",
+      "public_name": "Staff break room",
+      "parent_location_id": "LOC-FACILITY",
+      "location_type": "staff_area",
+      "description_source": "DESC-BREAK",
+      "world_first_provenance": {
+        "event_ids": ["EVT-003", "EVT-005"],
+        "fact_ids": ["FACT-003"]
+      },
+      "state_owner": "environment_package"
+    }
+  ],
+  "location_states": [
+    {
+      "state_id": "LOC-DOCK:default",
+      "location_id": "LOC-DOCK",
+      "variant_label": "investigation_start",
+      "attributes": {
+        "access": "open",
+        "supervisor_present": "true",
+        "lighting": "dock_lights"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-018"
+      }
+    },
+    {
+      "state_id": "LOC-DOCK:restricted",
+      "location_id": "LOC-DOCK",
+      "variant_label": "supervisor_restricted",
+      "attributes": {
+        "access": "restricted",
+        "supervisor_present": "true",
+        "lighting": "dock_lights"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-020"
+      },
+      "trigger_event_id": "EVT-020"
+    },
+    {
+      "state_id": "LOC-COLD:default",
+      "location_id": "LOC-COLD",
+      "variant_label": "badge_required",
+      "attributes": {
+        "access": "badge_required",
+        "temperature_trend": "rising",
+        "alarm_state": "high_temp_active"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-018"
+      }
+    },
+    {
+      "state_id": "LOC-COLD:emergency",
+      "location_id": "LOC-COLD",
+      "variant_label": "compliance_threshold",
+      "attributes": {
+        "access": "emergency_protocol",
+        "temperature_trend": "critical",
+        "alarm_state": "writeoff_imminent"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-022"
+      },
+      "trigger_event_id": "EVT-022"
+    },
+    {
+      "state_id": "LOC-CONTROL:escort_required",
+      "location_id": "LOC-CONTROL",
+      "variant_label": "supervisor_escort",
+      "attributes": {
+        "access": "supervisor_escort",
+        "terminal_session": "SVC-REFRG-MAINT_unlocked"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-018"
+      }
+    },
+    {
+      "state_id": "LOC-CONTROL:cleared",
+      "location_id": "LOC-CONTROL",
+      "variant_label": "escort_cleared",
+      "attributes": {
+        "access": "open",
+        "terminal_session": "SVC-REFRG-MAINT_unlocked"
+      },
+      "cause": {
+        "type": "player_action",
+        "ref": "ACT-REQUEST-CONTROL-ESCORT"
+      }
+    },
+    {
+      "state_id": "LOC-SECURITY:default",
+      "location_id": "LOC-SECURITY",
+      "variant_label": "staffed_partial_records",
+      "attributes": {
+        "access": "staff_only",
+        "records": "badge_logs_partial",
+        "guard_present": "true"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-018"
+      }
+    },
+    {
+      "state_id": "LOC-SECURITY:archive_synced",
+      "location_id": "LOC-SECURITY",
+      "variant_label": "full_archive_available",
+      "attributes": {
+        "access": "staff_only",
+        "records": "full_archive",
+        "guard_present": "true"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-019"
+      },
+      "trigger_event_id": "EVT-019"
+    },
+    {
+      "state_id": "LOC-SECURITY:unstaffed",
+      "location_id": "LOC-SECURITY",
+      "variant_label": "guard_on_break",
+      "attributes": {
+        "access": "unstaffed_temporarily",
+        "records": "full_archive",
+        "guard_present": "false"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-021"
+      },
+      "trigger_event_id": "EVT-021"
+    },
+    {
+      "state_id": "LOC-MANAGER:default",
+      "location_id": "LOC-MANAGER",
+      "variant_label": "coordinator_working",
+      "attributes": {
+        "access": "open",
+        "occupant": "logistics_coordinator"
+      },
+      "cause": {
+        "type": "initial",
+        "ref": "authoring"
+      }
+    },
+    {
+      "state_id": "LOC-BREAK:default",
+      "location_id": "LOC-BREAK",
+      "variant_label": "end_of_shift",
+      "attributes": {
+        "access": "open",
+        "cleaning_crew_present": "until_0300"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-018"
+      }
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "FEAT-DOCK-BAY-DOOR",
+      "location_id": "LOC-DOCK",
+      "feature_type": "door",
+      "visibility": "on_arrival",
+      "broad_state": "propped_earlier",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-015"]
+      }
+    },
+    {
+      "feature_id": "FEAT-COLD-DOOR",
+      "location_id": "LOC-COLD",
+      "feature_type": "secured_door",
+      "visibility": "on_arrival",
+      "broad_state": "latched",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-006", "EVT-007"]
+      }
+    },
+    {
+      "feature_id": "FEAT-COLD-AISLE-C",
+      "location_id": "LOC-COLD",
+      "feature_type": "storage_aisle",
+      "visibility": "after_entering",
+      "broad_state": "occupied",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-008"]
+      }
+    },
+    {
+      "feature_id": "FEAT-CZ1-TEMP-DISPLAY",
+      "location_id": "LOC-COLD",
+      "feature_type": "sensor_display",
+      "visibility": "after_entering",
+      "broad_state": "active_alarm",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-013", "EVT-014"]
+      }
+    },
+    {
+      "feature_id": "FEAT-CTRL-TERM-02",
+      "location_id": "LOC-CONTROL",
+      "feature_type": "engineering_terminal",
+      "visibility": "on_arrival",
+      "broad_state": "session_active",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-001", "EVT-011"]
+      }
+    },
+    {
+      "feature_id": "FEAT-CZ1-STAGING-PANEL",
+      "location_id": "LOC-CONTROL",
+      "feature_type": "control_panel",
+      "visibility": "after_entering",
+      "broad_state": "staging_suspended",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-012"]
+      }
+    },
+    {
+      "feature_id": "FEAT-ALARM-PANEL",
+      "location_id": "LOC-SECURITY",
+      "feature_type": "monitoring_panel",
+      "visibility": "on_arrival",
+      "broad_state": "alarms_active",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-014"]
+      }
+    },
+    {
+      "feature_id": "FEAT-BADGE-ARCHIVE",
+      "location_id": "LOC-SECURITY",
+      "feature_type": "records_terminal",
+      "visibility": "after_entering",
+      "broad_state": "sync_pending",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-019"]
+      }
+    },
+    {
+      "feature_id": "FEAT-MANIFEST-WORKSTATION",
+      "location_id": "LOC-MANAGER",
+      "feature_type": "workstation",
+      "visibility": "on_arrival",
+      "broad_state": "reconciliation_open",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-004"]
+      }
+    },
+    {
+      "feature_id": "FEAT-LOCKER-BANK",
+      "location_id": "LOC-BREAK",
+      "feature_type": "lockers",
+      "visibility": "after_entering",
+      "broad_state": "mixed_occupancy",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-003", "EVT-005"]
+      }
+    },
+    {
+      "feature_id": "FEAT-BREAK-WINDOW",
+      "location_id": "LOC-BREAK",
+      "feature_type": "window",
+      "visibility": "on_arrival",
+      "broad_state": "dock_view",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-015"]
+      }
+    },
+    {
+      "feature_id": "FEAT-DOCK-BRIEFING",
+      "location_id": "LOC-DOCK",
+      "feature_type": "briefing_area",
+      "visibility": "on_arrival",
+      "broad_state": "supervisor_briefing",
+      "has_further_interaction": true,
+      "world_first_provenance": {
+        "event_ids": ["EVT-016", "EVT-018"]
+      }
+    }
+  ],
+  "navigation": [
+    {
+      "nav_id": "NAV-DOCK-COLD",
+      "source_location_id": "LOC-DOCK",
+      "destination_location_id": "LOC-COLD",
+      "player_label": "Walk through the dock corridor to the cold storage hall.",
+      "travel_cost_minutes": 3,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": "NAV-COLD-DOCK",
+      "hidden_destination_id": "LOC-COLD"
+    },
+    {
+      "nav_id": "NAV-COLD-DOCK",
+      "source_location_id": "LOC-COLD",
+      "destination_location_id": "LOC-DOCK",
+      "player_label": "Return to the loading dock.",
+      "travel_cost_minutes": 3,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-DOCK"
+    },
+    {
+      "nav_id": "NAV-DOCK-BREAK",
+      "source_location_id": "LOC-DOCK",
+      "destination_location_id": "LOC-BREAK",
+      "player_label": "Head inside to the staff break room.",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": "NAV-BREAK-DOCK",
+      "hidden_destination_id": "LOC-BREAK"
+    },
+    {
+      "nav_id": "NAV-BREAK-DOCK",
+      "source_location_id": "LOC-BREAK",
+      "destination_location_id": "LOC-DOCK",
+      "player_label": "Go back out to the loading dock.",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-DOCK"
+    },
+    {
+      "nav_id": "NAV-DOCK-SECURITY",
+      "source_location_id": "LOC-DOCK",
+      "destination_location_id": "LOC-SECURITY",
+      "player_label": "Cut through the warehouse corridor to the security office.",
+      "travel_cost_minutes": 4,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": "NAV-SECURITY-DOCK",
+      "hidden_destination_id": "LOC-SECURITY"
+    },
+    {
+      "nav_id": "NAV-SECURITY-DOCK",
+      "source_location_id": "LOC-SECURITY",
+      "destination_location_id": "LOC-DOCK",
+      "player_label": "Return to the loading dock.",
+      "travel_cost_minutes": 4,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-DOCK"
+    },
+    {
+      "nav_id": "NAV-DOCK-MANAGER",
+      "source_location_id": "LOC-DOCK",
+      "destination_location_id": "LOC-MANAGER",
+      "player_label": "Take the office wing corridor to the manager's office.",
+      "travel_cost_minutes": 3,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": "NAV-MANAGER-DOCK",
+      "hidden_destination_id": "LOC-MANAGER"
+    },
+    {
+      "nav_id": "NAV-MANAGER-DOCK",
+      "source_location_id": "LOC-MANAGER",
+      "destination_location_id": "LOC-DOCK",
+      "player_label": "Return to the loading dock.",
+      "travel_cost_minutes": 3,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-DOCK"
+    },
+    {
+      "nav_id": "NAV-BREAK-MANAGER",
+      "source_location_id": "LOC-BREAK",
+      "destination_location_id": "LOC-MANAGER",
+      "player_label": "Walk to the manager's office through the staff corridor.",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": "NAV-MANAGER-BREAK",
+      "hidden_destination_id": "LOC-MANAGER"
+    },
+    {
+      "nav_id": "NAV-MANAGER-BREAK",
+      "source_location_id": "LOC-MANAGER",
+      "destination_location_id": "LOC-BREAK",
+      "player_label": "Return to the break room.",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-BREAK"
+    },
+    {
+      "nav_id": "NAV-BREAK-SECURITY",
+      "source_location_id": "LOC-BREAK",
+      "destination_location_id": "LOC-SECURITY",
+      "player_label": "Follow the interior hallway to the security office.",
+      "travel_cost_minutes": 3,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": "NAV-SECURITY-BREAK",
+      "hidden_destination_id": "LOC-SECURITY"
+    },
+    {
+      "nav_id": "NAV-SECURITY-BREAK",
+      "source_location_id": "LOC-SECURITY",
+      "destination_location_id": "LOC-BREAK",
+      "player_label": "Return to the break room.",
+      "travel_cost_minutes": 3,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-BREAK"
+    },
+    {
+      "nav_id": "NAV-BREAK-COLD",
+      "source_location_id": "LOC-BREAK",
+      "destination_location_id": "LOC-COLD",
+      "player_label": "Take the side passage toward the cold storage hall.",
+      "travel_cost_minutes": 4,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": "NAV-COLD-BREAK",
+      "hidden_destination_id": "LOC-COLD"
+    },
+    {
+      "nav_id": "NAV-COLD-BREAK",
+      "source_location_id": "LOC-COLD",
+      "destination_location_id": "LOC-BREAK",
+      "player_label": "Return toward the break room corridor.",
+      "travel_cost_minutes": 4,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-BREAK"
+    },
+    {
+      "nav_id": "NAV-COLD-CONTROL",
+      "source_location_id": "LOC-COLD",
+      "destination_location_id": "LOC-CONTROL",
+      "player_label": "Follow the engineering passage to the automation control room.",
+      "travel_cost_minutes": 3,
+      "access_condition": {
+        "type": "location_state",
+        "location_id": "LOC-CONTROL",
+        "attribute": "access",
+        "value": "open"
+      },
+      "return_nav_id": "NAV-CONTROL-COLD",
+      "hidden_destination_id": "LOC-CONTROL"
+    },
+    {
+      "nav_id": "NAV-CONTROL-COLD",
+      "source_location_id": "LOC-CONTROL",
+      "destination_location_id": "LOC-COLD",
+      "player_label": "Return to the cold storage hall.",
+      "travel_cost_minutes": 3,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-COLD"
+    },
+    {
+      "nav_id": "NAV-SECURITY-CONTROL",
+      "source_location_id": "LOC-SECURITY",
+      "destination_location_id": "LOC-CONTROL",
+      "player_label": "Use the escorted engineering corridor to the control room.",
+      "travel_cost_minutes": 3,
+      "access_condition": {
+        "type": "location_state",
+        "location_id": "LOC-CONTROL",
+        "attribute": "access",
+        "value": "open"
+      },
+      "return_nav_id": "NAV-CONTROL-SECURITY",
+      "hidden_destination_id": "LOC-CONTROL"
+    },
+    {
+      "nav_id": "NAV-CONTROL-SECURITY",
+      "source_location_id": "LOC-CONTROL",
+      "destination_location_id": "LOC-SECURITY",
+      "player_label": "Return to the security office.",
+      "travel_cost_minutes": 3,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-SECURITY"
+    },
+    {
+      "nav_id": "NAV-DOCK-CONTROL-ESCORT",
+      "source_location_id": "LOC-DOCK",
+      "destination_location_id": "LOC-CONTROL",
+      "player_label": "Accompany the supervisor to the automation control room.",
+      "travel_cost_minutes": 5,
+      "access_condition": {
+        "type": "location_state",
+        "location_id": "LOC-CONTROL",
+        "attribute": "access",
+        "value": "open"
+      },
+      "return_nav_id": "NAV-CONTROL-DOCK",
+      "hidden_destination_id": "LOC-CONTROL"
+    },
+    {
+      "nav_id": "NAV-CONTROL-DOCK",
+      "source_location_id": "LOC-CONTROL",
+      "destination_location_id": "LOC-DOCK",
+      "player_label": "Return to the loading dock with the supervisor.",
+      "travel_cost_minutes": 5,
+      "access_condition": {
+        "type": "always"
+      },
+      "hidden_destination_id": "LOC-DOCK"
+    }
+  ],
+  "state_transitions": [
+    {
+      "transition_id": "TR-DOCK-RESTRICTED",
+      "location_id": "LOC-DOCK",
+      "from_state_id": "LOC-DOCK:default",
+      "to_state_id": "LOC-DOCK:restricted",
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-020"
+      },
+      "persists_on_revisit": true
+    },
+    {
+      "transition_id": "TR-SECURITY-ARCHIVE",
+      "location_id": "LOC-SECURITY",
+      "from_state_id": "LOC-SECURITY:default",
+      "to_state_id": "LOC-SECURITY:archive_synced",
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-019"
+      },
+      "persists_on_revisit": true
+    },
+    {
+      "transition_id": "TR-SECURITY-UNSTAFFED",
+      "location_id": "LOC-SECURITY",
+      "from_state_id": "LOC-SECURITY:archive_synced",
+      "to_state_id": "LOC-SECURITY:unstaffed",
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-021"
+      },
+      "persists_on_revisit": true
+    },
+    {
+      "transition_id": "TR-COLD-EMERGENCY",
+      "location_id": "LOC-COLD",
+      "from_state_id": "LOC-COLD:default",
+      "to_state_id": "LOC-COLD:emergency",
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-022"
+      },
+      "persists_on_revisit": true
+    },
+    {
+      "transition_id": "TR-CONTROL-ESCORT-CLEARED",
+      "location_id": "LOC-CONTROL",
+      "from_state_id": "LOC-CONTROL:escort_required",
+      "to_state_id": "LOC-CONTROL:cleared",
+      "cause": {
+        "type": "player_action",
+        "ref": "ACT-REQUEST-CONTROL-ESCORT"
+      },
+      "persists_on_revisit": true
+    }
+  ],
+  "revisit_rules": {
+    "persist_physical_changes": true,
+    "persist_acquired_objects": true,
+    "persist_open_access": true,
+    "suppress_repeat_one_time_observations": true,
+    "allow_time_variants": true,
+    "reset_to_initial_on_revisit": false
+  },
+  "mandatory_locations": [
+    {
+      "location_id": "LOC-COLD",
+      "access": "reachable",
+      "reason": "physical_evidence_and_temperature"
+    },
+    {
+      "location_id": "LOC-SECURITY",
+      "access": "reachable",
+      "reason": "badge_and_alarm_records"
+    },
+    {
+      "location_id": "LOC-CONTROL",
+      "access": "reachable",
+      "reason": "bms_command_and_trend_logs"
+    },
+    {
+      "location_id": "LOC-MANAGER",
+      "access": "reachable",
+      "reason": "manifest_reconciliation_records"
+    }
+  ],
+  "player_content_refs": {
+    "files": []
+  }
+}

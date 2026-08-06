@@ -1,0 +1,497 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "play_mode": "single_investigator",
+  "unit_count": 96,
+  "files": [
+    "PLAYER/ENDINGS.md",
+    "PLAYER/INFERENCE.md",
+    "PLAYER/LOCATIONS.md",
+    "PLAYER/NPCS.md",
+    "PLAYER/OBJECTS.md",
+    "PLAYER/RECOVERY.md",
+    "PLAYER/SCENES.md"
+  ],
+  "units": {
+    "UNIT-DOCK-BASE": {
+      "file": "PLAYER/LOCATIONS.md",
+      "anchor": "Loading dock",
+      "unit_id": "UNIT-DOCK-BASE"
+    },
+    "UNIT-COLD-BASE": {
+      "file": "PLAYER/LOCATIONS.md",
+      "anchor": "Cold storage hall",
+      "unit_id": "UNIT-COLD-BASE"
+    },
+    "UNIT-CONTROL-BASE": {
+      "file": "PLAYER/LOCATIONS.md",
+      "anchor": "Automation control room",
+      "unit_id": "UNIT-CONTROL-BASE"
+    },
+    "UNIT-SECURITY-BASE": {
+      "file": "PLAYER/LOCATIONS.md",
+      "anchor": "Security office",
+      "unit_id": "UNIT-SECURITY-BASE"
+    },
+    "UNIT-MANAGER-BASE": {
+      "file": "PLAYER/LOCATIONS.md",
+      "anchor": "Warehouse manager office",
+      "unit_id": "UNIT-MANAGER-BASE"
+    },
+    "UNIT-BREAK-BASE": {
+      "file": "PLAYER/LOCATIONS.md",
+      "anchor": "Staff break room",
+      "unit_id": "UNIT-BREAK-BASE"
+    },
+    "UNIT-DOCK-BRIEFING-MENU": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Supervisor briefing",
+      "unit_id": "UNIT-DOCK-BRIEFING-MENU"
+    },
+    "UNIT-ESCORT-GRANTED": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Escort granted",
+      "unit_id": "UNIT-ESCORT-GRANTED"
+    },
+    "UNIT-COLD-DOOR-MENU": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Cold storage door",
+      "unit_id": "UNIT-COLD-DOOR-MENU"
+    },
+    "UNIT-LATCH-SUCCESS": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Latch check \u2014 success",
+      "unit_id": "UNIT-LATCH-SUCCESS"
+    },
+    "UNIT-LATCH-FAIL": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Latch check \u2014 failure",
+      "unit_id": "UNIT-LATCH-FAIL"
+    },
+    "UNIT-AISLE-C-MENU": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Aisle C",
+      "unit_id": "UNIT-AISLE-C-MENU"
+    },
+    "UNIT-LABEL-SUCCESS": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Label search \u2014 success",
+      "unit_id": "UNIT-LABEL-SUCCESS"
+    },
+    "UNIT-LABEL-FAIL": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Label search \u2014 failure",
+      "unit_id": "UNIT-LABEL-FAIL"
+    },
+    "UNIT-LABEL-DETAIL": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Label timestamp comparison",
+      "unit_id": "UNIT-LABEL-DETAIL"
+    },
+    "UNIT-TEMP-LIVE": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Live temperature display",
+      "unit_id": "UNIT-TEMP-LIVE"
+    },
+    "UNIT-TERM-02-MENU": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Engineering workstation",
+      "unit_id": "UNIT-TERM-02-MENU"
+    },
+    "UNIT-BMS-COMMAND": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "BMS command log",
+      "unit_id": "UNIT-BMS-COMMAND"
+    },
+    "UNIT-MAINT-TICKET": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Maintenance ticket",
+      "unit_id": "UNIT-MAINT-TICKET"
+    },
+    "UNIT-TREND-SUCCESS": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Trend export \u2014 success",
+      "unit_id": "UNIT-TREND-SUCCESS"
+    },
+    "UNIT-TREND-FAIL": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Trend export \u2014 failure",
+      "unit_id": "UNIT-TREND-FAIL"
+    },
+    "UNIT-STAGING-PANEL": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Staging indicator panel",
+      "unit_id": "UNIT-STAGING-PANEL"
+    },
+    "UNIT-ALARM-HISTORY": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Alarm history",
+      "unit_id": "UNIT-ALARM-HISTORY"
+    },
+    "UNIT-BADGE-ARCHIVE-MENU": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Badge archive terminal",
+      "unit_id": "UNIT-BADGE-ARCHIVE-MENU"
+    },
+    "UNIT-BADGE-COLD-ENTRY": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Cold storage badge query",
+      "unit_id": "UNIT-BADGE-COLD-ENTRY"
+    },
+    "UNIT-BADGE-CONTROL-ENTRY": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Control room badge query",
+      "unit_id": "UNIT-BADGE-CONTROL-ENTRY"
+    },
+    "UNIT-EXIT-SCAN": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Contractor exit scan",
+      "unit_id": "UNIT-EXIT-SCAN"
+    },
+    "UNIT-MANIFEST-MENU": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Receiving workstation",
+      "unit_id": "UNIT-MANIFEST-MENU"
+    },
+    "UNIT-MANIFEST-GAP": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Manifest comparison",
+      "unit_id": "UNIT-MANIFEST-GAP"
+    },
+    "UNIT-POD-CROSSREF": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Carrier POD cross-reference",
+      "unit_id": "UNIT-POD-CROSSREF"
+    },
+    "UNIT-LOCKER-MENU": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Staff locker bank",
+      "unit_id": "UNIT-LOCKER-MENU"
+    },
+    "UNIT-LOCKER-SUCCESS": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Locker inspect \u2014 success",
+      "unit_id": "UNIT-LOCKER-SUCCESS"
+    },
+    "UNIT-LOCKER-FAIL": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Locker inspect \u2014 failure",
+      "unit_id": "UNIT-LOCKER-FAIL"
+    },
+    "UNIT-DOCK-VIEW": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Dock view from break room",
+      "unit_id": "UNIT-DOCK-VIEW"
+    },
+    "UNIT-CHK-LATCH-DECL": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Latch perception check",
+      "unit_id": "UNIT-CHK-LATCH-DECL"
+    },
+    "UNIT-CHK-LABEL-DECL": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Label search check",
+      "unit_id": "UNIT-CHK-LABEL-DECL"
+    },
+    "UNIT-CHK-TREND-DECL": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Trend export check",
+      "unit_id": "UNIT-CHK-TREND-DECL"
+    },
+    "UNIT-CHK-LOCKER-DECL": {
+      "file": "PLAYER/OBJECTS.md",
+      "anchor": "Locker perception check",
+      "unit_id": "UNIT-CHK-LOCKER-DECL"
+    },
+    "UNIT-MARCUS-LATCH": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Marcus latch",
+      "unit_id": "UNIT-MARCUS-LATCH"
+    },
+    "UNIT-MARCUS-GAP": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Marcus gap",
+      "unit_id": "UNIT-MARCUS-GAP"
+    },
+    "UNIT-MARCUS-ALARM": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Marcus alarm",
+      "unit_id": "UNIT-MARCUS-ALARM"
+    },
+    "UNIT-DEV-EXIT": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Dev exit",
+      "unit_id": "UNIT-DEV-EXIT"
+    },
+    "UNIT-DEV-CLO1847": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Dev clo1847",
+      "unit_id": "UNIT-DEV-CLO1847"
+    },
+    "UNIT-DEV-BADGE": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Dev badge",
+      "unit_id": "UNIT-DEV-BADGE"
+    },
+    "UNIT-DEV-SESSION": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Dev session",
+      "unit_id": "UNIT-DEV-SESSION"
+    },
+    "UNIT-LORI-DENY-COLD": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Lori deny cold",
+      "unit_id": "UNIT-LORI-DENY-COLD"
+    },
+    "UNIT-LORI-CONTROL-MIN": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Lori control min",
+      "unit_id": "UNIT-LORI-CONTROL-MIN"
+    },
+    "UNIT-LORI-PRESSURE": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Lori pressure",
+      "unit_id": "UNIT-LORI-PRESSURE"
+    },
+    "UNIT-LORI-LABEL": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Lori label",
+      "unit_id": "UNIT-LORI-LABEL"
+    },
+    "UNIT-ELENA-URGENCY": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Elena urgency",
+      "unit_id": "UNIT-ELENA-URGENCY"
+    },
+    "UNIT-ELENA-STAFF": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Elena staff",
+      "unit_id": "UNIT-ELENA-STAFF"
+    },
+    "UNIT-ELENA-RESTRICT": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Elena restrict",
+      "unit_id": "UNIT-ELENA-RESTRICT"
+    },
+    "UNIT-PAT-DOOR": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Pat door",
+      "unit_id": "UNIT-PAT-DOOR"
+    },
+    "UNIT-PAT-SIL": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Pat sil",
+      "unit_id": "UNIT-PAT-SIL"
+    },
+    "UNIT-IT-ARCHIVE-POLICY": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Archive sync policy notice",
+      "unit_id": "UNIT-IT-ARCHIVE-POLICY"
+    },
+    "SC-IT-RECORDS-POLICY": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Archive sync policy notice",
+      "unit_id": "SC-IT-RECORDS-POLICY"
+    },
+    "SC-DOCK-ARRIVAL": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Dock arrival briefing",
+      "unit_id": "SC-DOCK-ARRIVAL"
+    },
+    "SC-DOCK-INITIAL-SURVEY": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Initial dock survey",
+      "unit_id": "SC-DOCK-INITIAL-SURVEY"
+    },
+    "SC-SECURITY-ARCHIVE-OPEN": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Archive sync complete",
+      "unit_id": "SC-SECURITY-ARCHIVE-OPEN"
+    },
+    "SC-DOCK-RESTRICTED": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Dock restriction active",
+      "unit_id": "SC-DOCK-RESTRICTED"
+    },
+    "SC-SECURITY-UNSTAFFED": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Security desk unstaffed",
+      "unit_id": "SC-SECURITY-UNSTAFFED"
+    },
+    "SC-ACCUSATION-PREP": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Accountability preparation",
+      "unit_id": "SC-ACCUSATION-PREP"
+    },
+    "SC-SECURITY-ARCHIVE-READY": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Archive ready",
+      "unit_id": "SC-SECURITY-ARCHIVE-READY"
+    },
+    "SC-SECURITY-ARCHIVE-PENDING": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Archive pending",
+      "unit_id": "SC-SECURITY-ARCHIVE-PENDING"
+    },
+    "SC-CONTROL-APPROACH": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Control room approach",
+      "unit_id": "SC-CONTROL-APPROACH"
+    },
+    "SC-CONTROL-CLEARED": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Control room cleared",
+      "unit_id": "SC-CONTROL-CLEARED"
+    },
+    "SC-CONTROL-ESCORT-REQUIRED": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Escort required",
+      "unit_id": "SC-CONTROL-ESCORT-REQUIRED"
+    },
+    "SC-SECURITY-CROSSREF": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Security cross-reference",
+      "unit_id": "SC-SECURITY-CROSSREF"
+    },
+    "SC-COLD-AISLE-FOCUSED": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Focused aisle revisit",
+      "unit_id": "SC-COLD-AISLE-FOCUSED"
+    },
+    "SC-COLD-LABEL-DETAIL": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Label detail revisit",
+      "unit_id": "SC-COLD-LABEL-DETAIL"
+    },
+    "SC-CONTROL-BMS-REVIEW": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "BMS review scene",
+      "unit_id": "SC-CONTROL-BMS-REVIEW"
+    },
+    "SC-MANAGER-PRESSURE-TOPIC": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Manager interview pressure",
+      "unit_id": "SC-MANAGER-PRESSURE-TOPIC"
+    },
+    "SC-BREAK-LOCKER-BRANCH": {
+      "file": "PLAYER/SCENES.md",
+      "anchor": "Optional locker branch",
+      "unit_id": "SC-BREAK-LOCKER-BRANCH"
+    },
+    "INF-BADGE-MISATTRIBUTED": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Badge misattributed",
+      "unit_id": "INF-BADGE-MISATTRIBUTED"
+    },
+    "INF-STAGING-ROOT-CAUSE": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Staging root cause",
+      "unit_id": "INF-STAGING-ROOT-CAUSE"
+    },
+    "INF-RELABEL-FRAUD": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Relabel fraud",
+      "unit_id": "INF-RELABEL-FRAUD"
+    },
+    "INF-CONTROL-ACCESS-MISMATCH": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Control access mismatch",
+      "unit_id": "INF-CONTROL-ACCESS-MISMATCH"
+    },
+    "INF-CULPRIT-SUPPORTED": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Culprit supported",
+      "unit_id": "INF-CULPRIT-SUPPORTED"
+    },
+    "INF-PERFECT-RECONSTRUCTION": {
+      "file": "PLAYER/INFERENCE.md",
+      "anchor": "Perfect reconstruction",
+      "unit_id": "INF-PERFECT-RECONSTRUCTION"
+    },
+    "REC-SECURITY-ARCHIVE": {
+      "file": "PLAYER/RECOVERY.md",
+      "anchor": "Security archive",
+      "unit_id": "REC-SECURITY-ARCHIVE"
+    },
+    "REC-BREAK-LOCKER": {
+      "file": "PLAYER/RECOVERY.md",
+      "anchor": "Break locker",
+      "unit_id": "REC-BREAK-LOCKER"
+    },
+    "REC-CONTROL-TERM": {
+      "file": "PLAYER/RECOVERY.md",
+      "anchor": "Control term",
+      "unit_id": "REC-CONTROL-TERM"
+    },
+    "REC-COLD-DISPLAY": {
+      "file": "PLAYER/RECOVERY.md",
+      "anchor": "Cold display",
+      "unit_id": "REC-COLD-DISPLAY"
+    },
+    "REC-COLD-AISLE": {
+      "file": "PLAYER/RECOVERY.md",
+      "anchor": "Cold aisle",
+      "unit_id": "REC-COLD-AISLE"
+    },
+    "REC-MANAGER-MANIFEST": {
+      "file": "PLAYER/RECOVERY.md",
+      "anchor": "Manager manifest",
+      "unit_id": "REC-MANAGER-MANIFEST"
+    },
+    "REC-MANAGER-INTERVIEW": {
+      "file": "PLAYER/RECOVERY.md",
+      "anchor": "Manager interview",
+      "unit_id": "REC-MANAGER-INTERVIEW"
+    },
+    "REC-SECURITY-CROSSREF": {
+      "file": "PLAYER/RECOVERY.md",
+      "anchor": "Security crossref",
+      "unit_id": "REC-SECURITY-CROSSREF"
+    },
+    "REC-REVISIT-ANY-UNRESOLVED-SOURCE": {
+      "file": "PLAYER/RECOVERY.md",
+      "anchor": "Revisit any unresolved source",
+      "unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE"
+    },
+    "END-PERFECT": {
+      "file": "PLAYER/ENDINGS.md",
+      "anchor": "Perfect",
+      "unit_id": "END-PERFECT"
+    },
+    "END-PARTIAL-INCOMPLETE": {
+      "file": "PLAYER/ENDINGS.md",
+      "anchor": "Partial incomplete",
+      "unit_id": "END-PARTIAL-INCOMPLETE"
+    },
+    "END-PARTIAL-WRONG-CULPRIT": {
+      "file": "PLAYER/ENDINGS.md",
+      "anchor": "Partial wrong culprit",
+      "unit_id": "END-PARTIAL-WRONG-CULPRIT"
+    },
+    "END-PARTIAL-TECH-ONLY": {
+      "file": "PLAYER/ENDINGS.md",
+      "anchor": "Partial tech only",
+      "unit_id": "END-PARTIAL-TECH-ONLY"
+    },
+    "END-PARTIAL-MOTIVE-GAP": {
+      "file": "PLAYER/ENDINGS.md",
+      "anchor": "Partial motive gap",
+      "unit_id": "END-PARTIAL-MOTIVE-GAP"
+    },
+    "END-HIDDEN-RECORDS": {
+      "file": "PLAYER/ENDINGS.md",
+      "anchor": "Hidden records",
+      "unit_id": "END-HIDDEN-RECORDS"
+    },
+    "END-NARRATIVE-CONTINUE": {
+      "file": "PLAYER/ENDINGS.md",
+      "anchor": "Narrative continue",
+      "unit_id": "END-NARRATIVE-CONTINUE"
+    },
+    "END-TIMEOUT": {
+      "file": "PLAYER/ENDINGS.md",
+      "anchor": "Timeout",
+      "unit_id": "END-TIMEOUT"
+    }
+  }
+}
