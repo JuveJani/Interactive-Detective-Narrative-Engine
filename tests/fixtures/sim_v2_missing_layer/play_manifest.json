@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "adventure_id": "sim_v2_solo",
+  "adventure_id": "sv_valid_solo",
   "play_modes": [
     "single_investigator"
   ],

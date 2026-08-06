@@ -4,11 +4,15 @@ from __future__ import annotations
 
 import json
 import shutil
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from idne.idne_package import build_idne_package
 
-ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "tests" / "fixtures"
 GEN_SOLO = FIXTURES / "gen_v2_canonical_solo"
 GEN_TWO = FIXTURES / "gen_v2_canonical_two_player"
@@ -147,6 +151,63 @@ def _write_flow_cap(dest: Path, adventure_id: str, play_modes: list[str]) -> Non
     )
 
 
+def _solo_play_manifest(adventure_id: str) -> dict:
+    """Canonical single-investigator manifest wired to minimal PLAYER fixtures."""
+    return {
+        "schema_version": "1.0",
+        "adventure_id": adventure_id,
+        "play_modes": ["single_investigator"],
+        "single_investigator": {
+            "character_sheet": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+            "record_sheet": "PLAYER/SHARED/CASE_FILE.md",
+            "scene_package": "PLAYER/INVESTIGATION.md",
+            "navigation_index": "PLAYER/NAVIGATION_INDEX.md",
+            "endings": "PLAYER/ENDINGS.md",
+            "inventory_owner": "investigator",
+            "clock_model": "single_sequential",
+            "wall_clock_target_minutes": 90,
+        },
+    }
+
+
+def _two_player_play_manifest(adventure_id: str) -> dict:
+    return {
+        "schema_version": "1.0",
+        "adventure_id": adventure_id,
+        "play_modes": ["two_player"],
+    }
+
+
+def _restrict_package_play_modes(dest: Path, play_modes: list[str]) -> None:
+    """Align logic packages with the fixture's declared play mode(s)."""
+    for rel in (
+        "DO_NOT_READ/story_validator_package.json",
+        "DO_NOT_READ/dm_feeling_validator_package.json",
+        "DO_NOT_READ/playtime_calibration_package.json",
+    ):
+        path = dest / rel
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding="utf-8"))
+        data["play_modes"] = list(play_modes)
+        path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+
+def _write_play_manifest(dest: Path, adventure_id: str, play_modes: list[str]) -> None:
+    if play_modes == ["single_investigator"]:
+        manifest = _solo_play_manifest(adventure_id)
+    elif play_modes == ["two_player"]:
+        manifest = _two_player_play_manifest(adventure_id)
+        _restrict_package_play_modes(dest, play_modes)
+    else:
+        manifest = {
+            "schema_version": "1.0",
+            "adventure_id": adventure_id,
+            "play_modes": play_modes,
+        }
+    (dest / "play_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+
+
 def build_adventure_fixture(name: str, source: Path, brief: Path, play_modes: list[str]) -> Path:
     dest = FIXTURES / name
     if dest.exists():
@@ -161,17 +222,7 @@ def build_adventure_fixture(name: str, source: Path, brief: Path, play_modes: li
                 shutil.copy2(src, target)
     _write_flow_cap(dest, name, play_modes)
     brief_data = json.loads(brief.read_text(encoding="utf-8"))
-    (dest / "play_manifest.json").write_text(
-        json.dumps(
-            {
-                "schema_version": "1.0",
-                "play_modes": play_modes,
-                "single_investigator": {"enabled": "single_investigator" in play_modes},
-            },
-            indent=2,
-        ),
-        encoding="utf-8",
-    )
+    _write_play_manifest(dest, name, play_modes)
     (dest / "brief").mkdir(exist_ok=True)
     (dest / "brief/adventure_brief.json").write_text(json.dumps(brief_data, indent=2), encoding="utf-8")
     return dest
