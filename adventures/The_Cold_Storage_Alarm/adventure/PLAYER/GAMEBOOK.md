@@ -38,6 +38,25 @@ Compliance documents operational response gaps — the alarm history, supervisor
 
 ---
 
+## Section 113
+
+**Location:** Loading dock | **Time cost:** 1 min
+
+### Talk to Elena Morales
+
+
+
+Elena Morales meets you at the briefing table near the bay doors. Her clipboard already holds the alarm timeline, and she answers in the clipped tone of someone coordinating an emergency response.
+
+**What do you do?**
+
+- Ask where the investigation should begin. Turn to section **983**.
+- Ask whether a map or site overview is available. Turn to section **317**.
+- Ask who was still on site working late. Turn to section **656**.
+- Return to the loading dock. Turn to section **636**.
+
+---
+
 ## Section 121
 
 ### Partial motive gap
@@ -95,8 +114,6 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 - Mark synthesis complete if your answer is supported. Turn to section **111**.
 - Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **297**.
-- Follow recovery route REC-SECURITY-ARCHIVE after incomplete synthesis. Turn to section **304**.
-- Follow recovery route REC-BREAK-LOCKER after incomplete synthesis. Turn to section **258**.
 
 ---
 
@@ -116,8 +133,6 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 - Mark synthesis complete if your answer is supported. Turn to section **111**.
 - Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **297**.
-- Follow recovery route REC-SECURITY-ARCHIVE after incomplete synthesis. Turn to section **304**.
-- Follow recovery route REC-CONTROL-TERM after incomplete synthesis. Turn to section **291**.
 
 ---
 
@@ -137,8 +152,6 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 - Mark synthesis complete if your answer is supported. Turn to section **111**.
 - Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **297**.
-- Follow recovery route REC-MANAGER-INTERVIEW after incomplete synthesis. Turn to section **292**.
-- Follow recovery route REC-SECURITY-CROSSREF after incomplete synthesis. Turn to section **305**.
 
 ---
 
@@ -178,8 +191,6 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 - Mark synthesis complete if your answer is supported. Turn to section **111**.
 - Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **297**.
-- Follow recovery route REC-COLD-AISLE after incomplete synthesis. Turn to section **265**.
-- Follow recovery route REC-MANAGER-MANIFEST after incomplete synthesis. Turn to section **294**.
 
 ---
 
@@ -200,8 +211,6 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 - Mark synthesis complete if your answer is supported. Turn to section **111**.
 - Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **297**.
-- Follow recovery route REC-CONTROL-TERM after incomplete synthesis. Turn to section **291**.
-- Follow recovery route REC-COLD-DISPLAY after incomplete synthesis. Turn to section **288**.
 
 ---
 
@@ -214,6 +223,22 @@ Head to the staff break room and walk the locker bank. If you have not already c
 **What do you do?**
 
 - Go to the named location and take the action described above. Turn to section **547**.
+
+---
+
+## Section 260
+
+**Time cost:** 2 min
+
+### Time on site
+
+
+
+Pat thinks for a moment. "About three years on this dock. I know the cold hall doors and which bays stay open after midnight."
+
+**What do you do?**
+
+- Return to the dock worker conversation menu. Turn to section **389**.
 
 ---
 
@@ -313,6 +338,48 @@ Return to the security office and cross-reference the alarm history against the 
 
 ---
 
+## Section 310
+
+**Location:** Loading dock | **Time cost:** 0 min
+
+### Loading dock — after orientation
+
+
+
+The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. You have oriented yourself to the site layout and the supervisor briefing area.
+
+**What do you do?**
+
+- Talk to Elena Morales. Turn to section **113**.
+- Walk through the dock corridor to the cold storage hall. Turn to section **598**.
+- Talk to a dock worker. Turn to section **389**.
+- Head inside to the staff break room. Turn to section **547**.
+- Cut through the warehouse corridor to the security office. Turn to section **963**.
+- Take the office wing corridor to the warehouse manager office. Turn to section **891**.
+- Review the supervisor briefing area. Turn to section **638**.
+- Request escort clearance to the automation control room. Turn to section **661**.
+- Receive supervisor briefing at the loading dock. Turn to section **413**.
+- Survey the dock and adjacent corridors. Turn to section **429**.
+- Prepare final accountability documentation before the compliance threshold. Turn to section **326**.
+
+---
+
+## Section 317
+
+**Time cost:** 2 min
+
+### Site overview
+
+
+
+Elena pulls a folded site map from the briefing table and marks the cold hall, security office, and manager wing. "Use this for corridors you have not walked yet. I can escort you to control if engineering access is required."
+
+**What do you do?**
+
+- Return to the loading dock. Turn to section **636**.
+
+---
+
 ## Section 326
 
 **Scene transition**
@@ -395,8 +462,6 @@ The control room door has a badge reader you are not cleared to use on your own.
 
 - Continue this scene thread. Turn to section **619**.
 - Return to the location base section for this area. Turn to section **619**.
-- Continue to scene SC-CONTROL-CLEARED. Turn to section **400**.
-- Continue to scene SC-CONTROL-ESCORT-REQUIRED. Turn to section **403**.
 
 ---
 
@@ -414,6 +479,26 @@ Having read the command log once, you can now set the staging suspension and the
 
 - Continue this scene thread. Turn to section **619**.
 - Return to the location base section for this area. Turn to section **619**.
+
+---
+
+## Section 389
+
+**Location:** Loading dock | **Time cost:** 1 min
+
+### Talk to a dock worker
+
+
+
+A dock worker pauses between the idle forklifts — Pat Nguyen with a mop cart, and Dev Santos arriving from the parking lot with a tool bag. Either can spare a minute between tasks.
+
+**What do you do?**
+
+- Ask what they know about the incident. Turn to section **935**.
+- Ask their name and role on site. Turn to section **692**.
+- Ask how long they have worked here. Turn to section **260**.
+- Ask who or what they know locally. Turn to section **858**.
+- Return to the loading dock. Turn to section **636**.
 
 ---
 
@@ -482,8 +567,6 @@ Nothing is roped off yet. You walk the dock's open floor and note which corridor
 
 - Continue this scene thread. Turn to section **636**.
 - Return to the location base section for this area. Turn to section **636**.
-- Continue to scene SC-DOCK-RESTRICTED. Turn to section **434**.
-- Continue to scene SC-DOCK-INITIAL-SURVEY. Turn to section **429**.
 
 ---
 
@@ -518,7 +601,6 @@ There is no one to argue with about it — the schedule runs whether you are wai
 
 **What do you do?**
 
-- Return to the security office. Turn to section **963**.
 - Review the archive sync policy notice. Turn to section **697**.
 
 ---
@@ -554,8 +636,6 @@ The archive terminal chimes once, right on schedule, and the sync-pending banner
 
 - Continue this scene thread. Turn to section **963**.
 - Return to the location base section for this area. Turn to section **963**.
-- Continue to scene SC-SECURITY-ARCHIVE-READY. Turn to section **474**.
-- Continue to scene SC-SECURITY-ARCHIVE-PENDING. Turn to section **457**.
 
 ---
 
@@ -745,15 +825,6 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section **891**.
 - Follow the interior hallway to the security office. Turn to section **963**.
 - Take the side passage toward the cold storage hall. Turn to section **598**.
-- Open inference worksheet: Badge misattributed. Turn to section **195**.
-- Open inference worksheet: Control access mismatch. Turn to section **214**.
-- Open inference worksheet: Culprit supported. Turn to section **218**.
-- Open inference worksheet: Perfect reconstruction. Turn to section **224**.
-- Open inference worksheet: Relabel fraud. Turn to section **231**.
-- Open inference worksheet: Staging root cause. Turn to section **237**.
-- Ask about unusual activity near the dock and cold hall. Turn to section **935**.
-- Ask whether you could identify the person you saw. Turn to section **943**.
-- Optionally inspect the staff locker bank. Turn to section **327**.
 
 ---
 
@@ -769,8 +840,7 @@ You commit to a close search of the aisle floor and pallet faces — one pass, n
 
 **What do you do?**
 
-- If your roll **succeeds**, turn to section **749**.
-- If your roll **fails**, turn to section **736**.
+- Proceed to the success or failure section indicated by your roll. Turn to section **553**.
 
 ---
 
@@ -786,8 +856,7 @@ You commit to a single careful look at the latch — there is no redoing this on
 
 **What do you do?**
 
-- If your roll **succeeds**, turn to section **783**.
-- If your roll **fails**, turn to section **761**.
+- Proceed to the success or failure section indicated by your roll. Turn to section **556**.
 
 ---
 
@@ -803,8 +872,7 @@ You commit to checking inside the ajar locker properly — one look, not a quick
 
 **What do you do?**
 
-- If your roll **succeeds**, turn to section **817**.
-- If your roll **fails**, turn to section **798**.
+- Proceed to the success or failure section indicated by your roll. Turn to section **576**.
 
 ---
 
@@ -820,8 +888,7 @@ You commit to running the export through the BMS menus — one attempt, and the 
 
 **What do you do?**
 
-- If your roll **succeeds**, turn to section **994**.
-- If your roll **fails**, turn to section **990**.
+- Proceed to the success or failure section indicated by your roll. Turn to section **590**.
 
 ---
 
@@ -843,14 +910,6 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section **376**.
 - Return to the loading dock. Turn to section **598**.
 - Return toward the break room corridor. Turn to section **598**.
-- Open inference worksheet: Badge misattributed. Turn to section **195**.
-- Open inference worksheet: Control access mismatch. Turn to section **214**.
-- Open inference worksheet: Culprit supported. Turn to section **218**.
-- Open inference worksheet: Perfect reconstruction. Turn to section **224**.
-- Open inference worksheet: Relabel fraud. Turn to section **231**.
-- Open inference worksheet: Staging root cause. Turn to section **237**.
-- Continue scene SC-COLD-AISLE-FOCUSED. Turn to section **355**.
-- Continue scene SC-COLD-LABEL-DETAIL. Turn to section **373**.
 
 ---
 
@@ -888,14 +947,6 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section **619**.
 - Return to the loading dock with the supervisor. Turn to section **619**.
 - Return to the security office. Turn to section **619**.
-- Open inference worksheet: Badge misattributed. Turn to section **195**.
-- Open inference worksheet: Control access mismatch. Turn to section **214**.
-- Open inference worksheet: Culprit supported. Turn to section **218**.
-- Open inference worksheet: Perfect reconstruction. Turn to section **224**.
-- Open inference worksheet: Relabel fraud. Turn to section **231**.
-- Open inference worksheet: Staging root cause. Turn to section **237**.
-- Enter the control room after escort clearance. Turn to section **400**.
-- Continue scene SC-CONTROL-BMS-REVIEW. Turn to section **388**.
 
 ---
 
@@ -993,29 +1044,9 @@ The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales wa
 
 **What do you do?**
 
+- Talk to Elena Morales. Turn to section **113**.
 - Walk through the dock corridor to the cold storage hall. Turn to section **598**.
-- Head inside to the staff break room. Turn to section **547**.
-- Cut through the warehouse corridor to the security office. Turn to section **963**.
-- Take the office wing corridor to the warehouse manager office. Turn to section **891**.
-- Review the supervisor briefing area. Turn to section **638**.
-- Request escort clearance to the automation control room. Turn to section **661**.
-- Open inference worksheet: Badge misattributed. Turn to section **195**.
-- Open inference worksheet: Control access mismatch. Turn to section **214**.
-- Open inference worksheet: Culprit supported. Turn to section **218**.
-- Open inference worksheet: Perfect reconstruction. Turn to section **224**.
-- Open inference worksheet: Relabel fraud. Turn to section **231**.
-- Open inference worksheet: Staging root cause. Turn to section **237**.
-- Receive supervisor briefing at the loading dock. Turn to section **413**.
-- Work under supervisor dock restriction enforcement. Turn to section **434**.
-- Survey the dock and adjacent corridors. Turn to section **429**.
-- Prepare final accountability documentation before the compliance threshold. Turn to section **326**.
-- Confirm when you left the site tonight. Turn to section **626**.
-- Ask about CLO-1847 closeout details. Turn to section **625**.
-- Press about whether your contractor badge left the building with you. Turn to section **623**.
-- Ask whether any maintenance session was left active on CTRL-TERM-02. Turn to section **629**.
-- Ask what operational steps you ordered after the alarm. Turn to section **660**.
-- Ask who was still on site working late. Turn to section **656**.
-- Ask about dock access restrictions. Turn to section **650**.
+- Talk to a dock worker. Turn to section **389**.
 
 ---
 
@@ -1140,6 +1171,22 @@ You pull the outbound dock scan log to check the contractor's departure. Outboun
 **What do you do?**
 
 - Return to the badge archive menu. Turn to section **519**.
+
+---
+
+## Section 692
+
+**Time cost:** 2 min
+
+### Name and role
+
+
+
+Pat Nguyen sets the mop cart aside. "Pat Nguyen — dock sanitation and floor prep. I am on the late crew when receiving runs long."
+
+**What do you do?**
+
+- Return to the dock worker conversation menu. Turn to section **389**.
 
 ---
 
@@ -1374,6 +1421,54 @@ You lay the manifest exception in front of her. For a moment she just looks at t
 
 ---
 
+## Section 858
+
+**Time cost:** 2 min
+
+### Local contacts
+
+
+
+Pat nods toward the office wing and the break room corridor. "Elena runs the shift. Lori stays at receiving when manifests jam. Marcus does rounds from security."
+
+**What do you do?**
+
+- Return to the dock worker conversation menu. Turn to section **389**.
+
+---
+
+## Section 871
+
+**Location:** Loading dock (restricted) | **Time cost:** 0 min
+
+### Loading dock — restricted
+
+
+
+Tape marks restricted lanes across the loading dock. Elena stands at the boundary while essential movement continues under her supervision.
+
+**What do you do?**
+
+- Talk to Elena Morales. Turn to section **113**.
+- Walk through the dock corridor to the cold storage hall. Turn to section **598**.
+- Talk to a dock worker. Turn to section **389**.
+- Head inside to the staff break room. Turn to section **547**.
+- Cut through the warehouse corridor to the security office. Turn to section **963**.
+- Take the office wing corridor to the warehouse manager office. Turn to section **891**.
+- Review the supervisor briefing area. Turn to section **638**.
+- Request escort clearance to the automation control room. Turn to section **661**.
+- Receive supervisor briefing at the loading dock. Turn to section **413**.
+- Survey the dock and adjacent corridors. Turn to section **429**.
+- Prepare final accountability documentation before the compliance threshold. Turn to section **326**.
+- Review the supervisor briefing area. Turn to section **638**.
+- Request escort clearance to the automation control room. Turn to section **661**.
+- Receive supervisor briefing at the loading dock. Turn to section **413**.
+- Survey the dock and adjacent corridors. Turn to section **429**.
+- Prepare final accountability documentation before the compliance threshold. Turn to section **326**.
+- Work under supervisor dock restriction enforcement. Turn to section **434**.
+
+---
+
 ## Section 881
 
 **Time cost:** 3 min
@@ -1403,19 +1498,9 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 **What do you do?**
 
 - Review the open receiving reconciliation screen. Turn to section **901**.
+- Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section **891**.
 - Return to the loading dock. Turn to section **891**.
 - Return to the break room. Turn to section **891**.
-- Open inference worksheet: Badge misattributed. Turn to section **195**.
-- Open inference worksheet: Control access mismatch. Turn to section **214**.
-- Open inference worksheet: Culprit supported. Turn to section **218**.
-- Open inference worksheet: Perfect reconstruction. Turn to section **224**.
-- Open inference worksheet: Relabel fraud. Turn to section **231**.
-- Open inference worksheet: Staging root cause. Turn to section **237**.
-- Ask whether you entered cold storage after hours. Turn to section **847**.
-- Ask about your control room visit around 23:20. Turn to section **842**.
-- Confront with manifest exception evidence from MNF-IN-4471. Turn to section **855**.
-- Press about label residue found in aisle C. Turn to section **852**.
-- Continue scene SC-MANAGER-PRESSURE-TOPIC. Turn to section **436**.
 
 ---
 
@@ -1589,20 +1674,6 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section **519**.
 - Return to the loading dock. Turn to section **963**.
 - Return to the break room. Turn to section **963**.
-- Open inference worksheet: Badge misattributed. Turn to section **195**.
-- Open inference worksheet: Control access mismatch. Turn to section **214**.
-- Open inference worksheet: Culprit supported. Turn to section **218**.
-- Open inference worksheet: Perfect reconstruction. Turn to section **224**.
-- Open inference worksheet: Relabel fraud. Turn to section **231**.
-- Open inference worksheet: Staging root cause. Turn to section **237**.
-- Return to security after the badge archive sync completes. Turn to section **448**.
-- Use the security office while the guard is on mandatory break. Turn to section **484**.
-- Review the records-only archive sync policy. Turn to section **435**.
-- Ask what you checked on the cold storage door during rounds. Turn to section **934**.
-- Ask whether the badge reader log could differ from a latch check. Turn to section **917**.
-- Ask when the high-temperature alarm first appeared on your panel. Turn to section **907**.
-- Return to query the synced badge archive. Turn to section **474**.
-- Continue scene SC-SECURITY-CROSSREF. Turn to section **477**.
 
 ---
 
@@ -1635,6 +1706,23 @@ You wipe frost off the sensor display to get a clean reading. The live display r
 **What do you do?**
 
 - Return to the cold storage hall. Turn to section **598**.
+
+---
+
+## Section 983
+
+**Time cost:** 2 min
+
+### Where to begin
+
+
+
+Elena taps the incident timeline on her clipboard. "Start with cold storage and staging control. Security can pull badge records after the archive sync if you need access history."
+
+**What do you do?**
+
+- Return to the Elena conversation menu. Turn to section **113**.
+- Return to the loading dock. Turn to section **636**.
 
 ---
 

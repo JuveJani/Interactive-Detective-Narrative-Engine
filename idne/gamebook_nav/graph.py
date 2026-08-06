@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from idne.gamebook_nav.extract import PlayerUnit
+from idne.epistemic_progression.loader import load_epistemic_package
 from idne.gamebook_nav.resolve import (
     build_action_index,
     build_nav_index,
@@ -325,6 +326,50 @@ def _add_accusation_endings(flow_pkg: dict, graph: dict[str, UnitNavigation]) ->
     return
 
 
+def _graph_from_epistemic_package(
+    adventure_root: Path,
+    player_units: dict[str, PlayerUnit],
+    manifest_units: dict[str, dict],
+) -> dict[str, UnitNavigation] | None:
+    """When epistemic progression is declared, build navigation from structured actions only."""
+    package = load_epistemic_package(adventure_root)
+    if not package:
+        return None
+    graph: dict[str, UnitNavigation] = {}
+    for uid, entry in manifest_units.items():
+        event = package.events_by_unit.get(uid)
+        if event:
+            graph[uid] = UnitNavigation(
+                unit_id=uid,
+                choices=[
+                    ChoiceEdge(
+                        label=a.label,
+                        destination_unit_id=a.destination_unit_id,
+                        edge_kind=a.action_type,
+                    )
+                    for a in event.structured_actions
+                ],
+            )
+            continue
+        raw_choices = entry.get("choices") or []
+        pu = player_units.get(uid)
+        if raw_choices and all(isinstance(c, dict) and c.get("destination_unit_id") for c in raw_choices):
+            graph[uid] = UnitNavigation(
+                unit_id=uid,
+                choices=[
+                    ChoiceEdge(
+                        label=c.get("label", ""),
+                        destination_unit_id=c["destination_unit_id"],
+                        edge_kind=c.get("kind", "navigate"),
+                    )
+                    for c in raw_choices
+                ],
+            )
+        elif pu and pu.choices:
+            graph[uid] = UnitNavigation(unit_id=uid, choices=[])
+    return graph
+
+
 def build_navigation_graph(
     adventure_root: Path,
     player_units: dict[str, PlayerUnit],
@@ -353,6 +398,10 @@ def build_navigation_graph(
     scene_entries = _scene_chain_entries(flow_pkg)
 
     if manifest_units:
+        ep_graph = _graph_from_epistemic_package(adventure_root, player_units, manifest_units)
+        if ep_graph is not None:
+            return ep_graph
+
         explicit: dict[str, UnitNavigation] = {}
         complete = True
         for uid, entry in manifest_units.items():

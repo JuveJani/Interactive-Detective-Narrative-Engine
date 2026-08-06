@@ -1,4 +1,89 @@
 # People on site
+<!-- unit:unit-dock-elena-hub -->
+### Talk to Elena Morales
+
+**Location:** Loading dock | **Time cost:** 1 min
+
+Elena Morales meets you at the briefing table near the bay doors. Her clipboard already holds the alarm timeline, and she answers in the clipped tone of someone coordinating an emergency response.
+
+**What do you do?**
+
+- Ask where the investigation should begin.
+- Ask whether a map or site overview is available.
+- Ask who was still on site working late.
+- Return to the loading dock.
+
+<!-- unit:unit-dock-worker-hub -->
+### Talk to a dock worker
+
+**Location:** Loading dock | **Time cost:** 1 min
+
+A dock worker pauses between the idle forklifts — Pat Nguyen with a mop cart, and Dev Santos arriving from the parking lot with a tool bag. Either can spare a minute between tasks.
+
+**What do you do?**
+
+- Ask what they know about the incident.
+- Ask their name and role on site.
+- Ask how long they have worked here.
+- Ask who or what they know locally.
+- Return to the loading dock.
+
+<!-- unit:unit-elena-begin -->
+### Where to begin
+
+**Time cost:** 2 min
+
+Elena taps the incident timeline on her clipboard. "Start with cold storage and staging control. Security can pull badge records after the archive sync if you need access history."
+
+**What do you do?**
+
+- Return to the Elena conversation menu.
+- Return to the loading dock.
+
+<!-- unit:unit-elena-map -->
+### Site overview
+
+**Time cost:** 2 min
+
+Elena pulls a folded site map from the briefing table and marks the cold hall, security office, and manager wing. "Use this for corridors you have not walked yet. I can escort you to control if engineering access is required."
+
+**What do you do?**
+
+- Return to the loading dock.
+
+<!-- unit:unit-worker-role -->
+### Name and role
+
+**Time cost:** 2 min
+
+Pat Nguyen sets the mop cart aside. "Pat Nguyen — dock sanitation and floor prep. I am on the late crew when receiving runs long."
+
+**What do you do?**
+
+- Return to the dock worker conversation menu.
+
+<!-- unit:unit-worker-tenure -->
+### Time on site
+
+**Time cost:** 2 min
+
+Pat thinks for a moment. "About three years on this dock. I know the cold hall doors and which bays stay open after midnight."
+
+**What do you do?**
+
+- Return to the dock worker conversation menu.
+
+<!-- unit:unit-worker-local -->
+### Local contacts
+
+**Time cost:** 2 min
+
+Pat nods toward the office wing and the break room corridor. "Elena runs the shift. Lori stays at receiving when manifests jam. Marcus does rounds from security."
+
+**What do you do?**
+
+- Return to the dock worker conversation menu.
+
 <!-- unit:unit-marcus-latch -->
 ### Marcus latch
 

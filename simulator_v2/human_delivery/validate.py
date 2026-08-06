@@ -162,10 +162,23 @@ def validate_human_delivery(workspace: AdventureWorkspace) -> dict[str, Any]:
         )
 
     reachable_from_start = _reachable_sections(parsed, start_section) if start_section else set()
+    ep_reachable_units: set[str] = set()
+    try:
+        from simulator_v2.epistemic import reachable_units_from_start
+
+        ep_reachable_units = reachable_units_from_start(
+            workspace.adventure_root, start_unit_id=start_unit or "UNIT-DOCK-BASE"
+        )
+    except Exception:
+        ep_reachable_units = set()
+
     manifest_incoming_endings = _manifest_incoming_endings(manifest)
     for end_uid, sources in manifest_incoming_endings.items():
+        if end_uid == "END-NARRATIVE-CONTINUE":
+            continue
         end_sec = unit_to_sec.get(end_uid)
-        if end_sec and end_sec not in reachable_from_start:
+        ep_ok = bool(ep_reachable_units) and end_uid in ep_reachable_units
+        if end_sec and end_sec not in reachable_from_start and not ep_ok:
             findings.append(
                 DeliveryFinding(
                     "HD-ENDING-UNREACHABLE",

@@ -182,6 +182,9 @@
       ],
       "tier_c_complete": false,
       "mandatory_failures": []
+    },
+    "epistemic_progression": {
+      "status": "PENDING"
     }
   },
   "repair_attempts": [],
@@ -302,7 +305,7 @@
     "gamebook_path": "adventure/PLAYER/GAMEBOOK.md",
     "start_section": 636,
     "start_unit_id": "UNIT-DOCK-BASE",
-    "public_section_count": 96,
+    "public_section_count": 105,
     "migrated_at": "2026-08-06T07:00:00+00:00"
   },
   "playtest_attempts": [
@@ -311,6 +314,15 @@
       "status": "failed_pre_play",
       "reason": "Static navigation missing — player delivery had no public section numbers or turn-to instructions; could not be played as a static gamebook.",
       "recorded_at": "2026-08-06T07:00:00+00:00"
+    },
+    {
+      "attempt": 2,
+      "status": "FAILED_BEFORE_MEANINGFUL_PLAY",
+      "reason": "Opening section merged later investigation states; choices exceeded investigator current knowledge; future information exposed; no clear logical starting path.",
+      "recorded_at": "2026-08-06T08:45:00+00:00",
+      "playtime_recorded": false,
+      "ending_reached": false,
+      "tier_c_complete": false
     }
   ],
   "provisional_playtime_estimate": {

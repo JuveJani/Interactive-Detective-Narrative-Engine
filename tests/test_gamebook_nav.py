@@ -74,7 +74,7 @@ class TestGamebookNav(unittest.TestCase):
         shutil.copytree(COLD, ws / "The_Cold_Storage_Alarm")
         root = ws / "The_Cold_Storage_Alarm" / "adventure"
         result = build_gamebook_package(root, adventure_id="The_Cold_Storage_Alarm")
-        self.assertEqual(result["section_count"], 96)
+        self.assertEqual(result["section_count"], 105)
         self.assertEqual(result["validation"]["status"], "PASS")
         self.assertTrue(requires_static_gamebook(root))
         gb = validate_gamebook(root)

@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "adventure_id": "The_Cold_Storage_Alarm",
   "play_mode": "single_investigator",
-  "unit_count": 96,
+  "unit_count": 105,
   "files": [
     "PLAYER/ENDINGS.md",
     "PLAYER/INFERENCE.md",
@@ -20,9 +20,173 @@
       "public_section": 636,
       "choices": [
         {
+          "label": "Talk to Elena Morales.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "kind": "approach_npc"
+        },
+        {
           "label": "Walk through the dock corridor to the cold storage hall.",
           "destination_unit_id": "UNIT-COLD-BASE",
           "kind": "nav"
+        },
+        {
+          "label": "Talk to a dock worker.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "approach_npc"
+        }
+      ]
+    },
+    "UNIT-DOCK-ELENA-HUB": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Talk to Elena Morales",
+      "unit_id": "UNIT-DOCK-ELENA-HUB",
+      "public_section": 113,
+      "choices": [
+        {
+          "label": "Ask where the investigation should begin.",
+          "destination_unit_id": "UNIT-ELENA-BEGIN",
+          "kind": "dialogue_topic"
+        },
+        {
+          "label": "Ask whether a map or site overview is available.",
+          "destination_unit_id": "UNIT-ELENA-MAP",
+          "kind": "dialogue_topic"
+        },
+        {
+          "label": "Ask who was still on site working late.",
+          "destination_unit_id": "UNIT-ELENA-STAFF",
+          "kind": "dialogue_topic"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "kind": "return"
+        }
+      ]
+    },
+    "UNIT-DOCK-WORKER-HUB": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Talk to a dock worker",
+      "unit_id": "UNIT-DOCK-WORKER-HUB",
+      "public_section": 389,
+      "choices": [
+        {
+          "label": "Ask what they know about the incident.",
+          "destination_unit_id": "UNIT-PAT-DOOR",
+          "kind": "dialogue_topic"
+        },
+        {
+          "label": "Ask their name and role on site.",
+          "destination_unit_id": "UNIT-WORKER-ROLE",
+          "kind": "dialogue_topic"
+        },
+        {
+          "label": "Ask how long they have worked here.",
+          "destination_unit_id": "UNIT-WORKER-TENURE",
+          "kind": "dialogue_topic"
+        },
+        {
+          "label": "Ask who or what they know locally.",
+          "destination_unit_id": "UNIT-WORKER-LOCAL",
+          "kind": "dialogue_topic"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "kind": "return"
+        }
+      ]
+    },
+    "UNIT-ELENA-BEGIN": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Where to begin",
+      "unit_id": "UNIT-ELENA-BEGIN",
+      "public_section": 983,
+      "choices": [
+        {
+          "label": "Return to the Elena conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "kind": "return"
+        }
+      ]
+    },
+    "UNIT-ELENA-MAP": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Site overview",
+      "unit_id": "UNIT-ELENA-MAP",
+      "public_section": 317,
+      "choices": [
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "kind": "return"
+        }
+      ]
+    },
+    "UNIT-WORKER-ROLE": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Name and role",
+      "unit_id": "UNIT-WORKER-ROLE",
+      "public_section": 692,
+      "choices": [
+        {
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        }
+      ]
+    },
+    "UNIT-WORKER-TENURE": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Time on site",
+      "unit_id": "UNIT-WORKER-TENURE",
+      "public_section": 260,
+      "choices": [
+        {
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        }
+      ]
+    },
+    "UNIT-WORKER-LOCAL": {
+      "file": "PLAYER/NPCS.md",
+      "anchor": "Local contacts",
+      "unit_id": "UNIT-WORKER-LOCAL",
+      "public_section": 858,
+      "choices": [
+        {
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        }
+      ]
+    },
+    "UNIT-DOCK-BASE-SURVEYED": {
+      "file": "PLAYER/LOCATIONS.md",
+      "anchor": "Loading dock \u2014 after orientation",
+      "unit_id": "UNIT-DOCK-BASE-SURVEYED",
+      "public_section": 310,
+      "choices": [
+        {
+          "label": "Talk to Elena Morales.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "kind": "approach_npc"
+        },
+        {
+          "label": "Walk through the dock corridor to the cold storage hall.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "kind": "nav"
+        },
+        {
+          "label": "Talk to a dock worker.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "approach_npc"
         },
         {
           "label": "Head inside to the staff break room.",
@@ -50,43 +214,71 @@
           "kind": "action"
         },
         {
-          "label": "Open inference worksheet: Badge misattributed.",
-          "destination_unit_id": "INF-BADGE-MISATTRIBUTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Control access mismatch.",
-          "destination_unit_id": "INF-CONTROL-ACCESS-MISMATCH",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Culprit supported.",
-          "destination_unit_id": "INF-CULPRIT-SUPPORTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Perfect reconstruction.",
-          "destination_unit_id": "INF-PERFECT-RECONSTRUCTION",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Relabel fraud.",
-          "destination_unit_id": "INF-RELABEL-FRAUD",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Staging root cause.",
-          "destination_unit_id": "INF-STAGING-ROOT-CAUSE",
-          "kind": "inference_entry"
-        },
-        {
           "label": "Receive supervisor briefing at the loading dock.",
           "destination_unit_id": "SC-DOCK-ARRIVAL",
           "kind": "scene"
         },
         {
-          "label": "Work under supervisor dock restriction enforcement.",
-          "destination_unit_id": "SC-DOCK-RESTRICTED",
+          "label": "Survey the dock and adjacent corridors.",
+          "destination_unit_id": "SC-DOCK-INITIAL-SURVEY",
+          "kind": "scene"
+        },
+        {
+          "label": "Prepare final accountability documentation before the compliance threshold.",
+          "destination_unit_id": "SC-ACCUSATION-PREP",
+          "kind": "scene"
+        }
+      ]
+    },
+    "UNIT-DOCK-BASE-RESTRICTED": {
+      "file": "PLAYER/LOCATIONS.md",
+      "anchor": "Loading dock \u2014 restricted",
+      "unit_id": "UNIT-DOCK-BASE-RESTRICTED",
+      "public_section": 871,
+      "choices": [
+        {
+          "label": "Talk to Elena Morales.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "kind": "approach_npc"
+        },
+        {
+          "label": "Walk through the dock corridor to the cold storage hall.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "kind": "nav"
+        },
+        {
+          "label": "Talk to a dock worker.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "approach_npc"
+        },
+        {
+          "label": "Head inside to the staff break room.",
+          "destination_unit_id": "UNIT-BREAK-BASE",
+          "kind": "nav"
+        },
+        {
+          "label": "Cut through the warehouse corridor to the security office.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "kind": "nav"
+        },
+        {
+          "label": "Take the office wing corridor to the warehouse manager office.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "kind": "nav"
+        },
+        {
+          "label": "Review the supervisor briefing area.",
+          "destination_unit_id": "UNIT-DOCK-BRIEFING-MENU",
+          "kind": "action"
+        },
+        {
+          "label": "Request escort clearance to the automation control room.",
+          "destination_unit_id": "UNIT-ESCORT-GRANTED",
+          "kind": "action"
+        },
+        {
+          "label": "Receive supervisor briefing at the loading dock.",
+          "destination_unit_id": "SC-DOCK-ARRIVAL",
           "kind": "scene"
         },
         {
@@ -100,39 +292,34 @@
           "kind": "scene"
         },
         {
-          "label": "Confirm when you left the site tonight.",
-          "destination_unit_id": "UNIT-DEV-EXIT",
-          "kind": "npc"
+          "label": "Review the supervisor briefing area.",
+          "destination_unit_id": "UNIT-DOCK-BRIEFING-MENU",
+          "kind": "action"
         },
         {
-          "label": "Ask about CLO-1847 closeout details.",
-          "destination_unit_id": "UNIT-DEV-CLO1847",
-          "kind": "npc"
+          "label": "Request escort clearance to the automation control room.",
+          "destination_unit_id": "UNIT-ESCORT-GRANTED",
+          "kind": "action"
         },
         {
-          "label": "Press about whether your contractor badge left the building with you.",
-          "destination_unit_id": "UNIT-DEV-BADGE",
-          "kind": "npc"
+          "label": "Receive supervisor briefing at the loading dock.",
+          "destination_unit_id": "SC-DOCK-ARRIVAL",
+          "kind": "scene"
         },
         {
-          "label": "Ask whether any maintenance session was left active on CTRL-TERM-02.",
-          "destination_unit_id": "UNIT-DEV-SESSION",
-          "kind": "npc"
+          "label": "Survey the dock and adjacent corridors.",
+          "destination_unit_id": "SC-DOCK-INITIAL-SURVEY",
+          "kind": "scene"
         },
         {
-          "label": "Ask what operational steps you ordered after the alarm.",
-          "destination_unit_id": "UNIT-ELENA-URGENCY",
-          "kind": "npc"
+          "label": "Prepare final accountability documentation before the compliance threshold.",
+          "destination_unit_id": "SC-ACCUSATION-PREP",
+          "kind": "scene"
         },
         {
-          "label": "Ask who was still on site working late.",
-          "destination_unit_id": "UNIT-ELENA-STAFF",
-          "kind": "npc"
-        },
-        {
-          "label": "Ask about dock access restrictions.",
-          "destination_unit_id": "UNIT-ELENA-RESTRICT",
-          "kind": "npc"
+          "label": "Work under supervisor dock restriction enforcement.",
+          "destination_unit_id": "SC-DOCK-RESTRICTED",
+          "kind": "scene"
         }
       ]
     },
@@ -171,46 +358,6 @@
           "label": "Return toward the break room corridor.",
           "destination_unit_id": "UNIT-COLD-BASE",
           "kind": "return"
-        },
-        {
-          "label": "Open inference worksheet: Badge misattributed.",
-          "destination_unit_id": "INF-BADGE-MISATTRIBUTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Control access mismatch.",
-          "destination_unit_id": "INF-CONTROL-ACCESS-MISMATCH",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Culprit supported.",
-          "destination_unit_id": "INF-CULPRIT-SUPPORTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Perfect reconstruction.",
-          "destination_unit_id": "INF-PERFECT-RECONSTRUCTION",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Relabel fraud.",
-          "destination_unit_id": "INF-RELABEL-FRAUD",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Staging root cause.",
-          "destination_unit_id": "INF-STAGING-ROOT-CAUSE",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Continue scene SC-COLD-AISLE-FOCUSED.",
-          "destination_unit_id": "SC-COLD-AISLE-FOCUSED",
-          "kind": "scene"
-        },
-        {
-          "label": "Continue scene SC-COLD-LABEL-DETAIL.",
-          "destination_unit_id": "SC-COLD-LABEL-DETAIL",
-          "kind": "scene"
         }
       ]
     },
@@ -244,46 +391,6 @@
           "label": "Return to the security office.",
           "destination_unit_id": "UNIT-CONTROL-BASE",
           "kind": "return"
-        },
-        {
-          "label": "Open inference worksheet: Badge misattributed.",
-          "destination_unit_id": "INF-BADGE-MISATTRIBUTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Control access mismatch.",
-          "destination_unit_id": "INF-CONTROL-ACCESS-MISMATCH",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Culprit supported.",
-          "destination_unit_id": "INF-CULPRIT-SUPPORTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Perfect reconstruction.",
-          "destination_unit_id": "INF-PERFECT-RECONSTRUCTION",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Relabel fraud.",
-          "destination_unit_id": "INF-RELABEL-FRAUD",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Staging root cause.",
-          "destination_unit_id": "INF-STAGING-ROOT-CAUSE",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Enter the control room after escort clearance.",
-          "destination_unit_id": "SC-CONTROL-CLEARED",
-          "kind": "scene"
-        },
-        {
-          "label": "Continue scene SC-CONTROL-BMS-REVIEW.",
-          "destination_unit_id": "SC-CONTROL-BMS-REVIEW",
-          "kind": "scene"
         }
       ]
     },
@@ -312,76 +419,6 @@
           "label": "Return to the break room.",
           "destination_unit_id": "UNIT-SECURITY-BASE",
           "kind": "return"
-        },
-        {
-          "label": "Open inference worksheet: Badge misattributed.",
-          "destination_unit_id": "INF-BADGE-MISATTRIBUTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Control access mismatch.",
-          "destination_unit_id": "INF-CONTROL-ACCESS-MISMATCH",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Culprit supported.",
-          "destination_unit_id": "INF-CULPRIT-SUPPORTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Perfect reconstruction.",
-          "destination_unit_id": "INF-PERFECT-RECONSTRUCTION",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Relabel fraud.",
-          "destination_unit_id": "INF-RELABEL-FRAUD",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Staging root cause.",
-          "destination_unit_id": "INF-STAGING-ROOT-CAUSE",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Return to security after the badge archive sync completes.",
-          "destination_unit_id": "SC-SECURITY-ARCHIVE-OPEN",
-          "kind": "scene"
-        },
-        {
-          "label": "Use the security office while the guard is on mandatory break.",
-          "destination_unit_id": "SC-SECURITY-UNSTAFFED",
-          "kind": "scene"
-        },
-        {
-          "label": "Review the records-only archive sync policy.",
-          "destination_unit_id": "SC-IT-RECORDS-POLICY",
-          "kind": "scene"
-        },
-        {
-          "label": "Ask what you checked on the cold storage door during rounds.",
-          "destination_unit_id": "UNIT-MARCUS-LATCH",
-          "kind": "npc"
-        },
-        {
-          "label": "Ask whether the badge reader log could differ from a latch check.",
-          "destination_unit_id": "UNIT-MARCUS-GAP",
-          "kind": "npc"
-        },
-        {
-          "label": "Ask when the high-temperature alarm first appeared on your panel.",
-          "destination_unit_id": "UNIT-MARCUS-ALARM",
-          "kind": "npc"
-        },
-        {
-          "label": "Return to query the synced badge archive.",
-          "destination_unit_id": "SC-SECURITY-ARCHIVE-READY",
-          "kind": "scene"
-        },
-        {
-          "label": "Continue scene SC-SECURITY-CROSSREF.",
-          "destination_unit_id": "SC-SECURITY-CROSSREF",
-          "kind": "scene"
         }
       ]
     },
@@ -397,6 +434,11 @@
           "kind": "action"
         },
         {
+          "label": "Speak with Lori Okonkwo about receiving and access topics you have unlocked.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "kind": "action"
+        },
+        {
           "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-MANAGER-BASE",
           "kind": "return"
@@ -405,61 +447,6 @@
           "label": "Return to the break room.",
           "destination_unit_id": "UNIT-MANAGER-BASE",
           "kind": "return"
-        },
-        {
-          "label": "Open inference worksheet: Badge misattributed.",
-          "destination_unit_id": "INF-BADGE-MISATTRIBUTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Control access mismatch.",
-          "destination_unit_id": "INF-CONTROL-ACCESS-MISMATCH",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Culprit supported.",
-          "destination_unit_id": "INF-CULPRIT-SUPPORTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Perfect reconstruction.",
-          "destination_unit_id": "INF-PERFECT-RECONSTRUCTION",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Relabel fraud.",
-          "destination_unit_id": "INF-RELABEL-FRAUD",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Staging root cause.",
-          "destination_unit_id": "INF-STAGING-ROOT-CAUSE",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Ask whether you entered cold storage after hours.",
-          "destination_unit_id": "UNIT-LORI-DENY-COLD",
-          "kind": "npc"
-        },
-        {
-          "label": "Ask about your control room visit around 23:20.",
-          "destination_unit_id": "UNIT-LORI-CONTROL-MIN",
-          "kind": "npc"
-        },
-        {
-          "label": "Confront with manifest exception evidence from MNF-IN-4471.",
-          "destination_unit_id": "UNIT-LORI-PRESSURE",
-          "kind": "npc"
-        },
-        {
-          "label": "Press about label residue found in aisle C.",
-          "destination_unit_id": "UNIT-LORI-LABEL",
-          "kind": "npc"
-        },
-        {
-          "label": "Continue scene SC-MANAGER-PRESSURE-TOPIC.",
-          "destination_unit_id": "SC-MANAGER-PRESSURE-TOPIC",
-          "kind": "scene"
         }
       ]
     },
@@ -498,51 +485,6 @@
           "label": "Take the side passage toward the cold storage hall.",
           "destination_unit_id": "UNIT-COLD-BASE",
           "kind": "nav"
-        },
-        {
-          "label": "Open inference worksheet: Badge misattributed.",
-          "destination_unit_id": "INF-BADGE-MISATTRIBUTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Control access mismatch.",
-          "destination_unit_id": "INF-CONTROL-ACCESS-MISMATCH",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Culprit supported.",
-          "destination_unit_id": "INF-CULPRIT-SUPPORTED",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Perfect reconstruction.",
-          "destination_unit_id": "INF-PERFECT-RECONSTRUCTION",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Relabel fraud.",
-          "destination_unit_id": "INF-RELABEL-FRAUD",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Open inference worksheet: Staging root cause.",
-          "destination_unit_id": "INF-STAGING-ROOT-CAUSE",
-          "kind": "inference_entry"
-        },
-        {
-          "label": "Ask about unusual activity near the dock and cold hall.",
-          "destination_unit_id": "UNIT-PAT-DOOR",
-          "kind": "npc"
-        },
-        {
-          "label": "Ask whether you could identify the person you saw.",
-          "destination_unit_id": "UNIT-PAT-SIL",
-          "kind": "npc"
-        },
-        {
-          "label": "Optionally inspect the staff locker bank.",
-          "destination_unit_id": "SC-BREAK-LOCKER-BRANCH",
-          "kind": "scene"
         }
       ]
     },
@@ -972,14 +914,9 @@
       "public_section": 556,
       "choices": [
         {
-          "label": "If your roll succeeds, go to the success section.",
-          "destination_unit_id": "UNIT-LATCH-SUCCESS",
-          "kind": "check_success"
-        },
-        {
-          "label": "If your roll fails, go to the failure section.",
-          "destination_unit_id": "UNIT-LATCH-FAIL",
-          "kind": "check_failure"
+          "label": "Proceed to the success or failure section indicated by your roll.",
+          "destination_unit_id": "UNIT-CHK-LATCH-DECL",
+          "kind": "action"
         }
       ]
     },
@@ -990,14 +927,9 @@
       "public_section": 553,
       "choices": [
         {
-          "label": "If your roll succeeds, go to the success section.",
-          "destination_unit_id": "UNIT-LABEL-SUCCESS",
-          "kind": "check_success"
-        },
-        {
-          "label": "If your roll fails, go to the failure section.",
-          "destination_unit_id": "UNIT-LABEL-FAIL",
-          "kind": "check_failure"
+          "label": "Proceed to the success or failure section indicated by your roll.",
+          "destination_unit_id": "UNIT-CHK-LABEL-DECL",
+          "kind": "action"
         }
       ]
     },
@@ -1008,14 +940,9 @@
       "public_section": 590,
       "choices": [
         {
-          "label": "If your roll succeeds, go to the success section.",
-          "destination_unit_id": "UNIT-TREND-SUCCESS",
-          "kind": "check_success"
-        },
-        {
-          "label": "If your roll fails, go to the failure section.",
-          "destination_unit_id": "UNIT-TREND-FAIL",
-          "kind": "check_failure"
+          "label": "Proceed to the success or failure section indicated by your roll.",
+          "destination_unit_id": "UNIT-CHK-TREND-DECL",
+          "kind": "action"
         }
       ]
     },
@@ -1026,14 +953,9 @@
       "public_section": 576,
       "choices": [
         {
-          "label": "If your roll succeeds, go to the success section.",
-          "destination_unit_id": "UNIT-LOCKER-SUCCESS",
-          "kind": "check_success"
-        },
-        {
-          "label": "If your roll fails, go to the failure section.",
-          "destination_unit_id": "UNIT-LOCKER-FAIL",
-          "kind": "check_failure"
+          "label": "Proceed to the success or failure section indicated by your roll.",
+          "destination_unit_id": "UNIT-CHK-LOCKER-DECL",
+          "kind": "action"
         }
       ]
     },
@@ -1265,11 +1187,6 @@
       "public_section": 435,
       "choices": [
         {
-          "label": "Return to the security office.",
-          "destination_unit_id": "UNIT-SECURITY-BASE",
-          "kind": "return"
-        },
-        {
           "label": "Review the archive sync policy notice.",
           "destination_unit_id": "UNIT-IT-ARCHIVE-POLICY",
           "kind": "alias"
@@ -1309,16 +1226,6 @@
           "label": "Return to the location base section for this area.",
           "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
-        },
-        {
-          "label": "Continue to scene SC-DOCK-RESTRICTED.",
-          "destination_unit_id": "SC-DOCK-RESTRICTED",
-          "kind": "scene_variant"
-        },
-        {
-          "label": "Continue to scene SC-DOCK-INITIAL-SURVEY.",
-          "destination_unit_id": "SC-DOCK-INITIAL-SURVEY",
-          "kind": "scene_variant"
         }
       ]
     },
@@ -1337,16 +1244,6 @@
           "label": "Return to the location base section for this area.",
           "destination_unit_id": "UNIT-SECURITY-BASE",
           "kind": "return"
-        },
-        {
-          "label": "Continue to scene SC-SECURITY-ARCHIVE-READY.",
-          "destination_unit_id": "SC-SECURITY-ARCHIVE-READY",
-          "kind": "scene_variant"
-        },
-        {
-          "label": "Continue to scene SC-SECURITY-ARCHIVE-PENDING.",
-          "destination_unit_id": "SC-SECURITY-ARCHIVE-PENDING",
-          "kind": "scene_variant"
         }
       ]
     },
@@ -1455,16 +1352,6 @@
           "label": "Return to the location base section for this area.",
           "destination_unit_id": "UNIT-CONTROL-BASE",
           "kind": "return"
-        },
-        {
-          "label": "Continue to scene SC-CONTROL-CLEARED.",
-          "destination_unit_id": "SC-CONTROL-CLEARED",
-          "kind": "scene_variant"
-        },
-        {
-          "label": "Continue to scene SC-CONTROL-ESCORT-REQUIRED.",
-          "destination_unit_id": "SC-CONTROL-ESCORT-REQUIRED",
-          "kind": "scene_variant"
         }
       ]
     },
@@ -1627,16 +1514,6 @@
           "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
           "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
           "kind": "inference"
-        },
-        {
-          "label": "Follow recovery route REC-SECURITY-ARCHIVE after incomplete synthesis.",
-          "destination_unit_id": "REC-SECURITY-ARCHIVE",
-          "kind": "recovery"
-        },
-        {
-          "label": "Follow recovery route REC-BREAK-LOCKER after incomplete synthesis.",
-          "destination_unit_id": "REC-BREAK-LOCKER",
-          "kind": "recovery"
         }
       ]
     },
@@ -1655,16 +1532,6 @@
           "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
           "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
           "kind": "inference"
-        },
-        {
-          "label": "Follow recovery route REC-CONTROL-TERM after incomplete synthesis.",
-          "destination_unit_id": "REC-CONTROL-TERM",
-          "kind": "recovery"
-        },
-        {
-          "label": "Follow recovery route REC-COLD-DISPLAY after incomplete synthesis.",
-          "destination_unit_id": "REC-COLD-DISPLAY",
-          "kind": "recovery"
         }
       ]
     },
@@ -1683,16 +1550,6 @@
           "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
           "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
           "kind": "inference"
-        },
-        {
-          "label": "Follow recovery route REC-COLD-AISLE after incomplete synthesis.",
-          "destination_unit_id": "REC-COLD-AISLE",
-          "kind": "recovery"
-        },
-        {
-          "label": "Follow recovery route REC-MANAGER-MANIFEST after incomplete synthesis.",
-          "destination_unit_id": "REC-MANAGER-MANIFEST",
-          "kind": "recovery"
         }
       ]
     },
@@ -1711,16 +1568,6 @@
           "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
           "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
           "kind": "inference"
-        },
-        {
-          "label": "Follow recovery route REC-SECURITY-ARCHIVE after incomplete synthesis.",
-          "destination_unit_id": "REC-SECURITY-ARCHIVE",
-          "kind": "recovery"
-        },
-        {
-          "label": "Follow recovery route REC-CONTROL-TERM after incomplete synthesis.",
-          "destination_unit_id": "REC-CONTROL-TERM",
-          "kind": "recovery"
         }
       ]
     },
@@ -1739,16 +1586,6 @@
           "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
           "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
           "kind": "inference"
-        },
-        {
-          "label": "Follow recovery route REC-MANAGER-INTERVIEW after incomplete synthesis.",
-          "destination_unit_id": "REC-MANAGER-INTERVIEW",
-          "kind": "recovery"
-        },
-        {
-          "label": "Follow recovery route REC-SECURITY-CROSSREF after incomplete synthesis.",
-          "destination_unit_id": "REC-SECURITY-CROSSREF",
-          "kind": "recovery"
         }
       ]
     },
@@ -2005,8 +1842,14 @@
     "UNIT-DEV-EXIT": 626,
     "UNIT-DEV-SESSION": 629,
     "UNIT-DOCK-BASE": 636,
+    "UNIT-DOCK-BASE-RESTRICTED": 871,
+    "UNIT-DOCK-BASE-SURVEYED": 310,
     "UNIT-DOCK-BRIEFING-MENU": 638,
+    "UNIT-DOCK-ELENA-HUB": 113,
     "UNIT-DOCK-VIEW": 641,
+    "UNIT-DOCK-WORKER-HUB": 389,
+    "UNIT-ELENA-BEGIN": 983,
+    "UNIT-ELENA-MAP": 317,
     "UNIT-ELENA-RESTRICT": 650,
     "UNIT-ELENA-STAFF": 656,
     "UNIT-ELENA-URGENCY": 660,
@@ -2040,7 +1883,10 @@
     "UNIT-TEMP-LIVE": 972,
     "UNIT-TERM-02-MENU": 985,
     "UNIT-TREND-FAIL": 990,
-    "UNIT-TREND-SUCCESS": 994
+    "UNIT-TREND-SUCCESS": 994,
+    "UNIT-WORKER-LOCAL": 858,
+    "UNIT-WORKER-ROLE": 692,
+    "UNIT-WORKER-TENURE": 260
   },
   "static_book": {
     "gamebook_path": "PLAYER/GAMEBOOK.md",

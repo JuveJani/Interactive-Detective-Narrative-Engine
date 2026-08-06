@@ -1,0 +1,2874 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "initial_player_knowledge": [
+    "KNOW-OPEN-ALARM",
+    "KNOW-OPEN-CZ1-FAULT",
+    "KNOW-OPEN-DEADLINE",
+    "KNOW-OPEN-ROLE"
+  ],
+  "initial_world_state": {
+    "control_escort_cleared": false,
+    "archive_sync_complete": false,
+    "dock_restricted_active": false,
+    "security_unstaffed": false,
+    "records_archive_queried": false,
+    "manifest_reviewed": false,
+    "label_residue_found": false,
+    "bms_command_reviewed": false,
+    "ready_to_accuse": false,
+    "accusation_complete": false,
+    "inference_badge_resolved": false,
+    "inference_staging_resolved": false,
+    "inference_relabel_resolved": false,
+    "inference_control_resolved": false,
+    "inference_culprit_resolved": false,
+    "inference_perfect_resolved": false,
+    "check_label_failed": false,
+    "check_trend_failed": false,
+    "it_records_route_used": false,
+    "investigation_phase": 0
+  },
+  "initial_observable_entities": [
+    "NPC-ELENA",
+    "NPC-DEV",
+    "NPC-PAT",
+    "LOC-DOCK",
+    "LOC-COLD"
+  ],
+  "playable_events": [
+    {
+      "event_id": "EVT-UNIT-DOCK-BASE",
+      "unit_id": "UNIT-DOCK-BASE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "location_hub",
+      "structured_actions": [
+        {
+          "action_id": "ACT-DOCK-TALK-ELENA",
+          "action_type": "approach_npc",
+          "label": "Talk to Elena Morales.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "requires_observable": [
+            "NPC-ELENA"
+          ]
+        },
+        {
+          "action_id": "ACT-DOCK-GO-COLD",
+          "action_type": "nav",
+          "label": "Walk through the dock corridor to the cold storage hall.",
+          "destination_unit_id": "UNIT-COLD-BASE"
+        },
+        {
+          "action_id": "ACT-DOCK-TALK-WORKER",
+          "action_type": "approach_npc",
+          "label": "Talk to a dock worker.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "requires_observable": [
+            "NPC-PAT",
+            "NPC-DEV"
+          ]
+        }
+      ],
+      "required_knowledge_ids": [],
+      "relevant_knowledge_dependencies": [],
+      "relevant_world_state_dependencies": [
+        "dock_restricted_active",
+        "ready_to_accuse"
+      ],
+      "observable_entities": [
+        "NPC-ELENA",
+        "NPC-DEV",
+        "NPC-PAT"
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-DOCK-ELENA-HUB",
+      "unit_id": "UNIT-DOCK-ELENA-HUB",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "npc_interaction",
+      "structured_actions": [
+        {
+          "action_id": "ACT-ELENA-BEGIN",
+          "action_type": "dialogue_topic",
+          "label": "Ask where the investigation should begin.",
+          "destination_unit_id": "UNIT-ELENA-BEGIN"
+        },
+        {
+          "action_id": "ACT-ELENA-MAP",
+          "action_type": "dialogue_topic",
+          "label": "Ask whether a map or site overview is available.",
+          "destination_unit_id": "UNIT-ELENA-MAP"
+        },
+        {
+          "action_id": "ACT-ELENA-STAFF",
+          "action_type": "dialogue_topic",
+          "label": "Ask who was still on site working late.",
+          "destination_unit_id": "UNIT-ELENA-STAFF"
+        },
+        {
+          "action_id": "ACT-ELENA-RETURN",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "exhaustion": "repeatable"
+        }
+      ],
+      "observable_entities": [
+        "NPC-ELENA"
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-DOCK-WORKER-HUB",
+      "unit_id": "UNIT-DOCK-WORKER-HUB",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "npc_interaction",
+      "structured_actions": [
+        {
+          "action_id": "ACT-WORKER-INCIDENT",
+          "action_type": "dialogue_topic",
+          "label": "Ask what they know about the incident.",
+          "destination_unit_id": "UNIT-PAT-DOOR"
+        },
+        {
+          "action_id": "ACT-WORKER-ROLE",
+          "action_type": "dialogue_topic",
+          "label": "Ask their name and role on site.",
+          "destination_unit_id": "UNIT-WORKER-ROLE"
+        },
+        {
+          "action_id": "ACT-WORKER-TENURE",
+          "action_type": "dialogue_topic",
+          "label": "Ask how long they have worked here.",
+          "destination_unit_id": "UNIT-WORKER-TENURE"
+        },
+        {
+          "action_id": "ACT-WORKER-LOCAL",
+          "action_type": "dialogue_topic",
+          "label": "Ask who or what they know locally.",
+          "destination_unit_id": "UNIT-WORKER-LOCAL"
+        },
+        {
+          "action_id": "ACT-WORKER-RETURN",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "exhaustion": "repeatable"
+        }
+      ],
+      "observable_entities": [
+        "NPC-PAT",
+        "NPC-DEV"
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-DOCK-BASE-SURVEYED",
+      "unit_id": "UNIT-DOCK-BASE-SURVEYED",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "location_hub",
+      "structured_actions": [
+        {
+          "action_id": "ACT-DOCK-TALK-ELENA",
+          "action_type": "approach_npc",
+          "label": "Talk to Elena Morales.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "requires_observable": [
+            "NPC-ELENA"
+          ]
+        },
+        {
+          "action_id": "ACT-DOCK-GO-COLD",
+          "action_type": "nav",
+          "label": "Walk through the dock corridor to the cold storage hall.",
+          "destination_unit_id": "UNIT-COLD-BASE"
+        },
+        {
+          "action_id": "ACT-DOCK-TALK-WORKER",
+          "action_type": "approach_npc",
+          "label": "Talk to a dock worker.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "requires_observable": [
+            "NPC-PAT",
+            "NPC-DEV"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_type": "nav",
+          "label": "Head inside to the staff break room.",
+          "destination_unit_id": "UNIT-BREAK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "nav",
+          "label": "Cut through the warehouse corridor to the security office.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "nav",
+          "label": "Take the office wing corridor to the warehouse manager office.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-DOCK-BRIEFING-MENU",
+          "action_type": "action",
+          "label": "Review the supervisor briefing area.",
+          "destination_unit_id": "UNIT-DOCK-BRIEFING-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-ESCORT-GRANTED",
+          "action_type": "action",
+          "label": "Request escort clearance to the automation control room.",
+          "destination_unit_id": "UNIT-ESCORT-GRANTED",
+          "requires_knowledge_ids": [
+            "KNOW-OPEN-ORIENT"
+          ],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-DOCK-ARRIVAL",
+          "action_type": "scene",
+          "label": "Receive supervisor briefing at the loading dock.",
+          "destination_unit_id": "SC-DOCK-ARRIVAL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-DOCK-INITIAL-SURVEY",
+          "action_type": "scene",
+          "label": "Survey the dock and adjacent corridors.",
+          "destination_unit_id": "SC-DOCK-INITIAL-SURVEY",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-ACCUSATION-PREP",
+          "action_type": "scene",
+          "label": "Prepare final accountability documentation before the compliance threshold.",
+          "destination_unit_id": "SC-ACCUSATION-PREP",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {
+            "ready_to_accuse": true
+          },
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ],
+      "variant_of": "UNIT-DOCK-BASE",
+      "supersedes_unit_id": "UNIT-DOCK-BASE",
+      "required_knowledge_ids": [
+        "KNOW-OPEN-ORIENT"
+      ],
+      "relevant_knowledge_dependencies": [
+        "KNOW-OPEN-ORIENT",
+        "KNOW-BMS-COMMAND"
+      ],
+      "relevant_world_state_dependencies": [
+        "dock_restricted_active",
+        "control_escort_cleared"
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-DOCK-BASE-RESTRICTED",
+      "unit_id": "UNIT-DOCK-BASE-RESTRICTED",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "location_hub",
+      "structured_actions": [
+        {
+          "action_id": "ACT-DOCK-TALK-ELENA",
+          "action_type": "approach_npc",
+          "label": "Talk to Elena Morales.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "requires_observable": [
+            "NPC-ELENA"
+          ]
+        },
+        {
+          "action_id": "ACT-DOCK-GO-COLD",
+          "action_type": "nav",
+          "label": "Walk through the dock corridor to the cold storage hall.",
+          "destination_unit_id": "UNIT-COLD-BASE"
+        },
+        {
+          "action_id": "ACT-DOCK-TALK-WORKER",
+          "action_type": "approach_npc",
+          "label": "Talk to a dock worker.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "requires_observable": [
+            "NPC-PAT",
+            "NPC-DEV"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_type": "nav",
+          "label": "Head inside to the staff break room.",
+          "destination_unit_id": "UNIT-BREAK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "nav",
+          "label": "Cut through the warehouse corridor to the security office.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "nav",
+          "label": "Take the office wing corridor to the warehouse manager office.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-DOCK-BRIEFING-MENU",
+          "action_type": "action",
+          "label": "Review the supervisor briefing area.",
+          "destination_unit_id": "UNIT-DOCK-BRIEFING-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-ESCORT-GRANTED",
+          "action_type": "action",
+          "label": "Request escort clearance to the automation control room.",
+          "destination_unit_id": "UNIT-ESCORT-GRANTED",
+          "requires_knowledge_ids": [
+            "KNOW-OPEN-ORIENT"
+          ],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-DOCK-ARRIVAL",
+          "action_type": "scene",
+          "label": "Receive supervisor briefing at the loading dock.",
+          "destination_unit_id": "SC-DOCK-ARRIVAL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-DOCK-INITIAL-SURVEY",
+          "action_type": "scene",
+          "label": "Survey the dock and adjacent corridors.",
+          "destination_unit_id": "SC-DOCK-INITIAL-SURVEY",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-ACCUSATION-PREP",
+          "action_type": "scene",
+          "label": "Prepare final accountability documentation before the compliance threshold.",
+          "destination_unit_id": "SC-ACCUSATION-PREP",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {
+            "ready_to_accuse": true
+          },
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-DOCK-BRIEFING-MENU",
+          "action_type": "action",
+          "label": "Review the supervisor briefing area.",
+          "destination_unit_id": "UNIT-DOCK-BRIEFING-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-ESCORT-GRANTED",
+          "action_type": "action",
+          "label": "Request escort clearance to the automation control room.",
+          "destination_unit_id": "UNIT-ESCORT-GRANTED",
+          "requires_knowledge_ids": [
+            "KNOW-OPEN-ORIENT"
+          ],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-DOCK-ARRIVAL",
+          "action_type": "scene",
+          "label": "Receive supervisor briefing at the loading dock.",
+          "destination_unit_id": "SC-DOCK-ARRIVAL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-DOCK-INITIAL-SURVEY",
+          "action_type": "scene",
+          "label": "Survey the dock and adjacent corridors.",
+          "destination_unit_id": "SC-DOCK-INITIAL-SURVEY",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-ACCUSATION-PREP",
+          "action_type": "scene",
+          "label": "Prepare final accountability documentation before the compliance threshold.",
+          "destination_unit_id": "SC-ACCUSATION-PREP",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {
+            "ready_to_accuse": true
+          },
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-DOCK-RESTRICTED",
+          "action_type": "scene",
+          "label": "Work under supervisor dock restriction enforcement.",
+          "destination_unit_id": "SC-DOCK-RESTRICTED",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {
+            "dock_restricted_active": true
+          },
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ],
+      "variant_of": "UNIT-DOCK-BASE",
+      "required_world_state": {
+        "dock_restricted_active": true
+      },
+      "relevant_world_state_dependencies": [
+        "dock_restricted_active"
+      ]
+    },
+    {
+      "event_id": "EVT-END-HIDDEN-RECORDS",
+      "unit_id": "END-HIDDEN-RECORDS",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "ending",
+      "structured_actions": []
+    },
+    {
+      "event_id": "EVT-END-NARRATIVE-CONTINUE",
+      "unit_id": "END-NARRATIVE-CONTINUE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "ending",
+      "structured_actions": []
+    },
+    {
+      "event_id": "EVT-END-PARTIAL-INCOMPLETE",
+      "unit_id": "END-PARTIAL-INCOMPLETE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "ending",
+      "structured_actions": []
+    },
+    {
+      "event_id": "EVT-END-PARTIAL-MOTIVE-GAP",
+      "unit_id": "END-PARTIAL-MOTIVE-GAP",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "ending",
+      "structured_actions": []
+    },
+    {
+      "event_id": "EVT-END-PARTIAL-TECH-ONLY",
+      "unit_id": "END-PARTIAL-TECH-ONLY",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "ending",
+      "structured_actions": []
+    },
+    {
+      "event_id": "EVT-END-PARTIAL-WRONG-CULPRIT",
+      "unit_id": "END-PARTIAL-WRONG-CULPRIT",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "ending",
+      "structured_actions": []
+    },
+    {
+      "event_id": "EVT-END-PERFECT",
+      "unit_id": "END-PERFECT",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "ending",
+      "structured_actions": []
+    },
+    {
+      "event_id": "EVT-END-TIMEOUT",
+      "unit_id": "END-TIMEOUT",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "ending",
+      "structured_actions": []
+    },
+    {
+      "event_id": "EVT-INF-BADGE-MISATTRIBUTED",
+      "unit_id": "INF-BADGE-MISATTRIBUTED",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "inference",
+      "structured_actions": [
+        {
+          "action_id": "ACT-END-NARRATIVE-CONTINUE",
+          "action_type": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "destination_unit_id": "END-NARRATIVE-CONTINUE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "action_type": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-INF-CONTROL-ACCESS-MISMATCH",
+      "unit_id": "INF-CONTROL-ACCESS-MISMATCH",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "inference",
+      "structured_actions": [
+        {
+          "action_id": "ACT-END-NARRATIVE-CONTINUE",
+          "action_type": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "destination_unit_id": "END-NARRATIVE-CONTINUE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "action_type": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-INF-CULPRIT-SUPPORTED",
+      "unit_id": "INF-CULPRIT-SUPPORTED",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "inference",
+      "structured_actions": [
+        {
+          "action_id": "ACT-END-NARRATIVE-CONTINUE",
+          "action_type": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "destination_unit_id": "END-NARRATIVE-CONTINUE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "action_type": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-INF-PERFECT-RECONSTRUCTION",
+      "unit_id": "INF-PERFECT-RECONSTRUCTION",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "inference",
+      "structured_actions": [
+        {
+          "action_id": "ACT-END-NARRATIVE-CONTINUE",
+          "action_type": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "destination_unit_id": "END-NARRATIVE-CONTINUE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "action_type": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-INF-RELABEL-FRAUD",
+      "unit_id": "INF-RELABEL-FRAUD",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "inference",
+      "structured_actions": [
+        {
+          "action_id": "ACT-END-NARRATIVE-CONTINUE",
+          "action_type": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "destination_unit_id": "END-NARRATIVE-CONTINUE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "action_type": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-INF-STAGING-ROOT-CAUSE",
+      "unit_id": "INF-STAGING-ROOT-CAUSE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "inference",
+      "structured_actions": [
+        {
+          "action_id": "ACT-END-NARRATIVE-CONTINUE",
+          "action_type": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "destination_unit_id": "END-NARRATIVE-CONTINUE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "action_type": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "destination_unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-REC-BREAK-LOCKER",
+      "unit_id": "REC-BREAK-LOCKER",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "recovery",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_type": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "destination_unit_id": "UNIT-BREAK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-REC-COLD-AISLE",
+      "unit_id": "REC-COLD-AISLE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "recovery",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-REC-COLD-DISPLAY",
+      "unit_id": "REC-COLD-DISPLAY",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "recovery",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-REC-CONTROL-TERM",
+      "unit_id": "REC-CONTROL-TERM",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "recovery",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-REC-MANAGER-INTERVIEW",
+      "unit_id": "REC-MANAGER-INTERVIEW",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "recovery",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-REC-MANAGER-MANIFEST",
+      "unit_id": "REC-MANAGER-MANIFEST",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "recovery",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+      "unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "recovery",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-REC-SECURITY-ARCHIVE",
+      "unit_id": "REC-SECURITY-ARCHIVE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "recovery",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-REC-SECURITY-CROSSREF",
+      "unit_id": "REC-SECURITY-CROSSREF",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "recovery",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-ACCUSATION-PREP",
+      "unit_id": "SC-ACCUSATION-PREP",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-BREAK-LOCKER-BRANCH",
+      "unit_id": "SC-BREAK-LOCKER-BRANCH",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-LOCKER-MENU",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-LOCKER-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-BREAK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-COLD-AISLE-FOCUSED",
+      "unit_id": "SC-COLD-AISLE-FOCUSED",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-COLD-LABEL-DETAIL",
+      "unit_id": "SC-COLD-LABEL-DETAIL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-LABEL-DETAIL",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-LABEL-DETAIL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-CONTROL-APPROACH",
+      "unit_id": "SC-CONTROL-APPROACH",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-CONTROL-BMS-REVIEW",
+      "unit_id": "SC-CONTROL-BMS-REVIEW",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-CONTROL-CLEARED",
+      "unit_id": "SC-CONTROL-CLEARED",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-CONTROL-ESCORT-REQUIRED",
+      "unit_id": "SC-CONTROL-ESCORT-REQUIRED",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-DOCK-ARRIVAL",
+      "unit_id": "SC-DOCK-ARRIVAL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": true,
+          "knowledge_delta": [
+            "KNOW-OPEN-ORIENT"
+          ],
+          "purpose": "supervisor briefing"
+        },
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-DOCK-INITIAL-SURVEY",
+      "unit_id": "SC-DOCK-INITIAL-SURVEY",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": true,
+          "knowledge_delta": [
+            "KNOW-OPEN-ORIENT"
+          ],
+          "world_state_delta": {
+            "investigation_phase": 1
+          },
+          "purpose": "initial orientation"
+        },
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": true,
+          "knowledge_delta": [
+            "KNOW-OPEN-ORIENT"
+          ],
+          "world_state_delta": {
+            "investigation_phase": 1
+          },
+          "purpose": "initial orientation"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-DOCK-RESTRICTED",
+      "unit_id": "SC-DOCK-RESTRICTED",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-MANAGER-PRESSURE-TOPIC",
+      "unit_id": "SC-MANAGER-PRESSURE-TOPIC",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-SECURITY-ARCHIVE-OPEN",
+      "unit_id": "SC-SECURITY-ARCHIVE-OPEN",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-SECURITY-ARCHIVE-PENDING",
+      "unit_id": "SC-SECURITY-ARCHIVE-PENDING",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-SECURITY-ARCHIVE-READY",
+      "unit_id": "SC-SECURITY-ARCHIVE-READY",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-SECURITY-CROSSREF",
+      "unit_id": "SC-SECURITY-CROSSREF",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-SECURITY-UNSTAFFED",
+      "unit_id": "SC-SECURITY-UNSTAFFED",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "scene_continue",
+          "label": "Continue this scene thread.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to the location base section for this area.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-AISLE-C-MENU",
+      "unit_id": "UNIT-AISLE-C-MENU",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CHK-LABEL-DECL",
+          "action_type": "action",
+          "label": "Search the floor and pallet faces for label adhesive residue.",
+          "destination_unit_id": "UNIT-CHK-LABEL-DECL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "return",
+          "label": "Return to the cold storage hall.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-ALARM-HISTORY",
+      "unit_id": "UNIT-ALARM-HISTORY",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to the security office.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-BADGE-ARCHIVE-MENU",
+      "unit_id": "UNIT-BADGE-ARCHIVE-MENU",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-BADGE-COLD-ENTRY",
+          "action_type": "action",
+          "label": "Query cold storage inbound badge entries for tonight.",
+          "destination_unit_id": "UNIT-BADGE-COLD-ENTRY",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-BADGE-CONTROL-ENTRY",
+          "action_type": "action",
+          "label": "Query control room door entries for tonight.",
+          "destination_unit_id": "UNIT-BADGE-CONTROL-ENTRY",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-EXIT-SCAN",
+          "action_type": "action",
+          "label": "Pull the contractor outbound dock scan record.",
+          "destination_unit_id": "UNIT-EXIT-SCAN",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to the security office.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-BADGE-COLD-ENTRY",
+      "unit_id": "UNIT-BADGE-COLD-ENTRY",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-BADGE-ARCHIVE-MENU",
+          "action_type": "return",
+          "label": "Return to the badge archive menu.",
+          "destination_unit_id": "UNIT-BADGE-ARCHIVE-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-BADGE-CONTROL-ENTRY",
+      "unit_id": "UNIT-BADGE-CONTROL-ENTRY",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-BADGE-ARCHIVE-MENU",
+          "action_type": "return",
+          "label": "Return to the badge archive menu.",
+          "destination_unit_id": "UNIT-BADGE-ARCHIVE-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-BMS-COMMAND",
+      "unit_id": "UNIT-BMS-COMMAND",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-TERM-02-MENU",
+          "action_type": "return",
+          "label": "Return to the engineering workstation menu.",
+          "destination_unit_id": "UNIT-TERM-02-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-BREAK-BASE",
+      "unit_id": "UNIT-BREAK-BASE",
+      "location_id": "LOC-BREAK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "location_hub",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-LOCKER-MENU",
+          "action_type": "action",
+          "label": "Walk along the staff locker bank.",
+          "destination_unit_id": "UNIT-LOCKER-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-DOCK-VIEW",
+          "action_type": "action",
+          "label": "Look out toward the dock loading area.",
+          "destination_unit_id": "UNIT-DOCK-VIEW",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-BREAK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "nav",
+          "label": "Walk to the manager office through the staff corridor.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "nav",
+          "label": "Follow the interior hallway to the security office.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "nav",
+          "label": "Take the side passage toward the cold storage hall.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ],
+      "relevant_knowledge_dependencies": []
+    },
+    {
+      "event_id": "EVT-UNIT-CHK-LABEL-DECL",
+      "unit_id": "UNIT-CHK-LABEL-DECL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CHK-LABEL-DECL",
+          "action_type": "action",
+          "label": "Proceed to the success or failure section indicated by your roll.",
+          "destination_unit_id": "UNIT-CHK-LABEL-DECL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-CHK-LATCH-DECL",
+      "unit_id": "UNIT-CHK-LATCH-DECL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CHK-LATCH-DECL",
+          "action_type": "action",
+          "label": "Proceed to the success or failure section indicated by your roll.",
+          "destination_unit_id": "UNIT-CHK-LATCH-DECL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-CHK-LOCKER-DECL",
+      "unit_id": "UNIT-CHK-LOCKER-DECL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CHK-LOCKER-DECL",
+          "action_type": "action",
+          "label": "Proceed to the success or failure section indicated by your roll.",
+          "destination_unit_id": "UNIT-CHK-LOCKER-DECL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-CHK-TREND-DECL",
+      "unit_id": "UNIT-CHK-TREND-DECL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CHK-TREND-DECL",
+          "action_type": "action",
+          "label": "Proceed to the success or failure section indicated by your roll.",
+          "destination_unit_id": "UNIT-CHK-TREND-DECL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-COLD-BASE",
+      "unit_id": "UNIT-COLD-BASE",
+      "location_id": "LOC-COLD",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "location_hub",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-COLD-DOOR-MENU",
+          "action_type": "action",
+          "label": "Examine the cold storage door latch and reader.",
+          "destination_unit_id": "UNIT-COLD-DOOR-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-AISLE-C-MENU",
+          "action_type": "action",
+          "label": "Walk the length of aisle C between the pallet rows.",
+          "destination_unit_id": "UNIT-AISLE-C-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-TEMP-LIVE",
+          "action_type": "action",
+          "label": "Read the live CZ-1 supply air temperature display.",
+          "destination_unit_id": "UNIT-TEMP-LIVE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-SC-CONTROL-APPROACH",
+          "action_type": "nav",
+          "label": "Follow the engineering passage to the automation control room.",
+          "destination_unit_id": "SC-CONTROL-APPROACH",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "return",
+          "label": "Return toward the break room corridor.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ],
+      "relevant_knowledge_dependencies": []
+    },
+    {
+      "event_id": "EVT-UNIT-COLD-DOOR-MENU",
+      "unit_id": "UNIT-COLD-DOOR-MENU",
+      "location_id": "LOC-COLD",
+      "physical_location_id": "LOC-COLD",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CHK-LATCH-DECL",
+          "action_type": "action",
+          "label": "Check the latch hardware for recent disturbance.",
+          "destination_unit_id": "UNIT-CHK-LATCH-DECL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "return",
+          "label": "Return to the cold storage hall.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-CONTROL-BASE",
+      "unit_id": "UNIT-CONTROL-BASE",
+      "location_id": "LOC-CONTROL",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "location_hub",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-TERM-02-MENU",
+          "action_type": "action",
+          "label": "Approach the engineering workstation.",
+          "destination_unit_id": "UNIT-TERM-02-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-STAGING-PANEL",
+          "action_type": "action",
+          "label": "Inspect the CZ-1 staging indicator panel.",
+          "destination_unit_id": "UNIT-STAGING-PANEL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "return",
+          "label": "Return to the cold storage hall.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "return",
+          "label": "Return to the loading dock with the supervisor.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "return",
+          "label": "Return to the security office.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ],
+      "relevant_knowledge_dependencies": []
+    },
+    {
+      "event_id": "EVT-UNIT-DEV-BADGE",
+      "unit_id": "UNIT-DEV-BADGE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-DEV-CLO1847",
+      "unit_id": "UNIT-DEV-CLO1847",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-DEV-EXIT",
+      "unit_id": "UNIT-DEV-EXIT",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-DEV-SESSION",
+      "unit_id": "UNIT-DEV-SESSION",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-DOCK-BRIEFING-MENU",
+      "unit_id": "UNIT-DOCK-BRIEFING-MENU",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-DOCK-VIEW",
+      "unit_id": "UNIT-DOCK-VIEW",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_type": "return",
+          "label": "Return to the break room.",
+          "destination_unit_id": "UNIT-BREAK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-ELENA-BEGIN",
+      "unit_id": "UNIT-ELENA-BEGIN",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-ELENA-HUB",
+          "action_type": "return",
+          "label": "Return to the Elena conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-ELENA-MAP",
+      "unit_id": "UNIT-ELENA-MAP",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-ELENA-RESTRICT",
+      "unit_id": "UNIT-ELENA-RESTRICT",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-ELENA-STAFF",
+      "unit_id": "UNIT-ELENA-STAFF",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-ELENA-URGENCY",
+      "unit_id": "UNIT-ELENA-URGENCY",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-ESCORT-GRANTED",
+      "unit_id": "UNIT-ESCORT-GRANTED",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-EXIT-SCAN",
+      "unit_id": "UNIT-EXIT-SCAN",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-BADGE-ARCHIVE-MENU",
+          "action_type": "return",
+          "label": "Return to the badge archive menu.",
+          "destination_unit_id": "UNIT-BADGE-ARCHIVE-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-IT-ARCHIVE-POLICY",
+      "unit_id": "UNIT-IT-ARCHIVE-POLICY",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to the security office.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LABEL-DETAIL",
+      "unit_id": "UNIT-LABEL-DETAIL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-AISLE-C-MENU",
+          "action_type": "return",
+          "label": "Return to aisle C menu.",
+          "destination_unit_id": "UNIT-AISLE-C-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LABEL-FAIL",
+      "unit_id": "UNIT-LABEL-FAIL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-AISLE-C-MENU",
+          "action_type": "return",
+          "label": "Return to aisle C menu.",
+          "destination_unit_id": "UNIT-AISLE-C-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LABEL-SUCCESS",
+      "unit_id": "UNIT-LABEL-SUCCESS",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-AISLE-C-MENU",
+          "action_type": "return",
+          "label": "Return to aisle C menu.",
+          "destination_unit_id": "UNIT-AISLE-C-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LATCH-FAIL",
+      "unit_id": "UNIT-LATCH-FAIL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-COLD-DOOR-MENU",
+          "action_type": "return",
+          "label": "Return to the cold storage door menu.",
+          "destination_unit_id": "UNIT-COLD-DOOR-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LATCH-SUCCESS",
+      "unit_id": "UNIT-LATCH-SUCCESS",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-COLD-DOOR-MENU",
+          "action_type": "return",
+          "label": "Return to the cold storage door menu.",
+          "destination_unit_id": "UNIT-COLD-DOOR-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LOCKER-FAIL",
+      "unit_id": "UNIT-LOCKER-FAIL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-LOCKER-MENU",
+          "action_type": "return",
+          "label": "Return to the locker menu.",
+          "destination_unit_id": "UNIT-LOCKER-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LOCKER-MENU",
+      "unit_id": "UNIT-LOCKER-MENU",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CHK-LOCKER-DECL",
+          "action_type": "action",
+          "label": "Inspect the ajar contractor locker.",
+          "destination_unit_id": "UNIT-CHK-LOCKER-DECL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_type": "return",
+          "label": "Return to the break room.",
+          "destination_unit_id": "UNIT-BREAK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LOCKER-SUCCESS",
+      "unit_id": "UNIT-LOCKER-SUCCESS",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-LOCKER-MENU",
+          "action_type": "return",
+          "label": "Return to the locker menu.",
+          "destination_unit_id": "UNIT-LOCKER-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LORI-CONTROL-MIN",
+      "unit_id": "UNIT-LORI-CONTROL-MIN",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LORI-DENY-COLD",
+      "unit_id": "UNIT-LORI-DENY-COLD",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LORI-LABEL",
+      "unit_id": "UNIT-LORI-LABEL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-LORI-PRESSURE",
+      "unit_id": "UNIT-LORI-PRESSURE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-MAINT-TICKET",
+      "unit_id": "UNIT-MAINT-TICKET",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-TERM-02-MENU",
+          "action_type": "return",
+          "label": "Return to the engineering workstation menu.",
+          "destination_unit_id": "UNIT-TERM-02-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-MANAGER-BASE",
+      "unit_id": "UNIT-MANAGER-BASE",
+      "location_id": "LOC-MANAGER",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "location_hub",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANIFEST-MENU",
+          "action_type": "action",
+          "label": "Review the open receiving reconciliation screen.",
+          "destination_unit_id": "UNIT-MANIFEST-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "action",
+          "label": "Speak with Lori Okonkwo about receiving and access topics you have unlocked.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "return",
+          "label": "Return to the break room.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ],
+      "relevant_knowledge_dependencies": []
+    },
+    {
+      "event_id": "EVT-UNIT-MANIFEST-GAP",
+      "unit_id": "UNIT-MANIFEST-GAP",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANIFEST-MENU",
+          "action_type": "return",
+          "label": "Return to the manifest menu.",
+          "destination_unit_id": "UNIT-MANIFEST-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-MANIFEST-MENU",
+      "unit_id": "UNIT-MANIFEST-MENU",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANIFEST-GAP",
+          "action_type": "action",
+          "label": "Compare manifest MNF-IN-4471 to the carrier delivery record.",
+          "destination_unit_id": "UNIT-MANIFEST-GAP",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-POD-CROSSREF",
+          "action_type": "action",
+          "label": "Cross-reference the signed carrier POD against bay assignments.",
+          "destination_unit_id": "UNIT-POD-CROSSREF",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_type": "return",
+          "label": "Return to the manager office.",
+          "destination_unit_id": "UNIT-MANAGER-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-MARCUS-ALARM",
+      "unit_id": "UNIT-MARCUS-ALARM",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-MARCUS-GAP",
+      "unit_id": "UNIT-MARCUS-GAP",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-MARCUS-LATCH",
+      "unit_id": "UNIT-MARCUS-LATCH",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-PAT-DOOR",
+      "unit_id": "UNIT-PAT-DOOR",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-BREAK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-PAT-SIL",
+      "unit_id": "UNIT-PAT-SIL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_type": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "destination_unit_id": "UNIT-BREAK-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-POD-CROSSREF",
+      "unit_id": "UNIT-POD-CROSSREF",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-MANIFEST-MENU",
+          "action_type": "return",
+          "label": "Return to the manifest menu.",
+          "destination_unit_id": "UNIT-MANIFEST-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-SECURITY-BASE",
+      "unit_id": "UNIT-SECURITY-BASE",
+      "location_id": "LOC-SECURITY",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "location_hub",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-ALARM-HISTORY",
+          "action_type": "action",
+          "label": "Review recent alarm history on the security panel.",
+          "destination_unit_id": "UNIT-ALARM-HISTORY",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-BADGE-ARCHIVE-MENU",
+          "action_type": "action",
+          "label": "Open the badge access archive terminal.",
+          "destination_unit_id": "UNIT-BADGE-ARCHIVE-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_type": "return",
+          "label": "Return to the break room.",
+          "destination_unit_id": "UNIT-SECURITY-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ],
+      "relevant_knowledge_dependencies": []
+    },
+    {
+      "event_id": "EVT-UNIT-STAGING-PANEL",
+      "unit_id": "UNIT-STAGING-PANEL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "return",
+          "label": "Return to the control room.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-TEMP-LIVE",
+      "unit_id": "UNIT-TEMP-LIVE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-COLD-BASE",
+          "action_type": "return",
+          "label": "Return to the cold storage hall.",
+          "destination_unit_id": "UNIT-COLD-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-TERM-02-MENU",
+      "unit_id": "UNIT-TERM-02-MENU",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-BMS-COMMAND",
+          "action_type": "action",
+          "label": "Review the BMS command log on this terminal.",
+          "destination_unit_id": "UNIT-BMS-COMMAND",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-MAINT-TICKET",
+          "action_type": "action",
+          "label": "Open the closed maintenance ticket for CZ-1.",
+          "destination_unit_id": "UNIT-MAINT-TICKET",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-CHK-TREND-DECL",
+          "action_type": "action",
+          "label": "Export the CZ-1 supply air temperature trend.",
+          "destination_unit_id": "UNIT-CHK-TREND-DECL",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-CONTROL-BASE",
+          "action_type": "return",
+          "label": "Return to the control room.",
+          "destination_unit_id": "UNIT-CONTROL-BASE",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-TREND-FAIL",
+      "unit_id": "UNIT-TREND-FAIL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-TERM-02-MENU",
+          "action_type": "return",
+          "label": "Return to the engineering workstation menu.",
+          "destination_unit_id": "UNIT-TERM-02-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-TREND-SUCCESS",
+      "unit_id": "UNIT-TREND-SUCCESS",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "action",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-TERM-02-MENU",
+          "action_type": "return",
+          "label": "Return to the engineering workstation menu.",
+          "destination_unit_id": "UNIT-TERM-02-MENU",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-WORKER-LOCAL",
+      "unit_id": "UNIT-WORKER-LOCAL",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-WORKER-HUB",
+          "action_type": "return",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-WORKER-ROLE",
+      "unit_id": "UNIT-WORKER-ROLE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-WORKER-HUB",
+          "action_type": "return",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-UNIT-WORKER-TENURE",
+      "unit_id": "UNIT-WORKER-TENURE",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "dialogue_topic",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-DOCK-WORKER-HUB",
+          "action_type": "return",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-SC-IT-RECORDS-POLICY",
+      "unit_id": "SC-IT-RECORDS-POLICY",
+      "location_id": "LOC-DOCK",
+      "physical_location_id": "LOC-DOCK",
+      "event_kind": "scene",
+      "structured_actions": [
+        {
+          "action_id": "ACT-UNIT-IT-ARCHIVE-POLICY",
+          "action_type": "alias",
+          "label": "Review the archive sync policy notice.",
+          "destination_unit_id": "UNIT-IT-ARCHIVE-POLICY",
+          "requires_knowledge_ids": [],
+          "requires_world_state": {},
+          "referenced_fact_ids": [],
+          "investigative": false
+        }
+      ]
+    }
+  ]
+}

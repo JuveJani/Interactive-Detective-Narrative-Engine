@@ -19,7 +19,7 @@ STAGE_SPEC_MAP: dict[str, list[str]] = {
     "npc_conversation": ["NPC_INVESTIGATION_SYSTEM_SPEC.md"],
     "investigation_flow": ["INVESTIGATION_FLOW_SPEC.md", "ENDING_SYSTEM_SPEC.md"],
     "capability_checks": ["CAPABILITY_CHECK_SYSTEM_SPEC.md"],
-    "story_player": ["STORY_VALIDATOR_SPEC.md", "INVESTIGATION_FLOW_SPEC.md"],
+    "story_player": ["STORY_VALIDATOR_SPEC.md", "INVESTIGATION_FLOW_SPEC.md", "EPISTEMIC_PROGRESSION_SPEC.md"],
     "playtime": ["PLAYTIME_CALIBRATION_SPEC.md"],
     "dm_feeling": ["DM_FEELING_VALIDATOR_SPEC.md"],
 }

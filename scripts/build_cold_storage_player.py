@@ -254,15 +254,135 @@ Write your answer to each accusation question here before you commit to it.
         "The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. "
         "Cold rolls off the bay in waves whenever a door cycles, and the smell of diesel and refrigerant hangs in the air. Somewhere past 1:00 a.m., the building has settled into the strange quiet of a shift that has already gone wrong.",
         [
+            "Talk to Elena Morales.",
             "Walk through the dock corridor to the cold storage hall.",
+            "Talk to a dock worker.",
+        ],
+        "**Location:** Loading dock | **Time cost:** 0 min",
+        "Loading dock",
+    )
+
+    add(
+        "UNIT-DOCK-ELENA-HUB",
+        "NPCS.md",
+        "Elena Morales meets you at the briefing table near the bay doors. Her clipboard already holds the alarm timeline, and she answers in the clipped tone of someone coordinating an emergency response.",
+        [
+            "Ask where the investigation should begin.",
+            "Ask whether a map or site overview is available.",
+            "Ask who was still on site working late.",
+            "Return to the loading dock.",
+        ],
+        "**Location:** Loading dock | **Time cost:** 1 min",
+        "Talk to Elena Morales",
+    )
+
+    add(
+        "UNIT-DOCK-WORKER-HUB",
+        "NPCS.md",
+        "A dock worker pauses between the idle forklifts — Pat Nguyen with a mop cart, and Dev Santos arriving from the parking lot with a tool bag. Either can spare a minute between tasks.",
+        [
+            "Ask what they know about the incident.",
+            "Ask their name and role on site.",
+            "Ask how long they have worked here.",
+            "Ask who or what they know locally.",
+            "Return to the loading dock.",
+        ],
+        "**Location:** Loading dock | **Time cost:** 1 min",
+        "Talk to a dock worker",
+    )
+
+    add(
+        "UNIT-ELENA-BEGIN",
+        "NPCS.md",
+        "Elena taps the incident timeline on her clipboard. "
+        '"Start with cold storage and staging control. Security can pull badge records after the archive sync if you need access history."',
+        ["Return to the Elena conversation menu.", "Return to the loading dock."],
+        "**Time cost:** 2 min",
+        "Where to begin",
+    )
+
+    add(
+        "UNIT-ELENA-MAP",
+        "NPCS.md",
+        "Elena pulls a folded site map from the briefing table and marks the cold hall, security office, and manager wing. "
+        '"Use this for corridors you have not walked yet. I can escort you to control if engineering access is required."',
+        ["Return to the loading dock."],
+        "**Time cost:** 2 min",
+        "Site overview",
+    )
+
+    add(
+        "UNIT-WORKER-ROLE",
+        "NPCS.md",
+        "Pat Nguyen sets the mop cart aside. "
+        '"Pat Nguyen — dock sanitation and floor prep. I am on the late crew when receiving runs long."',
+        ["Return to the dock worker conversation menu."],
+        "**Time cost:** 2 min",
+        "Name and role",
+    )
+
+    add(
+        "UNIT-WORKER-TENURE",
+        "NPCS.md",
+        "Pat thinks for a moment. "
+        '"About three years on this dock. I know the cold hall doors and which bays stay open after midnight."',
+        ["Return to the dock worker conversation menu."],
+        "**Time cost:** 2 min",
+        "Time on site",
+    )
+
+    add(
+        "UNIT-WORKER-LOCAL",
+        "NPCS.md",
+        "Pat nods toward the office wing and the break room corridor. "
+        '"Elena runs the shift. Lori stays at receiving when manifests jam. Marcus does rounds from security."',
+        ["Return to the dock worker conversation menu."],
+        "**Time cost:** 2 min",
+        "Local contacts",
+    )
+
+    add(
+        "UNIT-DOCK-BASE-SURVEYED",
+        "LOCATIONS.md",
+        "The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. "
+        "You have oriented yourself to the site layout and the supervisor briefing area.",
+        [
+            "Talk to Elena Morales.",
+            "Walk through the dock corridor to the cold storage hall.",
+            "Talk to a dock worker.",
             "Head inside to the staff break room.",
             "Cut through the warehouse corridor to the security office.",
             "Take the office wing corridor to the warehouse manager office.",
             "Review the supervisor briefing area.",
             "Request escort clearance to the automation control room.",
+            "Receive supervisor briefing at the loading dock.",
+            "Survey the dock and adjacent corridors.",
+            "Prepare final accountability documentation before the compliance threshold.",
         ],
         "**Location:** Loading dock | **Time cost:** 0 min",
-        "Loading dock",
+        "Loading dock — after orientation",
+    )
+
+    add(
+        "UNIT-DOCK-BASE-RESTRICTED",
+        "LOCATIONS.md",
+        "Tape marks restricted lanes across the loading dock. Elena stands at the boundary while essential movement continues under her supervision.",
+        [
+            "Talk to Elena Morales.",
+            "Walk through the dock corridor to the cold storage hall.",
+            "Talk to a dock worker.",
+            "Head inside to the staff break room.",
+            "Cut through the warehouse corridor to the security office.",
+            "Take the office wing corridor to the warehouse manager office.",
+            "Review the supervisor briefing area.",
+            "Request escort clearance to the automation control room.",
+            "Receive supervisor briefing at the loading dock.",
+            "Survey the dock and adjacent corridors.",
+            "Prepare final accountability documentation before the compliance threshold.",
+            "Work under supervisor dock restriction enforcement.",
+        ],
+        "**Location:** Loading dock (restricted) | **Time cost:** 0 min",
+        "Loading dock — restricted",
     )
 
     add(

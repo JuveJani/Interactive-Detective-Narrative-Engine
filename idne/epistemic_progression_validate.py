@@ -1,0 +1,534 @@
+"""Epistemic Progression Validator — knowledge- and world-state-gated scene progression."""
+
+from __future__ import annotations
+
+import json
+import re
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any
+
+from idne.epistemic_progression.eligibility import action_eligible, event_enterable
+from idne.epistemic_progression.loader import (
+    initial_epistemic_state,
+    load_epistemic_manifest,
+    load_epistemic_package,
+)
+from idne.epistemic_progression.model import (
+    DIALOGUE_TOPIC_KINDS,
+    HUB_KINDS,
+    NPC_INTERACTION_KINDS,
+    EpistemicState,
+    PlayableEvent,
+    StructuredAction,
+)
+from idne.epistemic_progression.signatures import reuse_signature
+from idne.gamebook_nav.extract import parse_player_units
+
+DIALOGUE_TOPIC_ACTION_TYPES = frozenset({"dialogue_topic", "npc_topic", "topic"})
+NPC_APPROACH_TYPES = frozenset({"approach_npc", "npc_interaction", "talk_npc"})
+
+
+@dataclass
+class Finding:
+    finding_id: str
+    severity: str
+    confidence: str
+    layer: str
+    source_file: str
+    canonical_id: str
+    expected_rule: str
+    actual_state: str
+    tier: str = "A"
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "finding_id": self.finding_id,
+            "severity": self.severity,
+            "confidence": self.confidence,
+            "layer": self.layer,
+            "source_file": self.source_file,
+            "canonical_id": self.canonical_id,
+            "expected_rule": self.expected_rule,
+            "actual_state": self.actual_state,
+            "tier": self.tier,
+        }
+
+
+@dataclass
+class ValidationResult:
+    adventure_root: Path
+    status: str
+    findings: list[Finding] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
+    checks: dict[str, str] = field(default_factory=dict)
+    tier_b_pending: list[str] = field(default_factory=list)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "adventure_root": str(self.adventure_root),
+            "status": self.status,
+            "findings": [f.to_dict() for f in self.findings],
+            "warnings": self.warnings,
+            "checks": self.checks,
+            "tier_b_pending": self.tier_b_pending,
+        }
+
+
+def _add(
+    result: ValidationResult,
+    finding_id: str,
+    canonical_id: str,
+    expected: str,
+    actual: str,
+    *,
+    source: str = "",
+    layer: str = "epistemic_progression",
+) -> None:
+    result.findings.append(
+        Finding(
+            finding_id=finding_id,
+            severity="error",
+            confidence="proven",
+            layer=layer,
+            source_file=source,
+            canonical_id=canonical_id,
+            expected_rule=expected,
+            actual_state=actual,
+        )
+    )
+
+
+def _norm_label(label: str) -> str:
+    return re.sub(r"\s+", " ", label.strip().lower())
+
+
+def _load_player_manifest(root: Path) -> dict[str, Any]:
+    for candidate in (root.parent / "player_mapping_manifest.json", root / "player_mapping_manifest.json"):
+        if candidate.exists():
+            return json.loads(candidate.read_text(encoding="utf-8"))
+    return {}
+
+
+def _load_flow_initial(root: Path) -> dict[str, Any]:
+    path = root / "DO_NOT_READ" / "investigation_flow_package.json"
+    if not path.exists():
+        return {}
+    pkg = json.loads(path.read_text(encoding="utf-8"))
+    return dict(pkg.get("state_model", {}).get("initial_state") or {})
+
+
+def _all_knowledge_ids(root: Path) -> set[str]:
+    path = root / "DO_NOT_READ" / "investigation_core_package.json"
+    if not path.exists():
+        return set()
+    pkg = json.loads(path.read_text(encoding="utf-8"))
+    ids: set[str] = set()
+    for k in pkg.get("knowledge", []) or []:
+        if k.get("knowledge_id"):
+            ids.add(str(k["knowledge_id"]))
+    return ids
+
+
+def _validate_event_prerequisites(result: ValidationResult, package) -> None:
+    for event in package.events.values():
+        for action in event.structured_actions:
+            dest = package.events_by_unit.get(action.destination_unit_id)
+            if not dest:
+                continue
+            probe = initial_epistemic_state(package)
+            probe = probe.apply_action_deltas(action)
+            ok, reason = event_enterable(dest, probe)
+            if not ok:
+                _add(
+                    result,
+                    "EP-DEST-PREREQ-MISMATCH",
+                    action.action_id,
+                    "destination event enterable after action deltas",
+                    reason,
+                )
+
+
+def _validate_hub_flattening(result: ValidationResult, package) -> None:
+    for event in package.events.values():
+        if event.event_kind not in HUB_KINDS:
+            continue
+        topic_actions = [
+            a for a in event.structured_actions if a.action_type in DIALOGUE_TOPIC_ACTION_TYPES
+        ]
+        if topic_actions:
+            _add(
+                result,
+                "EP-HUB-FLATTENED-DIALOGUE",
+                event.unit_id,
+                "location hub offers only immediate actions, not dialogue topics",
+                f"hub contains {len(topic_actions)} dialogue topic action(s)",
+            )
+        for action in event.structured_actions:
+            if action.action_type in DIALOGUE_TOPIC_ACTION_TYPES:
+                continue
+            dest = package.events_by_unit.get(action.destination_unit_id)
+            if dest and dest.event_kind in DIALOGUE_TOPIC_KINDS:
+                _add(
+                    result,
+                    "EP-HUB-FLATTENED-DIALOGUE",
+                    event.unit_id,
+                    "approach NPC before choosing dialogue topics",
+                    f"hub action {action.action_id} jumps directly to topic event {dest.unit_id}",
+                )
+
+
+def _validate_action_knowledge_refs(result: ValidationResult, package, state: EpistemicState) -> None:
+    for event in package.events.values():
+        ok, _ = event_enterable(event, state)
+        if not ok:
+            continue
+        for action in event.structured_actions:
+            eligible, reason = action_eligible(action, state)
+            if not eligible and "unknown facts" in reason:
+                _add(
+                    result,
+                    "EP-CHOICE-UNKNOWN-FACT",
+                    action.action_id,
+                    "choice must not reference unknown facts",
+                    reason,
+                )
+            if not eligible and "entity/object not observable" in reason:
+                _add(
+                    result,
+                    "EP-CHOICE-UNKNOWN-ENTITY",
+                    action.action_id,
+                    "choice must not reference unknown entities",
+                    reason,
+                )
+            missing = action.requires_knowledge_ids - state.player_knowledge
+            if missing and action.label and any(k.lower().replace("know-", "") in action.label.lower() for k in missing):
+                _add(
+                    result,
+                    "EP-CHOICE-UNKNOWN-FACT",
+                    action.action_id,
+                    "choice label must not name undiscovered facts",
+                    f"label references knowledge not yet held: {sorted(missing)}",
+                )
+
+
+def _validate_later_state_actions(result: ValidationResult, package, state: EpistemicState) -> None:
+    for event in package.events.values():
+        if event.required_knowledge_ids or event.required_world_state:
+            continue
+        ok, _ = event_enterable(event, state)
+        if not ok:
+            continue
+        for action in event.structured_actions:
+            if action.requires_knowledge_ids and not action.requires_knowledge_ids <= state.player_knowledge:
+                _add(
+                    result,
+                    "EP-ACTION-LATER-STATE",
+                    f"{event.unit_id}:{action.action_id}",
+                    "later-state action must not appear in earlier scene",
+                    f"requires {sorted(action.requires_knowledge_ids)} at {event.unit_id}",
+                )
+
+
+NON_PROGRESS_ACTION_TYPES = frozenset(
+    {"nav", "return", "travel", "approach", "approach_npc", "recovery", "inference_entry", "inference"}
+)
+
+
+def _validate_investigative_progress(result: ValidationResult, package) -> None:
+    for event in package.events.values():
+        for action in event.structured_actions:
+            if not action.investigative:
+                continue
+            if action.action_type in NON_PROGRESS_ACTION_TYPES:
+                continue
+            if action.exhaustion in ("ambient", "recovery"):
+                continue
+            has_progress = bool(
+                action.knowledge_delta
+                or action.world_state_delta
+                or action.interaction_delta
+                or action.purpose
+            )
+            if not has_progress:
+                _add(
+                    result,
+                    "EP-NO-PROGRESS",
+                    action.action_id,
+                    "investigative action must produce progress or declare purpose",
+                    "no knowledge/world/interaction delta or purpose",
+                )
+
+
+def _validate_same_unit_knowledge_reuse(result: ValidationResult, package) -> None:
+    for event in package.events.values():
+        for action in event.structured_actions:
+            if not action.knowledge_delta:
+                continue
+            dest_event = package.events_by_unit.get(action.destination_unit_id)
+            if dest_event and dest_event.unit_id == event.unit_id:
+                _add(
+                    result,
+                    "EP-SCENE-REUSE-KNOWLEDGE",
+                    event.unit_id,
+                    "knowledge-changing action must not return to the same event variant",
+                    f"action {action.action_id} returns to {event.unit_id} after knowledge delta",
+                )
+            elif action.destination_unit_id == event.unit_id:
+                _add(
+                    result,
+                    "EP-SCENE-REUSE-KNOWLEDGE",
+                    event.unit_id,
+                    "knowledge-changing action must not return to the same event variant",
+                    f"action {action.action_id} returns to same unit after knowledge delta",
+                )
+
+
+def _validate_event_reuse(result: ValidationResult, package) -> None:
+    by_physical: dict[str, list[PlayableEvent]] = {}
+    for event in package.events.values():
+        loc = event.physical_location_id or event.location_id
+        by_physical.setdefault(loc, []).append(event)
+    for loc, events in by_physical.items():
+        variants = [e for e in events if e.variant_of or e.supersedes_unit_id]
+        if len(variants) < 2:
+            continue
+        sigs: dict[tuple[Any, ...], str] = {}
+        for event in variants:
+            probe = initial_epistemic_state(package)
+            sig = reuse_signature(event, probe)
+            if sig in sigs and sigs[sig] != event.unit_id:
+                _add(
+                    result,
+                    "EP-SCENE-REUSE-KNOWLEDGE",
+                    event.unit_id,
+                    "distinct variant required when relevant state differs",
+                    f"same reuse signature as {sigs[sig]} at {loc}",
+                )
+            sigs[sig] = event.unit_id
+
+
+def _validate_exhausted_actions(result: ValidationResult, package) -> None:
+    state = initial_epistemic_state(package)
+    for event in package.events.values():
+        by_id: dict[str, list[StructuredAction]] = {}
+        for action in event.structured_actions:
+            if action.action_id:
+                by_id.setdefault(action.action_id, []).append(action)
+        for action in event.structured_actions:
+            if action.exhaustion not in ("one_time", "exhaustible"):
+                continue
+            siblings = by_id.get(action.action_id, [])
+            if len(siblings) > 1 and any(s.exhaustion == "repeatable" for s in siblings):
+                _add(
+                    result,
+                    "EP-ONETIME-STILL-VISIBLE",
+                    action.action_id,
+                    "one-time action must not have repeatable duplicate in same event",
+                    f"duplicate action_id {action.action_id} in {event.unit_id}",
+                )
+            after = state.apply_action_deltas(action)
+            again, reason = action_eligible(action, after)
+            if again:
+                _add(
+                    result,
+                    "EP-ONETIME-STILL-VISIBLE",
+                    action.action_id,
+                    "one-time or exhaustible action must not remain eligible after use",
+                    reason,
+                )
+
+
+def _validate_player_delivery_alignment(
+    result: ValidationResult,
+    root: Path,
+    package,
+    manifest: dict[str, Any],
+) -> None:
+    player_root = root / "PLAYER"
+    known = set(manifest.get("units", {}).keys())
+    player_units = parse_player_units(player_root, known or None)
+    structured_by_unit: dict[str, set[str]] = {}
+    for event in package.events.values():
+        structured_by_unit[event.unit_id] = {_norm_label(a.label) for a in event.structured_actions}
+
+    for uid, event in package.events_by_unit.items():
+        pu = player_units.get(uid)
+        if not pu:
+            continue
+        structured = structured_by_unit.get(uid, set())
+        player_labels = {_norm_label(c) for c in pu.choices}
+        # Allow generic return phrasing variants used in PLAYER prose.
+        return_aliases = {
+            _norm_label("Return to your current location menu or continue the conversation."),
+            _norm_label("Return to the Elena conversation menu."),
+            _norm_label("Return to the dock worker conversation menu."),
+        }
+        for label in player_labels:
+            if label and label not in structured and label not in return_aliases:
+                _add(
+                    result,
+                    "EP-PROSE-EXTRA-CHOICE",
+                    uid,
+                    "PLAYER choice must exist in structured action set",
+                    f"extra choice: {label[:80]}",
+                    source=str(pu.file),
+                )
+        for label in structured:
+            if label and label not in player_labels:
+                _add(
+                    result,
+                    "EP-STRUCT-MISSING-CHOICE",
+                    uid,
+                    "structured eligible action must appear in PLAYER delivery",
+                    f"missing choice: {label[:80]}",
+                    source=str(pu.file),
+                )
+
+    manifest_units = manifest.get("units") or {}
+    for uid, event in package.events_by_unit.items():
+        entry = manifest_units.get(uid, {})
+        manifest_labels = {_norm_label(c.get("label", "")) for c in entry.get("choices") or []}
+        structured = structured_by_unit.get(uid, set())
+        state = initial_epistemic_state(package)
+        ok, _ = event_enterable(event, state)
+        if not ok:
+            continue
+        for action in event.structured_actions:
+            eligible, reason = action_eligible(action, state)
+            if not eligible:
+                continue
+            if _norm_label(action.label) in manifest_labels:
+                continue
+            _add(
+                result,
+                "EP-STRUCT-MISSING-CHOICE",
+                uid,
+                "manifest must expose eligible structured actions",
+                f"missing manifest choice for {action.action_id}: {reason}",
+            )
+
+
+def _validate_content_blocks(result: ValidationResult, package, state: EpistemicState) -> None:
+    for event in package.events.values():
+        ok, _ = event_enterable(event, state)
+        if not ok:
+            continue
+        for block in event.content_blocks:
+            if block.provenance in ("observation", "atmosphere"):
+                continue
+            missing = block.requires_knowledge_ids - state.player_knowledge
+            if missing and block.fact_ids:
+                _add(
+                    result,
+                    "EP-FACT-BEFORE-REQ",
+                    block.block_id,
+                    "factual content requires satisfied knowledge prerequisites",
+                    f"missing {sorted(missing)}",
+                )
+
+
+def _validate_impossible_prerequisites(result: ValidationResult, package, all_know: set[str]) -> None:
+    acquirable: set[str] = set(package.initial_player_knowledge)
+    for event in package.events.values():
+        for action in event.structured_actions:
+            acquirable.update(action.knowledge_delta)
+    for event in package.events.values():
+        unknown = event.required_knowledge_ids - all_know - acquirable
+        if unknown:
+            _add(
+                result,
+                "EP-PREREQ-IMPOSSIBLE",
+                event.unit_id,
+                "required knowledge must be acquirable or initial",
+                f"unknown required knowledge: {sorted(unknown)}",
+            )
+
+
+def _simulate_routes(result: ValidationResult, package, manifest: dict[str, Any]) -> None:
+    """Bounded route check from opening state."""
+    start = manifest.get("static_book", {}).get("start_unit_id", "")
+    if not start or start not in package.events_by_unit:
+        return
+    state = initial_epistemic_state(package)
+    event = package.events_by_unit[start]
+    ok, reason = event_enterable(event, state)
+    if not ok:
+        _add(
+            result,
+            "EP-SIM-ROUTE-PREREQ",
+            start,
+            "starting event must be enterable in initial player state",
+            reason,
+        )
+
+
+def validate_epistemic_progression(adventure_root: str | Path) -> ValidationResult:
+    root = Path(adventure_root).resolve()
+    result = ValidationResult(adventure_root=root, status="PASS")
+
+    manifest = load_epistemic_manifest(root)
+    if not manifest:
+        result.status = "SKIP"
+        result.warnings.append("no epistemic_progression_manifest — not declared")
+        return result
+
+    if manifest.get("epistemic_progression_method") != "canonical":
+        result.status = "SKIP"
+        result.warnings.append("epistemic_progression_method not canonical")
+        return result
+
+    package = load_epistemic_package(root, manifest)
+    if not package:
+        result.status = "FAIL"
+        result.checks["EP-PKG-PRESENT"] = "FAIL"
+        _add(result, "EP-PKG-PRESENT", "package", "epistemic_progression_package required", "missing")
+        return result
+    result.checks["EP-PKG-PRESENT"] = "PASS"
+
+    player_manifest = _load_player_manifest(root)
+    all_know = _all_knowledge_ids(root)
+    state = initial_epistemic_state(package)
+    flow_initial = _load_flow_initial(root)
+    if flow_initial and not state.world_state:
+        state.world_state = dict(flow_initial)
+
+    _validate_impossible_prerequisites(result, package, all_know)
+    _validate_event_prerequisites(result, package)
+    _validate_hub_flattening(result, package)
+    _validate_action_knowledge_refs(result, package, state)
+    _validate_later_state_actions(result, package, state)
+    _validate_investigative_progress(result, package)
+    _validate_same_unit_knowledge_reuse(result, package)
+    _validate_event_reuse(result, package)
+    _validate_exhausted_actions(result, package)
+    _validate_content_blocks(result, package, state)
+    _validate_player_delivery_alignment(result, root, package, player_manifest)
+    _simulate_routes(result, package, player_manifest)
+
+    result.checks["EP-EVENT-GATES"] = "FAIL" if any(f.finding_id.startswith("EP-PREREQ") for f in result.findings) else "PASS"
+    result.checks["EP-KNOWLEDGE-BOUNDARY"] = (
+        "FAIL"
+        if any(f.finding_id.startswith("EP-CHOICE") or f.finding_id == "EP-FACT-BEFORE-REQ" for f in result.findings)
+        else "PASS"
+    )
+    result.checks["EP-HUB-DEPTH"] = (
+        "FAIL" if any(f.finding_id == "EP-HUB-FLATTENED-DIALOGUE" for f in result.findings) else "PASS"
+    )
+    result.checks["EP-REUSE-RULES"] = (
+        "FAIL"
+        if any(f.finding_id.startswith("EP-SCENE-REUSE") or f.finding_id == "EP-ONETIME-STILL-VISIBLE" for f in result.findings)
+        else "PASS"
+    )
+    result.checks["EP-DELIVERY-ALIGN"] = (
+        "FAIL"
+        if any(f.finding_id.startswith("EP-PROSE") or f.finding_id.startswith("EP-STRUCT") for f in result.findings)
+        else "PASS"
+    )
+    result.checks["EP-ROUTE-PREREQ"] = (
+        "FAIL" if any(f.finding_id == "EP-SIM-ROUTE-PREREQ" for f in result.findings) else "PASS"
+    )
+
+    if result.findings:
+        result.status = "FAIL"
+    return result
