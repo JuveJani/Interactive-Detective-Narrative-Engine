@@ -16,10 +16,10 @@
     "investigation_flow": "COMPLETE",
     "capability_checks": "COMPLETE",
     "story_player": "COMPLETE",
-    "playtime": "AWAITING_APPROVAL",
-    "dm_feeling": "AWAITING_APPROVAL",
-    "final_validation": "PENDING",
-    "package_export": "PENDING"
+    "playtime": "COMPLETE",
+    "dm_feeling": "COMPLETE",
+    "final_validation": "COMPLETE",
+    "package_export": "COMPLETE"
   },
   "input_hashes": {},
   "output_hashes": {
@@ -35,38 +35,212 @@
     "capability_checks": "8c3d2448706524927cf1f0d157fc255d8c28364be5d98314e11fc6414cd245d4",
     "story_player": "332da6e279d362e537097634c3498dacbbe007a00847b66e6f1e27e7d365a39d",
     "playtime": "9ca39ab93bd66bc9f722b99e2a6613e3c2bb321e15159aa5f2bf627ba561360c",
-    "dm_feeling": "b68dd827ac30dac13abe6058c2da42a04c9e799fed9c42e2bfa52b674d1f575d"
+    "dm_feeling": "b68dd827ac30dac13abe6058c2da42a04c9e799fed9c42e2bfa52b674d1f575d",
+    "final_validation": "integrated_conditional_pass_20260806",
+    "package_export": "61868211e1685c3c0565df8b040a8df3bcb9a6e07255a9ead53f92b28618da49"
   },
   "validator_results": {
-    "fixed_truth": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "causal_timeline": {"status": "PASS", "skipped": true, "note": "validated via world_first in fixed_truth stage"},
-    "world_state_timeline": {"status": "PASS", "skipped": true, "note": "validated via world_first in fixed_truth stage"},
-    "npcs": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "environment": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_pending": [], "tier_c_complete": false},
-    "objects": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "investigation_core": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "investigation_flow": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "capability_checks": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "story_player": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "single_investigator": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "story_validator": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "dm_feeling_structural": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "investigation_validator": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "world_first_recheck": {"status": "PASS", "findings": [], "errors": [], "tier_b_pending": [], "tier_c_complete": false},
-    "playtime": {"status": "CONDITIONAL_PASS", "findings": ["PT-TARGET-WARNING"], "errors": [], "tier_b_pending": ["PT-B-PATH-MEDIAN", "PT-B-SCARCITY"], "tier_c_complete": false},
-    "dm_feeling": {"status": "CONDITIONAL_PASS", "findings": [], "errors": [], "tier_b_pending": ["DF-B-AGENCY-NAV", "DF-B-INFERENCE-QUALITY", "DF-B-NPC-NEUTRALITY", "DF-B-ENDING-OPACITY", "DF-B-TIME-PRESSURE"], "tier_c_complete": false}
+    "fixed_truth": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "causal_timeline": {
+      "status": "PASS",
+      "skipped": true,
+      "note": "validated via world_first in fixed_truth stage"
+    },
+    "world_state_timeline": {
+      "status": "PASS",
+      "skipped": true,
+      "note": "validated via world_first in fixed_truth stage"
+    },
+    "npcs": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "environment": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_pending": [],
+      "tier_c_complete": false
+    },
+    "objects": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "investigation_core": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "investigation_flow": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "capability_checks": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "story_player": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "single_investigator": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "story_validator": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "dm_feeling_structural": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "investigation_validator": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "world_first_recheck": {
+      "status": "PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [],
+      "tier_c_complete": false
+    },
+    "playtime": {
+      "status": "CONDITIONAL_PASS",
+      "findings": [
+        "PT-TARGET-WARNING"
+      ],
+      "errors": [],
+      "tier_b_pending": [
+        "PT-B-PATH-MEDIAN",
+        "PT-B-SCARCITY"
+      ],
+      "tier_c_complete": false
+    },
+    "dm_feeling": {
+      "status": "CONDITIONAL_PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [
+        "DF-B-AGENCY-NAV",
+        "DF-B-INFERENCE-QUALITY",
+        "DF-B-NPC-NEUTRALITY",
+        "DF-B-ENDING-OPACITY",
+        "DF-B-TIME-PRESSURE"
+      ],
+      "tier_c_complete": false
+    },
+    "integrated": {
+      "status": "CONDITIONAL_PASS",
+      "findings": [],
+      "errors": [],
+      "tier_b_pending": [
+        "PT-B-PATH-MEDIAN",
+        "PT-B-SCARCITY",
+        "DF-B-AGENCY-NAV",
+        "DF-B-INFERENCE-QUALITY",
+        "DF-B-NPC-NEUTRALITY",
+        "DF-B-ENDING-OPACITY",
+        "DF-B-TIME-PRESSURE"
+      ],
+      "tier_c_complete": false,
+      "mandatory_failures": []
+    }
   },
   "repair_attempts": [],
   "human_approvals": {
-    "adventure_brief": {"approved_at": "2026-08-05T15:46:24+00:00", "approver": "human", "note": "The Cold Storage Alarm concept and parameters approved"},
-    "fixed_truth": {"approved_at": "2026-08-05T15:56:52+00:00", "approver": "human", "note": "Fixed truth revision approved"},
-    "npcs": {"approved_at": "2026-08-05T16:16:00+00:00", "approver": "human", "note": "NPC investigation layer approved"},
-    "environment": {"approved_at": "2026-08-05T16:42:00+00:00", "approver": "human", "note": "Environment layer approved"},
-    "objects": {"approved_at": "2026-08-05T16:42:00+00:00", "approver": "human", "note": "Object interaction layer approved"},
-    "investigation_core": {"approved_at": "2026-08-05T16:51:00+00:00", "approver": "human", "note": "Investigation core layer approved"},
-    "investigation_flow": {"approved_at": "2026-08-05T17:00:00+00:00", "approver": "human", "note": "Investigation flow and endings layer approved"},
-    "capability_checks": {"approved_at": "2026-08-05T17:10:00+00:00", "approver": "human", "note": "Capability checks layer approved"},
-    "story_player": {"approved_at": "2026-08-06T00:27:00+00:00", "approver": "human", "note": "PLAYER story layer approved"}
+    "adventure_brief": {
+      "approved_at": "2026-08-05T15:46:24+00:00",
+      "approver": "human",
+      "note": "The Cold Storage Alarm concept and parameters approved"
+    },
+    "fixed_truth": {
+      "approved_at": "2026-08-05T15:56:52+00:00",
+      "approver": "human",
+      "note": "Fixed truth revision approved"
+    },
+    "npcs": {
+      "approved_at": "2026-08-05T16:16:00+00:00",
+      "approver": "human",
+      "note": "NPC investigation layer approved"
+    },
+    "environment": {
+      "approved_at": "2026-08-05T16:42:00+00:00",
+      "approver": "human",
+      "note": "Environment layer approved"
+    },
+    "objects": {
+      "approved_at": "2026-08-05T16:42:00+00:00",
+      "approver": "human",
+      "note": "Object interaction layer approved"
+    },
+    "investigation_core": {
+      "approved_at": "2026-08-05T16:51:00+00:00",
+      "approver": "human",
+      "note": "Investigation core layer approved"
+    },
+    "investigation_flow": {
+      "approved_at": "2026-08-05T17:00:00+00:00",
+      "approver": "human",
+      "note": "Investigation flow and endings layer approved"
+    },
+    "capability_checks": {
+      "approved_at": "2026-08-05T17:10:00+00:00",
+      "approver": "human",
+      "note": "Capability checks layer approved"
+    },
+    "story_player": {
+      "approved_at": "2026-08-06T00:27:00+00:00",
+      "approver": "human",
+      "note": "PLAYER story layer approved"
+    },
+    "playtime": {
+      "approved_at": "2026-08-06T00:35:00+00:00",
+      "approver": "human",
+      "note": "Approved for Pre-Playtest package export despite CONDITIONAL_PASS; no PLAYER trimming authorized"
+    },
+    "dm_feeling": {
+      "approved_at": "2026-08-06T00:35:00+00:00",
+      "approver": "human",
+      "note": "Approved for Pre-Playtest package export despite CONDITIONAL_PASS; Tier C playtest pending"
+    }
   },
   "invalidated_stages": [],
   "model_metadata": {
@@ -85,14 +259,36 @@
   "token_estimates": {},
   "timestamps": {
     "created": "2026-08-05T15:24:12+00:00",
-    "updated": "2026-08-06T00:30:00+00:00",
+    "updated": "2026-08-06T00:42:00+00:00",
     "stage_story_player": "2026-08-06T00:27:00+00:00",
     "stage_playtime": "2026-08-06T00:30:00+00:00",
-    "stage_dm_feeling": "2026-08-06T00:30:00+00:00"
+    "stage_dm_feeling": "2026-08-06T00:30:00+00:00",
+    "stage_final_validation": "2026-08-06T00:42:00+00:00",
+    "stage_package_export": "2026-08-06T00:42:00+00:00"
   },
-  "checkpoint_stage": "dm_feeling",
-  "logic_validation_complete": false,
-  "readiness_status": "AWAITING_APPROVAL",
+  "checkpoint_stage": "package_export",
+  "logic_validation_complete": true,
+  "readiness_status": "PRE_PLAYTEST",
+  "package_status": "PRE_PLAYTEST",
+  "adventure_ready_forbidden": true,
+  "tier_c_pending": true,
+  "actual_playtime_calibration_pending": true,
+  "playtime_estimate": {
+    "status": "unverified_prediction",
+    "source": "playtime_calibration_package",
+    "target_minutes": 120,
+    "expected_investigation_minutes": 163,
+    "shortest_minutes": 81,
+    "broad_exploration_minutes": 211,
+    "note": "Model may overestimate; actual playtime must be measured before rule recalibration. No PLAYER trimming authorized pre-playtest."
+  },
+  "package_export": {
+    "path": "The_Cold_Storage_Alarm.idne",
+    "schema_version": "1.0",
+    "sha256": "61868211e1685c3c0565df8b040a8df3bcb9a6e07255a9ead53f92b28618da49",
+    "exported_at": "2026-08-06T00:42:00+00:00",
+    "integrity_status": "PASS"
+  },
   "player_mapping_manifest": {
     "path": "player_mapping_manifest.json",
     "unit_count": 96
