@@ -19,6 +19,7 @@ from idne.play_modes import PLAY_MODE_SINGLE, normalize_play_modes
 from idne.playtime_validate import validate_playtime
 from idne.single_investigator_validate import load_play_manifest, validate_single_investigator
 from idne.story_validate import validate_story
+from idne.gamebook_validate import validate_gamebook, requires_static_gamebook
 from idne.world_first_validate import load_generation_manifest, validate_world_first
 
 
@@ -140,6 +141,9 @@ def validate_adventure(adventure_root: str | Path) -> IntegratedValidationResult
         ("playtime", validate_playtime, True),
         ("dm_feeling", validate_dm_feeling, True),
     ]
+
+    if requires_static_gamebook(root):
+        validators.append(("gamebook", validate_gamebook, True))
 
     play_manifest = load_play_manifest(root)
     solo_declared = False

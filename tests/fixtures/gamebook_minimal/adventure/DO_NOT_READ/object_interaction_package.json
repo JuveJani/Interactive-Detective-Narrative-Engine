@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "gamebook_minimal",
+  "objects": [],
+  "actions": [
+    {
+      "action_id": "ACT-TO-MIDDLE",
+      "object_id": "OBJ-NONE",
+      "player_label": "Go to the middle section.",
+      "destination_unit": "UNIT-MIDDLE"
+    },
+    {
+      "action_id": "ACT-MIDDLE-CHECK",
+      "object_id": "OBJ-NONE",
+      "player_label": "Attempt the check.",
+      "destination_unit": "UNIT-CHECK-DECL"
+    },
+    {
+      "action_id": "ACT-FINISH",
+      "object_id": "OBJ-NONE",
+      "player_label": "Finish the case.",
+      "destination_unit": "END-DONE"
+    }
+  ],
+  "result_units": [
+    {
+      "unit_id": "UNIT-DOCK-BASE",
+      "return_destination": "UNIT-DOCK-BASE"
+    },
+    {
+      "unit_id": "UNIT-MIDDLE",
+      "return_destination": "UNIT-DOCK-BASE"
+    }
+  ]
+}

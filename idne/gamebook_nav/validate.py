@@ -1,0 +1,206 @@
+"""Validate static gamebook navigation."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any
+
+from idne.gamebook_nav.extract import PlayerUnit, parse_player_units, resolve_manifest_aliases
+from idne.gamebook_nav.constants import DEFAULT_START_UNIT
+from idne.gamebook_nav.graph import UnitNavigation, build_navigation_graph
+
+
+@dataclass
+class GamebookValidationResult:
+    adventure_root: Path
+    status: str  # PASS | FAIL | SKIP
+    errors: list[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
+    checks: dict[str, str] = field(default_factory=dict)
+    findings: list[dict[str, Any]] = field(default_factory=list)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "adventure_root": str(self.adventure_root),
+            "status": self.status,
+            "errors": self.errors,
+            "warnings": self.warnings,
+            "checks": self.checks,
+            "findings": self.findings,
+        }
+
+
+def validate_gamebook_navigation(
+    adventure_root: Path,
+    *,
+    manifest: dict[str, Any] | None = None,
+    player_units: dict[str, PlayerUnit] | None = None,
+    graph: dict[str, UnitNavigation] | None = None,
+    section_map: dict[str, int] | None = None,
+    start_unit_id: str | None = None,
+    gamebook_text: str | None = None,
+) -> GamebookValidationResult:
+    root = Path(adventure_root).resolve()
+    result = GamebookValidationResult(adventure_root=root, status="PASS")
+
+    play_manifest_path = root / "play_manifest.json"
+    if not play_manifest_path.exists():
+        result.status = "SKIP"
+        result.warnings.append("no play_manifest.json")
+        return result
+
+    delivery = {}
+    if manifest is None:
+        import json
+
+        mapping_path = root.parent / "player_mapping_manifest.json"
+        if not mapping_path.exists():
+            mapping_path = root / "player_mapping_manifest.json"
+        if mapping_path.exists():
+            manifest = json.loads(mapping_path.read_text(encoding="utf-8"))
+    if manifest:
+        delivery = manifest.get("static_book", {}) or {}
+        start_unit_id = start_unit_id or delivery.get("start_unit_id")
+        section_map = section_map or manifest.get("public_sections", {})
+        manifest_units = manifest.get("units", {})
+
+    if player_units is None:
+        manifest_units = manifest.get("units", {}) if manifest else {}
+        known = set(manifest_units.keys()) if manifest_units else None
+        player_units = parse_player_units(root / "PLAYER", known)
+        player_units = resolve_manifest_aliases(player_units, manifest_units)
+
+    if graph is None:
+        graph = build_navigation_graph(
+            root,
+            player_units,
+            manifest_units=manifest.get("units") if manifest else None,
+        )
+
+    reachable = set(player_units.keys())
+    if not start_unit_id:
+        start_unit_id = delivery.get("start_unit_id") or DEFAULT_START_UNIT
+
+    # GB-START
+    start_section = section_map.get(start_unit_id) if section_map else None
+    if start_unit_id not in reachable:
+        result.errors.append(f"missing start section unit: {start_unit_id}")
+        result.checks["GB-START"] = "FAIL"
+    elif not start_section:
+        result.errors.append(f"start unit {start_unit_id} has no public section number")
+        result.checks["GB-START"] = "FAIL"
+    else:
+        result.checks["GB-START"] = "PASS"
+
+    if not section_map:
+        result.errors.append("missing public_sections mapping")
+        result.checks["GB-SECTIONS"] = "FAIL"
+    else:
+        nums = list(section_map.values())
+        if len(nums) != len(set(nums)):
+            result.errors.append("duplicate public section numbers")
+            result.checks["GB-DUPLICATE"] = "FAIL"
+        else:
+            result.checks["GB-DUPLICATE"] = "PASS"
+        missing = reachable - set(section_map.keys())
+        extra = set(section_map.keys()) - reachable
+        if missing:
+            result.errors.append(f"unnumbered reachable units: {sorted(missing)[:5]}")
+            result.checks["GB-UNNUMBERED"] = "FAIL"
+        else:
+            result.checks["GB-UNNUMBERED"] = "PASS"
+        if extra:
+            result.warnings.append(f"sections for non-reachable units: {len(extra)}")
+            result.checks["GB-ORPHAN-SECTIONS"] = "FAIL"
+            result.errors.append(f"orphaned public sections: {sorted(extra)[:5]}")
+        else:
+            result.checks["GB-ORPHAN-SECTIONS"] = "PASS"
+        result.checks["GB-SECTIONS"] = "PASS" if not missing else "FAIL"
+
+    # dangling destinations & destinationless choices
+    dangling: list[str] = []
+    destless: list[str] = []
+    check_pairs_missing: list[str] = []
+    referenced_sections: set[int] = set()
+    for uid, nav in graph.items():
+        if uid not in reachable:
+            continue
+        pu = player_units.get(uid)
+        if pu and pu.choices and not nav.choices:
+            destless.append(uid)
+        if not nav.choices and uid.startswith("END-"):
+            continue
+        for edge in nav.choices:
+            if edge.destination_unit_id not in reachable:
+                dangling.append(f"{uid} -> {edge.destination_unit_id} ({edge.label[:40]})")
+            dest_sec = section_map.get(edge.destination_unit_id) if section_map else None
+            if dest_sec is not None:
+                referenced_sections.add(dest_sec)
+            elif section_map:
+                result.errors.append(
+                    f"choice from {uid} references unmapped destination {edge.destination_unit_id}"
+                )
+        if uid.startswith("UNIT-CHK-") or (uid.endswith("-DECL") and "CHK" in uid):
+            kinds = {e.edge_kind for e in nav.choices}
+            if "check_success" not in kinds or "check_failure" not in kinds:
+                check_pairs_missing.append(uid)
+
+    if destless:
+        result.errors.append(f"destinationless choices: {destless[:5]}")
+        result.checks["GB-DESTLESS"] = "FAIL"
+    else:
+        result.checks["GB-DESTLESS"] = "PASS"
+
+    if dangling:
+        result.errors.append(f"dangling destinations: {dangling[:5]}")
+        result.checks["GB-DANGLING"] = "FAIL"
+    else:
+        result.checks["GB-DANGLING"] = "PASS"
+
+    if check_pairs_missing:
+        result.errors.append(f"checks missing success/failure sections: {check_pairs_missing}")
+        result.checks["GB-CHECK-SPLIT"] = "FAIL"
+    else:
+        result.checks["GB-CHECK-SPLIT"] = "PASS"
+
+    if section_map and graph:
+        from collections import deque
+
+        reachable_graph: set[str] = set()
+        if start_unit_id in player_units:
+            q: deque[str] = deque([start_unit_id])
+            reachable_graph = {start_unit_id}
+            while q:
+                cur = q.popleft()
+                for edge in graph.get(cur, UnitNavigation(cur)).choices:
+                    if edge.destination_unit_id in player_units and edge.destination_unit_id not in reachable_graph:
+                        reachable_graph.add(edge.destination_unit_id)
+                        q.append(edge.destination_unit_id)
+        non_terminal = {
+            uid
+            for uid in player_units
+            if not uid.startswith("END-")
+        }
+        unreachable_units = sorted(non_terminal - reachable_graph)
+        if unreachable_units:
+            result.errors.append(
+                f"units unreachable from start via choices: {unreachable_units[:5]}"
+            )
+            result.checks["GB-REACHABILITY"] = "FAIL"
+        else:
+            result.checks["GB-REACHABILITY"] = "PASS"
+
+    if gamebook_text is not None:
+        for uid in reachable:
+            sec = section_map.get(uid)
+            if sec and f"## Section {sec}" not in gamebook_text and f"Section {sec}\n" not in gamebook_text:
+                result.errors.append(f"gamebook missing section {sec} for {uid}")
+                result.checks["GB-BOOK-COVERAGE"] = "FAIL"
+                break
+        else:
+            result.checks["GB-BOOK-COVERAGE"] = "PASS"
+
+    if result.errors:
+        result.status = "FAIL"
+    return result

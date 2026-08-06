@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "gamebook_minimal",
+  "unit_count": 4,
+  "units": {
+    "UNIT-DOCK-BASE": {
+      "file": "PLAYER/PLAY.md",
+      "anchor": "Start",
+      "unit_id": "UNIT-DOCK-BASE"
+    },
+    "UNIT-MIDDLE": {
+      "file": "PLAYER/PLAY.md",
+      "anchor": "Middle",
+      "unit_id": "UNIT-MIDDLE"
+    },
+    "UNIT-CHECK-DECL": {
+      "file": "PLAYER/PLAY.md",
+      "anchor": "Check",
+      "unit_id": "UNIT-CHECK-DECL"
+    },
+    "END-DONE": {
+      "file": "PLAYER/PLAY.md",
+      "anchor": "Done",
+      "unit_id": "END-DONE"
+    }
+  }
+}
