@@ -1,0 +1,585 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Parish_Ledger",
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "npcs": [
+    {
+      "npc_id": "NPC-GRACE",
+      "public_name": "Grace Brennan",
+      "role": "Parish administrator",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-FATHER",
+          "relationship_type": "reports_to"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-FATHER",
+      "public_name": "Father Michael O'Sullivan",
+      "role": "Parish pastor",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-GRACE",
+          "relationship_type": "supervisor"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-HELEN",
+      "public_name": "Helen Marsh",
+      "role": "Volunteer bookkeeper",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-GRACE",
+          "relationship_type": "professional"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-RITA",
+      "public_name": "Rita Santos",
+      "role": "Parish council treasurer",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-GRACE",
+          "relationship_type": "oversight"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    }
+  ],
+  "npc_graph": {
+    "nodes": [
+      "NPC-GRACE",
+      "NPC-FATHER",
+      "NPC-HELEN",
+      "NPC-RITA"
+    ],
+    "edges": [
+      {
+        "from_npc_id": "NPC-GRACE",
+        "to_npc_id": "NPC-FATHER",
+        "relationship_type": "reports_to"
+      },
+      {
+        "from_npc_id": "NPC-FATHER",
+        "to_npc_id": "NPC-GRACE",
+        "relationship_type": "supervisor"
+      },
+      {
+        "from_npc_id": "NPC-HELEN",
+        "to_npc_id": "NPC-GRACE",
+        "relationship_type": "professional"
+      },
+      {
+        "from_npc_id": "NPC-RITA",
+        "to_npc_id": "NPC-GRACE",
+        "relationship_type": "oversight"
+      }
+    ]
+  },
+  "information_known_model": [
+    {
+      "info_id": "INFO-TOPIC-GRACE-RECON",
+      "npc_id": "NPC-GRACE",
+      "knowledge_id": "KNOW-GRACE-RECON",
+      "topic_id": "TOPIC-GRACE-RECON"
+    },
+    {
+      "info_id": "INFO-TOPIC-GRACE-DEPOSIT",
+      "npc_id": "NPC-GRACE",
+      "knowledge_id": "KNOW-GRACE-RECON",
+      "topic_id": "TOPIC-GRACE-DEPOSIT"
+    },
+    {
+      "info_id": "INFO-TOPIC-GRACE-ACCESS",
+      "npc_id": "NPC-GRACE",
+      "knowledge_id": "KNOW-GRACE-RECON",
+      "topic_id": "TOPIC-GRACE-ACCESS"
+    },
+    {
+      "info_id": "INFO-TOPIC-HELEN-FLAG",
+      "npc_id": "NPC-HELEN",
+      "knowledge_id": "KNOW-HELEN-FLAG",
+      "topic_id": "TOPIC-HELEN-FLAG"
+    },
+    {
+      "info_id": "INFO-TOPIC-HELEN-LEDGER",
+      "npc_id": "NPC-HELEN",
+      "knowledge_id": "KNOW-HELEN-FLAG",
+      "topic_id": "TOPIC-HELEN-LEDGER"
+    },
+    {
+      "info_id": "INFO-TOPIC-HELEN-REGISTER",
+      "npc_id": "NPC-HELEN",
+      "knowledge_id": "KNOW-REGISTER-GAP",
+      "topic_id": "TOPIC-HELEN-REGISTER"
+    },
+    {
+      "info_id": "INFO-TOPIC-RITA-MINUTES",
+      "npc_id": "NPC-RITA",
+      "knowledge_id": "KNOW-MINUTES-ALLOC",
+      "topic_id": "TOPIC-RITA-MINUTES"
+    },
+    {
+      "info_id": "INFO-TOPIC-RITA-RECEIPTS",
+      "npc_id": "NPC-RITA",
+      "knowledge_id": "KNOW-RITA-RECEIPTS",
+      "topic_id": "TOPIC-RITA-RECEIPTS"
+    },
+    {
+      "info_id": "INFO-TOPIC-RITA-AUDIT",
+      "npc_id": "NPC-RITA",
+      "knowledge_id": "KNOW-MINUTES-ALLOC",
+      "topic_id": "TOPIC-RITA-AUDIT"
+    },
+    {
+      "info_id": "INFO-TOPIC-FATHER-ASSURED",
+      "npc_id": "NPC-FATHER",
+      "knowledge_id": "KNOW-FATHER-ASSURED",
+      "topic_id": "TOPIC-FATHER-ASSURED"
+    },
+    {
+      "info_id": "INFO-TOPIC-FATHER-MEMORIAL",
+      "npc_id": "NPC-FATHER",
+      "knowledge_id": "KNOW-FATHER-ASSURED",
+      "topic_id": "TOPIC-FATHER-MEMORIAL"
+    },
+    {
+      "info_id": "INFO-TOPIC-FATHER-COUNCIL",
+      "npc_id": "NPC-FATHER",
+      "knowledge_id": "KNOW-FATHER-ASSURED",
+      "topic_id": "TOPIC-FATHER-COUNCIL"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "TOPIC-GRACE-RECON",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-GRACE",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-GRACE-DEPOSIT",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-GRACE",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-GRACE-ACCESS",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-GRACE",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-HELEN-FLAG",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-HELEN",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-HELEN-LEDGER",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-HELEN",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-HELEN-REGISTER",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-HELEN",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-RITA-MINUTES",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-RITA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-RITA-RECEIPTS",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-RITA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-RITA-AUDIT",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-RITA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-FATHER-ASSURED",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-FATHER",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-FATHER-MEMORIAL",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-FATHER",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-FATHER-COUNCIL",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-FATHER",
+          "min": 0
+        }
+      ]
+    }
+  ],
+  "conversation_graph": [
+    {
+      "conversation_id": "CONV-GRACE",
+      "npc_id": "NPC-GRACE",
+      "entry_topic_id": "TOPIC-GRACE-RECON",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-GRACE",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-GRACE-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-GRACE-RECON",
+          "player_label": "Ask about the reconciliation packet.",
+          "npc_response_unit": "UNIT-TOPIC-GRACE-RECON",
+          "grants_knowledge_id": "KNOW-GRACE-RECON",
+          "topic_id": "TOPIC-GRACE-RECON",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-GRACE",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-GRACE-DEPOSIT",
+          "player_label": "Ask about the March 12 deposit batch.",
+          "npc_response_unit": "UNIT-TOPIC-GRACE-DEPOSIT",
+          "grants_knowledge_id": "KNOW-GRACE-RECON",
+          "topic_id": "TOPIC-GRACE-DEPOSIT",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-GRACE",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-GRACE-ACCESS",
+          "player_label": "Ask about after-hours records room access.",
+          "npc_response_unit": "UNIT-TOPIC-GRACE-ACCESS",
+          "grants_knowledge_id": "KNOW-GRACE-RECON",
+          "topic_id": "TOPIC-GRACE-ACCESS",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-GRACE",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-HELEN",
+      "npc_id": "NPC-HELEN",
+      "entry_topic_id": "TOPIC-HELEN-FLAG",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-HELEN",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-HELEN-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-HELEN-FLAG",
+          "player_label": "Ask about the March 10 discrepancy flag.",
+          "npc_response_unit": "UNIT-TOPIC-HELEN-FLAG",
+          "grants_knowledge_id": "KNOW-HELEN-FLAG",
+          "topic_id": "TOPIC-HELEN-FLAG",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-HELEN",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-HELEN-LEDGER",
+          "player_label": "Ask about white-out on ledger page 47.",
+          "npc_response_unit": "UNIT-TOPIC-HELEN-LEDGER",
+          "grants_knowledge_id": "KNOW-HELEN-FLAG",
+          "topic_id": "TOPIC-HELEN-LEDGER",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-HELEN",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-HELEN-REGISTER",
+          "player_label": "Ask about register entries 112-118.",
+          "npc_response_unit": "UNIT-TOPIC-HELEN-REGISTER",
+          "grants_knowledge_id": "KNOW-REGISTER-GAP",
+          "topic_id": "TOPIC-HELEN-REGISTER",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-HELEN",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-RITA",
+      "npc_id": "NPC-RITA",
+      "entry_topic_id": "TOPIC-RITA-MINUTES",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-RITA",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-RITA-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-RITA-MINUTES",
+          "player_label": "Ask about council fund allocation vote.",
+          "npc_response_unit": "UNIT-TOPIC-RITA-MINUTES",
+          "grants_knowledge_id": "KNOW-MINUTES-ALLOC",
+          "topic_id": "TOPIC-RITA-MINUTES",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-RITA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-RITA-RECEIPTS",
+          "player_label": "Ask about duplicate deposit receipts.",
+          "npc_response_unit": "UNIT-TOPIC-RITA-RECEIPTS",
+          "grants_knowledge_id": "KNOW-RITA-RECEIPTS",
+          "topic_id": "TOPIC-RITA-RECEIPTS",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-RITA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-RITA-AUDIT",
+          "player_label": "Ask about diocesan audit requirements.",
+          "npc_response_unit": "UNIT-TOPIC-RITA-AUDIT",
+          "grants_knowledge_id": "KNOW-MINUTES-ALLOC",
+          "topic_id": "TOPIC-RITA-AUDIT",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-RITA",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-FATHER",
+      "npc_id": "NPC-FATHER",
+      "entry_topic_id": "TOPIC-FATHER-ASSURED",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-FATHER",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-FATHER-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-FATHER-ASSURED",
+          "player_label": "Ask what Grace told you about deposits.",
+          "npc_response_unit": "UNIT-TOPIC-FATHER-ASSURED",
+          "grants_knowledge_id": "KNOW-FATHER-ASSURED",
+          "topic_id": "TOPIC-FATHER-ASSURED",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-FATHER",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-FATHER-MEMORIAL",
+          "player_label": "Ask about the memorial fund drive.",
+          "npc_response_unit": "UNIT-TOPIC-FATHER-MEMORIAL",
+          "grants_knowledge_id": "KNOW-FATHER-ASSURED",
+          "topic_id": "TOPIC-FATHER-MEMORIAL",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-FATHER",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-FATHER-COUNCIL",
+          "player_label": "Ask about parish council oversight.",
+          "npc_response_unit": "UNIT-TOPIC-FATHER-COUNCIL",
+          "grants_knowledge_id": "KNOW-FATHER-ASSURED",
+          "topic_id": "TOPIC-FATHER-COUNCIL",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-FATHER",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testimony_links": [],
+  "trust_model": {
+    "default_trust_delta_per_topic": 2
+  }
+}

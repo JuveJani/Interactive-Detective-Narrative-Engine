@@ -1,0 +1,3519 @@
+{
+  "pack_id": "The_Parish_Ledger",
+  "brief": {
+    "working_title": "The Parish Ledger",
+    "premise": "A diocesan finance auditor investigates missing memorial fund donations at a small-town parish, reconstructing the timeline from donation ledgers, bank deposit batches, and parish council meeting minutes.",
+    "setting": "Small-town parish and community center — narthex, parish office, finance records room, community hall, and parish council meeting room",
+    "universe": "real world",
+    "genre": "detective mystery",
+    "realism_level": "grounded contemporary",
+    "player_mode": "single_investigator",
+    "investigator_character": "Diocesan finance auditor appointed by the parish council to reconcile memorial fund records before the annual review",
+    "opening_situation": "You arrive at St. Brendan's parish hall to find parish administrator Grace Brennan waiting with a preliminary reconciliation packet. Volunteer bookkeeper Helen Marsh has flagged ledger entries that do not match bank deposits, and council treasurer Rita Santos says meeting minutes allocate funds differently than the ledger shows.",
+    "initial_observable_facts": [
+      "Memorial fund donation ledger totals $18,400 but bank deposit batch shows $14,200.",
+      "Parish administrator Grace Brennan prepared the reconciliation packet for your review.",
+      "Volunteer bookkeeper Helen Marsh noticed white-out corrections on ledger page 47.",
+      "Parish council treasurer Rita Santos says minutes allocate memorial funds to stained-glass restoration only."
+    ],
+    "target_playtime_minutes": 120,
+    "in_world_duration": "one audit day (approximately four in-world hours)",
+    "tone": "community-centered, methodical, quietly urgent",
+    "difficulty": "standard",
+    "location_scale": "single parish campus with five primary locations",
+    "content_boundaries": "no graphic violence; no supernatural elements; financial fraud and embezzlement themes; no sexual content",
+    "required_themes": [
+      "fair-play mystery",
+      "records and timeline reconstruction",
+      "ledger versus bank deposit reconciliation",
+      "meaningful time pressure",
+      "one perfect ending and several imperfect endings"
+    ],
+    "forbidden_themes": [
+      "supernatural explanations",
+      "theft-primary plots",
+      "magic or occult resolution",
+      "direct narrator solution delivery"
+    ],
+    "deadline_or_constraint": "Diocesan annual review reconciliation due at 1700; parish council meeting at 1800",
+    "author_notes": "Codename: The Parish Ledger. Culprit NPC-GRACE diverted memorial fund deposits and altered ledger entries before audit. Emphasis on donation ledger, bank deposits, and meeting minutes — not object theft."
+  },
+  "fixed_truth": {
+    "culprit_id": "NPC-GRACE",
+    "motive": "Divert memorial fund deposits to cover personal property tax arrears before diocesan audit",
+    "method": "Altered ledger page 47, prepared short deposit batch, and self-signed counter-signature log",
+    "opportunity": "Parish administrator authority, sole after-hours records room access, deposit preparation duties",
+    "immutable_facts": [
+      {
+        "fact_id": "FACT-001",
+        "statement": "Memorial fund ledger records $18,400 in donations for the quarter"
+      },
+      {
+        "fact_id": "FACT-002",
+        "statement": "Bank deposit batch shows only $14,200 credited to the memorial fund account"
+      },
+      {
+        "fact_id": "FACT-003",
+        "statement": "Parish administrator Grace Brennan had sole after-hours access to the records room"
+      },
+      {
+        "fact_id": "FACT-004",
+        "statement": "Grace Brennan altered ledger page 47 with white-out before the audit packet was prepared"
+      },
+      {
+        "fact_id": "FACT-005",
+        "statement": "Bank deposit slip batch dated March 12 shows memorial fund line short by $4,200"
+      },
+      {
+        "fact_id": "FACT-006",
+        "statement": "Parish council minutes allocate memorial fund exclusively to stained-glass restoration"
+      },
+      {
+        "fact_id": "FACT-007",
+        "statement": "Volunteer bookkeeper Helen Marsh flagged discrepancies on March 10"
+      },
+      {
+        "fact_id": "FACT-008",
+        "statement": "Grace Brennan signed deposit batch without required second counter-signature"
+      },
+      {
+        "fact_id": "FACT-009",
+        "statement": "Father Michael O'Sullivan was told memorial fund was fully deposited on March 11"
+      },
+      {
+        "fact_id": "FACT-010",
+        "statement": "Rita Santos requested duplicate deposit receipts but Grace said they were already filed"
+      },
+      {
+        "fact_id": "FACT-011",
+        "statement": "Memorial register entries 112 through 118 do not appear in the bank deposit batch"
+      },
+      {
+        "fact_id": "FACT-012",
+        "statement": "Grace Brennan's badge log shows records room access at 2230 on March 11"
+      },
+      {
+        "fact_id": "FACT-013",
+        "statement": "Grace Brennan faced overdue property tax pressure documented in her office files"
+      },
+      {
+        "fact_id": "FACT-014",
+        "statement": "Counter-signature log shows Grace self-signed as both preparer and verifier"
+      }
+    ],
+    "causal_timeline": {
+      "clock_start": "2026-03-01T09:00:00",
+      "events": [
+        {
+          "event_id": "EVT-001",
+          "timestamp": "2026-03-01T09:00:00",
+          "day_label": "Week 1",
+          "location_id": "LOC-HALL",
+          "description": "Memorial fund drive concludes with $18,400 recorded in ledger",
+          "participants": [
+            "NPC-HELEN"
+          ],
+          "causes": [],
+          "reveals_facts": [
+            "FACT-001"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-002",
+          "timestamp": "2026-03-10T14:00:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-RECORDS",
+          "description": "Helen Marsh notices white-out on ledger page 47",
+          "participants": [
+            "NPC-HELEN"
+          ],
+          "causes": [
+            "EVT-001"
+          ],
+          "reveals_facts": [
+            "FACT-004",
+            "FACT-007"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-003",
+          "timestamp": "2026-03-11T10:00:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-OFFICE",
+          "description": "Grace tells Father Michael memorial fund was fully deposited",
+          "participants": [
+            "NPC-GRACE",
+            "NPC-FATHER"
+          ],
+          "causes": [],
+          "reveals_facts": [
+            "FACT-009"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-004",
+          "timestamp": "2026-03-11T22:30:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-RECORDS",
+          "description": "Grace accesses records room and alters ledger page 47",
+          "participants": [
+            "NPC-GRACE"
+          ],
+          "causes": [
+            "EVT-002"
+          ],
+          "reveals_facts": [
+            "FACT-003",
+            "FACT-004",
+            "FACT-012"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-005",
+          "timestamp": "2026-03-12T08:00:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-OFFICE",
+          "description": "Grace prepares bank deposit batch with memorial fund shortfall",
+          "participants": [
+            "NPC-GRACE"
+          ],
+          "causes": [
+            "EVT-004"
+          ],
+          "reveals_facts": [
+            "FACT-005",
+            "FACT-008",
+            "FACT-014"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-006",
+          "timestamp": "2026-03-12T09:30:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-OFFICE",
+          "description": "Rita Santos requests duplicate deposit receipts",
+          "participants": [
+            "NPC-RITA",
+            "NPC-GRACE"
+          ],
+          "causes": [
+            "EVT-005"
+          ],
+          "reveals_facts": [
+            "FACT-010"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-007",
+          "timestamp": "2026-03-13T11:00:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-COUNCIL",
+          "description": "Council minutes confirm stained-glass-only allocation for memorial fund",
+          "participants": [
+            "NPC-RITA"
+          ],
+          "causes": [],
+          "reveals_facts": [
+            "FACT-006"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-008",
+          "timestamp": "2026-03-14T08:00:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-RECORDS",
+          "description": "Helen cross-references register entries 112-118 against deposit batch",
+          "participants": [
+            "NPC-HELEN"
+          ],
+          "causes": [
+            "EVT-005"
+          ],
+          "reveals_facts": [
+            "FACT-011"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-009",
+          "timestamp": "2026-03-14T09:00:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-NARTHEX",
+          "description": "Diocesan finance auditor arrives for reconciliation review",
+          "participants": [
+            "PC-AUDITOR"
+          ],
+          "causes": [
+            "EVT-008"
+          ],
+          "reveals_facts": [],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-010",
+          "timestamp": "2026-03-14T10:30:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-RECORDS",
+          "description": "Records room terminal syncs bank deposit images to auditor tablet",
+          "participants": [],
+          "causes": [
+            "EVT-009"
+          ],
+          "reveals_facts": [],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-011",
+          "timestamp": "2026-03-14T12:00:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-COUNCIL",
+          "description": "Rita Santos shares council minutes with auditor",
+          "participants": [
+            "NPC-RITA"
+          ],
+          "causes": [
+            "EVT-009"
+          ],
+          "reveals_facts": [
+            "FACT-006"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-012",
+          "timestamp": "2026-03-14T14:00:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-OFFICE",
+          "description": "Helen shares register cross-reference findings with auditor",
+          "participants": [
+            "NPC-HELEN"
+          ],
+          "causes": [
+            "EVT-010"
+          ],
+          "reveals_facts": [
+            "FACT-002",
+            "FACT-011"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-013",
+          "timestamp": "2026-03-14T17:00:00",
+          "day_label": "Week 2",
+          "location_id": "LOC-NARTHEX",
+          "description": "Diocesan annual review reconciliation deadline",
+          "participants": [],
+          "causes": [
+            "EVT-009"
+          ],
+          "reveals_facts": [],
+          "effects": []
+        }
+      ]
+    },
+    "world_state_timeline": {
+      "snapshots": [
+        {
+          "at_event_id": "EVT-005",
+          "people_locations": {
+            "NPC-GRACE": "LOC-OFFICE"
+          },
+          "object_states": {
+            "OBJ-DEPOSIT-BATCH": "prepared_short"
+          },
+          "access_states": {
+            "LOC-RECORDS": "restricted"
+          },
+          "evidence_conditions": {}
+        },
+        {
+          "at_event_id": "EVT-009",
+          "people_locations": {
+            "PC-AUDITOR": "LOC-NARTHEX"
+          },
+          "object_states": {
+            "OBJ-DONATION-LEDGER": "under_review"
+          },
+          "access_states": {
+            "LOC-NARTHEX": "open"
+          },
+          "evidence_conditions": {}
+        },
+        {
+          "at_event_id": "EVT-010",
+          "people_locations": {},
+          "object_states": {
+            "OBJ-BANK-DEPOSITS": "sync_complete"
+          },
+          "access_states": {
+            "LOC-RECORDS": "records_available"
+          },
+          "evidence_conditions": {}
+        }
+      ]
+    },
+    "npc_knowledge": {
+      "npcs": [
+        {
+          "npc_id": "NPC-GRACE",
+          "knows": [
+            "FACT-003",
+            "FACT-004",
+            "FACT-005",
+            "FACT-008",
+            "FACT-014"
+          ],
+          "believes_incorrectly": [],
+          "witnessed_events": [
+            "EVT-003",
+            "EVT-004",
+            "EVT-005",
+            "EVT-006"
+          ],
+          "hides": [
+            "FACT-004",
+            "FACT-005",
+            "FACT-008",
+            "FACT-012",
+            "FACT-014"
+          ],
+          "behavior_rationale": "Conceals ledger alterations and deposit diversion to avoid diocesan discipline"
+        },
+        {
+          "npc_id": "NPC-HELEN",
+          "knows": [
+            "FACT-001",
+            "FACT-004",
+            "FACT-007",
+            "FACT-011"
+          ],
+          "believes_incorrectly": [],
+          "witnessed_events": [
+            "EVT-001",
+            "EVT-002",
+            "EVT-008",
+            "EVT-012"
+          ],
+          "hides": [],
+          "behavior_rationale": "Cooperative volunteer bookkeeper who trusts written records over administrator assurances"
+        },
+        {
+          "npc_id": "NPC-RITA",
+          "knows": [
+            "FACT-006",
+            "FACT-010"
+          ],
+          "believes_incorrectly": [],
+          "witnessed_events": [
+            "EVT-006",
+            "EVT-007",
+            "EVT-011"
+          ],
+          "hides": [],
+          "behavior_rationale": "Council treasurer focused on proper fund allocation per meeting minutes"
+        },
+        {
+          "npc_id": "NPC-FATHER",
+          "knows": [
+            "FACT-009"
+          ],
+          "believes_incorrectly": [
+            {
+              "belief_fact_id": "FACT-009",
+              "actual_fact_id": "FACT-002",
+              "cause": "Accepted Grace Brennan's assurance that deposits were complete"
+            }
+          ],
+          "witnessed_events": [
+            "EVT-003"
+          ],
+          "hides": [],
+          "behavior_rationale": "Pastor relied on administrator without verifying bank reconciliation"
+        }
+      ]
+    },
+    "evidence_provenance": {
+      "evidence": [
+        {
+          "evidence_id": "EVD-DONATION-LEDGER",
+          "source_event_id": "EVT-001",
+          "type": "document",
+          "description": "Memorial fund donation ledger with page 47 alterations",
+          "establishes_fact_ids": [
+            "FACT-001",
+            "FACT-004"
+          ],
+          "misleading": true,
+          "misleading_cause": "White-out corrections mask diverted entries"
+        },
+        {
+          "evidence_id": "EVD-DEPOSIT-BATCH",
+          "source_event_id": "EVT-005",
+          "type": "document",
+          "description": "Bank deposit slip batch dated March 12",
+          "establishes_fact_ids": [
+            "FACT-002",
+            "FACT-005",
+            "FACT-008"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        },
+        {
+          "evidence_id": "EVD-COUNCIL-MINUTES",
+          "source_event_id": "EVT-007",
+          "type": "document",
+          "description": "Parish council meeting minutes on memorial fund allocation",
+          "establishes_fact_ids": [
+            "FACT-006"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        },
+        {
+          "evidence_id": "EVD-MEMORIAL-REGISTER",
+          "source_event_id": "EVT-008",
+          "type": "document",
+          "description": "Memorial register entries 112 through 118",
+          "establishes_fact_ids": [
+            "FACT-011"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        },
+        {
+          "evidence_id": "EVD-COUNTER-SIGN",
+          "source_event_id": "EVT-005",
+          "type": "document",
+          "description": "Counter-signature log for deposit batch",
+          "establishes_fact_ids": [
+            "FACT-014"
+          ],
+          "misleading": true,
+          "misleading_cause": "Shows Grace as both preparer and verifier"
+        },
+        {
+          "evidence_id": "EVD-BADGE-LOG",
+          "source_event_id": "EVT-004",
+          "type": "document",
+          "description": "Records room badge access log",
+          "establishes_fact_ids": [
+            "FACT-012",
+            "FACT-003"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        }
+      ]
+    },
+    "observable_information": {
+      "observations": [
+        {
+          "observation_id": "OBS-LEDGER-PAGE",
+          "learnable_fact_id": "FACT-004",
+          "source_evidence_id": "EVD-DONATION-LEDGER",
+          "requires": {
+            "action": "inspect",
+            "location_id": "LOC-RECORDS",
+            "check_id": "CHK-LEDGER"
+          },
+          "hidden_if_not_met": true
+        },
+        {
+          "observation_id": "OBS-DEPOSIT-SHORT",
+          "learnable_fact_id": "FACT-005",
+          "source_evidence_id": "EVD-DEPOSIT-BATCH",
+          "requires": {
+            "action": "inspect",
+            "location_id": "LOC-RECORDS",
+            "check_id": "CHK-DEPOSIT"
+          },
+          "hidden_if_not_met": true
+        },
+        {
+          "observation_id": "OBS-MINUTES-ALLOC",
+          "learnable_fact_id": "FACT-006",
+          "source_evidence_id": "EVD-COUNCIL-MINUTES",
+          "requires": {
+            "action": "inspect",
+            "location_id": "LOC-COUNCIL",
+            "check_id": "CHK-MINUTES"
+          },
+          "hidden_if_not_met": true
+        }
+      ]
+    },
+    "conclusion_requirements": {
+      "questions": [
+        {
+          "question_id": "Q-CULPRIT",
+          "answer_entity_id": "NPC-GRACE",
+          "required_fact_ids": [
+            "FACT-004",
+            "FACT-005",
+            "FACT-008",
+            "FACT-014"
+          ]
+        },
+        {
+          "question_id": "Q-METHOD",
+          "answer_entity_id": "METHOD-EMBEZZLEMENT",
+          "required_fact_ids": [
+            "FACT-004",
+            "FACT-005",
+            "FACT-014"
+          ]
+        }
+      ]
+    },
+    "ending_claims": [
+      {
+        "ending_id": "END-PERFECT",
+        "asserted_fact_ids": [
+          "FACT-004",
+          "FACT-005",
+          "FACT-008",
+          "FACT-014"
+        ]
+      },
+      {
+        "ending_id": "END-TIMEOUT",
+        "asserted_fact_ids": []
+      }
+    ]
+  },
+  "locations": [
+    {
+      "location_id": "LOC-NARTHEX",
+      "public_name": "Parish narthex",
+      "start_location": true,
+      "hub_unit_id": "UNIT-NARTHEX-BASE",
+      "parent_location_id": null,
+      "location_type": "parish_entrance",
+      "description_source": "DESC-NARTHEX",
+      "default_attributes": {
+        "access": "open"
+      }
+    },
+    {
+      "location_id": "LOC-OFFICE",
+      "public_name": "Parish office",
+      "hub_unit_id": "UNIT-OFFICE-BASE",
+      "parent_location_id": "LOC-NARTHEX",
+      "location_type": "administrative_office",
+      "description_source": "DESC-OFFICE",
+      "default_attributes": {
+        "access": "open"
+      }
+    },
+    {
+      "location_id": "LOC-RECORDS",
+      "public_name": "Finance records room",
+      "hub_unit_id": "UNIT-RECORDS-BASE",
+      "parent_location_id": "LOC-NARTHEX",
+      "location_type": "records_room",
+      "description_source": "DESC-RECORDS",
+      "default_attributes": {
+        "access": "restricted"
+      }
+    },
+    {
+      "location_id": "LOC-HALL",
+      "public_name": "Community center hall",
+      "hub_unit_id": "UNIT-HALL-BASE",
+      "parent_location_id": "LOC-NARTHEX",
+      "location_type": "community_hall",
+      "description_source": "DESC-HALL",
+      "default_attributes": {
+        "access": "open"
+      }
+    },
+    {
+      "location_id": "LOC-COUNCIL",
+      "public_name": "Parish council meeting room",
+      "hub_unit_id": "UNIT-COUNCIL-BASE",
+      "parent_location_id": "LOC-NARTHEX",
+      "location_type": "meeting_room",
+      "description_source": "DESC-COUNCIL",
+      "default_attributes": {
+        "access": "open"
+      }
+    }
+  ],
+  "location_states": [
+    {
+      "state_id": "LOC-NARTHEX:default",
+      "location_id": "LOC-NARTHEX",
+      "variant_label": "audit_start",
+      "attributes": {
+        "access": "open",
+        "audit_in_progress": true
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-009"
+      }
+    },
+    {
+      "state_id": "LOC-RECORDS:deposit_sync",
+      "location_id": "LOC-RECORDS",
+      "variant_label": "deposit_synced",
+      "attributes": {
+        "deposit_sync": "complete"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-010"
+      }
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "FEAT-LEDGER-PAGE47",
+      "location_id": "LOC-RECORDS",
+      "label": "Altered ledger page 47",
+      "object_ref": "OBJ-DONATION-LEDGER"
+    },
+    {
+      "feature_id": "FEAT-DEPOSIT-BATCH",
+      "location_id": "LOC-RECORDS",
+      "label": "Bank deposit slip batch",
+      "object_ref": "OBJ-BANK-DEPOSITS"
+    }
+  ],
+  "navigation": [
+    {
+      "edge_id": "NAV-NARTHEX-OFFICE",
+      "from_location_id": "LOC-NARTHEX",
+      "to_location_id": "LOC-OFFICE",
+      "direction_label": "Walk to the parish office",
+      "time_cost_minutes": 2
+    },
+    {
+      "edge_id": "NAV-NARTHEX-RECORDS",
+      "from_location_id": "LOC-NARTHEX",
+      "to_location_id": "LOC-RECORDS",
+      "direction_label": "Enter the finance records room",
+      "time_cost_minutes": 3
+    },
+    {
+      "edge_id": "NAV-NARTHEX-HALL",
+      "from_location_id": "LOC-NARTHEX",
+      "to_location_id": "LOC-HALL",
+      "direction_label": "Go to the community center hall",
+      "time_cost_minutes": 2
+    },
+    {
+      "edge_id": "NAV-NARTHEX-COUNCIL",
+      "from_location_id": "LOC-NARTHEX",
+      "to_location_id": "LOC-COUNCIL",
+      "direction_label": "Proceed to the council meeting room",
+      "time_cost_minutes": 2
+    },
+    {
+      "edge_id": "NAV-OFFICE-NARTHEX",
+      "from_location_id": "LOC-OFFICE",
+      "to_location_id": "LOC-NARTHEX",
+      "direction_label": "Return to the narthex",
+      "time_cost_minutes": 2
+    },
+    {
+      "edge_id": "NAV-RECORDS-NARTHEX",
+      "from_location_id": "LOC-RECORDS",
+      "to_location_id": "LOC-NARTHEX",
+      "direction_label": "Return to the narthex",
+      "time_cost_minutes": 3
+    },
+    {
+      "edge_id": "NAV-HALL-NARTHEX",
+      "from_location_id": "LOC-HALL",
+      "to_location_id": "LOC-NARTHEX",
+      "direction_label": "Return to the narthex",
+      "time_cost_minutes": 2
+    },
+    {
+      "edge_id": "NAV-COUNCIL-NARTHEX",
+      "from_location_id": "LOC-COUNCIL",
+      "to_location_id": "LOC-NARTHEX",
+      "direction_label": "Return to the narthex",
+      "time_cost_minutes": 2
+    }
+  ],
+  "npcs": [
+    {
+      "npc_id": "NPC-GRACE",
+      "public_name": "Grace Brennan",
+      "role": "Parish administrator",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-FATHER",
+          "relationship_type": "reports_to"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-FATHER",
+      "public_name": "Father Michael O'Sullivan",
+      "role": "Parish pastor",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-GRACE",
+          "relationship_type": "supervisor"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-HELEN",
+      "public_name": "Helen Marsh",
+      "role": "Volunteer bookkeeper",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-GRACE",
+          "relationship_type": "professional"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-RITA",
+      "public_name": "Rita Santos",
+      "role": "Parish council treasurer",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-GRACE",
+          "relationship_type": "oversight"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "object_id": "OBJ-DONATION-LEDGER",
+      "public_name": "Memorial fund donation ledger",
+      "location_id": "LOC-RECORDS",
+      "interaction_type": "document"
+    },
+    {
+      "object_id": "OBJ-BANK-DEPOSITS",
+      "public_name": "Bank deposit slip batch",
+      "location_id": "LOC-RECORDS",
+      "interaction_type": "document"
+    },
+    {
+      "object_id": "OBJ-MEMORIAL-REGISTER",
+      "public_name": "Memorial register",
+      "location_id": "LOC-RECORDS",
+      "interaction_type": "document"
+    },
+    {
+      "object_id": "OBJ-COUNCIL-MINUTES",
+      "public_name": "Parish council meeting minutes",
+      "location_id": "LOC-COUNCIL",
+      "interaction_type": "document"
+    },
+    {
+      "object_id": "OBJ-COUNTER-SIGN",
+      "public_name": "Counter-signature log",
+      "location_id": "LOC-OFFICE",
+      "interaction_type": "document"
+    },
+    {
+      "object_id": "OBJ-BADGE-LOG",
+      "public_name": "Records room badge access log",
+      "location_id": "LOC-OFFICE",
+      "interaction_type": "document"
+    }
+  ],
+  "knowledge": {
+    "facts": [
+      {
+        "fact_id": "FACT-001",
+        "statement": "Memorial fund ledger records $18,400 in donations for the quarter",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-002",
+        "statement": "Bank deposit batch shows only $14,200 credited to the memorial fund account",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-003",
+        "statement": "Parish administrator Grace Brennan had sole after-hours access to the records room",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-004",
+        "statement": "Grace Brennan altered ledger page 47 with white-out before the audit packet was prepared",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-005",
+        "statement": "Bank deposit slip batch dated March 12 shows memorial fund line short by $4,200",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-006",
+        "statement": "Parish council minutes allocate memorial fund exclusively to stained-glass restoration",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-007",
+        "statement": "Volunteer bookkeeper Helen Marsh flagged discrepancies on March 10",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-008",
+        "statement": "Grace Brennan signed deposit batch without required second counter-signature",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-009",
+        "statement": "Father Michael O'Sullivan was told memorial fund was fully deposited on March 11",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-010",
+        "statement": "Rita Santos requested duplicate deposit receipts but Grace said they were already filed",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-011",
+        "statement": "Memorial register entries 112 through 118 do not appear in the bank deposit batch",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-012",
+        "statement": "Grace Brennan's badge log shows records room access at 2230 on March 11",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-013",
+        "statement": "Grace Brennan faced overdue property tax pressure documented in her office files",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-014",
+        "statement": "Counter-signature log shows Grace self-signed as both preparer and verifier",
+        "immutable": true
+      }
+    ],
+    "observations": [
+      {
+        "observation_id": "OBS-LEDGER-WHITEOUT",
+        "description": "White-out corrections on ledger page 47",
+        "establishes_knowledge_id": "KNOW-LEDGER-ALTER"
+      },
+      {
+        "observation_id": "OBS-DEPOSIT-LINE",
+        "description": "Memorial fund deposit line short by $4,200",
+        "establishes_knowledge_id": "KNOW-DEPOSIT-SHORT"
+      },
+      {
+        "observation_id": "OBS-MINUTES-VOTE",
+        "description": "Council vote restricts fund allocation",
+        "establishes_knowledge_id": "KNOW-MINUTES-ALLOC"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "EVD-DONATION-LEDGER",
+        "name": "Donation ledger",
+        "location_id": "LOC-RECORDS"
+      },
+      {
+        "evidence_id": "EVD-DEPOSIT-BATCH",
+        "name": "Bank deposit batch",
+        "location_id": "LOC-RECORDS"
+      },
+      {
+        "evidence_id": "EVD-MEMORIAL-REGISTER",
+        "name": "Memorial register",
+        "location_id": "LOC-RECORDS"
+      },
+      {
+        "evidence_id": "EVD-COUNCIL-MINUTES",
+        "name": "Council minutes",
+        "location_id": "LOC-COUNCIL"
+      },
+      {
+        "evidence_id": "EVD-COUNTER-SIGN",
+        "name": "Counter-signature log",
+        "location_id": "LOC-OFFICE"
+      },
+      {
+        "evidence_id": "EVD-BADGE-LOG",
+        "name": "Badge access log",
+        "location_id": "LOC-OFFICE"
+      }
+    ],
+    "testimony": [
+      {
+        "testimony_id": "TEST-HELEN-FLAG",
+        "npc_id": "NPC-HELEN",
+        "summary": "Flagged discrepancies March 10",
+        "grants_knowledge_id": "KNOW-HELEN-FLAG"
+      },
+      {
+        "testimony_id": "TEST-RITA-RECEIPTS",
+        "npc_id": "NPC-RITA",
+        "summary": "Requested duplicate receipts",
+        "grants_knowledge_id": "KNOW-RITA-RECEIPTS"
+      },
+      {
+        "testimony_id": "TEST-FATHER-ASSURED",
+        "npc_id": "NPC-FATHER",
+        "summary": "Told deposits complete",
+        "grants_knowledge_id": "KNOW-FATHER-ASSURED"
+      },
+      {
+        "testimony_id": "TEST-GRACE-RECON",
+        "npc_id": "NPC-GRACE",
+        "summary": "Claims timing adjustments",
+        "grants_knowledge_id": "KNOW-GRACE-RECON"
+      }
+    ],
+    "knowledge_items": [
+      {
+        "knowledge_id": "KNOW-OPEN-01",
+        "summary": "Memorial fund ledger totals $18,400 but bank batch shows $14,200",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-OPEN-02",
+        "summary": "Volunteer bookkeeper Helen Marsh flagged white-out on ledger page 47",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-OPEN-03",
+        "summary": "Parish administrator Grace Brennan prepared the reconciliation packet",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-OPEN-04",
+        "summary": "Diocesan annual review reconciliation due at 1700 today",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-LEDGER-ALTER",
+        "summary": "White-out corrections on page 47 mask reallocated donation entries",
+        "source_type": "document",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-004"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-DEPOSIT-SHORT",
+        "summary": "March 12 deposit batch credits only $14,200 to memorial fund account",
+        "source_type": "document",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-002",
+          "FACT-005"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-REGISTER-GAP",
+        "summary": "Register entries 112-118 have no matching deposit line items",
+        "source_type": "document",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-011"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-MINUTES-ALLOC",
+        "summary": "Council minutes restrict memorial fund to stained-glass restoration only",
+        "source_type": "document",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-006"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-COUNTER-SIGN",
+        "summary": "Grace Brennan signed as both preparer and verifier on deposit batch",
+        "source_type": "document",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-008",
+          "FACT-014"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-BADGE-ACCESS",
+        "summary": "Grace Brennan accessed records room at 2230 on March 11",
+        "source_type": "document",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-012",
+          "FACT-003"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-HELEN-FLAG",
+        "summary": "Helen Marsh flagged discrepancies on March 10 before audit packet",
+        "source_type": "testimony",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-007"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-RITA-RECEIPTS",
+        "summary": "Rita Santos requested duplicate deposit receipts Grace said were filed",
+        "source_type": "testimony",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-010"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-FATHER-ASSURED",
+        "summary": "Father Michael was told deposits were complete on March 11",
+        "source_type": "testimony",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-009"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-GRACE-RECON",
+        "summary": "Grace claims ledger and bank totals reconcile after timing adjustments",
+        "source_type": "testimony",
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-RECORDS-CONTRADICT",
+        "summary": "Ledger entries, bank deposits, and meeting minutes do not align",
+        "source_type": "inference",
+        "tier": "C"
+      },
+      {
+        "knowledge_id": "KNOW-GRACE-EMBEZZLE",
+        "summary": "Evidence supports Grace Brennan diverted deposits and altered records",
+        "source_type": "inference",
+        "tier": "C"
+      },
+      {
+        "knowledge_id": "KNOW-PERFECT-RECON",
+        "summary": "Full reconstruction: altered ledger, short deposit batch, self-signed counter-signature",
+        "source_type": "inference",
+        "tier": "C"
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis_id": "HYP-RECORDS-CONFLICT",
+        "statement": "Ledger, bank deposits, and minutes tell different stories",
+        "related_knowledge_ids": [
+          "KNOW-LEDGER-ALTER",
+          "KNOW-DEPOSIT-SHORT",
+          "KNOW-MINUTES-ALLOC"
+        ],
+        "yields_knowledge_id": "KNOW-RECORDS-CONTRADICT"
+      },
+      {
+        "hypothesis_id": "HYP-DIVERSION",
+        "statement": "Missing deposits were diverted before bank credit",
+        "related_knowledge_ids": [
+          "KNOW-DEPOSIT-SHORT",
+          "KNOW-REGISTER-GAP",
+          "KNOW-COUNTER-SIGN"
+        ],
+        "yields_knowledge_id": "KNOW-GRACE-EMBEZZLE"
+      },
+      {
+        "hypothesis_id": "HYP-GRACE-ACCOUNTABLE",
+        "statement": "Parish administrator had opportunity to alter records",
+        "related_knowledge_ids": [
+          "KNOW-BADGE-ACCESS",
+          "KNOW-COUNTER-SIGN",
+          "KNOW-GRACE-RECON"
+        ],
+        "yields_knowledge_id": "KNOW-GRACE-EMBEZZLE"
+      },
+      {
+        "hypothesis_id": "HYP-PERFECT-RECON",
+        "statement": "Full records reconstruction resolves the discrepancy",
+        "related_knowledge_ids": [
+          "KNOW-RECORDS-CONTRADICT",
+          "KNOW-GRACE-EMBEZZLE",
+          "KNOW-PERFECT-RECON"
+        ],
+        "yields_knowledge_id": "KNOW-PERFECT-RECON"
+      }
+    ],
+    "conclusions": [
+      {
+        "conclusion_id": "CONC-WHO",
+        "question": "Who altered records and diverted memorial fund deposits?",
+        "correct_answer": "NPC-GRACE"
+      },
+      {
+        "conclusion_id": "CONC-WHAT",
+        "question": "What happened to the missing $4,200?",
+        "correct_answer": "Deposits were diverted before bank credit while ledger was altered to hide the shortfall"
+      },
+      {
+        "conclusion_id": "CONC-HOW",
+        "question": "How was the fraud executed?",
+        "correct_answer": "Ledger page 47 altered, short deposit batch prepared, counter-signature self-signed"
+      },
+      {
+        "conclusion_id": "CONC-WHEN",
+        "question": "When were records altered?",
+        "correct_answer": "After hours March 11, deposit batch prepared March 12 morning"
+      }
+    ],
+    "proofs": [
+      {
+        "proof_id": "PROOF-WHO",
+        "conclusion_id": "CONC-WHO",
+        "required_knowledge_ids": [
+          "KNOW-PERFECT-RECON",
+          "KNOW-GRACE-EMBEZZLE",
+          "KNOW-RECORDS-CONTRADICT"
+        ]
+      },
+      {
+        "proof_id": "PROOF-WHAT",
+        "conclusion_id": "CONC-WHAT",
+        "required_knowledge_ids": [
+          "KNOW-DEPOSIT-SHORT",
+          "KNOW-REGISTER-GAP",
+          "KNOW-LEDGER-ALTER"
+        ]
+      },
+      {
+        "proof_id": "PROOF-HOW",
+        "conclusion_id": "CONC-HOW",
+        "required_knowledge_ids": [
+          "KNOW-COUNTER-SIGN",
+          "KNOW-LEDGER-ALTER",
+          "KNOW-BADGE-ACCESS"
+        ]
+      },
+      {
+        "proof_id": "PROOF-WHEN",
+        "conclusion_id": "CONC-WHEN",
+        "required_knowledge_ids": [
+          "KNOW-BADGE-ACCESS",
+          "KNOW-HELEN-FLAG"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "relationship_id": "REL-GRACE-FATHER",
+        "from_entity": "NPC-GRACE",
+        "to_entity": "NPC-FATHER",
+        "relationship_type": "administrator_to_pastor"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "conversation_id": "CONV-GRACE",
+      "npc_id": "NPC-GRACE",
+      "hub_unit_id": "UNIT-NPC-GRACE-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-GRACE-RECON",
+          "player_label": "Ask about the reconciliation packet.",
+          "response_unit_id": "UNIT-TOPIC-GRACE-RECON",
+          "grants_knowledge_id": "KNOW-GRACE-RECON",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-GRACE-DEPOSIT",
+          "player_label": "Ask about the March 12 deposit batch.",
+          "response_unit_id": "UNIT-TOPIC-GRACE-DEPOSIT",
+          "grants_knowledge_id": "KNOW-GRACE-RECON",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-GRACE-ACCESS",
+          "player_label": "Ask about after-hours records room access.",
+          "response_unit_id": "UNIT-TOPIC-GRACE-ACCESS",
+          "grants_knowledge_id": "KNOW-GRACE-RECON",
+          "time_cost_minutes": 2
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-HELEN",
+      "npc_id": "NPC-HELEN",
+      "hub_unit_id": "UNIT-NPC-HELEN-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-HELEN-FLAG",
+          "player_label": "Ask about the March 10 discrepancy flag.",
+          "response_unit_id": "UNIT-TOPIC-HELEN-FLAG",
+          "grants_knowledge_id": "KNOW-HELEN-FLAG",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-HELEN-LEDGER",
+          "player_label": "Ask about white-out on ledger page 47.",
+          "response_unit_id": "UNIT-TOPIC-HELEN-LEDGER",
+          "grants_knowledge_id": "KNOW-HELEN-FLAG",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-HELEN-REGISTER",
+          "player_label": "Ask about register entries 112-118.",
+          "response_unit_id": "UNIT-TOPIC-HELEN-REGISTER",
+          "grants_knowledge_id": "KNOW-REGISTER-GAP",
+          "time_cost_minutes": 2
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-RITA",
+      "npc_id": "NPC-RITA",
+      "hub_unit_id": "UNIT-NPC-RITA-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-RITA-MINUTES",
+          "player_label": "Ask about council fund allocation vote.",
+          "response_unit_id": "UNIT-TOPIC-RITA-MINUTES",
+          "grants_knowledge_id": "KNOW-MINUTES-ALLOC",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-RITA-RECEIPTS",
+          "player_label": "Ask about duplicate deposit receipts.",
+          "response_unit_id": "UNIT-TOPIC-RITA-RECEIPTS",
+          "grants_knowledge_id": "KNOW-RITA-RECEIPTS",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-RITA-AUDIT",
+          "player_label": "Ask about diocesan audit requirements.",
+          "response_unit_id": "UNIT-TOPIC-RITA-AUDIT",
+          "grants_knowledge_id": "KNOW-MINUTES-ALLOC",
+          "time_cost_minutes": 2
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-FATHER",
+      "npc_id": "NPC-FATHER",
+      "hub_unit_id": "UNIT-NPC-FATHER-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-FATHER-ASSURED",
+          "player_label": "Ask what Grace told you about deposits.",
+          "response_unit_id": "UNIT-TOPIC-FATHER-ASSURED",
+          "grants_knowledge_id": "KNOW-FATHER-ASSURED",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-FATHER-MEMORIAL",
+          "player_label": "Ask about the memorial fund drive.",
+          "response_unit_id": "UNIT-TOPIC-FATHER-MEMORIAL",
+          "grants_knowledge_id": "KNOW-FATHER-ASSURED",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-FATHER-COUNCIL",
+          "player_label": "Ask about parish council oversight.",
+          "response_unit_id": "UNIT-TOPIC-FATHER-COUNCIL",
+          "grants_knowledge_id": "KNOW-FATHER-ASSURED",
+          "time_cost_minutes": 2
+        }
+      ]
+    }
+  ],
+  "object_actions": [
+    {
+      "action_id": "ACT-DONATION-LEDGER",
+      "object_id": "OBJ-DONATION-LEDGER",
+      "menu_unit_id": "UNIT-CHK-LEDGER-DECL",
+      "check_id": "CHK-LEDGER"
+    },
+    {
+      "action_id": "ACT-BANK-DEPOSITS",
+      "object_id": "OBJ-BANK-DEPOSITS",
+      "menu_unit_id": "UNIT-CHK-DEPOSIT-DECL",
+      "check_id": "CHK-DEPOSIT"
+    },
+    {
+      "action_id": "ACT-COUNCIL-MINUTES",
+      "object_id": "OBJ-COUNCIL-MINUTES",
+      "menu_unit_id": "UNIT-CHK-MINUTES-DECL",
+      "check_id": "CHK-MINUTES"
+    },
+    {
+      "action_id": "ACT-MEMORIAL-REGISTER",
+      "object_id": "OBJ-MEMORIAL-REGISTER",
+      "menu_unit_id": "UNIT-OBJ-REGISTER-MENU",
+      "result_unit_id": "UNIT-OBJ-REGISTER-RESULT",
+      "grants_knowledge_ids": [
+        "KNOW-REGISTER-GAP"
+      ]
+    },
+    {
+      "action_id": "ACT-COUNTER-SIGN",
+      "object_id": "OBJ-COUNTER-SIGN",
+      "menu_unit_id": "UNIT-OBJ-COUNTER-MENU",
+      "result_unit_id": "UNIT-OBJ-COUNTER-RESULT",
+      "grants_knowledge_ids": [
+        "KNOW-COUNTER-SIGN"
+      ]
+    },
+    {
+      "action_id": "ACT-BADGE-LOG",
+      "object_id": "OBJ-BADGE-LOG",
+      "menu_unit_id": "UNIT-OBJ-BADGE-MENU",
+      "result_unit_id": "UNIT-OBJ-BADGE-RESULT",
+      "grants_knowledge_ids": [
+        "KNOW-BADGE-ACCESS"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "CHK-LEDGER",
+      "declaration_unit_id": "UNIT-CHK-LEDGER-DECL",
+      "success_unit_id": "UNIT-LEDGER-SUCCESS",
+      "failure_unit_id": "UNIT-LEDGER-FAIL",
+      "capability": "reasoning",
+      "capability_category": "reasoning_analysis",
+      "modifier_source_id": "MOD-REASONING",
+      "dc": 11,
+      "parent_action_id": "ACT-DONATION-LEDGER",
+      "success_grants_knowledge_ids": [
+        "KNOW-LEDGER-ALTER"
+      ],
+      "player_action_label": "Cross-reference memorial fund ledger entries on page 47."
+    },
+    {
+      "check_id": "CHK-DEPOSIT",
+      "declaration_unit_id": "UNIT-CHK-DEPOSIT-DECL",
+      "success_unit_id": "UNIT-DEPOSIT-SUCCESS",
+      "failure_unit_id": "UNIT-DEPOSIT-FAIL",
+      "capability": "technical",
+      "capability_category": "technical_systems",
+      "modifier_source_id": "MOD-TECHNICAL",
+      "dc": 12,
+      "parent_action_id": "ACT-BANK-DEPOSITS",
+      "success_grants_knowledge_ids": [
+        "KNOW-DEPOSIT-SHORT"
+      ],
+      "player_action_label": "Reconcile bank deposit slip batch against ledger totals."
+    },
+    {
+      "check_id": "CHK-MINUTES",
+      "declaration_unit_id": "UNIT-CHK-MINUTES-DECL",
+      "success_unit_id": "UNIT-MINUTES-SUCCESS",
+      "failure_unit_id": "UNIT-MINUTES-FAIL",
+      "capability": "reasoning",
+      "capability_category": "reasoning_analysis",
+      "modifier_source_id": "MOD-REASONING",
+      "dc": 11,
+      "parent_action_id": "ACT-COUNCIL-MINUTES",
+      "success_grants_knowledge_ids": [
+        "KNOW-MINUTES-ALLOC"
+      ],
+      "player_action_label": "Compare council meeting minutes to ledger fund allocations."
+    }
+  ],
+  "flow": {
+    "placeholder_resolution": {},
+    "state_model": {
+      "flags": [
+        "records_sync_complete",
+        "register_reviewed",
+        "counter_reviewed",
+        "badge_reviewed",
+        "ledger_examined",
+        "deposit_examined",
+        "minutes_examined",
+        "ready_to_accuse",
+        "accusation_complete",
+        "inference_records_resolved",
+        "inference_diversion_resolved",
+        "inference_grace_resolved",
+        "inference_perfect_resolved",
+        "check_ledger_failed",
+        "check_deposit_failed",
+        "check_minutes_failed"
+      ],
+      "counters": [
+        "investigation_phase"
+      ],
+      "initial_state": {
+        "records_sync_complete": false,
+        "register_reviewed": false,
+        "counter_reviewed": false,
+        "badge_reviewed": false,
+        "ledger_examined": false,
+        "deposit_examined": false,
+        "minutes_examined": false,
+        "ready_to_accuse": false,
+        "accusation_complete": false,
+        "inference_records_resolved": false,
+        "inference_diversion_resolved": false,
+        "inference_grace_resolved": false,
+        "inference_perfect_resolved": false,
+        "check_ledger_failed": false,
+        "check_deposit_failed": false,
+        "check_minutes_failed": false,
+        "investigation_phase": 0
+      }
+    },
+    "time_model": {
+      "clocks": [
+        "T_ARRIVAL",
+        "T_DEPOSIT_SYNC",
+        "T_HELEN_FINDINGS",
+        "T_DEADLINE"
+      ],
+      "clock_event_map": {
+        "T_ARRIVAL": "EVT-009",
+        "T_DEPOSIT_SYNC": "EVT-010",
+        "T_HELEN_FINDINGS": "EVT-012",
+        "T_DEADLINE": "EVT-013"
+      },
+      "deadline_clock": "T_DEADLINE",
+      "scene_time_cost_default_minutes": 5,
+      "no_earlier_time_travel": true
+    },
+    "scene_chains": [
+      {
+        "chain_id": "CHAIN-OPENING",
+        "active_from_clock": "T_ARRIVAL",
+        "active_until_clock": "T_HELEN_FINDINGS",
+        "steps": [
+          {
+            "step_id": "SC-NARTHEX-ARRIVAL",
+            "scene_unit_id": "SC-NARTHEX-ARRIVAL",
+            "player_label": "Receive audit briefing.",
+            "location_id": "LOC-NARTHEX"
+          },
+          {
+            "step_id": "SC-RECORDS-INTRO",
+            "scene_unit_id": "SC-RECORDS-INTRO",
+            "player_label": "Survey the finance records room.",
+            "location_id": "LOC-RECORDS"
+          }
+        ]
+      },
+      {
+        "chain_id": "CHAIN-RECORDS",
+        "active_from_clock": "T_HELEN_FINDINGS",
+        "active_until_clock": "T_DEPOSIT_SYNC",
+        "steps": [
+          {
+            "step_id": "SC-HELEN-REGISTER",
+            "scene_unit_id": "SC-HELEN-REGISTER",
+            "player_label": "Review register cross-reference with Helen.",
+            "location_id": "LOC-RECORDS"
+          },
+          {
+            "step_id": "SC-OFFICE-COUNTER",
+            "scene_unit_id": "SC-OFFICE-COUNTER",
+            "player_label": "Pull counter-signature log.",
+            "location_id": "LOC-OFFICE",
+            "state_updates": {
+              "counter_reviewed": true
+            }
+          }
+        ]
+      },
+      {
+        "chain_id": "CHAIN-FINAL",
+        "active_from_clock": "T_DEPOSIT_SYNC",
+        "active_until_clock": "T_DEADLINE",
+        "steps": [
+          {
+            "step_id": "SC-RECORDS-DEPOSIT",
+            "scene_unit_id": "SC-RECORDS-DEPOSIT",
+            "player_label": "Reconcile deposit batch images.",
+            "location_id": "LOC-RECORDS",
+            "state_updates": {
+              "deposit_examined": true
+            }
+          },
+          {
+            "step_id": "SC-COUNCIL-MINUTES",
+            "scene_unit_id": "SC-COUNCIL-MINUTES",
+            "player_label": "Compare council minutes to ledger.",
+            "location_id": "LOC-COUNCIL",
+            "state_updates": {
+              "minutes_examined": true
+            }
+          },
+          {
+            "step_id": "SC-ACCUSATION-PREP",
+            "scene_unit_id": "SC-ACCUSATION-PREP",
+            "player_label": "Prepare final reconciliation report.",
+            "location_id": "LOC-OFFICE",
+            "requires_state": {
+              "ready_to_accuse": true
+            }
+          },
+          {
+            "step_id": "SC-DEADLINE-WARN",
+            "scene_unit_id": "SC-DEADLINE-WARN",
+            "player_label": "Hear deadline warning.",
+            "location_id": "LOC-NARTHEX"
+          }
+        ]
+      }
+    ],
+    "world_state_variants": [
+      {
+        "variant_id": "VAR-DEPOSIT-SYNC",
+        "base_scene_unit_id": "SC-RECORDS-DEPOSIT",
+        "variants": [
+          {
+            "when_state": {
+              "flag": "records_sync_complete",
+              "value": true
+            },
+            "scene_unit_id": "SC-RECORDS-DEPOSIT"
+          },
+          {
+            "when_state": {
+              "flag": "records_sync_complete",
+              "value": false
+            },
+            "scene_unit_id": "SC-RECORDS-DEPOSIT"
+          }
+        ]
+      }
+    ],
+    "location_revisits": [
+      {
+        "location_id": "LOC-OFFICE",
+        "revisit_rules": [
+          {
+            "rule_id": "REV-COUNTER",
+            "when_clock_at_least": "T_DEPOSIT_SYNC",
+            "unlocks_scene_unit_id": "SC-OFFICE-COUNTER",
+            "state_updates": {
+              "badge_reviewed": true
+            }
+          }
+        ]
+      },
+      {
+        "location_id": "LOC-RECORDS",
+        "revisit_rules": [
+          {
+            "rule_id": "REV-LEDGER",
+            "when_knowledge_held": [
+              "KNOW-HELEN-FLAG"
+            ],
+            "unlocks_scene_unit_id": "SC-HELEN-REGISTER",
+            "state_updates": {
+              "ledger_examined": true
+            }
+          }
+        ]
+      }
+    ],
+    "inference_flow_gates": [
+      {
+        "inference_id": "INF-RECORDS-CONFLICT",
+        "hypothesis_id": "HYP-RECORDS-CONFLICT",
+        "required_knowledge_ids": [
+          "KNOW-LEDGER-ALTER",
+          "KNOW-DEPOSIT-SHORT",
+          "KNOW-MINUTES-ALLOC"
+        ],
+        "success_state_updates": {
+          "inference_records_resolved": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-RECORDS-LEDGER",
+          "REC-RECORDS-DEPOSIT"
+        ]
+      },
+      {
+        "inference_id": "INF-DIVERSION",
+        "hypothesis_id": "HYP-DIVERSION",
+        "required_knowledge_ids": [
+          "KNOW-DEPOSIT-SHORT",
+          "KNOW-REGISTER-GAP",
+          "KNOW-COUNTER-SIGN"
+        ],
+        "success_state_updates": {
+          "inference_diversion_resolved": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-RECORDS-DEPOSIT",
+          "REC-OFFICE-COUNTER"
+        ]
+      },
+      {
+        "inference_id": "INF-GRACE-EMBEZZLE",
+        "hypothesis_id": "HYP-GRACE-ACCOUNTABLE",
+        "required_knowledge_ids": [
+          "KNOW-BADGE-ACCESS",
+          "KNOW-COUNTER-SIGN",
+          "KNOW-GRACE-RECON"
+        ],
+        "success_state_updates": {
+          "inference_grace_resolved": true,
+          "ready_to_accuse": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-OFFICE-BADGE",
+          "REC-NPC-GRACE"
+        ]
+      },
+      {
+        "inference_id": "INF-PERFECT-RECON",
+        "hypothesis_id": "HYP-PERFECT-RECON",
+        "required_knowledge_ids": [
+          "KNOW-RECORDS-CONTRADICT",
+          "KNOW-GRACE-EMBEZZLE",
+          "KNOW-PERFECT-RECON"
+        ],
+        "success_state_updates": {
+          "inference_perfect_resolved": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-RECORDS-LEDGER",
+          "REC-COUNCIL-MINUTES"
+        ]
+      }
+    ],
+    "recovery_routes": [
+      {
+        "route_id": "REC-RECORDS-LEDGER",
+        "player_action_label": "Return to the donation ledger.",
+        "destination_ref": "LOC-RECORDS",
+        "action_ref": "ACT-DONATION-LEDGER"
+      },
+      {
+        "route_id": "REC-RECORDS-DEPOSIT",
+        "player_action_label": "Re-examine the bank deposit batch.",
+        "destination_ref": "LOC-RECORDS",
+        "action_ref": "ACT-BANK-DEPOSITS"
+      },
+      {
+        "route_id": "REC-COUNCIL-MINUTES",
+        "player_action_label": "Review council meeting minutes again.",
+        "destination_ref": "LOC-COUNCIL",
+        "action_ref": "ACT-COUNCIL-MINUTES"
+      },
+      {
+        "route_id": "REC-OFFICE-COUNTER",
+        "player_action_label": "Review the counter-signature log again.",
+        "destination_ref": "LOC-OFFICE",
+        "action_ref": "ACT-COUNTER-SIGN"
+      },
+      {
+        "route_id": "REC-OFFICE-BADGE",
+        "player_action_label": "Re-read the badge access log.",
+        "destination_ref": "LOC-OFFICE",
+        "action_ref": "ACT-BADGE-LOG"
+      },
+      {
+        "route_id": "REC-NPC-GRACE",
+        "player_action_label": "Return to Grace Brennan about the reconciliation.",
+        "destination_ref": "LOC-NARTHEX",
+        "action_ref": "CONV-GRACE"
+      }
+    ],
+    "accusation_questionnaire": {
+      "questionnaire_id": "ACC-PARISH-LEDGER",
+      "required_before_ending_eval": true,
+      "multi_component": true,
+      "questions": [
+        {
+          "question_id": "Q-WHO",
+          "conclusion_id": "CONC-WHO",
+          "answer_type": "npc_id",
+          "player_label": "Who altered records and diverted memorial fund deposits?"
+        },
+        {
+          "question_id": "Q-WHAT",
+          "conclusion_id": "CONC-WHAT",
+          "answer_type": "text",
+          "player_label": "What happened to the missing $4,200?"
+        },
+        {
+          "question_id": "Q-HOW",
+          "conclusion_id": "CONC-HOW",
+          "answer_type": "text",
+          "player_label": "How was the fraud executed?"
+        },
+        {
+          "question_id": "Q-WHEN",
+          "conclusion_id": "CONC-WHEN",
+          "answer_type": "text",
+          "player_label": "When were records altered?"
+        }
+      ],
+      "accusation_complete_state_flag": "accusation_complete"
+    },
+    "deadline": {
+      "enabled": true,
+      "deadline_clock": "T_DEADLINE",
+      "deadline_ending_id": "END-TIMEOUT",
+      "blocks_accusation_after": true
+    },
+    "endings": [
+      {
+        "ending_id": "END-PERFECT",
+        "ending_type": "perfect",
+        "priority": 100,
+        "unit_id": "END-PERFECT",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true,
+            "inference_perfect_resolved": true
+          },
+          "required_accusation": {
+            "Q-WHO": "NPC-GRACE"
+          }
+        }
+      },
+      {
+        "ending_id": "END-PARTIAL-CULPRIT",
+        "ending_type": "partial",
+        "priority": 50,
+        "unit_id": "END-PARTIAL-CULPRIT",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true,
+            "inference_grace_resolved": true
+          }
+        }
+      },
+      {
+        "ending_id": "END-PARTIAL-RECORDS",
+        "ending_type": "partial",
+        "priority": 40,
+        "unit_id": "END-PARTIAL-RECORDS",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true,
+            "inference_records_resolved": true
+          }
+        }
+      },
+      {
+        "ending_id": "END-PARTIAL-WRONG",
+        "ending_type": "partial",
+        "priority": 30,
+        "unit_id": "END-PARTIAL-WRONG",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true
+          },
+          "wrong_accusation_allowed": true
+        }
+      },
+      {
+        "ending_id": "END-TIMEOUT",
+        "ending_type": "timeout",
+        "priority": 10,
+        "unit_id": "END-TIMEOUT",
+        "trigger": {
+          "type": "deadline",
+          "deadline_clock": "T_DEADLINE"
+        }
+      }
+    ]
+  },
+  "player_units": {
+    "shell": {
+      "opening": {
+        "prose": "Muted organ tones and the rustle of ledger pages greet you at St. Brendan's narthex. Grace Brennan waits with a reconciliation packet while Helen Marsh's flagged discrepancies already sit on your auditor tablet."
+      },
+      "how_to_play": {
+        "sections": [
+          {
+            "heading": "Your role",
+            "body": "You are a diocesan finance auditor reconciling memorial fund records before the annual review."
+          },
+          {
+            "heading": "Time",
+            "body": "Track in-world time. Diocesan reconciliation is due at 1700."
+          },
+          {
+            "heading": "Checks",
+            "body": "Roll d20 plus the modifier on your character sheet when prompted."
+          }
+        ]
+      },
+      "readme": {
+        "body": "Fair-play mystery at a small-town parish. Reconstruct the timeline from donation ledgers, bank deposits, and council meeting minutes."
+      },
+      "character_sheet": {
+        "role": "Diocesan finance auditor",
+        "intro": "You audit parish financial records and verify ledger-deposit reconciliation for diocesan review.",
+        "modifiers": [
+          {
+            "capability": "reasoning",
+            "modifier": 2,
+            "when_applies": "Ledger cross-reference and records reconstruction checks"
+          },
+          {
+            "capability": "technical",
+            "modifier": 2,
+            "when_applies": "Bank deposit reconciliation and financial system checks"
+          },
+          {
+            "capability": "perception",
+            "modifier": 1,
+            "when_applies": "Document alteration and physical record inspection checks"
+          }
+        ],
+        "equipment": "Auditor tablet, document camera, reconciliation worksheets, parish policy manual.",
+        "stakes": "File a supported reconciliation report before the 1700 deadline."
+      },
+      "case_file": "# Case file — The Parish Ledger\n\n## Ledger notes\n\n## Deposit cross-reference\n\n## Final determination\n",
+      "navigation_index": {
+        "entries": [
+          {
+            "label": "Locations",
+            "file_ref": "PLAYER/LOCATIONS.md"
+          },
+          {
+            "label": "NPCs",
+            "file_ref": "PLAYER/NPCS.md"
+          },
+          {
+            "label": "Objects",
+            "file_ref": "PLAYER/OBJECTS.md"
+          },
+          {
+            "label": "Scenes",
+            "file_ref": "PLAYER/SCENES.md"
+          },
+          {
+            "label": "Inference",
+            "file_ref": "PLAYER/INFERENCE.md"
+          },
+          {
+            "label": "Recovery",
+            "file_ref": "PLAYER/RECOVERY.md"
+          },
+          {
+            "label": "Endings",
+            "file_ref": "PLAYER/ENDINGS.md"
+          }
+        ]
+      }
+    },
+    "units": [
+      {
+        "unit_id": "UNIT-NARTHEX-BASE",
+        "title": "Parish narthex",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-NARTHEX",
+        "prose": {
+          "body": "You are at the parish narthex. Muted organ tones, coffee from the hall kitchen, and the rustle of ledger pages fill the parish campus."
+        },
+        "choices": [
+          {
+            "label": "Walk to the parish office.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          },
+          {
+            "label": "Enter the finance records room.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          },
+          {
+            "label": "Go to the community center hall.",
+            "destination_unit_id": "UNIT-HALL-BASE"
+          },
+          {
+            "label": "Proceed to the council meeting room.",
+            "destination_unit_id": "UNIT-COUNCIL-BASE"
+          },
+          {
+            "label": "Speak with parish administrator Grace Brennan.",
+            "destination_unit_id": "UNIT-NPC-GRACE-HUB"
+          },
+          {
+            "label": "Speak with Father Michael O'Sullivan.",
+            "destination_unit_id": "UNIT-NPC-FATHER-HUB"
+          },
+          {
+            "label": "Speak with parish council treasurer Rita Santos.",
+            "destination_unit_id": "UNIT-NPC-RITA-HUB"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-NARTHEX",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-OFFICE-BASE",
+        "title": "Parish office",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-OFFICE",
+        "prose": {
+          "body": "You are at the parish office. Muted organ tones, coffee from the hall kitchen, and the rustle of ledger pages fill the parish campus."
+        },
+        "choices": [
+          {
+            "label": "Review the counter-signature log.",
+            "destination_unit_id": "UNIT-OBJ-COUNTER-MENU"
+          },
+          {
+            "label": "Check the records room badge access log.",
+            "destination_unit_id": "UNIT-OBJ-BADGE-MENU"
+          },
+          {
+            "label": "Return to the narthex.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-OFFICE",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-RECORDS-BASE",
+        "title": "Finance records room",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-RECORDS",
+        "prose": {
+          "body": "You are at the finance records room. Muted organ tones, coffee from the hall kitchen, and the rustle of ledger pages fill the parish campus."
+        },
+        "choices": [
+          {
+            "label": "Cross-reference the memorial fund donation ledger.",
+            "destination_unit_id": "UNIT-CHK-LEDGER-DECL"
+          },
+          {
+            "label": "Reconcile the bank deposit slip batch.",
+            "destination_unit_id": "UNIT-CHK-DEPOSIT-DECL"
+          },
+          {
+            "label": "Review the memorial register.",
+            "destination_unit_id": "UNIT-OBJ-REGISTER-MENU"
+          },
+          {
+            "label": "Speak with volunteer bookkeeper Helen Marsh.",
+            "destination_unit_id": "UNIT-NPC-HELEN-HUB"
+          },
+          {
+            "label": "Return to the narthex.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-RECORDS",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-HALL-BASE",
+        "title": "Community center hall",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-HALL",
+        "prose": {
+          "body": "You are at the community center hall. Muted organ tones, coffee from the hall kitchen, and the rustle of ledger pages fill the parish campus."
+        },
+        "choices": [
+          {
+            "label": "Return to the narthex.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          },
+          {
+            "label": "Walk to the parish office.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-HALL",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-COUNCIL-BASE",
+        "title": "Parish council meeting room",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-COUNCIL",
+        "prose": {
+          "body": "You are at the parish council meeting room. Muted organ tones, coffee from the hall kitchen, and the rustle of ledger pages fill the parish campus."
+        },
+        "choices": [
+          {
+            "label": "Compare parish council meeting minutes to the ledger.",
+            "destination_unit_id": "UNIT-CHK-MINUTES-DECL"
+          },
+          {
+            "label": "Return to the narthex.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-COUNCIL",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-GRACE-HUB",
+        "title": "Parish administrator Grace Brennan",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-NARTHEX",
+        "prose": {
+          "body": "Parish administrator Grace Brennan meets you here. Their account may not match the written records."
+        },
+        "choices": [
+          {
+            "label": "Ask about the reconciliation packet.",
+            "destination_unit_id": "UNIT-TOPIC-GRACE-RECON"
+          },
+          {
+            "label": "Ask about the March 12 deposit batch.",
+            "destination_unit_id": "UNIT-TOPIC-GRACE-DEPOSIT"
+          },
+          {
+            "label": "Ask about after-hours records room access.",
+            "destination_unit_id": "UNIT-TOPIC-GRACE-ACCESS"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-NARTHEX",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-HELEN-HUB",
+        "title": "Volunteer bookkeeper Helen Marsh",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-RECORDS",
+        "prose": {
+          "body": "Volunteer bookkeeper Helen Marsh meets you here. Their account may not match the written records."
+        },
+        "choices": [
+          {
+            "label": "Ask about the March 10 discrepancy flag.",
+            "destination_unit_id": "UNIT-TOPIC-HELEN-FLAG"
+          },
+          {
+            "label": "Ask about white-out on ledger page 47.",
+            "destination_unit_id": "UNIT-TOPIC-HELEN-LEDGER"
+          },
+          {
+            "label": "Ask about register entries 112-118.",
+            "destination_unit_id": "UNIT-TOPIC-HELEN-REGISTER"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-RECORDS",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-RITA-HUB",
+        "title": "Parish council treasurer Rita Santos",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-NARTHEX",
+        "prose": {
+          "body": "Parish council treasurer Rita Santos meets you here. Their account may not match the written records."
+        },
+        "choices": [
+          {
+            "label": "Ask about council fund allocation vote.",
+            "destination_unit_id": "UNIT-TOPIC-RITA-MINUTES"
+          },
+          {
+            "label": "Ask about duplicate deposit receipts.",
+            "destination_unit_id": "UNIT-TOPIC-RITA-RECEIPTS"
+          },
+          {
+            "label": "Ask about diocesan audit requirements.",
+            "destination_unit_id": "UNIT-TOPIC-RITA-AUDIT"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-NARTHEX",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-FATHER-HUB",
+        "title": "Father Michael O'Sullivan",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-NARTHEX",
+        "prose": {
+          "body": "Father Michael O'Sullivan meets you here. Their account may not match the written records."
+        },
+        "choices": [
+          {
+            "label": "Ask what Grace told you about deposits.",
+            "destination_unit_id": "UNIT-TOPIC-FATHER-ASSURED"
+          },
+          {
+            "label": "Ask about the memorial fund drive.",
+            "destination_unit_id": "UNIT-TOPIC-FATHER-MEMORIAL"
+          },
+          {
+            "label": "Ask about parish council oversight.",
+            "destination_unit_id": "UNIT-TOPIC-FATHER-COUNCIL"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-NARTHEX",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-GRACE-RECON",
+        "title": "Topic Grace Recon",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Grace adjusts her reading glasses over a thick folder.",
+            "speaker": "Grace Brennan",
+            "prompt": "says",
+            "quote": "The ledger and bank totals reconcile once you account for deposit timing. I prepared everything for your review.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Brennan.",
+            "destination_unit_id": "UNIT-NPC-GRACE-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-GRACE-DEPOSIT",
+        "title": "Topic Grace Deposit",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Grace taps the March 12 batch cover sheet.",
+            "speaker": "Grace Brennan",
+            "prompt": "says",
+            "quote": "That batch went to the credit union on schedule. Memorial fund line reflects what cleared that day.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Brennan.",
+            "destination_unit_id": "UNIT-NPC-GRACE-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-GRACE-ACCESS",
+        "title": "Topic Grace Access",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Grace folds her arms.",
+            "speaker": "Grace Brennan",
+            "prompt": "says",
+            "quote": "I occasionally work late on month-end reconciliation. Standard administrator access.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Brennan.",
+            "destination_unit_id": "UNIT-NPC-GRACE-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-HELEN-FLAG",
+        "title": "Topic Helen Flag",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Helen opens her volunteer notebook.",
+            "speaker": "Helen Marsh",
+            "prompt": "says",
+            "quote": "I flagged the white-out on page 47 on March 10. Grace said it was a correction error, but the numbers still don't match the bank.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Marsh.",
+            "destination_unit_id": "UNIT-NPC-HELEN-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-HELEN-LEDGER",
+        "title": "Topic Helen Ledger",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Helen points to ledger page 47.",
+            "speaker": "Helen Marsh",
+            "prompt": "says",
+            "quote": "Three donation entries were overwritten. The original amounts are still visible under the white-out if you look closely.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Marsh.",
+            "destination_unit_id": "UNIT-NPC-HELEN-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-HELEN-REGISTER",
+        "title": "Topic Helen Register",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Helen spreads the memorial register beside the ledger.",
+            "speaker": "Helen Marsh",
+            "prompt": "says",
+            "quote": "Entries 112 through 118 total $4,200. None of them appear on the March 12 deposit batch.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Marsh.",
+            "destination_unit_id": "UNIT-NPC-HELEN-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-RITA-MINUTES",
+        "title": "Topic Rita Minutes",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Rita opens the council minute binder.",
+            "speaker": "Rita Santos",
+            "prompt": "says",
+            "quote": "Council voted unanimously: memorial fund restricted to stained-glass restoration. No general operating transfers permitted.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Santos.",
+            "destination_unit_id": "UNIT-NPC-RITA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-RITA-RECEIPTS",
+        "title": "Topic Rita Receipts",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Rita frowns at her phone.",
+            "speaker": "Rita Santos",
+            "prompt": "says",
+            "quote": "I asked Grace for duplicate deposit receipts on March 12. She said they were already filed. I never received copies.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Santos.",
+            "destination_unit_id": "UNIT-NPC-RITA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-RITA-AUDIT",
+        "title": "Topic Rita Audit",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Rita checks her watch.",
+            "speaker": "Rita Santos",
+            "prompt": "says",
+            "quote": "Diocesan review requires matched ledger-deposit reconciliation by 1700. Council meets at 1800.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Santos.",
+            "destination_unit_id": "UNIT-NPC-RITA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-FATHER-ASSURED",
+        "title": "Topic Father Assured",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Father Michael sets down his coffee.",
+            "speaker": "Father Michael O'Sullivan",
+            "prompt": "says",
+            "quote": "Grace assured me on March 11 that all memorial donations were deposited. I trusted her reconciliation.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with O'Sullivan.",
+            "destination_unit_id": "UNIT-NPC-FATHER-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-FATHER-MEMORIAL",
+        "title": "Topic Father Memorial",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Father Michael gestures toward the hall.",
+            "speaker": "Father Michael O'Sullivan",
+            "prompt": "says",
+            "quote": "The memorial fund drive raised strong community support. Every donation was meant for the stained-glass project.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with O'Sullivan.",
+            "destination_unit_id": "UNIT-NPC-FATHER-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-FATHER-COUNCIL",
+        "title": "Topic Father Council",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Father Michael nods toward the council room.",
+            "speaker": "Father Michael O'Sullivan",
+            "prompt": "says",
+            "quote": "Council provides oversight, but day-to-day records fall to Grace. I don't verify every deposit slip myself.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with O'Sullivan.",
+            "destination_unit_id": "UNIT-NPC-FATHER-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-REGISTER-MENU",
+        "title": "Memorial register",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "The register lists individual memorial donations by entry number."
+        },
+        "choices": [
+          {
+            "label": "Cross-reference entries 112-118 against deposits.",
+            "destination_unit_id": "UNIT-OBJ-REGISTER-RESULT"
+          },
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-REGISTER-RESULT",
+        "title": "Register cross-reference",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Entries 112-118 total $4,200 with no matching deposit line items in the March 12 batch."
+        },
+        "choices": [
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-COUNTER-MENU",
+        "title": "Counter-signature log",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "The log tracks dual signatures required on all deposit batches."
+        },
+        "choices": [
+          {
+            "label": "Review March 12 counter-signatures.",
+            "destination_unit_id": "UNIT-OBJ-COUNTER-RESULT"
+          },
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-COUNTER-RESULT",
+        "title": "Counter-signature review",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Grace Brennan signed as both preparer and verifier on the March 12 batch — a control violation."
+        },
+        "choices": [
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-BADGE-MENU",
+        "title": "Badge access log",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Electronic badge entries for the records room are timestamped here."
+        },
+        "choices": [
+          {
+            "label": "Review March 11 after-hours access.",
+            "destination_unit_id": "UNIT-OBJ-BADGE-RESULT"
+          },
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-BADGE-RESULT",
+        "title": "Badge access review",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Grace Brennan's badge accessed the records room at 2230 on March 11."
+        },
+        "choices": [
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-CHK-LEDGER-DECL",
+        "title": "Donation ledger cross-reference",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_declaration",
+        "prose": {
+          "setup": "You compare memorial fund entries on ledger page 47 against the running total.",
+          "fact": "Roll d20 plus your modifier.",
+          "coda": "Compare your result to the difficulty."
+        },
+        "choices": [
+          {
+            "label": "If your roll succeeds, read the success section.",
+            "destination_unit_id": "UNIT-LEDGER-SUCCESS"
+          },
+          {
+            "label": "If your roll fails, read the failure section.",
+            "destination_unit_id": "UNIT-LEDGER-FAIL"
+          }
+        ],
+        "meta": {
+          "check": "reasoning",
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-CHK-DEPOSIT-DECL",
+        "title": "Bank deposit reconciliation",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_declaration",
+        "prose": {
+          "setup": "You line up deposit slip line items against ledger credits.",
+          "fact": "Roll d20 plus your modifier.",
+          "coda": "Compare your result to the difficulty."
+        },
+        "choices": [
+          {
+            "label": "If your roll succeeds, read the success section.",
+            "destination_unit_id": "UNIT-DEPOSIT-SUCCESS"
+          },
+          {
+            "label": "If your roll fails, read the failure section.",
+            "destination_unit_id": "UNIT-DEPOSIT-FAIL"
+          }
+        ],
+        "meta": {
+          "check": "technical",
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-CHK-MINUTES-DECL",
+        "title": "Council minutes comparison",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_declaration",
+        "prose": {
+          "setup": "You compare council allocation vote language to ledger fund categories.",
+          "fact": "Roll d20 plus your modifier.",
+          "coda": "Compare your result to the difficulty."
+        },
+        "choices": [
+          {
+            "label": "If your roll succeeds, read the success section.",
+            "destination_unit_id": "UNIT-MINUTES-SUCCESS"
+          },
+          {
+            "label": "If your roll fails, read the failure section.",
+            "destination_unit_id": "UNIT-MINUTES-FAIL"
+          }
+        ],
+        "meta": {
+          "check": "reasoning",
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-LEDGER-SUCCESS",
+        "title": "Ledger cross-reference — success",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_success",
+        "prose": {
+          "body": "White-out on page 47 masks three reallocated entries. Original amounts visible underneath total $4,200 more than current line items show."
+        },
+        "choices": [
+          {
+            "label": "Continue investigating.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-LEDGER-FAIL",
+        "title": "Ledger cross-reference — failure",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_failure",
+        "prose": {
+          "body": "The corrections look routine but you cannot confirm what was changed."
+        },
+        "choices": [
+          {
+            "label": "Try another route.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-DEPOSIT-SUCCESS",
+        "title": "Deposit reconciliation — success",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_success",
+        "prose": {
+          "body": "March 12 batch credits $14,200 to memorial fund. Ledger shows $18,400 — a $4,200 shortfall with no pending deposit notation."
+        },
+        "choices": [
+          {
+            "label": "Continue investigating.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-DEPOSIT-FAIL",
+        "title": "Deposit reconciliation — failure",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_failure",
+        "prose": {
+          "body": "The batch totals are clear but timing adjustments could explain the gap — you need more cross-references."
+        },
+        "choices": [
+          {
+            "label": "Try another route.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-MINUTES-SUCCESS",
+        "title": "Council minutes — success",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_success",
+        "prose": {
+          "body": "Council vote restricts memorial fund to stained-glass restoration only. Ledger shows no separate stained-glass allocation column."
+        },
+        "choices": [
+          {
+            "label": "Continue investigating.",
+            "destination_unit_id": "UNIT-COUNCIL-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-MINUTES-FAIL",
+        "title": "Council minutes — failure",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_failure",
+        "prose": {
+          "body": "The allocation language is present but you cannot tie it to specific ledger discrepancies yet."
+        },
+        "choices": [
+          {
+            "label": "Try another route.",
+            "destination_unit_id": "UNIT-COUNCIL-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "SC-NARTHEX-ARRIVAL",
+        "title": "Audit briefing",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Diocesan dispatch meets you at the narthex as Grace Brennan waits with the reconciliation packet."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-RECORDS-INTRO",
+        "title": "Records room survey",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Helen Marsh walks you through the memorial fund filing system in the records room."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-HELEN-REGISTER",
+        "title": "Register cross-reference",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Helen spreads register entries 112-118 beside the March 12 deposit batch."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-OFFICE-COUNTER",
+        "title": "Counter-signature review",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "The parish office terminal displays March 12 dual-signature requirements."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-RECORDS-DEPOSIT",
+        "title": "Deposit batch reconciliation",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Bank deposit images finish syncing to your auditor tablet."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-COUNCIL-MINUTES",
+        "title": "Council minutes review",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Rita Santos opens the minute binder for side-by-side ledger comparison."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-COUNCIL-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-COUNCIL-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-ACCUSATION-PREP",
+        "title": "Final report prep",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "You assemble the diocesan reconciliation file for the questionnaire."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-DEADLINE-WARN",
+        "title": "Deadline warning",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Dispatch warns the 1700 reconciliation window is closing."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "INF-RECORDS-CONFLICT",
+        "title": "Records contradiction",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "Which written records contradict each other about memorial fund totals?",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "INF-DIVERSION",
+        "title": "Deposit diversion",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "What evidence suggests deposits were diverted before bank credit?",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-RECORDS-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "INF-GRACE-EMBEZZLE",
+        "title": "Administrator accountability",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "Who had opportunity to alter ledger and prepare the short deposit batch?",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "INF-PERFECT-RECON",
+        "title": "Full reconstruction",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "Reconstruct the timeline: ledger alteration, short deposit, self-signed counter-signature.",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-NARTHEX-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "REC-RECORDS-LEDGER",
+        "title": "Records Ledger",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Return to the donation ledger."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-CHK-LEDGER-DECL"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-RECORDS-DEPOSIT",
+        "title": "Records Deposit",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Re-examine the bank deposit batch."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-CHK-DEPOSIT-DECL"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-COUNCIL-MINUTES",
+        "title": "Council Minutes",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Review council meeting minutes again."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-CHK-MINUTES-DECL"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-OFFICE-COUNTER",
+        "title": "Office Counter",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Review the counter-signature log again."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-OBJ-COUNTER-MENU"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-OFFICE-BADGE",
+        "title": "Office Badge",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Re-read the badge access log."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-OBJ-BADGE-MENU"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-NPC-GRACE",
+        "title": "Grace Interview",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Return to Grace Brennan about the reconciliation."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-NPC-GRACE-HUB"
+          }
+        ]
+      },
+      {
+        "unit_id": "END-PERFECT",
+        "title": "Perfect reconstruction",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "You document ledger alterations, deposit diversion, and Grace Brennan's control violations before the diocesan deadline."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-PARTIAL-CULPRIT",
+        "title": "Partial — culprit named",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "You name Grace Brennan but miss part of the records reconstruction."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-PARTIAL-RECORDS",
+        "title": "Partial — records only",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "You prove ledger-deposit discrepancies but stop short of naming the administrator."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-PARTIAL-WRONG",
+        "title": "Partial — wrong accusation",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "Your reconciliation reaches the diocese on time but misassigns accountability."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-TIMEOUT",
+        "title": "Deadline timeout",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "The reconciliation window closes before you can support a determination."
+        },
+        "choices": []
+      }
+    ]
+  },
+  "epistemic": {
+    "start_template_unit_id": "UNIT-NARTHEX-BASE",
+    "initial_player_knowledge": [
+      "KNOW-OPEN-01",
+      "KNOW-OPEN-02",
+      "KNOW-OPEN-03",
+      "KNOW-OPEN-04"
+    ],
+    "initial_observable_entities": [
+      "NPC-GRACE",
+      "NPC-FATHER",
+      "NPC-RITA"
+    ],
+    "initial_observable_objects": [
+      "OBJ-DONATION-LEDGER"
+    ],
+    "hub_definitions": [
+      {
+        "hub_unit_id": "UNIT-NARTHEX-BASE",
+        "event_kind": "location_hub",
+        "physical_location_id": "LOC-NARTHEX",
+        "observable_entities": [
+          "NPC-GRACE",
+          "NPC-FATHER",
+          "NPC-RITA"
+        ],
+        "actions": [
+          {
+            "label": "Walk to the parish office.",
+            "destination_unit_id": "UNIT-OFFICE-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Enter the finance records room.",
+            "destination_unit_id": "UNIT-RECORDS-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Go to the community center hall.",
+            "destination_unit_id": "UNIT-HALL-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Proceed to the council meeting room.",
+            "destination_unit_id": "UNIT-COUNCIL-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Speak with parish administrator Grace Brennan.",
+            "destination_unit_id": "UNIT-NPC-GRACE-HUB",
+            "action_type": "conversation"
+          },
+          {
+            "label": "Speak with Father Michael O'Sullivan.",
+            "destination_unit_id": "UNIT-NPC-FATHER-HUB",
+            "action_type": "conversation"
+          },
+          {
+            "label": "Speak with parish council treasurer Rita Santos.",
+            "destination_unit_id": "UNIT-NPC-RITA-HUB",
+            "action_type": "conversation"
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-GRACE-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-NARTHEX",
+        "actions": [
+          {
+            "label": "Ask about the reconciliation packet.",
+            "destination_unit_id": "UNIT-TOPIC-GRACE-RECON",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about the March 12 deposit batch.",
+            "destination_unit_id": "UNIT-TOPIC-GRACE-DEPOSIT",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about after-hours records room access.",
+            "destination_unit_id": "UNIT-TOPIC-GRACE-ACCESS",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-HELEN-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-RECORDS",
+        "actions": [
+          {
+            "label": "Ask about the March 10 discrepancy flag.",
+            "destination_unit_id": "UNIT-TOPIC-HELEN-FLAG",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about white-out on ledger page 47.",
+            "destination_unit_id": "UNIT-TOPIC-HELEN-LEDGER",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about register entries 112-118.",
+            "destination_unit_id": "UNIT-TOPIC-HELEN-REGISTER",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-RITA-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-NARTHEX",
+        "actions": [
+          {
+            "label": "Ask about council fund allocation vote.",
+            "destination_unit_id": "UNIT-TOPIC-RITA-MINUTES",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about duplicate deposit receipts.",
+            "destination_unit_id": "UNIT-TOPIC-RITA-RECEIPTS",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about diocesan audit requirements.",
+            "destination_unit_id": "UNIT-TOPIC-RITA-AUDIT",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-FATHER-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-NARTHEX",
+        "actions": [
+          {
+            "label": "Ask what Grace told you about deposits.",
+            "destination_unit_id": "UNIT-TOPIC-FATHER-ASSURED",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about the memorial fund drive.",
+            "destination_unit_id": "UNIT-TOPIC-FATHER-MEMORIAL",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about parish council oversight.",
+            "destination_unit_id": "UNIT-TOPIC-FATHER-COUNCIL",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      }
+    ],
+    "topic_return_profiles": [
+      {
+        "unit_prefix": "UNIT-TOPIC-GRACE",
+        "hub_unit_id": "UNIT-NPC-GRACE-HUB",
+        "hub_label": "Return to Grace.",
+        "exit_unit_id": "UNIT-NARTHEX-BASE",
+        "exit_label": "Leave the conversation."
+      },
+      {
+        "unit_prefix": "UNIT-TOPIC-HELEN",
+        "hub_unit_id": "UNIT-NPC-HELEN-HUB",
+        "hub_label": "Return to Helen.",
+        "exit_unit_id": "UNIT-RECORDS-BASE",
+        "exit_label": "Leave the conversation."
+      },
+      {
+        "unit_prefix": "UNIT-TOPIC-RITA",
+        "hub_unit_id": "UNIT-NPC-RITA-HUB",
+        "hub_label": "Return to Rita.",
+        "exit_unit_id": "UNIT-NARTHEX-BASE",
+        "exit_label": "Leave the conversation."
+      },
+      {
+        "unit_prefix": "UNIT-TOPIC-FATHER",
+        "hub_unit_id": "UNIT-NPC-FATHER-HUB",
+        "hub_label": "Return to Father Michael.",
+        "exit_unit_id": "UNIT-NARTHEX-BASE",
+        "exit_label": "Leave the conversation."
+      }
+    ],
+    "topic_knowledge_grants": {
+      "UNIT-TOPIC-HELEN-FLAG": [
+        "KNOW-HELEN-FLAG"
+      ],
+      "UNIT-TOPIC-HELEN-REGISTER": [
+        "KNOW-REGISTER-GAP"
+      ],
+      "UNIT-TOPIC-RITA-MINUTES": [
+        "KNOW-MINUTES-ALLOC"
+      ],
+      "UNIT-TOPIC-RITA-RECEIPTS": [
+        "KNOW-RITA-RECEIPTS"
+      ],
+      "UNIT-TOPIC-FATHER-ASSURED": [
+        "KNOW-FATHER-ASSURED"
+      ],
+      "UNIT-TOPIC-GRACE-RECON": [
+        "KNOW-GRACE-RECON"
+      ]
+    },
+    "inference_choice_gates": [
+      {
+        "label_contains": "My conclusion matches the evidence",
+        "requires_knowledge_ids": [
+          "KNOW-RECORDS-CONTRADICT"
+        ]
+      }
+    ],
+    "materialization": {
+      "max_states": 500000
+    }
+  },
+  "gamebook": {
+    "enabled": true,
+    "start_template_unit_id": "UNIT-NARTHEX-BASE"
+  },
+  "validator_seeds": {
+    "story": {
+      "story_frame": {
+        "investigation_starts_where": "St. Brendan's parish narthex at start of diocesan audit day",
+        "investigation_starts_when": "morning of annual reconciliation review",
+        "incident_description": "memorial fund ledger totals do not match bank deposit batch before diocesan review",
+        "incident_when": "discovered during March reconciliation period",
+        "investigator_involvement": "diocesan finance auditor appointed by parish council to reconcile records",
+        "deadline_or_constraint": "diocesan annual review reconciliation due at 1700"
+      },
+      "timeline": {
+        "investigation_confused_with_incident": false,
+        "impossible_ordering": false,
+        "events": []
+      }
+    },
+    "dm_feeling": {
+      "tier_c_playtest": {
+        "required": true,
+        "completed": false,
+        "notes": "Pack spec seed — playtest pending"
+      },
+      "time_pressure": {
+        "deadline_relevant": true,
+        "forced_tradeoffs": true,
+        "waiting_dominates": false
+      }
+    }
+  },
+  "modifier_sources": [
+    {
+      "modifier_id": "MOD-PERCEPTION",
+      "capability_category": "perception_observation",
+      "source": "character_sheet.perception"
+    },
+    {
+      "modifier_id": "MOD-REASONING",
+      "capability_category": "reasoning_analysis",
+      "source": "character_sheet.reasoning"
+    },
+    {
+      "modifier_id": "MOD-TECHNICAL",
+      "capability_category": "technical_systems",
+      "source": "character_sheet.technical"
+    }
+  ]
+}
