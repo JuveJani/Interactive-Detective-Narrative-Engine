@@ -1,0 +1,446 @@
+{
+  "placeholder_resolution": {},
+  "state_model": {
+    "flags": [
+      "camera_sync_complete",
+      "rider_reviewed",
+      "tablet_reviewed",
+      "camera_reviewed",
+      "sightline_examined",
+      "sale_reviewed",
+      "ready_to_accuse",
+      "accusation_complete",
+      "inference_witness_resolved",
+      "inference_staging_resolved",
+      "inference_vera_resolved",
+      "inference_perfect_resolved",
+      "check_sightline_failed",
+      "check_crate_failed",
+      "check_camera_failed"
+    ],
+    "counters": [
+      "investigation_phase"
+    ],
+    "initial_state": {
+      "camera_sync_complete": false,
+      "rider_reviewed": false,
+      "tablet_reviewed": false,
+      "camera_reviewed": false,
+      "sightline_examined": false,
+      "sale_reviewed": false,
+      "ready_to_accuse": false,
+      "accusation_complete": false,
+      "inference_witness_resolved": false,
+      "inference_staging_resolved": false,
+      "inference_vera_resolved": false,
+      "inference_perfect_resolved": false,
+      "check_sightline_failed": false,
+      "check_crate_failed": false,
+      "check_camera_failed": false,
+      "investigation_phase": 0
+    }
+  },
+  "time_model": {
+    "clocks": [
+      "T_ARRIVAL",
+      "T_CAMERA_SYNC",
+      "T_OTTO_PHOTO",
+      "T_DEADLINE"
+    ],
+    "clock_event_map": {
+      "T_ARRIVAL": "EVT-010",
+      "T_CAMERA_SYNC": "EVT-011",
+      "T_OTTO_PHOTO": "EVT-012",
+      "T_DEADLINE": "EVT-013"
+    },
+    "deadline_clock": "T_DEADLINE",
+    "scene_time_cost_default_minutes": 5,
+    "no_earlier_time_travel": true
+  },
+  "scene_chains": [
+    {
+      "chain_id": "CHAIN-OPENING",
+      "active_from_clock": "T_ARRIVAL",
+      "active_until_clock": "T_OTTO_PHOTO",
+      "steps": [
+        {
+          "step_id": "SC-LOBBY-ARRIVAL",
+          "scene_unit_id": "SC-LOBBY-ARRIVAL",
+          "player_label": "Receive arrival briefing.",
+          "location_id": "LOC-LOBBY"
+        },
+        {
+          "step_id": "SC-HALL-ALARM",
+          "scene_unit_id": "SC-HALL-ALARM",
+          "player_label": "Survey the empty wall mount.",
+          "location_id": "LOC-MAIN-HALL"
+        }
+      ]
+    },
+    {
+      "chain_id": "CHAIN-RECORDS",
+      "active_from_clock": "T_OTTO_PHOTO",
+      "active_until_clock": "T_CAMERA_SYNC",
+      "steps": [
+        {
+          "step_id": "SC-TERRACE-PHOTO",
+          "scene_unit_id": "SC-TERRACE-PHOTO",
+          "player_label": "Review Otto's timestamped photo.",
+          "location_id": "LOC-TERRACE"
+        },
+        {
+          "step_id": "SC-OFFICE-CAMERA",
+          "scene_unit_id": "SC-OFFICE-CAMERA",
+          "player_label": "Pull camera audit records.",
+          "location_id": "LOC-OFFICE",
+          "state_updates": {
+            "camera_sync_complete": true
+          }
+        }
+      ]
+    },
+    {
+      "chain_id": "CHAIN-FINAL",
+      "active_from_clock": "T_CAMERA_SYNC",
+      "active_until_clock": "T_DEADLINE",
+      "steps": [
+        {
+          "step_id": "SC-VAULT-LOG",
+          "scene_unit_id": "SC-VAULT-LOG",
+          "player_label": "Compare vault logs with testimony.",
+          "location_id": "LOC-VAULT"
+        },
+        {
+          "step_id": "SC-HALL-SIGHTLINE",
+          "scene_unit_id": "SC-HALL-SIGHTLINE",
+          "player_label": "Walk the podium sightline.",
+          "location_id": "LOC-MAIN-HALL",
+          "state_updates": {
+            "sightline_examined": true
+          }
+        },
+        {
+          "step_id": "SC-ACCUSATION-PREP",
+          "scene_unit_id": "SC-ACCUSATION-PREP",
+          "player_label": "Prepare final claim determination.",
+          "location_id": "LOC-OFFICE",
+          "requires_state": {
+            "ready_to_accuse": true
+          }
+        },
+        {
+          "step_id": "SC-DEADLINE-WARN",
+          "scene_unit_id": "SC-DEADLINE-WARN",
+          "player_label": "Hear deadline warning.",
+          "location_id": "LOC-LOBBY"
+        }
+      ]
+    }
+  ],
+  "world_state_variants": [
+    {
+      "variant_id": "VAR-OFFICE-CAMERA",
+      "base_scene_unit_id": "SC-OFFICE-CAMERA",
+      "variants": [
+        {
+          "when_state": {
+            "flag": "camera_sync_complete",
+            "value": true
+          },
+          "scene_unit_id": "SC-OFFICE-CAMERA"
+        },
+        {
+          "when_state": {
+            "flag": "camera_sync_complete",
+            "value": false
+          },
+          "scene_unit_id": "SC-OFFICE-CAMERA"
+        }
+      ]
+    }
+  ],
+  "location_revisits": [
+    {
+      "location_id": "LOC-OFFICE",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-SALE",
+          "when_clock_at_least": "T_CAMERA_SYNC",
+          "unlocks_scene_unit_id": "SC-OFFICE-CAMERA",
+          "state_updates": {
+            "sale_reviewed": true
+          }
+        }
+      ]
+    },
+    {
+      "location_id": "LOC-MAIN-HALL",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-SIGHTLINE",
+          "when_knowledge_held": [
+            "KNOW-LINA-PODIUM"
+          ],
+          "unlocks_scene_unit_id": "SC-HALL-SIGHTLINE",
+          "state_updates": {
+            "sightline_examined": true
+          }
+        }
+      ]
+    }
+  ],
+  "inference_flow_gates": [
+    {
+      "inference_id": "INF-WITNESS-CONFLICT",
+      "hypothesis_id": "HYP-WITNESS-CONFLICT",
+      "required_knowledge_ids": [
+        "KNOW-LINA-PODIUM",
+        "KNOW-JAMES-VAULT",
+        "KNOW-VERA-OFFICE"
+      ],
+      "success_state_updates": {
+        "inference_witness_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-VAULT-TABLET",
+        "REC-LINA-PODIUM"
+      ]
+    },
+    {
+      "inference_id": "INF-STAGING",
+      "hypothesis_id": "HYP-STAGING",
+      "required_knowledge_ids": [
+        "KNOW-CRATE-LABEL",
+        "KNOW-CAMERA-GAP",
+        "KNOW-PRIVATE-SALE"
+      ],
+      "success_state_updates": {
+        "inference_staging_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-OFFICE-CAMERA",
+        "REC-HALL-CRATE"
+      ]
+    },
+    {
+      "inference_id": "INF-VERA-FRAUD",
+      "hypothesis_id": "HYP-VERA-FRAUD",
+      "required_knowledge_ids": [
+        "KNOW-INSURANCE-RIDER",
+        "KNOW-PRIVATE-SALE",
+        "KNOW-OTTO-PHOTO"
+      ],
+      "success_state_updates": {
+        "inference_vera_resolved": true,
+        "ready_to_accuse": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-OFFICE-RIDER",
+        "REC-TERRACE-PHOTO"
+      ]
+    },
+    {
+      "inference_id": "INF-PERFECT-VERDICT",
+      "hypothesis_id": "HYP-PERFECT-VERDICT",
+      "required_knowledge_ids": [
+        "KNOW-CONTRADICTION-JAMES-LINA",
+        "KNOW-VERA-STAGING",
+        "KNOW-PERFECT-VERDICT"
+      ],
+      "success_state_updates": {
+        "inference_perfect_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-OFFICE-CAMERA",
+        "REC-HALL-CRATE"
+      ]
+    }
+  ],
+  "recovery_routes": [
+    {
+      "route_id": "REC-OFFICE-CAMERA",
+      "player_action_label": "Return to the camera audit terminal.",
+      "destination_ref": "LOC-OFFICE",
+      "action_ref": "ACT-CAMERA-LOG"
+    },
+    {
+      "route_id": "REC-HALL-CRATE",
+      "player_action_label": "Re-examine the crate shipping label.",
+      "destination_ref": "LOC-MAIN-HALL",
+      "action_ref": "ACT-CRATE-LABEL"
+    },
+    {
+      "route_id": "REC-VAULT-TABLET",
+      "player_action_label": "Re-read the security tablet log.",
+      "destination_ref": "LOC-VAULT",
+      "action_ref": "ACT-SECURITY-TABLET"
+    },
+    {
+      "route_id": "REC-OFFICE-RIDER",
+      "player_action_label": "Review the insurance rider again.",
+      "destination_ref": "LOC-OFFICE",
+      "action_ref": "ACT-INSURANCE-RIDER"
+    },
+    {
+      "route_id": "REC-LINA-PODIUM",
+      "player_action_label": "Return to Lina Morales for podium timing.",
+      "destination_ref": "LOC-MAIN-HALL",
+      "action_ref": "CONV-LINA"
+    },
+    {
+      "route_id": "REC-TERRACE-PHOTO",
+      "player_action_label": "Ask Otto Weiss about the photo again.",
+      "destination_ref": "LOC-TERRACE",
+      "action_ref": "CONV-OTTO"
+    }
+  ],
+  "accusation_questionnaire": {
+    "questionnaire_id": "ACC-GALLERY-VERDICT",
+    "required_before_ending_eval": true,
+    "multi_component": true,
+    "questions": [
+      {
+        "question_id": "Q-WHO",
+        "conclusion_id": "CONC-WHO",
+        "answer_type": "npc_id",
+        "player_label": "Who staged the disappearance?"
+      },
+      {
+        "question_id": "Q-WHAT",
+        "conclusion_id": "CONC-WHAT",
+        "answer_type": "text",
+        "player_label": "What happened to Midnight Verdict?"
+      },
+      {
+        "question_id": "Q-HOW",
+        "conclusion_id": "CONC-HOW",
+        "answer_type": "text",
+        "player_label": "How were witnesses misled?"
+      },
+      {
+        "question_id": "Q-WHEN",
+        "conclusion_id": "CONC-WHEN",
+        "answer_type": "text",
+        "player_label": "When was the painting removed?"
+      }
+    ],
+    "accusation_complete_state_flag": "accusation_complete"
+  },
+  "deadline": {
+    "enabled": true,
+    "deadline_clock": "T_DEADLINE",
+    "deadline_ending_id": "END-TIMEOUT",
+    "blocks_accusation_after": true
+  },
+  "endings": [
+    {
+      "ending_id": "END-PERFECT",
+      "ending_type": "perfect",
+      "priority": 100,
+      "unit_id": "END-PERFECT",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true,
+          "inference_perfect_resolved": true
+        },
+        "required_accusation": {
+          "Q-WHO": "NPC-VERA"
+        }
+      },
+      "reveals_full_truth": true,
+      "truth_reveal_scope": "complete"
+    },
+    {
+      "ending_id": "END-PARTIAL-CULPRIT",
+      "ending_type": "partial",
+      "priority": 50,
+      "unit_id": "END-PARTIAL-CULPRIT",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true,
+          "inference_vera_resolved": true
+        }
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "partial"
+    },
+    {
+      "ending_id": "END-PARTIAL-WITNESS",
+      "ending_type": "partial",
+      "priority": 40,
+      "unit_id": "END-PARTIAL-WITNESS",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true,
+          "inference_witness_resolved": true
+        }
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "partial"
+    },
+    {
+      "ending_id": "END-PARTIAL-WRONG",
+      "ending_type": "partial",
+      "priority": 30,
+      "unit_id": "END-PARTIAL-WRONG",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true
+        },
+        "wrong_accusation_allowed": true
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "partial"
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "ending_type": "deadline",
+      "priority": 10,
+      "unit_id": "END-TIMEOUT",
+      "trigger": {
+        "type": "deadline_expired",
+        "deadline_clock": "T_DEADLINE"
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "none"
+    }
+  ],
+  "schema_version": "1.0",
+  "adventure_id": "The_Gallery_Verdict",
+  "ending_graph": {
+    "nodes": [
+      "END-PERFECT",
+      "END-PARTIAL-CULPRIT",
+      "END-PARTIAL-WITNESS",
+      "END-PARTIAL-WRONG",
+      "END-TIMEOUT"
+    ],
+    "evaluation_order": [
+      "END-PERFECT",
+      "END-PARTIAL-CULPRIT",
+      "END-PARTIAL-WITNESS",
+      "END-PARTIAL-WRONG",
+      "END-TIMEOUT"
+    ]
+  },
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "object_interaction_links": {
+    "package_path": "DO_NOT_READ/object_interaction_package.json"
+  },
+  "npc_investigation_links": {
+    "package_path": "DO_NOT_READ/npc_investigation_package.json"
+  }
+}

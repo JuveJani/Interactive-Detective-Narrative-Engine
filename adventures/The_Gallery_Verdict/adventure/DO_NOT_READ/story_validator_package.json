@@ -1,0 +1,20 @@
+{
+  "story_frame": {
+    "investigation_starts_where": "urban gallery lobby after opening-night alarm",
+    "investigation_starts_when": "approximately 2115 same evening",
+    "incident_description": "featured painting missing with contradictory witness accounts",
+    "incident_when": "opening night between 2035 and 2100",
+    "investigator_involvement": "independent insurance adjuster retained for claim determination",
+    "deadline_or_constraint": "carrier claim filing deadline at 2300"
+  },
+  "timeline": {
+    "investigation_confused_with_incident": false,
+    "impossible_ordering": false,
+    "events": []
+  },
+  "schema_version": "1.0",
+  "adventure_id": "The_Gallery_Verdict",
+  "play_modes": [
+    "single_investigator"
+  ]
+}

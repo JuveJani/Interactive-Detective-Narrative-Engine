@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Gallery_Verdict",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "object_interaction_links": {
+    "package_path": "DO_NOT_READ/object_interaction_package.json"
+  },
+  "npc_investigation_links": {
+    "package_path": "DO_NOT_READ/npc_investigation_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "modifier_sources": [
+    {
+      "modifier_id": "MOD-PERCEPTION",
+      "capability_category": "perception_observation",
+      "source": "character_sheet.perception"
+    },
+    {
+      "modifier_id": "MOD-REASONING",
+      "capability_category": "reasoning_analysis",
+      "source": "character_sheet.reasoning"
+    },
+    {
+      "modifier_id": "MOD-TECHNICAL",
+      "capability_category": "technical_systems",
+      "source": "character_sheet.technical"
+    }
+  ],
+  "resolution_model": {
+    "formula": "d20 + character_modifier",
+    "success_when": "result >= dc"
+  },
+  "difficulty_bands": {
+    "easy": 5,
+    "medium": 10,
+    "hard": 15
+  },
+  "destination_units": [
+    {
+      "unit_id": "UNIT-CHK-SIGHTLINE-DECL",
+      "player_text": "Make your check."
+    },
+    {
+      "unit_id": "UNIT-SIGHTLINE-SUCCESS",
+      "player_text": "Success."
+    },
+    {
+      "unit_id": "UNIT-SIGHTLINE-FAIL",
+      "player_text": "Failure.",
+      "hints_missed_content": false,
+      "reveals_hidden_object": false
+    },
+    {
+      "unit_id": "UNIT-CHK-CRATE-DECL",
+      "player_text": "Make your check."
+    },
+    {
+      "unit_id": "UNIT-CRATE-SUCCESS",
+      "player_text": "Success."
+    },
+    {
+      "unit_id": "UNIT-CRATE-FAIL",
+      "player_text": "Failure.",
+      "hints_missed_content": false,
+      "reveals_hidden_object": false
+    },
+    {
+      "unit_id": "UNIT-CHK-CAMERA-DECL",
+      "player_text": "Make your check."
+    },
+    {
+      "unit_id": "UNIT-CAMERA-SUCCESS",
+      "player_text": "Success."
+    },
+    {
+      "unit_id": "UNIT-CAMERA-FAIL",
+      "player_text": "Failure.",
+      "hints_missed_content": false,
+      "reveals_hidden_object": false
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "CHK-SIGHTLINE",
+      "parent_action_id": "ACT-CRATE-LABEL",
+      "parent_action_layer": "object_interaction",
+      "parent_action_type": "search",
+      "player_action_label": "Reconstruct podium sightlines to the wall mount.",
+      "capability": "perception",
+      "capability_category": "perception_observation",
+      "modifier_source_id": "MOD-PERCEPTION",
+      "dc": 12,
+      "dc_justification": "Careful observation required",
+      "why_check_exists": "Reveal hidden detail",
+      "success_enables": "Additional knowledge",
+      "failure_consequence": "Alternate route available",
+      "alternate_route_exists": true,
+      "attempt_policy": {
+        "default": "one_attempt"
+      },
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "cost_applied_count": 1,
+      "eligibility": {
+        "single_investigator": "active_investigator",
+        "two_player": "role_or_scene"
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": false,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "action_unit_id": "UNIT-CHK-SIGHTLINE-DECL",
+        "success_destination": "UNIT-SIGHTLINE-SUCCESS",
+        "failure_destination": "UNIT-SIGHTLINE-FAIL"
+      },
+      "success_effects": {
+        "grants_knowledge_ids": [
+          "KNOW-SIGHTLINE",
+          "KNOW-CRATE-LABEL"
+        ],
+        "npc_social_effects": []
+      },
+      "failure_effects": {
+        "npc_social_effects": []
+      },
+      "information_trace": {
+        "fixed_truth_ref": "FACT-006",
+        "source_id": "OBJ-CRATE-LABEL"
+      }
+    },
+    {
+      "check_id": "CHK-CRATE",
+      "parent_action_id": "ACT-SECURITY-TABLET",
+      "parent_action_layer": "object_interaction",
+      "parent_action_type": "interpret",
+      "player_action_label": "Compare vault log timestamps with witness accounts.",
+      "capability": "reasoning",
+      "capability_category": "reasoning_interpretation",
+      "modifier_source_id": "MOD-REASONING",
+      "dc": 11,
+      "dc_justification": "Careful observation required",
+      "why_check_exists": "Reveal hidden detail",
+      "success_enables": "Additional knowledge",
+      "failure_consequence": "Alternate route available",
+      "alternate_route_exists": true,
+      "attempt_policy": {
+        "default": "one_attempt"
+      },
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "cost_applied_count": 1,
+      "eligibility": {
+        "single_investigator": "active_investigator",
+        "two_player": "role_or_scene"
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": false,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "action_unit_id": "UNIT-CHK-CRATE-DECL",
+        "success_destination": "UNIT-CRATE-SUCCESS",
+        "failure_destination": "UNIT-CRATE-FAIL"
+      },
+      "success_effects": {
+        "grants_knowledge_ids": [
+          "KNOW-VAULT-LOG"
+        ],
+        "npc_social_effects": []
+      },
+      "failure_effects": {
+        "npc_social_effects": []
+      },
+      "information_trace": {
+        "fixed_truth_ref": "FACT-004",
+        "source_id": "OBJ-SECURITY-TABLET"
+      }
+    },
+    {
+      "check_id": "CHK-CAMERA",
+      "parent_action_id": "ACT-CAMERA-LOG",
+      "parent_action_layer": "object_interaction",
+      "parent_action_type": "operate",
+      "player_action_label": "Correlate camera disable log with badge records.",
+      "capability": "technical",
+      "capability_category": "technical_operation",
+      "modifier_source_id": "MOD-TECHNICAL",
+      "dc": 12,
+      "dc_justification": "Careful observation required",
+      "why_check_exists": "Reveal hidden detail",
+      "success_enables": "Additional knowledge",
+      "failure_consequence": "Alternate route available",
+      "alternate_route_exists": true,
+      "attempt_policy": {
+        "default": "one_attempt"
+      },
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "cost_applied_count": 1,
+      "eligibility": {
+        "single_investigator": "active_investigator",
+        "two_player": "role_or_scene"
+      },
+      "fixed_truth_invariants": {
+        "changes_evidence_existence": false,
+        "changes_document_contents": false,
+        "changes_fixed_truth": false,
+        "changes_npc_fixed_knowledge": false
+      },
+      "destinations": {
+        "action_unit_id": "UNIT-CHK-CAMERA-DECL",
+        "success_destination": "UNIT-CAMERA-SUCCESS",
+        "failure_destination": "UNIT-CAMERA-FAIL"
+      },
+      "success_effects": {
+        "grants_knowledge_ids": [
+          "KNOW-CAMERA-GAP"
+        ],
+        "npc_social_effects": []
+      },
+      "failure_effects": {
+        "npc_social_effects": []
+      },
+      "information_trace": {
+        "fixed_truth_ref": "FACT-010",
+        "source_id": "OBJ-CAMERA-LOG"
+      }
+    }
+  ]
+}

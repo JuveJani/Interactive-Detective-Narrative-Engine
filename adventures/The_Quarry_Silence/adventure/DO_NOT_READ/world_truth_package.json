@@ -1,0 +1,549 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Quarry_Silence",
+  "fixed_truth": {
+    "culprit_id": "NPC-MARCUS",
+    "motive": "Avoid OSHA shutdown and discipline after bypassing safety interlock and confrontation with Carl Mendez",
+    "method": "Bypassed interlock, confrontation on platform, cut hydraulic line to simulate failure, falsified incident and maintenance records",
+    "opportunity": "Shift supervisor authority, access to control shack logs and maintenance entries",
+    "immutable_facts": [
+      {
+        "fact_id": "FACT-001",
+        "statement": "Victim Carl Mendez was assigned solo crusher feed inspection at 0230"
+      },
+      {
+        "fact_id": "FACT-002",
+        "statement": "Hydraulic conveyor line did not fail catastrophically per maintenance baseline"
+      },
+      {
+        "fact_id": "FACT-003",
+        "statement": "Shift supervisor Marcus Reed filed equipment-failure incident report at 0315"
+      },
+      {
+        "fact_id": "FACT-004",
+        "statement": "Marcus Reed bypassed crusher feed safety interlock earlier in the shift"
+      },
+      {
+        "fact_id": "FACT-005",
+        "statement": "Limestone scrape marks at quarry base contradict pure conveyor crush narrative"
+      },
+      {
+        "fact_id": "FACT-006",
+        "statement": "Mud boot prints on crusher platform show two persons present at 0245"
+      },
+      {
+        "fact_id": "FACT-007",
+        "statement": "Hydraulic fluid splatter pattern indicates line was cut, not burst"
+      },
+      {
+        "fact_id": "FACT-008",
+        "statement": "Maintenance log shows safety interlock inspection was falsified by Marcus"
+      },
+      {
+        "fact_id": "FACT-009",
+        "statement": "Weather station records show dry conditions; claimed wet-slip cause invalid"
+      },
+      {
+        "fact_id": "FACT-010",
+        "statement": "Victim hard hat found on crusher platform, not at quarry base"
+      },
+      {
+        "fact_id": "FACT-011",
+        "statement": "Equipment operator Rick Torres witnessed Marcus on platform at 0245"
+      },
+      {
+        "fact_id": "FACT-012",
+        "statement": "Coroner preliminary notes suggest blunt impact before fall, not crush alone"
+      },
+      {
+        "fact_id": "FACT-013",
+        "statement": "Marcus Reed had prior OSHA citation for bypassing safety interlocks"
+      },
+      {
+        "fact_id": "FACT-014",
+        "statement": "Dust deposition on platform railing shows struggle or forced movement"
+      }
+    ]
+  },
+  "causal_timeline": {
+    "clock_start": "2026-06-12T02:00:00",
+    "events": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "2026-06-12T02:15:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-CRUSHER",
+        "description": "Marcus Reed bypasses crusher feed safety interlock",
+        "participants": [
+          "NPC-MARCUS"
+        ],
+        "causes": [],
+        "reveals_facts": [
+          "FACT-004"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-002",
+        "timestamp": "2026-06-12T02:30:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-CRUSHER",
+        "description": "Carl Mendez begins solo feed inspection on platform",
+        "participants": [
+          "NPC-CARL"
+        ],
+        "causes": [
+          "EVT-001"
+        ],
+        "reveals_facts": [
+          "FACT-001"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-003",
+        "timestamp": "2026-06-12T02:42:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-CRUSHER",
+        "description": "Marcus cuts hydraulic line to simulate failure after confrontation",
+        "participants": [
+          "NPC-MARCUS"
+        ],
+        "causes": [
+          "EVT-002"
+        ],
+        "reveals_facts": [
+          "FACT-007"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-004",
+        "timestamp": "2026-06-12T02:45:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-CRUSHER",
+        "description": "Carl falls from platform after struggle at railing",
+        "participants": [
+          "NPC-CARL",
+          "NPC-MARCUS"
+        ],
+        "causes": [
+          "EVT-003"
+        ],
+        "reveals_facts": [
+          "FACT-005",
+          "FACT-010",
+          "FACT-014"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-005",
+        "timestamp": "2026-06-12T02:48:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-QUARRY-FLOOR",
+        "description": "Carl's body comes to rest at quarry base",
+        "participants": [
+          "NPC-CARL"
+        ],
+        "causes": [
+          "EVT-004"
+        ],
+        "reveals_facts": [
+          "FACT-012"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-006",
+        "timestamp": "2026-06-12T03:15:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-CONTROL",
+        "description": "Marcus files equipment-failure incident report",
+        "participants": [
+          "NPC-MARCUS"
+        ],
+        "causes": [
+          "EVT-004"
+        ],
+        "reveals_facts": [
+          "FACT-003"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-007",
+        "timestamp": "2026-06-12T03:30:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-MAINT",
+        "description": "Marcus falsifies interlock inspection in maintenance log",
+        "participants": [
+          "NPC-MARCUS"
+        ],
+        "causes": [
+          "EVT-006"
+        ],
+        "reveals_facts": [
+          "FACT-008"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-008",
+        "timestamp": "2026-06-12T04:00:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-QUARRY-FLOOR",
+        "description": "Rick Torres told to stay quiet about platform presence",
+        "participants": [
+          "NPC-RICK",
+          "NPC-MARCUS"
+        ],
+        "causes": [
+          "EVT-006"
+        ],
+        "reveals_facts": [
+          "FACT-006",
+          "FACT-011"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-009",
+        "timestamp": "2026-06-12T06:30:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-YARD",
+        "description": "Coroner liaison Diana Okoro arrives on scene",
+        "participants": [
+          "NPC-DIANA"
+        ],
+        "causes": [],
+        "reveals_facts": [
+          "FACT-012"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-010",
+        "timestamp": "2026-06-12T07:00:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-YARD",
+        "description": "Occupational safety investigator arrives",
+        "participants": [
+          "PC-INVESTIGATOR"
+        ],
+        "causes": [
+          "EVT-009"
+        ],
+        "reveals_facts": [],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-011",
+        "timestamp": "2026-06-12T08:30:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-MAINT",
+        "description": "Maintenance records sync to investigator tablet",
+        "participants": [],
+        "causes": [
+          "EVT-010"
+        ],
+        "reveals_facts": [],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-012",
+        "timestamp": "2026-06-12T09:30:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-CRUSHER",
+        "description": "Elena Vasquez shares hydraulic cut findings with investigator",
+        "participants": [
+          "NPC-ELENA"
+        ],
+        "causes": [
+          "EVT-010"
+        ],
+        "reveals_facts": [
+          "FACT-002",
+          "FACT-007"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-013",
+        "timestamp": "2026-06-12T12:00:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-CONTROL",
+        "description": "OSHA preliminary report deadline",
+        "participants": [],
+        "causes": [
+          "EVT-010"
+        ],
+        "reveals_facts": [],
+        "effects": []
+      }
+    ]
+  },
+  "world_state_timeline": {
+    "snapshots": [
+      {
+        "at_event_id": "EVT-004",
+        "people_locations": {
+          "NPC-MARCUS": "LOC-CRUSHER",
+          "NPC-CARL": "LOC-QUARRY-FLOOR"
+        },
+        "object_states": {
+          "OBJ-HARD-HAT": "on_platform"
+        },
+        "access_states": {
+          "LOC-CRUSHER": "restricted"
+        },
+        "evidence_conditions": {}
+      },
+      {
+        "at_event_id": "EVT-010",
+        "people_locations": {
+          "PC-INVESTIGATOR": "LOC-YARD"
+        },
+        "object_states": {
+          "OBJ-INCIDENT-REPORT": "filed"
+        },
+        "access_states": {
+          "LOC-YARD": "open"
+        },
+        "evidence_conditions": {}
+      },
+      {
+        "at_event_id": "EVT-011",
+        "people_locations": {},
+        "object_states": {
+          "OBJ-MAINT-RECORD": "sync_complete"
+        },
+        "access_states": {
+          "LOC-MAINT": "records_available"
+        },
+        "evidence_conditions": {}
+      }
+    ]
+  },
+  "npc_knowledge": {
+    "npcs": [
+      {
+        "npc_id": "NPC-MARCUS",
+        "knows": [
+          "FACT-003",
+          "FACT-004",
+          "FACT-007",
+          "FACT-008"
+        ],
+        "believes_incorrectly": [],
+        "witnessed_events": [
+          "EVT-001",
+          "EVT-003",
+          "EVT-004",
+          "EVT-006",
+          "EVT-007"
+        ],
+        "hides": [
+          "FACT-004",
+          "FACT-007",
+          "FACT-008",
+          "FACT-014"
+        ],
+        "behavior_rationale": "Conceals interlock bypass and staged hydraulic failure after platform confrontation"
+      },
+      {
+        "npc_id": "NPC-DIANA",
+        "knows": [
+          "FACT-012",
+          "FACT-005"
+        ],
+        "believes_incorrectly": [],
+        "witnessed_events": [
+          "EVT-004",
+          "EVT-005",
+          "EVT-009"
+        ],
+        "hides": [],
+        "behavior_rationale": "Cooperative coroner liaison focused on physical injury patterns"
+      },
+      {
+        "npc_id": "NPC-ELENA",
+        "knows": [
+          "FACT-002",
+          "FACT-007",
+          "FACT-008"
+        ],
+        "believes_incorrectly": [],
+        "witnessed_events": [
+          "EVT-007",
+          "EVT-012"
+        ],
+        "hides": [],
+        "behavior_rationale": "Truthful maintenance tech who trusts equipment condition over supervisor narrative"
+      },
+      {
+        "npc_id": "NPC-RICK",
+        "knows": [
+          "FACT-006",
+          "FACT-011"
+        ],
+        "believes_incorrectly": [],
+        "witnessed_events": [
+          "EVT-004",
+          "EVT-008"
+        ],
+        "hides": [
+          "FACT-011"
+        ],
+        "behavior_rationale": "Frightened operator coached to stay quiet about Marcus on platform"
+      }
+    ]
+  },
+  "evidence_provenance": {
+    "evidence": [
+      {
+        "evidence_id": "EVD-INCIDENT-REPORT",
+        "source_event_id": "EVT-006",
+        "type": "document",
+        "description": "Shift supervisor equipment-failure incident report",
+        "establishes_fact_ids": [
+          "FACT-003"
+        ],
+        "misleading": true,
+        "misleading_cause": "Attributes death to hydraulic failure rather than platform fall"
+      },
+      {
+        "evidence_id": "EVD-LIMESTONE-SCRAPE",
+        "source_event_id": "EVT-004",
+        "type": "physical",
+        "description": "Fresh scrape marks on quarry base limestone",
+        "establishes_fact_ids": [
+          "FACT-005"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      },
+      {
+        "evidence_id": "EVD-HYDRAULIC-STAIN",
+        "source_event_id": "EVT-003",
+        "type": "physical",
+        "description": "Hydraulic fluid splatter on crusher deck",
+        "establishes_fact_ids": [
+          "FACT-007"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      },
+      {
+        "evidence_id": "EVD-BOOT-PRINTS",
+        "source_event_id": "EVT-004",
+        "type": "physical",
+        "description": "Mud boot print pairs on crusher platform",
+        "establishes_fact_ids": [
+          "FACT-006"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      },
+      {
+        "evidence_id": "EVD-MAINT-LOG",
+        "source_event_id": "EVT-007",
+        "type": "document",
+        "description": "Falsified interlock inspection maintenance log",
+        "establishes_fact_ids": [
+          "FACT-008",
+          "FACT-013"
+        ],
+        "misleading": true,
+        "misleading_cause": "Shows passed inspection that did not occur"
+      },
+      {
+        "evidence_id": "EVD-WEATHER-LOG",
+        "source_event_id": "EVT-010",
+        "type": "document",
+        "description": "Site weather station overnight log",
+        "establishes_fact_ids": [
+          "FACT-009"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      }
+    ]
+  },
+  "observable_information": {
+    "observations": [
+      {
+        "observation_id": "OBS-SCRAPE",
+        "learnable_fact_id": "FACT-005",
+        "source_evidence_id": "EVD-LIMESTONE-SCRAPE",
+        "requires": {
+          "action": "inspect",
+          "location_id": "LOC-QUARRY-FLOOR",
+          "check_id": "CHK-IMPACT"
+        },
+        "hidden_if_not_met": true
+      },
+      {
+        "observation_id": "OBS-HYDRAULIC",
+        "learnable_fact_id": "FACT-007",
+        "source_evidence_id": "EVD-HYDRAULIC-STAIN",
+        "requires": {
+          "action": "inspect",
+          "location_id": "LOC-CRUSHER",
+          "check_id": "CHK-HYDRAULIC"
+        },
+        "hidden_if_not_met": true
+      },
+      {
+        "observation_id": "OBS-BOOTS",
+        "learnable_fact_id": "FACT-006",
+        "source_evidence_id": "EVD-BOOT-PRINTS",
+        "requires": {
+          "action": "inspect",
+          "location_id": "LOC-CRUSHER",
+          "check_id": "CHK-TRACKS"
+        },
+        "hidden_if_not_met": true
+      }
+    ]
+  },
+  "conclusion_requirements": {
+    "questions": [
+      {
+        "question_id": "Q-CULPRIT",
+        "answer_entity_id": "NPC-MARCUS",
+        "required_fact_ids": [
+          "FACT-004",
+          "FACT-007",
+          "FACT-008",
+          "FACT-014"
+        ]
+      },
+      {
+        "question_id": "Q-METHOD",
+        "answer_entity_id": "METHOD-COVERUP",
+        "required_fact_ids": [
+          "FACT-003",
+          "FACT-007",
+          "FACT-008"
+        ]
+      }
+    ]
+  },
+  "narrative_construction": {},
+  "ending_claims": [
+    {
+      "ending_id": "END-PERFECT",
+      "asserted_fact_ids": [
+        "FACT-004",
+        "FACT-007",
+        "FACT-008",
+        "FACT-014"
+      ]
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "asserted_fact_ids": []
+    }
+  ]
+}

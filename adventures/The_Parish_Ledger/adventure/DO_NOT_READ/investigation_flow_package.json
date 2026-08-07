@@ -1,0 +1,451 @@
+{
+  "placeholder_resolution": {},
+  "state_model": {
+    "flags": [
+      "records_sync_complete",
+      "register_reviewed",
+      "counter_reviewed",
+      "badge_reviewed",
+      "ledger_examined",
+      "deposit_examined",
+      "minutes_examined",
+      "ready_to_accuse",
+      "accusation_complete",
+      "inference_records_resolved",
+      "inference_diversion_resolved",
+      "inference_grace_resolved",
+      "inference_perfect_resolved",
+      "check_ledger_failed",
+      "check_deposit_failed",
+      "check_minutes_failed"
+    ],
+    "counters": [
+      "investigation_phase"
+    ],
+    "initial_state": {
+      "records_sync_complete": false,
+      "register_reviewed": false,
+      "counter_reviewed": false,
+      "badge_reviewed": false,
+      "ledger_examined": false,
+      "deposit_examined": false,
+      "minutes_examined": false,
+      "ready_to_accuse": false,
+      "accusation_complete": false,
+      "inference_records_resolved": false,
+      "inference_diversion_resolved": false,
+      "inference_grace_resolved": false,
+      "inference_perfect_resolved": false,
+      "check_ledger_failed": false,
+      "check_deposit_failed": false,
+      "check_minutes_failed": false,
+      "investigation_phase": 0
+    }
+  },
+  "time_model": {
+    "clocks": [
+      "T_ARRIVAL",
+      "T_DEPOSIT_SYNC",
+      "T_HELEN_FINDINGS",
+      "T_DEADLINE"
+    ],
+    "clock_event_map": {
+      "T_ARRIVAL": "EVT-009",
+      "T_DEPOSIT_SYNC": "EVT-010",
+      "T_HELEN_FINDINGS": "EVT-012",
+      "T_DEADLINE": "EVT-013"
+    },
+    "deadline_clock": "T_DEADLINE",
+    "scene_time_cost_default_minutes": 5,
+    "no_earlier_time_travel": true
+  },
+  "scene_chains": [
+    {
+      "chain_id": "CHAIN-OPENING",
+      "active_from_clock": "T_ARRIVAL",
+      "active_until_clock": "T_HELEN_FINDINGS",
+      "steps": [
+        {
+          "step_id": "SC-NARTHEX-ARRIVAL",
+          "scene_unit_id": "SC-NARTHEX-ARRIVAL",
+          "player_label": "Receive audit briefing.",
+          "location_id": "LOC-NARTHEX"
+        },
+        {
+          "step_id": "SC-RECORDS-INTRO",
+          "scene_unit_id": "SC-RECORDS-INTRO",
+          "player_label": "Survey the finance records room.",
+          "location_id": "LOC-RECORDS"
+        }
+      ]
+    },
+    {
+      "chain_id": "CHAIN-RECORDS",
+      "active_from_clock": "T_HELEN_FINDINGS",
+      "active_until_clock": "T_DEPOSIT_SYNC",
+      "steps": [
+        {
+          "step_id": "SC-HELEN-REGISTER",
+          "scene_unit_id": "SC-HELEN-REGISTER",
+          "player_label": "Review register cross-reference with Helen.",
+          "location_id": "LOC-RECORDS"
+        },
+        {
+          "step_id": "SC-OFFICE-COUNTER",
+          "scene_unit_id": "SC-OFFICE-COUNTER",
+          "player_label": "Pull counter-signature log.",
+          "location_id": "LOC-OFFICE",
+          "state_updates": {
+            "counter_reviewed": true
+          }
+        }
+      ]
+    },
+    {
+      "chain_id": "CHAIN-FINAL",
+      "active_from_clock": "T_DEPOSIT_SYNC",
+      "active_until_clock": "T_DEADLINE",
+      "steps": [
+        {
+          "step_id": "SC-RECORDS-DEPOSIT",
+          "scene_unit_id": "SC-RECORDS-DEPOSIT",
+          "player_label": "Reconcile deposit batch images.",
+          "location_id": "LOC-RECORDS",
+          "state_updates": {
+            "deposit_examined": true
+          }
+        },
+        {
+          "step_id": "SC-COUNCIL-MINUTES",
+          "scene_unit_id": "SC-COUNCIL-MINUTES",
+          "player_label": "Compare council minutes to ledger.",
+          "location_id": "LOC-COUNCIL",
+          "state_updates": {
+            "minutes_examined": true
+          }
+        },
+        {
+          "step_id": "SC-ACCUSATION-PREP",
+          "scene_unit_id": "SC-ACCUSATION-PREP",
+          "player_label": "Prepare final reconciliation report.",
+          "location_id": "LOC-OFFICE",
+          "requires_state": {
+            "ready_to_accuse": true
+          }
+        },
+        {
+          "step_id": "SC-DEADLINE-WARN",
+          "scene_unit_id": "SC-DEADLINE-WARN",
+          "player_label": "Hear deadline warning.",
+          "location_id": "LOC-NARTHEX"
+        }
+      ]
+    }
+  ],
+  "world_state_variants": [
+    {
+      "variant_id": "VAR-DEPOSIT-SYNC",
+      "base_scene_unit_id": "SC-RECORDS-DEPOSIT",
+      "variants": [
+        {
+          "when_state": {
+            "flag": "records_sync_complete",
+            "value": true
+          },
+          "scene_unit_id": "SC-RECORDS-DEPOSIT"
+        },
+        {
+          "when_state": {
+            "flag": "records_sync_complete",
+            "value": false
+          },
+          "scene_unit_id": "SC-RECORDS-DEPOSIT"
+        }
+      ]
+    }
+  ],
+  "location_revisits": [
+    {
+      "location_id": "LOC-OFFICE",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-COUNTER",
+          "when_clock_at_least": "T_DEPOSIT_SYNC",
+          "unlocks_scene_unit_id": "SC-OFFICE-COUNTER",
+          "state_updates": {
+            "badge_reviewed": true
+          }
+        }
+      ]
+    },
+    {
+      "location_id": "LOC-RECORDS",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-LEDGER",
+          "when_knowledge_held": [
+            "KNOW-HELEN-FLAG"
+          ],
+          "unlocks_scene_unit_id": "SC-HELEN-REGISTER",
+          "state_updates": {
+            "ledger_examined": true
+          }
+        }
+      ]
+    }
+  ],
+  "inference_flow_gates": [
+    {
+      "inference_id": "INF-RECORDS-CONFLICT",
+      "hypothesis_id": "HYP-RECORDS-CONFLICT",
+      "required_knowledge_ids": [
+        "KNOW-LEDGER-ALTER",
+        "KNOW-DEPOSIT-SHORT",
+        "KNOW-MINUTES-ALLOC"
+      ],
+      "success_state_updates": {
+        "inference_records_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-RECORDS-LEDGER",
+        "REC-RECORDS-DEPOSIT"
+      ]
+    },
+    {
+      "inference_id": "INF-DIVERSION",
+      "hypothesis_id": "HYP-DIVERSION",
+      "required_knowledge_ids": [
+        "KNOW-DEPOSIT-SHORT",
+        "KNOW-REGISTER-GAP",
+        "KNOW-COUNTER-SIGN"
+      ],
+      "success_state_updates": {
+        "inference_diversion_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-RECORDS-DEPOSIT",
+        "REC-OFFICE-COUNTER"
+      ]
+    },
+    {
+      "inference_id": "INF-GRACE-EMBEZZLE",
+      "hypothesis_id": "HYP-GRACE-ACCOUNTABLE",
+      "required_knowledge_ids": [
+        "KNOW-BADGE-ACCESS",
+        "KNOW-COUNTER-SIGN",
+        "KNOW-GRACE-RECON"
+      ],
+      "success_state_updates": {
+        "inference_grace_resolved": true,
+        "ready_to_accuse": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-OFFICE-BADGE",
+        "REC-NPC-GRACE"
+      ]
+    },
+    {
+      "inference_id": "INF-PERFECT-RECON",
+      "hypothesis_id": "HYP-PERFECT-RECON",
+      "required_knowledge_ids": [
+        "KNOW-RECORDS-CONTRADICT",
+        "KNOW-GRACE-EMBEZZLE",
+        "KNOW-PERFECT-RECON"
+      ],
+      "success_state_updates": {
+        "inference_perfect_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-RECORDS-LEDGER",
+        "REC-COUNCIL-MINUTES"
+      ]
+    }
+  ],
+  "recovery_routes": [
+    {
+      "route_id": "REC-RECORDS-LEDGER",
+      "player_action_label": "Return to the donation ledger.",
+      "destination_ref": "LOC-RECORDS",
+      "action_ref": "ACT-DONATION-LEDGER"
+    },
+    {
+      "route_id": "REC-RECORDS-DEPOSIT",
+      "player_action_label": "Re-examine the bank deposit batch.",
+      "destination_ref": "LOC-RECORDS",
+      "action_ref": "ACT-BANK-DEPOSITS"
+    },
+    {
+      "route_id": "REC-COUNCIL-MINUTES",
+      "player_action_label": "Review council meeting minutes again.",
+      "destination_ref": "LOC-COUNCIL",
+      "action_ref": "ACT-COUNCIL-MINUTES"
+    },
+    {
+      "route_id": "REC-OFFICE-COUNTER",
+      "player_action_label": "Review the counter-signature log again.",
+      "destination_ref": "LOC-OFFICE",
+      "action_ref": "ACT-COUNTER-SIGN"
+    },
+    {
+      "route_id": "REC-OFFICE-BADGE",
+      "player_action_label": "Re-read the badge access log.",
+      "destination_ref": "LOC-OFFICE",
+      "action_ref": "ACT-BADGE-LOG"
+    },
+    {
+      "route_id": "REC-NPC-GRACE",
+      "player_action_label": "Return to Grace Brennan about the reconciliation.",
+      "destination_ref": "LOC-NARTHEX",
+      "action_ref": "CONV-GRACE"
+    }
+  ],
+  "accusation_questionnaire": {
+    "questionnaire_id": "ACC-PARISH-LEDGER",
+    "required_before_ending_eval": true,
+    "multi_component": true,
+    "questions": [
+      {
+        "question_id": "Q-WHO",
+        "conclusion_id": "CONC-WHO",
+        "answer_type": "npc_id",
+        "player_label": "Who altered records and diverted memorial fund deposits?"
+      },
+      {
+        "question_id": "Q-WHAT",
+        "conclusion_id": "CONC-WHAT",
+        "answer_type": "text",
+        "player_label": "What happened to the missing $4,200?"
+      },
+      {
+        "question_id": "Q-HOW",
+        "conclusion_id": "CONC-HOW",
+        "answer_type": "text",
+        "player_label": "How was the fraud executed?"
+      },
+      {
+        "question_id": "Q-WHEN",
+        "conclusion_id": "CONC-WHEN",
+        "answer_type": "text",
+        "player_label": "When were records altered?"
+      }
+    ],
+    "accusation_complete_state_flag": "accusation_complete"
+  },
+  "deadline": {
+    "enabled": true,
+    "deadline_clock": "T_DEADLINE",
+    "deadline_ending_id": "END-TIMEOUT",
+    "blocks_accusation_after": true
+  },
+  "endings": [
+    {
+      "ending_id": "END-PERFECT",
+      "ending_type": "perfect",
+      "priority": 100,
+      "unit_id": "END-PERFECT",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true,
+          "inference_perfect_resolved": true
+        },
+        "required_accusation": {
+          "Q-WHO": "NPC-GRACE"
+        }
+      },
+      "reveals_full_truth": true,
+      "truth_reveal_scope": "complete"
+    },
+    {
+      "ending_id": "END-PARTIAL-CULPRIT",
+      "ending_type": "partial",
+      "priority": 50,
+      "unit_id": "END-PARTIAL-CULPRIT",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true,
+          "inference_grace_resolved": true
+        }
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "partial"
+    },
+    {
+      "ending_id": "END-PARTIAL-RECORDS",
+      "ending_type": "partial",
+      "priority": 40,
+      "unit_id": "END-PARTIAL-RECORDS",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true,
+          "inference_records_resolved": true
+        }
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "partial"
+    },
+    {
+      "ending_id": "END-PARTIAL-WRONG",
+      "ending_type": "partial",
+      "priority": 30,
+      "unit_id": "END-PARTIAL-WRONG",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true
+        },
+        "wrong_accusation_allowed": true
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "partial"
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "ending_type": "deadline",
+      "priority": 10,
+      "unit_id": "END-TIMEOUT",
+      "trigger": {
+        "type": "deadline_expired",
+        "deadline_clock": "T_DEADLINE"
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "none"
+    }
+  ],
+  "schema_version": "1.0",
+  "adventure_id": "The_Parish_Ledger",
+  "ending_graph": {
+    "nodes": [
+      "END-PERFECT",
+      "END-PARTIAL-CULPRIT",
+      "END-PARTIAL-RECORDS",
+      "END-PARTIAL-WRONG",
+      "END-TIMEOUT"
+    ],
+    "evaluation_order": [
+      "END-PERFECT",
+      "END-PARTIAL-CULPRIT",
+      "END-PARTIAL-RECORDS",
+      "END-PARTIAL-WRONG",
+      "END-TIMEOUT"
+    ]
+  },
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "object_interaction_links": {
+    "package_path": "DO_NOT_READ/object_interaction_package.json"
+  },
+  "npc_investigation_links": {
+    "package_path": "DO_NOT_READ/npc_investigation_package.json"
+  }
+}

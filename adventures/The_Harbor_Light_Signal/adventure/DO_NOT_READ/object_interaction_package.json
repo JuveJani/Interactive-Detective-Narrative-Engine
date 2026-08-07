@@ -1,0 +1,452 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Harbor_Light_Signal",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "items_registry": [],
+  "objects": [
+    {
+      "object_id": "OBJ-LOG-BOOK",
+      "parent_id": "LOC-KEEPER",
+      "parent_type": "location",
+      "public_name": "Keeper's log book",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-LOG-BOOK",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-RADIO-TERMINAL",
+      "parent_id": "LOC-OFFICE",
+      "parent_type": "location",
+      "public_name": "Radio log terminal",
+      "object_type": "terminal",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-RADIO-TERMINAL",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-WEATHER-CHART",
+      "parent_id": "LOC-WORKSHOP",
+      "parent_type": "location",
+      "public_name": "Weather chart",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-WEATHER-CHART",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-SUPPLY-MANIFEST",
+      "parent_id": "LOC-LANDING",
+      "parent_type": "location",
+      "public_name": "Supply manifest",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-SUPPLY-MANIFEST",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-LENS-TOOLKIT",
+      "parent_id": "LOC-GALLERY",
+      "parent_type": "location",
+      "public_name": "Lens repair toolkit",
+      "object_type": "physical",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-LENS-TOOLKIT",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-GALLERY-RAILING",
+      "parent_id": "LOC-GALLERY",
+      "parent_type": "location",
+      "public_name": "Gallery safety railing",
+      "object_type": "physical",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-GALLERY-RAILING",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-LOG-BOOK",
+      "object_id": "OBJ-LOG-BOOK",
+      "player_label": "Analyze the log discrepancy.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-LOG",
+        "success_destination": "UNIT-LOG-SUCCESS",
+        "failure_destination": "UNIT-LOG-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-LOG-DEPARTURE-LINE"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-LOG-DECL"
+    },
+    {
+      "action_id": "ACT-RADIO-TERMINAL",
+      "object_id": "OBJ-RADIO-TERMINAL",
+      "player_label": "Decode the radio log timestamps.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-RADIO",
+        "success_destination": "UNIT-RADIO-SUCCESS",
+        "failure_destination": "UNIT-RADIO-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-RADIO-DEPARTURE"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-RADIO-DECL"
+    },
+    {
+      "action_id": "ACT-WEATHER-CHART",
+      "object_id": "OBJ-WEATHER-CHART",
+      "player_label": "Examine Weather chart.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "destination_unit": "UNIT-OBJ-WEATHER-MENU"
+    },
+    {
+      "action_id": "ACT-SUPPLY-MANIFEST",
+      "object_id": "OBJ-SUPPLY-MANIFEST",
+      "player_label": "Examine Supply manifest.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "destination_unit": "UNIT-OBJ-MANIFEST-MENU"
+    },
+    {
+      "action_id": "ACT-GALLERY-RAILING",
+      "object_id": "OBJ-GALLERY-RAILING",
+      "player_label": "Examine the gallery railing closely.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-RAILING",
+        "success_destination": "UNIT-RAILING-SUCCESS",
+        "failure_destination": "UNIT-RAILING-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-RAIL-DAMAGE"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-RAILING-DECL"
+    }
+  ],
+  "result_units": [
+    {
+      "unit_id": "UNIT-LANDING-BASE",
+      "return_destination": "UNIT-LANDING-BASE"
+    },
+    {
+      "unit_id": "UNIT-KEEPER-BASE",
+      "return_destination": "UNIT-KEEPER-BASE"
+    },
+    {
+      "unit_id": "UNIT-GALLERY-BASE",
+      "return_destination": "UNIT-GALLERY-BASE"
+    },
+    {
+      "unit_id": "UNIT-WORKSHOP-BASE",
+      "return_destination": "UNIT-WORKSHOP-BASE"
+    },
+    {
+      "unit_id": "UNIT-OFFICE-BASE",
+      "return_destination": "UNIT-OFFICE-BASE"
+    },
+    {
+      "unit_id": "UNIT-NPC-SARAH-HUB",
+      "return_destination": "UNIT-TOPIC-SARAH-SCHEDULE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-FRANK-HUB",
+      "return_destination": "UNIT-TOPIC-FRANK-PASSENGER",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-MAYA-HUB",
+      "return_destination": "UNIT-TOPIC-MAYA-TRUNK",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-TOM-HUB",
+      "return_destination": "UNIT-TOPIC-TOM-DEPARTURE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-SARAH-SCHEDULE",
+      "return_destination": "UNIT-NPC-SARAH-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-SARAH-ARRIVAL",
+      "return_destination": "UNIT-NPC-SARAH-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-SARAH-RADIO",
+      "return_destination": "UNIT-NPC-SARAH-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-FRANK-PASSENGER",
+      "return_destination": "UNIT-NPC-FRANK-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-FRANK-WEATHER",
+      "return_destination": "UNIT-NPC-FRANK-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-FRANK-CARGO",
+      "return_destination": "UNIT-NPC-FRANK-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-MAYA-TRUNK",
+      "return_destination": "UNIT-NPC-MAYA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-MAYA-TALLY",
+      "return_destination": "UNIT-NPC-MAYA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-MAYA-PARTS",
+      "return_destination": "UNIT-NPC-MAYA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-TOM-DEPARTURE",
+      "return_destination": "UNIT-NPC-TOM-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-TOM-LENS",
+      "return_destination": "UNIT-NPC-TOM-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-TOM-LOG",
+      "return_destination": "UNIT-NPC-TOM-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-LOG-MENU",
+      "return_destination": "UNIT-CHK-LOG-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-LOG-RESULT",
+      "return_destination": "UNIT-KEEPER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-RADIO-MENU",
+      "return_destination": "UNIT-CHK-RADIO-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-RADIO-RESULT",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-WEATHER-MENU",
+      "return_destination": "UNIT-OBJ-WEATHER-RESULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-WEATHER-RESULT",
+      "return_destination": "UNIT-WORKSHOP-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-MANIFEST-MENU",
+      "return_destination": "UNIT-OBJ-MANIFEST-RESULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-MANIFEST-RESULT",
+      "return_destination": "UNIT-LANDING-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-RAILING-DECL",
+      "return_destination": "UNIT-RAILING-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-RAILING-SUCCESS",
+      "return_destination": "UNIT-GALLERY-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-RAILING-FAIL",
+      "return_destination": "UNIT-GALLERY-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-LOG-DECL",
+      "return_destination": "UNIT-LOG-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LOG-SUCCESS",
+      "return_destination": "UNIT-KEEPER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LOG-FAIL",
+      "return_destination": "UNIT-KEEPER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-RADIO-DECL",
+      "return_destination": "UNIT-RADIO-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-RADIO-SUCCESS",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-RADIO-FAIL",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-LANDING-ARRIVAL",
+      "return_destination": "UNIT-LANDING-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-LANDING-STORM",
+      "return_destination": "UNIT-LANDING-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-OFFICE-RECORDS",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-GALLERY-ACCESS",
+      "return_destination": "UNIT-GALLERY-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-KEEPER-HANDOVER",
+      "return_destination": "UNIT-KEEPER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-WORKSHOP-WEATHER",
+      "return_destination": "UNIT-WORKSHOP-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-ACCUSATION-PREP",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-DEADLINE-WARN",
+      "return_destination": "UNIT-LANDING-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-DEPARTURE-IMPOSSIBLE",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-GALLERY-FALL",
+      "return_destination": "UNIT-GALLERY-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-TOM-COVERUP",
+      "return_destination": "UNIT-KEEPER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-PERFECT-RECON",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-OFFICE-RADIO",
+      "return_destination": "UNIT-OBJ-RADIO-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-GALLERY-RAIL",
+      "return_destination": "UNIT-CHK-RAILING-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-KEEPER-LOG",
+      "return_destination": "UNIT-OBJ-LOG-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-LANDING-MANIFEST",
+      "return_destination": "UNIT-OBJ-MANIFEST-MENU",
+      "requires_return": true
+    }
+  ],
+  "hierarchy_roots": [
+    "OBJ-LOG-BOOK",
+    "OBJ-RADIO-TERMINAL",
+    "OBJ-WEATHER-CHART",
+    "OBJ-SUPPLY-MANIFEST",
+    "OBJ-LENS-TOOLKIT",
+    "OBJ-GALLERY-RAILING"
+  ]
+}

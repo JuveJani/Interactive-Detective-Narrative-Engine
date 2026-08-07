@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "epistemic_progression_method": "canonical",
+  "package_path": "DO_NOT_READ/epistemic_progression_package.json",
+  "materialization": {
+    "template_count": 59,
+    "materialized_count": 11286,
+    "reachable_states": 11286,
+    "attempted_transitions": 25928,
+    "duplicate_states_skipped": 14643,
+    "peak_queue_size": 3118,
+    "truncated": false,
+    "max_states": 500000
+  }
+}

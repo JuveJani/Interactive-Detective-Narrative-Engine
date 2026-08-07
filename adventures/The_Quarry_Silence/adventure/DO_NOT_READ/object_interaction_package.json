@@ -1,0 +1,478 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Quarry_Silence",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "items_registry": [],
+  "objects": [
+    {
+      "object_id": "OBJ-LIMESTONE-SCRAPE",
+      "parent_id": "LOC-QUARRY-FLOOR",
+      "parent_type": "location",
+      "public_name": "Limestone scrape marks",
+      "object_type": "physical",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-LIMESTONE-SCRAPE",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-HARD-HAT",
+      "parent_id": "LOC-CRUSHER",
+      "parent_type": "location",
+      "public_name": "Victim hard hat",
+      "object_type": "physical",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-HARD-HAT",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-HYDRAULIC-STAIN",
+      "parent_id": "LOC-CRUSHER",
+      "parent_type": "location",
+      "public_name": "Hydraulic fluid stain",
+      "object_type": "physical",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-HYDRAULIC-STAIN",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-BOOT-PRINTS",
+      "parent_id": "LOC-CRUSHER",
+      "parent_type": "location",
+      "public_name": "Mud boot print trail",
+      "object_type": "physical",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-BOOT-PRINTS",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-INCIDENT-REPORT",
+      "parent_id": "LOC-CONTROL",
+      "parent_type": "location",
+      "public_name": "Incident report terminal",
+      "object_type": "terminal",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-INCIDENT-REPORT",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-WEATHER-LOG",
+      "parent_id": "LOC-CONTROL",
+      "parent_type": "location",
+      "public_name": "Weather station log",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-WEATHER-LOG",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-MAINT-RECORD",
+      "parent_id": "LOC-MAINT",
+      "parent_type": "location",
+      "public_name": "Maintenance inspection log",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-MAINT-RECORD",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-LIMESTONE-SCRAPE",
+      "object_id": "OBJ-LIMESTONE-SCRAPE",
+      "player_label": "Examine limestone scrape marks at the quarry base.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-IMPACT",
+        "success_destination": "UNIT-IMPACT-SUCCESS",
+        "failure_destination": "UNIT-IMPACT-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-SCRAPE-MARKS"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-IMPACT-DECL"
+    },
+    {
+      "action_id": "ACT-HYDRAULIC-STAIN",
+      "object_id": "OBJ-HYDRAULIC-STAIN",
+      "player_label": "Analyze hydraulic fluid splatter pattern on the crusher deck.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-HYDRAULIC",
+        "success_destination": "UNIT-HYDRAULIC-SUCCESS",
+        "failure_destination": "UNIT-HYDRAULIC-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-HYDRAULIC-CUT"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-HYDRAULIC-DECL"
+    },
+    {
+      "action_id": "ACT-BOOT-PRINTS",
+      "object_id": "OBJ-BOOT-PRINTS",
+      "player_label": "Reconstruct boot print patterns on the crusher platform.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-TRACKS",
+        "success_destination": "UNIT-TRACKS-SUCCESS",
+        "failure_destination": "UNIT-TRACKS-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-BOOT-PRINTS",
+          "KNOW-HARD-HAT"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-TRACKS-DECL"
+    },
+    {
+      "action_id": "ACT-INCIDENT-REPORT",
+      "object_id": "OBJ-INCIDENT-REPORT",
+      "player_label": "Examine Incident report terminal.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "destination_unit": "UNIT-OBJ-REPORT-MENU"
+    },
+    {
+      "action_id": "ACT-WEATHER-LOG",
+      "object_id": "OBJ-WEATHER-LOG",
+      "player_label": "Examine Weather station log.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "destination_unit": "UNIT-OBJ-WEATHER-MENU"
+    },
+    {
+      "action_id": "ACT-MAINT-RECORD",
+      "object_id": "OBJ-MAINT-RECORD",
+      "player_label": "Examine Maintenance inspection log.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "destination_unit": "UNIT-OBJ-MAINT-MENU"
+    }
+  ],
+  "result_units": [
+    {
+      "unit_id": "UNIT-YARD-BASE",
+      "return_destination": "UNIT-YARD-BASE"
+    },
+    {
+      "unit_id": "UNIT-QUARRY-FLOOR-BASE",
+      "return_destination": "UNIT-QUARRY-FLOOR-BASE"
+    },
+    {
+      "unit_id": "UNIT-CRUSHER-BASE",
+      "return_destination": "UNIT-CRUSHER-BASE"
+    },
+    {
+      "unit_id": "UNIT-CONTROL-BASE",
+      "return_destination": "UNIT-CONTROL-BASE"
+    },
+    {
+      "unit_id": "UNIT-MAINT-BASE",
+      "return_destination": "UNIT-MAINT-BASE"
+    },
+    {
+      "unit_id": "UNIT-NPC-MARCUS-HUB",
+      "return_destination": "UNIT-TOPIC-MARCUS-REPORT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-DIANA-HUB",
+      "return_destination": "UNIT-TOPIC-DIANA-IMPACT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-ELENA-HUB",
+      "return_destination": "UNIT-TOPIC-ELENA-HYDRAULIC",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-RICK-HUB",
+      "return_destination": "UNIT-TOPIC-RICK-PLATFORM",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-MARCUS-REPORT",
+      "return_destination": "UNIT-NPC-MARCUS-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-MARCUS-SLIP",
+      "return_destination": "UNIT-NPC-MARCUS-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-MARCUS-INTERLOCK",
+      "return_destination": "UNIT-NPC-MARCUS-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-DIANA-IMPACT",
+      "return_destination": "UNIT-NPC-DIANA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-DIANA-SCENE",
+      "return_destination": "UNIT-NPC-DIANA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-DIANA-HAT",
+      "return_destination": "UNIT-NPC-DIANA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-ELENA-HYDRAULIC",
+      "return_destination": "UNIT-NPC-ELENA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-ELENA-INTERLOCK",
+      "return_destination": "UNIT-NPC-ELENA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-ELENA-BASELINE",
+      "return_destination": "UNIT-NPC-ELENA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-RICK-PLATFORM",
+      "return_destination": "UNIT-NPC-RICK-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-RICK-BOOTS",
+      "return_destination": "UNIT-NPC-RICK-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-RICK-TIMING",
+      "return_destination": "UNIT-NPC-RICK-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-REPORT-MENU",
+      "return_destination": "UNIT-OBJ-REPORT-RESULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-REPORT-RESULT",
+      "return_destination": "UNIT-CONTROL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-WEATHER-MENU",
+      "return_destination": "UNIT-OBJ-WEATHER-RESULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-WEATHER-RESULT",
+      "return_destination": "UNIT-CONTROL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-MAINT-MENU",
+      "return_destination": "UNIT-OBJ-MAINT-RESULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-MAINT-RESULT",
+      "return_destination": "UNIT-MAINT-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-IMPACT-DECL",
+      "return_destination": "UNIT-IMPACT-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-HYDRAULIC-DECL",
+      "return_destination": "UNIT-HYDRAULIC-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-TRACKS-DECL",
+      "return_destination": "UNIT-TRACKS-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-IMPACT-SUCCESS",
+      "return_destination": "UNIT-QUARRY-FLOOR-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-IMPACT-FAIL",
+      "return_destination": "UNIT-QUARRY-FLOOR-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-HYDRAULIC-SUCCESS",
+      "return_destination": "UNIT-CRUSHER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-HYDRAULIC-FAIL",
+      "return_destination": "UNIT-CRUSHER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TRACKS-SUCCESS",
+      "return_destination": "UNIT-CRUSHER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TRACKS-FAIL",
+      "return_destination": "UNIT-CRUSHER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-YARD-ARRIVAL",
+      "return_destination": "UNIT-YARD-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-FLOOR-SCENE",
+      "return_destination": "UNIT-QUARRY-FLOOR-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-CRUSHER-HYDRAULIC",
+      "return_destination": "UNIT-CRUSHER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-MAINT-RECORDS",
+      "return_destination": "UNIT-MAINT-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-CRUSHER-TRACKS",
+      "return_destination": "UNIT-CRUSHER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-FLOOR-IMPACT",
+      "return_destination": "UNIT-QUARRY-FLOOR-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-ACCUSATION-PREP",
+      "return_destination": "UNIT-CONTROL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-DEADLINE-WARN",
+      "return_destination": "UNIT-YARD-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-PHYSICAL-CONFLICT",
+      "return_destination": "UNIT-QUARRY-FLOOR-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-STAGING",
+      "return_destination": "UNIT-CRUSHER-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-MARCUS-COVERUP",
+      "return_destination": "UNIT-CONTROL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-PERFECT-RECON",
+      "return_destination": "UNIT-CONTROL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-FLOOR-SCRAPE",
+      "return_destination": "UNIT-CHK-IMPACT-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-CRUSHER-HYDRAULIC",
+      "return_destination": "UNIT-CHK-HYDRAULIC-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-CRUSHER-TRACKS",
+      "return_destination": "UNIT-CHK-TRACKS-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-MAINT-LOG",
+      "return_destination": "UNIT-OBJ-MAINT-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-CONTROL-REPORT",
+      "return_destination": "UNIT-OBJ-REPORT-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-RICK-WITNESS",
+      "return_destination": "UNIT-NPC-RICK-HUB",
+      "requires_return": true
+    }
+  ],
+  "hierarchy_roots": [
+    "OBJ-LIMESTONE-SCRAPE",
+    "OBJ-HARD-HAT",
+    "OBJ-HYDRAULIC-STAIN",
+    "OBJ-BOOT-PRINTS",
+    "OBJ-INCIDENT-REPORT",
+    "OBJ-WEATHER-LOG",
+    "OBJ-MAINT-RECORD"
+  ]
+}

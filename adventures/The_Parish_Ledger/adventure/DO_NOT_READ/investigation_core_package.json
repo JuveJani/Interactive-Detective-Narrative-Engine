@@ -1,0 +1,526 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Parish_Ledger",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "object_interaction_links": {
+    "info_id_to_knowledge_id": {}
+  },
+  "placeholder_resolution": {},
+  "world_facts": [
+    {
+      "fact_id": "FACT-001",
+      "statement": "Memorial fund ledger records $18,400 in donations for the quarter",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-002",
+      "statement": "Bank deposit batch shows only $14,200 credited to the memorial fund account",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-003",
+      "statement": "Parish administrator Grace Brennan had sole after-hours access to the records room",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-004",
+      "statement": "Grace Brennan altered ledger page 47 with white-out before the audit packet was prepared",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-005",
+      "statement": "Bank deposit slip batch dated March 12 shows memorial fund line short by $4,200",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-006",
+      "statement": "Parish council minutes allocate memorial fund exclusively to stained-glass restoration",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-007",
+      "statement": "Volunteer bookkeeper Helen Marsh flagged discrepancies on March 10",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-008",
+      "statement": "Grace Brennan signed deposit batch without required second counter-signature",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-009",
+      "statement": "Father Michael O'Sullivan was told memorial fund was fully deposited on March 11",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-010",
+      "statement": "Rita Santos requested duplicate deposit receipts but Grace said they were already filed",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-011",
+      "statement": "Memorial register entries 112 through 118 do not appear in the bank deposit batch",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-012",
+      "statement": "Grace Brennan's badge log shows records room access at 2230 on March 11",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-013",
+      "statement": "Grace Brennan faced overdue property tax pressure documented in her office files",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-014",
+      "statement": "Counter-signature log shows Grace self-signed as both preparer and verifier",
+      "immutable": true
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "OBS-LEDGER-WHITEOUT",
+      "description": "White-out corrections on ledger page 47",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-LEDGER-WHITEOUT",
+        "object_id": null,
+        "interaction_required": true
+      }
+    },
+    {
+      "observation_id": "OBS-DEPOSIT-LINE",
+      "description": "Memorial fund deposit line short by $4,200",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-DEPOSIT-LINE",
+        "object_id": null,
+        "interaction_required": true
+      }
+    },
+    {
+      "observation_id": "OBS-MINUTES-VOTE",
+      "description": "Council vote restricts fund allocation",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-MINUTES-VOTE",
+        "object_id": null,
+        "interaction_required": true
+      }
+    }
+  ],
+  "physical_evidence": [
+    {
+      "evidence_id": "EVD-DONATION-LEDGER",
+      "description": "Donation ledger",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-DEPOSIT-BATCH",
+      "description": "Bank deposit batch",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-MEMORIAL-REGISTER",
+      "description": "Memorial register",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-COUNCIL-MINUTES",
+      "description": "Council minutes",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-COUNTER-SIGN",
+      "description": "Counter-signature log",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-BADGE-LOG",
+      "description": "Badge access log",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    }
+  ],
+  "testimony": [
+    {
+      "testimony_id": "TEST-HELEN-FLAG",
+      "source_npc_id": "NPC-HELEN",
+      "content_knowledge_id": "KNOW-HELEN-FLAG",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-RITA-RECEIPTS",
+      "source_npc_id": "NPC-RITA",
+      "content_knowledge_id": "KNOW-RITA-RECEIPTS",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-FATHER-ASSURED",
+      "source_npc_id": "NPC-FATHER",
+      "content_knowledge_id": "KNOW-FATHER-ASSURED",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-GRACE-RECON",
+      "source_npc_id": "NPC-GRACE",
+      "content_knowledge_id": "KNOW-GRACE-RECON",
+      "topic_id": null,
+      "dialogue_system": false
+    }
+  ],
+  "knowledge": [
+    {
+      "knowledge_id": "KNOW-OPEN-01",
+      "statement": "Memorial fund ledger totals $18,400 but bank batch shows $14,200",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-02",
+      "statement": "Volunteer bookkeeper Helen Marsh flagged white-out on ledger page 47",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-03",
+      "statement": "Parish administrator Grace Brennan prepared the reconciliation packet",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-04",
+      "statement": "Diocesan annual review reconciliation due at 1700 today",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-LEDGER-ALTER",
+      "statement": "White-out corrections on page 47 mask reallocated donation entries",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-004"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-LEDGER-WHITEOUT",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-DEPOSIT-SHORT",
+      "statement": "March 12 deposit batch credits only $14,200 to memorial fund account",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-002",
+        "FACT-005"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-DEPOSIT-LINE",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-REGISTER-GAP",
+      "statement": "Register entries 112-118 have no matching deposit line items",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-011"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-DONATION-LEDGER",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-MINUTES-ALLOC",
+      "statement": "Council minutes restrict memorial fund to stained-glass restoration only",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-006"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-MINUTES-VOTE",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-COUNTER-SIGN",
+      "statement": "Grace Brennan signed as both preparer and verifier on deposit batch",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-008",
+        "FACT-014"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-DONATION-LEDGER",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-BADGE-ACCESS",
+      "statement": "Grace Brennan accessed records room at 2230 on March 11",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-012",
+        "FACT-003"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-DONATION-LEDGER",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-HELEN-FLAG",
+      "statement": "Helen Marsh flagged discrepancies on March 10 before audit packet",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-007"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-HELEN-FLAG"
+      }
+    },
+    {
+      "knowledge_id": "KNOW-RITA-RECEIPTS",
+      "statement": "Rita Santos requested duplicate deposit receipts Grace said were filed",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-010"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-RITA-RECEIPTS"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-FATHER-ASSURED",
+      "statement": "Father Michael was told deposits were complete on March 11",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-009"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-FATHER-ASSURED"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-GRACE-RECON",
+      "statement": "Grace claims ledger and bank totals reconcile after timing adjustments",
+      "category": "testimony",
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-GRACE-RECON"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-RECORDS-CONTRADICT",
+      "statement": "Ledger entries, bank deposits, and meeting minutes do not align",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-RECORDS-CONFLICT",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-GRACE-EMBEZZLE",
+      "statement": "Evidence supports Grace Brennan diverted deposits and altered records",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-DIVERSION",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-PERFECT-RECON",
+      "statement": "Full reconstruction: altered ledger, short deposit batch, self-signed counter-signature",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-PERFECT-RECON",
+        "interaction_required": true
+      }
+    }
+  ],
+  "hypotheses": [
+    {
+      "hypothesis_id": "HYP-RECORDS-CONFLICT",
+      "statement": "Ledger, bank deposits, and minutes tell different stories",
+      "requires_knowledge_ids": [
+        "KNOW-LEDGER-ALTER",
+        "KNOW-DEPOSIT-SHORT",
+        "KNOW-MINUTES-ALLOC"
+      ],
+      "yields_knowledge_id": "KNOW-RECORDS-CONTRADICT",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-DIVERSION",
+      "statement": "Missing deposits were diverted before bank credit",
+      "requires_knowledge_ids": [
+        "KNOW-DEPOSIT-SHORT",
+        "KNOW-REGISTER-GAP",
+        "KNOW-COUNTER-SIGN"
+      ],
+      "yields_knowledge_id": "KNOW-GRACE-EMBEZZLE",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-GRACE-ACCOUNTABLE",
+      "statement": "Parish administrator had opportunity to alter records",
+      "requires_knowledge_ids": [
+        "KNOW-BADGE-ACCESS",
+        "KNOW-COUNTER-SIGN",
+        "KNOW-GRACE-RECON"
+      ],
+      "yields_knowledge_id": "KNOW-GRACE-EMBEZZLE",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-PERFECT-RECON",
+      "statement": "Full records reconstruction resolves the discrepancy",
+      "requires_knowledge_ids": [
+        "KNOW-RECORDS-CONTRADICT",
+        "KNOW-GRACE-EMBEZZLE",
+        "KNOW-PERFECT-RECON"
+      ],
+      "yields_knowledge_id": "KNOW-PERFECT-RECON",
+      "player_synthesis_required": true
+    }
+  ],
+  "conclusions": [
+    {
+      "conclusion_id": "CONC-WHO",
+      "category": "culprit",
+      "question_ref": "Q-WHO",
+      "investigation_driven_by_clue": false,
+      "answer_entity_id": "NPC-GRACE"
+    },
+    {
+      "conclusion_id": "CONC-WHAT",
+      "category": "incident",
+      "question_ref": "Q-WHAT",
+      "investigation_driven_by_clue": false,
+      "answer_text": "Deposits were diverted before bank credit while ledger was altered to hide the shortfall"
+    },
+    {
+      "conclusion_id": "CONC-HOW",
+      "category": "method",
+      "question_ref": "Q-HOW",
+      "investigation_driven_by_clue": false,
+      "answer_text": "Ledger page 47 altered, short deposit batch prepared, counter-signature self-signed"
+    },
+    {
+      "conclusion_id": "CONC-WHEN",
+      "category": "timeline",
+      "question_ref": "Q-WHEN",
+      "investigation_driven_by_clue": false,
+      "answer_text": "After hours March 11, deposit batch prepared March 12 morning"
+    }
+  ],
+  "proofs": [
+    {
+      "proof_id": "PROOF-WHO",
+      "conclusion_id": "CONC-WHO",
+      "required_knowledge_ids": [
+        "KNOW-PERFECT-RECON",
+        "KNOW-GRACE-EMBEZZLE",
+        "KNOW-RECORDS-CONTRADICT"
+      ]
+    },
+    {
+      "proof_id": "PROOF-WHAT",
+      "conclusion_id": "CONC-WHAT",
+      "required_knowledge_ids": [
+        "KNOW-DEPOSIT-SHORT",
+        "KNOW-REGISTER-GAP",
+        "KNOW-LEDGER-ALTER"
+      ]
+    },
+    {
+      "proof_id": "PROOF-HOW",
+      "conclusion_id": "CONC-HOW",
+      "required_knowledge_ids": [
+        "KNOW-COUNTER-SIGN",
+        "KNOW-LEDGER-ALTER",
+        "KNOW-BADGE-ACCESS"
+      ]
+    },
+    {
+      "proof_id": "PROOF-WHEN",
+      "conclusion_id": "CONC-WHEN",
+      "required_knowledge_ids": [
+        "KNOW-BADGE-ACCESS",
+        "KNOW-HELEN-FLAG"
+      ]
+    }
+  ],
+  "relationships": [],
+  "optional_knowledge": []
+}

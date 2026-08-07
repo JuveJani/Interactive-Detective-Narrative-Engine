@@ -1,0 +1,451 @@
+{
+  "placeholder_resolution": {},
+  "state_model": {
+    "flags": [
+      "records_sync_complete",
+      "report_reviewed",
+      "weather_reviewed",
+      "maint_reviewed",
+      "impact_examined",
+      "hydraulic_examined",
+      "tracks_examined",
+      "ready_to_accuse",
+      "accusation_complete",
+      "inference_physical_resolved",
+      "inference_staging_resolved",
+      "inference_marcus_resolved",
+      "inference_perfect_resolved",
+      "check_impact_failed",
+      "check_hydraulic_failed",
+      "check_tracks_failed"
+    ],
+    "counters": [
+      "investigation_phase"
+    ],
+    "initial_state": {
+      "records_sync_complete": false,
+      "report_reviewed": false,
+      "weather_reviewed": false,
+      "maint_reviewed": false,
+      "impact_examined": false,
+      "hydraulic_examined": false,
+      "tracks_examined": false,
+      "ready_to_accuse": false,
+      "accusation_complete": false,
+      "inference_physical_resolved": false,
+      "inference_staging_resolved": false,
+      "inference_marcus_resolved": false,
+      "inference_perfect_resolved": false,
+      "check_impact_failed": false,
+      "check_hydraulic_failed": false,
+      "check_tracks_failed": false,
+      "investigation_phase": 0
+    }
+  },
+  "time_model": {
+    "clocks": [
+      "T_ARRIVAL",
+      "T_RECORDS_SYNC",
+      "T_ELENA_FINDINGS",
+      "T_DEADLINE"
+    ],
+    "clock_event_map": {
+      "T_ARRIVAL": "EVT-010",
+      "T_RECORDS_SYNC": "EVT-011",
+      "T_ELENA_FINDINGS": "EVT-012",
+      "T_DEADLINE": "EVT-013"
+    },
+    "deadline_clock": "T_DEADLINE",
+    "scene_time_cost_default_minutes": 5,
+    "no_earlier_time_travel": true
+  },
+  "scene_chains": [
+    {
+      "chain_id": "CHAIN-OPENING",
+      "active_from_clock": "T_ARRIVAL",
+      "active_until_clock": "T_ELENA_FINDINGS",
+      "steps": [
+        {
+          "step_id": "SC-YARD-ARRIVAL",
+          "scene_unit_id": "SC-YARD-ARRIVAL",
+          "player_label": "Receive arrival briefing.",
+          "location_id": "LOC-YARD"
+        },
+        {
+          "step_id": "SC-FLOOR-SCENE",
+          "scene_unit_id": "SC-FLOOR-SCENE",
+          "player_label": "Survey the quarry floor scene.",
+          "location_id": "LOC-QUARRY-FLOOR"
+        }
+      ]
+    },
+    {
+      "chain_id": "CHAIN-RECORDS",
+      "active_from_clock": "T_ELENA_FINDINGS",
+      "active_until_clock": "T_RECORDS_SYNC",
+      "steps": [
+        {
+          "step_id": "SC-CRUSHER-HYDRAULIC",
+          "scene_unit_id": "SC-CRUSHER-HYDRAULIC",
+          "player_label": "Review hydraulic findings with Elena.",
+          "location_id": "LOC-CRUSHER"
+        },
+        {
+          "step_id": "SC-MAINT-RECORDS",
+          "scene_unit_id": "SC-MAINT-RECORDS",
+          "player_label": "Pull maintenance records.",
+          "location_id": "LOC-MAINT",
+          "state_updates": {
+            "records_sync_complete": true
+          }
+        }
+      ]
+    },
+    {
+      "chain_id": "CHAIN-FINAL",
+      "active_from_clock": "T_RECORDS_SYNC",
+      "active_until_clock": "T_DEADLINE",
+      "steps": [
+        {
+          "step_id": "SC-CRUSHER-TRACKS",
+          "scene_unit_id": "SC-CRUSHER-TRACKS",
+          "player_label": "Document platform boot prints.",
+          "location_id": "LOC-CRUSHER",
+          "state_updates": {
+            "tracks_examined": true
+          }
+        },
+        {
+          "step_id": "SC-FLOOR-IMPACT",
+          "scene_unit_id": "SC-FLOOR-IMPACT",
+          "player_label": "Measure limestone impact marks.",
+          "location_id": "LOC-QUARRY-FLOOR",
+          "state_updates": {
+            "impact_examined": true
+          }
+        },
+        {
+          "step_id": "SC-ACCUSATION-PREP",
+          "scene_unit_id": "SC-ACCUSATION-PREP",
+          "player_label": "Prepare final OSHA report.",
+          "location_id": "LOC-CONTROL",
+          "requires_state": {
+            "ready_to_accuse": true
+          }
+        },
+        {
+          "step_id": "SC-DEADLINE-WARN",
+          "scene_unit_id": "SC-DEADLINE-WARN",
+          "player_label": "Hear deadline warning.",
+          "location_id": "LOC-YARD"
+        }
+      ]
+    }
+  ],
+  "world_state_variants": [
+    {
+      "variant_id": "VAR-MAINT-RECORDS",
+      "base_scene_unit_id": "SC-MAINT-RECORDS",
+      "variants": [
+        {
+          "when_state": {
+            "flag": "records_sync_complete",
+            "value": true
+          },
+          "scene_unit_id": "SC-MAINT-RECORDS"
+        },
+        {
+          "when_state": {
+            "flag": "records_sync_complete",
+            "value": false
+          },
+          "scene_unit_id": "SC-MAINT-RECORDS"
+        }
+      ]
+    }
+  ],
+  "location_revisits": [
+    {
+      "location_id": "LOC-MAINT",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-MAINT",
+          "when_clock_at_least": "T_RECORDS_SYNC",
+          "unlocks_scene_unit_id": "SC-MAINT-RECORDS",
+          "state_updates": {
+            "maint_reviewed": true
+          }
+        }
+      ]
+    },
+    {
+      "location_id": "LOC-CRUSHER",
+      "revisit_rules": [
+        {
+          "rule_id": "REV-HYDRAULIC",
+          "when_knowledge_held": [
+            "KNOW-DIANA-IMPACT"
+          ],
+          "unlocks_scene_unit_id": "SC-CRUSHER-HYDRAULIC",
+          "state_updates": {
+            "hydraulic_examined": true
+          }
+        }
+      ]
+    }
+  ],
+  "inference_flow_gates": [
+    {
+      "inference_id": "INF-PHYSICAL-CONFLICT",
+      "hypothesis_id": "HYP-PHYSICAL-CONFLICT",
+      "required_knowledge_ids": [
+        "KNOW-SCRAPE-MARKS",
+        "KNOW-HYDRAULIC-CUT",
+        "KNOW-WEATHER-DRY"
+      ],
+      "success_state_updates": {
+        "inference_physical_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-FLOOR-SCRAPE",
+        "REC-CRUSHER-HYDRAULIC"
+      ]
+    },
+    {
+      "inference_id": "INF-STAGING",
+      "hypothesis_id": "HYP-STAGING",
+      "required_knowledge_ids": [
+        "KNOW-HYDRAULIC-CUT",
+        "KNOW-BOOT-PRINTS",
+        "KNOW-SCRAPE-MARKS"
+      ],
+      "success_state_updates": {
+        "inference_staging_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-CRUSHER-TRACKS",
+        "REC-CRUSHER-HYDRAULIC"
+      ]
+    },
+    {
+      "inference_id": "INF-MARCUS-COVERUP",
+      "hypothesis_id": "HYP-MARCUS-ACCOUNTABLE",
+      "required_knowledge_ids": [
+        "KNOW-MAINT-FALSIFIED",
+        "KNOW-RICK-WITNESS",
+        "KNOW-INCIDENT-REPORT"
+      ],
+      "success_state_updates": {
+        "inference_marcus_resolved": true,
+        "ready_to_accuse": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-MAINT-LOG",
+        "REC-RICK-WITNESS"
+      ]
+    },
+    {
+      "inference_id": "INF-PERFECT-RECON",
+      "hypothesis_id": "HYP-PERFECT-RECON",
+      "required_knowledge_ids": [
+        "KNOW-PHYSICAL-CONTRADICTS",
+        "KNOW-MARCUS-COVERUP",
+        "KNOW-PERFECT-RECON"
+      ],
+      "success_state_updates": {
+        "inference_perfect_resolved": true
+      },
+      "failure_preserves_investigation": true,
+      "recovery_routes": [
+        "REC-FLOOR-SCRAPE",
+        "REC-CONTROL-REPORT"
+      ]
+    }
+  ],
+  "recovery_routes": [
+    {
+      "route_id": "REC-FLOOR-SCRAPE",
+      "player_action_label": "Return to the limestone scrape marks.",
+      "destination_ref": "LOC-QUARRY-FLOOR",
+      "action_ref": "ACT-LIMESTONE-SCRAPE"
+    },
+    {
+      "route_id": "REC-CRUSHER-HYDRAULIC",
+      "player_action_label": "Re-examine the hydraulic fluid stain.",
+      "destination_ref": "LOC-CRUSHER",
+      "action_ref": "ACT-HYDRAULIC-STAIN"
+    },
+    {
+      "route_id": "REC-CRUSHER-TRACKS",
+      "player_action_label": "Re-document the boot print trail.",
+      "destination_ref": "LOC-CRUSHER",
+      "action_ref": "ACT-BOOT-PRINTS"
+    },
+    {
+      "route_id": "REC-MAINT-LOG",
+      "player_action_label": "Review the maintenance inspection log again.",
+      "destination_ref": "LOC-MAINT",
+      "action_ref": "ACT-MAINT-RECORD"
+    },
+    {
+      "route_id": "REC-CONTROL-REPORT",
+      "player_action_label": "Re-read the incident report terminal.",
+      "destination_ref": "LOC-CONTROL",
+      "action_ref": "ACT-INCIDENT-REPORT"
+    },
+    {
+      "route_id": "REC-RICK-WITNESS",
+      "player_action_label": "Return to Rick Torres about platform timing.",
+      "destination_ref": "LOC-YARD",
+      "action_ref": "CONV-RICK"
+    }
+  ],
+  "accusation_questionnaire": {
+    "questionnaire_id": "ACC-QUARRY-SILENCE",
+    "required_before_ending_eval": true,
+    "multi_component": true,
+    "questions": [
+      {
+        "question_id": "Q-WHO",
+        "conclusion_id": "CONC-WHO",
+        "answer_type": "npc_id",
+        "player_label": "Who falsified the equipment-failure narrative?"
+      },
+      {
+        "question_id": "Q-WHAT",
+        "conclusion_id": "CONC-WHAT",
+        "answer_type": "text",
+        "player_label": "What happened to Carl Mendez?"
+      },
+      {
+        "question_id": "Q-HOW",
+        "conclusion_id": "CONC-HOW",
+        "answer_type": "text",
+        "player_label": "How was the cover-up executed?"
+      },
+      {
+        "question_id": "Q-WHEN",
+        "conclusion_id": "CONC-WHEN",
+        "answer_type": "text",
+        "player_label": "When did the fall occur?"
+      }
+    ],
+    "accusation_complete_state_flag": "accusation_complete"
+  },
+  "deadline": {
+    "enabled": true,
+    "deadline_clock": "T_DEADLINE",
+    "deadline_ending_id": "END-TIMEOUT",
+    "blocks_accusation_after": true
+  },
+  "endings": [
+    {
+      "ending_id": "END-PERFECT",
+      "ending_type": "perfect",
+      "priority": 100,
+      "unit_id": "END-PERFECT",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true,
+          "inference_perfect_resolved": true
+        },
+        "required_accusation": {
+          "Q-WHO": "NPC-MARCUS"
+        }
+      },
+      "reveals_full_truth": true,
+      "truth_reveal_scope": "complete"
+    },
+    {
+      "ending_id": "END-PARTIAL-CULPRIT",
+      "ending_type": "partial",
+      "priority": 50,
+      "unit_id": "END-PARTIAL-CULPRIT",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true,
+          "inference_marcus_resolved": true
+        }
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "partial"
+    },
+    {
+      "ending_id": "END-PARTIAL-PHYSICAL",
+      "ending_type": "partial",
+      "priority": 40,
+      "unit_id": "END-PARTIAL-PHYSICAL",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true,
+          "inference_physical_resolved": true
+        }
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "partial"
+    },
+    {
+      "ending_id": "END-PARTIAL-WRONG",
+      "ending_type": "partial",
+      "priority": 30,
+      "unit_id": "END-PARTIAL-WRONG",
+      "trigger": {
+        "type": "state_driven",
+        "required_state": {
+          "accusation_complete": true
+        },
+        "wrong_accusation_allowed": true
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "partial"
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "ending_type": "deadline",
+      "priority": 10,
+      "unit_id": "END-TIMEOUT",
+      "trigger": {
+        "type": "deadline_expired",
+        "deadline_clock": "T_DEADLINE"
+      },
+      "reveals_full_truth": false,
+      "truth_reveal_scope": "none"
+    }
+  ],
+  "schema_version": "1.0",
+  "adventure_id": "The_Quarry_Silence",
+  "ending_graph": {
+    "nodes": [
+      "END-PERFECT",
+      "END-PARTIAL-CULPRIT",
+      "END-PARTIAL-PHYSICAL",
+      "END-PARTIAL-WRONG",
+      "END-TIMEOUT"
+    ],
+    "evaluation_order": [
+      "END-PERFECT",
+      "END-PARTIAL-CULPRIT",
+      "END-PARTIAL-PHYSICAL",
+      "END-PARTIAL-WRONG",
+      "END-TIMEOUT"
+    ]
+  },
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "object_interaction_links": {
+    "package_path": "DO_NOT_READ/object_interaction_package.json"
+  },
+  "npc_investigation_links": {
+    "package_path": "DO_NOT_READ/npc_investigation_package.json"
+  }
+}

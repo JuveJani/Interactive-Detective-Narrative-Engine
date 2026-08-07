@@ -1,0 +1,585 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Harbor_Light_Signal",
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "npcs": [
+    {
+      "npc_id": "NPC-SARAH",
+      "public_name": "Sarah Chen",
+      "role": "Relief keeper",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-TOM",
+          "relationship_type": "professional"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-FRANK",
+      "public_name": "Frank Morales",
+      "role": "Supply pilot",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-MAYA",
+          "relationship_type": "professional"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-MAYA",
+      "public_name": "Maya Ortiz",
+      "role": "Supply clerk",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-FRANK",
+          "relationship_type": "professional"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-TOM",
+      "public_name": "Tom Reed",
+      "role": "Assistant keeper",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-SARAH",
+          "relationship_type": "professional"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    }
+  ],
+  "npc_graph": {
+    "nodes": [
+      "NPC-SARAH",
+      "NPC-FRANK",
+      "NPC-MAYA",
+      "NPC-TOM"
+    ],
+    "edges": [
+      {
+        "from_npc_id": "NPC-SARAH",
+        "to_npc_id": "NPC-TOM",
+        "relationship_type": "professional"
+      },
+      {
+        "from_npc_id": "NPC-FRANK",
+        "to_npc_id": "NPC-MAYA",
+        "relationship_type": "professional"
+      },
+      {
+        "from_npc_id": "NPC-MAYA",
+        "to_npc_id": "NPC-FRANK",
+        "relationship_type": "professional"
+      },
+      {
+        "from_npc_id": "NPC-TOM",
+        "to_npc_id": "NPC-SARAH",
+        "relationship_type": "professional"
+      }
+    ]
+  },
+  "information_known_model": [
+    {
+      "info_id": "INFO-TOPIC-SARAH-SCHEDULE",
+      "npc_id": "NPC-SARAH",
+      "knowledge_id": "KNOW-OPEN-02",
+      "topic_id": "TOPIC-SARAH-SCHEDULE"
+    },
+    {
+      "info_id": "INFO-TOPIC-SARAH-ARRIVAL",
+      "npc_id": "NPC-SARAH",
+      "knowledge_id": "KNOW-OPEN-02",
+      "topic_id": "TOPIC-SARAH-ARRIVAL"
+    },
+    {
+      "info_id": "INFO-TOPIC-SARAH-RADIO",
+      "npc_id": "NPC-SARAH",
+      "knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+      "topic_id": "TOPIC-SARAH-RADIO"
+    },
+    {
+      "info_id": "INFO-TOPIC-FRANK-PASSENGER",
+      "npc_id": "NPC-FRANK",
+      "knowledge_id": "KNOW-FRANK-NO-PASSENGER",
+      "topic_id": "TOPIC-FRANK-PASSENGER"
+    },
+    {
+      "info_id": "INFO-TOPIC-FRANK-WEATHER",
+      "npc_id": "NPC-FRANK",
+      "knowledge_id": "KNOW-WEATHER-CLOSED",
+      "topic_id": "TOPIC-FRANK-WEATHER"
+    },
+    {
+      "info_id": "INFO-TOPIC-FRANK-CARGO",
+      "npc_id": "NPC-FRANK",
+      "knowledge_id": "KNOW-TRUNK-ON-STATION",
+      "topic_id": "TOPIC-FRANK-CARGO"
+    },
+    {
+      "info_id": "INFO-TOPIC-MAYA-TRUNK",
+      "npc_id": "NPC-MAYA",
+      "knowledge_id": "KNOW-TRUNK-ON-STATION",
+      "topic_id": "TOPIC-MAYA-TRUNK"
+    },
+    {
+      "info_id": "INFO-TOPIC-MAYA-TALLY",
+      "npc_id": "NPC-MAYA",
+      "knowledge_id": "KNOW-TOM-SIGNED-TALLY",
+      "topic_id": "TOPIC-MAYA-TALLY"
+    },
+    {
+      "info_id": "INFO-TOPIC-MAYA-PARTS",
+      "npc_id": "NPC-MAYA",
+      "knowledge_id": "KNOW-TOOLKIT-OUT",
+      "topic_id": "TOPIC-MAYA-PARTS"
+    },
+    {
+      "info_id": "INFO-TOPIC-TOM-DEPARTURE",
+      "npc_id": "NPC-TOM",
+      "knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+      "topic_id": "TOPIC-TOM-DEPARTURE"
+    },
+    {
+      "info_id": "INFO-TOPIC-TOM-LENS",
+      "npc_id": "NPC-TOM",
+      "knowledge_id": "KNOW-TOM-LENS-ADMISSION",
+      "topic_id": "TOPIC-TOM-LENS"
+    },
+    {
+      "info_id": "INFO-TOPIC-TOM-LOG",
+      "npc_id": "NPC-TOM",
+      "knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+      "topic_id": "TOPIC-TOM-LOG"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "TOPIC-SARAH-SCHEDULE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-SARAH",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-SARAH-ARRIVAL",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-SARAH",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-SARAH-RADIO",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-SARAH",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-FRANK-PASSENGER",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-FRANK",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-FRANK-WEATHER",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-FRANK",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-FRANK-CARGO",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-FRANK",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-MAYA-TRUNK",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-MAYA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-MAYA-TALLY",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-MAYA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-MAYA-PARTS",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-MAYA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-TOM-DEPARTURE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-TOM",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-TOM-LENS",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-TOM",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-TOM-LOG",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-TOM",
+          "min": 0
+        }
+      ]
+    }
+  ],
+  "conversation_graph": [
+    {
+      "conversation_id": "CONV-SARAH",
+      "npc_id": "NPC-SARAH",
+      "entry_topic_id": "TOPIC-SARAH-SCHEDULE",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-SARAH",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-SARAH-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-SARAH-SCHEDULE",
+          "player_label": "Ask about the expected handover schedule.",
+          "npc_response_unit": "UNIT-TOPIC-SARAH-SCHEDULE",
+          "grants_knowledge_id": "KNOW-OPEN-02",
+          "topic_id": "TOPIC-SARAH-SCHEDULE",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-SARAH",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-SARAH-ARRIVAL",
+          "player_label": "Ask what she noticed on arrival.",
+          "npc_response_unit": "UNIT-TOPIC-SARAH-ARRIVAL",
+          "grants_knowledge_id": "KNOW-OPEN-02",
+          "topic_id": "TOPIC-SARAH-ARRIVAL",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-SARAH",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-SARAH-RADIO",
+          "player_label": "Ask about the last radio check.",
+          "npc_response_unit": "UNIT-TOPIC-SARAH-RADIO",
+          "grants_knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+          "topic_id": "TOPIC-SARAH-RADIO",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-SARAH",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-FRANK",
+      "npc_id": "NPC-FRANK",
+      "entry_topic_id": "TOPIC-FRANK-PASSENGER",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-FRANK",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-FRANK-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-FRANK-PASSENGER",
+          "player_label": "Ask whether he flew anyone off station.",
+          "npc_response_unit": "UNIT-TOPIC-FRANK-PASSENGER",
+          "grants_knowledge_id": "KNOW-FRANK-NO-PASSENGER",
+          "topic_id": "TOPIC-FRANK-PASSENGER",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-FRANK",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-FRANK-WEATHER",
+          "player_label": "Ask about storm timing.",
+          "npc_response_unit": "UNIT-TOPIC-FRANK-WEATHER",
+          "grants_knowledge_id": "KNOW-WEATHER-CLOSED",
+          "topic_id": "TOPIC-FRANK-WEATHER",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-FRANK",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-FRANK-CARGO",
+          "player_label": "Ask about Henry's trunk.",
+          "npc_response_unit": "UNIT-TOPIC-FRANK-CARGO",
+          "grants_knowledge_id": "KNOW-TRUNK-ON-STATION",
+          "topic_id": "TOPIC-FRANK-CARGO",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-FRANK",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-MAYA",
+      "npc_id": "NPC-MAYA",
+      "entry_topic_id": "TOPIC-MAYA-TRUNK",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-MAYA",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-MAYA-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-MAYA-TRUNK",
+          "player_label": "Ask about the personal trunk.",
+          "npc_response_unit": "UNIT-TOPIC-MAYA-TRUNK",
+          "grants_knowledge_id": "KNOW-TRUNK-ON-STATION",
+          "topic_id": "TOPIC-MAYA-TRUNK",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-MAYA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-MAYA-TALLY",
+          "player_label": "Ask who signed the outbound tally.",
+          "npc_response_unit": "UNIT-TOPIC-MAYA-TALLY",
+          "grants_knowledge_id": "KNOW-TOM-SIGNED-TALLY",
+          "topic_id": "TOPIC-MAYA-TALLY",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-MAYA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-MAYA-PARTS",
+          "player_label": "Ask about lens repair parts.",
+          "npc_response_unit": "UNIT-TOPIC-MAYA-PARTS",
+          "grants_knowledge_id": "KNOW-TOOLKIT-OUT",
+          "topic_id": "TOPIC-MAYA-PARTS",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-MAYA",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-TOM",
+      "npc_id": "NPC-TOM",
+      "entry_topic_id": "TOPIC-TOM-DEPARTURE",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-TOM",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-TOM-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-TOM-DEPARTURE",
+          "player_label": "Ask why Henry left early.",
+          "npc_response_unit": "UNIT-TOPIC-TOM-DEPARTURE",
+          "grants_knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+          "topic_id": "TOPIC-TOM-DEPARTURE",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-TOM",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-TOM-LENS",
+          "player_label": "Ask about unauthorized lens work.",
+          "npc_response_unit": "UNIT-TOPIC-TOM-LENS",
+          "grants_knowledge_id": "KNOW-TOM-LENS-ADMISSION",
+          "topic_id": "TOPIC-TOM-LENS",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-TOM",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-TOM-LOG",
+          "player_label": "Ask who made the final log entries.",
+          "npc_response_unit": "UNIT-TOPIC-TOM-LOG",
+          "grants_knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+          "topic_id": "TOPIC-TOM-LOG",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-TOM",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testimony_links": [],
+  "trust_model": {
+    "default_trust_delta_per_topic": 2
+  }
+}

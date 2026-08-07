@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Harbor_Light_Signal",
+  "generation_method": "adventure_pack",
+  "stage_status": {
+    "adventure_brief": "COMPLETE",
+    "fixed_truth": "COMPLETE",
+    "causal_timeline": "COMPLETE",
+    "world_state_timeline": "COMPLETE",
+    "npcs": "COMPLETE",
+    "environment": "COMPLETE",
+    "objects": "COMPLETE",
+    "investigation_core": "COMPLETE",
+    "npc_conversation": "COMPLETE",
+    "investigation_flow": "COMPLETE",
+    "capability_checks": "COMPLETE",
+    "story_player": "COMPLETE",
+    "playtime": "COMPLETE",
+    "dm_feeling": "COMPLETE",
+    "final_validation": "COMPLETE",
+    "package_export": "COMPLETE"
+  },
+  "status": "COMPLETE"
+}

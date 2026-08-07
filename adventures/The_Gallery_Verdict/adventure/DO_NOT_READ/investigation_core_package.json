@@ -1,0 +1,543 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Gallery_Verdict",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "object_interaction_links": {
+    "info_id_to_knowledge_id": {}
+  },
+  "placeholder_resolution": {},
+  "world_facts": [
+    {
+      "fact_id": "FACT-001",
+      "statement": "Featured painting Midnight Verdict hung in the main hall until opening night",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-002",
+      "statement": "Gallery director Vera Okonkwo completed a private sale of the painting one week before opening",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-003",
+      "statement": "Vera Okonkwo staged crate removal disguised as loan return during the opening at 2042",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-004",
+      "statement": "James Holt authorized crate movement believing it was a scheduled loan return",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-005",
+      "statement": "The painting was not in the vault after 2030, contradicting James Holt's vault claim",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-006",
+      "statement": "Lina Morales was on the podium from 2035 to 2100, contradicting James Holt's claim she was in the vault",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-007",
+      "statement": "Otto Weiss's phone photo metadata places Vera Okonkwo at the crate at 2043",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-008",
+      "statement": "The insurance rider lists an inflated appraisal above the private sale price",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-009",
+      "statement": "The crate shipping label bears Vera Okonkwo's signature timestamped 2042",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-010",
+      "statement": "A security camera gap was manually disabled from the office terminal at 2038",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-011",
+      "statement": "A private sale contract for Midnight Verdict is dated one week before opening",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-012",
+      "statement": "The 2100 alarm triggered when the empty frame was detected, timing the staged discovery",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-013",
+      "statement": "Vera Okonkwo's office badge log shows she left her office at 2040, contradicting her alibi",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-014",
+      "statement": "The crate departed via service elevator to off-site storage registered to the gallery",
+      "immutable": true
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "OBS-VAULT-DISCREPANCY",
+      "description": "Vault log inconsistent with hall movement",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-VAULT-DISCREPANCY",
+        "object_id": null,
+        "interaction_required": true
+      }
+    },
+    {
+      "observation_id": "OBS-SIGHTLINE-GAP",
+      "description": "Podium view shows when wall went empty",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-SIGHTLINE-GAP",
+        "object_id": null,
+        "interaction_required": true
+      }
+    },
+    {
+      "observation_id": "OBS-CAMERA-DISABLE",
+      "description": "Camera gap timed before crate movement",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-CAMERA-DISABLE",
+        "object_id": null,
+        "interaction_required": true
+      }
+    }
+  ],
+  "physical_evidence": [
+    {
+      "evidence_id": "EVD-SECURITY-TABLET",
+      "description": "Security tablet log",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-CRATE-LABEL",
+      "description": "Crate shipping label",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-CAMERA-LOG",
+      "description": "Camera audit log",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-INSURANCE-RIDER",
+      "description": "Insurance rider",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-PRIVATE-SALE",
+      "description": "Private sale contract",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-OTTO-PHOTO",
+      "description": "Otto Weiss phone photo",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-004",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    }
+  ],
+  "testimony": [
+    {
+      "testimony_id": "TEST-LINA-PODIUM",
+      "source_npc_id": "NPC-LINA",
+      "content_knowledge_id": "KNOW-LINA-PODIUM",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-JAMES-VAULT",
+      "source_npc_id": "NPC-JAMES",
+      "content_knowledge_id": "KNOW-JAMES-VAULT",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-OTTO-PHOTO",
+      "source_npc_id": "NPC-OTTO",
+      "content_knowledge_id": "KNOW-OTTO-PHOTO",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-VERA-OFFICE",
+      "source_npc_id": "NPC-VERA",
+      "content_knowledge_id": "KNOW-VERA-OFFICE",
+      "topic_id": null,
+      "dialogue_system": false
+    }
+  ],
+  "knowledge": [
+    {
+      "knowledge_id": "KNOW-OPEN-01",
+      "statement": "Featured painting Midnight Verdict is missing after opening alarm",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-02",
+      "statement": "Witness accounts disagree about who was where when the piece vanished",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-03",
+      "statement": "Security chief James Holt claims the painting was vault-secured until 2100",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-04",
+      "statement": "Carrier claim filing deadline is 2300 tonight",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-VAULT-LOG",
+      "statement": "Security tablet shows vault transfer logged at 2045",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-004",
+        "FACT-005"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-VAULT-DISCREPANCY",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-CRATE-LABEL",
+      "statement": "Crate label signed by Vera Okonkwo at 2042 as loan return",
+      "category": "physical",
+      "establishes_fact_ids": [
+        "FACT-003",
+        "FACT-009"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-SECURITY-TABLET",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-CAMERA-GAP",
+      "statement": "Hall camera segment disabled from office terminal at 2038",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-010",
+        "FACT-013"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-CAMERA-DISABLE",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-INSURANCE-RIDER",
+      "statement": "Insurance rider lists appraisal above recent market comps",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-008"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-SECURITY-TABLET",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-PRIVATE-SALE",
+      "statement": "Private sale contract for Midnight Verdict predates opening",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-002",
+        "FACT-011"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-SECURITY-TABLET",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-LINA-PODIUM",
+      "statement": "Lina Morales was on podium from 2035 to 2100",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-006"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-LINA-PODIUM"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-JAMES-VAULT",
+      "statement": "James Holt insists painting was in vault until alarm",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-005"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-JAMES-VAULT"
+      }
+    },
+    {
+      "knowledge_id": "KNOW-OTTO-PHOTO",
+      "statement": "Otto Weiss photo metadata places Vera at crate at 2043",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-007"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-OTTO-PHOTO"
+      }
+    },
+    {
+      "knowledge_id": "KNOW-VERA-OFFICE",
+      "statement": "Vera Okonkwo claims she never left her office after 2030",
+      "category": "testimony",
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-VERA-OFFICE"
+      }
+    },
+    {
+      "knowledge_id": "KNOW-JAMES-AUTH",
+      "statement": "James Holt admits authorizing crate movement on director's order",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-004"
+      ],
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-004"
+      }
+    },
+    {
+      "knowledge_id": "KNOW-SIGHTLINE",
+      "statement": "Podium sightline to wall mount was unobstructed during remarks",
+      "category": "physical",
+      "establishes_fact_ids": [
+        "FACT-006",
+        "FACT-012"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-SIGHTLINE-GAP",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-CONTRADICTION-JAMES-LINA",
+      "statement": "James and Lina cannot both be correct about vault versus podium",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-WITNESS-CONFLICT",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-VERA-STAGING",
+      "statement": "Evidence supports staged removal by gallery director",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-STAGING",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-PERFECT-VERDICT",
+      "statement": "Full reconstruction: private sale, staged crate removal, false vault log",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-PERFECT-VERDICT",
+        "interaction_required": true
+      }
+    }
+  ],
+  "hypotheses": [
+    {
+      "hypothesis_id": "HYP-WITNESS-CONFLICT",
+      "statement": "Witness accounts contradict on locations during the disappearance window",
+      "requires_knowledge_ids": [
+        "KNOW-LINA-PODIUM",
+        "KNOW-JAMES-VAULT",
+        "KNOW-VERA-OFFICE",
+        "KNOW-VAULT-LOG",
+        "KNOW-SIGHTLINE"
+      ],
+      "yields_knowledge_id": "KNOW-CONTRADICTION-JAMES-LINA",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-STAGING",
+      "statement": "Removal was staged rather than opportunistic theft",
+      "requires_knowledge_ids": [
+        "KNOW-CRATE-LABEL",
+        "KNOW-CAMERA-GAP",
+        "KNOW-PRIVATE-SALE",
+        "KNOW-SIGHTLINE"
+      ],
+      "yields_knowledge_id": "KNOW-VERA-STAGING",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-VERA-FRAUD",
+      "statement": "Gallery director orchestrated removal for insurance fraud",
+      "requires_knowledge_ids": [
+        "KNOW-INSURANCE-RIDER",
+        "KNOW-PRIVATE-SALE",
+        "KNOW-OTTO-PHOTO",
+        "KNOW-VAULT-LOG"
+      ],
+      "yields_knowledge_id": "KNOW-VERA-STAGING",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-PERFECT-VERDICT",
+      "statement": "Full reconstruction resolves all contradictions",
+      "requires_knowledge_ids": [
+        "KNOW-CONTRADICTION-JAMES-LINA",
+        "KNOW-VERA-STAGING",
+        "KNOW-PERFECT-VERDICT"
+      ],
+      "yields_knowledge_id": "KNOW-PERFECT-VERDICT",
+      "player_synthesis_required": true
+    }
+  ],
+  "conclusions": [
+    {
+      "conclusion_id": "CONC-WHO",
+      "category": "culprit",
+      "question_ref": "Q-WHO",
+      "investigation_driven_by_clue": false,
+      "answer_entity_id": "NPC-VERA"
+    },
+    {
+      "conclusion_id": "CONC-WHAT",
+      "category": "incident",
+      "question_ref": "Q-WHAT",
+      "investigation_driven_by_clue": false,
+      "answer_text": "Crate removal disguised as loan return after prior private sale"
+    },
+    {
+      "conclusion_id": "CONC-HOW",
+      "category": "method",
+      "question_ref": "Q-HOW",
+      "investigation_driven_by_clue": false,
+      "answer_text": "False vault log and coached contradictory alibis"
+    },
+    {
+      "conclusion_id": "CONC-WHEN",
+      "category": "timeline",
+      "question_ref": "Q-WHEN",
+      "investigation_driven_by_clue": false,
+      "answer_text": "Approximately 2042 during opening remarks"
+    }
+  ],
+  "proofs": [
+    {
+      "proof_id": "PROOF-WHO",
+      "conclusion_id": "CONC-WHO",
+      "required_knowledge_ids": [
+        "KNOW-PERFECT-VERDICT",
+        "KNOW-VERA-STAGING",
+        "KNOW-CONTRADICTION-JAMES-LINA"
+      ]
+    },
+    {
+      "proof_id": "PROOF-WHAT",
+      "conclusion_id": "CONC-WHAT",
+      "required_knowledge_ids": [
+        "KNOW-PRIVATE-SALE",
+        "KNOW-CRATE-LABEL",
+        "KNOW-VERA-STAGING"
+      ]
+    },
+    {
+      "proof_id": "PROOF-HOW",
+      "conclusion_id": "CONC-HOW",
+      "required_knowledge_ids": [
+        "KNOW-JAMES-VAULT",
+        "KNOW-JAMES-AUTH",
+        "KNOW-VERA-OFFICE"
+      ]
+    },
+    {
+      "proof_id": "PROOF-WHEN",
+      "conclusion_id": "CONC-WHEN",
+      "required_knowledge_ids": [
+        "KNOW-SIGHTLINE",
+        "KNOW-OTTO-PHOTO",
+        "KNOW-CAMERA-GAP"
+      ]
+    }
+  ],
+  "relationships": [],
+  "optional_knowledge": []
+}

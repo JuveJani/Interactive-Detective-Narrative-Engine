@@ -1,0 +1,20 @@
+{
+  "story_frame": {
+    "investigation_starts_where": "limestone quarry yard gate after night-shift fatality",
+    "investigation_starts_when": "morning after incident discovery",
+    "incident_description": "worker death at quarry base with official equipment-failure report",
+    "incident_when": "night shift ending approximately 0315",
+    "investigator_involvement": "county occupational safety investigator dispatched to verify incident report",
+    "deadline_or_constraint": "OSHA preliminary report due at 1200"
+  },
+  "timeline": {
+    "investigation_confused_with_incident": false,
+    "impossible_ordering": false,
+    "events": []
+  },
+  "schema_version": "1.0",
+  "adventure_id": "The_Quarry_Silence",
+  "play_modes": [
+    "single_investigator"
+  ]
+}

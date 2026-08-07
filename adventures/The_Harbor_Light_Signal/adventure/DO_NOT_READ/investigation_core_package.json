@@ -1,0 +1,540 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Harbor_Light_Signal",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "object_interaction_links": {
+    "info_id_to_knowledge_id": {}
+  },
+  "placeholder_resolution": {},
+  "world_facts": [
+    {
+      "fact_id": "FACT-001",
+      "statement": "Head keeper Henry Walsh planned unauthorized lens shim calibration alone in the gallery at 0400",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-002",
+      "statement": "Henry Walsh fell from the gallery safety railing during lens repair",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-003",
+      "statement": "Assistant keeper Tom Reed discovered Henry's body in the gallery",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-004",
+      "statement": "Tom Reed staged a voluntary-departure narrative to avoid commission scrutiny",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-005",
+      "statement": "Tom Reed logged voluntary departure at 0430 in the keeper's log book",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-006",
+      "statement": "Tom Reed keyed a voluntary-departure radio report at 0410 under Henry's name",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-007",
+      "statement": "Landing operations were closed from 0345 to 0715 due to squall conditions",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-008",
+      "statement": "Pilot Frank Morales flew no passenger off the station during the night",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-009",
+      "statement": "Henry Walsh's personal trunk TRK-HENRY-014 never scanned outbound",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-010",
+      "statement": "Gallery railing shows fresh scrape marks and a bent rail pin at the lens access point",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-011",
+      "statement": "Lens toolkit LSK-7 was checked out to Henry for scheduled service two days earlier",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-012",
+      "statement": "Relief keeper Sarah Chen was not told the true status of Henry Walsh before arrival",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-013",
+      "statement": "Supply clerk Maya Ortiz records show Tom signed the 0430 outbound tally without Henry's signature",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-014",
+      "statement": "Weather chart CLOSED status contradicts any claimed 0430 voluntary boat or rotor departure",
+      "immutable": true
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "OBS-LOG-DISCREPANCY",
+      "description": "Log departure line inconsistent with watch rhythm",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-LOG-DISCREPANCY",
+        "object_id": null,
+        "interaction_required": true
+      }
+    },
+    {
+      "observation_id": "OBS-RADIO-TIMING",
+      "description": "Radio departure keyed during landing closure",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-RADIO-TIMING",
+        "object_id": null,
+        "interaction_required": true
+      }
+    },
+    {
+      "observation_id": "OBS-RAIL-SCRAPE",
+      "description": "Fresh scrape on gallery rail",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-RAIL-SCRAPE",
+        "object_id": null,
+        "interaction_required": true
+      }
+    }
+  ],
+  "physical_evidence": [
+    {
+      "evidence_id": "EVD-LOG-BOOK",
+      "description": "Keeper log book",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-001",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-RADIO-LOG",
+      "description": "Radio traffic log",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-001",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-WEATHER-CHART",
+      "description": "Weather chart",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-001",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-SUPPLY-MANIFEST",
+      "description": "Supply manifest",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-001",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-GALLERY-RAIL",
+      "description": "Gallery railing damage",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-001",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-LENS-TOOLKIT",
+      "description": "Lens toolkit trace",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-001",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    }
+  ],
+  "testimony": [
+    {
+      "testimony_id": "TEST-SARAH-SCHEDULE",
+      "source_npc_id": "NPC-SARAH",
+      "content_knowledge_id": "KNOW-OPEN-02",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-FRANK-NO-PASSENGER",
+      "source_npc_id": "NPC-FRANK",
+      "content_knowledge_id": "KNOW-FRANK-NO-PASSENGER",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-MAYA-TRUNK",
+      "source_npc_id": "NPC-MAYA",
+      "content_knowledge_id": "KNOW-TRUNK-ON-STATION",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-TOM-LENS",
+      "source_npc_id": "NPC-TOM",
+      "content_knowledge_id": "KNOW-TOM-LENS-ADMISSION",
+      "topic_id": null,
+      "dialogue_system": false
+    }
+  ],
+  "knowledge": [
+    {
+      "knowledge_id": "KNOW-OPEN-01",
+      "statement": "Head keeper Henry Walsh is missing; Tom reported voluntary departure",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-02",
+      "statement": "Relief keeper Sarah Chen arrived to an empty handover",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-SARAH-SCHEDULE"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-03",
+      "statement": "A squall closed the landing overnight",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-04",
+      "statement": "Commission wants a timeline reconstruction from records before 1300",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-LOG-LENS-ENTRY",
+      "statement": "Log shows Henry planned unauthorized gallery lens work at 0400",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-001"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-LOG-BOOK",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+      "statement": "Log records voluntary departure at 0430 in different handwriting pressure",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-005"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-LOG-DISCREPANCY",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-RADIO-DEPARTURE",
+      "statement": "Radio log contains Tom-keyed voluntary-departure report at 0410",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-006"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-RADIO-TIMING",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-WEATHER-CLOSED",
+      "statement": "Weather chart shows landing CLOSED 0345-0715",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-007",
+        "FACT-014"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-LOG-BOOK",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-FRANK-NO-PASSENGER",
+      "statement": "Frank flew no passenger off station",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-008"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-FRANK-NO-PASSENGER"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-TRUNK-ON-STATION",
+      "statement": "Henry's trunk never scanned outbound",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-009"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-MAYA-TRUNK"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-RAIL-DAMAGE",
+      "statement": "Gallery rail shows fresh stress marks at lens access",
+      "category": "physical",
+      "establishes_fact_ids": [
+        "FACT-010"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-RAIL-SCRAPE",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-TOOLKIT-OUT",
+      "statement": "LSK-7 lens toolkit checked out to Henry",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-011"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-LOG-BOOK",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-TOM-SIGNED-TALLY",
+      "statement": "Tom signed outbound tally without Henry",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-013"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-LOG-BOOK",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-TOM-LENS-ADMISSION",
+      "statement": "Tom admits Henry insisted on solo lens work",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-001"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-TOM-LENS"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-DEPARTURE-IMPOSSIBLE",
+      "statement": "Records prove 0430 voluntary departure impossible",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-DEPARTURE-FALSE",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-GALLERY-FALL",
+      "statement": "Evidence supports fall during lens repair",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-GALLERY-FALL",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-TOM-COVERUP",
+      "statement": "Tom falsified departure narrative after discovering the fall",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-TOM-COVERUP",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-PERFECT-RECON",
+      "statement": "Full reconstruction: unauthorized repair, fall, cover-up by Tom",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-PERFECT-RECON",
+        "interaction_required": true
+      }
+    }
+  ],
+  "hypotheses": [
+    {
+      "hypothesis_id": "HYP-DEPARTURE-FALSE",
+      "statement": "Voluntary departure was falsified",
+      "requires_knowledge_ids": [
+        "KNOW-WEATHER-CLOSED",
+        "KNOW-FRANK-NO-PASSENGER",
+        "KNOW-TRUNK-ON-STATION"
+      ],
+      "yields_knowledge_id": "KNOW-DEPARTURE-IMPOSSIBLE",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-GALLERY-FALL",
+      "statement": "Henry fell during unauthorized lens repair",
+      "requires_knowledge_ids": [
+        "KNOW-RAIL-DAMAGE",
+        "KNOW-LOG-LENS-ENTRY",
+        "KNOW-TOOLKIT-OUT"
+      ],
+      "yields_knowledge_id": "KNOW-GALLERY-FALL",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-TOM-COVERUP",
+      "statement": "Tom covered up the fall with false records",
+      "requires_knowledge_ids": [
+        "KNOW-LOG-DEPARTURE-LINE",
+        "KNOW-RADIO-DEPARTURE",
+        "KNOW-TOM-SIGNED-TALLY"
+      ],
+      "yields_knowledge_id": "KNOW-TOM-COVERUP",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-PERFECT-RECON",
+      "statement": "Full timeline reconstruction is possible from records",
+      "requires_knowledge_ids": [
+        "KNOW-DEPARTURE-IMPOSSIBLE",
+        "KNOW-GALLERY-FALL",
+        "KNOW-TOM-COVERUP"
+      ],
+      "yields_knowledge_id": "KNOW-PERFECT-RECON",
+      "player_synthesis_required": true
+    }
+  ],
+  "conclusions": [
+    {
+      "conclusion_id": "CONC-WHO",
+      "category": "culprit",
+      "question_ref": "Q-WHO",
+      "investigation_driven_by_clue": false,
+      "answer_entity_id": "NPC-TOM"
+    },
+    {
+      "conclusion_id": "CONC-WHAT",
+      "category": "incident",
+      "question_ref": "Q-WHAT",
+      "investigation_driven_by_clue": false,
+      "answer_text": "Accidental fall during unauthorized lens repair"
+    },
+    {
+      "conclusion_id": "CONC-HOW",
+      "category": "method",
+      "question_ref": "Q-HOW",
+      "investigation_driven_by_clue": false,
+      "answer_text": "False log and radio departure entries"
+    },
+    {
+      "conclusion_id": "CONC-WHEN",
+      "category": "timeline",
+      "question_ref": "Q-WHEN",
+      "investigation_driven_by_clue": false,
+      "answer_text": "Approximately 0418 during gallery lens work"
+    }
+  ],
+  "proofs": [
+    {
+      "proof_id": "PROOF-PERFECT",
+      "conclusion_id": "CONC-WHO",
+      "required_knowledge_ids": [
+        "KNOW-PERFECT-RECON",
+        "KNOW-TOM-COVERUP",
+        "KNOW-GALLERY-FALL",
+        "KNOW-DEPARTURE-IMPOSSIBLE"
+      ]
+    },
+    {
+      "proof_id": "PROOF-WHAT",
+      "conclusion_id": "CONC-WHAT",
+      "required_knowledge_ids": [
+        "KNOW-GALLERY-FALL",
+        "KNOW-RAIL-DAMAGE",
+        "KNOW-LOG-LENS-ENTRY"
+      ]
+    },
+    {
+      "proof_id": "PROOF-HOW",
+      "conclusion_id": "CONC-HOW",
+      "required_knowledge_ids": [
+        "KNOW-TOM-COVERUP",
+        "KNOW-LOG-DEPARTURE-LINE",
+        "KNOW-RADIO-DEPARTURE"
+      ]
+    },
+    {
+      "proof_id": "PROOF-WHEN",
+      "conclusion_id": "CONC-WHEN",
+      "required_knowledge_ids": [
+        "KNOW-GALLERY-FALL",
+        "KNOW-LOG-LENS-ENTRY",
+        "KNOW-RADIO-DEPARTURE"
+      ]
+    }
+  ],
+  "relationships": [],
+  "optional_knowledge": []
+}

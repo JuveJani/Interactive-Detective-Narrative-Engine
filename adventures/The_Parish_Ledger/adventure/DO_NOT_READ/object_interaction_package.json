@@ -1,0 +1,464 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Parish_Ledger",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "items_registry": [],
+  "objects": [
+    {
+      "object_id": "OBJ-DONATION-LEDGER",
+      "parent_id": "LOC-RECORDS",
+      "parent_type": "location",
+      "public_name": "Memorial fund donation ledger",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-DONATION-LEDGER",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-BANK-DEPOSITS",
+      "parent_id": "LOC-RECORDS",
+      "parent_type": "location",
+      "public_name": "Bank deposit slip batch",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-BANK-DEPOSITS",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-MEMORIAL-REGISTER",
+      "parent_id": "LOC-RECORDS",
+      "parent_type": "location",
+      "public_name": "Memorial register",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-MEMORIAL-REGISTER",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-COUNCIL-MINUTES",
+      "parent_id": "LOC-COUNCIL",
+      "parent_type": "location",
+      "public_name": "Parish council meeting minutes",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-COUNCIL-MINUTES",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-COUNTER-SIGN",
+      "parent_id": "LOC-OFFICE",
+      "parent_type": "location",
+      "public_name": "Counter-signature log",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-COUNTER-SIGN",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-BADGE-LOG",
+      "parent_id": "LOC-OFFICE",
+      "parent_type": "location",
+      "public_name": "Records room badge access log",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-BADGE-LOG",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-DONATION-LEDGER",
+      "object_id": "OBJ-DONATION-LEDGER",
+      "player_label": "Cross-reference memorial fund ledger entries on page 47.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-LEDGER",
+        "success_destination": "UNIT-LEDGER-SUCCESS",
+        "failure_destination": "UNIT-LEDGER-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-LEDGER-ALTER"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-LEDGER-DECL"
+    },
+    {
+      "action_id": "ACT-BANK-DEPOSITS",
+      "object_id": "OBJ-BANK-DEPOSITS",
+      "player_label": "Reconcile bank deposit slip batch against ledger totals.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-DEPOSIT",
+        "success_destination": "UNIT-DEPOSIT-SUCCESS",
+        "failure_destination": "UNIT-DEPOSIT-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-DEPOSIT-SHORT"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-DEPOSIT-DECL"
+    },
+    {
+      "action_id": "ACT-COUNCIL-MINUTES",
+      "object_id": "OBJ-COUNCIL-MINUTES",
+      "player_label": "Compare council meeting minutes to ledger fund allocations.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-MINUTES",
+        "success_destination": "UNIT-MINUTES-SUCCESS",
+        "failure_destination": "UNIT-MINUTES-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-MINUTES-ALLOC"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-MINUTES-DECL"
+    },
+    {
+      "action_id": "ACT-MEMORIAL-REGISTER",
+      "object_id": "OBJ-MEMORIAL-REGISTER",
+      "player_label": "Examine Memorial register.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "destination_unit": "UNIT-OBJ-REGISTER-MENU"
+    },
+    {
+      "action_id": "ACT-COUNTER-SIGN",
+      "object_id": "OBJ-COUNTER-SIGN",
+      "player_label": "Examine Counter-signature log.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "destination_unit": "UNIT-OBJ-COUNTER-MENU"
+    },
+    {
+      "action_id": "ACT-BADGE-LOG",
+      "object_id": "OBJ-BADGE-LOG",
+      "player_label": "Examine Records room badge access log.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "destination_unit": "UNIT-OBJ-BADGE-MENU"
+    }
+  ],
+  "result_units": [
+    {
+      "unit_id": "UNIT-NARTHEX-BASE",
+      "return_destination": "UNIT-NARTHEX-BASE"
+    },
+    {
+      "unit_id": "UNIT-OFFICE-BASE",
+      "return_destination": "UNIT-OFFICE-BASE"
+    },
+    {
+      "unit_id": "UNIT-RECORDS-BASE",
+      "return_destination": "UNIT-RECORDS-BASE"
+    },
+    {
+      "unit_id": "UNIT-HALL-BASE",
+      "return_destination": "UNIT-HALL-BASE"
+    },
+    {
+      "unit_id": "UNIT-COUNCIL-BASE",
+      "return_destination": "UNIT-COUNCIL-BASE"
+    },
+    {
+      "unit_id": "UNIT-NPC-GRACE-HUB",
+      "return_destination": "UNIT-TOPIC-GRACE-RECON",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-HELEN-HUB",
+      "return_destination": "UNIT-TOPIC-HELEN-FLAG",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-RITA-HUB",
+      "return_destination": "UNIT-TOPIC-RITA-MINUTES",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-FATHER-HUB",
+      "return_destination": "UNIT-TOPIC-FATHER-ASSURED",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-GRACE-RECON",
+      "return_destination": "UNIT-NPC-GRACE-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-GRACE-DEPOSIT",
+      "return_destination": "UNIT-NPC-GRACE-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-GRACE-ACCESS",
+      "return_destination": "UNIT-NPC-GRACE-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-HELEN-FLAG",
+      "return_destination": "UNIT-NPC-HELEN-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-HELEN-LEDGER",
+      "return_destination": "UNIT-NPC-HELEN-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-HELEN-REGISTER",
+      "return_destination": "UNIT-NPC-HELEN-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-RITA-MINUTES",
+      "return_destination": "UNIT-NPC-RITA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-RITA-RECEIPTS",
+      "return_destination": "UNIT-NPC-RITA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-RITA-AUDIT",
+      "return_destination": "UNIT-NPC-RITA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-FATHER-ASSURED",
+      "return_destination": "UNIT-NPC-FATHER-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-FATHER-MEMORIAL",
+      "return_destination": "UNIT-NPC-FATHER-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-FATHER-COUNCIL",
+      "return_destination": "UNIT-NPC-FATHER-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-REGISTER-MENU",
+      "return_destination": "UNIT-OBJ-REGISTER-RESULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-REGISTER-RESULT",
+      "return_destination": "UNIT-RECORDS-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-COUNTER-MENU",
+      "return_destination": "UNIT-OBJ-COUNTER-RESULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-COUNTER-RESULT",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-BADGE-MENU",
+      "return_destination": "UNIT-OBJ-BADGE-RESULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-BADGE-RESULT",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-LEDGER-DECL",
+      "return_destination": "UNIT-LEDGER-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-DEPOSIT-DECL",
+      "return_destination": "UNIT-DEPOSIT-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-MINUTES-DECL",
+      "return_destination": "UNIT-MINUTES-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LEDGER-SUCCESS",
+      "return_destination": "UNIT-RECORDS-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-LEDGER-FAIL",
+      "return_destination": "UNIT-RECORDS-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-DEPOSIT-SUCCESS",
+      "return_destination": "UNIT-RECORDS-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-DEPOSIT-FAIL",
+      "return_destination": "UNIT-RECORDS-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-MINUTES-SUCCESS",
+      "return_destination": "UNIT-COUNCIL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-MINUTES-FAIL",
+      "return_destination": "UNIT-COUNCIL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-NARTHEX-ARRIVAL",
+      "return_destination": "UNIT-NARTHEX-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-RECORDS-INTRO",
+      "return_destination": "UNIT-RECORDS-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-HELEN-REGISTER",
+      "return_destination": "UNIT-RECORDS-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-OFFICE-COUNTER",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-RECORDS-DEPOSIT",
+      "return_destination": "UNIT-RECORDS-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-COUNCIL-MINUTES",
+      "return_destination": "UNIT-COUNCIL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-ACCUSATION-PREP",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-DEADLINE-WARN",
+      "return_destination": "UNIT-NARTHEX-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-RECORDS-CONFLICT",
+      "return_destination": "UNIT-RECORDS-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-DIVERSION",
+      "return_destination": "UNIT-RECORDS-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-GRACE-EMBEZZLE",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-PERFECT-RECON",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-RECORDS-LEDGER",
+      "return_destination": "UNIT-CHK-LEDGER-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-RECORDS-DEPOSIT",
+      "return_destination": "UNIT-CHK-DEPOSIT-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-COUNCIL-MINUTES",
+      "return_destination": "UNIT-CHK-MINUTES-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-OFFICE-COUNTER",
+      "return_destination": "UNIT-OBJ-COUNTER-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-OFFICE-BADGE",
+      "return_destination": "UNIT-OBJ-BADGE-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-NPC-GRACE",
+      "return_destination": "UNIT-NPC-GRACE-HUB",
+      "requires_return": true
+    }
+  ],
+  "hierarchy_roots": [
+    "OBJ-DONATION-LEDGER",
+    "OBJ-BANK-DEPOSITS",
+    "OBJ-MEMORIAL-REGISTER",
+    "OBJ-COUNCIL-MINUTES",
+    "OBJ-COUNTER-SIGN",
+    "OBJ-BADGE-LOG"
+  ]
+}

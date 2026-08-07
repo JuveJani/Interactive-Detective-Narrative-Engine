@@ -1,0 +1,585 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Quarry_Silence",
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "npcs": [
+    {
+      "npc_id": "NPC-MARCUS",
+      "public_name": "Marcus Reed",
+      "role": "Shift supervisor",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-RICK",
+          "relationship_type": "supervisor"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-DIANA",
+      "public_name": "Diana Okoro",
+      "role": "County coroner liaison",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-MARCUS",
+          "relationship_type": "professional"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-ELENA",
+      "public_name": "Elena Vasquez",
+      "role": "Maintenance technician",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-MARCUS",
+          "relationship_type": "professional"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-RICK",
+      "public_name": "Rick Torres",
+      "role": "Equipment operator",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-MARCUS",
+          "relationship_type": "supervisor"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    }
+  ],
+  "npc_graph": {
+    "nodes": [
+      "NPC-MARCUS",
+      "NPC-DIANA",
+      "NPC-ELENA",
+      "NPC-RICK"
+    ],
+    "edges": [
+      {
+        "from_npc_id": "NPC-MARCUS",
+        "to_npc_id": "NPC-RICK",
+        "relationship_type": "supervisor"
+      },
+      {
+        "from_npc_id": "NPC-DIANA",
+        "to_npc_id": "NPC-MARCUS",
+        "relationship_type": "professional"
+      },
+      {
+        "from_npc_id": "NPC-ELENA",
+        "to_npc_id": "NPC-MARCUS",
+        "relationship_type": "professional"
+      },
+      {
+        "from_npc_id": "NPC-RICK",
+        "to_npc_id": "NPC-MARCUS",
+        "relationship_type": "supervisor"
+      }
+    ]
+  },
+  "information_known_model": [
+    {
+      "info_id": "INFO-TOPIC-MARCUS-REPORT",
+      "npc_id": "NPC-MARCUS",
+      "knowledge_id": "KNOW-INCIDENT-REPORT",
+      "topic_id": "TOPIC-MARCUS-REPORT"
+    },
+    {
+      "info_id": "INFO-TOPIC-MARCUS-SLIP",
+      "npc_id": "NPC-MARCUS",
+      "knowledge_id": "KNOW-MARCUS-SLIP",
+      "topic_id": "TOPIC-MARCUS-SLIP"
+    },
+    {
+      "info_id": "INFO-TOPIC-MARCUS-INTERLOCK",
+      "npc_id": "NPC-MARCUS",
+      "knowledge_id": "KNOW-MAINT-FALSIFIED",
+      "topic_id": "TOPIC-MARCUS-INTERLOCK"
+    },
+    {
+      "info_id": "INFO-TOPIC-DIANA-IMPACT",
+      "npc_id": "NPC-DIANA",
+      "knowledge_id": "KNOW-DIANA-IMPACT",
+      "topic_id": "TOPIC-DIANA-IMPACT"
+    },
+    {
+      "info_id": "INFO-TOPIC-DIANA-SCENE",
+      "npc_id": "NPC-DIANA",
+      "knowledge_id": "KNOW-DIANA-IMPACT",
+      "topic_id": "TOPIC-DIANA-SCENE"
+    },
+    {
+      "info_id": "INFO-TOPIC-DIANA-HAT",
+      "npc_id": "NPC-DIANA",
+      "knowledge_id": "KNOW-DIANA-IMPACT",
+      "topic_id": "TOPIC-DIANA-HAT"
+    },
+    {
+      "info_id": "INFO-TOPIC-ELENA-HYDRAULIC",
+      "npc_id": "NPC-ELENA",
+      "knowledge_id": "KNOW-ELENA-HYDRAULIC",
+      "topic_id": "TOPIC-ELENA-HYDRAULIC"
+    },
+    {
+      "info_id": "INFO-TOPIC-ELENA-INTERLOCK",
+      "npc_id": "NPC-ELENA",
+      "knowledge_id": "KNOW-MAINT-FALSIFIED",
+      "topic_id": "TOPIC-ELENA-INTERLOCK"
+    },
+    {
+      "info_id": "INFO-TOPIC-ELENA-BASELINE",
+      "npc_id": "NPC-ELENA",
+      "knowledge_id": "KNOW-ELENA-HYDRAULIC",
+      "topic_id": "TOPIC-ELENA-BASELINE"
+    },
+    {
+      "info_id": "INFO-TOPIC-RICK-PLATFORM",
+      "npc_id": "NPC-RICK",
+      "knowledge_id": "KNOW-RICK-WITNESS",
+      "topic_id": "TOPIC-RICK-PLATFORM"
+    },
+    {
+      "info_id": "INFO-TOPIC-RICK-BOOTS",
+      "npc_id": "NPC-RICK",
+      "knowledge_id": "KNOW-RICK-WITNESS",
+      "topic_id": "TOPIC-RICK-BOOTS"
+    },
+    {
+      "info_id": "INFO-TOPIC-RICK-TIMING",
+      "npc_id": "NPC-RICK",
+      "knowledge_id": "KNOW-RICK-WITNESS",
+      "topic_id": "TOPIC-RICK-TIMING"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "TOPIC-MARCUS-REPORT",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-MARCUS",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-MARCUS-SLIP",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-MARCUS",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-MARCUS-INTERLOCK",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-MARCUS",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-DIANA-IMPACT",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-DIANA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-DIANA-SCENE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-DIANA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-DIANA-HAT",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-DIANA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-ELENA-HYDRAULIC",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-ELENA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-ELENA-INTERLOCK",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-ELENA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-ELENA-BASELINE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-ELENA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-RICK-PLATFORM",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-RICK",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-RICK-BOOTS",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-RICK",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-RICK-TIMING",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-RICK",
+          "min": 0
+        }
+      ]
+    }
+  ],
+  "conversation_graph": [
+    {
+      "conversation_id": "CONV-MARCUS",
+      "npc_id": "NPC-MARCUS",
+      "entry_topic_id": "TOPIC-MARCUS-REPORT",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-MARCUS",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-MARCUS-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-MARCUS-REPORT",
+          "player_label": "Ask about the equipment-failure report.",
+          "npc_response_unit": "UNIT-TOPIC-MARCUS-REPORT",
+          "grants_knowledge_id": "KNOW-INCIDENT-REPORT",
+          "topic_id": "TOPIC-MARCUS-REPORT",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-MARCUS",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-MARCUS-SLIP",
+          "player_label": "Ask about wet deck conditions.",
+          "npc_response_unit": "UNIT-TOPIC-MARCUS-SLIP",
+          "grants_knowledge_id": "KNOW-MARCUS-SLIP",
+          "topic_id": "TOPIC-MARCUS-SLIP",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-MARCUS",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-MARCUS-INTERLOCK",
+          "player_label": "Ask about crusher safety interlock status.",
+          "npc_response_unit": "UNIT-TOPIC-MARCUS-INTERLOCK",
+          "grants_knowledge_id": "KNOW-MAINT-FALSIFIED",
+          "topic_id": "TOPIC-MARCUS-INTERLOCK",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-MARCUS",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-DIANA",
+      "npc_id": "NPC-DIANA",
+      "entry_topic_id": "TOPIC-DIANA-IMPACT",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-DIANA",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-DIANA-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-DIANA-IMPACT",
+          "player_label": "Ask about preliminary injury findings.",
+          "npc_response_unit": "UNIT-TOPIC-DIANA-IMPACT",
+          "grants_knowledge_id": "KNOW-DIANA-IMPACT",
+          "topic_id": "TOPIC-DIANA-IMPACT",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-DIANA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-DIANA-SCENE",
+          "player_label": "Ask what the quarry base scene suggests.",
+          "npc_response_unit": "UNIT-TOPIC-DIANA-SCENE",
+          "grants_knowledge_id": "KNOW-DIANA-IMPACT",
+          "topic_id": "TOPIC-DIANA-SCENE",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-DIANA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-DIANA-HAT",
+          "player_label": "Ask about hard hat placement.",
+          "npc_response_unit": "UNIT-TOPIC-DIANA-HAT",
+          "grants_knowledge_id": "KNOW-DIANA-IMPACT",
+          "topic_id": "TOPIC-DIANA-HAT",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-DIANA",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-ELENA",
+      "npc_id": "NPC-ELENA",
+      "entry_topic_id": "TOPIC-ELENA-HYDRAULIC",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-ELENA",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-ELENA-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-ELENA-HYDRAULIC",
+          "player_label": "Ask about hydraulic line condition.",
+          "npc_response_unit": "UNIT-TOPIC-ELENA-HYDRAULIC",
+          "grants_knowledge_id": "KNOW-ELENA-HYDRAULIC",
+          "topic_id": "TOPIC-ELENA-HYDRAULIC",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-ELENA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-ELENA-INTERLOCK",
+          "player_label": "Ask about interlock inspection records.",
+          "npc_response_unit": "UNIT-TOPIC-ELENA-INTERLOCK",
+          "grants_knowledge_id": "KNOW-MAINT-FALSIFIED",
+          "topic_id": "TOPIC-ELENA-INTERLOCK",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-ELENA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-ELENA-BASELINE",
+          "player_label": "Ask about normal failure patterns.",
+          "npc_response_unit": "UNIT-TOPIC-ELENA-BASELINE",
+          "grants_knowledge_id": "KNOW-ELENA-HYDRAULIC",
+          "topic_id": "TOPIC-ELENA-BASELINE",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-ELENA",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-RICK",
+      "npc_id": "NPC-RICK",
+      "entry_topic_id": "TOPIC-RICK-PLATFORM",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-RICK",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-RICK-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-RICK-PLATFORM",
+          "player_label": "Ask who was on the crusher platform.",
+          "npc_response_unit": "UNIT-TOPIC-RICK-PLATFORM",
+          "grants_knowledge_id": "KNOW-RICK-WITNESS",
+          "topic_id": "TOPIC-RICK-PLATFORM",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-RICK",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-RICK-BOOTS",
+          "player_label": "Ask about boot prints in the mud.",
+          "npc_response_unit": "UNIT-TOPIC-RICK-BOOTS",
+          "grants_knowledge_id": "KNOW-RICK-WITNESS",
+          "topic_id": "TOPIC-RICK-BOOTS",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-RICK",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-RICK-TIMING",
+          "player_label": "Ask about timing before the alarm.",
+          "npc_response_unit": "UNIT-TOPIC-RICK-TIMING",
+          "grants_knowledge_id": "KNOW-RICK-WITNESS",
+          "topic_id": "TOPIC-RICK-TIMING",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-RICK",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testimony_links": [],
+  "trust_model": {
+    "default_trust_delta_per_topic": 2
+  }
+}

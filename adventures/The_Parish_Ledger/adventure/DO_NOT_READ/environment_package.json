@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Parish_Ledger",
+  "start_location_id": "LOC-NARTHEX",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "locations": [
+    {
+      "location_id": "LOC-NARTHEX",
+      "public_name": "Parish narthex",
+      "start_location": true,
+      "hub_unit_id": "UNIT-NARTHEX-BASE",
+      "parent_location_id": null,
+      "location_type": "parish_entrance",
+      "description_source": "DESC-NARTHEX",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-009",
+          "EVT-013"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-OFFICE",
+      "public_name": "Parish office",
+      "hub_unit_id": "UNIT-OFFICE-BASE",
+      "parent_location_id": "LOC-NARTHEX",
+      "location_type": "administrative_office",
+      "description_source": "DESC-OFFICE",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-003",
+          "EVT-005",
+          "EVT-006",
+          "EVT-012"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-RECORDS",
+      "public_name": "Finance records room",
+      "hub_unit_id": "UNIT-RECORDS-BASE",
+      "parent_location_id": "LOC-NARTHEX",
+      "location_type": "records_room",
+      "description_source": "DESC-RECORDS",
+      "default_attributes": {
+        "access": "restricted"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-002",
+          "EVT-004",
+          "EVT-008",
+          "EVT-010"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-HALL",
+      "public_name": "Community center hall",
+      "hub_unit_id": "UNIT-HALL-BASE",
+      "parent_location_id": "LOC-NARTHEX",
+      "location_type": "community_hall",
+      "description_source": "DESC-HALL",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-001"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-COUNCIL",
+      "public_name": "Parish council meeting room",
+      "hub_unit_id": "UNIT-COUNCIL-BASE",
+      "parent_location_id": "LOC-NARTHEX",
+      "location_type": "meeting_room",
+      "description_source": "DESC-COUNCIL",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-007",
+          "EVT-011"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    }
+  ],
+  "location_states": [
+    {
+      "state_id": "LOC-NARTHEX:default",
+      "location_id": "LOC-NARTHEX",
+      "variant_label": "audit_start",
+      "attributes": {
+        "access": "open",
+        "audit_in_progress": true
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-009"
+      }
+    },
+    {
+      "state_id": "LOC-RECORDS:deposit_sync",
+      "location_id": "LOC-RECORDS",
+      "variant_label": "deposit_synced",
+      "attributes": {
+        "deposit_sync": "complete"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-010"
+      }
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "FEAT-LEDGER-PAGE47",
+      "location_id": "LOC-RECORDS",
+      "label": "Altered ledger page 47",
+      "object_ref": "OBJ-DONATION-LEDGER"
+    },
+    {
+      "feature_id": "FEAT-DEPOSIT-BATCH",
+      "location_id": "LOC-RECORDS",
+      "label": "Bank deposit slip batch",
+      "object_ref": "OBJ-BANK-DEPOSITS"
+    }
+  ],
+  "navigation": [
+    {
+      "nav_id": "NAV-NARTHEX-OFFICE",
+      "source_location_id": "LOC-NARTHEX",
+      "destination_location_id": "LOC-OFFICE",
+      "player_label": "Walk to the parish office",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-NARTHEX-RECORDS",
+      "source_location_id": "LOC-NARTHEX",
+      "destination_location_id": "LOC-RECORDS",
+      "player_label": "Enter the finance records room",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-NARTHEX-HALL",
+      "source_location_id": "LOC-NARTHEX",
+      "destination_location_id": "LOC-HALL",
+      "player_label": "Go to the community center hall",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-NARTHEX-COUNCIL",
+      "source_location_id": "LOC-NARTHEX",
+      "destination_location_id": "LOC-COUNCIL",
+      "player_label": "Proceed to the council meeting room",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-OFFICE-NARTHEX",
+      "source_location_id": "LOC-OFFICE",
+      "destination_location_id": "LOC-NARTHEX",
+      "player_label": "Return to the narthex",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-RECORDS-NARTHEX",
+      "source_location_id": "LOC-RECORDS",
+      "destination_location_id": "LOC-NARTHEX",
+      "player_label": "Return to the narthex",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-HALL-NARTHEX",
+      "source_location_id": "LOC-HALL",
+      "destination_location_id": "LOC-NARTHEX",
+      "player_label": "Return to the narthex",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-COUNCIL-NARTHEX",
+      "source_location_id": "LOC-COUNCIL",
+      "destination_location_id": "LOC-NARTHEX",
+      "player_label": "Return to the narthex",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    }
+  ],
+  "revisit_rules": {
+    "persist_physical_changes": true,
+    "persist_acquired_objects": true,
+    "persist_open_access": true,
+    "suppress_repeat_one_time_observations": true,
+    "allow_time_variants": true,
+    "reset_to_initial_on_revisit": false
+  },
+  "mandatory_locations": [
+    {
+      "location_id": "LOC-NARTHEX",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-OFFICE",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-RECORDS",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-HALL",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-COUNCIL",
+      "access": "reachable",
+      "reason": "investigation"
+    }
+  ]
+}
