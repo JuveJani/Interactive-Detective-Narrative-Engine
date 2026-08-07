@@ -1,0 +1,38 @@
+{
+  "working_title": "The Quarry Silence",
+  "premise": "A county occupational safety investigator examines a night-shift fatality at a limestone quarry, reconstructing events from physical traces, equipment condition, and conflicting incident reports.",
+  "setting": "Active limestone quarry and processing plant \u2014 yard gate, quarry floor, primary crusher platform, shift control shack, and maintenance bay",
+  "universe": "real world",
+  "genre": "detective mystery",
+  "realism_level": "grounded contemporary",
+  "player_mode": "single_investigator",
+  "investigator_character": "County occupational safety investigator dispatched to verify the official equipment-failure report",
+  "opening_situation": "You arrive at dawn to find shift supervisor Marcus Reed waiting at the yard gate. The coroner liaison Diana Okoro has already tagged the scene at the quarry base, but Marcus insists hydraulic conveyor failure caused the death.",
+  "initial_observable_facts": [
+    "Night-shift worker Carl Mendez was found dead at the quarry base beneath the primary crusher feed.",
+    "Shift supervisor Marcus Reed filed an equipment-failure incident report at 0315.",
+    "Coroner liaison Diana Okoro notes impact injuries inconsistent with a pure crush narrative.",
+    "Maintenance technician Elena Vasquez says the hydraulic line shows cut marks, not burst failure."
+  ],
+  "target_playtime_minutes": 120,
+  "in_world_duration": "one morning investigation (approximately four in-world hours)",
+  "tone": "industrial, methodical, quietly tense",
+  "difficulty": "standard",
+  "location_scale": "single quarry site with five primary locations",
+  "content_boundaries": "no graphic violence; no supernatural elements; workplace safety cover-up themes; death by fall and blunt impact; no sexual content",
+  "required_themes": [
+    "fair-play mystery",
+    "physical and environmental evidence",
+    "equipment condition versus official report",
+    "meaningful time pressure",
+    "one perfect ending and several imperfect endings"
+  ],
+  "forbidden_themes": [
+    "supernatural explanations",
+    "theft-primary plots",
+    "magic or occult resolution",
+    "direct narrator solution delivery"
+  ],
+  "deadline_or_constraint": "OSHA preliminary report due at 1200; crusher restart scheduled at 1300",
+  "author_notes": "Codename: The Quarry Silence. Culprit NPC-MARCUS covered up safety interlock bypass after confrontation. Emphasis on physical/environmental evidence \u2014 scrape marks, fluid patterns, boot prints, dust \u2014 not testimony alone."
+}

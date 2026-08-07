@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Quarry_Silence",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "single_investigator": {
+    "character_sheet": "PLAYER/CHARACTERS/CHARACTER_SHEET.md",
+    "record_sheet": "PLAYER/SHARED/CASE_FILE.md",
+    "scene_package": "PLAYER/SCENES.md",
+    "navigation_index": "PLAYER/NAVIGATION_INDEX.md",
+    "endings": "PLAYER/ENDINGS.md",
+    "inventory_owner": "investigator",
+    "clock_model": "single_sequential",
+    "wall_clock_target_minutes": 120
+  }
+}
