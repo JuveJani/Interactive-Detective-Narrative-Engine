@@ -67,8 +67,11 @@ class ContentBlock:
     text: str
     provenance: str  # observation | prior_knowledge | action_reveal | atmosphere
     requires_knowledge_ids: frozenset[str] = frozenset()
+    forbidden_knowledge_ids: frozenset[str] = frozenset()
     requires_world_state: dict[str, Any] = field(default_factory=dict)
+    forbidden_world_state: dict[str, Any] = field(default_factory=dict)
     fact_ids: frozenset[str] = frozenset()
+    presentation_order: int = 0
 
     @classmethod
     def from_dict(cls, raw: dict[str, Any]) -> ContentBlock:
@@ -77,8 +80,11 @@ class ContentBlock:
             text=str(raw.get("text", "")),
             provenance=str(raw.get("provenance", "atmosphere")),
             requires_knowledge_ids=frozenset(raw.get("requires_knowledge_ids") or []),
+            forbidden_knowledge_ids=frozenset(raw.get("forbidden_knowledge_ids") or []),
             requires_world_state=dict(raw.get("requires_world_state") or {}),
+            forbidden_world_state=dict(raw.get("forbidden_world_state") or {}),
             fact_ids=frozenset(raw.get("fact_ids") or []),
+            presentation_order=int(raw.get("presentation_order") or 0),
         )
 
 
@@ -103,6 +109,8 @@ class PlayableEvent:
     content_blocks: list[ContentBlock] = field(default_factory=list)
     supersedes_unit_id: str | None = None
     time_layer: str | None = None
+    template_unit_id: str | None = None
+    state_snapshot: dict[str, Any] | None = None
 
     @classmethod
     def from_dict(cls, raw: dict[str, Any]) -> PlayableEvent:
@@ -128,6 +136,8 @@ class PlayableEvent:
             content_blocks=blocks,
             supersedes_unit_id=raw.get("supersedes_unit_id"),
             time_layer=raw.get("time_layer"),
+            template_unit_id=raw.get("template_unit_id"),
+            state_snapshot=raw.get("state_snapshot"),
         )
 
 
@@ -166,6 +176,11 @@ class EpistemicState:
         next_state.world_state = merged
         merged_int = dict(next_state.interaction_state)
         merged_int.update(action.interaction_delta)
+        completed = set(merged_int.get("completed_topics") or [])
+        for topic in action.interaction_delta.get("completed_topics") or []:
+            completed.add(str(topic))
+        if completed:
+            merged_int["completed_topics"] = sorted(completed)
         next_state.interaction_state = merged_int
         if action.exhaustion in ("one_time", "exhaustible"):
             exhausted = set(next_state.interaction_state.get("exhausted_actions", []))

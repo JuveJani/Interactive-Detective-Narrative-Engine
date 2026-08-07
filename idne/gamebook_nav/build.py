@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import json
+import time
 from pathlib import Path
 from typing import Any
 
-from idne.gamebook_nav.extract import load_opening, parse_player_units, resolve_manifest_aliases
+from idne.gamebook_nav.delivery import load_materialized_delivery
+from idne.gamebook_nav.extract import load_opening, parse_player_units
 from idne.gamebook_nav.graph import build_navigation_graph
 from idne.gamebook_nav.numbering import assign_public_sections
 from idne.gamebook_nav.constants import DEFAULT_START_UNIT
+from idne.gamebook_nav.sections import section_heading, section_link
 from idne.gamebook_nav.validate import validate_gamebook_navigation
 
 
@@ -21,12 +24,13 @@ def _choice_lines(edges, section_map: dict[str, int]) -> list[str]:
         if not sec:
             lines.append(f"- {edge.label}")
             continue
+        link = section_link(sec)
         if edge.edge_kind == "check_success":
-            lines.append(f"- If your roll **succeeds**, turn to section **{sec}**.")
+            lines.append(f"- If your roll **succeeds**, turn to section {link}.")
         elif edge.edge_kind == "check_failure":
-            lines.append(f"- If your roll **fails**, turn to section **{sec}**.")
+            lines.append(f"- If your roll **fails**, turn to section {link}.")
         else:
-            lines.append(f"- {edge.label} Turn to section **{sec}**.")
+            lines.append(f"- {edge.label} Turn to section {link}.")
     return lines
 
 
@@ -51,23 +55,22 @@ def render_gamebook(
         "",
         opening,
         "",
-        f"**Starting section: {start_sec}** — turn to section **{start_sec}** to begin your investigation.",
+        f"**Starting section: {start_sec}** — turn to section {section_link(start_sec)} to begin your investigation.",
         "",
         "---",
         "",
     ]
 
-    for uid in sorted(player_units.keys(), key=lambda u: section_map.get(u, 9999)):
+    for uid in sorted(player_units.keys(), key=lambda u: section_map.get(u, 999999)):
         unit = player_units[uid]
         sec = section_map[uid]
         nav = graph.get(uid)
-        lines.append(f"## Section {sec}")
+        lines.append(section_heading(sec))
         lines.append("")
         if unit.meta_lines:
             for m in unit.meta_lines:
                 lines.append(m)
             lines.append("")
-        # body without duplicate heading
         body = unit.body
         for m in unit.meta_lines:
             body = body.replace(m, "").strip()
@@ -94,6 +97,7 @@ def build_gamebook_package(
     numbering_seed: str | None = None,
 ) -> dict[str, Any]:
     """Generate/extend player mapping manifest and GAMEBOOK.md."""
+    t0 = time.perf_counter()
     adventure_root = Path(adventure_root).resolve()
     workspace = adventure_root.parent
     player_root = adventure_root / "PLAYER"
@@ -107,31 +111,60 @@ def build_gamebook_package(
         manifest = json.loads(mapping_path.read_text(encoding="utf-8"))
 
     adventure_id = adventure_id or manifest.get("adventure_id") or adventure_root.name
-    manifest_units = manifest.get("units") or {}
-    known = set(manifest_units.keys())
-    player_units = parse_player_units(player_root, known or None)
-    player_units = resolve_manifest_aliases(player_units, manifest_units)
-    if not player_units:
-        raise ValueError("no playable units found")
+    template_units = parse_player_units(player_root, None)
+    if not template_units:
+        raise ValueError("no playable template units found")
 
     persisted_seed = numbering_seed
     if persisted_seed is None and manifest.get("static_book"):
         persisted_seed = manifest["static_book"].get("numbering_seed")
     existing_sections = manifest.get("public_sections") or {}
 
-    graph = build_navigation_graph(adventure_root, player_units, manifest_units=manifest_units)
+    delivery_stats = None
+    package, delivery_units, graph, delivery_stats = load_materialized_delivery(
+        adventure_root,
+        template_units,
+        manifest_units=manifest.get("units") or {},
+    )
+    if delivery_units and graph:
+        player_units = delivery_units
+        delivery_mode = "materialized_static_book"
+    else:
+        from idne.gamebook_nav.extract import resolve_manifest_aliases
+
+        manifest_units = manifest.get("units") or {}
+        known = set(manifest_units.keys())
+        player_units = parse_player_units(player_root, known or None)
+        player_units = resolve_manifest_aliases(player_units, manifest_units)
+        graph = build_navigation_graph(adventure_root, player_units, manifest_units=manifest_units)
+        delivery_mode = "static_book"
+
     section_map = assign_public_sections(
         player_units.keys(),
         adventure_id,
         seed_override=persisted_seed,
         existing_map=existing_sections if persisted_seed else None,
     )
+    if delivery_stats:
+        delivery_stats.public_sections = len(section_map)
 
-    # enrich manifest units
-    units = dict(manifest.get("units") or {})
+    units: dict[str, dict] = {}
+    template_prose_index = {
+        uid: {"file": u.file, "anchor": u.title, "template_unit_id": uid}
+        for uid, u in template_units.items()
+    }
     for uid, unit in player_units.items():
-        entry = dict(units.get(uid) or {"unit_id": uid, "file": unit.file, "anchor": unit.title})
-        entry["public_section"] = section_map[uid]
+        tpl = uid.split("--S-", 1)[0]
+        prose_ref = template_prose_index.get(tpl, {})
+        entry: dict[str, Any] = {
+            "unit_id": uid,
+            "file": prose_ref.get("file", unit.file),
+            "anchor": prose_ref.get("anchor", unit.title),
+            "public_section": section_map[uid],
+        }
+        if tpl != uid:
+            entry["template_unit_id"] = tpl
+            entry["prose_template_unit_id"] = tpl
         nav = graph.get(uid)
         if nav:
             entry["choices"] = [
@@ -154,8 +187,17 @@ def build_gamebook_package(
         "start_unit_id": start_unit_id,
         "start_section": section_map[start_unit_id],
         "numbering_seed": persisted_seed or adventure_id,
-        "delivery_mode": "static_book",
+        "delivery_mode": delivery_mode,
     }
+    if delivery_stats:
+        manifest["delivery_projection"] = delivery_stats.to_dict()
+        if package:
+            mat = {}
+            pkg_path = adventure_root / "DO_NOT_READ" / "epistemic_progression_package.json"
+            if pkg_path.exists():
+                raw = json.loads(pkg_path.read_text(encoding="utf-8"))
+                mat = raw.get("materialization") or {}
+            manifest["delivery_projection"]["epistemic_materialization"] = mat
 
     opening = load_opening(player_root)
     title = adventure_id.replace("_", " ")
@@ -171,6 +213,7 @@ def build_gamebook_package(
     gamebook_path = player_root / "GAMEBOOK.md"
     gamebook_path.write_text(gamebook, encoding="utf-8")
 
+    t_val = time.perf_counter()
     val = validate_gamebook_navigation(
         adventure_root,
         manifest=manifest,
@@ -180,9 +223,13 @@ def build_gamebook_package(
         start_unit_id=start_unit_id,
         gamebook_text=gamebook,
     )
+    validate_ms = int((time.perf_counter() - t_val) * 1000)
 
     manifest["gamebook_validation"] = val.to_dict()
     mapping_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+
+    build_ms = int((time.perf_counter() - t0) * 1000)
+    gamebook_bytes = gamebook_path.stat().st_size
 
     return {
         "manifest_path": str(mapping_path),
@@ -191,4 +238,9 @@ def build_gamebook_package(
         "start_section": section_map[start_unit_id],
         "start_unit_id": start_unit_id,
         "validation": val.to_dict(),
+        "delivery_mode": delivery_mode,
+        "delivery_projection": delivery_stats.to_dict() if delivery_stats else None,
+        "gamebook_bytes": gamebook_bytes,
+        "build_ms": build_ms,
+        "validate_ms": validate_ms,
     }

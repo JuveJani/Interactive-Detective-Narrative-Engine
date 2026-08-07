@@ -8,6 +8,7 @@ from typing import Any
 from idne.epistemic_progression.eligibility import action_eligible, event_enterable, filter_eligible_actions
 from idne.epistemic_progression.loader import initial_epistemic_state, load_epistemic_package
 from idne.epistemic_progression.model import EpistemicState, StructuredAction
+from idne.epistemic_progression.resolve import resolve_playable_unit
 from idne.epistemic_progression.signatures import knowledge_signature, world_state_signature
 
 
@@ -85,13 +86,14 @@ def reachable_units_from_start(adventure_root: Path, *, start_unit_id: str = "UN
         return {start_unit_id}
     q: deque[tuple[str, EpistemicState]] = deque([(start_unit_id, initial_epistemic_state(package))])
     reachable = {start_unit_id}
-    seen: set[tuple[str, frozenset[str], frozenset[tuple[str, Any]]]] = set()
+    seen: set[tuple[str, frozenset[str], frozenset[tuple[str, Any]], frozenset[str]]] = set()
     while q:
         cur, state = q.popleft()
         event = package.events_by_unit.get(cur)
         if not event:
             continue
-        state_key = (cur, state.player_knowledge, frozenset(state.world_state.items()))
+        completed = frozenset(str(x) for x in (state.interaction_state.get("completed_topics") or []))
+        state_key = (cur, state.player_knowledge, frozenset(state.world_state.items()), completed)
         if state_key in seen:
             continue
         seen.add(state_key)
@@ -118,6 +120,7 @@ def apply_chosen_action(
             if not ok:
                 return state, None, reason
             next_state = state.apply_action_deltas(action)
-            next_state.current_unit_id = action.destination_unit_id
+            dest = resolve_playable_unit(package, next_state, action.destination_unit_id)
+            next_state.current_unit_id = dest
             return next_state, action, "PASS"
     return state, None, "action not in structured set or ineligible"

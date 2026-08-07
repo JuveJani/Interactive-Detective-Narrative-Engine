@@ -11,6 +11,7 @@ from idne.epistemic_progression.model import (
     PlayableEvent,
     StructuredAction,
 )
+from idne.epistemic_progression.resolve import resolve_playable_unit
 from idne.epistemic_progression.signatures import (
     knowledge_signature,
     world_state_signature,
@@ -26,5 +27,6 @@ __all__ = [
     "knowledge_signature",
     "load_epistemic_manifest",
     "load_epistemic_package",
+    "resolve_playable_unit",
     "world_state_signature",
 ]

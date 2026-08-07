@@ -20,6 +20,47 @@ ROOT = Path(__file__).resolve().parents[1]
 ADV = ROOT / "adventures" / "The_Cold_Storage_Alarm"
 ADVENTURE = ADV / "adventure"
 PLAYER = ADVENTURE / "PLAYER"
+DNR = ADVENTURE / "DO_NOT_READ"
+
+DEFAULT_TOPIC_TIME_MIN = 2
+
+TOPIC_RETURN_CHOICES: dict[str, list[str]] = {
+    "UNIT-ELENA": [
+        "Return to the Elena conversation menu.",
+        "Return to the loading dock.",
+    ],
+    "UNIT-WORKER": ["Return to the dock worker conversation menu.", "Return to the loading dock."],
+    "UNIT-PAT": ["Return to the dock worker conversation menu.", "Return to the loading dock."],
+    "UNIT-DEV": ["Return to the dock worker conversation menu.", "Return to the loading dock."],
+    "UNIT-MARCUS": ["Return to the security office.", "Return to the loading dock."],
+    "UNIT-LORI": [
+        "Return to the Lori conversation menu.",
+        "Return to the warehouse manager office.",
+    ],
+}
+
+
+def _load_npc_topic_times() -> dict[str, int]:
+    npc = json.loads((DNR / "npc_investigation_package.json").read_text(encoding="utf-8"))
+    times: dict[str, int] = {}
+    for conv in npc.get("conversation_graph", []) or []:
+        for node in conv.get("nodes", []) or []:
+            uid = node.get("npc_response_unit", "")
+            if uid and node.get("time_cost_minutes") is not None:
+                times[uid] = int(node["time_cost_minutes"])
+    return times
+
+
+def _topic_time_meta(unit_id: str, topic_times: dict[str, int]) -> str:
+    minutes = topic_times.get(unit_id, DEFAULT_TOPIC_TIME_MIN)
+    return f"**Time cost:** {minutes} min"
+
+
+def _topic_choices(unit_id: str) -> list[str]:
+    for prefix, choices in TOPIC_RETURN_CHOICES.items():
+        if unit_id.startswith(prefix + "-") or unit_id == prefix:
+            return list(choices)
+    return ["Return to your current location menu or continue the conversation."]
 
 
 def human_title(uid: str) -> str:
@@ -306,7 +347,7 @@ Write your answer to each accusation question here before you commit to it.
         "NPCS.md",
         "Elena pulls a folded site map from the briefing table and marks the cold hall, security office, and manager wing. "
         '"Use this for corridors you have not walked yet. I can escort you to control if engineering access is required."',
-        ["Return to the loading dock."],
+        ["Return to the Elena conversation menu.", "Return to the loading dock."],
         "**Time cost:** 2 min",
         "Site overview",
     )
@@ -316,7 +357,7 @@ Write your answer to each accusation question here before you commit to it.
         "NPCS.md",
         "Pat Nguyen sets the mop cart aside. "
         '"Pat Nguyen — dock sanitation and floor prep. I am on the late crew when receiving runs long."',
-        ["Return to the dock worker conversation menu."],
+        ["Return to the dock worker conversation menu.", "Return to the loading dock."],
         "**Time cost:** 2 min",
         "Name and role",
     )
@@ -326,7 +367,7 @@ Write your answer to each accusation question here before you commit to it.
         "NPCS.md",
         "Pat thinks for a moment. "
         '"About three years on this dock. I know the cold hall doors and which bays stay open after midnight."',
-        ["Return to the dock worker conversation menu."],
+        ["Return to the dock worker conversation menu.", "Return to the loading dock."],
         "**Time cost:** 2 min",
         "Time on site",
     )
@@ -336,53 +377,9 @@ Write your answer to each accusation question here before you commit to it.
         "NPCS.md",
         "Pat nods toward the office wing and the break room corridor. "
         '"Elena runs the shift. Lori stays at receiving when manifests jam. Marcus does rounds from security."',
-        ["Return to the dock worker conversation menu."],
+        ["Return to the dock worker conversation menu.", "Return to the loading dock."],
         "**Time cost:** 2 min",
         "Local contacts",
-    )
-
-    add(
-        "UNIT-DOCK-BASE-SURVEYED",
-        "LOCATIONS.md",
-        "The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. "
-        "You have oriented yourself to the site layout and the supervisor briefing area.",
-        [
-            "Talk to Elena Morales.",
-            "Walk through the dock corridor to the cold storage hall.",
-            "Talk to a dock worker.",
-            "Head inside to the staff break room.",
-            "Cut through the warehouse corridor to the security office.",
-            "Take the office wing corridor to the warehouse manager office.",
-            "Review the supervisor briefing area.",
-            "Request escort clearance to the automation control room.",
-            "Receive supervisor briefing at the loading dock.",
-            "Survey the dock and adjacent corridors.",
-            "Prepare final accountability documentation before the compliance threshold.",
-        ],
-        "**Location:** Loading dock | **Time cost:** 0 min",
-        "Loading dock — after orientation",
-    )
-
-    add(
-        "UNIT-DOCK-BASE-RESTRICTED",
-        "LOCATIONS.md",
-        "Tape marks restricted lanes across the loading dock. Elena stands at the boundary while essential movement continues under her supervision.",
-        [
-            "Talk to Elena Morales.",
-            "Walk through the dock corridor to the cold storage hall.",
-            "Talk to a dock worker.",
-            "Head inside to the staff break room.",
-            "Cut through the warehouse corridor to the security office.",
-            "Take the office wing corridor to the warehouse manager office.",
-            "Review the supervisor briefing area.",
-            "Request escort clearance to the automation control room.",
-            "Receive supervisor briefing at the loading dock.",
-            "Survey the dock and adjacent corridors.",
-            "Prepare final accountability documentation before the compliance threshold.",
-            "Work under supervisor dock restriction enforcement.",
-        ],
-        "**Location:** Loading dock (restricted) | **Time cost:** 0 min",
-        "Loading dock — restricted",
     )
 
     add(
@@ -446,6 +443,22 @@ Write your answer to each accusation question here before you commit to it.
         ],
         "**Location:** Warehouse manager office | **Time cost:** 0 min",
         "Warehouse manager office",
+    )
+
+    add(
+        "UNIT-MANAGER-LORI-HUB",
+        "NPCS.md",
+        "Lori Okonkwo keeps one eye on the receiving reconciliation screen while she listens. "
+        "Her answers stay careful, but the longer you stay on receiving and access topics, the harder it is for her to pretend tonight is only a routine exception.",
+        [
+            "Ask whether you entered cold storage after hours.",
+            "Ask about your control room visit around 23:20.",
+            "Confront with manifest exception evidence from MNF-IN-4471.",
+            "Press about label residue found in aisle C.",
+            "Return to the warehouse manager office.",
+        ],
+        "**Location:** Warehouse manager office | **Time cost:** 1 min",
+        "Speak with Lori Okonkwo",
     )
 
     add(
@@ -653,6 +666,8 @@ Write your answer to each accusation question here before you commit to it.
             parts.append(coda)
         return "\n\n".join(parts)
 
+    npc_topic_times = _load_npc_topic_times()
+
     npc_entries = [
         ("UNIT-MARCUS-LATCH", npc_body(
             "Marcus stands by the security office's alarm panel, keys still hooked to his belt from rounds. He has already decided this conversation is about confirming he did his job correctly, and he answers like he is reading from a rounds log.",
@@ -757,7 +772,14 @@ Write your answer to each accusation question here before you commit to it.
         )),
     ]
     for uid, body in npc_entries:
-        add(uid, "NPCS.md", body, ["Return to your current location menu or continue the conversation."], "**Time cost:** varies by topic", human_title(uid))
+        add(
+            uid,
+            "NPCS.md",
+            body,
+            _topic_choices(uid),
+            _topic_time_meta(uid, npc_topic_times),
+            human_title(uid),
+        )
 
     add(
         "UNIT-IT-ARCHIVE-POLICY",

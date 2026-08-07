@@ -49,6 +49,7 @@ Elena pulls a folded site map from the briefing table and marks the cold hall, s
 
 **What do you do?**
 
+- Return to the Elena conversation menu.
 - Return to the loading dock.
 
 <!-- unit:unit-worker-role -->
@@ -61,6 +62,7 @@ Pat Nguyen sets the mop cart aside. "Pat Nguyen — dock sanitation and floor pr
 **What do you do?**
 
 - Return to the dock worker conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-worker-tenure -->
 ### Time on site
@@ -72,6 +74,7 @@ Pat thinks for a moment. "About three years on this dock. I know the cold hall d
 **What do you do?**
 
 - Return to the dock worker conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-worker-local -->
 ### Local contacts
@@ -83,11 +86,27 @@ Pat nods toward the office wing and the break room corridor. "Elena runs the shi
 **What do you do?**
 
 - Return to the dock worker conversation menu.
+- Return to the loading dock.
+
+<!-- unit:unit-manager-lori-hub -->
+### Speak with Lori Okonkwo
+
+**Location:** Warehouse manager office | **Time cost:** 1 min
+
+Lori Okonkwo keeps one eye on the receiving reconciliation screen while she listens. Her answers stay careful, but the longer you stay on receiving and access topics, the harder it is for her to pretend tonight is only a routine exception.
+
+**What do you do?**
+
+- Ask whether you entered cold storage after hours.
+- Ask about your control room visit around 23:20.
+- Confront with manifest exception evidence from MNF-IN-4471.
+- Press about label residue found in aisle C.
+- Return to the warehouse manager office.
 
 <!-- unit:unit-marcus-latch -->
 ### Marcus latch
 
-**Time cost:** varies by topic
+**Time cost:** 8 min
 
 Marcus stands by the security office's alarm panel, keys still hooked to his belt from rounds. He has already decided this conversation is about confirming he did his job correctly, and he answers like he is reading from a rounds log.
 
@@ -99,12 +118,13 @@ He taps the time into the air like it settles the matter.
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the security office.
+- Return to the loading dock.
 
 <!-- unit:unit-marcus-gap -->
 ### Marcus gap
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 You raise the badge reader against his account, and Marcus's confidence flickers for the first time. He glances toward the archive terminal instead of you.
 
@@ -116,12 +136,13 @@ It is not a confession — just an admission that his rounds and the record syst
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the security office.
+- Return to the loading dock.
 
 <!-- unit:unit-marcus-alarm -->
 ### Marcus alarm
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 Back at the panel, Marcus points to a line of red text still sitting in the alarm history. This part he is sure of, because he watched it happen.
 
@@ -131,12 +152,13 @@ Back at the panel, Marcus points to a line of red text still sitting in the alar
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the security office.
+- Return to the loading dock.
 
 <!-- unit:unit-dev-exit -->
 ### Dev exit
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 Dev arrives at the dock still buttoning his coveralls, tool bag over one shoulder, clearly pulled out of bed by Elena's call. He answers fast, eager to account for his evening.
 
@@ -146,12 +168,13 @@ Dev arrives at the dock still buttoning his coveralls, tool bag over one shoulde
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the dock worker conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-dev-clo1847 -->
 ### Dev clo1847
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 He pulls up the closed ticket on his phone without being asked, like a contractor used to defending his own paperwork.
 
@@ -161,12 +184,13 @@ He pulls up the closed ticket on his phone without being asked, like a contracto
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the dock worker conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-dev-badge -->
 ### Dev badge
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 This one costs him something. Dev rubs the back of his neck and will not quite meet your eyes.
 
@@ -178,12 +202,13 @@ He says it like he is hoping you will tell him it does not matter.
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the dock worker conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-dev-session -->
 ### Dev session
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 By now he has stopped defending himself and started just answering — the kind of tired honesty that comes after you have already lost the argument with yourself.
 
@@ -193,12 +218,13 @@ By now he has stopped defending himself and started just answering — the kind 
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the dock worker conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-lori-deny-cold -->
 ### Lori deny cold
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 Lori does not look up from the reconciliation screen when you come in. Her answer is immediate, flat, and clearly rehearsed before you even asked.
 
@@ -208,12 +234,13 @@ Lori does not look up from the reconciliation screen when you come in. Her answe
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the Lori conversation menu.
+- Return to the warehouse manager office.
 
 <!-- unit:unit-lori-control-min -->
 ### Lori control min
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 When you mention the control room, she finally looks at you — briefly — before turning back to her screen.
 
@@ -225,12 +252,13 @@ She makes it sound smaller than a badge log will.
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the Lori conversation menu.
+- Return to the warehouse manager office.
 
 <!-- unit:unit-lori-pressure -->
 ### Lori pressure
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 You lay the manifest exception in front of her. For a moment she just looks at the numbers, and the composed tone slips.
 
@@ -240,12 +268,13 @@ You lay the manifest exception in front of her. For a moment she just looks at t
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the Lori conversation menu.
+- Return to the warehouse manager office.
 
 <!-- unit:unit-lori-label -->
 ### Lori label
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 The label residue is the thing she cannot argue with. Whatever composure she was holding onto finally goes.
 
@@ -257,12 +286,13 @@ It is the closest she comes to sounding sorry.
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the Lori conversation menu.
+- Return to the warehouse manager office.
 
 <!-- unit:unit-elena-urgency -->
 ### Elena urgency
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 Elena has a phone in one hand and a clipboard in the other, and she answers you the way she has already answered three other people tonight — fast, without slowing down.
 
@@ -272,12 +302,13 @@ Elena has a phone in one hand and a clipboard in the other, and she answers you 
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the Elena conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-elena-staff -->
 ### Elena staff
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 She takes a beat on this one, running the shift roster in her head before answering.
 
@@ -287,12 +318,13 @@ She takes a beat on this one, running the shift roster in her head before answer
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the Elena conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-elena-restrict -->
 ### Elena restrict
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 By now the dock has tape across two of the bay lanes, and Elena stands at the boundary like she is daring anyone to cross it without a reason.
 
@@ -302,12 +334,13 @@ By now the dock has tape across two of the bay lanes, and Elena stands at the bo
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the Elena conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-pat-door -->
 ### Pat door
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 Pat is still pushing a mop cart when you catch them near the break room. They answer between sips of vending-machine coffee, like this is just another odd thing that happened on shift.
 
@@ -317,12 +350,13 @@ Pat is still pushing a mop cart when you catch them near the break room. They an
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the dock worker conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-pat-sil -->
 ### Pat sil
 
-**Time cost:** varies by topic
+**Time cost:** 2 min
 
 You push for more, and Pat actually thinks about it instead of just shrugging you off — which tells you they are not hiding anything, there is just nothing more to find.
 
@@ -332,7 +366,8 @@ You push for more, and Pat actually thinks about it instead of just shrugging yo
 
 **What do you do?**
 
-- Return to your current location menu or continue the conversation.
+- Return to the dock worker conversation menu.
+- Return to the loading dock.
 
 <!-- unit:unit-it-archive-policy -->
 ### Archive sync policy notice

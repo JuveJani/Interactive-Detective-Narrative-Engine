@@ -12,6 +12,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from idne.gamebook_nav.extract import parse_player_units
+from idne.epistemic_progression.loader import initial_epistemic_state
+from idne.epistemic_progression.materialize import MaterializeStats, materialize_package
+from idne.epistemic_progression.model import EpistemicState, PlayableEvent
+from idne.epistemic_progression.serialize import event_to_dict
+from idne.epistemic_progression.template_navigation import (
+    UnresolvedDestinationError,
+    build_template_choice_map,
+    build_template_navigation_graph,
+    resolve_template_destination,
+)
 
 ADV = ROOT / "adventures" / "The_Cold_Storage_Alarm"
 ADVENTURE = ADV / "adventure"
@@ -111,82 +121,232 @@ WORKER_HUB_ACTIONS = [
     },
 ]
 
+LORI_HUB_ACTIONS = [
+    {
+        "action_id": "ACT-LORI-DENY-COLD",
+        "action_type": "dialogue_topic",
+        "label": "Ask whether you entered cold storage after hours.",
+        "destination_unit_id": "UNIT-LORI-DENY-COLD",
+    },
+    {
+        "action_id": "ACT-LORI-CONTROL-MIN",
+        "action_type": "dialogue_topic",
+        "label": "Ask about your control room visit around 23:20.",
+        "destination_unit_id": "UNIT-LORI-CONTROL-MIN",
+        "requires_knowledge_ids": ["KNOW-CONTROL-ENTRY"],
+    },
+    {
+        "action_id": "ACT-LORI-PRESSURE",
+        "action_type": "dialogue_topic",
+        "label": "Confront with manifest exception evidence from MNF-IN-4471.",
+        "destination_unit_id": "UNIT-LORI-PRESSURE",
+        "requires_knowledge_ids": ["KNOW-MANIFEST-GAP"],
+    },
+    {
+        "action_id": "ACT-LORI-LABEL",
+        "action_type": "dialogue_topic",
+        "label": "Press about label residue found in aisle C.",
+        "destination_unit_id": "UNIT-LORI-LABEL",
+        "requires_knowledge_ids": ["KNOW-LABEL-RESIDUE"],
+    },
+    {
+        "action_id": "ACT-LORI-RETURN-MANAGER",
+        "action_type": "return",
+        "label": "Return to the warehouse manager office.",
+        "destination_unit_id": "UNIT-MANAGER-BASE",
+        "exhaustion": "repeatable",
+    },
+]
+
 # Choices that require knowledge or world state before appearing on dock hub variants
 DOCK_DEFERRED = {
-    "Head inside to the staff break room.": ("nav", "UNIT-BREAK-BASE", []),
-    "Cut through the warehouse corridor to the security office.": ("nav", "UNIT-SECURITY-BASE", []),
-    "Take the office wing corridor to the warehouse manager office.": ("nav", "UNIT-MANAGER-BASE", []),
-    "Review the supervisor briefing area.": ("action", "UNIT-DOCK-BRIEFING-MENU", []),
+    "Head inside to the staff break room.": ("nav", "UNIT-BREAK-BASE", ["KNOW-OPEN-ORIENT"]),
+    "Cut through the warehouse corridor to the security office.": ("nav", "UNIT-SECURITY-BASE", ["KNOW-OPEN-ORIENT"]),
+    "Take the office wing corridor to the warehouse manager office.": ("nav", "UNIT-MANAGER-BASE", ["KNOW-OPEN-ORIENT"]),
+    "Review the supervisor briefing area.": ("action", "UNIT-DOCK-BRIEFING-MENU", ["KNOW-OPEN-ORIENT"]),
     "Request escort clearance to the automation control room.": ("action", "UNIT-ESCORT-GRANTED", ["KNOW-OPEN-ORIENT"]),
-    "Receive supervisor briefing at the loading dock.": ("scene", "SC-DOCK-ARRIVAL", []),
-    "Survey the dock and adjacent corridors.": ("scene", "SC-DOCK-INITIAL-SURVEY", []),
     "Work under supervisor dock restriction enforcement.": ("scene", "SC-DOCK-RESTRICTED", [], {"dock_restricted_active": True}),
     "Prepare final accountability documentation before the compliance threshold.": ("scene", "SC-ACCUSATION-PREP", [], {"ready_to_accuse": True}),
 }
 
 INFERENCE_PREFIX = "Open inference worksheet:"
 
+DEFAULT_TOPIC_TIME_MIN = 2
+
+# Conversation hub return profiles: (unit prefix, hub_id, hub_label, exit_dest, exit_label)
+TOPIC_RETURN_PROFILES: tuple[tuple[str, str, str, str, str], ...] = (
+    ("UNIT-ELENA-", "UNIT-DOCK-ELENA-HUB", "Return to the Elena conversation menu.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-WORKER-", "UNIT-DOCK-WORKER-HUB", "Return to the dock worker conversation menu.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-PAT-", "UNIT-DOCK-WORKER-HUB", "Return to the dock worker conversation menu.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-DEV-", "UNIT-DOCK-WORKER-HUB", "Return to the dock worker conversation menu.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-MARCUS-", "UNIT-SECURITY-BASE", "Return to the security office.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-LORI-", "UNIT-MANAGER-LORI-HUB", "Return to the Lori conversation menu.", "UNIT-MANAGER-BASE", "Return to the warehouse manager office."),
+)
+
+TOPIC_KNOWLEDGE_GRANTS: dict[str, list[str]] = {
+    "UNIT-ELENA-MAP": ["KNOW-OPEN-ORIENT"],
+}
+
+
+def _topic_interaction_delta(unit_id: str) -> dict:
+    return {"completed_topics": [unit_id]}
+
 
 def _norm(label: str) -> str:
     return re.sub(r"\s+", " ", label.strip().lower())
 
 
-def _load_canonical_choice_map() -> dict[tuple[str, str], tuple[str, str]]:
-    """Load label->destination map from committed manifest before epistemic migration."""
-    import subprocess
+DESTINATION_ALIASES = {
+    "UNIT-DOCK-BASE-SURVEYED": "UNIT-DOCK-BASE",
+    "UNIT-DOCK-BASE-RESTRICTED": "UNIT-DOCK-BASE",
+}
 
-    raw = subprocess.check_output(
-        ["git", "show", "HEAD:adventures/The_Cold_Storage_Alarm/player_mapping_manifest.json"],
-        cwd=ROOT,
-        text=True,
+
+def _hub_choice_overrides() -> dict[tuple[str, str], tuple[str, str, str]]:
+    """Epistemic-only hub split routes not represented in canonical PLAYER hub menus."""
+    local: dict[tuple[str, str], tuple[str, str, str]] = {}
+    for action in OPENING_HUB_ACTIONS:
+        local[("UNIT-DOCK-BASE", _norm(action["label"]))] = (
+            action["destination_unit_id"],
+            action["action_type"],
+            action["label"],
+        )
+    for action in ELENA_HUB_ACTIONS:
+        local[("UNIT-DOCK-ELENA-HUB", _norm(action["label"]))] = (
+            action["destination_unit_id"],
+            action["action_type"],
+            action["label"],
+        )
+    for action in WORKER_HUB_ACTIONS:
+        local[("UNIT-DOCK-WORKER-HUB", _norm(action["label"]))] = (
+            action["destination_unit_id"],
+            action["action_type"],
+            action["label"],
+        )
+    for action in LORI_HUB_ACTIONS:
+        local[("UNIT-MANAGER-LORI-HUB", _norm(action["label"]))] = (
+            action["destination_unit_id"],
+            action["action_type"],
+            action["label"],
+        )
+    local[("UNIT-MANAGER-BASE", _norm("Speak with Lori Okonkwo about receiving and access topics you have unlocked."))] = (
+        "UNIT-MANAGER-LORI-HUB",
+        "approach_npc",
+        "Speak with Lori Okonkwo about receiving and access topics you have unlocked.",
     )
-    manifest = json.loads(raw)
-    out: dict[tuple[str, str], tuple[str, str]] = {}
-    for uid, entry in (manifest.get("units") or {}).items():
-        for c in entry.get("choices") or []:
-            out[(uid, _norm(c.get("label", "")))] = (c["destination_unit_id"], c.get("kind", "navigate"))
+    topic_units = (
+        "UNIT-ELENA-BEGIN",
+        "UNIT-ELENA-MAP",
+        "UNIT-ELENA-STAFF",
+        "UNIT-WORKER-ROLE",
+        "UNIT-WORKER-TENURE",
+        "UNIT-WORKER-LOCAL",
+        "UNIT-PAT-DOOR",
+        "UNIT-DEV-EXIT",
+    )
+    for uid in topic_units:
+        for prefix, hub, hub_label, exit_dest, exit_label in TOPIC_RETURN_PROFILES:
+            if uid.startswith(prefix):
+                local[(uid, _norm(hub_label))] = (hub, "return", hub_label)
+                local[(uid, _norm(exit_label))] = (exit_dest, "return", exit_label)
+                break
+    return local
+
+
+def _load_check_dests() -> dict[str, tuple[str, str]]:
+    cap = json.loads((DNR / "capability_check_package.json").read_text(encoding="utf-8"))
+    out: dict[str, tuple[str, str]] = {}
+    for chk in cap.get("checks", []) or []:
+        dest = chk.get("destinations", {}) or {}
+        decl = dest.get("action_unit_id", "")
+        ok = dest.get("success_destination", "")
+        fail = dest.get("failure_destination", "")
+        if decl and ok and fail:
+            out[decl] = (ok, fail)
     return out
 
 
-def _guess_dest(label: str, uid: str, manifest: dict, choice_map: dict) -> str:
-    key = (uid, _norm(label))
-    if key in choice_map:
-        return choice_map[key][0]
-    # New opening hub routes
-    local = {
-        _norm("Talk to Elena Morales."): "UNIT-DOCK-ELENA-HUB",
-        _norm("Talk to a dock worker."): "UNIT-DOCK-WORKER-HUB",
-        _norm("Ask where the investigation should begin."): "UNIT-ELENA-BEGIN",
-        _norm("Ask whether a map or site overview is available."): "UNIT-ELENA-MAP",
-        _norm("Ask who was still on site working late."): "UNIT-ELENA-STAFF",
-        _norm("Ask what they know about the incident."): "UNIT-PAT-DOOR",
-        _norm("Ask their name and role on site."): "UNIT-WORKER-ROLE",
-        _norm("Ask how long they have worked here."): "UNIT-WORKER-TENURE",
-        _norm("Ask who or what they know locally."): "UNIT-WORKER-LOCAL",
-        _norm("Return to the loading dock."): "UNIT-DOCK-BASE",
-        _norm("Return to the Elena conversation menu."): "UNIT-DOCK-ELENA-HUB",
-        _norm("Return to the dock worker conversation menu."): "UNIT-DOCK-WORKER-HUB",
-    }
-    if _norm(label) in local:
-        return local[_norm(label)]
-    if "return" in label.lower():
-        return uid
-    return uid
+def _check_declaration_actions(uid: str, check_dests: dict[str, tuple[str, str]]) -> list[dict] | None:
+    pair = check_dests.get(uid)
+    if not pair:
+        return None
+    ok, fail = pair
+    return [
+        _action_from_choice(
+            "If your roll succeeds, go to the success section.",
+            ok,
+            "check_success",
+        ),
+        _action_from_choice(
+            "If your roll fails, go to the failure section.",
+            fail,
+            "check_failure",
+        ),
+    ]
 
 
-def _guess_kind(label: str, uid: str, choice_map: dict) -> str:
-    key = (uid, _norm(label))
-    if key in choice_map:
-        return choice_map[key][1]
-    if "Talk to" in label:
-        return "approach_npc"
-    if label.lower().startswith("ask "):
-        return "dialogue_topic"
-    if "return" in label.lower():
-        return "return"
-    if "Walk" in label or "Head" in label or "Cut through" in label or "Take the" in label:
+def _normalize_dest(dest: str) -> str:
+    return DESTINATION_ALIASES.get(dest, dest)
+
+
+def _resolve_dest(label: str, uid: str, choice_map: dict[tuple[str, str], tuple[str, str]]) -> str:
+    dest, _kind = resolve_template_destination(uid, label, choice_map)
+    return _normalize_dest(dest)
+
+
+def _resolve_kind(label: str, uid: str, choice_map: dict[tuple[str, str], tuple[str, str]]) -> str:
+    _dest, kind = resolve_template_destination(uid, label, choice_map)
+    if kind == "navigate":
         return "nav"
-    return "action"
+    return kind
+
+
+def _load_npc_metadata() -> tuple[dict[str, int], dict[str, str]]:
+    npc = json.loads((DNR / "npc_investigation_package.json").read_text(encoding="utf-8"))
+    times: dict[str, int] = {}
+    grants: dict[str, str] = {}
+    for conv in npc.get("conversation_graph", []) or []:
+        for node in conv.get("nodes", []) or []:
+            uid = node.get("npc_response_unit", "")
+            if not uid:
+                continue
+            if node.get("time_cost_minutes") is not None:
+                times[uid] = int(node["time_cost_minutes"])
+            kid = node.get("grants_knowledge_id")
+            if kid:
+                grants[uid] = kid
+    return times, grants
+
+
+def _topic_return_actions(unit_id: str, *, knowledge: list[str] | None = None) -> list[dict]:
+    knowledge = list(knowledge or TOPIC_KNOWLEDGE_GRANTS.get(unit_id, []))
+    for prefix, hub, hub_label, exit_dest, exit_label in TOPIC_RETURN_PROFILES:
+        if unit_id.startswith(prefix):
+            actions = [
+                {
+                    "action_id": f"ACT-{unit_id}-HUB",
+                    "action_type": "return",
+                    "label": hub_label,
+                    "destination_unit_id": hub,
+                    "investigative": False,
+                    "interaction_delta": _topic_interaction_delta(unit_id),
+                },
+                {
+                    "action_id": f"ACT-{unit_id}-EXIT",
+                    "action_type": "return",
+                    "label": exit_label,
+                    "destination_unit_id": exit_dest,
+                    "investigative": False,
+                    "interaction_delta": _topic_interaction_delta(unit_id),
+                },
+            ]
+            if knowledge:
+                for action in actions:
+                    action["knowledge_delta"] = list(knowledge)
+                    action["investigative"] = True
+                    action["purpose"] = "conversation testimony"
+            return actions
+    return []
 
 
 def _load_manifest() -> dict:
@@ -208,6 +368,83 @@ def _action_from_choice(label: str, dest: str, kind: str, *, requires=None, worl
         "referenced_fact_ids": refs or [],
         "investigative": inv,
     }
+
+
+def _content_block(
+    block_id: str,
+    text: str,
+    *,
+    provenance: str = "prior_knowledge",
+    requires=None,
+    forbidden=None,
+    world=None,
+    forbidden_world=None,
+    order: int = 0,
+) -> dict:
+    return {
+        "block_id": block_id,
+        "text": text,
+        "provenance": provenance,
+        "requires_knowledge_ids": requires or [],
+        "forbidden_knowledge_ids": forbidden or [],
+        "requires_world_state": world or {},
+        "forbidden_world_state": forbidden_world or {},
+        "presentation_order": order,
+    }
+
+
+DOCK_NARRATIVE_BLOCKS = [
+    _content_block(
+        "CTX-DOCK-NO-ORIENT",
+        "Beyond the immediate dock and cold corridor, the office wing and warehouse routes are not yet marked in your notes.",
+        forbidden=["KNOW-OPEN-ORIENT"],
+        order=10,
+    ),
+    _content_block(
+        "CTX-DOCK-ORIENT-KNOWN",
+        "The folded site map is in your notes, and the corridors to the break room, security office, and manager wing are clear.",
+        requires=["KNOW-OPEN-ORIENT"],
+        forbidden_world={"dock_restricted_active": True},
+        order=10,
+    ),
+    _content_block(
+        "CTX-DOCK-RESTRICTED",
+        "Elena has tightened dock access: movement beyond approved routes requires her clearance until the restriction lifts.",
+        world={"dock_restricted_active": True},
+        order=20,
+    ),
+    _content_block(
+        "CTX-DOCK-ACCUSATION-READY",
+        "The compliance threshold is approaching. Final accountability documentation could still be prepared before time runs out.",
+        world={"ready_to_accuse": True},
+        order=30,
+    ),
+]
+
+ELENA_HUB_NARRATIVE_BLOCKS = [
+    _content_block(
+        "CTX-ELENA-MAP-AVAILABLE",
+        "A folded site map rests on the briefing table for anyone who still needs a layout overview.",
+        forbidden=["KNOW-OPEN-ORIENT"],
+        provenance="atmosphere",
+        order=10,
+    ),
+    _content_block(
+        "CTX-ELENA-ORIENT-KNOWN",
+        "The site map from her briefing table is already folded into your notes when you need to confirm a corridor name.",
+        requires=["KNOW-OPEN-ORIENT"],
+        order=10,
+    ),
+]
+
+SECURITY_NARRATIVE_BLOCKS = [
+    _content_block(
+        "CTX-SECURITY-ORIENT",
+        "With the site layout noted, the warehouse corridors back toward the dock and manager wing are easy to retrace from here.",
+        requires=["KNOW-OPEN-ORIENT"],
+        order=10,
+    ),
+]
 
 
 def _event(unit_id: str, kind: str, actions: list, **extra) -> dict:
@@ -233,94 +470,89 @@ def _event(unit_id: str, kind: str, actions: list, **extra) -> dict:
     }
 
 
+def _build_consolidated_dock_actions() -> list[dict]:
+    """Single dock template: actions gated by knowledge/world-state prerequisites."""
+    actions = list(OPENING_HUB_ACTIONS)
+    for label, spec in DOCK_DEFERRED.items():
+        kind, dest, req = spec[0], spec[1], spec[2]
+        world = spec[3] if len(spec) > 3 else {}
+        actions.append(_action_from_choice(label, dest, kind, requires=req, world=world))
+    return actions
+
+
+def _build_manager_base_actions() -> list[dict]:
+    """Location hub only — Lori dialogue lives on UNIT-MANAGER-LORI-HUB."""
+    return [
+        _action_from_choice(
+            "Review the open receiving reconciliation screen.",
+            "UNIT-MANIFEST-MENU",
+            "action",
+        ),
+        {
+            "action_id": "ACT-MANAGER-TALK-LORI",
+            "action_type": "approach_npc",
+            "label": "Speak with Lori Okonkwo about receiving and access topics you have unlocked.",
+            "destination_unit_id": "UNIT-MANAGER-LORI-HUB",
+        },
+        _action_from_choice("Return to the loading dock.", "UNIT-DOCK-BASE", "return"),
+        _action_from_choice("Return to the break room.", "UNIT-BREAK-BASE", "return"),
+    ]
+
+
 def build_epistemic_events(manifest: dict) -> list[dict]:
     events: list[dict] = []
     player_units = parse_player_units(ADVENTURE / "PLAYER")
-    choice_map = _load_canonical_choice_map()
+    hub_overrides = _hub_choice_overrides()
+    nav_graph = build_template_navigation_graph(ADVENTURE, player_units, hub_overrides=hub_overrides)
+    choice_map = build_template_choice_map(
+        ADVENTURE,
+        player_units,
+        extra_edges={(k, v[:2]) for k, v in hub_overrides.items()},
+        graph=nav_graph,
+    )
+    check_dests = _load_check_dests()
+    _topic_times, npc_grants = _load_npc_metadata()
+    TOPIC_KNOWLEDGE_GRANTS.update({uid: [kid] for uid, kid in npc_grants.items() if uid not in TOPIC_KNOWLEDGE_GRANTS})
 
     events.append(
         _event(
             "UNIT-DOCK-BASE",
             "location_hub",
-            OPENING_HUB_ACTIONS,
+            _build_consolidated_dock_actions(),
             required_knowledge_ids=[],
-            relevant_knowledge_dependencies=[],
-            relevant_world_state_dependencies=["dock_restricted_active", "ready_to_accuse"],
-            observable_entities=["NPC-ELENA", "NPC-DEV", "NPC-PAT"],
-        )
-    )
-    events.append(_event("UNIT-DOCK-ELENA-HUB", "npc_interaction", ELENA_HUB_ACTIONS, observable_entities=["NPC-ELENA"]))
-    events.append(_event("UNIT-DOCK-WORKER-HUB", "npc_interaction", WORKER_HUB_ACTIONS, observable_entities=["NPC-PAT", "NPC-DEV"]))
-
-    # Expanded dock hub after initial survey / briefing
-    survey_actions = list(OPENING_HUB_ACTIONS)
-    for label, spec in DOCK_DEFERRED.items():
-        if "restriction" in label.lower():
-            continue
-        kind, dest, req = spec[0], spec[1], spec[2]
-        world = spec[3] if len(spec) > 3 else {}
-        survey_actions.append(_action_from_choice(label, dest, kind, requires=req, world=world))
-    events.append(
-        _event(
-            "UNIT-DOCK-BASE-SURVEYED",
-            "location_hub",
-            survey_actions,
-            variant_of="UNIT-DOCK-BASE",
-            supersedes_unit_id="UNIT-DOCK-BASE",
-            required_knowledge_ids=["KNOW-OPEN-ORIENT"],
             relevant_knowledge_dependencies=["KNOW-OPEN-ORIENT", "KNOW-BMS-COMMAND"],
-            relevant_world_state_dependencies=["dock_restricted_active", "control_escort_cleared"],
+            relevant_world_state_dependencies=["dock_restricted_active", "ready_to_accuse", "control_escort_cleared"],
+            observable_entities=["NPC-ELENA", "NPC-DEV", "NPC-PAT"],
             physical_location_id="LOC-DOCK",
+            content_blocks=DOCK_NARRATIVE_BLOCKS,
         )
-    )
-
-    dock_restricted_actions = [a for a in survey_actions if "restriction" not in a["label"].lower()]
-    dock_restricted_actions.extend(
-        [
-            _action_from_choice(
-                "Review the supervisor briefing area.",
-                "UNIT-DOCK-BRIEFING-MENU",
-                "action",
-            ),
-            _action_from_choice(
-                "Request escort clearance to the automation control room.",
-                "UNIT-ESCORT-GRANTED",
-                "action",
-                requires=["KNOW-OPEN-ORIENT"],
-            ),
-            _action_from_choice(
-                "Receive supervisor briefing at the loading dock.",
-                "SC-DOCK-ARRIVAL",
-                "scene",
-            ),
-            _action_from_choice(
-                "Survey the dock and adjacent corridors.",
-                "SC-DOCK-INITIAL-SURVEY",
-                "scene",
-            ),
-            _action_from_choice(
-                "Prepare final accountability documentation before the compliance threshold.",
-                "SC-ACCUSATION-PREP",
-                "scene",
-                world={"ready_to_accuse": True},
-            ),
-            _action_from_choice(
-                "Work under supervisor dock restriction enforcement.",
-                "SC-DOCK-RESTRICTED",
-                "scene",
-                world={"dock_restricted_active": True},
-            ),
-        ]
     )
     events.append(
         _event(
-            "UNIT-DOCK-BASE-RESTRICTED",
+            "UNIT-DOCK-ELENA-HUB",
+            "npc_interaction",
+            ELENA_HUB_ACTIONS,
+            observable_entities=["NPC-ELENA"],
+            content_blocks=ELENA_HUB_NARRATIVE_BLOCKS,
+        )
+    )
+    events.append(_event("UNIT-DOCK-WORKER-HUB", "npc_interaction", WORKER_HUB_ACTIONS, observable_entities=["NPC-PAT", "NPC-DEV"]))
+    events.append(
+        _event(
+            "UNIT-MANAGER-BASE",
             "location_hub",
-            dock_restricted_actions,
-            variant_of="UNIT-DOCK-BASE",
-            required_world_state={"dock_restricted_active": True},
-            relevant_world_state_dependencies=["dock_restricted_active"],
-            physical_location_id="LOC-DOCK",
+            _build_manager_base_actions(),
+            observable_entities=["NPC-LORI"],
+            physical_location_id="LOC-MANAGER",
+        )
+    )
+    events.append(
+        _event(
+            "UNIT-MANAGER-LORI-HUB",
+            "npc_interaction",
+            LORI_HUB_ACTIONS,
+            observable_entities=["NPC-LORI"],
+            physical_location_id="LOC-MANAGER",
         )
     )
 
@@ -328,8 +560,8 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
         "UNIT-DOCK-BASE",
         "UNIT-DOCK-ELENA-HUB",
         "UNIT-DOCK-WORKER-HUB",
-        "UNIT-DOCK-BASE-SURVEYED",
-        "UNIT-DOCK-BASE-RESTRICTED",
+        "UNIT-MANAGER-BASE",
+        "UNIT-MANAGER-LORI-HUB",
     }
 
     for uid in sorted(player_units.keys()):
@@ -350,33 +582,43 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
             kind = "ending"
         elif uid.startswith("REC-"):
             kind = "recovery"
-        elif "ELENA-HUB" in uid or "WORKER-HUB" in uid:
+        elif "ELENA-HUB" in uid or "WORKER-HUB" in uid or "LORI-HUB" in uid:
             kind = "npc_interaction"
         elif uid.startswith("UNIT-ELENA") or uid.startswith("UNIT-DEV") or uid.startswith("UNIT-PAT") or uid.startswith("UNIT-LORI") or uid.startswith("UNIT-MARCUS") or uid.startswith("UNIT-WORKER"):
             kind = "dialogue_topic"
-        actions = []
-        for label in choices:
-            dest = _guess_dest(label, uid, manifest, choice_map)
-            ck = _guess_kind(label, uid, choice_map)
-            req: list[str] = []
-            refs: list[str] = []
-            if INFERENCE_PREFIX in label:
-                req = _inference_gate_requirements(label)
-            if "CLO-1847" in label:
-                req = ["KNOW-MAINT-SESSION"]
-            if "contractor badge" in label.lower():
-                req = ["KNOW-EXIT-SCAN"]
-            if "CTRL-TERM-02" in label or "maintenance session" in label.lower():
-                req = ["KNOW-MAINT-SESSION"]
-            if "manifest exception" in label.lower():
-                req = ["KNOW-MANIFEST-GAP"]
-            if "label residue" in label.lower():
-                req = ["KNOW-LABEL-RESIDUE"]
-            if "dock access restriction" in label.lower():
-                req = ["KNOW-DOCK-RESTRICT"]
-            if "escort clearance" in label.lower():
-                req = ["KNOW-OPEN-ORIENT"]
-            actions.append(_action_from_choice(label, dest, ck, requires=req, refs=refs, inv=False))
+        topic_returns = _topic_return_actions(uid)
+        check_actions = _check_declaration_actions(uid, check_dests)
+        if check_actions:
+            actions = check_actions
+        elif topic_returns and kind == "dialogue_topic":
+            actions = topic_returns
+        else:
+            actions = []
+            for label in choices:
+                try:
+                    dest = _normalize_dest(_resolve_dest(label, uid, choice_map))
+                    ck = _resolve_kind(label, uid, choice_map)
+                except UnresolvedDestinationError as exc:
+                    raise UnresolvedDestinationError(exc.unit_id, exc.label) from exc
+                req: list[str] = []
+                refs: list[str] = []
+                if INFERENCE_PREFIX in label:
+                    req = _inference_gate_requirements(label)
+                if "CLO-1847" in label:
+                    req = ["KNOW-MAINT-SESSION"]
+                if "contractor badge" in label.lower():
+                    req = ["KNOW-EXIT-SCAN"]
+                if "CTRL-TERM-02" in label or "maintenance session" in label.lower():
+                    req = ["KNOW-MAINT-SESSION"]
+                if "manifest exception" in label.lower():
+                    req = ["KNOW-MANIFEST-GAP"]
+                if "label residue" in label.lower():
+                    req = ["KNOW-LABEL-RESIDUE"]
+                if "dock access restriction" in label.lower():
+                    req = ["KNOW-DOCK-RESTRICT"]
+                if "escort clearance" in label.lower():
+                    req = ["KNOW-OPEN-ORIENT"]
+                actions.append(_action_from_choice(label, dest, ck, requires=req, refs=refs, inv=False))
         extra: dict = {}
         if uid.endswith("-BASE") or "DOCK-BASE" in uid:
             extra["relevant_knowledge_dependencies"] = _infer_relevant_knowledge(actions)
@@ -402,6 +644,8 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
                     "return",
                 )
             )
+        if uid == "UNIT-SECURITY-BASE":
+            extra["content_blocks"] = SECURITY_NARRATIVE_BLOCKS
         events.append(_event(uid, kind, actions, **extra))
         handled.add(uid)
 
@@ -420,48 +664,19 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
     )
     handled.add("SC-IT-RECORDS-POLICY")
 
-    # New general topic units referenced by hubs
-    for uid, body, title in [
-        (
-            "UNIT-ELENA-BEGIN",
-            "Elena taps the incident timeline on her clipboard. "
-            '"Start with cold storage and staging control. Security can pull badge records after the archive sync if you need access history."',
-            "Where to begin",
-        ),
-        (
-            "UNIT-ELENA-MAP",
-            "Elena pulls a folded site map from the briefing table and marks the cold hall, security office, and manager wing. "
-            '"Use this for corridors you have not walked yet. I can escort you to control if engineering access is required."',
-            "Site overview",
-        ),
-        (
-            "UNIT-WORKER-ROLE",
-            "Pat Nguyen sets the mop cart aside. "
-            '"Pat Nguyen — dock sanitation and floor prep. I am on the late crew when receiving runs long."',
-            "Name and role",
-        ),
-        (
-            "UNIT-WORKER-TENURE",
-            "Pat thinks for a moment. "
-            '"About three years on this dock. I know the cold hall doors and which bays stay open after midnight."',
-            "Time on site",
-        ),
-        (
-            "UNIT-WORKER-LOCAL",
-            "Pat nods toward the office wing and the break room corridor. "
-            '"Elena runs the shift. Lori stays at receiving when manifests jam. Marcus does rounds from security."',
-            "Local contacts",
-        ),
-    ]:
+    # New general topic units referenced by hubs (player prose generated in build_cold_storage_player.py)
+    for uid in (
+        "UNIT-ELENA-BEGIN",
+        "UNIT-ELENA-MAP",
+        "UNIT-WORKER-ROLE",
+        "UNIT-WORKER-TENURE",
+        "UNIT-WORKER-LOCAL",
+    ):
         if uid not in handled:
-            events.append(
-                _event(
-                    uid,
-                    "dialogue_topic",
-                    [{"action_id": f"ACT-{uid}-RET", "action_type": "return", "label": "Return to the dock worker conversation menu.", "destination_unit_id": "UNIT-DOCK-WORKER-HUB"}],
-                )
-            )
-            handled.add(uid)
+            returns = _topic_return_actions(uid)
+            if returns:
+                events.append(_event(uid, "dialogue_topic", returns))
+                handled.add(uid)
 
     return events
 
@@ -489,22 +704,50 @@ def _infer_relevant_knowledge(actions: list) -> list[str]:
     return sorted(deps)
 
 
-def write_epistemic_package(events: list[dict]) -> None:
+def write_epistemic_package(events: list[dict]) -> MaterializeStats:
     flow = _load_flow()
-    initial_state = dict(flow.get("state_model", {}).get("initial_state") or {})
+    initial_world = dict(flow.get("state_model", {}).get("initial_state") or {})
+    templates: dict[str, PlayableEvent] = {}
+    for raw in events:
+        raw.setdefault("template_unit_id", raw["unit_id"])
+        templates[raw["unit_id"]] = PlayableEvent.from_dict(raw)
+
+    initial = EpistemicState(
+        player_knowledge=frozenset(INITIAL_KNOWLEDGE),
+        world_state=initial_world,
+        interaction_state={"exhausted_actions": [], "completed_topics": []},
+        observable_entities=frozenset(INITIAL_OBSERVABLE),
+        observable_objects=frozenset(),
+    )
+    materialized, stats = materialize_package(
+        templates,
+        start_template_unit="UNIT-DOCK-BASE",
+        initial_state=initial,
+    )
+    materialized.adventure_id = "The_Cold_Storage_Alarm"
+
+    template_menu_catalog = {
+        tpl_id: [a.label for a in tpl.structured_actions if a.label]
+        for tpl_id, tpl in templates.items()
+        if tpl.event_kind == "npc_interaction"
+    }
+
     pkg = {
         "schema_version": "1.0",
         "adventure_id": "The_Cold_Storage_Alarm",
         "initial_player_knowledge": INITIAL_KNOWLEDGE,
-        "initial_world_state": initial_state,
+        "initial_world_state": initial_world,
         "initial_observable_entities": INITIAL_OBSERVABLE,
-        "playable_events": events,
+        "materialization": stats.to_dict(),
+        "template_menu_catalog": template_menu_catalog,
+        "playable_events": [event_to_dict(e) for e in sorted(materialized.events_by_unit.values(), key=lambda e: e.unit_id)],
     }
     (DNR / "epistemic_progression_package.json").write_text(json.dumps(pkg, indent=2) + "\n", encoding="utf-8")
     manifest = {
         "schema_version": "1.0",
         "epistemic_progression_method": "canonical",
         "package_path": "DO_NOT_READ/epistemic_progression_package.json",
+        "materialization": stats.to_dict(),
     }
     (ADVENTURE / "epistemic_progression_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     gen_path = ADV / ".generation" / "generation_state.json"
@@ -512,13 +755,18 @@ def write_epistemic_package(events: list[dict]) -> None:
         gen = json.loads(gen_path.read_text(encoding="utf-8"))
         gen.setdefault("validator_results", {})["epistemic_progression"] = {"status": "PENDING"}
         gen_path.write_text(json.dumps(gen, indent=2) + "\n", encoding="utf-8")
+    return stats
 
 
 def main() -> None:
     manifest = _load_manifest()
     events = build_epistemic_events(manifest)
-    write_epistemic_package(events)
-    print(f"Wrote epistemic package with {len(events)} playable events")
+    stats = write_epistemic_package(events)
+    print(
+        f"Wrote materialized epistemic package: "
+        f"{stats.template_count} templates -> {stats.materialized_count} events, "
+        f"{stats.reachable_states} reachable states, peak queue {stats.peak_queue_size}"
+    )
 
 
 if __name__ == "__main__":

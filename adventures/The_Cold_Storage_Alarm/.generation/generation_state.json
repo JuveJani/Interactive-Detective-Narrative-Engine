@@ -312,7 +312,7 @@
     {
       "attempt": 1,
       "status": "failed_pre_play",
-      "reason": "Static navigation missing — player delivery had no public section numbers or turn-to instructions; could not be played as a static gamebook.",
+      "reason": "Static navigation missing \u2014 player delivery had no public section numbers or turn-to instructions; could not be played as a static gamebook.",
       "recorded_at": "2026-08-06T07:00:00+00:00"
     },
     {
