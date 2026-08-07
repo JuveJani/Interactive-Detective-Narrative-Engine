@@ -1,0 +1,38 @@
+{
+  "working_title": "The Harbor Light Signal",
+  "premise": "A Harbor Commission safety inspector investigates the reported voluntary departure of a remote lighthouse keeper, reconstructing the night from log books, weather records, supply manifests, and radio logs.",
+  "setting": "Remote coastal lighthouse station on an exposed rock station with supply landing, keeper quarters, lamp gallery, maintenance workshop, and records office",
+  "universe": "real world",
+  "genre": "detective mystery",
+  "realism_level": "grounded contemporary",
+  "player_mode": "single_investigator",
+  "investigator_character": "Harbor Commission safety inspector dispatched to verify keeper status and reconstruct the overnight timeline",
+  "opening_situation": "You arrive by rotor to find relief keeper Sarah Chen waiting on the landing. Assistant keeper Tom Reed claims head keeper Henry Walsh departed voluntarily at 0430, but the station records disagree.",
+  "initial_observable_facts": [
+    "The landing shows storm debris and an unloaded personal trunk tagged for Henry Walsh.",
+    "The lamp is operating, but keeper handover was not completed.",
+    "Tom Reed has already logged a voluntary departure in the keeper's log.",
+    "Commission radio expects your reconstruction report by 1300."
+  ],
+  "target_playtime_minutes": 120,
+  "in_world_duration": "one inspection day (approximately four in-world hours)",
+  "tone": "methodical, maritime, quietly urgent",
+  "difficulty": "standard",
+  "location_scale": "single remote lighthouse station with five primary locations",
+  "content_boundaries": "no graphic violence; no supernatural elements; workplace negligence and cover-up themes; death by accidental fall; no sexual content",
+  "required_themes": [
+    "fair-play mystery",
+    "records and timeline reconstruction",
+    "testimony versus documents",
+    "meaningful time pressure",
+    "one perfect ending and several imperfect endings"
+  ],
+  "forbidden_themes": [
+    "supernatural explanations",
+    "theft-primary plots",
+    "magic or occult resolution",
+    "direct narrator solution delivery"
+  ],
+  "deadline_or_constraint": "Commission report due at 1300; landing weather may close again",
+  "author_notes": "Codename: The Harbor Light Signal. Culprit NPC-TOM covered up keeper death during unauthorized lens repair. Emphasis on logs, weather, manifests, and radio traffic \u2014 not theft."
+}

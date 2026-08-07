@@ -1,0 +1,540 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Quarry_Silence",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "object_interaction_links": {
+    "info_id_to_knowledge_id": {}
+  },
+  "placeholder_resolution": {},
+  "world_facts": [
+    {
+      "fact_id": "FACT-001",
+      "statement": "Victim Carl Mendez was assigned solo crusher feed inspection at 0230",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-002",
+      "statement": "Hydraulic conveyor line did not fail catastrophically per maintenance baseline",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-003",
+      "statement": "Shift supervisor Marcus Reed filed equipment-failure incident report at 0315",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-004",
+      "statement": "Marcus Reed bypassed crusher feed safety interlock earlier in the shift",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-005",
+      "statement": "Limestone scrape marks at quarry base contradict pure conveyor crush narrative",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-006",
+      "statement": "Mud boot prints on crusher platform show two persons present at 0245",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-007",
+      "statement": "Hydraulic fluid splatter pattern indicates line was cut, not burst",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-008",
+      "statement": "Maintenance log shows safety interlock inspection was falsified by Marcus",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-009",
+      "statement": "Weather station records show dry conditions; claimed wet-slip cause invalid",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-010",
+      "statement": "Victim hard hat found on crusher platform, not at quarry base",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-011",
+      "statement": "Equipment operator Rick Torres witnessed Marcus on platform at 0245",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-012",
+      "statement": "Coroner preliminary notes suggest blunt impact before fall, not crush alone",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-013",
+      "statement": "Marcus Reed had prior OSHA citation for bypassing safety interlocks",
+      "immutable": true
+    },
+    {
+      "fact_id": "FACT-014",
+      "statement": "Dust deposition on platform railing shows struggle or forced movement",
+      "immutable": true
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "OBS-SCRAPE-PHYS",
+      "description": "Limestone scrape inconsistent with crush",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-SCRAPE-PHYS",
+        "object_id": null,
+        "interaction_required": true
+      }
+    },
+    {
+      "observation_id": "OBS-FLUID-PATTERN",
+      "description": "Hydraulic splatter indicates cut",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-FLUID-PATTERN",
+        "object_id": null,
+        "interaction_required": true
+      }
+    },
+    {
+      "observation_id": "OBS-BOOT-PAIR",
+      "description": "Two boot print sets on platform",
+      "location_id": null,
+      "acquisition": {
+        "via": "object_interaction",
+        "action_id": "ACT-OBS-BOOT-PAIR",
+        "object_id": null,
+        "interaction_required": true
+      }
+    }
+  ],
+  "physical_evidence": [
+    {
+      "evidence_id": "EVD-LIMESTONE-SCRAPE",
+      "description": "Limestone scrape marks",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-005",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-HYDRAULIC-STAIN",
+      "description": "Hydraulic fluid stain",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-005",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-BOOT-PRINTS",
+      "description": "Mud boot prints",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-005",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-INCIDENT-REPORT",
+      "description": "Incident report",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-005",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-WEATHER-LOG",
+      "description": "Weather station log",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-005",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    },
+    {
+      "evidence_id": "EVD-MAINT-LOG",
+      "description": "Maintenance inspection log",
+      "evidence_type": "document",
+      "provenance": {
+        "world_fact_id": "FACT-005",
+        "source_event_id": null
+      },
+      "establishes_knowledge_ids": []
+    }
+  ],
+  "testimony": [
+    {
+      "testimony_id": "TEST-DIANA-IMPACT",
+      "source_npc_id": "NPC-DIANA",
+      "content_knowledge_id": "KNOW-DIANA-IMPACT",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-ELENA-HYDRAULIC",
+      "source_npc_id": "NPC-ELENA",
+      "content_knowledge_id": "KNOW-ELENA-HYDRAULIC",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-RICK-WITNESS",
+      "source_npc_id": "NPC-RICK",
+      "content_knowledge_id": "KNOW-RICK-WITNESS",
+      "topic_id": null,
+      "dialogue_system": false
+    },
+    {
+      "testimony_id": "TEST-MARCUS-SLIP",
+      "source_npc_id": "NPC-MARCUS",
+      "content_knowledge_id": "KNOW-MARCUS-SLIP",
+      "topic_id": null,
+      "dialogue_system": false
+    }
+  ],
+  "knowledge": [
+    {
+      "knowledge_id": "KNOW-OPEN-01",
+      "statement": "Carl Mendez found dead at quarry base; official report cites equipment failure",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-02",
+      "statement": "Coroner liaison notes impact injuries inconsistent with pure crush",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-03",
+      "statement": "Shift supervisor Marcus Reed filed incident report at 0315",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-OPEN-04",
+      "statement": "OSHA preliminary report due at 1200 before crusher restart",
+      "category": "briefing",
+      "acquisition": {
+        "source_type": "world_fact",
+        "source_id": "FACT-001"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-SCRAPE-MARKS",
+      "statement": "Fresh limestone scrape marks at quarry base suggest lateral impact before rest; dust scuff on railing confirms struggle",
+      "category": "physical",
+      "establishes_fact_ids": [
+        "FACT-005",
+        "FACT-014"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-SCRAPE-PHYS",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-HYDRAULIC-CUT",
+      "statement": "Hydraulic fluid splatter shows cut line, not burst failure",
+      "category": "physical",
+      "establishes_fact_ids": [
+        "FACT-002",
+        "FACT-007"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-FLUID-PATTERN",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-BOOT-PRINTS",
+      "statement": "Two distinct boot print sets on crusher platform at 0245",
+      "category": "physical",
+      "establishes_fact_ids": [
+        "FACT-006"
+      ],
+      "acquisition": {
+        "source_type": "observation",
+        "source_id": "OBS-BOOT-PAIR",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-HARD-HAT",
+      "statement": "Victim hard hat on platform contradicts crush-at-base narrative",
+      "category": "physical",
+      "establishes_fact_ids": [
+        "FACT-010"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-LIMESTONE-SCRAPE",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-INCIDENT-REPORT",
+      "statement": "Marcus Reed logged hydraulic conveyor failure as cause of death",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-003"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-LIMESTONE-SCRAPE",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-WEATHER-DRY",
+      "statement": "Weather log shows dry overnight conditions; wet-slip claim invalid",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-009"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-LIMESTONE-SCRAPE",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-MAINT-FALSIFIED",
+      "statement": "Interlock inspection entry signed by Marcus does not match equipment state",
+      "category": "document",
+      "establishes_fact_ids": [
+        "FACT-008",
+        "FACT-013"
+      ],
+      "acquisition": {
+        "source_type": "physical_evidence",
+        "source_id": "EVD-LIMESTONE-SCRAPE",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-DIANA-IMPACT",
+      "statement": "Coroner notes blunt impact injuries before fall",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-012"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-DIANA-IMPACT"
+      }
+    },
+    {
+      "knowledge_id": "KNOW-ELENA-HYDRAULIC",
+      "statement": "Maintenance tech says hydraulic line was cut, not failed",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-002",
+        "FACT-007"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-ELENA-HYDRAULIC"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-RICK-WITNESS",
+      "statement": "Rick Torres saw Marcus on platform but was told to stay quiet",
+      "category": "testimony",
+      "establishes_fact_ids": [
+        "FACT-011"
+      ],
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-RICK-WITNESS"
+      }
+    },
+    {
+      "knowledge_id": "KNOW-MARCUS-SLIP",
+      "statement": "Marcus claims wet deck caused slip into equipment",
+      "category": "testimony",
+      "acquisition": {
+        "source_type": "testimony",
+        "source_id": "TEST-MARCUS-SLIP"
+      },
+      "optional_flavour": true
+    },
+    {
+      "knowledge_id": "KNOW-PHYSICAL-CONTRADICTS",
+      "statement": "Physical traces contradict official equipment-failure narrative",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-PHYSICAL-CONFLICT",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-MARCUS-COVERUP",
+      "statement": "Evidence supports staged failure and falsified records by shift supervisor",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-STAGING",
+        "interaction_required": true
+      }
+    },
+    {
+      "knowledge_id": "KNOW-PERFECT-RECON",
+      "statement": "Full reconstruction: interlock bypass, platform fall, cut hydraulic line, falsified logs",
+      "category": "inference",
+      "acquisition": {
+        "source_type": "synthesis",
+        "source_id": "HYP-PERFECT-RECON",
+        "interaction_required": true
+      }
+    }
+  ],
+  "hypotheses": [
+    {
+      "hypothesis_id": "HYP-PHYSICAL-CONFLICT",
+      "statement": "Physical evidence contradicts official equipment-failure report",
+      "requires_knowledge_ids": [
+        "KNOW-SCRAPE-MARKS",
+        "KNOW-HYDRAULIC-CUT",
+        "KNOW-HARD-HAT",
+        "KNOW-WEATHER-DRY"
+      ],
+      "yields_knowledge_id": "KNOW-PHYSICAL-CONTRADICTS",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-STAGING",
+      "statement": "Hydraulic failure was staged after platform incident",
+      "requires_knowledge_ids": [
+        "KNOW-HYDRAULIC-CUT",
+        "KNOW-BOOT-PRINTS",
+        "KNOW-SCRAPE-MARKS"
+      ],
+      "yields_knowledge_id": "KNOW-MARCUS-COVERUP",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-MARCUS-ACCOUNTABLE",
+      "statement": "Shift supervisor orchestrated cover-up",
+      "requires_knowledge_ids": [
+        "KNOW-MAINT-FALSIFIED",
+        "KNOW-RICK-WITNESS",
+        "KNOW-INCIDENT-REPORT"
+      ],
+      "yields_knowledge_id": "KNOW-MARCUS-COVERUP",
+      "player_synthesis_required": true
+    },
+    {
+      "hypothesis_id": "HYP-PERFECT-RECON",
+      "statement": "Full physical reconstruction resolves the case",
+      "requires_knowledge_ids": [
+        "KNOW-PHYSICAL-CONTRADICTS",
+        "KNOW-MARCUS-COVERUP",
+        "KNOW-PERFECT-RECON"
+      ],
+      "yields_knowledge_id": "KNOW-PERFECT-RECON",
+      "player_synthesis_required": true
+    }
+  ],
+  "conclusions": [
+    {
+      "conclusion_id": "CONC-WHO",
+      "category": "culprit",
+      "question_ref": "Q-WHO",
+      "investigation_driven_by_clue": false,
+      "answer_entity_id": "NPC-MARCUS"
+    },
+    {
+      "conclusion_id": "CONC-WHAT",
+      "category": "incident",
+      "question_ref": "Q-WHAT",
+      "investigation_driven_by_clue": false,
+      "answer_text": "Fall from crusher platform after confrontation, not hydraulic crush alone"
+    },
+    {
+      "conclusion_id": "CONC-HOW",
+      "category": "method",
+      "question_ref": "Q-HOW",
+      "investigation_driven_by_clue": false,
+      "answer_text": "Cut hydraulic line and falsified incident and maintenance logs"
+    },
+    {
+      "conclusion_id": "CONC-WHEN",
+      "category": "timeline",
+      "question_ref": "Q-WHEN",
+      "investigation_driven_by_clue": false,
+      "answer_text": "Approximately 0245 during night shift"
+    }
+  ],
+  "proofs": [
+    {
+      "proof_id": "PROOF-WHO",
+      "conclusion_id": "CONC-WHO",
+      "required_knowledge_ids": [
+        "KNOW-PERFECT-RECON",
+        "KNOW-MARCUS-COVERUP",
+        "KNOW-PHYSICAL-CONTRADICTS"
+      ]
+    },
+    {
+      "proof_id": "PROOF-WHAT",
+      "conclusion_id": "CONC-WHAT",
+      "required_knowledge_ids": [
+        "KNOW-SCRAPE-MARKS",
+        "KNOW-DIANA-IMPACT",
+        "KNOW-HARD-HAT"
+      ]
+    },
+    {
+      "proof_id": "PROOF-HOW",
+      "conclusion_id": "CONC-HOW",
+      "required_knowledge_ids": [
+        "KNOW-HYDRAULIC-CUT",
+        "KNOW-MAINT-FALSIFIED",
+        "KNOW-INCIDENT-REPORT"
+      ]
+    },
+    {
+      "proof_id": "PROOF-WHEN",
+      "conclusion_id": "CONC-WHEN",
+      "required_knowledge_ids": [
+        "KNOW-BOOT-PRINTS",
+        "KNOW-RICK-WITNESS"
+      ]
+    }
+  ],
+  "relationships": [],
+  "optional_knowledge": []
+}

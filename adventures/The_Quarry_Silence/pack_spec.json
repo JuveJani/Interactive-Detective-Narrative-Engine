@@ -1,0 +1,3530 @@
+{
+  "pack_id": "The_Quarry_Silence",
+  "brief": {
+    "working_title": "The Quarry Silence",
+    "premise": "A county occupational safety investigator examines a night-shift fatality at a limestone quarry, reconstructing events from physical traces, equipment condition, and conflicting incident reports.",
+    "setting": "Active limestone quarry and processing plant — yard gate, quarry floor, primary crusher platform, shift control shack, and maintenance bay",
+    "universe": "real world",
+    "genre": "detective mystery",
+    "realism_level": "grounded contemporary",
+    "player_mode": "single_investigator",
+    "investigator_character": "County occupational safety investigator dispatched to verify the official equipment-failure report",
+    "opening_situation": "You arrive at dawn to find shift supervisor Marcus Reed waiting at the yard gate. The coroner liaison Diana Okoro has already tagged the scene at the quarry base, but Marcus insists hydraulic conveyor failure caused the death.",
+    "initial_observable_facts": [
+      "Night-shift worker Carl Mendez was found dead at the quarry base beneath the primary crusher feed.",
+      "Shift supervisor Marcus Reed filed an equipment-failure incident report at 0315.",
+      "Coroner liaison Diana Okoro notes impact injuries inconsistent with a pure crush narrative.",
+      "Maintenance technician Elena Vasquez says the hydraulic line shows cut marks, not burst failure."
+    ],
+    "target_playtime_minutes": 120,
+    "in_world_duration": "one morning investigation (approximately four in-world hours)",
+    "tone": "industrial, methodical, quietly tense",
+    "difficulty": "standard",
+    "location_scale": "single quarry site with five primary locations",
+    "content_boundaries": "no graphic violence; no supernatural elements; workplace safety cover-up themes; death by fall and blunt impact; no sexual content",
+    "required_themes": [
+      "fair-play mystery",
+      "physical and environmental evidence",
+      "equipment condition versus official report",
+      "meaningful time pressure",
+      "one perfect ending and several imperfect endings"
+    ],
+    "forbidden_themes": [
+      "supernatural explanations",
+      "theft-primary plots",
+      "magic or occult resolution",
+      "direct narrator solution delivery"
+    ],
+    "deadline_or_constraint": "OSHA preliminary report due at 1200; crusher restart scheduled at 1300",
+    "author_notes": "Codename: The Quarry Silence. Culprit NPC-MARCUS covered up safety interlock bypass after confrontation. Emphasis on physical/environmental evidence — scrape marks, fluid patterns, boot prints, dust — not testimony alone."
+  },
+  "fixed_truth": {
+    "culprit_id": "NPC-MARCUS",
+    "motive": "Avoid OSHA shutdown and discipline after bypassing safety interlock and confrontation with Carl Mendez",
+    "method": "Bypassed interlock, confrontation on platform, cut hydraulic line to simulate failure, falsified incident and maintenance records",
+    "opportunity": "Shift supervisor authority, access to control shack logs and maintenance entries",
+    "immutable_facts": [
+      {
+        "fact_id": "FACT-001",
+        "statement": "Victim Carl Mendez was assigned solo crusher feed inspection at 0230"
+      },
+      {
+        "fact_id": "FACT-002",
+        "statement": "Hydraulic conveyor line did not fail catastrophically per maintenance baseline"
+      },
+      {
+        "fact_id": "FACT-003",
+        "statement": "Shift supervisor Marcus Reed filed equipment-failure incident report at 0315"
+      },
+      {
+        "fact_id": "FACT-004",
+        "statement": "Marcus Reed bypassed crusher feed safety interlock earlier in the shift"
+      },
+      {
+        "fact_id": "FACT-005",
+        "statement": "Limestone scrape marks at quarry base contradict pure conveyor crush narrative"
+      },
+      {
+        "fact_id": "FACT-006",
+        "statement": "Mud boot prints on crusher platform show two persons present at 0245"
+      },
+      {
+        "fact_id": "FACT-007",
+        "statement": "Hydraulic fluid splatter pattern indicates line was cut, not burst"
+      },
+      {
+        "fact_id": "FACT-008",
+        "statement": "Maintenance log shows safety interlock inspection was falsified by Marcus"
+      },
+      {
+        "fact_id": "FACT-009",
+        "statement": "Weather station records show dry conditions; claimed wet-slip cause invalid"
+      },
+      {
+        "fact_id": "FACT-010",
+        "statement": "Victim hard hat found on crusher platform, not at quarry base"
+      },
+      {
+        "fact_id": "FACT-011",
+        "statement": "Equipment operator Rick Torres witnessed Marcus on platform at 0245"
+      },
+      {
+        "fact_id": "FACT-012",
+        "statement": "Coroner preliminary notes suggest blunt impact before fall, not crush alone"
+      },
+      {
+        "fact_id": "FACT-013",
+        "statement": "Marcus Reed had prior OSHA citation for bypassing safety interlocks"
+      },
+      {
+        "fact_id": "FACT-014",
+        "statement": "Dust deposition on platform railing shows struggle or forced movement"
+      }
+    ],
+    "causal_timeline": {
+      "clock_start": "2026-06-12T02:00:00",
+      "events": [
+        {
+          "event_id": "EVT-001",
+          "timestamp": "2026-06-12T02:15:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-CRUSHER",
+          "description": "Marcus Reed bypasses crusher feed safety interlock",
+          "participants": [
+            "NPC-MARCUS"
+          ],
+          "causes": [],
+          "reveals_facts": [
+            "FACT-004"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-002",
+          "timestamp": "2026-06-12T02:30:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-CRUSHER",
+          "description": "Carl Mendez begins solo feed inspection on platform",
+          "participants": [
+            "NPC-CARL"
+          ],
+          "causes": [
+            "EVT-001"
+          ],
+          "reveals_facts": [
+            "FACT-001"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-003",
+          "timestamp": "2026-06-12T02:42:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-CRUSHER",
+          "description": "Marcus cuts hydraulic line to simulate failure after confrontation",
+          "participants": [
+            "NPC-MARCUS"
+          ],
+          "causes": [
+            "EVT-002"
+          ],
+          "reveals_facts": [
+            "FACT-007"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-004",
+          "timestamp": "2026-06-12T02:45:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-CRUSHER",
+          "description": "Carl falls from platform after struggle at railing",
+          "participants": [
+            "NPC-CARL",
+            "NPC-MARCUS"
+          ],
+          "causes": [
+            "EVT-003"
+          ],
+          "reveals_facts": [
+            "FACT-005",
+            "FACT-010",
+            "FACT-014"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-005",
+          "timestamp": "2026-06-12T02:48:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-QUARRY-FLOOR",
+          "description": "Carl's body comes to rest at quarry base",
+          "participants": [
+            "NPC-CARL"
+          ],
+          "causes": [
+            "EVT-004"
+          ],
+          "reveals_facts": [
+            "FACT-012"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-006",
+          "timestamp": "2026-06-12T03:15:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-CONTROL",
+          "description": "Marcus files equipment-failure incident report",
+          "participants": [
+            "NPC-MARCUS"
+          ],
+          "causes": [
+            "EVT-004"
+          ],
+          "reveals_facts": [
+            "FACT-003"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-007",
+          "timestamp": "2026-06-12T03:30:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-MAINT",
+          "description": "Marcus falsifies interlock inspection in maintenance log",
+          "participants": [
+            "NPC-MARCUS"
+          ],
+          "causes": [
+            "EVT-006"
+          ],
+          "reveals_facts": [
+            "FACT-008"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-008",
+          "timestamp": "2026-06-12T04:00:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-QUARRY-FLOOR",
+          "description": "Rick Torres told to stay quiet about platform presence",
+          "participants": [
+            "NPC-RICK",
+            "NPC-MARCUS"
+          ],
+          "causes": [
+            "EVT-006"
+          ],
+          "reveals_facts": [
+            "FACT-006",
+            "FACT-011"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-009",
+          "timestamp": "2026-06-12T06:30:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-YARD",
+          "description": "Coroner liaison Diana Okoro arrives on scene",
+          "participants": [
+            "NPC-DIANA"
+          ],
+          "causes": [],
+          "reveals_facts": [
+            "FACT-012"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-010",
+          "timestamp": "2026-06-12T07:00:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-YARD",
+          "description": "Occupational safety investigator arrives",
+          "participants": [
+            "PC-INVESTIGATOR"
+          ],
+          "causes": [
+            "EVT-009"
+          ],
+          "reveals_facts": [],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-011",
+          "timestamp": "2026-06-12T08:30:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-MAINT",
+          "description": "Maintenance records sync to investigator tablet",
+          "participants": [],
+          "causes": [
+            "EVT-010"
+          ],
+          "reveals_facts": [],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-012",
+          "timestamp": "2026-06-12T09:30:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-CRUSHER",
+          "description": "Elena Vasquez shares hydraulic cut findings with investigator",
+          "participants": [
+            "NPC-ELENA"
+          ],
+          "causes": [
+            "EVT-010"
+          ],
+          "reveals_facts": [
+            "FACT-002",
+            "FACT-007"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-013",
+          "timestamp": "2026-06-12T12:00:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-CONTROL",
+          "description": "OSHA preliminary report deadline",
+          "participants": [],
+          "causes": [
+            "EVT-010"
+          ],
+          "reveals_facts": [],
+          "effects": []
+        }
+      ]
+    },
+    "world_state_timeline": {
+      "snapshots": [
+        {
+          "at_event_id": "EVT-004",
+          "people_locations": {
+            "NPC-MARCUS": "LOC-CRUSHER",
+            "NPC-CARL": "LOC-QUARRY-FLOOR"
+          },
+          "object_states": {
+            "OBJ-HARD-HAT": "on_platform"
+          },
+          "access_states": {
+            "LOC-CRUSHER": "restricted"
+          },
+          "evidence_conditions": {}
+        },
+        {
+          "at_event_id": "EVT-010",
+          "people_locations": {
+            "PC-INVESTIGATOR": "LOC-YARD"
+          },
+          "object_states": {
+            "OBJ-INCIDENT-REPORT": "filed"
+          },
+          "access_states": {
+            "LOC-YARD": "open"
+          },
+          "evidence_conditions": {}
+        },
+        {
+          "at_event_id": "EVT-011",
+          "people_locations": {},
+          "object_states": {
+            "OBJ-MAINT-RECORD": "sync_complete"
+          },
+          "access_states": {
+            "LOC-MAINT": "records_available"
+          },
+          "evidence_conditions": {}
+        }
+      ]
+    },
+    "npc_knowledge": {
+      "npcs": [
+        {
+          "npc_id": "NPC-MARCUS",
+          "knows": [
+            "FACT-003",
+            "FACT-004",
+            "FACT-007",
+            "FACT-008"
+          ],
+          "believes_incorrectly": [],
+          "witnessed_events": [
+            "EVT-001",
+            "EVT-003",
+            "EVT-004",
+            "EVT-006",
+            "EVT-007"
+          ],
+          "hides": [
+            "FACT-004",
+            "FACT-007",
+            "FACT-008",
+            "FACT-014"
+          ],
+          "behavior_rationale": "Conceals interlock bypass and staged hydraulic failure after platform confrontation"
+        },
+        {
+          "npc_id": "NPC-DIANA",
+          "knows": [
+            "FACT-012",
+            "FACT-005"
+          ],
+          "believes_incorrectly": [],
+          "witnessed_events": [
+            "EVT-004",
+            "EVT-005",
+            "EVT-009"
+          ],
+          "hides": [],
+          "behavior_rationale": "Cooperative coroner liaison focused on physical injury patterns"
+        },
+        {
+          "npc_id": "NPC-ELENA",
+          "knows": [
+            "FACT-002",
+            "FACT-007",
+            "FACT-008"
+          ],
+          "believes_incorrectly": [],
+          "witnessed_events": [
+            "EVT-007",
+            "EVT-012"
+          ],
+          "hides": [],
+          "behavior_rationale": "Truthful maintenance tech who trusts equipment condition over supervisor narrative"
+        },
+        {
+          "npc_id": "NPC-RICK",
+          "knows": [
+            "FACT-006",
+            "FACT-011"
+          ],
+          "believes_incorrectly": [],
+          "witnessed_events": [
+            "EVT-004",
+            "EVT-008"
+          ],
+          "hides": [
+            "FACT-011"
+          ],
+          "behavior_rationale": "Frightened operator coached to stay quiet about Marcus on platform"
+        }
+      ]
+    },
+    "evidence_provenance": {
+      "evidence": [
+        {
+          "evidence_id": "EVD-INCIDENT-REPORT",
+          "source_event_id": "EVT-006",
+          "type": "document",
+          "description": "Shift supervisor equipment-failure incident report",
+          "establishes_fact_ids": [
+            "FACT-003"
+          ],
+          "misleading": true,
+          "misleading_cause": "Attributes death to hydraulic failure rather than platform fall"
+        },
+        {
+          "evidence_id": "EVD-LIMESTONE-SCRAPE",
+          "source_event_id": "EVT-004",
+          "type": "physical",
+          "description": "Fresh scrape marks on quarry base limestone",
+          "establishes_fact_ids": [
+            "FACT-005"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        },
+        {
+          "evidence_id": "EVD-HYDRAULIC-STAIN",
+          "source_event_id": "EVT-003",
+          "type": "physical",
+          "description": "Hydraulic fluid splatter on crusher deck",
+          "establishes_fact_ids": [
+            "FACT-007"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        },
+        {
+          "evidence_id": "EVD-BOOT-PRINTS",
+          "source_event_id": "EVT-004",
+          "type": "physical",
+          "description": "Mud boot print pairs on crusher platform",
+          "establishes_fact_ids": [
+            "FACT-006"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        },
+        {
+          "evidence_id": "EVD-MAINT-LOG",
+          "source_event_id": "EVT-007",
+          "type": "document",
+          "description": "Falsified interlock inspection maintenance log",
+          "establishes_fact_ids": [
+            "FACT-008",
+            "FACT-013"
+          ],
+          "misleading": true,
+          "misleading_cause": "Shows passed inspection that did not occur"
+        },
+        {
+          "evidence_id": "EVD-WEATHER-LOG",
+          "source_event_id": "EVT-010",
+          "type": "document",
+          "description": "Site weather station overnight log",
+          "establishes_fact_ids": [
+            "FACT-009"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        }
+      ]
+    },
+    "observable_information": {
+      "observations": [
+        {
+          "observation_id": "OBS-SCRAPE",
+          "learnable_fact_id": "FACT-005",
+          "source_evidence_id": "EVD-LIMESTONE-SCRAPE",
+          "requires": {
+            "action": "inspect",
+            "location_id": "LOC-QUARRY-FLOOR",
+            "check_id": "CHK-IMPACT"
+          },
+          "hidden_if_not_met": true
+        },
+        {
+          "observation_id": "OBS-HYDRAULIC",
+          "learnable_fact_id": "FACT-007",
+          "source_evidence_id": "EVD-HYDRAULIC-STAIN",
+          "requires": {
+            "action": "inspect",
+            "location_id": "LOC-CRUSHER",
+            "check_id": "CHK-HYDRAULIC"
+          },
+          "hidden_if_not_met": true
+        },
+        {
+          "observation_id": "OBS-BOOTS",
+          "learnable_fact_id": "FACT-006",
+          "source_evidence_id": "EVD-BOOT-PRINTS",
+          "requires": {
+            "action": "inspect",
+            "location_id": "LOC-CRUSHER",
+            "check_id": "CHK-TRACKS"
+          },
+          "hidden_if_not_met": true
+        }
+      ]
+    },
+    "conclusion_requirements": {
+      "questions": [
+        {
+          "question_id": "Q-CULPRIT",
+          "answer_entity_id": "NPC-MARCUS",
+          "required_fact_ids": [
+            "FACT-004",
+            "FACT-007",
+            "FACT-008",
+            "FACT-014"
+          ]
+        },
+        {
+          "question_id": "Q-METHOD",
+          "answer_entity_id": "METHOD-COVERUP",
+          "required_fact_ids": [
+            "FACT-003",
+            "FACT-007",
+            "FACT-008"
+          ]
+        }
+      ]
+    },
+    "ending_claims": [
+      {
+        "ending_id": "END-PERFECT",
+        "asserted_fact_ids": [
+          "FACT-004",
+          "FACT-007",
+          "FACT-008",
+          "FACT-014"
+        ]
+      },
+      {
+        "ending_id": "END-TIMEOUT",
+        "asserted_fact_ids": []
+      }
+    ]
+  },
+  "locations": [
+    {
+      "location_id": "LOC-YARD",
+      "public_name": "Quarry yard gate",
+      "start_location": true,
+      "hub_unit_id": "UNIT-YARD-BASE",
+      "parent_location_id": null,
+      "location_type": "industrial_yard",
+      "description_source": "DESC-YARD",
+      "default_attributes": {
+        "access": "open"
+      }
+    },
+    {
+      "location_id": "LOC-QUARRY-FLOOR",
+      "public_name": "Quarry floor",
+      "hub_unit_id": "UNIT-QUARRY-FLOOR-BASE",
+      "parent_location_id": "LOC-YARD",
+      "location_type": "quarry_base",
+      "description_source": "DESC-QUARRY-FLOOR",
+      "default_attributes": {
+        "access": "restricted"
+      }
+    },
+    {
+      "location_id": "LOC-CRUSHER",
+      "public_name": "Primary crusher platform",
+      "hub_unit_id": "UNIT-CRUSHER-BASE",
+      "parent_location_id": "LOC-YARD",
+      "location_type": "processing_plant",
+      "description_source": "DESC-CRUSHER",
+      "default_attributes": {
+        "access": "restricted"
+      }
+    },
+    {
+      "location_id": "LOC-CONTROL",
+      "public_name": "Shift control shack",
+      "hub_unit_id": "UNIT-CONTROL-BASE",
+      "parent_location_id": "LOC-YARD",
+      "location_type": "control_office",
+      "description_source": "DESC-CONTROL",
+      "default_attributes": {
+        "access": "open"
+      }
+    },
+    {
+      "location_id": "LOC-MAINT",
+      "public_name": "Maintenance bay",
+      "hub_unit_id": "UNIT-MAINT-BASE",
+      "parent_location_id": "LOC-YARD",
+      "location_type": "maintenance_bay",
+      "description_source": "DESC-MAINT",
+      "default_attributes": {
+        "access": "open"
+      }
+    }
+  ],
+  "location_states": [
+    {
+      "state_id": "LOC-YARD:default",
+      "location_id": "LOC-YARD",
+      "variant_label": "investigation_start",
+      "attributes": {
+        "access": "open",
+        "scene_taped": "partial"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-010"
+      }
+    },
+    {
+      "state_id": "LOC-MAINT:records_sync",
+      "location_id": "LOC-MAINT",
+      "variant_label": "records_synced",
+      "attributes": {
+        "records_sync": "complete"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-011"
+      }
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "FEAT-LIMESTONE-SCRAPE",
+      "location_id": "LOC-QUARRY-FLOOR",
+      "label": "Limestone scrape marks at impact zone",
+      "object_ref": "OBJ-LIMESTONE-SCRAPE"
+    },
+    {
+      "feature_id": "FEAT-HYDRAULIC-STAIN",
+      "location_id": "LOC-CRUSHER",
+      "label": "Hydraulic fluid stain on crusher deck",
+      "object_ref": "OBJ-HYDRAULIC-STAIN"
+    }
+  ],
+  "navigation": [
+    {
+      "edge_id": "NAV-YARD-FLOOR",
+      "from_location_id": "LOC-YARD",
+      "to_location_id": "LOC-QUARRY-FLOOR",
+      "direction_label": "Descend to the quarry floor",
+      "time_cost_minutes": 4
+    },
+    {
+      "edge_id": "NAV-YARD-CRUSHER",
+      "from_location_id": "LOC-YARD",
+      "to_location_id": "LOC-CRUSHER",
+      "direction_label": "Climb to the primary crusher platform",
+      "time_cost_minutes": 5
+    },
+    {
+      "edge_id": "NAV-YARD-CONTROL",
+      "from_location_id": "LOC-YARD",
+      "to_location_id": "LOC-CONTROL",
+      "direction_label": "Walk to the shift control shack",
+      "time_cost_minutes": 2
+    },
+    {
+      "edge_id": "NAV-YARD-MAINT",
+      "from_location_id": "LOC-YARD",
+      "to_location_id": "LOC-MAINT",
+      "direction_label": "Cross to the maintenance bay",
+      "time_cost_minutes": 3
+    },
+    {
+      "edge_id": "NAV-FLOOR-YARD",
+      "from_location_id": "LOC-QUARRY-FLOOR",
+      "to_location_id": "LOC-YARD",
+      "direction_label": "Return to the yard gate",
+      "time_cost_minutes": 4
+    },
+    {
+      "edge_id": "NAV-CRUSHER-YARD",
+      "from_location_id": "LOC-CRUSHER",
+      "to_location_id": "LOC-YARD",
+      "direction_label": "Return to the yard gate",
+      "time_cost_minutes": 5
+    },
+    {
+      "edge_id": "NAV-CONTROL-YARD",
+      "from_location_id": "LOC-CONTROL",
+      "to_location_id": "LOC-YARD",
+      "direction_label": "Return to the yard gate",
+      "time_cost_minutes": 2
+    },
+    {
+      "edge_id": "NAV-MAINT-YARD",
+      "from_location_id": "LOC-MAINT",
+      "to_location_id": "LOC-YARD",
+      "direction_label": "Return to the yard gate",
+      "time_cost_minutes": 3
+    }
+  ],
+  "npcs": [
+    {
+      "npc_id": "NPC-MARCUS",
+      "public_name": "Marcus Reed",
+      "role": "Shift supervisor",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-RICK",
+          "relationship_type": "supervisor"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-DIANA",
+      "public_name": "Diana Okoro",
+      "role": "County coroner liaison",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-MARCUS",
+          "relationship_type": "professional"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-ELENA",
+      "public_name": "Elena Vasquez",
+      "role": "Maintenance technician",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-MARCUS",
+          "relationship_type": "professional"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-RICK",
+      "public_name": "Rick Torres",
+      "role": "Equipment operator",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-MARCUS",
+          "relationship_type": "supervisor"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "object_id": "OBJ-LIMESTONE-SCRAPE",
+      "public_name": "Limestone scrape marks",
+      "location_id": "LOC-QUARRY-FLOOR",
+      "interaction_type": "physical"
+    },
+    {
+      "object_id": "OBJ-HARD-HAT",
+      "public_name": "Victim hard hat",
+      "location_id": "LOC-CRUSHER",
+      "interaction_type": "physical"
+    },
+    {
+      "object_id": "OBJ-HYDRAULIC-STAIN",
+      "public_name": "Hydraulic fluid stain",
+      "location_id": "LOC-CRUSHER",
+      "interaction_type": "physical"
+    },
+    {
+      "object_id": "OBJ-BOOT-PRINTS",
+      "public_name": "Mud boot print trail",
+      "location_id": "LOC-CRUSHER",
+      "interaction_type": "physical"
+    },
+    {
+      "object_id": "OBJ-INCIDENT-REPORT",
+      "public_name": "Incident report terminal",
+      "location_id": "LOC-CONTROL",
+      "interaction_type": "terminal"
+    },
+    {
+      "object_id": "OBJ-WEATHER-LOG",
+      "public_name": "Weather station log",
+      "location_id": "LOC-CONTROL",
+      "interaction_type": "document"
+    },
+    {
+      "object_id": "OBJ-MAINT-RECORD",
+      "public_name": "Maintenance inspection log",
+      "location_id": "LOC-MAINT",
+      "interaction_type": "document"
+    }
+  ],
+  "knowledge": {
+    "facts": [
+      {
+        "fact_id": "FACT-001",
+        "statement": "Victim Carl Mendez was assigned solo crusher feed inspection at 0230",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-002",
+        "statement": "Hydraulic conveyor line did not fail catastrophically per maintenance baseline",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-003",
+        "statement": "Shift supervisor Marcus Reed filed equipment-failure incident report at 0315",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-004",
+        "statement": "Marcus Reed bypassed crusher feed safety interlock earlier in the shift",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-005",
+        "statement": "Limestone scrape marks at quarry base contradict pure conveyor crush narrative",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-006",
+        "statement": "Mud boot prints on crusher platform show two persons present at 0245",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-007",
+        "statement": "Hydraulic fluid splatter pattern indicates line was cut, not burst",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-008",
+        "statement": "Maintenance log shows safety interlock inspection was falsified by Marcus",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-009",
+        "statement": "Weather station records show dry conditions; claimed wet-slip cause invalid",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-010",
+        "statement": "Victim hard hat found on crusher platform, not at quarry base",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-011",
+        "statement": "Equipment operator Rick Torres witnessed Marcus on platform at 0245",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-012",
+        "statement": "Coroner preliminary notes suggest blunt impact before fall, not crush alone",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-013",
+        "statement": "Marcus Reed had prior OSHA citation for bypassing safety interlocks",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-014",
+        "statement": "Dust deposition on platform railing shows struggle or forced movement",
+        "immutable": true
+      }
+    ],
+    "observations": [
+      {
+        "observation_id": "OBS-SCRAPE-PHYS",
+        "description": "Limestone scrape inconsistent with crush",
+        "establishes_knowledge_id": "KNOW-SCRAPE-MARKS"
+      },
+      {
+        "observation_id": "OBS-FLUID-PATTERN",
+        "description": "Hydraulic splatter indicates cut",
+        "establishes_knowledge_id": "KNOW-HYDRAULIC-CUT"
+      },
+      {
+        "observation_id": "OBS-BOOT-PAIR",
+        "description": "Two boot print sets on platform",
+        "establishes_knowledge_id": "KNOW-BOOT-PRINTS"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "EVD-LIMESTONE-SCRAPE",
+        "name": "Limestone scrape marks",
+        "location_id": "LOC-QUARRY-FLOOR"
+      },
+      {
+        "evidence_id": "EVD-HYDRAULIC-STAIN",
+        "name": "Hydraulic fluid stain",
+        "location_id": "LOC-CRUSHER"
+      },
+      {
+        "evidence_id": "EVD-BOOT-PRINTS",
+        "name": "Mud boot prints",
+        "location_id": "LOC-CRUSHER"
+      },
+      {
+        "evidence_id": "EVD-INCIDENT-REPORT",
+        "name": "Incident report",
+        "location_id": "LOC-CONTROL"
+      },
+      {
+        "evidence_id": "EVD-WEATHER-LOG",
+        "name": "Weather station log",
+        "location_id": "LOC-CONTROL"
+      },
+      {
+        "evidence_id": "EVD-MAINT-LOG",
+        "name": "Maintenance inspection log",
+        "location_id": "LOC-MAINT"
+      }
+    ],
+    "testimony": [
+      {
+        "testimony_id": "TEST-DIANA-IMPACT",
+        "npc_id": "NPC-DIANA",
+        "summary": "Impact before fall",
+        "grants_knowledge_id": "KNOW-DIANA-IMPACT"
+      },
+      {
+        "testimony_id": "TEST-ELENA-HYDRAULIC",
+        "npc_id": "NPC-ELENA",
+        "summary": "Cut hydraulic line",
+        "grants_knowledge_id": "KNOW-ELENA-HYDRAULIC"
+      },
+      {
+        "testimony_id": "TEST-RICK-WITNESS",
+        "npc_id": "NPC-RICK",
+        "summary": "Marcus on platform",
+        "grants_knowledge_id": "KNOW-RICK-WITNESS"
+      },
+      {
+        "testimony_id": "TEST-MARCUS-SLIP",
+        "npc_id": "NPC-MARCUS",
+        "summary": "Wet slip claim",
+        "grants_knowledge_id": "KNOW-MARCUS-SLIP"
+      }
+    ],
+    "knowledge_items": [
+      {
+        "knowledge_id": "KNOW-OPEN-01",
+        "summary": "Carl Mendez found dead at quarry base; official report cites equipment failure",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-OPEN-02",
+        "summary": "Coroner liaison notes impact injuries inconsistent with pure crush",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-OPEN-03",
+        "summary": "Shift supervisor Marcus Reed filed incident report at 0315",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-OPEN-04",
+        "summary": "OSHA preliminary report due at 1200 before crusher restart",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-SCRAPE-MARKS",
+        "summary": "Fresh limestone scrape marks at quarry base suggest lateral impact before rest; dust scuff on railing confirms struggle",
+        "source_type": "physical",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-005",
+          "FACT-014"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-HYDRAULIC-CUT",
+        "summary": "Hydraulic fluid splatter shows cut line, not burst failure",
+        "source_type": "physical",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-002",
+          "FACT-007"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-BOOT-PRINTS",
+        "summary": "Two distinct boot print sets on crusher platform at 0245",
+        "source_type": "physical",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-006"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-HARD-HAT",
+        "summary": "Victim hard hat on platform contradicts crush-at-base narrative",
+        "source_type": "physical",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-010"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-INCIDENT-REPORT",
+        "summary": "Marcus Reed logged hydraulic conveyor failure as cause of death",
+        "source_type": "document",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-003"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-WEATHER-DRY",
+        "summary": "Weather log shows dry overnight conditions; wet-slip claim invalid",
+        "source_type": "document",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-009"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-MAINT-FALSIFIED",
+        "summary": "Interlock inspection entry signed by Marcus does not match equipment state",
+        "source_type": "document",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-008",
+          "FACT-013"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-DIANA-IMPACT",
+        "summary": "Coroner notes blunt impact injuries before fall",
+        "source_type": "testimony",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-012"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-ELENA-HYDRAULIC",
+        "summary": "Maintenance tech says hydraulic line was cut, not failed",
+        "source_type": "testimony",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-002",
+          "FACT-007"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-RICK-WITNESS",
+        "summary": "Rick Torres saw Marcus on platform but was told to stay quiet",
+        "source_type": "testimony",
+        "tier": "B",
+        "establishes_fact_ids": [
+          "FACT-011"
+        ]
+      },
+      {
+        "knowledge_id": "KNOW-MARCUS-SLIP",
+        "summary": "Marcus claims wet deck caused slip into equipment",
+        "source_type": "testimony",
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-PHYSICAL-CONTRADICTS",
+        "summary": "Physical traces contradict official equipment-failure narrative",
+        "source_type": "inference",
+        "tier": "C"
+      },
+      {
+        "knowledge_id": "KNOW-MARCUS-COVERUP",
+        "summary": "Evidence supports staged failure and falsified records by shift supervisor",
+        "source_type": "inference",
+        "tier": "C"
+      },
+      {
+        "knowledge_id": "KNOW-PERFECT-RECON",
+        "summary": "Full reconstruction: interlock bypass, platform fall, cut hydraulic line, falsified logs",
+        "source_type": "inference",
+        "tier": "C"
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis_id": "HYP-PHYSICAL-CONFLICT",
+        "statement": "Physical evidence contradicts official equipment-failure report",
+        "related_knowledge_ids": [
+          "KNOW-SCRAPE-MARKS",
+          "KNOW-HYDRAULIC-CUT",
+          "KNOW-HARD-HAT",
+          "KNOW-WEATHER-DRY"
+        ],
+        "yields_knowledge_id": "KNOW-PHYSICAL-CONTRADICTS"
+      },
+      {
+        "hypothesis_id": "HYP-STAGING",
+        "statement": "Hydraulic failure was staged after platform incident",
+        "related_knowledge_ids": [
+          "KNOW-HYDRAULIC-CUT",
+          "KNOW-BOOT-PRINTS",
+          "KNOW-SCRAPE-MARKS"
+        ],
+        "yields_knowledge_id": "KNOW-MARCUS-COVERUP"
+      },
+      {
+        "hypothesis_id": "HYP-MARCUS-ACCOUNTABLE",
+        "statement": "Shift supervisor orchestrated cover-up",
+        "related_knowledge_ids": [
+          "KNOW-MAINT-FALSIFIED",
+          "KNOW-RICK-WITNESS",
+          "KNOW-INCIDENT-REPORT"
+        ],
+        "yields_knowledge_id": "KNOW-MARCUS-COVERUP"
+      },
+      {
+        "hypothesis_id": "HYP-PERFECT-RECON",
+        "statement": "Full physical reconstruction resolves the case",
+        "related_knowledge_ids": [
+          "KNOW-PHYSICAL-CONTRADICTS",
+          "KNOW-MARCUS-COVERUP",
+          "KNOW-PERFECT-RECON"
+        ],
+        "yields_knowledge_id": "KNOW-PERFECT-RECON"
+      }
+    ],
+    "conclusions": [
+      {
+        "conclusion_id": "CONC-WHO",
+        "question": "Who falsified the equipment-failure narrative?",
+        "correct_answer": "NPC-MARCUS"
+      },
+      {
+        "conclusion_id": "CONC-WHAT",
+        "question": "What happened to Carl Mendez?",
+        "correct_answer": "Fall from crusher platform after confrontation, not hydraulic crush alone"
+      },
+      {
+        "conclusion_id": "CONC-HOW",
+        "question": "How was the cover-up executed?",
+        "correct_answer": "Cut hydraulic line and falsified incident and maintenance logs"
+      },
+      {
+        "conclusion_id": "CONC-WHEN",
+        "question": "When did the fall occur?",
+        "correct_answer": "Approximately 0245 during night shift"
+      }
+    ],
+    "proofs": [
+      {
+        "proof_id": "PROOF-WHO",
+        "conclusion_id": "CONC-WHO",
+        "required_knowledge_ids": [
+          "KNOW-PERFECT-RECON",
+          "KNOW-MARCUS-COVERUP",
+          "KNOW-PHYSICAL-CONTRADICTS"
+        ]
+      },
+      {
+        "proof_id": "PROOF-WHAT",
+        "conclusion_id": "CONC-WHAT",
+        "required_knowledge_ids": [
+          "KNOW-SCRAPE-MARKS",
+          "KNOW-DIANA-IMPACT",
+          "KNOW-HARD-HAT"
+        ]
+      },
+      {
+        "proof_id": "PROOF-HOW",
+        "conclusion_id": "CONC-HOW",
+        "required_knowledge_ids": [
+          "KNOW-HYDRAULIC-CUT",
+          "KNOW-MAINT-FALSIFIED",
+          "KNOW-INCIDENT-REPORT"
+        ]
+      },
+      {
+        "proof_id": "PROOF-WHEN",
+        "conclusion_id": "CONC-WHEN",
+        "required_knowledge_ids": [
+          "KNOW-BOOT-PRINTS",
+          "KNOW-RICK-WITNESS"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "relationship_id": "REL-MARCUS-RICK",
+        "from_entity": "NPC-MARCUS",
+        "to_entity": "NPC-RICK",
+        "relationship_type": "supervisor_to_operator"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "conversation_id": "CONV-MARCUS",
+      "npc_id": "NPC-MARCUS",
+      "hub_unit_id": "UNIT-NPC-MARCUS-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-MARCUS-REPORT",
+          "player_label": "Ask about the equipment-failure report.",
+          "response_unit_id": "UNIT-TOPIC-MARCUS-REPORT",
+          "grants_knowledge_id": "KNOW-INCIDENT-REPORT",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-MARCUS-SLIP",
+          "player_label": "Ask about wet deck conditions.",
+          "response_unit_id": "UNIT-TOPIC-MARCUS-SLIP",
+          "grants_knowledge_id": "KNOW-MARCUS-SLIP",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-MARCUS-INTERLOCK",
+          "player_label": "Ask about crusher safety interlock status.",
+          "response_unit_id": "UNIT-TOPIC-MARCUS-INTERLOCK",
+          "grants_knowledge_id": "KNOW-MAINT-FALSIFIED",
+          "time_cost_minutes": 2
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-DIANA",
+      "npc_id": "NPC-DIANA",
+      "hub_unit_id": "UNIT-NPC-DIANA-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-DIANA-IMPACT",
+          "player_label": "Ask about preliminary injury findings.",
+          "response_unit_id": "UNIT-TOPIC-DIANA-IMPACT",
+          "grants_knowledge_id": "KNOW-DIANA-IMPACT",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-DIANA-SCENE",
+          "player_label": "Ask what the quarry base scene suggests.",
+          "response_unit_id": "UNIT-TOPIC-DIANA-SCENE",
+          "grants_knowledge_id": "KNOW-DIANA-IMPACT",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-DIANA-HAT",
+          "player_label": "Ask about hard hat placement.",
+          "response_unit_id": "UNIT-TOPIC-DIANA-HAT",
+          "grants_knowledge_id": "KNOW-DIANA-IMPACT",
+          "time_cost_minutes": 2
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-ELENA",
+      "npc_id": "NPC-ELENA",
+      "hub_unit_id": "UNIT-NPC-ELENA-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-ELENA-HYDRAULIC",
+          "player_label": "Ask about hydraulic line condition.",
+          "response_unit_id": "UNIT-TOPIC-ELENA-HYDRAULIC",
+          "grants_knowledge_id": "KNOW-ELENA-HYDRAULIC",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-ELENA-INTERLOCK",
+          "player_label": "Ask about interlock inspection records.",
+          "response_unit_id": "UNIT-TOPIC-ELENA-INTERLOCK",
+          "grants_knowledge_id": "KNOW-MAINT-FALSIFIED",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-ELENA-BASELINE",
+          "player_label": "Ask about normal failure patterns.",
+          "response_unit_id": "UNIT-TOPIC-ELENA-BASELINE",
+          "grants_knowledge_id": "KNOW-ELENA-HYDRAULIC",
+          "time_cost_minutes": 2
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-RICK",
+      "npc_id": "NPC-RICK",
+      "hub_unit_id": "UNIT-NPC-RICK-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-RICK-PLATFORM",
+          "player_label": "Ask who was on the crusher platform.",
+          "response_unit_id": "UNIT-TOPIC-RICK-PLATFORM",
+          "grants_knowledge_id": "KNOW-RICK-WITNESS",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-RICK-BOOTS",
+          "player_label": "Ask about boot prints in the mud.",
+          "response_unit_id": "UNIT-TOPIC-RICK-BOOTS",
+          "grants_knowledge_id": "KNOW-RICK-WITNESS",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-RICK-TIMING",
+          "player_label": "Ask about timing before the alarm.",
+          "response_unit_id": "UNIT-TOPIC-RICK-TIMING",
+          "grants_knowledge_id": "KNOW-RICK-WITNESS",
+          "time_cost_minutes": 2
+        }
+      ]
+    }
+  ],
+  "object_actions": [
+    {
+      "action_id": "ACT-LIMESTONE-SCRAPE",
+      "object_id": "OBJ-LIMESTONE-SCRAPE",
+      "menu_unit_id": "UNIT-CHK-IMPACT-DECL",
+      "check_id": "CHK-IMPACT"
+    },
+    {
+      "action_id": "ACT-HYDRAULIC-STAIN",
+      "object_id": "OBJ-HYDRAULIC-STAIN",
+      "menu_unit_id": "UNIT-CHK-HYDRAULIC-DECL",
+      "check_id": "CHK-HYDRAULIC"
+    },
+    {
+      "action_id": "ACT-BOOT-PRINTS",
+      "object_id": "OBJ-BOOT-PRINTS",
+      "menu_unit_id": "UNIT-CHK-TRACKS-DECL",
+      "check_id": "CHK-TRACKS"
+    },
+    {
+      "action_id": "ACT-INCIDENT-REPORT",
+      "object_id": "OBJ-INCIDENT-REPORT",
+      "menu_unit_id": "UNIT-OBJ-REPORT-MENU",
+      "result_unit_id": "UNIT-OBJ-REPORT-RESULT",
+      "grants_knowledge_ids": [
+        "KNOW-INCIDENT-REPORT"
+      ]
+    },
+    {
+      "action_id": "ACT-WEATHER-LOG",
+      "object_id": "OBJ-WEATHER-LOG",
+      "menu_unit_id": "UNIT-OBJ-WEATHER-MENU",
+      "result_unit_id": "UNIT-OBJ-WEATHER-RESULT",
+      "grants_knowledge_ids": [
+        "KNOW-WEATHER-DRY"
+      ]
+    },
+    {
+      "action_id": "ACT-MAINT-RECORD",
+      "object_id": "OBJ-MAINT-RECORD",
+      "menu_unit_id": "UNIT-OBJ-MAINT-MENU",
+      "result_unit_id": "UNIT-OBJ-MAINT-RESULT",
+      "grants_knowledge_ids": [
+        "KNOW-MAINT-FALSIFIED"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "CHK-IMPACT",
+      "declaration_unit_id": "UNIT-CHK-IMPACT-DECL",
+      "success_unit_id": "UNIT-IMPACT-SUCCESS",
+      "failure_unit_id": "UNIT-IMPACT-FAIL",
+      "capability": "perception",
+      "capability_category": "perception_observation",
+      "modifier_source_id": "MOD-PERCEPTION",
+      "dc": 12,
+      "parent_action_id": "ACT-LIMESTONE-SCRAPE",
+      "success_grants_knowledge_ids": [
+        "KNOW-SCRAPE-MARKS"
+      ],
+      "player_action_label": "Examine limestone scrape marks at the quarry base."
+    },
+    {
+      "check_id": "CHK-HYDRAULIC",
+      "declaration_unit_id": "UNIT-CHK-HYDRAULIC-DECL",
+      "success_unit_id": "UNIT-HYDRAULIC-SUCCESS",
+      "failure_unit_id": "UNIT-HYDRAULIC-FAIL",
+      "capability": "technical",
+      "capability_category": "technical_systems",
+      "modifier_source_id": "MOD-TECHNICAL",
+      "dc": 12,
+      "parent_action_id": "ACT-HYDRAULIC-STAIN",
+      "success_grants_knowledge_ids": [
+        "KNOW-HYDRAULIC-CUT"
+      ],
+      "player_action_label": "Analyze hydraulic fluid splatter pattern on the crusher deck."
+    },
+    {
+      "check_id": "CHK-TRACKS",
+      "declaration_unit_id": "UNIT-CHK-TRACKS-DECL",
+      "success_unit_id": "UNIT-TRACKS-SUCCESS",
+      "failure_unit_id": "UNIT-TRACKS-FAIL",
+      "capability": "reasoning",
+      "capability_category": "reasoning_analysis",
+      "modifier_source_id": "MOD-REASONING",
+      "dc": 11,
+      "parent_action_id": "ACT-BOOT-PRINTS",
+      "success_grants_knowledge_ids": [
+        "KNOW-BOOT-PRINTS",
+        "KNOW-HARD-HAT"
+      ],
+      "player_action_label": "Reconstruct boot print patterns on the crusher platform."
+    }
+  ],
+  "flow": {
+    "placeholder_resolution": {},
+    "state_model": {
+      "flags": [
+        "records_sync_complete",
+        "report_reviewed",
+        "weather_reviewed",
+        "maint_reviewed",
+        "impact_examined",
+        "hydraulic_examined",
+        "tracks_examined",
+        "ready_to_accuse",
+        "accusation_complete",
+        "inference_physical_resolved",
+        "inference_staging_resolved",
+        "inference_marcus_resolved",
+        "inference_perfect_resolved",
+        "check_impact_failed",
+        "check_hydraulic_failed",
+        "check_tracks_failed"
+      ],
+      "counters": [
+        "investigation_phase"
+      ],
+      "initial_state": {
+        "records_sync_complete": false,
+        "report_reviewed": false,
+        "weather_reviewed": false,
+        "maint_reviewed": false,
+        "impact_examined": false,
+        "hydraulic_examined": false,
+        "tracks_examined": false,
+        "ready_to_accuse": false,
+        "accusation_complete": false,
+        "inference_physical_resolved": false,
+        "inference_staging_resolved": false,
+        "inference_marcus_resolved": false,
+        "inference_perfect_resolved": false,
+        "check_impact_failed": false,
+        "check_hydraulic_failed": false,
+        "check_tracks_failed": false,
+        "investigation_phase": 0
+      }
+    },
+    "time_model": {
+      "clocks": [
+        "T_ARRIVAL",
+        "T_RECORDS_SYNC",
+        "T_ELENA_FINDINGS",
+        "T_DEADLINE"
+      ],
+      "clock_event_map": {
+        "T_ARRIVAL": "EVT-010",
+        "T_RECORDS_SYNC": "EVT-011",
+        "T_ELENA_FINDINGS": "EVT-012",
+        "T_DEADLINE": "EVT-013"
+      },
+      "deadline_clock": "T_DEADLINE",
+      "scene_time_cost_default_minutes": 5,
+      "no_earlier_time_travel": true
+    },
+    "scene_chains": [
+      {
+        "chain_id": "CHAIN-OPENING",
+        "active_from_clock": "T_ARRIVAL",
+        "active_until_clock": "T_ELENA_FINDINGS",
+        "steps": [
+          {
+            "step_id": "SC-YARD-ARRIVAL",
+            "scene_unit_id": "SC-YARD-ARRIVAL",
+            "player_label": "Receive arrival briefing.",
+            "location_id": "LOC-YARD"
+          },
+          {
+            "step_id": "SC-FLOOR-SCENE",
+            "scene_unit_id": "SC-FLOOR-SCENE",
+            "player_label": "Survey the quarry floor scene.",
+            "location_id": "LOC-QUARRY-FLOOR"
+          }
+        ]
+      },
+      {
+        "chain_id": "CHAIN-RECORDS",
+        "active_from_clock": "T_ELENA_FINDINGS",
+        "active_until_clock": "T_RECORDS_SYNC",
+        "steps": [
+          {
+            "step_id": "SC-CRUSHER-HYDRAULIC",
+            "scene_unit_id": "SC-CRUSHER-HYDRAULIC",
+            "player_label": "Review hydraulic findings with Elena.",
+            "location_id": "LOC-CRUSHER"
+          },
+          {
+            "step_id": "SC-MAINT-RECORDS",
+            "scene_unit_id": "SC-MAINT-RECORDS",
+            "player_label": "Pull maintenance records.",
+            "location_id": "LOC-MAINT",
+            "state_updates": {
+              "records_sync_complete": true
+            }
+          }
+        ]
+      },
+      {
+        "chain_id": "CHAIN-FINAL",
+        "active_from_clock": "T_RECORDS_SYNC",
+        "active_until_clock": "T_DEADLINE",
+        "steps": [
+          {
+            "step_id": "SC-CRUSHER-TRACKS",
+            "scene_unit_id": "SC-CRUSHER-TRACKS",
+            "player_label": "Document platform boot prints.",
+            "location_id": "LOC-CRUSHER",
+            "state_updates": {
+              "tracks_examined": true
+            }
+          },
+          {
+            "step_id": "SC-FLOOR-IMPACT",
+            "scene_unit_id": "SC-FLOOR-IMPACT",
+            "player_label": "Measure limestone impact marks.",
+            "location_id": "LOC-QUARRY-FLOOR",
+            "state_updates": {
+              "impact_examined": true
+            }
+          },
+          {
+            "step_id": "SC-ACCUSATION-PREP",
+            "scene_unit_id": "SC-ACCUSATION-PREP",
+            "player_label": "Prepare final OSHA report.",
+            "location_id": "LOC-CONTROL",
+            "requires_state": {
+              "ready_to_accuse": true
+            }
+          },
+          {
+            "step_id": "SC-DEADLINE-WARN",
+            "scene_unit_id": "SC-DEADLINE-WARN",
+            "player_label": "Hear deadline warning.",
+            "location_id": "LOC-YARD"
+          }
+        ]
+      }
+    ],
+    "world_state_variants": [
+      {
+        "variant_id": "VAR-MAINT-RECORDS",
+        "base_scene_unit_id": "SC-MAINT-RECORDS",
+        "variants": [
+          {
+            "when_state": {
+              "flag": "records_sync_complete",
+              "value": true
+            },
+            "scene_unit_id": "SC-MAINT-RECORDS"
+          },
+          {
+            "when_state": {
+              "flag": "records_sync_complete",
+              "value": false
+            },
+            "scene_unit_id": "SC-MAINT-RECORDS"
+          }
+        ]
+      }
+    ],
+    "location_revisits": [
+      {
+        "location_id": "LOC-MAINT",
+        "revisit_rules": [
+          {
+            "rule_id": "REV-MAINT",
+            "when_clock_at_least": "T_RECORDS_SYNC",
+            "unlocks_scene_unit_id": "SC-MAINT-RECORDS",
+            "state_updates": {
+              "maint_reviewed": true
+            }
+          }
+        ]
+      },
+      {
+        "location_id": "LOC-CRUSHER",
+        "revisit_rules": [
+          {
+            "rule_id": "REV-HYDRAULIC",
+            "when_knowledge_held": [
+              "KNOW-DIANA-IMPACT"
+            ],
+            "unlocks_scene_unit_id": "SC-CRUSHER-HYDRAULIC",
+            "state_updates": {
+              "hydraulic_examined": true
+            }
+          }
+        ]
+      }
+    ],
+    "inference_flow_gates": [
+      {
+        "inference_id": "INF-PHYSICAL-CONFLICT",
+        "hypothesis_id": "HYP-PHYSICAL-CONFLICT",
+        "required_knowledge_ids": [
+          "KNOW-SCRAPE-MARKS",
+          "KNOW-HYDRAULIC-CUT",
+          "KNOW-WEATHER-DRY"
+        ],
+        "success_state_updates": {
+          "inference_physical_resolved": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-FLOOR-SCRAPE",
+          "REC-CRUSHER-HYDRAULIC"
+        ]
+      },
+      {
+        "inference_id": "INF-STAGING",
+        "hypothesis_id": "HYP-STAGING",
+        "required_knowledge_ids": [
+          "KNOW-HYDRAULIC-CUT",
+          "KNOW-BOOT-PRINTS",
+          "KNOW-SCRAPE-MARKS"
+        ],
+        "success_state_updates": {
+          "inference_staging_resolved": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-CRUSHER-TRACKS",
+          "REC-CRUSHER-HYDRAULIC"
+        ]
+      },
+      {
+        "inference_id": "INF-MARCUS-COVERUP",
+        "hypothesis_id": "HYP-MARCUS-ACCOUNTABLE",
+        "required_knowledge_ids": [
+          "KNOW-MAINT-FALSIFIED",
+          "KNOW-RICK-WITNESS",
+          "KNOW-INCIDENT-REPORT"
+        ],
+        "success_state_updates": {
+          "inference_marcus_resolved": true,
+          "ready_to_accuse": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-MAINT-LOG",
+          "REC-RICK-WITNESS"
+        ]
+      },
+      {
+        "inference_id": "INF-PERFECT-RECON",
+        "hypothesis_id": "HYP-PERFECT-RECON",
+        "required_knowledge_ids": [
+          "KNOW-PHYSICAL-CONTRADICTS",
+          "KNOW-MARCUS-COVERUP",
+          "KNOW-PERFECT-RECON"
+        ],
+        "success_state_updates": {
+          "inference_perfect_resolved": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-FLOOR-SCRAPE",
+          "REC-CONTROL-REPORT"
+        ]
+      }
+    ],
+    "recovery_routes": [
+      {
+        "route_id": "REC-FLOOR-SCRAPE",
+        "player_action_label": "Return to the limestone scrape marks.",
+        "destination_ref": "LOC-QUARRY-FLOOR",
+        "action_ref": "ACT-LIMESTONE-SCRAPE"
+      },
+      {
+        "route_id": "REC-CRUSHER-HYDRAULIC",
+        "player_action_label": "Re-examine the hydraulic fluid stain.",
+        "destination_ref": "LOC-CRUSHER",
+        "action_ref": "ACT-HYDRAULIC-STAIN"
+      },
+      {
+        "route_id": "REC-CRUSHER-TRACKS",
+        "player_action_label": "Re-document the boot print trail.",
+        "destination_ref": "LOC-CRUSHER",
+        "action_ref": "ACT-BOOT-PRINTS"
+      },
+      {
+        "route_id": "REC-MAINT-LOG",
+        "player_action_label": "Review the maintenance inspection log again.",
+        "destination_ref": "LOC-MAINT",
+        "action_ref": "ACT-MAINT-RECORD"
+      },
+      {
+        "route_id": "REC-CONTROL-REPORT",
+        "player_action_label": "Re-read the incident report terminal.",
+        "destination_ref": "LOC-CONTROL",
+        "action_ref": "ACT-INCIDENT-REPORT"
+      },
+      {
+        "route_id": "REC-RICK-WITNESS",
+        "player_action_label": "Return to Rick Torres about platform timing.",
+        "destination_ref": "LOC-YARD",
+        "action_ref": "CONV-RICK"
+      }
+    ],
+    "accusation_questionnaire": {
+      "questionnaire_id": "ACC-QUARRY-SILENCE",
+      "required_before_ending_eval": true,
+      "multi_component": true,
+      "questions": [
+        {
+          "question_id": "Q-WHO",
+          "conclusion_id": "CONC-WHO",
+          "answer_type": "npc_id",
+          "player_label": "Who falsified the equipment-failure narrative?"
+        },
+        {
+          "question_id": "Q-WHAT",
+          "conclusion_id": "CONC-WHAT",
+          "answer_type": "text",
+          "player_label": "What happened to Carl Mendez?"
+        },
+        {
+          "question_id": "Q-HOW",
+          "conclusion_id": "CONC-HOW",
+          "answer_type": "text",
+          "player_label": "How was the cover-up executed?"
+        },
+        {
+          "question_id": "Q-WHEN",
+          "conclusion_id": "CONC-WHEN",
+          "answer_type": "text",
+          "player_label": "When did the fall occur?"
+        }
+      ],
+      "accusation_complete_state_flag": "accusation_complete"
+    },
+    "deadline": {
+      "enabled": true,
+      "deadline_clock": "T_DEADLINE",
+      "deadline_ending_id": "END-TIMEOUT",
+      "blocks_accusation_after": true
+    },
+    "endings": [
+      {
+        "ending_id": "END-PERFECT",
+        "ending_type": "perfect",
+        "priority": 100,
+        "unit_id": "END-PERFECT",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true,
+            "inference_perfect_resolved": true
+          },
+          "required_accusation": {
+            "Q-WHO": "NPC-MARCUS"
+          }
+        }
+      },
+      {
+        "ending_id": "END-PARTIAL-CULPRIT",
+        "ending_type": "partial",
+        "priority": 50,
+        "unit_id": "END-PARTIAL-CULPRIT",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true,
+            "inference_marcus_resolved": true
+          }
+        }
+      },
+      {
+        "ending_id": "END-PARTIAL-PHYSICAL",
+        "ending_type": "partial",
+        "priority": 40,
+        "unit_id": "END-PARTIAL-PHYSICAL",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true,
+            "inference_physical_resolved": true
+          }
+        }
+      },
+      {
+        "ending_id": "END-PARTIAL-WRONG",
+        "ending_type": "partial",
+        "priority": 30,
+        "unit_id": "END-PARTIAL-WRONG",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true
+          },
+          "wrong_accusation_allowed": true
+        }
+      },
+      {
+        "ending_id": "END-TIMEOUT",
+        "ending_type": "timeout",
+        "priority": 10,
+        "unit_id": "END-TIMEOUT",
+        "trigger": {
+          "type": "deadline",
+          "deadline_clock": "T_DEADLINE"
+        }
+      }
+    ]
+  },
+  "player_units": {
+    "shell": {
+      "opening": {
+        "prose": "Limestone dust and diesel exhaust hang in the morning air as Marcus Reed meets you at the yard gate. Diana Okoro waits by the quarry floor tape with findings that already diverge from his report."
+      },
+      "how_to_play": {
+        "sections": [
+          {
+            "heading": "Your role",
+            "body": "You are a county occupational safety investigator verifying the official equipment-failure report."
+          },
+          {
+            "heading": "Time",
+            "body": "Track in-world time. OSHA preliminary report is due at 1200."
+          },
+          {
+            "heading": "Checks",
+            "body": "Roll d20 plus the modifier on your character sheet when prompted."
+          }
+        ]
+      },
+      "readme": {
+        "body": "Fair-play mystery at an active limestone quarry. Reconstruct events from physical traces, equipment condition, and incident records."
+      },
+      "character_sheet": {
+        "role": "County occupational safety investigator",
+        "intro": "You investigate workplace fatalities and verify employer incident reports.",
+        "modifiers": [
+          {
+            "capability": "perception",
+            "modifier": 2,
+            "when_applies": "Physical inspection and environmental observation checks"
+          },
+          {
+            "capability": "reasoning",
+            "modifier": 2,
+            "when_applies": "Timeline and physical evidence reconstruction checks"
+          },
+          {
+            "capability": "technical",
+            "modifier": 1,
+            "when_applies": "Equipment and hydraulic system checks"
+          }
+        ],
+        "equipment": "County tablet, measuring tape, evidence camera, pocket field guide.",
+        "stakes": "File a supported preliminary report before the 1200 deadline."
+      },
+      "case_file": "# Case file — The Quarry Silence\n\n## Physical evidence notes\n\n## Equipment cross-reference\n\n## Final determination\n",
+      "navigation_index": {
+        "entries": [
+          {
+            "label": "Locations",
+            "file_ref": "PLAYER/LOCATIONS.md"
+          },
+          {
+            "label": "NPCs",
+            "file_ref": "PLAYER/NPCS.md"
+          },
+          {
+            "label": "Objects",
+            "file_ref": "PLAYER/OBJECTS.md"
+          },
+          {
+            "label": "Scenes",
+            "file_ref": "PLAYER/SCENES.md"
+          },
+          {
+            "label": "Inference",
+            "file_ref": "PLAYER/INFERENCE.md"
+          },
+          {
+            "label": "Recovery",
+            "file_ref": "PLAYER/RECOVERY.md"
+          },
+          {
+            "label": "Endings",
+            "file_ref": "PLAYER/ENDINGS.md"
+          }
+        ]
+      }
+    },
+    "units": [
+      {
+        "unit_id": "UNIT-YARD-BASE",
+        "title": "Quarry yard gate",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-YARD",
+        "prose": {
+          "body": "You are at the quarry yard gate. Limestone dust, diesel exhaust, and morning fog hang over the active quarry."
+        },
+        "choices": [
+          {
+            "label": "Descend to the quarry floor.",
+            "destination_unit_id": "UNIT-QUARRY-FLOOR-BASE"
+          },
+          {
+            "label": "Climb to the primary crusher platform.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          },
+          {
+            "label": "Walk to the shift control shack.",
+            "destination_unit_id": "UNIT-CONTROL-BASE"
+          },
+          {
+            "label": "Cross to the maintenance bay.",
+            "destination_unit_id": "UNIT-MAINT-BASE"
+          },
+          {
+            "label": "Speak with shift supervisor Marcus Reed.",
+            "destination_unit_id": "UNIT-NPC-MARCUS-HUB"
+          },
+          {
+            "label": "Speak with coroner liaison Diana Okoro.",
+            "destination_unit_id": "UNIT-NPC-DIANA-HUB"
+          },
+          {
+            "label": "Speak with equipment operator Rick Torres.",
+            "destination_unit_id": "UNIT-NPC-RICK-HUB"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-YARD",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-QUARRY-FLOOR-BASE",
+        "title": "Quarry floor",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-QUARRY-FLOOR",
+        "prose": {
+          "body": "You are at the quarry floor. Limestone dust, diesel exhaust, and morning fog hang over the active quarry."
+        },
+        "choices": [
+          {
+            "label": "Examine limestone scrape marks at the impact zone.",
+            "destination_unit_id": "UNIT-CHK-IMPACT-DECL"
+          },
+          {
+            "label": "Return to the yard gate.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          },
+          {
+            "label": "Climb to the crusher platform.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-QUARRY-FLOOR",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-CRUSHER-BASE",
+        "title": "Primary crusher platform",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-CRUSHER",
+        "prose": {
+          "body": "You are at the primary crusher platform. Limestone dust, diesel exhaust, and morning fog hang over the active quarry."
+        },
+        "choices": [
+          {
+            "label": "Analyze hydraulic fluid stain on the deck.",
+            "destination_unit_id": "UNIT-CHK-HYDRAULIC-DECL"
+          },
+          {
+            "label": "Document mud boot print patterns.",
+            "destination_unit_id": "UNIT-CHK-TRACKS-DECL"
+          },
+          {
+            "label": "Speak with maintenance technician Elena Vasquez.",
+            "destination_unit_id": "UNIT-NPC-ELENA-HUB"
+          },
+          {
+            "label": "Return to the yard gate.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-CRUSHER",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-CONTROL-BASE",
+        "title": "Shift control shack",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-CONTROL",
+        "prose": {
+          "body": "You are at the shift control shack. Limestone dust, diesel exhaust, and morning fog hang over the active quarry."
+        },
+        "choices": [
+          {
+            "label": "Review the incident report terminal.",
+            "destination_unit_id": "UNIT-OBJ-REPORT-MENU"
+          },
+          {
+            "label": "Check the weather station log.",
+            "destination_unit_id": "UNIT-OBJ-WEATHER-MENU"
+          },
+          {
+            "label": "Return to the yard gate.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-CONTROL",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-MAINT-BASE",
+        "title": "Maintenance bay",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-MAINT",
+        "prose": {
+          "body": "You are at the maintenance bay. Limestone dust, diesel exhaust, and morning fog hang over the active quarry."
+        },
+        "choices": [
+          {
+            "label": "Review the maintenance inspection log.",
+            "destination_unit_id": "UNIT-OBJ-MAINT-MENU"
+          },
+          {
+            "label": "Return to the yard gate.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          },
+          {
+            "label": "Go to the crusher platform.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-MAINT",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-MARCUS-HUB",
+        "title": "Shift supervisor Marcus Reed",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-YARD",
+        "prose": {
+          "body": "Shift supervisor Marcus Reed meets you here. Their account may not match the physical evidence."
+        },
+        "choices": [
+          {
+            "label": "Ask about the equipment-failure report.",
+            "destination_unit_id": "UNIT-TOPIC-MARCUS-REPORT"
+          },
+          {
+            "label": "Ask about wet deck conditions.",
+            "destination_unit_id": "UNIT-TOPIC-MARCUS-SLIP"
+          },
+          {
+            "label": "Ask about crusher safety interlock status.",
+            "destination_unit_id": "UNIT-TOPIC-MARCUS-INTERLOCK"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-YARD",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-DIANA-HUB",
+        "title": "Coroner liaison Diana Okoro",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-YARD",
+        "prose": {
+          "body": "Coroner liaison Diana Okoro meets you here. Their account may not match the physical evidence."
+        },
+        "choices": [
+          {
+            "label": "Ask about preliminary injury findings.",
+            "destination_unit_id": "UNIT-TOPIC-DIANA-IMPACT"
+          },
+          {
+            "label": "Ask what the quarry base scene suggests.",
+            "destination_unit_id": "UNIT-TOPIC-DIANA-SCENE"
+          },
+          {
+            "label": "Ask about hard hat placement.",
+            "destination_unit_id": "UNIT-TOPIC-DIANA-HAT"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-YARD",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-ELENA-HUB",
+        "title": "Maintenance technician Elena Vasquez",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-CRUSHER",
+        "prose": {
+          "body": "Maintenance technician Elena Vasquez meets you here. Their account may not match the physical evidence."
+        },
+        "choices": [
+          {
+            "label": "Ask about hydraulic line condition.",
+            "destination_unit_id": "UNIT-TOPIC-ELENA-HYDRAULIC"
+          },
+          {
+            "label": "Ask about interlock inspection records.",
+            "destination_unit_id": "UNIT-TOPIC-ELENA-INTERLOCK"
+          },
+          {
+            "label": "Ask about normal failure patterns.",
+            "destination_unit_id": "UNIT-TOPIC-ELENA-BASELINE"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-CRUSHER",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-RICK-HUB",
+        "title": "Equipment operator Rick Torres",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-YARD",
+        "prose": {
+          "body": "Equipment operator Rick Torres meets you here. Their account may not match the physical evidence."
+        },
+        "choices": [
+          {
+            "label": "Ask who was on the crusher platform.",
+            "destination_unit_id": "UNIT-TOPIC-RICK-PLATFORM"
+          },
+          {
+            "label": "Ask about boot prints in the mud.",
+            "destination_unit_id": "UNIT-TOPIC-RICK-BOOTS"
+          },
+          {
+            "label": "Ask about timing before the alarm.",
+            "destination_unit_id": "UNIT-TOPIC-RICK-TIMING"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-YARD",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-MARCUS-REPORT",
+        "title": "Topic Marcus Report",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Marcus taps the incident tablet with a grease-stained glove.",
+            "speaker": "Marcus Reed",
+            "prompt": "says",
+            "quote": "Hydraulic line let go during Carl's inspection. Standard equipment failure — I filed at 0315 like protocol requires.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Reed.",
+            "destination_unit_id": "UNIT-NPC-MARCUS-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-MARCUS-SLIP",
+        "title": "Topic Marcus Slip",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Marcus gestures toward the crusher deck.",
+            "speaker": "Marcus Reed",
+            "prompt": "says",
+            "quote": "Deck was slick from overnight mist. Carl lost footing near the feed gate.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Reed.",
+            "destination_unit_id": "UNIT-NPC-MARCUS-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-MARCUS-INTERLOCK",
+        "title": "Topic Marcus Interlock",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Marcus avoids the interlock panel.",
+            "speaker": "Marcus Reed",
+            "prompt": "says",
+            "quote": "Interlock passed inspection at shift start. Elena signed off on the log.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Reed.",
+            "destination_unit_id": "UNIT-NPC-MARCUS-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-DIANA-IMPACT",
+        "title": "Topic Diana Impact",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Diana opens her field notes at the tape line.",
+            "speaker": "Diana Okoro",
+            "prompt": "says",
+            "quote": "Preliminary findings show blunt impact consistent with a fall, not crush injury alone.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Okoro.",
+            "destination_unit_id": "UNIT-NPC-DIANA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-DIANA-SCENE",
+        "title": "Topic Diana Scene",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Diana points toward the quarry base.",
+            "speaker": "Diana Okoro",
+            "prompt": "says",
+            "quote": "Fresh scrape marks on the limestone suggest lateral contact before the body came to rest.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Okoro.",
+            "destination_unit_id": "UNIT-NPC-DIANA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-DIANA-HAT",
+        "title": "Topic Diana Hat",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Diana photographs the platform railing.",
+            "speaker": "Diana Okoro",
+            "prompt": "says",
+            "quote": "Carl's hard hat is on the platform railing, not at the base where you'd expect after a crush.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Okoro.",
+            "destination_unit_id": "UNIT-NPC-DIANA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-ELENA-HYDRAULIC",
+        "title": "Topic Elena Hydraulic",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Elena holds up a cut hose sample.",
+            "speaker": "Elena Vasquez",
+            "prompt": "says",
+            "quote": "This line was cut with a blade, not burst by pressure. Splatter pattern confirms it.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Vasquez.",
+            "destination_unit_id": "UNIT-NPC-ELENA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-ELENA-INTERLOCK",
+        "title": "Topic Elena Interlock",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Elena pulls the maintenance tablet.",
+            "speaker": "Elena Vasquez",
+            "prompt": "says",
+            "quote": "Marcus signed the interlock check, but the gate sensor shows it was bypassed hours earlier.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Vasquez.",
+            "destination_unit_id": "UNIT-NPC-ELENA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-ELENA-BASELINE",
+        "title": "Topic Elena Baseline",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Elena spreads a reference chart on the bench.",
+            "speaker": "Elena Vasquez",
+            "prompt": "says",
+            "quote": "Catastrophic hydraulic failure leaves radial burst patterns. This stain is directional — a cut.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Vasquez.",
+            "destination_unit_id": "UNIT-NPC-ELENA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-RICK-PLATFORM",
+        "title": "Topic Rick Platform",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Rick keeps his eyes on the ground.",
+            "speaker": "Rick Torres",
+            "prompt": "says",
+            "quote": "Marcus was up on the platform around 0245. He told me to keep quiet about it.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Torres.",
+            "destination_unit_id": "UNIT-NPC-RICK-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-RICK-BOOTS",
+        "title": "Topic Rick Boots",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Rick scuffs the mud with his boot.",
+            "speaker": "Rick Torres",
+            "prompt": "says",
+            "quote": "Two sets of prints went to the railing that night. Carl's and a larger tread — supervisor issue.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Torres.",
+            "destination_unit_id": "UNIT-NPC-RICK-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-RICK-TIMING",
+        "title": "Topic Rick Timing",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Rick speaks barely above a whisper.",
+            "speaker": "Rick Torres",
+            "prompt": "says",
+            "quote": "Alarm came after Marcus came down alone. Carl never walked off that platform.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Torres.",
+            "destination_unit_id": "UNIT-NPC-RICK-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-REPORT-MENU",
+        "title": "Incident report terminal",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "The terminal shows Marcus Reed's 0315 equipment-failure filing."
+        },
+        "choices": [
+          {
+            "label": "Read the filed incident narrative.",
+            "destination_unit_id": "UNIT-OBJ-REPORT-RESULT"
+          },
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-CONTROL-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-REPORT-RESULT",
+        "title": "Incident report",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Report attributes death to hydraulic conveyor failure during solo inspection. No mention of platform fall."
+        },
+        "choices": [
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-CONTROL-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-WEATHER-MENU",
+        "title": "Weather station log",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Overnight precipitation and humidity readings are posted."
+        },
+        "choices": [
+          {
+            "label": "Review overnight weather data.",
+            "destination_unit_id": "UNIT-OBJ-WEATHER-RESULT"
+          },
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-CONTROL-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-WEATHER-RESULT",
+        "title": "Weather log",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Station recorded dry conditions from 0200 onward. Deck wet-slip claim is unsupported."
+        },
+        "choices": [
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-CONTROL-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-MAINT-MENU",
+        "title": "Maintenance inspection log",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Shift interlock and hydraulic inspection entries are indexed here."
+        },
+        "choices": [
+          {
+            "label": "Compare interlock log to equipment state.",
+            "destination_unit_id": "UNIT-OBJ-MAINT-RESULT"
+          },
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-MAINT-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-MAINT-RESULT",
+        "title": "Maintenance log",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Marcus signed interlock pass at shift start, but sensor logs show bypass at 0215."
+        },
+        "choices": [
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-MAINT-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-CHK-IMPACT-DECL",
+        "title": "Limestone impact marks",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_declaration",
+        "prose": {
+          "setup": "You measure fresh scrape marks on the quarry base limestone.",
+          "fact": "Roll d20 plus your modifier.",
+          "coda": "Compare your result to the difficulty."
+        },
+        "choices": [
+          {
+            "label": "If your roll succeeds, read the success section.",
+            "destination_unit_id": "UNIT-IMPACT-SUCCESS"
+          },
+          {
+            "label": "If your roll fails, read the failure section.",
+            "destination_unit_id": "UNIT-IMPACT-FAIL"
+          }
+        ],
+        "meta": {
+          "check": "perception",
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-CHK-HYDRAULIC-DECL",
+        "title": "Hydraulic splatter",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_declaration",
+        "prose": {
+          "setup": "You trace hydraulic fluid direction across the crusher deck.",
+          "fact": "Roll d20 plus your modifier.",
+          "coda": "Compare your result to the difficulty."
+        },
+        "choices": [
+          {
+            "label": "If your roll succeeds, read the success section.",
+            "destination_unit_id": "UNIT-HYDRAULIC-SUCCESS"
+          },
+          {
+            "label": "If your roll fails, read the failure section.",
+            "destination_unit_id": "UNIT-HYDRAULIC-FAIL"
+          }
+        ],
+        "meta": {
+          "check": "technical",
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-CHK-TRACKS-DECL",
+        "title": "Boot print reconstruction",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_declaration",
+        "prose": {
+          "setup": "You map paired boot prints in the platform mud.",
+          "fact": "Roll d20 plus your modifier.",
+          "coda": "Compare your result to the difficulty."
+        },
+        "choices": [
+          {
+            "label": "If your roll succeeds, read the success section.",
+            "destination_unit_id": "UNIT-TRACKS-SUCCESS"
+          },
+          {
+            "label": "If your roll fails, read the failure section.",
+            "destination_unit_id": "UNIT-TRACKS-FAIL"
+          }
+        ],
+        "meta": {
+          "check": "reasoning",
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-IMPACT-SUCCESS",
+        "title": "Impact marks — success",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_success",
+        "prose": {
+          "body": "Scrape angle shows lateral impact before rest; dust scuff on railing confirms struggle at platform edge."
+        },
+        "choices": [
+          {
+            "label": "Continue investigating.",
+            "destination_unit_id": "UNIT-QUARRY-FLOOR-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-IMPACT-FAIL",
+        "title": "Impact marks — failure",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_failure",
+        "prose": {
+          "body": "The marks are visible but you cannot fix the impact sequence."
+        },
+        "choices": [
+          {
+            "label": "Try another route.",
+            "destination_unit_id": "UNIT-QUARRY-FLOOR-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-HYDRAULIC-SUCCESS",
+        "title": "Hydraulic splatter — success",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_success",
+        "prose": {
+          "body": "Fluid arcs from a cut line, not a burst fitting. Staging after platform incident is likely."
+        },
+        "choices": [
+          {
+            "label": "Continue investigating.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-HYDRAULIC-FAIL",
+        "title": "Hydraulic splatter — failure",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_failure",
+        "prose": {
+          "body": "The stain could be failure or cut without clearer measurement."
+        },
+        "choices": [
+          {
+            "label": "Try another route.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-TRACKS-SUCCESS",
+        "title": "Boot prints — success",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_success",
+        "prose": {
+          "body": "Two print sets converge at the railing at 0245 — Carl's and a supervisor tread. Hard hat on railing confirms fall, not crush at base."
+        },
+        "choices": [
+          {
+            "label": "Continue investigating.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-TRACKS-FAIL",
+        "title": "Boot prints — failure",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_failure",
+        "prose": {
+          "body": "Mud disturbance obscures the second print set."
+        },
+        "choices": [
+          {
+            "label": "Try another route.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "SC-YARD-ARRIVAL",
+        "title": "Arrival briefing",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "County dispatch meets you at the yard gate as Marcus Reed waits with a printed incident summary."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-FLOOR-SCENE",
+        "title": "Quarry floor survey",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Diana Okoro walks you along the taped impact zone at the quarry base."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-QUARRY-FLOOR-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-QUARRY-FLOOR-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-CRUSHER-HYDRAULIC",
+        "title": "Hydraulic findings",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Elena Vasquez demonstrates the cut line sample on the crusher deck."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-MAINT-RECORDS",
+        "title": "Maintenance records pull",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "The maintenance bay terminal finishes syncing overnight logs."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-MAINT-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-MAINT-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-CRUSHER-TRACKS",
+        "title": "Boot print documentation",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "You photograph paired prints in the platform mud before wind dries them."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-FLOOR-IMPACT",
+        "title": "Impact measurement",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "You triangulate scrape marks against coroner measurements."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-QUARRY-FLOOR-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-QUARRY-FLOOR-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-ACCUSATION-PREP",
+        "title": "Final report prep",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "You assemble the OSHA preliminary file for the questionnaire."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-CONTROL-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-CONTROL-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-DEADLINE-WARN",
+        "title": "Deadline warning",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Dispatch warns the 1200 preliminary report window is closing."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "INF-PHYSICAL-CONFLICT",
+        "title": "Physical contradiction",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "Which physical traces contradict the official equipment-failure report?",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-QUARRY-FLOOR-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "INF-STAGING",
+        "title": "Staged failure",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "What evidence suggests hydraulic failure was staged after a platform incident?",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "INF-MARCUS-COVERUP",
+        "title": "Supervisor accountability",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "Who had opportunity to falsify incident and maintenance records?",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-CONTROL-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "INF-PERFECT-RECON",
+        "title": "Full reconstruction",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "Reconstruct the night: interlock bypass, platform fall, cut line, falsified logs.",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-CONTROL-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-YARD-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "REC-FLOOR-SCRAPE",
+        "title": "Floor Scrape",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Return to the limestone scrape marks."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-CHK-IMPACT-DECL"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-CRUSHER-HYDRAULIC",
+        "title": "Crusher Hydraulic",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Re-examine the hydraulic fluid stain."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-CHK-HYDRAULIC-DECL"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-CRUSHER-TRACKS",
+        "title": "Crusher Tracks",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Re-document the boot print trail."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-CHK-TRACKS-DECL"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-MAINT-LOG",
+        "title": "Maint Log",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Review the maintenance inspection log again."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-OBJ-MAINT-MENU"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-CONTROL-REPORT",
+        "title": "Control Report",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Re-read the incident report terminal."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-OBJ-REPORT-MENU"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-RICK-WITNESS",
+        "title": "Rick Witness",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Return to Rick Torres about platform timing."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-NPC-RICK-HUB"
+          }
+        ]
+      },
+      {
+        "unit_id": "END-PERFECT",
+        "title": "Perfect reconstruction",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "You document interlock bypass, platform fall, cut hydraulic line, and Marcus Reed's falsified records before the OSHA deadline."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-PARTIAL-CULPRIT",
+        "title": "Partial — culprit named",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "You name Marcus Reed but miss part of the physical reconstruction."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-PARTIAL-PHYSICAL",
+        "title": "Partial — physical only",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "You disprove the equipment-failure narrative but stop short of naming the cover-up."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-PARTIAL-WRONG",
+        "title": "Partial — wrong accusation",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "Your report reaches OSHA on time but misassigns accountability."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-TIMEOUT",
+        "title": "Deadline timeout",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "The preliminary report window closes before you can support a determination."
+        },
+        "choices": []
+      }
+    ]
+  },
+  "epistemic": {
+    "start_template_unit_id": "UNIT-YARD-BASE",
+    "initial_player_knowledge": [
+      "KNOW-OPEN-01",
+      "KNOW-OPEN-02",
+      "KNOW-OPEN-03",
+      "KNOW-OPEN-04"
+    ],
+    "initial_observable_entities": [
+      "NPC-MARCUS",
+      "NPC-DIANA",
+      "NPC-RICK"
+    ],
+    "initial_observable_objects": [
+      "OBJ-LIMESTONE-SCRAPE"
+    ],
+    "hub_definitions": [
+      {
+        "hub_unit_id": "UNIT-YARD-BASE",
+        "event_kind": "location_hub",
+        "physical_location_id": "LOC-YARD",
+        "observable_entities": [
+          "NPC-MARCUS",
+          "NPC-DIANA",
+          "NPC-RICK"
+        ],
+        "actions": [
+          {
+            "label": "Descend to the quarry floor.",
+            "destination_unit_id": "UNIT-QUARRY-FLOOR-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Climb to the primary crusher platform.",
+            "destination_unit_id": "UNIT-CRUSHER-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Walk to the shift control shack.",
+            "destination_unit_id": "UNIT-CONTROL-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Cross to the maintenance bay.",
+            "destination_unit_id": "UNIT-MAINT-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Speak with shift supervisor Marcus Reed.",
+            "destination_unit_id": "UNIT-NPC-MARCUS-HUB",
+            "action_type": "conversation"
+          },
+          {
+            "label": "Speak with coroner liaison Diana Okoro.",
+            "destination_unit_id": "UNIT-NPC-DIANA-HUB",
+            "action_type": "conversation"
+          },
+          {
+            "label": "Speak with equipment operator Rick Torres.",
+            "destination_unit_id": "UNIT-NPC-RICK-HUB",
+            "action_type": "conversation"
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-MARCUS-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-YARD",
+        "actions": [
+          {
+            "label": "Ask about the equipment-failure report.",
+            "destination_unit_id": "UNIT-TOPIC-MARCUS-REPORT",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about wet deck conditions.",
+            "destination_unit_id": "UNIT-TOPIC-MARCUS-SLIP",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about crusher safety interlock status.",
+            "destination_unit_id": "UNIT-TOPIC-MARCUS-INTERLOCK",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-DIANA-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-YARD",
+        "actions": [
+          {
+            "label": "Ask about preliminary injury findings.",
+            "destination_unit_id": "UNIT-TOPIC-DIANA-IMPACT",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask what the quarry base scene suggests.",
+            "destination_unit_id": "UNIT-TOPIC-DIANA-SCENE",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about hard hat placement.",
+            "destination_unit_id": "UNIT-TOPIC-DIANA-HAT",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-ELENA-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-CRUSHER",
+        "actions": [
+          {
+            "label": "Ask about hydraulic line condition.",
+            "destination_unit_id": "UNIT-TOPIC-ELENA-HYDRAULIC",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about interlock inspection records.",
+            "destination_unit_id": "UNIT-TOPIC-ELENA-INTERLOCK",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about normal failure patterns.",
+            "destination_unit_id": "UNIT-TOPIC-ELENA-BASELINE",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-RICK-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-YARD",
+        "actions": [
+          {
+            "label": "Ask who was on the crusher platform.",
+            "destination_unit_id": "UNIT-TOPIC-RICK-PLATFORM",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about boot prints in the mud.",
+            "destination_unit_id": "UNIT-TOPIC-RICK-BOOTS",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about timing before the alarm.",
+            "destination_unit_id": "UNIT-TOPIC-RICK-TIMING",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      }
+    ],
+    "topic_return_profiles": [
+      {
+        "unit_prefix": "UNIT-TOPIC-MARCUS",
+        "hub_unit_id": "UNIT-NPC-MARCUS-HUB",
+        "hub_label": "Return to Marcus.",
+        "exit_unit_id": "UNIT-YARD-BASE",
+        "exit_label": "Leave the conversation."
+      },
+      {
+        "unit_prefix": "UNIT-TOPIC-DIANA",
+        "hub_unit_id": "UNIT-NPC-DIANA-HUB",
+        "hub_label": "Return to Diana.",
+        "exit_unit_id": "UNIT-YARD-BASE",
+        "exit_label": "Leave the conversation."
+      },
+      {
+        "unit_prefix": "UNIT-TOPIC-ELENA",
+        "hub_unit_id": "UNIT-NPC-ELENA-HUB",
+        "hub_label": "Return to Elena.",
+        "exit_unit_id": "UNIT-CRUSHER-BASE",
+        "exit_label": "Leave the conversation."
+      },
+      {
+        "unit_prefix": "UNIT-TOPIC-RICK",
+        "hub_unit_id": "UNIT-NPC-RICK-HUB",
+        "hub_label": "Return to Rick.",
+        "exit_unit_id": "UNIT-YARD-BASE",
+        "exit_label": "Leave the conversation."
+      }
+    ],
+    "topic_knowledge_grants": {
+      "UNIT-TOPIC-DIANA-IMPACT": [
+        "KNOW-DIANA-IMPACT"
+      ],
+      "UNIT-TOPIC-ELENA-HYDRAULIC": [
+        "KNOW-ELENA-HYDRAULIC"
+      ],
+      "UNIT-TOPIC-ELENA-INTERLOCK": [
+        "KNOW-MAINT-FALSIFIED"
+      ],
+      "UNIT-TOPIC-RICK-PLATFORM": [
+        "KNOW-RICK-WITNESS"
+      ],
+      "UNIT-TOPIC-MARCUS-REPORT": [
+        "KNOW-INCIDENT-REPORT"
+      ]
+    },
+    "inference_choice_gates": [
+      {
+        "label_contains": "My conclusion matches the evidence",
+        "requires_knowledge_ids": [
+          "KNOW-PHYSICAL-CONTRADICTS"
+        ]
+      }
+    ],
+    "materialization": {
+      "max_states": 500000
+    }
+  },
+  "gamebook": {
+    "enabled": true,
+    "start_template_unit_id": "UNIT-YARD-BASE"
+  },
+  "validator_seeds": {
+    "story": {
+      "story_frame": {
+        "investigation_starts_where": "limestone quarry yard gate after night-shift fatality",
+        "investigation_starts_when": "morning after incident discovery",
+        "incident_description": "worker death at quarry base with official equipment-failure report",
+        "incident_when": "night shift ending approximately 0315",
+        "investigator_involvement": "county occupational safety investigator dispatched to verify incident report",
+        "deadline_or_constraint": "OSHA preliminary report due at 1200"
+      },
+      "timeline": {
+        "investigation_confused_with_incident": false,
+        "impossible_ordering": false,
+        "events": []
+      }
+    },
+    "dm_feeling": {
+      "tier_c_playtest": {
+        "required": true,
+        "completed": false,
+        "notes": "Pack spec seed — playtest pending"
+      },
+      "time_pressure": {
+        "deadline_relevant": true,
+        "forced_tradeoffs": true,
+        "waiting_dominates": false
+      }
+    }
+  },
+  "modifier_sources": [
+    {
+      "modifier_id": "MOD-PERCEPTION",
+      "capability_category": "perception_observation",
+      "source": "character_sheet.perception"
+    },
+    {
+      "modifier_id": "MOD-REASONING",
+      "capability_category": "reasoning_analysis",
+      "source": "character_sheet.reasoning"
+    },
+    {
+      "modifier_id": "MOD-TECHNICAL",
+      "capability_category": "technical_systems",
+      "source": "character_sheet.technical"
+    }
+  ]
+}

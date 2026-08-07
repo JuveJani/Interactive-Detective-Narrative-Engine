@@ -1,0 +1,557 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Parish_Ledger",
+  "fixed_truth": {
+    "culprit_id": "NPC-GRACE",
+    "motive": "Divert memorial fund deposits to cover personal property tax arrears before diocesan audit",
+    "method": "Altered ledger page 47, prepared short deposit batch, and self-signed counter-signature log",
+    "opportunity": "Parish administrator authority, sole after-hours records room access, deposit preparation duties",
+    "immutable_facts": [
+      {
+        "fact_id": "FACT-001",
+        "statement": "Memorial fund ledger records $18,400 in donations for the quarter"
+      },
+      {
+        "fact_id": "FACT-002",
+        "statement": "Bank deposit batch shows only $14,200 credited to the memorial fund account"
+      },
+      {
+        "fact_id": "FACT-003",
+        "statement": "Parish administrator Grace Brennan had sole after-hours access to the records room"
+      },
+      {
+        "fact_id": "FACT-004",
+        "statement": "Grace Brennan altered ledger page 47 with white-out before the audit packet was prepared"
+      },
+      {
+        "fact_id": "FACT-005",
+        "statement": "Bank deposit slip batch dated March 12 shows memorial fund line short by $4,200"
+      },
+      {
+        "fact_id": "FACT-006",
+        "statement": "Parish council minutes allocate memorial fund exclusively to stained-glass restoration"
+      },
+      {
+        "fact_id": "FACT-007",
+        "statement": "Volunteer bookkeeper Helen Marsh flagged discrepancies on March 10"
+      },
+      {
+        "fact_id": "FACT-008",
+        "statement": "Grace Brennan signed deposit batch without required second counter-signature"
+      },
+      {
+        "fact_id": "FACT-009",
+        "statement": "Father Michael O'Sullivan was told memorial fund was fully deposited on March 11"
+      },
+      {
+        "fact_id": "FACT-010",
+        "statement": "Rita Santos requested duplicate deposit receipts but Grace said they were already filed"
+      },
+      {
+        "fact_id": "FACT-011",
+        "statement": "Memorial register entries 112 through 118 do not appear in the bank deposit batch"
+      },
+      {
+        "fact_id": "FACT-012",
+        "statement": "Grace Brennan's badge log shows records room access at 2230 on March 11"
+      },
+      {
+        "fact_id": "FACT-013",
+        "statement": "Grace Brennan faced overdue property tax pressure documented in her office files"
+      },
+      {
+        "fact_id": "FACT-014",
+        "statement": "Counter-signature log shows Grace self-signed as both preparer and verifier"
+      }
+    ]
+  },
+  "causal_timeline": {
+    "clock_start": "2026-03-01T09:00:00",
+    "events": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "2026-03-01T09:00:00",
+        "day_label": "Week 1",
+        "location_id": "LOC-HALL",
+        "description": "Memorial fund drive concludes with $18,400 recorded in ledger",
+        "participants": [
+          "NPC-HELEN"
+        ],
+        "causes": [],
+        "reveals_facts": [
+          "FACT-001"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-002",
+        "timestamp": "2026-03-10T14:00:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-RECORDS",
+        "description": "Helen Marsh notices white-out on ledger page 47",
+        "participants": [
+          "NPC-HELEN"
+        ],
+        "causes": [
+          "EVT-001"
+        ],
+        "reveals_facts": [
+          "FACT-004",
+          "FACT-007"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-003",
+        "timestamp": "2026-03-11T10:00:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-OFFICE",
+        "description": "Grace tells Father Michael memorial fund was fully deposited",
+        "participants": [
+          "NPC-GRACE",
+          "NPC-FATHER"
+        ],
+        "causes": [],
+        "reveals_facts": [
+          "FACT-009"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-004",
+        "timestamp": "2026-03-11T22:30:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-RECORDS",
+        "description": "Grace accesses records room and alters ledger page 47",
+        "participants": [
+          "NPC-GRACE"
+        ],
+        "causes": [
+          "EVT-002"
+        ],
+        "reveals_facts": [
+          "FACT-003",
+          "FACT-004",
+          "FACT-012"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-005",
+        "timestamp": "2026-03-12T08:00:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-OFFICE",
+        "description": "Grace prepares bank deposit batch with memorial fund shortfall",
+        "participants": [
+          "NPC-GRACE"
+        ],
+        "causes": [
+          "EVT-004"
+        ],
+        "reveals_facts": [
+          "FACT-005",
+          "FACT-008",
+          "FACT-014"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-006",
+        "timestamp": "2026-03-12T09:30:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-OFFICE",
+        "description": "Rita Santos requests duplicate deposit receipts",
+        "participants": [
+          "NPC-RITA",
+          "NPC-GRACE"
+        ],
+        "causes": [
+          "EVT-005"
+        ],
+        "reveals_facts": [
+          "FACT-010"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-007",
+        "timestamp": "2026-03-13T11:00:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-COUNCIL",
+        "description": "Council minutes confirm stained-glass-only allocation for memorial fund",
+        "participants": [
+          "NPC-RITA"
+        ],
+        "causes": [],
+        "reveals_facts": [
+          "FACT-006"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-008",
+        "timestamp": "2026-03-14T08:00:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-RECORDS",
+        "description": "Helen cross-references register entries 112-118 against deposit batch",
+        "participants": [
+          "NPC-HELEN"
+        ],
+        "causes": [
+          "EVT-005"
+        ],
+        "reveals_facts": [
+          "FACT-011"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-009",
+        "timestamp": "2026-03-14T09:00:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-NARTHEX",
+        "description": "Diocesan finance auditor arrives for reconciliation review",
+        "participants": [
+          "PC-AUDITOR"
+        ],
+        "causes": [
+          "EVT-008"
+        ],
+        "reveals_facts": [],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-010",
+        "timestamp": "2026-03-14T10:30:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-RECORDS",
+        "description": "Records room terminal syncs bank deposit images to auditor tablet",
+        "participants": [],
+        "causes": [
+          "EVT-009"
+        ],
+        "reveals_facts": [],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-011",
+        "timestamp": "2026-03-14T12:00:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-COUNCIL",
+        "description": "Rita Santos shares council minutes with auditor",
+        "participants": [
+          "NPC-RITA"
+        ],
+        "causes": [
+          "EVT-009"
+        ],
+        "reveals_facts": [
+          "FACT-006"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-012",
+        "timestamp": "2026-03-14T14:00:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-OFFICE",
+        "description": "Helen shares register cross-reference findings with auditor",
+        "participants": [
+          "NPC-HELEN"
+        ],
+        "causes": [
+          "EVT-010"
+        ],
+        "reveals_facts": [
+          "FACT-002",
+          "FACT-011"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-013",
+        "timestamp": "2026-03-14T17:00:00",
+        "day_label": "Week 2",
+        "location_id": "LOC-NARTHEX",
+        "description": "Diocesan annual review reconciliation deadline",
+        "participants": [],
+        "causes": [
+          "EVT-009"
+        ],
+        "reveals_facts": [],
+        "effects": []
+      }
+    ]
+  },
+  "world_state_timeline": {
+    "snapshots": [
+      {
+        "at_event_id": "EVT-005",
+        "people_locations": {
+          "NPC-GRACE": "LOC-OFFICE"
+        },
+        "object_states": {
+          "OBJ-DEPOSIT-BATCH": "prepared_short"
+        },
+        "access_states": {
+          "LOC-RECORDS": "restricted"
+        },
+        "evidence_conditions": {}
+      },
+      {
+        "at_event_id": "EVT-009",
+        "people_locations": {
+          "PC-AUDITOR": "LOC-NARTHEX"
+        },
+        "object_states": {
+          "OBJ-DONATION-LEDGER": "under_review"
+        },
+        "access_states": {
+          "LOC-NARTHEX": "open"
+        },
+        "evidence_conditions": {}
+      },
+      {
+        "at_event_id": "EVT-010",
+        "people_locations": {},
+        "object_states": {
+          "OBJ-BANK-DEPOSITS": "sync_complete"
+        },
+        "access_states": {
+          "LOC-RECORDS": "records_available"
+        },
+        "evidence_conditions": {}
+      }
+    ]
+  },
+  "npc_knowledge": {
+    "npcs": [
+      {
+        "npc_id": "NPC-GRACE",
+        "knows": [
+          "FACT-003",
+          "FACT-004",
+          "FACT-005",
+          "FACT-008",
+          "FACT-014"
+        ],
+        "believes_incorrectly": [],
+        "witnessed_events": [
+          "EVT-003",
+          "EVT-004",
+          "EVT-005",
+          "EVT-006"
+        ],
+        "hides": [
+          "FACT-004",
+          "FACT-005",
+          "FACT-008",
+          "FACT-012",
+          "FACT-014"
+        ],
+        "behavior_rationale": "Conceals ledger alterations and deposit diversion to avoid diocesan discipline"
+      },
+      {
+        "npc_id": "NPC-HELEN",
+        "knows": [
+          "FACT-001",
+          "FACT-004",
+          "FACT-007",
+          "FACT-011"
+        ],
+        "believes_incorrectly": [],
+        "witnessed_events": [
+          "EVT-001",
+          "EVT-002",
+          "EVT-008",
+          "EVT-012"
+        ],
+        "hides": [],
+        "behavior_rationale": "Cooperative volunteer bookkeeper who trusts written records over administrator assurances"
+      },
+      {
+        "npc_id": "NPC-RITA",
+        "knows": [
+          "FACT-006",
+          "FACT-010"
+        ],
+        "believes_incorrectly": [],
+        "witnessed_events": [
+          "EVT-006",
+          "EVT-007",
+          "EVT-011"
+        ],
+        "hides": [],
+        "behavior_rationale": "Council treasurer focused on proper fund allocation per meeting minutes"
+      },
+      {
+        "npc_id": "NPC-FATHER",
+        "knows": [
+          "FACT-009"
+        ],
+        "believes_incorrectly": [
+          {
+            "belief_fact_id": "FACT-009",
+            "actual_fact_id": "FACT-002",
+            "cause": "Accepted Grace Brennan's assurance that deposits were complete"
+          }
+        ],
+        "witnessed_events": [
+          "EVT-003"
+        ],
+        "hides": [],
+        "behavior_rationale": "Pastor relied on administrator without verifying bank reconciliation"
+      }
+    ]
+  },
+  "evidence_provenance": {
+    "evidence": [
+      {
+        "evidence_id": "EVD-DONATION-LEDGER",
+        "source_event_id": "EVT-001",
+        "type": "document",
+        "description": "Memorial fund donation ledger with page 47 alterations",
+        "establishes_fact_ids": [
+          "FACT-001",
+          "FACT-004"
+        ],
+        "misleading": true,
+        "misleading_cause": "White-out corrections mask diverted entries"
+      },
+      {
+        "evidence_id": "EVD-DEPOSIT-BATCH",
+        "source_event_id": "EVT-005",
+        "type": "document",
+        "description": "Bank deposit slip batch dated March 12",
+        "establishes_fact_ids": [
+          "FACT-002",
+          "FACT-005",
+          "FACT-008"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      },
+      {
+        "evidence_id": "EVD-COUNCIL-MINUTES",
+        "source_event_id": "EVT-007",
+        "type": "document",
+        "description": "Parish council meeting minutes on memorial fund allocation",
+        "establishes_fact_ids": [
+          "FACT-006"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      },
+      {
+        "evidence_id": "EVD-MEMORIAL-REGISTER",
+        "source_event_id": "EVT-008",
+        "type": "document",
+        "description": "Memorial register entries 112 through 118",
+        "establishes_fact_ids": [
+          "FACT-011"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      },
+      {
+        "evidence_id": "EVD-COUNTER-SIGN",
+        "source_event_id": "EVT-005",
+        "type": "document",
+        "description": "Counter-signature log for deposit batch",
+        "establishes_fact_ids": [
+          "FACT-014"
+        ],
+        "misleading": true,
+        "misleading_cause": "Shows Grace as both preparer and verifier"
+      },
+      {
+        "evidence_id": "EVD-BADGE-LOG",
+        "source_event_id": "EVT-004",
+        "type": "document",
+        "description": "Records room badge access log",
+        "establishes_fact_ids": [
+          "FACT-012",
+          "FACT-003"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      }
+    ]
+  },
+  "observable_information": {
+    "observations": [
+      {
+        "observation_id": "OBS-LEDGER-PAGE",
+        "learnable_fact_id": "FACT-004",
+        "source_evidence_id": "EVD-DONATION-LEDGER",
+        "requires": {
+          "action": "inspect",
+          "location_id": "LOC-RECORDS",
+          "check_id": "CHK-LEDGER"
+        },
+        "hidden_if_not_met": true
+      },
+      {
+        "observation_id": "OBS-DEPOSIT-SHORT",
+        "learnable_fact_id": "FACT-005",
+        "source_evidence_id": "EVD-DEPOSIT-BATCH",
+        "requires": {
+          "action": "inspect",
+          "location_id": "LOC-RECORDS",
+          "check_id": "CHK-DEPOSIT"
+        },
+        "hidden_if_not_met": true
+      },
+      {
+        "observation_id": "OBS-MINUTES-ALLOC",
+        "learnable_fact_id": "FACT-006",
+        "source_evidence_id": "EVD-COUNCIL-MINUTES",
+        "requires": {
+          "action": "inspect",
+          "location_id": "LOC-COUNCIL",
+          "check_id": "CHK-MINUTES"
+        },
+        "hidden_if_not_met": true
+      }
+    ]
+  },
+  "conclusion_requirements": {
+    "questions": [
+      {
+        "question_id": "Q-CULPRIT",
+        "answer_entity_id": "NPC-GRACE",
+        "required_fact_ids": [
+          "FACT-004",
+          "FACT-005",
+          "FACT-008",
+          "FACT-014"
+        ]
+      },
+      {
+        "question_id": "Q-METHOD",
+        "answer_entity_id": "METHOD-EMBEZZLEMENT",
+        "required_fact_ids": [
+          "FACT-004",
+          "FACT-005",
+          "FACT-014"
+        ]
+      }
+    ]
+  },
+  "narrative_construction": {},
+  "ending_claims": [
+    {
+      "ending_id": "END-PERFECT",
+      "asserted_fact_ids": [
+        "FACT-004",
+        "FACT-005",
+        "FACT-008",
+        "FACT-014"
+      ]
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "asserted_fact_ids": []
+    }
+  ]
+}

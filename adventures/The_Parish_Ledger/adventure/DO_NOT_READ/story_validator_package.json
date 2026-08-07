@@ -1,0 +1,20 @@
+{
+  "story_frame": {
+    "investigation_starts_where": "St. Brendan's parish narthex at start of diocesan audit day",
+    "investigation_starts_when": "morning of annual reconciliation review",
+    "incident_description": "memorial fund ledger totals do not match bank deposit batch before diocesan review",
+    "incident_when": "discovered during March reconciliation period",
+    "investigator_involvement": "diocesan finance auditor appointed by parish council to reconcile records",
+    "deadline_or_constraint": "diocesan annual review reconciliation due at 1700"
+  },
+  "timeline": {
+    "investigation_confused_with_incident": false,
+    "impossible_ordering": false,
+    "events": []
+  },
+  "schema_version": "1.0",
+  "adventure_id": "The_Parish_Ledger",
+  "play_modes": [
+    "single_investigator"
+  ]
+}

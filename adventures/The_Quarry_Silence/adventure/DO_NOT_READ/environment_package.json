@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Quarry_Silence",
+  "start_location_id": "LOC-YARD",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "locations": [
+    {
+      "location_id": "LOC-YARD",
+      "public_name": "Quarry yard gate",
+      "start_location": true,
+      "hub_unit_id": "UNIT-YARD-BASE",
+      "parent_location_id": null,
+      "location_type": "industrial_yard",
+      "description_source": "DESC-YARD",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-009",
+          "EVT-010"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-QUARRY-FLOOR",
+      "public_name": "Quarry floor",
+      "hub_unit_id": "UNIT-QUARRY-FLOOR-BASE",
+      "parent_location_id": "LOC-YARD",
+      "location_type": "quarry_base",
+      "description_source": "DESC-QUARRY-FLOOR",
+      "default_attributes": {
+        "access": "restricted"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-005",
+          "EVT-008"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-CRUSHER",
+      "public_name": "Primary crusher platform",
+      "hub_unit_id": "UNIT-CRUSHER-BASE",
+      "parent_location_id": "LOC-YARD",
+      "location_type": "processing_plant",
+      "description_source": "DESC-CRUSHER",
+      "default_attributes": {
+        "access": "restricted"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-001",
+          "EVT-002",
+          "EVT-003",
+          "EVT-004",
+          "EVT-012"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-CONTROL",
+      "public_name": "Shift control shack",
+      "hub_unit_id": "UNIT-CONTROL-BASE",
+      "parent_location_id": "LOC-YARD",
+      "location_type": "control_office",
+      "description_source": "DESC-CONTROL",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-006",
+          "EVT-013"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-MAINT",
+      "public_name": "Maintenance bay",
+      "hub_unit_id": "UNIT-MAINT-BASE",
+      "parent_location_id": "LOC-YARD",
+      "location_type": "maintenance_bay",
+      "description_source": "DESC-MAINT",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-007",
+          "EVT-011"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    }
+  ],
+  "location_states": [
+    {
+      "state_id": "LOC-YARD:default",
+      "location_id": "LOC-YARD",
+      "variant_label": "investigation_start",
+      "attributes": {
+        "access": "open",
+        "scene_taped": "partial"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-010"
+      }
+    },
+    {
+      "state_id": "LOC-MAINT:records_sync",
+      "location_id": "LOC-MAINT",
+      "variant_label": "records_synced",
+      "attributes": {
+        "records_sync": "complete"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-011"
+      }
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "FEAT-LIMESTONE-SCRAPE",
+      "location_id": "LOC-QUARRY-FLOOR",
+      "label": "Limestone scrape marks at impact zone",
+      "object_ref": "OBJ-LIMESTONE-SCRAPE"
+    },
+    {
+      "feature_id": "FEAT-HYDRAULIC-STAIN",
+      "location_id": "LOC-CRUSHER",
+      "label": "Hydraulic fluid stain on crusher deck",
+      "object_ref": "OBJ-HYDRAULIC-STAIN"
+    }
+  ],
+  "navigation": [
+    {
+      "nav_id": "NAV-YARD-FLOOR",
+      "source_location_id": "LOC-YARD",
+      "destination_location_id": "LOC-QUARRY-FLOOR",
+      "player_label": "Descend to the quarry floor",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-YARD-CRUSHER",
+      "source_location_id": "LOC-YARD",
+      "destination_location_id": "LOC-CRUSHER",
+      "player_label": "Climb to the primary crusher platform",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-YARD-CONTROL",
+      "source_location_id": "LOC-YARD",
+      "destination_location_id": "LOC-CONTROL",
+      "player_label": "Walk to the shift control shack",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-YARD-MAINT",
+      "source_location_id": "LOC-YARD",
+      "destination_location_id": "LOC-MAINT",
+      "player_label": "Cross to the maintenance bay",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-FLOOR-YARD",
+      "source_location_id": "LOC-QUARRY-FLOOR",
+      "destination_location_id": "LOC-YARD",
+      "player_label": "Return to the yard gate",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-CRUSHER-YARD",
+      "source_location_id": "LOC-CRUSHER",
+      "destination_location_id": "LOC-YARD",
+      "player_label": "Return to the yard gate",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-CONTROL-YARD",
+      "source_location_id": "LOC-CONTROL",
+      "destination_location_id": "LOC-YARD",
+      "player_label": "Return to the yard gate",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-MAINT-YARD",
+      "source_location_id": "LOC-MAINT",
+      "destination_location_id": "LOC-YARD",
+      "player_label": "Return to the yard gate",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    }
+  ],
+  "revisit_rules": {
+    "persist_physical_changes": true,
+    "persist_acquired_objects": true,
+    "persist_open_access": true,
+    "suppress_repeat_one_time_observations": true,
+    "allow_time_variants": true,
+    "reset_to_initial_on_revisit": false
+  },
+  "mandatory_locations": [
+    {
+      "location_id": "LOC-YARD",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-QUARRY-FLOOR",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-CRUSHER",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-CONTROL",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-MAINT",
+      "access": "reachable",
+      "reason": "investigation"
+    }
+  ]
+}

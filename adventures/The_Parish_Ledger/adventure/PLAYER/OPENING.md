@@ -1,0 +1,1 @@
+Muted organ tones and the rustle of ledger pages greet you at St. Brendan's narthex. Grace Brennan waits with a reconciliation packet while Helen Marsh's flagged discrepancies already sit on your auditor tablet.

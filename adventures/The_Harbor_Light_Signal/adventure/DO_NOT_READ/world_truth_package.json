@@ -1,0 +1,535 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Harbor_Light_Signal",
+  "fixed_truth": {
+    "culprit_id": "NPC-TOM",
+    "motive": "Avoid commission discipline and negligence findings after Henry died during unauthorized lens repair Tom had warned against",
+    "method": "Discovered Henry's body after a gallery fall, then falsified voluntary-departure entries in the log book and radio traffic",
+    "opportunity": "Acting keeper on watch; access to log book, radio terminal, and supply tally signatures",
+    "immutable_facts": [
+      {
+        "fact_id": "FACT-001",
+        "statement": "Head keeper Henry Walsh planned unauthorized lens shim calibration alone in the gallery at 0400"
+      },
+      {
+        "fact_id": "FACT-002",
+        "statement": "Henry Walsh fell from the gallery safety railing during lens repair"
+      },
+      {
+        "fact_id": "FACT-003",
+        "statement": "Assistant keeper Tom Reed discovered Henry's body in the gallery"
+      },
+      {
+        "fact_id": "FACT-004",
+        "statement": "Tom Reed staged a voluntary-departure narrative to avoid commission scrutiny"
+      },
+      {
+        "fact_id": "FACT-005",
+        "statement": "Tom Reed logged voluntary departure at 0430 in the keeper's log book"
+      },
+      {
+        "fact_id": "FACT-006",
+        "statement": "Tom Reed keyed a voluntary-departure radio report at 0410 under Henry's name"
+      },
+      {
+        "fact_id": "FACT-007",
+        "statement": "Landing operations were closed from 0345 to 0715 due to squall conditions"
+      },
+      {
+        "fact_id": "FACT-008",
+        "statement": "Pilot Frank Morales flew no passenger off the station during the night"
+      },
+      {
+        "fact_id": "FACT-009",
+        "statement": "Henry Walsh's personal trunk TRK-HENRY-014 never scanned outbound"
+      },
+      {
+        "fact_id": "FACT-010",
+        "statement": "Gallery railing shows fresh scrape marks and a bent rail pin at the lens access point"
+      },
+      {
+        "fact_id": "FACT-011",
+        "statement": "Lens toolkit LSK-7 was checked out to Henry for scheduled service two days earlier"
+      },
+      {
+        "fact_id": "FACT-012",
+        "statement": "Relief keeper Sarah Chen was not told the true status of Henry Walsh before arrival"
+      },
+      {
+        "fact_id": "FACT-013",
+        "statement": "Supply clerk Maya Ortiz records show Tom signed the 0430 outbound tally without Henry's signature"
+      },
+      {
+        "fact_id": "FACT-014",
+        "statement": "Weather chart CLOSED status contradicts any claimed 0430 voluntary boat or rotor departure"
+      }
+    ]
+  },
+  "causal_timeline": {
+    "clock_start": "2026-08-04T03:45:00",
+    "events": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "2026-08-04T04:00:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-GALLERY",
+        "description": "Henry begins unauthorized lens repair in the gallery",
+        "participants": [
+          "NPC-HENRY"
+        ],
+        "causes": [],
+        "reveals_facts": [
+          "FACT-001"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-002",
+        "timestamp": "2026-08-04T04:18:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-GALLERY",
+        "description": "Henry falls from the gallery railing",
+        "participants": [
+          "NPC-HENRY"
+        ],
+        "causes": [
+          "EVT-001"
+        ],
+        "reveals_facts": [
+          "FACT-002"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-003",
+        "timestamp": "2026-08-04T04:22:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-GALLERY",
+        "description": "Tom discovers Henry's body",
+        "participants": [
+          "NPC-TOM"
+        ],
+        "causes": [
+          "EVT-002"
+        ],
+        "reveals_facts": [
+          "FACT-003"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-004",
+        "timestamp": "2026-08-04T04:28:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-KEEPER",
+        "description": "Tom decides to report voluntary departure instead of the fall",
+        "participants": [
+          "NPC-TOM"
+        ],
+        "causes": [
+          "EVT-003"
+        ],
+        "reveals_facts": [
+          "FACT-004"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-005",
+        "timestamp": "2026-08-04T04:30:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-KEEPER",
+        "description": "Tom alters the keeper log with voluntary-departure entry",
+        "participants": [
+          "NPC-TOM"
+        ],
+        "causes": [
+          "EVT-004"
+        ],
+        "reveals_facts": [
+          "FACT-005"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-006",
+        "timestamp": "2026-08-04T04:35:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-OFFICE",
+        "description": "Tom keys voluntary-departure radio report",
+        "participants": [
+          "NPC-TOM"
+        ],
+        "causes": [
+          "EVT-004"
+        ],
+        "reveals_facts": [
+          "FACT-006"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-007",
+        "timestamp": "2026-08-04T03:45:00",
+        "day_label": "Night 1",
+        "location_id": "LOC-LANDING",
+        "description": "Squall closes landing operations",
+        "participants": [],
+        "causes": [],
+        "reveals_facts": [
+          "FACT-007",
+          "FACT-014"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-008",
+        "timestamp": "2026-08-04T06:00:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-LANDING",
+        "description": "Sarah Chen arrives for relief duty",
+        "participants": [
+          "NPC-SARAH"
+        ],
+        "causes": [],
+        "reveals_facts": [
+          "FACT-012"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-009",
+        "timestamp": "2026-08-04T08:30:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-LANDING",
+        "description": "Harbor Commission dispatches safety inspector",
+        "participants": [
+          "PC-INSPECTOR"
+        ],
+        "causes": [
+          "EVT-008"
+        ],
+        "reveals_facts": [],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-010",
+        "timestamp": "2026-08-04T09:00:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-LANDING",
+        "description": "Inspector arrives on station",
+        "participants": [
+          "PC-INSPECTOR"
+        ],
+        "causes": [
+          "EVT-009"
+        ],
+        "reveals_facts": [],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-011",
+        "timestamp": "2026-08-04T10:15:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-LANDING",
+        "description": "Frank returns with inbound supplies and contradicts departure story",
+        "participants": [
+          "NPC-FRANK"
+        ],
+        "causes": [
+          "EVT-010"
+        ],
+        "reveals_facts": [
+          "FACT-008",
+          "FACT-009"
+        ],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-012",
+        "timestamp": "2026-08-04T11:00:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-OFFICE",
+        "description": "Overnight records bundle finishes sync to inspector terminal",
+        "participants": [],
+        "causes": [
+          "EVT-010"
+        ],
+        "reveals_facts": [],
+        "effects": []
+      },
+      {
+        "event_id": "EVT-013",
+        "timestamp": "2026-08-04T13:00:00",
+        "day_label": "Day 1",
+        "location_id": "LOC-OFFICE",
+        "description": "Commission report deadline",
+        "participants": [],
+        "causes": [
+          "EVT-009"
+        ],
+        "reveals_facts": [],
+        "effects": []
+      }
+    ]
+  },
+  "world_state_timeline": {
+    "snapshots": [
+      {
+        "at_event_id": "EVT-007",
+        "people_locations": {},
+        "object_states": {
+          "OBJ-WEATHER-CHART": "landing_closed"
+        },
+        "access_states": {
+          "LOC-LANDING": "closed"
+        },
+        "evidence_conditions": {}
+      },
+      {
+        "at_event_id": "EVT-010",
+        "people_locations": {
+          "PC-INSPECTOR": "LOC-LANDING"
+        },
+        "object_states": {
+          "OBJ-SUPPLY-MANIFEST": "trunk_on_station"
+        },
+        "access_states": {
+          "LOC-LANDING": "open"
+        },
+        "evidence_conditions": {}
+      },
+      {
+        "at_event_id": "EVT-012",
+        "people_locations": {},
+        "object_states": {
+          "OBJ-RADIO-TERMINAL": "sync_complete"
+        },
+        "access_states": {
+          "LOC-OFFICE": "records_available"
+        },
+        "evidence_conditions": {}
+      }
+    ]
+  },
+  "npc_knowledge": {
+    "npcs": [
+      {
+        "npc_id": "NPC-TOM",
+        "knows": [
+          "FACT-002",
+          "FACT-003",
+          "FACT-004",
+          "FACT-005",
+          "FACT-006",
+          "FACT-007"
+        ],
+        "believes_incorrectly": [],
+        "witnessed_events": [
+          "EVT-002",
+          "EVT-003",
+          "EVT-004",
+          "EVT-005",
+          "EVT-006",
+          "EVT-007"
+        ],
+        "hides": [
+          "FACT-002",
+          "FACT-003",
+          "FACT-004",
+          "FACT-005",
+          "FACT-006"
+        ],
+        "behavior_rationale": "Conceals discovery of Henry's body and falsified departure records"
+      },
+      {
+        "npc_id": "NPC-SARAH",
+        "knows": [
+          "FACT-012"
+        ],
+        "believes_incorrectly": [
+          {
+            "belief_fact_id": "FACT-005",
+            "actual_fact_id": "FACT-004",
+            "cause": "Copied Tom's voluntary-departure narrative into relief report"
+          }
+        ],
+        "witnessed_events": [
+          "EVT-008"
+        ],
+        "hides": [],
+        "behavior_rationale": "Truthful about handover anomalies but initially trusted Tom's log entry"
+      },
+      {
+        "npc_id": "NPC-FRANK",
+        "knows": [
+          "FACT-007",
+          "FACT-008",
+          "FACT-009"
+        ],
+        "believes_incorrectly": [],
+        "witnessed_events": [
+          "EVT-007",
+          "EVT-011"
+        ],
+        "hides": [],
+        "behavior_rationale": "Cooperative pilot with precise manifest and weather memory"
+      },
+      {
+        "npc_id": "NPC-MAYA",
+        "knows": [],
+        "believes_incorrectly": [],
+        "witnessed_events": [],
+        "hides": [],
+        "behavior_rationale": "Records clerk who trusts paperwork over rumor"
+      }
+    ]
+  },
+  "evidence_provenance": {
+    "evidence": [
+      {
+        "evidence_id": "EVD-LOG-BOOK",
+        "source_event_id": "EVT-005",
+        "type": "document",
+        "description": "Keeper log book with lens entry and departure line",
+        "establishes_fact_ids": [
+          "FACT-001",
+          "FACT-005"
+        ],
+        "misleading": true,
+        "misleading_cause": "Departure line appears official but was written after the fall"
+      },
+      {
+        "evidence_id": "EVD-RADIO-LOG",
+        "source_event_id": "EVT-006",
+        "type": "document",
+        "description": "Radio traffic log keyed by Tom",
+        "establishes_fact_ids": [
+          "FACT-006"
+        ],
+        "misleading": true,
+        "misleading_cause": "Uses Henry's name for a voluntary departure that did not occur"
+      },
+      {
+        "evidence_id": "EVD-WEATHER-CHART",
+        "source_event_id": "EVT-007",
+        "type": "document",
+        "description": "Landing closure chart",
+        "establishes_fact_ids": [
+          "FACT-007",
+          "FACT-014"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      },
+      {
+        "evidence_id": "EVD-SUPPLY-MANIFEST",
+        "source_event_id": "EVT-011",
+        "type": "document",
+        "description": "Trunk still on station",
+        "establishes_fact_ids": [
+          "FACT-009"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      },
+      {
+        "evidence_id": "EVD-GALLERY-RAIL",
+        "source_event_id": "EVT-002",
+        "type": "physical",
+        "description": "Scrape marks and bent rail pin",
+        "establishes_fact_ids": [
+          "FACT-010"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      },
+      {
+        "evidence_id": "EVD-LENS-TOOLKIT",
+        "source_event_id": "EVT-001",
+        "type": "physical",
+        "description": "LSK-7 toolkit at gallery rail",
+        "establishes_fact_ids": [
+          "FACT-011"
+        ],
+        "misleading": false,
+        "misleading_cause": null
+      }
+    ]
+  },
+  "observable_information": {
+    "observations": [
+      {
+        "observation_id": "OBS-LOG",
+        "learnable_fact_id": "FACT-005",
+        "source_evidence_id": "EVD-LOG-BOOK",
+        "requires": {
+          "action": "review",
+          "location_id": "LOC-KEEPER"
+        },
+        "hidden_if_not_met": true
+      },
+      {
+        "observation_id": "OBS-RADIO",
+        "learnable_fact_id": "FACT-006",
+        "source_evidence_id": "EVD-RADIO-LOG",
+        "requires": {
+          "action": "review",
+          "location_id": "LOC-OFFICE"
+        },
+        "hidden_if_not_met": true
+      },
+      {
+        "observation_id": "OBS-RAIL",
+        "learnable_fact_id": "FACT-010",
+        "source_evidence_id": "EVD-GALLERY-RAIL",
+        "requires": {
+          "action": "inspect",
+          "location_id": "LOC-GALLERY",
+          "check_id": "CHK-RAILING"
+        },
+        "hidden_if_not_met": true
+      }
+    ]
+  },
+  "conclusion_requirements": {
+    "questions": [
+      {
+        "question_id": "Q-CULPRIT",
+        "answer_entity_id": "NPC-TOM",
+        "required_fact_ids": [
+          "FACT-002",
+          "FACT-004",
+          "FACT-005",
+          "FACT-006",
+          "FACT-007"
+        ]
+      },
+      {
+        "question_id": "Q-METHOD",
+        "answer_entity_id": "METHOD-COVERUP",
+        "required_fact_ids": [
+          "FACT-004",
+          "FACT-005",
+          "FACT-006"
+        ]
+      }
+    ]
+  },
+  "narrative_construction": {},
+  "ending_claims": [
+    {
+      "ending_id": "END-PERFECT",
+      "asserted_fact_ids": [
+        "FACT-002",
+        "FACT-004",
+        "FACT-005",
+        "FACT-006"
+      ]
+    },
+    {
+      "ending_id": "END-TIMEOUT",
+      "asserted_fact_ids": []
+    }
+  ]
+}

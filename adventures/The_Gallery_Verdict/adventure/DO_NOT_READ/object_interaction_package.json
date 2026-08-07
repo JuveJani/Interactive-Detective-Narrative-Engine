@@ -1,0 +1,463 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Gallery_Verdict",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "environment_links": {
+    "package_path": "DO_NOT_READ/environment_package.json"
+  },
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "items_registry": [],
+  "objects": [
+    {
+      "object_id": "OBJ-SECURITY-TABLET",
+      "parent_id": "LOC-VAULT",
+      "parent_type": "location",
+      "public_name": "Security tablet log",
+      "object_type": "terminal",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-SECURITY-TABLET",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-CAMERA-LOG",
+      "parent_id": "LOC-OFFICE",
+      "parent_type": "location",
+      "public_name": "Camera audit terminal",
+      "object_type": "terminal",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-CAMERA-LOG",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-INSURANCE-RIDER",
+      "parent_id": "LOC-OFFICE",
+      "parent_type": "location",
+      "public_name": "Insurance rider binder",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-INSURANCE-RIDER",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-CRATE-LABEL",
+      "parent_id": "LOC-MAIN-HALL",
+      "parent_type": "location",
+      "public_name": "Crate shipping label",
+      "object_type": "physical",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-CRATE-LABEL",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-PAINTING-FRAME",
+      "parent_id": "LOC-MAIN-HALL",
+      "parent_type": "location",
+      "public_name": "Empty wall mount",
+      "object_type": "physical",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-PAINTING-FRAME",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    },
+    {
+      "object_id": "OBJ-PRIVATE-SALE",
+      "parent_id": "LOC-OFFICE",
+      "parent_type": "location",
+      "public_name": "Private sale contract file",
+      "object_type": "document",
+      "initial_state": "available",
+      "current_state": "available",
+      "visible_description": "DESC-OBJ-PRIVATE-SALE",
+      "visibility_requirement": "on_arrival",
+      "interaction_depth_required": "approached"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-SECURITY-TABLET",
+      "object_id": "OBJ-SECURITY-TABLET",
+      "player_label": "Compare vault log timestamps with witness accounts.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-CRATE",
+        "success_destination": "UNIT-CRATE-SUCCESS",
+        "failure_destination": "UNIT-CRATE-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-VAULT-LOG"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-CRATE-DECL"
+    },
+    {
+      "action_id": "ACT-CAMERA-LOG",
+      "object_id": "OBJ-CAMERA-LOG",
+      "player_label": "Correlate camera disable log with badge records.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-CAMERA",
+        "success_destination": "UNIT-CAMERA-SUCCESS",
+        "failure_destination": "UNIT-CAMERA-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-CAMERA-GAP"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-CAMERA-DECL"
+    },
+    {
+      "action_id": "ACT-INSURANCE-RIDER",
+      "object_id": "OBJ-INSURANCE-RIDER",
+      "player_label": "Examine Insurance rider binder.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "destination_unit": "UNIT-OBJ-RIDER-MENU"
+    },
+    {
+      "action_id": "ACT-CRATE-LABEL",
+      "object_id": "OBJ-CRATE-LABEL",
+      "player_label": "Reconstruct podium sightlines to the wall mount.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "check_binding": {
+        "check_id": "CHK-SIGHTLINE",
+        "success_destination": "UNIT-SIGHTLINE-SUCCESS",
+        "failure_destination": "UNIT-SIGHTLINE-FAIL",
+        "one_attempt": true,
+        "information_on_success": [
+          "KNOW-SIGHTLINE",
+          "KNOW-CRATE-LABEL"
+        ]
+      },
+      "destination_unit": "UNIT-CHK-SIGHTLINE-DECL"
+    },
+    {
+      "action_id": "ACT-PRIVATE-SALE",
+      "object_id": "OBJ-PRIVATE-SALE",
+      "player_label": "Examine Private sale contract file.",
+      "interaction_depth": "examined",
+      "time_cost_minutes": 2,
+      "cost_applied_once": true,
+      "eligibility": {
+        "type": "always"
+      },
+      "destination_unit": "UNIT-OBJ-SALE-MENU"
+    }
+  ],
+  "result_units": [
+    {
+      "unit_id": "UNIT-LOBBY-BASE",
+      "return_destination": "UNIT-LOBBY-BASE"
+    },
+    {
+      "unit_id": "UNIT-MAIN-HALL-BASE",
+      "return_destination": "UNIT-MAIN-HALL-BASE"
+    },
+    {
+      "unit_id": "UNIT-VAULT-BASE",
+      "return_destination": "UNIT-VAULT-BASE"
+    },
+    {
+      "unit_id": "UNIT-OFFICE-BASE",
+      "return_destination": "UNIT-OFFICE-BASE"
+    },
+    {
+      "unit_id": "UNIT-TERRACE-BASE",
+      "return_destination": "UNIT-TERRACE-BASE"
+    },
+    {
+      "unit_id": "UNIT-NPC-VERA-HUB",
+      "return_destination": "UNIT-TOPIC-VERA-ALIBI",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-JAMES-HUB",
+      "return_destination": "UNIT-TOPIC-JAMES-VAULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-LINA-HUB",
+      "return_destination": "UNIT-TOPIC-LINA-PODIUM",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-NPC-OTTO-HUB",
+      "return_destination": "UNIT-TOPIC-OTTO-PHOTO",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-VERA-ALIBI",
+      "return_destination": "UNIT-NPC-VERA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-VERA-CLAIM",
+      "return_destination": "UNIT-NPC-VERA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-VERA-INSURANCE",
+      "return_destination": "UNIT-NPC-VERA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-JAMES-VAULT",
+      "return_destination": "UNIT-NPC-JAMES-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-JAMES-CRATE",
+      "return_destination": "UNIT-NPC-JAMES-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-JAMES-LINA",
+      "return_destination": "UNIT-NPC-JAMES-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-LINA-PODIUM",
+      "return_destination": "UNIT-NPC-LINA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-LINA-WALL",
+      "return_destination": "UNIT-NPC-LINA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-LINA-JAMES",
+      "return_destination": "UNIT-NPC-LINA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-OTTO-PHOTO",
+      "return_destination": "UNIT-NPC-OTTO-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-OTTO-SIGHTLINE",
+      "return_destination": "UNIT-NPC-OTTO-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-TOPIC-OTTO-INSURED",
+      "return_destination": "UNIT-NPC-OTTO-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-TABLET-MENU",
+      "return_destination": "UNIT-CHK-CRATE-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-TABLET-RESULT",
+      "return_destination": "UNIT-VAULT-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-CAMERA-MENU",
+      "return_destination": "UNIT-CHK-CAMERA-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-CAMERA-RESULT",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-RIDER-MENU",
+      "return_destination": "UNIT-OBJ-RIDER-RESULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-RIDER-RESULT",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-SALE-MENU",
+      "return_destination": "UNIT-OBJ-SALE-RESULT",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-OBJ-SALE-RESULT",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-SIGHTLINE-DECL",
+      "return_destination": "UNIT-SIGHTLINE-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-CRATE-DECL",
+      "return_destination": "UNIT-CRATE-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CHK-CAMERA-DECL",
+      "return_destination": "UNIT-CAMERA-SUCCESS",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-SIGHTLINE-SUCCESS",
+      "return_destination": "UNIT-MAIN-HALL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-SIGHTLINE-FAIL",
+      "return_destination": "UNIT-MAIN-HALL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CRATE-SUCCESS",
+      "return_destination": "UNIT-VAULT-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CRATE-FAIL",
+      "return_destination": "UNIT-VAULT-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CAMERA-SUCCESS",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "UNIT-CAMERA-FAIL",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-LOBBY-ARRIVAL",
+      "return_destination": "UNIT-LOBBY-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-HALL-ALARM",
+      "return_destination": "UNIT-MAIN-HALL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-TERRACE-PHOTO",
+      "return_destination": "UNIT-TERRACE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-OFFICE-CAMERA",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-VAULT-LOG",
+      "return_destination": "UNIT-VAULT-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-HALL-SIGHTLINE",
+      "return_destination": "UNIT-MAIN-HALL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-ACCUSATION-PREP",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "SC-DEADLINE-WARN",
+      "return_destination": "UNIT-LOBBY-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-WITNESS-CONFLICT",
+      "return_destination": "UNIT-MAIN-HALL-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-STAGING",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-VERA-FRAUD",
+      "return_destination": "UNIT-LOBBY-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "INF-PERFECT-VERDICT",
+      "return_destination": "UNIT-OFFICE-BASE",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-OFFICE-CAMERA",
+      "return_destination": "UNIT-OBJ-CAMERA-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-HALL-CRATE",
+      "return_destination": "UNIT-CHK-SIGHTLINE-DECL",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-VAULT-TABLET",
+      "return_destination": "UNIT-OBJ-TABLET-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-OFFICE-RIDER",
+      "return_destination": "UNIT-OBJ-RIDER-MENU",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-LINA-PODIUM",
+      "return_destination": "UNIT-NPC-LINA-HUB",
+      "requires_return": true
+    },
+    {
+      "unit_id": "REC-TERRACE-PHOTO",
+      "return_destination": "UNIT-NPC-OTTO-HUB",
+      "requires_return": true
+    }
+  ],
+  "hierarchy_roots": [
+    "OBJ-SECURITY-TABLET",
+    "OBJ-CAMERA-LOG",
+    "OBJ-INSURANCE-RIDER",
+    "OBJ-CRATE-LABEL",
+    "OBJ-PAINTING-FRAME",
+    "OBJ-PRIVATE-SALE"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "working_title": "The Parish Ledger",
+  "premise": "A diocesan finance auditor investigates missing memorial fund donations at a small-town parish, reconstructing the timeline from donation ledgers, bank deposit batches, and parish council meeting minutes.",
+  "setting": "Small-town parish and community center \u2014 narthex, parish office, finance records room, community hall, and parish council meeting room",
+  "universe": "real world",
+  "genre": "detective mystery",
+  "realism_level": "grounded contemporary",
+  "player_mode": "single_investigator",
+  "investigator_character": "Diocesan finance auditor appointed by the parish council to reconcile memorial fund records before the annual review",
+  "opening_situation": "You arrive at St. Brendan's parish hall to find parish administrator Grace Brennan waiting with a preliminary reconciliation packet. Volunteer bookkeeper Helen Marsh has flagged ledger entries that do not match bank deposits, and council treasurer Rita Santos says meeting minutes allocate funds differently than the ledger shows.",
+  "initial_observable_facts": [
+    "Memorial fund donation ledger totals $18,400 but bank deposit batch shows $14,200.",
+    "Parish administrator Grace Brennan prepared the reconciliation packet for your review.",
+    "Volunteer bookkeeper Helen Marsh noticed white-out corrections on ledger page 47.",
+    "Parish council treasurer Rita Santos says minutes allocate memorial funds to stained-glass restoration only."
+  ],
+  "target_playtime_minutes": 120,
+  "in_world_duration": "one audit day (approximately four in-world hours)",
+  "tone": "community-centered, methodical, quietly urgent",
+  "difficulty": "standard",
+  "location_scale": "single parish campus with five primary locations",
+  "content_boundaries": "no graphic violence; no supernatural elements; financial fraud and embezzlement themes; no sexual content",
+  "required_themes": [
+    "fair-play mystery",
+    "records and timeline reconstruction",
+    "ledger versus bank deposit reconciliation",
+    "meaningful time pressure",
+    "one perfect ending and several imperfect endings"
+  ],
+  "forbidden_themes": [
+    "supernatural explanations",
+    "theft-primary plots",
+    "magic or occult resolution",
+    "direct narrator solution delivery"
+  ],
+  "deadline_or_constraint": "Diocesan annual review reconciliation due at 1700; parish council meeting at 1800",
+  "author_notes": "Codename: The Parish Ledger. Culprit NPC-GRACE diverted memorial fund deposits and altered ledger entries before audit. Emphasis on donation ledger, bank deposits, and meeting minutes \u2014 not object theft."
+}

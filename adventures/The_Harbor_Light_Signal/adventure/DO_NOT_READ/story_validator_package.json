@@ -1,0 +1,20 @@
+{
+  "story_frame": {
+    "investigation_starts_where": "remote lighthouse supply landing",
+    "investigation_starts_when": "morning after reported voluntary keeper departure",
+    "incident_description": "missing head keeper with falsified voluntary departure records",
+    "incident_when": "overnight watch ending 0430",
+    "investigator_involvement": "Harbor Commission safety inspector dispatched to reconstruct timeline",
+    "deadline_or_constraint": "commission report due at 1300"
+  },
+  "timeline": {
+    "investigation_confused_with_incident": false,
+    "impossible_ordering": false,
+    "events": []
+  },
+  "schema_version": "1.0",
+  "adventure_id": "The_Harbor_Light_Signal",
+  "play_modes": [
+    "single_investigator"
+  ]
+}
