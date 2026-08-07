@@ -20,6 +20,13 @@ REQUIRED_BRIEF_FIELDS = (
     "content_boundaries",
 )
 
+OPTIONAL_STRING_NARRATIVE_FIELDS = (
+    "working_title",
+    "premise",
+    "setting",
+    "opening_situation",
+)
+
 
 def load_brief(path: Path) -> dict[str, Any]:
     path = path.resolve()
@@ -47,6 +54,20 @@ def validate_brief(brief: dict[str, Any]) -> list[str]:
             errors.append("target_playtime_minutes must be positive")
     except (TypeError, ValueError):
         errors.append("target_playtime_minutes must be an integer")
+    for field in OPTIONAL_STRING_NARRATIVE_FIELDS:
+        if field not in brief:
+            continue
+        value = brief[field]
+        if not isinstance(value, str) or not value.strip():
+            errors.append(f"{field} must be a non-empty string when present")
+    if "initial_observable_facts" in brief:
+        facts = brief["initial_observable_facts"]
+        if not isinstance(facts, list):
+            errors.append("initial_observable_facts must be an array when present")
+        elif not all(isinstance(item, str) and item.strip() for item in facts):
+            errors.append("initial_observable_facts must contain non-empty strings")
+    if "author_notes" in brief and not isinstance(brief["author_notes"], str):
+        errors.append("author_notes must be a string when present")
     return errors
 
 
