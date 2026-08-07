@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from idne.local_ai.content_identity import verify_run_definition
 from idne.local_ai.run_state import load_status, load_task, write_json
 from idne.local_ai.structural_repair import RepairRecord, apply_safe_repairs
 from idne.local_ai.task_model import ProcessingStage, TaskStatus, transition_processing_stage
@@ -119,6 +120,10 @@ def parse_response(run_dir: Path) -> ParseResult:
 
     start = time.perf_counter()
     task = load_task(run_dir)
+    try:
+        verify_run_definition(run_dir, task)
+    except ValueError as exc:
+        raise ParseError("definition_mismatch", str(exc)) from exc
     status = load_status(run_dir)
     stage = status.get("processing_stage", ProcessingStage.NONE.value)
     if task.status != TaskStatus.RESPONSE_RECEIVED:

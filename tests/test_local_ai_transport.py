@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import socket
 import subprocess
 import sys
@@ -39,6 +40,7 @@ from idne.local_ai.lm_studio_client import (
 )
 from idne.local_ai.mock_adapter import MockAdapter, MockAdapterState
 from idne.local_ai.model_adapter import create_adapter, execute_with_retries, select_model
+from idne.local_ai.output_paths import DEFAULT_BRIEF_OUTPUT
 from idne.local_ai.task_builder import prepare_task
 from idne.local_ai.task_model import TaskStatus
 from idne.local_ai.transport import TaskRunError, run_task
@@ -46,6 +48,7 @@ from tests.local_ai_test_helpers import assert_resolved_under
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 EXAMPLE_INPUT = "OFFLINE_AI/examples/adventure_brief_input.md"
+DRAFT_OUTPUT = DEFAULT_BRIEF_OUTPUT
 
 
 def _fresh_prepare():
@@ -58,7 +61,7 @@ def _fresh_prepare():
     input_rel = EXAMPLE_INPUT
     input_bytes = resolve_allowed_file(input_rel, REPO_ROOT).read_bytes()
     allowed = normalize_allowlist([input_rel], REPO_ROOT)
-    task_id = make_task_id("adventure_brief", allowed, [sha256_bytes(input_bytes)])
+    task_id = make_task_id("adventure_brief", allowed, [sha256_bytes(input_bytes)], [DRAFT_OUTPUT])
     run_dir = local_ai_runs_root(REPO_ROOT) / safe_task_directory_name(task_id)
     if run_dir.exists():
         shutil.rmtree(run_dir)
@@ -452,6 +455,22 @@ class TestCLI(unittest.TestCase):
         self.assertEqual(data["adapter"], "mock")
 
     def test_run_mock_cli(self):
+        from idne.local_ai.paths import normalize_allowlist, resolve_allowed_file, safe_task_directory_name
+        from idne.local_ai.platform_runtime import local_ai_runs_root
+        from idne.local_ai.task_model import make_task_id, sha256_bytes
+
+        input_bytes = resolve_allowed_file(EXAMPLE_INPUT, REPO_ROOT).read_bytes()
+        allowed = normalize_allowlist([EXAMPLE_INPUT], REPO_ROOT)
+        task_id = make_task_id(
+            "adventure_brief",
+            allowed,
+            [sha256_bytes(input_bytes)],
+            [DEFAULT_BRIEF_OUTPUT],
+        )
+        run_dir = local_ai_runs_root(REPO_ROOT) / safe_task_directory_name(task_id)
+        if run_dir.exists():
+            shutil.rmtree(run_dir)
+
         prep = subprocess.run(
             [
                 sys.executable,

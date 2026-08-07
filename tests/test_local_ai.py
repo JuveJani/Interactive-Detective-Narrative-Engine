@@ -14,6 +14,7 @@ from unittest import mock
 
 from idne.local_ai.context_builder import build_context_package, estimate_tokens
 from idne.local_ai.doctor import run_doctor
+from idne.local_ai.output_paths import DEFAULT_BRIEF_OUTPUT
 from idne.local_ai.paths import (
     PathValidationError,
     normalize_allowlist,
@@ -35,6 +36,24 @@ from idne.local_ai.task_model import (
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 EXAMPLE_INPUT = "OFFLINE_AI/examples/adventure_brief_input.md"
+
+
+def _cleanup_default_prepare_run_dir() -> None:
+    from idne.local_ai.paths import normalize_allowlist, resolve_allowed_file, safe_task_directory_name
+    from idne.local_ai.platform_runtime import local_ai_runs_root
+    from idne.local_ai.task_model import make_task_id, sha256_bytes
+
+    input_bytes = resolve_allowed_file(EXAMPLE_INPUT, REPO_ROOT).read_bytes()
+    allowed = normalize_allowlist([EXAMPLE_INPUT], REPO_ROOT)
+    task_id = make_task_id(
+        "adventure_brief",
+        allowed,
+        [sha256_bytes(input_bytes)],
+        [DEFAULT_BRIEF_OUTPUT],
+    )
+    run_dir = local_ai_runs_root(REPO_ROOT) / safe_task_directory_name(task_id)
+    if run_dir.exists():
+        shutil.rmtree(run_dir)
 
 
 class TestPathNormalization(unittest.TestCase):
@@ -176,16 +195,31 @@ class TestTaskModel(unittest.TestCase):
     def test_deterministic_task_identity(self):
         paths = [EXAMPLE_INPUT]
         hashes = ["abc", "abc"]
-        id1 = stable_task_identity("adventure_brief", paths, hashes)
-        id2 = stable_task_identity("adventure_brief", paths, hashes)
+        outputs = ["adventures/_local_ai_drafts/a/adventure_brief.json"]
+        id1 = stable_task_identity("adventure_brief", paths, hashes, outputs)
+        id2 = stable_task_identity("adventure_brief", paths, hashes, outputs)
         self.assertEqual(id1, id2)
         self.assertNotEqual(
-            stable_task_identity("adventure_brief", paths, ["different"]),
+            stable_task_identity("adventure_brief", paths, ["different"], outputs),
+            id1,
+        )
+        self.assertNotEqual(
+            stable_task_identity(
+                "adventure_brief",
+                paths,
+                hashes,
+                ["adventures/_local_ai_drafts/b/adventure_brief.json"],
+            ),
             id1,
         )
 
     def test_make_task_id_format(self):
-        task_id = make_task_id("adventure_brief", [EXAMPLE_INPUT], ["deadbeef"])
+        task_id = make_task_id(
+            "adventure_brief",
+            [EXAMPLE_INPUT],
+            ["deadbeef"],
+            ["adventures/_local_ai_drafts/example/adventure_brief.json"],
+        )
         self.assertTrue(task_id.startswith("adventure_brief-"))
 
     def test_invalid_status_transition_rejected(self):
@@ -224,6 +258,7 @@ class TestPromptBuilder(unittest.TestCase):
 
 class TestPrepareEndToEnd(unittest.TestCase):
     def setUp(self):
+        _cleanup_default_prepare_run_dir()
         self._runs = REPO_ROOT / ".local_ai_runs"
         self._prior = list(self._runs.glob("*")) if self._runs.exists() else []
 
@@ -293,6 +328,7 @@ class TestCLI(unittest.TestCase):
         self.assertIn(proc.returncode, (0, 3))
 
     def test_cli_prepare(self):
+        _cleanup_default_prepare_run_dir()
         proc = subprocess.run(
             [
                 sys.executable,

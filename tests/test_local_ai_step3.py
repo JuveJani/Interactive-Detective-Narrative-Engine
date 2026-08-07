@@ -45,7 +45,7 @@ def _fresh_prepare(*, output: str | None = None):
     input_rel = EXAMPLE_INPUT
     input_bytes = resolve_allowed_file(input_rel, REPO_ROOT).read_bytes()
     allowed = normalize_allowlist([input_rel], REPO_ROOT)
-    task_id = make_task_id("adventure_brief", allowed, [sha256_bytes(input_bytes)])
+    task_id = make_task_id("adventure_brief", allowed, [sha256_bytes(input_bytes)], [output_path])
     run_dir = local_ai_runs_root(REPO_ROOT) / safe_task_directory_name(task_id)
     if run_dir.exists():
         shutil.rmtree(run_dir)
@@ -386,7 +386,7 @@ class TestCLIEndToEnd(unittest.TestCase):
                 path.unlink()
         input_bytes = resolve_allowed_file(EXAMPLE_INPUT, REPO_ROOT).read_bytes()
         allowed = normalize_allowlist([EXAMPLE_INPUT], REPO_ROOT)
-        task_id = make_task_id("adventure_brief", allowed, [sha256_bytes(input_bytes)])
+        task_id = make_task_id("adventure_brief", allowed, [sha256_bytes(input_bytes)], [DRAFT_OUTPUT])
         run_dir = local_ai_runs_root(REPO_ROOT) / safe_task_directory_name(task_id)
         if run_dir.exists():
             shutil.rmtree(run_dir)

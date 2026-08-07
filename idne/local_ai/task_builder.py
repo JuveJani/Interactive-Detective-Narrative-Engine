@@ -16,13 +16,22 @@ from idne.local_ai.output_paths import DEFAULT_BRIEF_OUTPUT, validate_output_pat
 from idne.local_ai.paths import normalize_allowlist, normalize_repo_relative, resolve_allowed_file, to_posix_relpath
 from idne.local_ai.platform_runtime import detect_platform_runtime
 from idne.local_ai.prompt_builder import build_prompt
-from idne.local_ai.run_state import PreparationMetrics, run_directory_for_task, write_run_artifacts
+from idne.local_ai.run_state import (
+    PreparationMetrics,
+    has_active_model_artifacts,
+    load_status,
+    load_task,
+    reload_prepared_task,
+    run_directory_for_task,
+    write_run_artifacts,
+)
 from idne.local_ai.task_model import (
     LocalAITask,
     SourceIdentity,
     TaskStatus,
     make_task_id,
     sha256_bytes,
+    stable_run_identity,
     utc_now_iso,
 )
 
@@ -102,6 +111,38 @@ def _resolve_input_path(input_arg: str, repo_root: Path) -> str:
     return rel
 
 
+def _assert_existing_run_compatible(
+    run_dir: Path,
+    *,
+    output_rel: str,
+    run_definition_identity: str,
+) -> LocalAITask | None:
+    """Return existing task when prepare is idempotent; raise on incompatible reuse."""
+    task_path = run_dir / "task.json"
+    if not task_path.is_file():
+        return None
+    existing = load_task(run_dir)
+    if existing.allowed_output_files != [output_rel]:
+        raise TaskPreparationError(
+            "run directory already exists for a different output destination: "
+            f"expected {output_rel}, found {existing.allowed_output_files[0]}"
+        )
+    if has_active_model_artifacts(run_dir) and existing.status == TaskStatus.READY_FOR_MODEL:
+        raise TaskPreparationError(
+            "inconsistent run state: response artifacts present while task status is READY_FOR_MODEL"
+        )
+    status_path = run_dir / "status.json"
+    if status_path.is_file():
+        status = load_status(run_dir)
+        stored_identity = status.get("run_definition_identity")
+        if stored_identity and stored_identity != run_definition_identity:
+            raise TaskPreparationError("run directory run_definition_identity mismatch")
+        stored_outputs = status.get("allowed_output_files")
+        if stored_outputs and stored_outputs != [output_rel]:
+            raise TaskPreparationError("run directory allowed_output_files mismatch")
+    return existing
+
+
 def prepare_task(
     task_type: str,
     input_path: str,
@@ -123,9 +164,21 @@ def prepare_task(
 
     allowed_inputs = normalize_allowlist([input_rel], root)
     output_rel = validate_output_path(output_path or DEFAULT_BRIEF_OUTPUT, root)
-    task_id = make_task_id(task_type, allowed_inputs, [input_hash])
+    allowed_outputs = [output_rel]
+    run_definition_identity = stable_run_identity(
+        task_type, allowed_inputs, [input_hash], allowed_outputs
+    )
+    task_id = make_task_id(task_type, allowed_inputs, [input_hash], allowed_outputs)
     run_dir = run_directory_for_task(root, task_id)
     run_rel = to_posix_relpath(run_dir, root)
+
+    existing = _assert_existing_run_compatible(
+        run_dir,
+        output_rel=output_rel,
+        run_definition_identity=run_definition_identity,
+    )
+    if existing is not None:
+        return reload_prepared_task(run_dir)
 
     task = LocalAITask(
         schema_version="1.0",
@@ -136,7 +189,7 @@ def prepare_task(
         created_at=utc_now_iso(),
         source_content_identity=SourceIdentity(sha256=input_hash, path=input_rel),
         allowed_input_files=allowed_inputs,
-        allowed_output_files=[output_rel],
+        allowed_output_files=allowed_outputs,
         authoritative_sources=[],
         approved_prior_stage_facts={},
         protected_values={
@@ -193,7 +246,15 @@ def prepare_task(
             "overflow_source": context.overflow_source,
             "authoritative_files": [spec.path for spec in definition.authoritative_files],
         }
-        write_run_artifacts(run_dir, task, context, prompt, metrics, diagnostics)
+        write_run_artifacts(
+            run_dir,
+            task,
+            context,
+            prompt,
+            metrics,
+            diagnostics,
+            run_definition_identity=run_definition_identity,
+        )
         raise TaskPreparationError(context.block_reason)
 
     task.authoritative_sources = list(context.authoritative_sources)
@@ -216,5 +277,13 @@ def prepare_task(
         "authoritative_files": [src.path for src in task.authoritative_sources],
         "preparation_seconds": elapsed,
     }
-    write_run_artifacts(run_dir, task, context, prompt, metrics, diagnostics)
+    write_run_artifacts(
+        run_dir,
+        task,
+        context,
+        prompt,
+        metrics,
+        diagnostics,
+        run_definition_identity=run_definition_identity,
+    )
     return task, context, prompt, metrics, run_dir

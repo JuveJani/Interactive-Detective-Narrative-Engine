@@ -201,18 +201,62 @@ def sha256_text(text: str) -> str:
     return sha256_bytes(text.encode("utf-8"))
 
 
-def stable_task_identity(task_type: str, input_paths: list[str], input_hashes: list[str]) -> str:
+def stable_source_identity(input_paths: list[str], input_hashes: list[str]) -> str:
+    """Deterministic identity for author source content only."""
     payload = json.dumps(
-        {"task_type": task_type, "input_paths": input_paths, "input_hashes": input_hashes},
+        {"input_paths": input_paths, "input_hashes": input_hashes},
         sort_keys=True,
         separators=(",", ":"),
     )
     return sha256_text(payload)
 
 
-def make_task_id(task_type: str, input_paths: list[str], input_hashes: list[str]) -> str:
-    digest = stable_task_identity(task_type, input_paths, input_hashes)[:12]
+def stable_run_identity(
+    task_type: str,
+    input_paths: list[str],
+    input_hashes: list[str],
+    output_paths: list[str],
+) -> str:
+    """Deterministic run identity including execution and apply parameters."""
+    payload = json.dumps(
+        {
+            "task_type": task_type,
+            "input_paths": input_paths,
+            "input_hashes": input_hashes,
+            "output_paths": output_paths,
+        },
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return sha256_text(payload)
+
+
+def stable_task_identity(
+    task_type: str,
+    input_paths: list[str],
+    input_hashes: list[str],
+    output_paths: list[str],
+) -> str:
+    return stable_run_identity(task_type, input_paths, input_hashes, output_paths)
+
+
+def make_task_id(
+    task_type: str,
+    input_paths: list[str],
+    input_hashes: list[str],
+    output_paths: list[str],
+) -> str:
+    digest = stable_run_identity(task_type, input_paths, input_hashes, output_paths)[:12]
     return f"{task_type}-{digest}"
+
+
+def compute_run_definition_identity(task: LocalAITask) -> str:
+    return stable_run_identity(
+        task.task_type,
+        task.allowed_input_files,
+        [task.source_content_identity.sha256],
+        task.allowed_output_files,
+    )
 
 
 def validate_task_schema(data: dict[str, Any]) -> list[str]:

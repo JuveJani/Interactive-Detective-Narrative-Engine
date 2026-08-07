@@ -15,7 +15,7 @@ from idne.local_ai.lm_studio_client import SYSTEM_MESSAGE
 from idne.local_ai.model_adapter import create_adapter, execute_with_retries, select_model
 from idne.local_ai.response_capture import save_transport_artifacts, save_transport_failure
 from idne.local_ai.run_state import load_status, load_task, write_json
-from idne.local_ai.task_model import LocalAITask, TaskStatus, sha256_text, transition_task, utc_now_iso
+from idne.local_ai.task_model import LocalAITask, TaskStatus, compute_run_definition_identity, sha256_text, transition_task, utc_now_iso
 
 
 class TaskRunError(RuntimeError):
@@ -170,6 +170,7 @@ def run_task(
         task.attempt_count += 1
         transition_task(task, TaskStatus.RESPONSE_RECEIVED)
         write_json(run_dir / "task.json", task.to_dict())
+        prior_status = load_status(run_dir) if (run_dir / "status.json").is_file() else {}
         write_json(
             run_dir / "status.json",
             {
@@ -178,6 +179,9 @@ def run_task(
                 "attempt_count": task.attempt_count,
                 "prompt_sha256": prompt_sha256,
                 "source_content_sha256": task.source_content_identity.sha256,
+                "run_definition_identity": prior_status.get("run_definition_identity")
+                or compute_run_definition_identity(task),
+                "allowed_output_files": list(task.allowed_output_files),
                 "processing_stage": "NONE",
                 "transport": report.to_dict(),
             },
