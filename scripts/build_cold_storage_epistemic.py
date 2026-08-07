@@ -121,6 +121,43 @@ WORKER_HUB_ACTIONS = [
     },
 ]
 
+LORI_HUB_ACTIONS = [
+    {
+        "action_id": "ACT-LORI-DENY-COLD",
+        "action_type": "dialogue_topic",
+        "label": "Ask whether you entered cold storage after hours.",
+        "destination_unit_id": "UNIT-LORI-DENY-COLD",
+    },
+    {
+        "action_id": "ACT-LORI-CONTROL-MIN",
+        "action_type": "dialogue_topic",
+        "label": "Ask about your control room visit around 23:20.",
+        "destination_unit_id": "UNIT-LORI-CONTROL-MIN",
+        "requires_knowledge_ids": ["KNOW-CONTROL-ENTRY"],
+    },
+    {
+        "action_id": "ACT-LORI-PRESSURE",
+        "action_type": "dialogue_topic",
+        "label": "Confront with manifest exception evidence from MNF-IN-4471.",
+        "destination_unit_id": "UNIT-LORI-PRESSURE",
+        "requires_knowledge_ids": ["KNOW-MANIFEST-GAP"],
+    },
+    {
+        "action_id": "ACT-LORI-LABEL",
+        "action_type": "dialogue_topic",
+        "label": "Press about label residue found in aisle C.",
+        "destination_unit_id": "UNIT-LORI-LABEL",
+        "requires_knowledge_ids": ["KNOW-LABEL-RESIDUE"],
+    },
+    {
+        "action_id": "ACT-LORI-RETURN-MANAGER",
+        "action_type": "return",
+        "label": "Return to the warehouse manager office.",
+        "destination_unit_id": "UNIT-MANAGER-BASE",
+        "exhaustion": "repeatable",
+    },
+]
+
 # Choices that require knowledge or world state before appearing on dock hub variants
 DOCK_DEFERRED = {
     "Head inside to the staff break room.": ("nav", "UNIT-BREAK-BASE", ["KNOW-OPEN-ORIENT"]),
@@ -143,7 +180,7 @@ TOPIC_RETURN_PROFILES: tuple[tuple[str, str, str, str, str], ...] = (
     ("UNIT-PAT-", "UNIT-DOCK-WORKER-HUB", "Return to the dock worker conversation menu.", "UNIT-DOCK-BASE", "Return to the loading dock."),
     ("UNIT-DEV-", "UNIT-DOCK-WORKER-HUB", "Return to the dock worker conversation menu.", "UNIT-DOCK-BASE", "Return to the loading dock."),
     ("UNIT-MARCUS-", "UNIT-SECURITY-BASE", "Return to the security office.", "UNIT-DOCK-BASE", "Return to the loading dock."),
-    ("UNIT-LORI-", "UNIT-MANAGER-BASE", "Return to the manager office.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-LORI-", "UNIT-MANAGER-LORI-HUB", "Return to the Lori conversation menu.", "UNIT-MANAGER-BASE", "Return to the warehouse manager office."),
 )
 
 TOPIC_KNOWLEDGE_GRANTS: dict[str, list[str]] = {
@@ -158,15 +195,6 @@ def _topic_interaction_delta(unit_id: str) -> dict:
 def _norm(label: str) -> str:
     return re.sub(r"\s+", " ", label.strip().lower())
 
-
-INTENTIONAL_SELF_LOOPS = frozenset(
-    {
-        (
-            "UNIT-MANAGER-BASE",
-            _norm("Speak with Lori Okonkwo about receiving and access topics you have unlocked."),
-        ),
-    }
-)
 
 DESTINATION_ALIASES = {
     "UNIT-DOCK-BASE-SURVEYED": "UNIT-DOCK-BASE",
@@ -195,6 +223,17 @@ def _hub_choice_overrides() -> dict[tuple[str, str], tuple[str, str, str]]:
             action["action_type"],
             action["label"],
         )
+    for action in LORI_HUB_ACTIONS:
+        local[("UNIT-MANAGER-LORI-HUB", _norm(action["label"]))] = (
+            action["destination_unit_id"],
+            action["action_type"],
+            action["label"],
+        )
+    local[("UNIT-MANAGER-BASE", _norm("Speak with Lori Okonkwo about receiving and access topics you have unlocked."))] = (
+        "UNIT-MANAGER-LORI-HUB",
+        "approach_npc",
+        "Speak with Lori Okonkwo about receiving and access topics you have unlocked.",
+    )
     topic_units = (
         "UNIT-ELENA-BEGIN",
         "UNIT-ELENA-MAP",
@@ -211,8 +250,6 @@ def _hub_choice_overrides() -> dict[tuple[str, str], tuple[str, str, str]]:
                 local[(uid, _norm(hub_label))] = (hub, "return", hub_label)
                 local[(uid, _norm(exit_label))] = (exit_dest, "return", exit_label)
                 break
-    lori_label = "Speak with Lori Okonkwo about receiving and access topics you have unlocked."
-    local[("UNIT-MANAGER-BASE", _norm(lori_label))] = ("UNIT-MANAGER-BASE", "action", lori_label)
     return local
 
 
@@ -253,16 +290,12 @@ def _normalize_dest(dest: str) -> str:
 
 
 def _resolve_dest(label: str, uid: str, choice_map: dict[tuple[str, str], tuple[str, str]]) -> str:
-    dest, _kind = resolve_template_destination(
-        uid, label, choice_map, intentional_self_loops=INTENTIONAL_SELF_LOOPS
-    )
+    dest, _kind = resolve_template_destination(uid, label, choice_map)
     return _normalize_dest(dest)
 
 
 def _resolve_kind(label: str, uid: str, choice_map: dict[tuple[str, str], tuple[str, str]]) -> str:
-    _dest, kind = resolve_template_destination(
-        uid, label, choice_map, intentional_self_loops=INTENTIONAL_SELF_LOOPS
-    )
+    _dest, kind = resolve_template_destination(uid, label, choice_map)
     if kind == "navigate":
         return "nav"
     return kind
@@ -447,6 +480,25 @@ def _build_consolidated_dock_actions() -> list[dict]:
     return actions
 
 
+def _build_manager_base_actions() -> list[dict]:
+    """Location hub only — Lori dialogue lives on UNIT-MANAGER-LORI-HUB."""
+    return [
+        _action_from_choice(
+            "Review the open receiving reconciliation screen.",
+            "UNIT-MANIFEST-MENU",
+            "action",
+        ),
+        {
+            "action_id": "ACT-MANAGER-TALK-LORI",
+            "action_type": "approach_npc",
+            "label": "Speak with Lori Okonkwo about receiving and access topics you have unlocked.",
+            "destination_unit_id": "UNIT-MANAGER-LORI-HUB",
+        },
+        _action_from_choice("Return to the loading dock.", "UNIT-DOCK-BASE", "return"),
+        _action_from_choice("Return to the break room.", "UNIT-BREAK-BASE", "return"),
+    ]
+
+
 def build_epistemic_events(manifest: dict) -> list[dict]:
     events: list[dict] = []
     player_units = parse_player_units(ADVENTURE / "PLAYER")
@@ -485,11 +537,31 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
         )
     )
     events.append(_event("UNIT-DOCK-WORKER-HUB", "npc_interaction", WORKER_HUB_ACTIONS, observable_entities=["NPC-PAT", "NPC-DEV"]))
+    events.append(
+        _event(
+            "UNIT-MANAGER-BASE",
+            "location_hub",
+            _build_manager_base_actions(),
+            observable_entities=["NPC-LORI"],
+            physical_location_id="LOC-MANAGER",
+        )
+    )
+    events.append(
+        _event(
+            "UNIT-MANAGER-LORI-HUB",
+            "npc_interaction",
+            LORI_HUB_ACTIONS,
+            observable_entities=["NPC-LORI"],
+            physical_location_id="LOC-MANAGER",
+        )
+    )
 
     handled = {
         "UNIT-DOCK-BASE",
         "UNIT-DOCK-ELENA-HUB",
         "UNIT-DOCK-WORKER-HUB",
+        "UNIT-MANAGER-BASE",
+        "UNIT-MANAGER-LORI-HUB",
     }
 
     for uid in sorted(player_units.keys()):
@@ -510,7 +582,7 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
             kind = "ending"
         elif uid.startswith("REC-"):
             kind = "recovery"
-        elif "ELENA-HUB" in uid or "WORKER-HUB" in uid:
+        elif "ELENA-HUB" in uid or "WORKER-HUB" in uid or "LORI-HUB" in uid:
             kind = "npc_interaction"
         elif uid.startswith("UNIT-ELENA") or uid.startswith("UNIT-DEV") or uid.startswith("UNIT-PAT") or uid.startswith("UNIT-LORI") or uid.startswith("UNIT-MARCUS") or uid.startswith("UNIT-WORKER"):
             kind = "dialogue_topic"
@@ -654,6 +726,12 @@ def write_epistemic_package(events: list[dict]) -> MaterializeStats:
     )
     materialized.adventure_id = "The_Cold_Storage_Alarm"
 
+    template_menu_catalog = {
+        tpl_id: [a.label for a in tpl.structured_actions if a.label]
+        for tpl_id, tpl in templates.items()
+        if tpl.event_kind == "npc_interaction"
+    }
+
     pkg = {
         "schema_version": "1.0",
         "adventure_id": "The_Cold_Storage_Alarm",
@@ -661,6 +739,7 @@ def write_epistemic_package(events: list[dict]) -> MaterializeStats:
         "initial_world_state": initial_world,
         "initial_observable_entities": INITIAL_OBSERVABLE,
         "materialization": stats.to_dict(),
+        "template_menu_catalog": template_menu_catalog,
         "playable_events": [event_to_dict(e) for e in sorted(materialized.events_by_unit.values(), key=lambda e: e.unit_id)],
     }
     (DNR / "epistemic_progression_package.json").write_text(json.dumps(pkg, indent=2) + "\n", encoding="utf-8")

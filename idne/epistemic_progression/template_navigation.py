@@ -141,3 +141,37 @@ def epistemic_package_digest(package: dict) -> str:
         "initial_world_state": package.get("initial_world_state") or {},
     }
     return hashlib.sha256(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()
+
+
+def find_player_visible_self_loops(manifest: dict) -> list[dict[str, str | int]]:
+    """Return manifest choices whose destination resolves to the same public section."""
+    units = manifest.get("units") or {}
+    section_by_unit: dict[str, int] = {}
+    for uid, entry in units.items():
+        sec = entry.get("public_section")
+        if sec is not None:
+            section_by_unit[uid] = int(sec)
+    section_by_unit.update({uid: int(sec) for uid, sec in (manifest.get("public_sections") or {}).items()})
+
+    loops: list[dict[str, str | int]] = []
+    for uid, entry in units.items():
+        src_sec = section_by_unit.get(uid)
+        if src_sec is None:
+            continue
+        for choice in entry.get("choices") or []:
+            dest = str(choice.get("destination_unit_id", ""))
+            if not dest:
+                continue
+            dest_sec = section_by_unit.get(dest)
+            if dest_sec is None:
+                continue
+            if dest_sec == src_sec:
+                loops.append(
+                    {
+                        "unit_id": uid,
+                        "label": str(choice.get("label", "")),
+                        "public_section": src_sec,
+                        "destination_unit_id": dest,
+                    }
+                )
+    return loops

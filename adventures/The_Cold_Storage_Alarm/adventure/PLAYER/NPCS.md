@@ -88,6 +88,21 @@ Pat nods toward the office wing and the break room corridor. "Elena runs the shi
 - Return to the dock worker conversation menu.
 - Return to the loading dock.
 
+<!-- unit:unit-manager-lori-hub -->
+### Speak with Lori Okonkwo
+
+**Location:** Warehouse manager office | **Time cost:** 1 min
+
+Lori Okonkwo keeps one eye on the receiving reconciliation screen while she listens. Her answers stay careful, but the longer you stay on receiving and access topics, the harder it is for her to pretend tonight is only a routine exception.
+
+**What do you do?**
+
+- Ask whether you entered cold storage after hours.
+- Ask about your control room visit around 23:20.
+- Confront with manifest exception evidence from MNF-IN-4471.
+- Press about label residue found in aisle C.
+- Return to the warehouse manager office.
+
 <!-- unit:unit-marcus-latch -->
 ### Marcus latch
 
@@ -219,8 +234,8 @@ Lori does not look up from the reconciliation screen when you come in. Her answe
 
 **What do you do?**
 
-- Return to the manager office.
-- Return to the loading dock.
+- Return to the Lori conversation menu.
+- Return to the warehouse manager office.
 
 <!-- unit:unit-lori-control-min -->
 ### Lori control min
@@ -237,8 +252,8 @@ She makes it sound smaller than a badge log will.
 
 **What do you do?**
 
-- Return to the manager office.
-- Return to the loading dock.
+- Return to the Lori conversation menu.
+- Return to the warehouse manager office.
 
 <!-- unit:unit-lori-pressure -->
 ### Lori pressure
@@ -253,8 +268,8 @@ You lay the manifest exception in front of her. For a moment she just looks at t
 
 **What do you do?**
 
-- Return to the manager office.
-- Return to the loading dock.
+- Return to the Lori conversation menu.
+- Return to the warehouse manager office.
 
 <!-- unit:unit-lori-label -->
 ### Lori label
@@ -271,8 +286,8 @@ It is the closest she comes to sounding sorry.
 
 **What do you do?**
 
-- Return to the manager office.
-- Return to the loading dock.
+- Return to the Lori conversation menu.
+- Return to the warehouse manager office.
 
 <!-- unit:unit-elena-urgency -->
 ### Elena urgency

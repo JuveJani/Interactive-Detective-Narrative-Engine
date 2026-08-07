@@ -174,6 +174,19 @@ def _structured_labels_for_template(package, template_id: str) -> set[str]:
     return labels
 
 
+def _template_menu_catalog(root: Path) -> dict[str, set[str]]:
+    path = root / "DO_NOT_READ" / "epistemic_progression_package.json"
+    if not path.exists():
+        return {}
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    catalog = raw.get("template_menu_catalog") or {}
+    return {
+        str(tpl_id): {_norm_label(label) for label in labels if label}
+        for tpl_id, labels in catalog.items()
+        if isinstance(labels, list)
+    }
+
+
 def _validate_event_prerequisites(result: ValidationResult, package) -> None:
     for event in package.events.values():
         probe_base = _state_from_event_snapshot(event, package)
@@ -541,10 +554,12 @@ def _validate_snapshot_delivery(
     # Reject template-union PLAYER prose used as delivery authority
     player_root = result.adventure_root / "PLAYER"
     template_units = parse_player_units(player_root, None)
+    menu_catalog = _template_menu_catalog(result.adventure_root)
     for tpl_id, pu in template_units.items():
         if not pu.choices:
             continue
         union = _structured_labels_for_template(package, tpl_id)
+        union |= menu_catalog.get(tpl_id, set())
         if not union:
             continue
         player_labels = {_norm_label(c) for c in pu.choices if c}

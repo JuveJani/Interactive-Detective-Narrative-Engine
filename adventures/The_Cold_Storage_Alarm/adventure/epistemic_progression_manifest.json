@@ -3,12 +3,12 @@
   "epistemic_progression_method": "canonical",
   "package_path": "DO_NOT_READ/epistemic_progression_package.json",
   "materialization": {
-    "template_count": 103,
-    "materialized_count": 2029,
-    "reachable_states": 2029,
-    "attempted_transitions": 4401,
-    "duplicate_states_skipped": 2373,
-    "peak_queue_size": 774,
+    "template_count": 104,
+    "materialized_count": 4567,
+    "reachable_states": 4567,
+    "attempted_transitions": 9873,
+    "duplicate_states_skipped": 5307,
+    "peak_queue_size": 949,
     "truncated": false,
     "max_states": 500000
   }

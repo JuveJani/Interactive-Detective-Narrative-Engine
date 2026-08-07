@@ -33,7 +33,10 @@ TOPIC_RETURN_CHOICES: dict[str, list[str]] = {
     "UNIT-PAT": ["Return to the dock worker conversation menu.", "Return to the loading dock."],
     "UNIT-DEV": ["Return to the dock worker conversation menu.", "Return to the loading dock."],
     "UNIT-MARCUS": ["Return to the security office.", "Return to the loading dock."],
-    "UNIT-LORI": ["Return to the manager office.", "Return to the loading dock."],
+    "UNIT-LORI": [
+        "Return to the Lori conversation menu.",
+        "Return to the warehouse manager office.",
+    ],
 }
 
 
@@ -440,6 +443,22 @@ Write your answer to each accusation question here before you commit to it.
         ],
         "**Location:** Warehouse manager office | **Time cost:** 0 min",
         "Warehouse manager office",
+    )
+
+    add(
+        "UNIT-MANAGER-LORI-HUB",
+        "NPCS.md",
+        "Lori Okonkwo keeps one eye on the receiving reconciliation screen while she listens. "
+        "Her answers stay careful, but the longer you stay on receiving and access topics, the harder it is for her to pretend tonight is only a routine exception.",
+        [
+            "Ask whether you entered cold storage after hours.",
+            "Ask about your control room visit around 23:20.",
+            "Confront with manifest exception evidence from MNF-IN-4471.",
+            "Press about label residue found in aisle C.",
+            "Return to the warehouse manager office.",
+        ],
+        "**Location:** Warehouse manager office | **Time cost:** 1 min",
+        "Speak with Lori Okonkwo",
     )
 
     add(
