@@ -67,8 +67,11 @@ class ContentBlock:
     text: str
     provenance: str  # observation | prior_knowledge | action_reveal | atmosphere
     requires_knowledge_ids: frozenset[str] = frozenset()
+    forbidden_knowledge_ids: frozenset[str] = frozenset()
     requires_world_state: dict[str, Any] = field(default_factory=dict)
+    forbidden_world_state: dict[str, Any] = field(default_factory=dict)
     fact_ids: frozenset[str] = frozenset()
+    presentation_order: int = 0
 
     @classmethod
     def from_dict(cls, raw: dict[str, Any]) -> ContentBlock:
@@ -77,8 +80,11 @@ class ContentBlock:
             text=str(raw.get("text", "")),
             provenance=str(raw.get("provenance", "atmosphere")),
             requires_knowledge_ids=frozenset(raw.get("requires_knowledge_ids") or []),
+            forbidden_knowledge_ids=frozenset(raw.get("forbidden_knowledge_ids") or []),
             requires_world_state=dict(raw.get("requires_world_state") or {}),
+            forbidden_world_state=dict(raw.get("forbidden_world_state") or {}),
             fact_ids=frozenset(raw.get("fact_ids") or []),
+            presentation_order=int(raw.get("presentation_order") or 0),
         )
 
 

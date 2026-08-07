@@ -290,6 +290,83 @@ def _action_from_choice(label: str, dest: str, kind: str, *, requires=None, worl
     }
 
 
+def _content_block(
+    block_id: str,
+    text: str,
+    *,
+    provenance: str = "prior_knowledge",
+    requires=None,
+    forbidden=None,
+    world=None,
+    forbidden_world=None,
+    order: int = 0,
+) -> dict:
+    return {
+        "block_id": block_id,
+        "text": text,
+        "provenance": provenance,
+        "requires_knowledge_ids": requires or [],
+        "forbidden_knowledge_ids": forbidden or [],
+        "requires_world_state": world or {},
+        "forbidden_world_state": forbidden_world or {},
+        "presentation_order": order,
+    }
+
+
+DOCK_NARRATIVE_BLOCKS = [
+    _content_block(
+        "CTX-DOCK-NO-ORIENT",
+        "Beyond the immediate dock and cold corridor, the office wing and warehouse routes are not yet marked in your notes.",
+        forbidden=["KNOW-OPEN-ORIENT"],
+        order=10,
+    ),
+    _content_block(
+        "CTX-DOCK-ORIENT-KNOWN",
+        "The folded site map is in your notes, and the corridors to the break room, security office, and manager wing are clear.",
+        requires=["KNOW-OPEN-ORIENT"],
+        forbidden_world={"dock_restricted_active": True},
+        order=10,
+    ),
+    _content_block(
+        "CTX-DOCK-RESTRICTED",
+        "Elena has tightened dock access: movement beyond approved routes requires her clearance until the restriction lifts.",
+        world={"dock_restricted_active": True},
+        order=20,
+    ),
+    _content_block(
+        "CTX-DOCK-ACCUSATION-READY",
+        "The compliance threshold is approaching. Final accountability documentation could still be prepared before time runs out.",
+        world={"ready_to_accuse": True},
+        order=30,
+    ),
+]
+
+ELENA_HUB_NARRATIVE_BLOCKS = [
+    _content_block(
+        "CTX-ELENA-MAP-AVAILABLE",
+        "A folded site map rests on the briefing table for anyone who still needs a layout overview.",
+        forbidden=["KNOW-OPEN-ORIENT"],
+        provenance="atmosphere",
+        order=10,
+    ),
+    _content_block(
+        "CTX-ELENA-ORIENT-KNOWN",
+        "The site map from her briefing table is already folded into your notes when you need to confirm a corridor name.",
+        requires=["KNOW-OPEN-ORIENT"],
+        order=10,
+    ),
+]
+
+SECURITY_NARRATIVE_BLOCKS = [
+    _content_block(
+        "CTX-SECURITY-ORIENT",
+        "With the site layout noted, the warehouse corridors back toward the dock and manager wing are easy to retrace from here.",
+        requires=["KNOW-OPEN-ORIENT"],
+        order=10,
+    ),
+]
+
+
 def _event(unit_id: str, kind: str, actions: list, **extra) -> dict:
     loc = "LOC-DOCK" if "DOCK" in unit_id else ""
     if unit_id.startswith("UNIT-COLD"):
@@ -340,9 +417,18 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
             relevant_world_state_dependencies=["dock_restricted_active", "ready_to_accuse", "control_escort_cleared"],
             observable_entities=["NPC-ELENA", "NPC-DEV", "NPC-PAT"],
             physical_location_id="LOC-DOCK",
+            content_blocks=DOCK_NARRATIVE_BLOCKS,
         )
     )
-    events.append(_event("UNIT-DOCK-ELENA-HUB", "npc_interaction", ELENA_HUB_ACTIONS, observable_entities=["NPC-ELENA"]))
+    events.append(
+        _event(
+            "UNIT-DOCK-ELENA-HUB",
+            "npc_interaction",
+            ELENA_HUB_ACTIONS,
+            observable_entities=["NPC-ELENA"],
+            content_blocks=ELENA_HUB_NARRATIVE_BLOCKS,
+        )
+    )
     events.append(_event("UNIT-DOCK-WORKER-HUB", "npc_interaction", WORKER_HUB_ACTIONS, observable_entities=["NPC-PAT", "NPC-DEV"]))
 
     handled = {
@@ -425,6 +511,8 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
                     "return",
                 )
             )
+        if uid == "UNIT-SECURITY-BASE":
+            extra["content_blocks"] = SECURITY_NARRATIVE_BLOCKS
         events.append(_event(uid, kind, actions, **extra))
         handled.add(uid)
 

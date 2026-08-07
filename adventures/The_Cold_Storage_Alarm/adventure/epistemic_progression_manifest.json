@@ -4,11 +4,11 @@
   "package_path": "DO_NOT_READ/epistemic_progression_package.json",
   "materialization": {
     "template_count": 103,
-    "materialized_count": 1375,
-    "reachable_states": 1375,
-    "attempted_transitions": 3210,
-    "duplicate_states_skipped": 1836,
-    "peak_queue_size": 580,
+    "materialized_count": 1111,
+    "reachable_states": 1111,
+    "attempted_transitions": 2802,
+    "duplicate_states_skipped": 1692,
+    "peak_queue_size": 530,
     "truncated": false,
     "max_states": 500000
   }

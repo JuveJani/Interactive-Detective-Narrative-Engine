@@ -13,6 +13,7 @@ from idne.epistemic_progression.loader import load_epistemic_package
 from idne.epistemic_progression.model import EpistemicPackage, PlayableEvent
 from idne.gamebook_nav.extract import PlayerUnit
 from idne.gamebook_nav.graph import ChoiceEdge, UnitNavigation, build_navigation_graph
+from idne.gamebook_nav.narrative import render_event_body
 
 # Scene/content aliases: delivery id -> template prose unit.
 CONTENT_ALIASES: dict[str, str] = {
@@ -47,7 +48,7 @@ def build_materialized_delivery_units(
             unit_id=unit_id,
             file=source.file,
             title=source.title,
-            body=source.body,
+            body=render_event_body(source.body, event, package),
             meta_lines=list(source.meta_lines),
             choices=[],
         )

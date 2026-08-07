@@ -8,11 +8,27 @@ from pathlib import Path
 from simulator_v2.human_delivery.types import ParsedSection, VisibleChoice
 
 SECTION_HEADING = re.compile(r"^## Section (\d+)\s*$", re.M)
-TURN_TO = re.compile(r"turn to section \*\*(\d+)\*\*", re.I)
+CHECK_SUCCESS = re.compile(
+    r"if your roll \*\*succeeds\*\*, turn to section (?:\[\*\*(\d+)\*\*\]\(#section-\d+\)|\*\*(\d+)\*\*)",
+    re.I,
+)
+CHECK_FAILURE = re.compile(
+    r"if your roll \*\*fails\*\*, turn to section (?:\[\*\*(\d+)\*\*\]\(#section-\d+\)|\*\*(\d+)\*\*)",
+    re.I,
+)
+TURN_TO = re.compile(
+    r"turn to section (?:\[\*\*(\d+)\*\*\]\(#section-\d+\)|\*\*(\d+)\*\*)",
+    re.I,
+)
 TURN_TO_PLAIN = re.compile(r"turn to section (\d+)", re.I)
-CHECK_SUCCESS = re.compile(r"if your roll \*\*succeeds\*\*, turn to section \*\*(\d+)\*\*", re.I)
-CHECK_FAILURE = re.compile(r"if your roll \*\*fails\*\*, turn to section \*\*(\d+)\*\*", re.I)
 CHOICE_LINE = re.compile(r"^- (.+)$", re.M)
+
+
+def _section_from_match(match: re.Match[str]) -> int:
+    for group in match.groups():
+        if group:
+            return int(group)
+    raise ValueError("no section number in match")
 
 
 def _parse_choices(block: str) -> list[VisibleChoice]:
@@ -24,15 +40,15 @@ def _parse_choices(block: str) -> list[VisibleChoice]:
         text = line[2:].strip()
         succ = CHECK_SUCCESS.search(text)
         if succ:
-            choices.append(VisibleChoice(text, int(succ.group(1)), "check_success"))
+            choices.append(VisibleChoice(text, _section_from_match(succ), "check_success"))
             continue
         fail = CHECK_FAILURE.search(text)
         if fail:
-            choices.append(VisibleChoice(text, int(fail.group(1)), "check_failure"))
+            choices.append(VisibleChoice(text, _section_from_match(fail), "check_failure"))
             continue
         dest = TURN_TO.search(text) or TURN_TO_PLAIN.search(text)
         if dest:
-            choices.append(VisibleChoice(text, int(dest.group(1)), "navigate"))
+            choices.append(VisibleChoice(text, _section_from_match(dest), "navigate"))
         else:
             choices.append(VisibleChoice(text, None, "navigate"))
     return choices

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from idne.epistemic_progression.model import EpistemicState, PlayableEvent, StructuredAction
+from idne.epistemic_progression.model import ContentBlock, EpistemicState, PlayableEvent, StructuredAction
 
 
 def _world_state_matches(required: dict[str, Any], state: dict[str, Any]) -> bool:
@@ -81,6 +81,22 @@ def action_eligible(action: StructuredAction, state: EpistemicState) -> tuple[bo
         topic = action.destination_unit_id.split("--S-", 1)[0]
         if topic in completed:
             return False, "conversation topic already completed"
+    return True, "PASS"
+
+
+def block_eligible(block: ContentBlock, state: EpistemicState) -> tuple[bool, str]:
+    missing = block.requires_knowledge_ids - state.player_knowledge
+    if missing:
+        return False, f"missing knowledge: {sorted(missing)}"
+    if block.forbidden_knowledge_ids & state.player_knowledge:
+        return False, "forbidden knowledge held"
+    if not _world_state_matches(block.requires_world_state, state.world_state):
+        return False, "world state prerequisites unmet"
+    if _forbidden_world_state(block.forbidden_world_state, state.world_state):
+        return False, "forbidden world state active"
+    unknown_facts = block.fact_ids - state.player_knowledge
+    if unknown_facts and block.provenance not in ("observation", "atmosphere"):
+        return False, f"references unknown facts: {sorted(unknown_facts)}"
     return True, "PASS"
 
 

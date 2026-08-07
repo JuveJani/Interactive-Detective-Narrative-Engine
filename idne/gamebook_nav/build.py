@@ -12,6 +12,7 @@ from idne.gamebook_nav.extract import load_opening, parse_player_units
 from idne.gamebook_nav.graph import build_navigation_graph
 from idne.gamebook_nav.numbering import assign_public_sections
 from idne.gamebook_nav.constants import DEFAULT_START_UNIT
+from idne.gamebook_nav.sections import section_heading, section_link
 from idne.gamebook_nav.validate import validate_gamebook_navigation
 
 
@@ -23,12 +24,13 @@ def _choice_lines(edges, section_map: dict[str, int]) -> list[str]:
         if not sec:
             lines.append(f"- {edge.label}")
             continue
+        link = section_link(sec)
         if edge.edge_kind == "check_success":
-            lines.append(f"- If your roll **succeeds**, turn to section **{sec}**.")
+            lines.append(f"- If your roll **succeeds**, turn to section {link}.")
         elif edge.edge_kind == "check_failure":
-            lines.append(f"- If your roll **fails**, turn to section **{sec}**.")
+            lines.append(f"- If your roll **fails**, turn to section {link}.")
         else:
-            lines.append(f"- {edge.label} Turn to section **{sec}**.")
+            lines.append(f"- {edge.label} Turn to section {link}.")
     return lines
 
 
@@ -53,7 +55,7 @@ def render_gamebook(
         "",
         opening,
         "",
-        f"**Starting section: {start_sec}** — turn to section **{start_sec}** to begin your investigation.",
+        f"**Starting section: {start_sec}** — turn to section {section_link(start_sec)} to begin your investigation.",
         "",
         "---",
         "",
@@ -63,7 +65,7 @@ def render_gamebook(
         unit = player_units[uid]
         sec = section_map[uid]
         nav = graph.get(uid)
-        lines.append(f"## Section {sec}")
+        lines.append(section_heading(sec))
         lines.append("")
         if unit.meta_lines:
             for m in unit.meta_lines:

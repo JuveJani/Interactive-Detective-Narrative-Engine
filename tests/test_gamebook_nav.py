@@ -291,6 +291,90 @@ class TestColdStorageEpisodicDelivery(unittest.TestCase):
         self.assertEqual(res.checks.get("EP-DELIVERY-ALIGN"), "PASS")
 
     @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
+    def test_opening_prose_does_not_claim_map_or_orientation(self):
+        from idne.gamebook_nav.delivery import load_materialized_delivery
+        from idne.gamebook_nav.extract import parse_player_units
+
+        _, units, _, _ = load_materialized_delivery(
+            self.root, parse_player_units(self.root / "PLAYER", None)
+        )
+        body = units["UNIT-DOCK-BASE"].body.lower()
+        self.assertIn("not yet marked in your notes", body)
+        self.assertNotIn("site map is in your notes", body)
+        self.assertNotIn("corridors to the break room", body)
+
+    @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
+    def test_post_map_prose_reflects_known_layout(self):
+        from idne.epistemic_progression.loader import load_epistemic_package, initial_epistemic_state
+        from idne.epistemic_progression.resolve import resolve_playable_unit
+        from idne.epistemic_progression.eligibility import filter_eligible_actions
+        from idne.gamebook_nav.delivery import load_materialized_delivery
+        from idne.gamebook_nav.extract import parse_player_units
+
+        pkg = load_epistemic_package(self.root)
+        state = initial_epistemic_state(pkg)
+        _, units, _, _ = load_materialized_delivery(
+            self.root, parse_player_units(self.root / "PLAYER", None)
+        )
+        for unit, label in (
+            ("UNIT-DOCK-BASE", "Talk to Elena Morales."),
+            ("UNIT-DOCK-ELENA-HUB", "Ask whether a map or site overview is available."),
+            ("UNIT-ELENA-MAP", "Return to the loading dock."),
+        ):
+            cur = resolve_playable_unit(pkg, state, unit)
+            event = pkg.events_by_unit[cur]
+            action = next(a for a, ok, _ in filter_eligible_actions(event, state) if ok and a.label == label)
+            state = state.apply_action_deltas(action)
+            state.current_unit_id = resolve_playable_unit(pkg, state, action.destination_unit_id)
+
+        post_body = units[state.current_unit_id].body.lower()
+        self.assertIn("site map is in your notes", post_body)
+        self.assertIn("security office", post_body)
+        self.assertNotIn("not yet marked in your notes", post_body)
+
+    @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
+    def test_narrative_rendering_is_deterministic(self):
+        from idne.gamebook_nav.delivery import load_materialized_delivery
+        from idne.gamebook_nav.extract import parse_player_units
+
+        tpl = parse_player_units(self.root / "PLAYER", None)
+        _, first, _, _ = load_materialized_delivery(self.root, tpl)
+        _, second, _, _ = load_materialized_delivery(self.root, tpl)
+        self.assertEqual(
+            {uid: u.body for uid, u in first.items()},
+            {uid: u.body for uid, u in second.items()},
+        )
+
+    @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
+    def test_worker_hub_reuses_base_prose_without_state_blocks(self):
+        from idne.gamebook_nav.delivery import load_materialized_delivery
+        from idne.gamebook_nav.extract import parse_player_units
+
+        _, units, _, _ = load_materialized_delivery(
+            self.root, parse_player_units(self.root / "PLAYER", None)
+        )
+        worker_ids = [uid for uid in units if uid.startswith("UNIT-DOCK-WORKER-HUB")]
+        self.assertGreater(len(worker_ids), 1)
+        bodies = {units[uid].body for uid in worker_ids}
+        self.assertEqual(len(bodies), 1)
+
+    @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
+    def test_gamebook_has_clickable_section_links_and_anchors(self):
+        from idne.gamebook_nav.sections import ANCHOR_TAG, SECTION_LINK
+
+        book = (self.root / "PLAYER" / "GAMEBOOK.md").read_text(encoding="utf-8")
+        sections = self.manifest.get("public_sections") or {}
+        self.assertGreater(len(SECTION_LINK.findall(book)), 10)
+        anchor_ids = [int(m.group(1)) for m in ANCHOR_TAG.finditer(book)]
+        self.assertEqual(sorted(anchor_ids), sorted(sections.values()))
+        for label, target in SECTION_LINK.findall(book):
+            self.assertEqual(label, target)
+            self.assertIn(f'<a id="section-{target}"></a>', book)
+        val = self.manifest.get("gamebook_validation") or {}
+        self.assertEqual(val.get("checks", {}).get("GB-ANCHORS"), "PASS")
+        self.assertEqual(val.get("checks", {}).get("GB-LINKS"), "PASS")
+
+    @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
     def test_static_navigation_and_route_equivalence(self):
         from simulator_v2.human_delivery.runner import cmd_delivery_validate, cmd_human_trace
 

@@ -9,6 +9,7 @@ from typing import Any
 from idne.gamebook_nav.extract import PlayerUnit, parse_player_units, resolve_manifest_aliases
 from idne.gamebook_nav.constants import DEFAULT_START_UNIT
 from idne.gamebook_nav.graph import UnitNavigation, build_navigation_graph
+from idne.gamebook_nav.sections import ANCHOR_TAG, LEGACY_BOLD_TURN, SECTION_HEADING, SECTION_LINK
 
 
 @dataclass
@@ -246,6 +247,49 @@ def validate_gamebook_navigation(
                 break
         else:
             result.checks["GB-BOOK-COVERAGE"] = "PASS"
+
+        if section_map:
+            anchor_ids = [int(m.group(1)) for m in ANCHOR_TAG.finditer(gamebook_text)]
+            heading_ids = [int(m.group(1)) for m in SECTION_HEADING.finditer(gamebook_text)]
+            expected = sorted(section_map.values())
+            if sorted(anchor_ids) != expected:
+                missing = sorted(set(expected) - set(anchor_ids))[:5]
+                extra = sorted(set(anchor_ids) - set(expected))[:5]
+                result.errors.append(
+                    f"section anchor mismatch: missing={missing} extra={extra}"
+                )
+                result.checks["GB-ANCHORS"] = "FAIL"
+            elif len(anchor_ids) != len(set(anchor_ids)):
+                result.errors.append("duplicate section anchors in gamebook")
+                result.checks["GB-ANCHORS"] = "FAIL"
+            else:
+                result.checks["GB-ANCHORS"] = "PASS"
+
+            if sorted(heading_ids) != expected:
+                result.errors.append("section headings do not match public_sections")
+                result.checks["GB-HEADINGS"] = "FAIL"
+            else:
+                result.checks["GB-HEADINGS"] = "PASS"
+
+            broken_links: list[str] = []
+            for match in SECTION_LINK.finditer(gamebook_text):
+                label, target = int(match.group(1)), int(match.group(2))
+                if label != target:
+                    broken_links.append(f"{label}->{target}")
+                elif target not in section_map.values():
+                    broken_links.append(str(target))
+            if broken_links:
+                result.errors.append(f"broken section links: {broken_links[:5]}")
+                result.checks["GB-LINKS"] = "FAIL"
+            else:
+                result.checks["GB-LINKS"] = "PASS"
+
+            legacy = LEGACY_BOLD_TURN.findall(gamebook_text)
+            if legacy:
+                result.warnings.append(f"non-clickable legacy section refs: {legacy[:5]}")
+                result.checks["GB-CLICKABLE"] = "WARN"
+            else:
+                result.checks["GB-CLICKABLE"] = "PASS"
 
     if result.errors:
         result.status = "FAIL"

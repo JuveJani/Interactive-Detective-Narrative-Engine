@@ -69,8 +69,11 @@
           "enum": ["observation", "prior_knowledge", "action_reveal", "atmosphere"]
         },
         "requires_knowledge_ids": { "type": "array", "items": { "type": "string" } },
+        "forbidden_knowledge_ids": { "type": "array", "items": { "type": "string" } },
         "requires_world_state": { "type": "object" },
-        "fact_ids": { "type": "array", "items": { "type": "string" } }
+        "forbidden_world_state": { "type": "object" },
+        "fact_ids": { "type": "array", "items": { "type": "string" } },
+        "presentation_order": { "type": "integer" }
       }
     },
     "playable_event": {

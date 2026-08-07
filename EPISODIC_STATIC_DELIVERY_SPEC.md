@@ -52,6 +52,44 @@ PLAYER prose must never be the source of knowledge/world/interaction gating.
 7. Render `GAMEBOOK.md` from delivery units + graph + section map.
 8. Write manifest `units` keyed by delivery unit ID with exact per-section choices.
 
+## State-aware narrative delivery
+
+For each materialized snapshot at render time:
+
+1. Render reusable template/base prose.
+2. Select `content_blocks` whose knowledge/world prerequisites match the snapshot state.
+3. Append eligible blocks in deterministic `(presentation_order, block_id)` order.
+4. Render that snapshot's exact structured choices.
+
+Content blocks describe **current player-visible state**, not assumed recent actions. Blocks may use:
+
+| Field | Purpose |
+|-------|---------|
+| `requires_knowledge_ids` | show when knowledge present |
+| `forbidden_knowledge_ids` | hide when knowledge present |
+| `requires_world_state` | show when world flag/value matches |
+| `forbidden_world_state` | hide when world flag/value matches |
+| `presentation_order` | deterministic ordering among eligible blocks |
+
+Duplicate block text in one section is suppressed at render time.
+
+## Clickable section navigation
+
+Each public section renders as:
+
+```markdown
+<a id="section-615"></a>
+## Section 615
+```
+
+Choice lines link same-document targets while preserving visible numbers:
+
+```markdown
+- … Turn to section [**615**](#section-615).
+```
+
+Validators require one anchor per public section and valid link targets.
+
 ## Opening invariant (Cold Storage)
 
 At initial state (`UNIT-DOCK-BASE` with initial knowledge only), the loading dock delivery section exposes **exactly**:

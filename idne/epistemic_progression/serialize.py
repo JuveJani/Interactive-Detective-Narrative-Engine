@@ -35,8 +35,11 @@ def _block_to_dict(block: ContentBlock) -> dict[str, Any]:
         "text": block.text,
         "provenance": block.provenance,
         "requires_knowledge_ids": sorted(block.requires_knowledge_ids),
+        "forbidden_knowledge_ids": sorted(block.forbidden_knowledge_ids),
         "requires_world_state": dict(block.requires_world_state),
+        "forbidden_world_state": dict(block.forbidden_world_state),
         "fact_ids": sorted(block.fact_ids),
+        "presentation_order": block.presentation_order,
     }
 
 
