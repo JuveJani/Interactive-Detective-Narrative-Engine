@@ -475,7 +475,14 @@ def build_navigation_graph(
                 continue
 
             if nchoice.startswith("return to"):
-                if ret_default:
+                # Location navigation from environment_package takes precedence over
+                # result_unit return_destination (location bases use self as menu hub).
+                if loc:
+                    nav_dest = nav_labels.get((loc, nchoice))
+                    if nav_dest:
+                        edges.append(ChoiceEdge(choice, nav_dest, "return"))
+                        continue
+                if ret_default and ret_default != uid:
                     edges.append(ChoiceEdge(choice, ret_default, "return"))
                     continue
                 for (src, lbl), dest in nav_labels.items():

@@ -16,6 +16,12 @@ from idne.epistemic_progression.loader import initial_epistemic_state
 from idne.epistemic_progression.materialize import MaterializeStats, materialize_package
 from idne.epistemic_progression.model import EpistemicState, PlayableEvent
 from idne.epistemic_progression.serialize import event_to_dict
+from idne.epistemic_progression.template_navigation import (
+    UnresolvedDestinationError,
+    build_template_choice_map,
+    build_template_navigation_graph,
+    resolve_template_destination,
+)
 
 ADV = ROOT / "adventures" / "The_Cold_Storage_Alarm"
 ADVENTURE = ADV / "adventure"
@@ -153,22 +159,14 @@ def _norm(label: str) -> str:
     return re.sub(r"\s+", " ", label.strip().lower())
 
 
-def _load_canonical_choice_map() -> dict[tuple[str, str], tuple[str, str]]:
-    """Load label->destination map from committed manifest before epistemic migration."""
-    import subprocess
-
-    raw = subprocess.check_output(
-        ["git", "show", "HEAD:adventures/The_Cold_Storage_Alarm/player_mapping_manifest.json"],
-        cwd=ROOT,
-        text=True,
-    )
-    manifest = json.loads(raw)
-    out: dict[tuple[str, str], tuple[str, str]] = {}
-    for uid, entry in (manifest.get("units") or {}).items():
-        for c in entry.get("choices") or []:
-            out[(uid, _norm(c.get("label", "")))] = (c["destination_unit_id"], c.get("kind", "navigate"))
-    return out
-
+INTENTIONAL_SELF_LOOPS = frozenset(
+    {
+        (
+            "UNIT-MANAGER-BASE",
+            _norm("Speak with Lori Okonkwo about receiving and access topics you have unlocked."),
+        ),
+    }
+)
 
 DESTINATION_ALIASES = {
     "UNIT-DOCK-BASE-SURVEYED": "UNIT-DOCK-BASE",
@@ -176,49 +174,98 @@ DESTINATION_ALIASES = {
 }
 
 
+def _hub_choice_overrides() -> dict[tuple[str, str], tuple[str, str, str]]:
+    """Epistemic-only hub split routes not represented in canonical PLAYER hub menus."""
+    local: dict[tuple[str, str], tuple[str, str, str]] = {}
+    for action in OPENING_HUB_ACTIONS:
+        local[("UNIT-DOCK-BASE", _norm(action["label"]))] = (
+            action["destination_unit_id"],
+            action["action_type"],
+            action["label"],
+        )
+    for action in ELENA_HUB_ACTIONS:
+        local[("UNIT-DOCK-ELENA-HUB", _norm(action["label"]))] = (
+            action["destination_unit_id"],
+            action["action_type"],
+            action["label"],
+        )
+    for action in WORKER_HUB_ACTIONS:
+        local[("UNIT-DOCK-WORKER-HUB", _norm(action["label"]))] = (
+            action["destination_unit_id"],
+            action["action_type"],
+            action["label"],
+        )
+    topic_units = (
+        "UNIT-ELENA-BEGIN",
+        "UNIT-ELENA-MAP",
+        "UNIT-ELENA-STAFF",
+        "UNIT-WORKER-ROLE",
+        "UNIT-WORKER-TENURE",
+        "UNIT-WORKER-LOCAL",
+        "UNIT-PAT-DOOR",
+        "UNIT-DEV-EXIT",
+    )
+    for uid in topic_units:
+        for prefix, hub, hub_label, exit_dest, exit_label in TOPIC_RETURN_PROFILES:
+            if uid.startswith(prefix):
+                local[(uid, _norm(hub_label))] = (hub, "return", hub_label)
+                local[(uid, _norm(exit_label))] = (exit_dest, "return", exit_label)
+                break
+    lori_label = "Speak with Lori Okonkwo about receiving and access topics you have unlocked."
+    local[("UNIT-MANAGER-BASE", _norm(lori_label))] = ("UNIT-MANAGER-BASE", "action", lori_label)
+    return local
+
+
+def _load_check_dests() -> dict[str, tuple[str, str]]:
+    cap = json.loads((DNR / "capability_check_package.json").read_text(encoding="utf-8"))
+    out: dict[str, tuple[str, str]] = {}
+    for chk in cap.get("checks", []) or []:
+        dest = chk.get("destinations", {}) or {}
+        decl = dest.get("action_unit_id", "")
+        ok = dest.get("success_destination", "")
+        fail = dest.get("failure_destination", "")
+        if decl and ok and fail:
+            out[decl] = (ok, fail)
+    return out
+
+
+def _check_declaration_actions(uid: str, check_dests: dict[str, tuple[str, str]]) -> list[dict] | None:
+    pair = check_dests.get(uid)
+    if not pair:
+        return None
+    ok, fail = pair
+    return [
+        _action_from_choice(
+            "If your roll succeeds, go to the success section.",
+            ok,
+            "check_success",
+        ),
+        _action_from_choice(
+            "If your roll fails, go to the failure section.",
+            fail,
+            "check_failure",
+        ),
+    ]
+
+
 def _normalize_dest(dest: str) -> str:
     return DESTINATION_ALIASES.get(dest, dest)
 
 
-def _guess_dest(label: str, uid: str, manifest: dict, choice_map: dict) -> str:
-    key = (uid, _norm(label))
-    if key in choice_map:
-        return _normalize_dest(choice_map[key][0])
-    # New opening hub routes
-    local = {
-        _norm("Talk to Elena Morales."): "UNIT-DOCK-ELENA-HUB",
-        _norm("Talk to a dock worker."): "UNIT-DOCK-WORKER-HUB",
-        _norm("Ask where the investigation should begin."): "UNIT-ELENA-BEGIN",
-        _norm("Ask whether a map or site overview is available."): "UNIT-ELENA-MAP",
-        _norm("Ask who was still on site working late."): "UNIT-ELENA-STAFF",
-        _norm("Ask what they know about the incident."): "UNIT-PAT-DOOR",
-        _norm("Ask their name and role on site."): "UNIT-WORKER-ROLE",
-        _norm("Ask how long they have worked here."): "UNIT-WORKER-TENURE",
-        _norm("Ask who or what they know locally."): "UNIT-WORKER-LOCAL",
-        _norm("Return to the loading dock."): "UNIT-DOCK-BASE",
-        _norm("Return to the Elena conversation menu."): "UNIT-DOCK-ELENA-HUB",
-        _norm("Return to the dock worker conversation menu."): "UNIT-DOCK-WORKER-HUB",
-    }
-    if _norm(label) in local:
-        return _normalize_dest(local[_norm(label)])
-    if "return" in label.lower():
-        return uid
-    return uid
+def _resolve_dest(label: str, uid: str, choice_map: dict[tuple[str, str], tuple[str, str]]) -> str:
+    dest, _kind = resolve_template_destination(
+        uid, label, choice_map, intentional_self_loops=INTENTIONAL_SELF_LOOPS
+    )
+    return _normalize_dest(dest)
 
 
-def _guess_kind(label: str, uid: str, choice_map: dict) -> str:
-    key = (uid, _norm(label))
-    if key in choice_map:
-        return choice_map[key][1]
-    if "Talk to" in label:
-        return "approach_npc"
-    if label.lower().startswith("ask "):
-        return "dialogue_topic"
-    if "return" in label.lower():
-        return "return"
-    if "Walk" in label or "Head" in label or "Cut through" in label or "Take the" in label:
+def _resolve_kind(label: str, uid: str, choice_map: dict[tuple[str, str], tuple[str, str]]) -> str:
+    _dest, kind = resolve_template_destination(
+        uid, label, choice_map, intentional_self_loops=INTENTIONAL_SELF_LOOPS
+    )
+    if kind == "navigate":
         return "nav"
-    return "action"
+    return kind
 
 
 def _load_npc_metadata() -> tuple[dict[str, int], dict[str, str]]:
@@ -403,7 +450,15 @@ def _build_consolidated_dock_actions() -> list[dict]:
 def build_epistemic_events(manifest: dict) -> list[dict]:
     events: list[dict] = []
     player_units = parse_player_units(ADVENTURE / "PLAYER")
-    choice_map = _load_canonical_choice_map()
+    hub_overrides = _hub_choice_overrides()
+    nav_graph = build_template_navigation_graph(ADVENTURE, player_units, hub_overrides=hub_overrides)
+    choice_map = build_template_choice_map(
+        ADVENTURE,
+        player_units,
+        extra_edges={(k, v[:2]) for k, v in hub_overrides.items()},
+        graph=nav_graph,
+    )
+    check_dests = _load_check_dests()
     _topic_times, npc_grants = _load_npc_metadata()
     TOPIC_KNOWLEDGE_GRANTS.update({uid: [kid] for uid, kid in npc_grants.items() if uid not in TOPIC_KNOWLEDGE_GRANTS})
 
@@ -460,13 +515,19 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
         elif uid.startswith("UNIT-ELENA") or uid.startswith("UNIT-DEV") or uid.startswith("UNIT-PAT") or uid.startswith("UNIT-LORI") or uid.startswith("UNIT-MARCUS") or uid.startswith("UNIT-WORKER"):
             kind = "dialogue_topic"
         topic_returns = _topic_return_actions(uid)
-        if topic_returns and kind == "dialogue_topic":
+        check_actions = _check_declaration_actions(uid, check_dests)
+        if check_actions:
+            actions = check_actions
+        elif topic_returns and kind == "dialogue_topic":
             actions = topic_returns
         else:
             actions = []
             for label in choices:
-                dest = _normalize_dest(_guess_dest(label, uid, manifest, choice_map))
-                ck = _guess_kind(label, uid, choice_map)
+                try:
+                    dest = _normalize_dest(_resolve_dest(label, uid, choice_map))
+                    ck = _resolve_kind(label, uid, choice_map)
+                except UnresolvedDestinationError as exc:
+                    raise UnresolvedDestinationError(exc.unit_id, exc.label) from exc
                 req: list[str] = []
                 refs: list[str] = []
                 if INFERENCE_PREFIX in label:

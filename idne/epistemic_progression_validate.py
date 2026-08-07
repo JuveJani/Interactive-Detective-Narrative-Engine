@@ -433,7 +433,7 @@ def _validate_check_snapshot_delivery(
             "missing check_success/check_failure manifest choices",
         )
         return
-    if by_kind["check_success"] != ok_dest:
+    if template_unit_id(by_kind["check_success"]) != ok_dest:
         _add(
             result,
             "EP-DELIVERY-WRONG-DEST",
@@ -441,7 +441,7 @@ def _validate_check_snapshot_delivery(
             "check success branch must target capability success destination",
             f"manifest {by_kind['check_success']} != {ok_dest}",
         )
-    if by_kind["check_failure"] != fail_dest:
+    if template_unit_id(by_kind["check_failure"]) != fail_dest:
         _add(
             result,
             "EP-DELIVERY-WRONG-DEST",
