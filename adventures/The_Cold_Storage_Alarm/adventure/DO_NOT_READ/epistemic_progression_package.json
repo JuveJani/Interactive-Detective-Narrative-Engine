@@ -1137,7 +1137,7 @@
           "action_id": "ACT-UNIT-DOCK-BASE",
           "action_type": "scene_continue",
           "label": "Continue this scene thread.",
-          "destination_unit_id": "UNIT-DOCK-BASE",
+          "destination_unit_id": "UNIT-DOCK-BASE-SURVEYED",
           "requires_knowledge_ids": [],
           "requires_world_state": {},
           "referenced_fact_ids": [],
@@ -1170,7 +1170,7 @@
           "action_id": "ACT-UNIT-DOCK-BASE",
           "action_type": "scene_continue",
           "label": "Continue this scene thread.",
-          "destination_unit_id": "UNIT-DOCK-BASE",
+          "destination_unit_id": "UNIT-DOCK-BASE-SURVEYED",
           "requires_knowledge_ids": [],
           "requires_world_state": {},
           "referenced_fact_ids": [],
@@ -1187,7 +1187,7 @@
           "action_id": "ACT-UNIT-DOCK-BASE",
           "action_type": "return",
           "label": "Return to the location base section for this area.",
-          "destination_unit_id": "UNIT-DOCK-BASE",
+          "destination_unit_id": "UNIT-DOCK-BASE-SURVEYED",
           "requires_knowledge_ids": [],
           "requires_world_state": {},
           "referenced_fact_ids": [],
@@ -1872,14 +1872,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_id": "ACT-UNIT-DEV-BADGE-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-DEV-BADGE-LEFT"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-DEV-BADGE-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-DEV-BADGE-LEFT"
+          ]
         }
       ]
     },
@@ -1891,14 +1901,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_id": "ACT-UNIT-DEV-CLO1847-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-DEV-CLO1847"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-DEV-CLO1847-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-DEV-CLO1847"
+          ]
         }
       ]
     },
@@ -1910,14 +1930,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_id": "ACT-UNIT-DEV-EXIT-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-DEV-EXIT-TIME"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-DEV-EXIT-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-DEV-EXIT-TIME"
+          ]
         }
       ]
     },
@@ -1929,14 +1959,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_id": "ACT-UNIT-DEV-SESSION-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-DEV-SESSION-LEFT"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-DEV-SESSION-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-DEV-SESSION-LEFT"
+          ]
         }
       ]
     },
@@ -1986,23 +2026,17 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-ELENA-HUB",
+          "action_id": "ACT-UNIT-ELENA-BEGIN-HUB",
           "action_type": "return",
           "label": "Return to the Elena conversation menu.",
           "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
           "investigative": false
         },
         {
-          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_id": "ACT-UNIT-ELENA-BEGIN-EXIT",
           "action_type": "return",
           "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
           "investigative": false
         }
       ]
@@ -2015,14 +2049,25 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_id": "ACT-UNIT-ELENA-MAP-HUB",
+          "action_type": "return",
+          "label": "Return to the Elena conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-OPEN-ORIENT"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-ELENA-MAP-EXIT",
           "action_type": "return",
           "label": "Return to the loading dock.",
-          "destination_unit_id": "UNIT-DOCK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "destination_unit_id": "UNIT-DOCK-BASE-SURVEYED",
+          "investigative": true,
+          "knowledge_delta": [
+            "KNOW-OPEN-ORIENT"
+          ],
+          "purpose": "site orientation"
         }
       ]
     },
@@ -2034,14 +2079,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_id": "ACT-UNIT-ELENA-RESTRICT-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the Elena conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-ELENA-DOCK-RESTRICT"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-ELENA-RESTRICT-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-ELENA-DOCK-RESTRICT"
+          ]
         }
       ]
     },
@@ -2053,14 +2108,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_id": "ACT-UNIT-ELENA-STAFF-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the Elena conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-ELENA-LORI-LATE"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-ELENA-STAFF-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-ELENA-LORI-LATE"
+          ]
         }
       ]
     },
@@ -2072,14 +2137,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-BASE",
+          "action_id": "ACT-UNIT-ELENA-URGENCY-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the Elena conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-ELENA-ALARM-CALL"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-ELENA-URGENCY-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-ELENA-ALARM-CALL"
+          ]
         }
       ]
     },
@@ -2310,14 +2385,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_id": "ACT-UNIT-LORI-CONTROL-MIN-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the manager office.",
           "destination_unit_id": "UNIT-MANAGER-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-LORI-CONTROL-PRESENCE"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-LORI-CONTROL-MIN-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-LORI-CONTROL-PRESENCE"
+          ]
         }
       ]
     },
@@ -2329,14 +2414,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_id": "ACT-UNIT-LORI-DENY-COLD-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the manager office.",
           "destination_unit_id": "UNIT-MANAGER-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-LORI-EVASIVE-COLD"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-LORI-DENY-COLD-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-LORI-EVASIVE-COLD"
+          ]
         }
       ]
     },
@@ -2348,14 +2443,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_id": "ACT-UNIT-LORI-LABEL-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the manager office.",
           "destination_unit_id": "UNIT-MANAGER-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-LORI-RELABEL"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-LORI-LABEL-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-LORI-RELABEL"
+          ]
         }
       ]
     },
@@ -2367,14 +2472,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-MANAGER-BASE",
+          "action_id": "ACT-UNIT-LORI-PRESSURE-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the manager office.",
           "destination_unit_id": "UNIT-MANAGER-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-LORI-MANIFEST-EXCEPTION"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-LORI-PRESSURE-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-LORI-MANIFEST-EXCEPTION"
+          ]
         }
       ]
     },
@@ -2513,14 +2628,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_id": "ACT-UNIT-MARCUS-ALARM-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the security office.",
           "destination_unit_id": "UNIT-SECURITY-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-MARCUS-HIGH-TEMP-ALARM"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-MARCUS-ALARM-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-MARCUS-HIGH-TEMP-ALARM"
+          ]
         }
       ]
     },
@@ -2532,14 +2657,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_id": "ACT-UNIT-MARCUS-GAP-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the security office.",
           "destination_unit_id": "UNIT-SECURITY-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-MARCUS-BADGE-UNREVIEWED"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-MARCUS-GAP-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-MARCUS-BADGE-UNREVIEWED"
+          ]
         }
       ]
     },
@@ -2551,14 +2686,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-SECURITY-BASE",
+          "action_id": "ACT-UNIT-MARCUS-LATCH-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the security office.",
           "destination_unit_id": "UNIT-SECURITY-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-MARCUS-LATCH-CHECK"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-MARCUS-LATCH-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-MARCUS-LATCH-CHECK"
+          ]
         }
       ]
     },
@@ -2570,14 +2715,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_id": "ACT-UNIT-PAT-DOOR-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
-          "destination_unit_id": "UNIT-BREAK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-PAT-PROPPED-DOOR"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-PAT-DOOR-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-PAT-PROPPED-DOOR"
+          ]
         }
       ]
     },
@@ -2589,14 +2744,24 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-BREAK-BASE",
+          "action_id": "ACT-UNIT-PAT-SIL-HUB",
           "action_type": "return",
-          "label": "Return to your current location menu or continue the conversation.",
-          "destination_unit_id": "UNIT-BREAK-BASE",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
-          "investigative": false
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-PAT-SILHOUETTE"
+          ]
+        },
+        {
+          "action_id": "ACT-UNIT-PAT-SIL-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
+          "investigative": false,
+          "knowledge_delta": [
+            "KNOW-PAT-SILHOUETTE"
+          ]
         }
       ]
     },
@@ -2802,13 +2967,17 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-WORKER-HUB",
+          "action_id": "ACT-UNIT-WORKER-LOCAL-HUB",
           "action_type": "return",
           "label": "Return to the dock worker conversation menu.",
           "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-WORKER-LOCAL-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "investigative": false
         }
       ]
@@ -2821,13 +2990,17 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-WORKER-HUB",
+          "action_id": "ACT-UNIT-WORKER-ROLE-HUB",
           "action_type": "return",
           "label": "Return to the dock worker conversation menu.",
           "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-WORKER-ROLE-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "investigative": false
         }
       ]
@@ -2840,13 +3013,17 @@
       "event_kind": "dialogue_topic",
       "structured_actions": [
         {
-          "action_id": "ACT-UNIT-DOCK-WORKER-HUB",
+          "action_id": "ACT-UNIT-WORKER-TENURE-HUB",
           "action_type": "return",
           "label": "Return to the dock worker conversation menu.",
           "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
-          "requires_knowledge_ids": [],
-          "requires_world_state": {},
-          "referenced_fact_ids": [],
+          "investigative": false
+        },
+        {
+          "action_id": "ACT-UNIT-WORKER-TENURE-EXIT",
+          "action_type": "return",
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "investigative": false
         }
       ]

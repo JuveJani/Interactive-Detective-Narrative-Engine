@@ -17,7 +17,7 @@
       "file": "PLAYER/LOCATIONS.md",
       "anchor": "Loading dock",
       "unit_id": "UNIT-DOCK-BASE",
-      "public_section": 636,
+      "public_section": 592,
       "choices": [
         {
           "label": "Talk to Elena Morales.",
@@ -40,7 +40,7 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Talk to Elena Morales",
       "unit_id": "UNIT-DOCK-ELENA-HUB",
-      "public_section": 113,
+      "public_section": 630,
       "choices": [
         {
           "label": "Ask where the investigation should begin.",
@@ -68,7 +68,7 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Talk to a dock worker",
       "unit_id": "UNIT-DOCK-WORKER-HUB",
-      "public_section": 389,
+      "public_section": 657,
       "choices": [
         {
           "label": "Ask what they know about the incident.",
@@ -101,7 +101,7 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Where to begin",
       "unit_id": "UNIT-ELENA-BEGIN",
-      "public_section": 983,
+      "public_section": 684,
       "choices": [
         {
           "label": "Return to the Elena conversation menu.",
@@ -119,11 +119,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Site overview",
       "unit_id": "UNIT-ELENA-MAP",
-      "public_section": 317,
+      "public_section": 698,
       "choices": [
         {
+          "label": "Return to the Elena conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "kind": "return"
+        },
+        {
           "label": "Return to the loading dock.",
-          "destination_unit_id": "UNIT-DOCK-BASE",
+          "destination_unit_id": "UNIT-DOCK-BASE-SURVEYED",
           "kind": "return"
         }
       ]
@@ -132,11 +137,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Name and role",
       "unit_id": "UNIT-WORKER-ROLE",
-      "public_section": 692,
+      "public_section": 998,
       "choices": [
         {
           "label": "Return to the dock worker conversation menu.",
           "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -145,11 +155,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Time on site",
       "unit_id": "UNIT-WORKER-TENURE",
-      "public_section": 260,
+      "public_section": 999,
       "choices": [
         {
           "label": "Return to the dock worker conversation menu.",
           "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -158,11 +173,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Local contacts",
       "unit_id": "UNIT-WORKER-LOCAL",
-      "public_section": 858,
+      "public_section": 994,
       "choices": [
         {
           "label": "Return to the dock worker conversation menu.",
           "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -171,7 +191,7 @@
       "file": "PLAYER/LOCATIONS.md",
       "anchor": "Loading dock \u2014 after orientation",
       "unit_id": "UNIT-DOCK-BASE-SURVEYED",
-      "public_section": 310,
+      "public_section": 609,
       "choices": [
         {
           "label": "Talk to Elena Morales.",
@@ -234,7 +254,7 @@
       "file": "PLAYER/LOCATIONS.md",
       "anchor": "Loading dock \u2014 restricted",
       "unit_id": "UNIT-DOCK-BASE-RESTRICTED",
-      "public_section": 871,
+      "public_section": 607,
       "choices": [
         {
           "label": "Talk to Elena Morales.",
@@ -327,7 +347,7 @@
       "file": "PLAYER/LOCATIONS.md",
       "anchor": "Cold storage hall",
       "unit_id": "UNIT-COLD-BASE",
-      "public_section": 598,
+      "public_section": 542,
       "choices": [
         {
           "label": "Examine the cold storage door latch and reader.",
@@ -365,7 +385,7 @@
       "file": "PLAYER/LOCATIONS.md",
       "anchor": "Automation control room",
       "unit_id": "UNIT-CONTROL-BASE",
-      "public_section": 619,
+      "public_section": 556,
       "choices": [
         {
           "label": "Approach the engineering workstation.",
@@ -398,7 +418,7 @@
       "file": "PLAYER/LOCATIONS.md",
       "anchor": "Security office",
       "unit_id": "UNIT-SECURITY-BASE",
-      "public_section": 963,
+      "public_section": 937,
       "choices": [
         {
           "label": "Review recent alarm history on the security panel.",
@@ -426,7 +446,7 @@
       "file": "PLAYER/LOCATIONS.md",
       "anchor": "Warehouse manager office",
       "unit_id": "UNIT-MANAGER-BASE",
-      "public_section": 891,
+      "public_section": 897,
       "choices": [
         {
           "label": "Review the open receiving reconciliation screen.",
@@ -454,7 +474,7 @@
       "file": "PLAYER/LOCATIONS.md",
       "anchor": "Staff break room",
       "unit_id": "UNIT-BREAK-BASE",
-      "public_section": 547,
+      "public_section": 481,
       "choices": [
         {
           "label": "Walk along the staff locker bank.",
@@ -492,7 +512,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Supervisor briefing",
       "unit_id": "UNIT-DOCK-BRIEFING-MENU",
-      "public_section": 638,
+      "public_section": 618,
       "choices": [
         {
           "label": "Return to the loading dock.",
@@ -505,7 +525,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Escort granted",
       "unit_id": "UNIT-ESCORT-GRANTED",
-      "public_section": 661,
+      "public_section": 743,
       "choices": [
         {
           "label": "Return to the loading dock.",
@@ -518,7 +538,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Cold storage door",
       "unit_id": "UNIT-COLD-DOOR-MENU",
-      "public_section": 607,
+      "public_section": 552,
       "choices": [
         {
           "label": "Check the latch hardware for recent disturbance.",
@@ -536,7 +556,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Latch check \u2014 success",
       "unit_id": "UNIT-LATCH-SUCCESS",
-      "public_section": 783,
+      "public_section": 784,
       "choices": [
         {
           "label": "Return to the cold storage door menu.",
@@ -549,7 +569,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Latch check \u2014 failure",
       "unit_id": "UNIT-LATCH-FAIL",
-      "public_section": 761,
+      "public_section": 783,
       "choices": [
         {
           "label": "Return to the cold storage door menu.",
@@ -562,7 +582,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Aisle C",
       "unit_id": "UNIT-AISLE-C-MENU",
-      "public_section": 503,
+      "public_section": 443,
       "choices": [
         {
           "label": "Search the floor and pallet faces for label adhesive residue.",
@@ -580,7 +600,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Label search \u2014 success",
       "unit_id": "UNIT-LABEL-SUCCESS",
-      "public_section": 749,
+      "public_section": 779,
       "choices": [
         {
           "label": "Return to aisle C menu.",
@@ -593,7 +613,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Label search \u2014 failure",
       "unit_id": "UNIT-LABEL-FAIL",
-      "public_section": 736,
+      "public_section": 775,
       "choices": [
         {
           "label": "Return to aisle C menu.",
@@ -606,7 +626,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Label timestamp comparison",
       "unit_id": "UNIT-LABEL-DETAIL",
-      "public_section": 701,
+      "public_section": 756,
       "choices": [
         {
           "label": "Return to aisle C menu.",
@@ -619,7 +639,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Live temperature display",
       "unit_id": "UNIT-TEMP-LIVE",
-      "public_section": 972,
+      "public_section": 971,
       "choices": [
         {
           "label": "Return to the cold storage hall.",
@@ -632,7 +652,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Engineering workstation",
       "unit_id": "UNIT-TERM-02-MENU",
-      "public_section": 985,
+      "public_section": 973,
       "choices": [
         {
           "label": "Review the BMS command log on this terminal.",
@@ -660,7 +680,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "BMS command log",
       "unit_id": "UNIT-BMS-COMMAND",
-      "public_section": 545,
+      "public_section": 469,
       "choices": [
         {
           "label": "Return to the engineering workstation menu.",
@@ -673,7 +693,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Maintenance ticket",
       "unit_id": "UNIT-MAINT-TICKET",
-      "public_section": 881,
+      "public_section": 874,
       "choices": [
         {
           "label": "Return to the engineering workstation menu.",
@@ -686,7 +706,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Trend export \u2014 success",
       "unit_id": "UNIT-TREND-SUCCESS",
-      "public_section": 994,
+      "public_section": 992,
       "choices": [
         {
           "label": "Return to the engineering workstation menu.",
@@ -699,7 +719,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Trend export \u2014 failure",
       "unit_id": "UNIT-TREND-FAIL",
-      "public_section": 990,
+      "public_section": 976,
       "choices": [
         {
           "label": "Return to the engineering workstation menu.",
@@ -712,7 +732,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Staging indicator panel",
       "unit_id": "UNIT-STAGING-PANEL",
-      "public_section": 968,
+      "public_section": 942,
       "choices": [
         {
           "label": "Return to the control room.",
@@ -725,7 +745,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Alarm history",
       "unit_id": "UNIT-ALARM-HISTORY",
-      "public_section": 514,
+      "public_section": 455,
       "choices": [
         {
           "label": "Return to the security office.",
@@ -738,7 +758,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Badge archive terminal",
       "unit_id": "UNIT-BADGE-ARCHIVE-MENU",
-      "public_section": 519,
+      "public_section": 456,
       "choices": [
         {
           "label": "Query cold storage inbound badge entries for tonight.",
@@ -766,7 +786,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Cold storage badge query",
       "unit_id": "UNIT-BADGE-COLD-ENTRY",
-      "public_section": 522,
+      "public_section": 465,
       "choices": [
         {
           "label": "Return to the badge archive menu.",
@@ -779,7 +799,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Control room badge query",
       "unit_id": "UNIT-BADGE-CONTROL-ENTRY",
-      "public_section": 544,
+      "public_section": 467,
       "choices": [
         {
           "label": "Return to the badge archive menu.",
@@ -792,7 +812,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Contractor exit scan",
       "unit_id": "UNIT-EXIT-SCAN",
-      "public_section": 679,
+      "public_section": 749,
       "choices": [
         {
           "label": "Return to the badge archive menu.",
@@ -805,7 +825,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Receiving workstation",
       "unit_id": "UNIT-MANIFEST-MENU",
-      "public_section": 901,
+      "public_section": 902,
       "choices": [
         {
           "label": "Compare manifest MNF-IN-4471 to the carrier delivery record.",
@@ -828,7 +848,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Manifest comparison",
       "unit_id": "UNIT-MANIFEST-GAP",
-      "public_section": 899,
+      "public_section": 900,
       "choices": [
         {
           "label": "Return to the manifest menu.",
@@ -841,7 +861,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Carrier POD cross-reference",
       "unit_id": "UNIT-POD-CROSSREF",
-      "public_section": 958,
+      "public_section": 931,
       "choices": [
         {
           "label": "Return to the manifest menu.",
@@ -854,7 +874,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Staff locker bank",
       "unit_id": "UNIT-LOCKER-MENU",
-      "public_section": 813,
+      "public_section": 792,
       "choices": [
         {
           "label": "Inspect the ajar contractor locker.",
@@ -872,7 +892,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Locker inspect \u2014 success",
       "unit_id": "UNIT-LOCKER-SUCCESS",
-      "public_section": 817,
+      "public_section": 794,
       "choices": [
         {
           "label": "Return to the locker menu.",
@@ -885,7 +905,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Locker inspect \u2014 failure",
       "unit_id": "UNIT-LOCKER-FAIL",
-      "public_section": 798,
+      "public_section": 786,
       "choices": [
         {
           "label": "Return to the locker menu.",
@@ -898,7 +918,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Dock view from break room",
       "unit_id": "UNIT-DOCK-VIEW",
-      "public_section": 641,
+      "public_section": 631,
       "choices": [
         {
           "label": "Return to the break room.",
@@ -911,7 +931,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Latch perception check",
       "unit_id": "UNIT-CHK-LATCH-DECL",
-      "public_section": 556,
+      "public_section": 513,
       "choices": [
         {
           "label": "Proceed to the success or failure section indicated by your roll.",
@@ -924,7 +944,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Label search check",
       "unit_id": "UNIT-CHK-LABEL-DECL",
-      "public_section": 553,
+      "public_section": 485,
       "choices": [
         {
           "label": "Proceed to the success or failure section indicated by your roll.",
@@ -937,7 +957,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Trend export check",
       "unit_id": "UNIT-CHK-TREND-DECL",
-      "public_section": 590,
+      "public_section": 524,
       "choices": [
         {
           "label": "Proceed to the success or failure section indicated by your roll.",
@@ -950,7 +970,7 @@
       "file": "PLAYER/OBJECTS.md",
       "anchor": "Locker perception check",
       "unit_id": "UNIT-CHK-LOCKER-DECL",
-      "public_section": 576,
+      "public_section": 523,
       "choices": [
         {
           "label": "Proceed to the success or failure section indicated by your roll.",
@@ -963,11 +983,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Marcus latch",
       "unit_id": "UNIT-MARCUS-LATCH",
-      "public_section": 934,
+      "public_section": 914,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the security office.",
           "destination_unit_id": "UNIT-SECURITY-BASE",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -976,11 +1001,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Marcus gap",
       "unit_id": "UNIT-MARCUS-GAP",
-      "public_section": 917,
+      "public_section": 912,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the security office.",
           "destination_unit_id": "UNIT-SECURITY-BASE",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -989,11 +1019,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Marcus alarm",
       "unit_id": "UNIT-MARCUS-ALARM",
-      "public_section": 907,
+      "public_section": 903,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the security office.",
           "destination_unit_id": "UNIT-SECURITY-BASE",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -1002,10 +1037,15 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Dev exit",
       "unit_id": "UNIT-DEV-EXIT",
-      "public_section": 626,
+      "public_section": 577,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
@@ -1015,10 +1055,15 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Dev clo1847",
       "unit_id": "UNIT-DEV-CLO1847",
-      "public_section": 625,
+      "public_section": 572,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
@@ -1028,10 +1073,15 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Dev badge",
       "unit_id": "UNIT-DEV-BADGE",
-      "public_section": 623,
+      "public_section": 564,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
@@ -1041,10 +1091,15 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Dev session",
       "unit_id": "UNIT-DEV-SESSION",
-      "public_section": 629,
+      "public_section": 591,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
@@ -1054,11 +1109,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Lori deny cold",
       "unit_id": "UNIT-LORI-DENY-COLD",
-      "public_section": 847,
+      "public_section": 818,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the manager office.",
           "destination_unit_id": "UNIT-MANAGER-BASE",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -1067,11 +1127,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Lori control min",
       "unit_id": "UNIT-LORI-CONTROL-MIN",
-      "public_section": 842,
+      "public_section": 804,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the manager office.",
           "destination_unit_id": "UNIT-MANAGER-BASE",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -1080,11 +1145,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Lori pressure",
       "unit_id": "UNIT-LORI-PRESSURE",
-      "public_section": 855,
+      "public_section": 859,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the manager office.",
           "destination_unit_id": "UNIT-MANAGER-BASE",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -1093,11 +1163,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Lori label",
       "unit_id": "UNIT-LORI-LABEL",
-      "public_section": 852,
+      "public_section": 823,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the manager office.",
           "destination_unit_id": "UNIT-MANAGER-BASE",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -1106,10 +1181,15 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Elena urgency",
       "unit_id": "UNIT-ELENA-URGENCY",
-      "public_section": 660,
+      "public_section": 738,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the Elena conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
@@ -1119,10 +1199,15 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Elena staff",
       "unit_id": "UNIT-ELENA-STAFF",
-      "public_section": 656,
+      "public_section": 735,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the Elena conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
@@ -1132,10 +1217,15 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Elena restrict",
       "unit_id": "UNIT-ELENA-RESTRICT",
-      "public_section": 650,
+      "public_section": 701,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
+          "label": "Return to the Elena conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
           "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
@@ -1145,11 +1235,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Pat door",
       "unit_id": "UNIT-PAT-DOOR",
-      "public_section": 935,
+      "public_section": 921,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
-          "destination_unit_id": "UNIT-BREAK-BASE",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -1158,11 +1253,16 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Pat sil",
       "unit_id": "UNIT-PAT-SIL",
-      "public_section": 943,
+      "public_section": 924,
       "choices": [
         {
-          "label": "Return to your current location menu or continue the conversation.",
-          "destination_unit_id": "UNIT-BREAK-BASE",
+          "label": "Return to the dock worker conversation menu.",
+          "destination_unit_id": "UNIT-DOCK-WORKER-HUB",
+          "kind": "return"
+        },
+        {
+          "label": "Return to the loading dock.",
+          "destination_unit_id": "UNIT-DOCK-BASE",
           "kind": "return"
         }
       ]
@@ -1171,7 +1271,7 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Archive sync policy notice",
       "unit_id": "UNIT-IT-ARCHIVE-POLICY",
-      "public_section": 697,
+      "public_section": 753,
       "choices": [
         {
           "label": "Return to the security office.",
@@ -1184,7 +1284,7 @@
       "file": "PLAYER/NPCS.md",
       "anchor": "Archive sync policy notice",
       "unit_id": "SC-IT-RECORDS-POLICY",
-      "public_section": 435,
+      "public_section": 373,
       "choices": [
         {
           "label": "Review the archive sync policy notice.",
@@ -1197,11 +1297,11 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Dock arrival briefing",
       "unit_id": "SC-DOCK-ARRIVAL",
-      "public_section": 413,
+      "public_section": 357,
       "choices": [
         {
           "label": "Continue this scene thread.",
-          "destination_unit_id": "UNIT-DOCK-BASE",
+          "destination_unit_id": "UNIT-DOCK-BASE-SURVEYED",
           "kind": "scene_continue"
         },
         {
@@ -1215,16 +1315,16 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Initial dock survey",
       "unit_id": "SC-DOCK-INITIAL-SURVEY",
-      "public_section": 429,
+      "public_section": 361,
       "choices": [
         {
           "label": "Continue this scene thread.",
-          "destination_unit_id": "UNIT-DOCK-BASE",
+          "destination_unit_id": "UNIT-DOCK-BASE-SURVEYED",
           "kind": "scene_continue"
         },
         {
           "label": "Return to the location base section for this area.",
-          "destination_unit_id": "UNIT-DOCK-BASE",
+          "destination_unit_id": "UNIT-DOCK-BASE-SURVEYED",
           "kind": "return"
         }
       ]
@@ -1233,7 +1333,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Archive sync complete",
       "unit_id": "SC-SECURITY-ARCHIVE-OPEN",
-      "public_section": 448,
+      "public_section": 379,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1251,7 +1351,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Dock restriction active",
       "unit_id": "SC-DOCK-RESTRICTED",
-      "public_section": 434,
+      "public_section": 371,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1269,7 +1369,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Security desk unstaffed",
       "unit_id": "SC-SECURITY-UNSTAFFED",
-      "public_section": 484,
+      "public_section": 439,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1287,7 +1387,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Accountability preparation",
       "unit_id": "SC-ACCUSATION-PREP",
-      "public_section": 326,
+      "public_section": 267,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1305,7 +1405,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Archive ready",
       "unit_id": "SC-SECURITY-ARCHIVE-READY",
-      "public_section": 474,
+      "public_section": 425,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1323,7 +1423,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Archive pending",
       "unit_id": "SC-SECURITY-ARCHIVE-PENDING",
-      "public_section": 457,
+      "public_section": 383,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1341,7 +1441,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Control room approach",
       "unit_id": "SC-CONTROL-APPROACH",
-      "public_section": 376,
+      "public_section": 289,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1359,7 +1459,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Control room cleared",
       "unit_id": "SC-CONTROL-CLEARED",
-      "public_section": 400,
+      "public_section": 316,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1377,7 +1477,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Escort required",
       "unit_id": "SC-CONTROL-ESCORT-REQUIRED",
-      "public_section": 403,
+      "public_section": 322,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1395,7 +1495,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Security cross-reference",
       "unit_id": "SC-SECURITY-CROSSREF",
-      "public_section": 477,
+      "public_section": 436,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1413,7 +1513,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Focused aisle revisit",
       "unit_id": "SC-COLD-AISLE-FOCUSED",
-      "public_section": 355,
+      "public_section": 273,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1431,7 +1531,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Label detail revisit",
       "unit_id": "SC-COLD-LABEL-DETAIL",
-      "public_section": 373,
+      "public_section": 278,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1449,7 +1549,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "BMS review scene",
       "unit_id": "SC-CONTROL-BMS-REVIEW",
-      "public_section": 388,
+      "public_section": 290,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1467,7 +1567,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Manager interview pressure",
       "unit_id": "SC-MANAGER-PRESSURE-TOPIC",
-      "public_section": 436,
+      "public_section": 374,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1485,7 +1585,7 @@
       "file": "PLAYER/SCENES.md",
       "anchor": "Optional locker branch",
       "unit_id": "SC-BREAK-LOCKER-BRANCH",
-      "public_section": 327,
+      "public_section": 270,
       "choices": [
         {
           "label": "Continue this scene thread.",
@@ -1503,7 +1603,7 @@
       "file": "PLAYER/INFERENCE.md",
       "anchor": "Badge misattributed",
       "unit_id": "INF-BADGE-MISATTRIBUTED",
-      "public_section": 195,
+      "public_section": 160,
       "choices": [
         {
           "label": "Mark synthesis complete if your answer is supported.",
@@ -1521,7 +1621,7 @@
       "file": "PLAYER/INFERENCE.md",
       "anchor": "Staging root cause",
       "unit_id": "INF-STAGING-ROOT-CAUSE",
-      "public_section": 237,
+      "public_section": 187,
       "choices": [
         {
           "label": "Mark synthesis complete if your answer is supported.",
@@ -1539,7 +1639,7 @@
       "file": "PLAYER/INFERENCE.md",
       "anchor": "Relabel fraud",
       "unit_id": "INF-RELABEL-FRAUD",
-      "public_section": 231,
+      "public_section": 186,
       "choices": [
         {
           "label": "Mark synthesis complete if your answer is supported.",
@@ -1557,7 +1657,7 @@
       "file": "PLAYER/INFERENCE.md",
       "anchor": "Control access mismatch",
       "unit_id": "INF-CONTROL-ACCESS-MISMATCH",
-      "public_section": 214,
+      "public_section": 168,
       "choices": [
         {
           "label": "Mark synthesis complete if your answer is supported.",
@@ -1575,7 +1675,7 @@
       "file": "PLAYER/INFERENCE.md",
       "anchor": "Culprit supported",
       "unit_id": "INF-CULPRIT-SUPPORTED",
-      "public_section": 218,
+      "public_section": 176,
       "choices": [
         {
           "label": "Mark synthesis complete if your answer is supported.",
@@ -1593,7 +1693,7 @@
       "file": "PLAYER/INFERENCE.md",
       "anchor": "Perfect reconstruction",
       "unit_id": "INF-PERFECT-RECONSTRUCTION",
-      "public_section": 224,
+      "public_section": 185,
       "choices": [
         {
           "label": "Mark synthesis complete if your answer is supported.",
@@ -1611,7 +1711,7 @@
       "file": "PLAYER/RECOVERY.md",
       "anchor": "Security archive",
       "unit_id": "REC-SECURITY-ARCHIVE",
-      "public_section": 304,
+      "public_section": 256,
       "choices": [
         {
           "label": "Go to the named location and take the action described above.",
@@ -1624,7 +1724,7 @@
       "file": "PLAYER/RECOVERY.md",
       "anchor": "Break locker",
       "unit_id": "REC-BREAK-LOCKER",
-      "public_section": 258,
+      "public_section": 188,
       "choices": [
         {
           "label": "Go to the named location and take the action described above.",
@@ -1637,7 +1737,7 @@
       "file": "PLAYER/RECOVERY.md",
       "anchor": "Control term",
       "unit_id": "REC-CONTROL-TERM",
-      "public_section": 291,
+      "public_section": 195,
       "choices": [
         {
           "label": "Go to the named location and take the action described above.",
@@ -1650,7 +1750,7 @@
       "file": "PLAYER/RECOVERY.md",
       "anchor": "Cold display",
       "unit_id": "REC-COLD-DISPLAY",
-      "public_section": 288,
+      "public_section": 193,
       "choices": [
         {
           "label": "Go to the named location and take the action described above.",
@@ -1663,7 +1763,7 @@
       "file": "PLAYER/RECOVERY.md",
       "anchor": "Cold aisle",
       "unit_id": "REC-COLD-AISLE",
-      "public_section": 265,
+      "public_section": 189,
       "choices": [
         {
           "label": "Go to the named location and take the action described above.",
@@ -1676,7 +1776,7 @@
       "file": "PLAYER/RECOVERY.md",
       "anchor": "Manager manifest",
       "unit_id": "REC-MANAGER-MANIFEST",
-      "public_section": 294,
+      "public_section": 219,
       "choices": [
         {
           "label": "Go to the named location and take the action described above.",
@@ -1689,7 +1789,7 @@
       "file": "PLAYER/RECOVERY.md",
       "anchor": "Manager interview",
       "unit_id": "REC-MANAGER-INTERVIEW",
-      "public_section": 292,
+      "public_section": 201,
       "choices": [
         {
           "label": "Go to the named location and take the action described above.",
@@ -1702,7 +1802,7 @@
       "file": "PLAYER/RECOVERY.md",
       "anchor": "Security crossref",
       "unit_id": "REC-SECURITY-CROSSREF",
-      "public_section": 305,
+      "public_section": 265,
       "choices": [
         {
           "label": "Go to the named location and take the action described above.",
@@ -1715,7 +1815,7 @@
       "file": "PLAYER/RECOVERY.md",
       "anchor": "Revisit any unresolved source",
       "unit_id": "REC-REVISIT-ANY-UNRESOLVED-SOURCE",
-      "public_section": 297,
+      "public_section": 225,
       "choices": [
         {
           "label": "Go to the named location and take the action described above.",
@@ -1728,175 +1828,175 @@
       "file": "PLAYER/ENDINGS.md",
       "anchor": "Perfect",
       "unit_id": "END-PERFECT",
-      "public_section": 181,
+      "public_section": 140,
       "choices": []
     },
     "END-PARTIAL-INCOMPLETE": {
       "file": "PLAYER/ENDINGS.md",
       "anchor": "Partial incomplete",
       "unit_id": "END-PARTIAL-INCOMPLETE",
-      "public_section": 112,
+      "public_section": 108,
       "choices": []
     },
     "END-PARTIAL-WRONG-CULPRIT": {
       "file": "PLAYER/ENDINGS.md",
       "anchor": "Partial wrong culprit",
       "unit_id": "END-PARTIAL-WRONG-CULPRIT",
-      "public_section": 158,
+      "public_section": 139,
       "choices": []
     },
     "END-PARTIAL-TECH-ONLY": {
       "file": "PLAYER/ENDINGS.md",
       "anchor": "Partial tech only",
       "unit_id": "END-PARTIAL-TECH-ONLY",
-      "public_section": 154,
+      "public_section": 138,
       "choices": []
     },
     "END-PARTIAL-MOTIVE-GAP": {
       "file": "PLAYER/ENDINGS.md",
       "anchor": "Partial motive gap",
       "unit_id": "END-PARTIAL-MOTIVE-GAP",
-      "public_section": 121,
+      "public_section": 110,
       "choices": []
     },
     "END-HIDDEN-RECORDS": {
       "file": "PLAYER/ENDINGS.md",
       "anchor": "Hidden records",
       "unit_id": "END-HIDDEN-RECORDS",
-      "public_section": 105,
+      "public_section": 104,
       "choices": []
     },
     "END-NARRATIVE-CONTINUE": {
       "file": "PLAYER/ENDINGS.md",
       "anchor": "Narrative continue",
       "unit_id": "END-NARRATIVE-CONTINUE",
-      "public_section": 111,
+      "public_section": 106,
       "choices": []
     },
     "END-TIMEOUT": {
       "file": "PLAYER/ENDINGS.md",
       "anchor": "Timeout",
       "unit_id": "END-TIMEOUT",
-      "public_section": 186,
+      "public_section": 154,
       "choices": []
     }
   },
   "public_sections": {
-    "END-HIDDEN-RECORDS": 105,
-    "END-NARRATIVE-CONTINUE": 111,
-    "END-PARTIAL-INCOMPLETE": 112,
-    "END-PARTIAL-MOTIVE-GAP": 121,
-    "END-PARTIAL-TECH-ONLY": 154,
-    "END-PARTIAL-WRONG-CULPRIT": 158,
-    "END-PERFECT": 181,
-    "END-TIMEOUT": 186,
-    "INF-BADGE-MISATTRIBUTED": 195,
-    "INF-CONTROL-ACCESS-MISMATCH": 214,
-    "INF-CULPRIT-SUPPORTED": 218,
-    "INF-PERFECT-RECONSTRUCTION": 224,
-    "INF-RELABEL-FRAUD": 231,
-    "INF-STAGING-ROOT-CAUSE": 237,
-    "REC-BREAK-LOCKER": 258,
-    "REC-COLD-AISLE": 265,
-    "REC-COLD-DISPLAY": 288,
-    "REC-CONTROL-TERM": 291,
-    "REC-MANAGER-INTERVIEW": 292,
-    "REC-MANAGER-MANIFEST": 294,
-    "REC-REVISIT-ANY-UNRESOLVED-SOURCE": 297,
-    "REC-SECURITY-ARCHIVE": 304,
-    "REC-SECURITY-CROSSREF": 305,
-    "SC-ACCUSATION-PREP": 326,
-    "SC-BREAK-LOCKER-BRANCH": 327,
-    "SC-COLD-AISLE-FOCUSED": 355,
-    "SC-COLD-LABEL-DETAIL": 373,
-    "SC-CONTROL-APPROACH": 376,
-    "SC-CONTROL-BMS-REVIEW": 388,
-    "SC-CONTROL-CLEARED": 400,
-    "SC-CONTROL-ESCORT-REQUIRED": 403,
-    "SC-DOCK-ARRIVAL": 413,
-    "SC-DOCK-INITIAL-SURVEY": 429,
-    "SC-DOCK-RESTRICTED": 434,
-    "SC-IT-RECORDS-POLICY": 435,
-    "SC-MANAGER-PRESSURE-TOPIC": 436,
-    "SC-SECURITY-ARCHIVE-OPEN": 448,
-    "SC-SECURITY-ARCHIVE-PENDING": 457,
-    "SC-SECURITY-ARCHIVE-READY": 474,
-    "SC-SECURITY-CROSSREF": 477,
-    "SC-SECURITY-UNSTAFFED": 484,
-    "UNIT-AISLE-C-MENU": 503,
-    "UNIT-ALARM-HISTORY": 514,
-    "UNIT-BADGE-ARCHIVE-MENU": 519,
-    "UNIT-BADGE-COLD-ENTRY": 522,
-    "UNIT-BADGE-CONTROL-ENTRY": 544,
-    "UNIT-BMS-COMMAND": 545,
-    "UNIT-BREAK-BASE": 547,
-    "UNIT-CHK-LABEL-DECL": 553,
-    "UNIT-CHK-LATCH-DECL": 556,
-    "UNIT-CHK-LOCKER-DECL": 576,
-    "UNIT-CHK-TREND-DECL": 590,
-    "UNIT-COLD-BASE": 598,
-    "UNIT-COLD-DOOR-MENU": 607,
-    "UNIT-CONTROL-BASE": 619,
-    "UNIT-DEV-BADGE": 623,
-    "UNIT-DEV-CLO1847": 625,
-    "UNIT-DEV-EXIT": 626,
-    "UNIT-DEV-SESSION": 629,
-    "UNIT-DOCK-BASE": 636,
-    "UNIT-DOCK-BASE-RESTRICTED": 871,
-    "UNIT-DOCK-BASE-SURVEYED": 310,
-    "UNIT-DOCK-BRIEFING-MENU": 638,
-    "UNIT-DOCK-ELENA-HUB": 113,
-    "UNIT-DOCK-VIEW": 641,
-    "UNIT-DOCK-WORKER-HUB": 389,
-    "UNIT-ELENA-BEGIN": 983,
-    "UNIT-ELENA-MAP": 317,
-    "UNIT-ELENA-RESTRICT": 650,
-    "UNIT-ELENA-STAFF": 656,
-    "UNIT-ELENA-URGENCY": 660,
-    "UNIT-ESCORT-GRANTED": 661,
-    "UNIT-EXIT-SCAN": 679,
-    "UNIT-IT-ARCHIVE-POLICY": 697,
-    "UNIT-LABEL-DETAIL": 701,
-    "UNIT-LABEL-FAIL": 736,
-    "UNIT-LABEL-SUCCESS": 749,
-    "UNIT-LATCH-FAIL": 761,
-    "UNIT-LATCH-SUCCESS": 783,
-    "UNIT-LOCKER-FAIL": 798,
-    "UNIT-LOCKER-MENU": 813,
-    "UNIT-LOCKER-SUCCESS": 817,
-    "UNIT-LORI-CONTROL-MIN": 842,
-    "UNIT-LORI-DENY-COLD": 847,
-    "UNIT-LORI-LABEL": 852,
-    "UNIT-LORI-PRESSURE": 855,
-    "UNIT-MAINT-TICKET": 881,
-    "UNIT-MANAGER-BASE": 891,
-    "UNIT-MANIFEST-GAP": 899,
-    "UNIT-MANIFEST-MENU": 901,
-    "UNIT-MARCUS-ALARM": 907,
-    "UNIT-MARCUS-GAP": 917,
-    "UNIT-MARCUS-LATCH": 934,
-    "UNIT-PAT-DOOR": 935,
-    "UNIT-PAT-SIL": 943,
-    "UNIT-POD-CROSSREF": 958,
-    "UNIT-SECURITY-BASE": 963,
-    "UNIT-STAGING-PANEL": 968,
-    "UNIT-TEMP-LIVE": 972,
-    "UNIT-TERM-02-MENU": 985,
-    "UNIT-TREND-FAIL": 990,
-    "UNIT-TREND-SUCCESS": 994,
-    "UNIT-WORKER-LOCAL": 858,
-    "UNIT-WORKER-ROLE": 692,
-    "UNIT-WORKER-TENURE": 260
+    "END-HIDDEN-RECORDS": 104,
+    "END-NARRATIVE-CONTINUE": 106,
+    "END-PARTIAL-INCOMPLETE": 108,
+    "END-PARTIAL-MOTIVE-GAP": 110,
+    "END-PARTIAL-TECH-ONLY": 138,
+    "END-PARTIAL-WRONG-CULPRIT": 139,
+    "END-PERFECT": 140,
+    "END-TIMEOUT": 154,
+    "INF-BADGE-MISATTRIBUTED": 160,
+    "INF-CONTROL-ACCESS-MISMATCH": 168,
+    "INF-CULPRIT-SUPPORTED": 176,
+    "INF-PERFECT-RECONSTRUCTION": 185,
+    "INF-RELABEL-FRAUD": 186,
+    "INF-STAGING-ROOT-CAUSE": 187,
+    "REC-BREAK-LOCKER": 188,
+    "REC-COLD-AISLE": 189,
+    "REC-COLD-DISPLAY": 193,
+    "REC-CONTROL-TERM": 195,
+    "REC-MANAGER-INTERVIEW": 201,
+    "REC-MANAGER-MANIFEST": 219,
+    "REC-REVISIT-ANY-UNRESOLVED-SOURCE": 225,
+    "REC-SECURITY-ARCHIVE": 256,
+    "REC-SECURITY-CROSSREF": 265,
+    "SC-ACCUSATION-PREP": 267,
+    "SC-BREAK-LOCKER-BRANCH": 270,
+    "SC-COLD-AISLE-FOCUSED": 273,
+    "SC-COLD-LABEL-DETAIL": 278,
+    "SC-CONTROL-APPROACH": 289,
+    "SC-CONTROL-BMS-REVIEW": 290,
+    "SC-CONTROL-CLEARED": 316,
+    "SC-CONTROL-ESCORT-REQUIRED": 322,
+    "SC-DOCK-ARRIVAL": 357,
+    "SC-DOCK-INITIAL-SURVEY": 361,
+    "SC-DOCK-RESTRICTED": 371,
+    "SC-IT-RECORDS-POLICY": 373,
+    "SC-MANAGER-PRESSURE-TOPIC": 374,
+    "SC-SECURITY-ARCHIVE-OPEN": 379,
+    "SC-SECURITY-ARCHIVE-PENDING": 383,
+    "SC-SECURITY-ARCHIVE-READY": 425,
+    "SC-SECURITY-CROSSREF": 436,
+    "SC-SECURITY-UNSTAFFED": 439,
+    "UNIT-AISLE-C-MENU": 443,
+    "UNIT-ALARM-HISTORY": 455,
+    "UNIT-BADGE-ARCHIVE-MENU": 456,
+    "UNIT-BADGE-COLD-ENTRY": 465,
+    "UNIT-BADGE-CONTROL-ENTRY": 467,
+    "UNIT-BMS-COMMAND": 469,
+    "UNIT-BREAK-BASE": 481,
+    "UNIT-CHK-LABEL-DECL": 485,
+    "UNIT-CHK-LATCH-DECL": 513,
+    "UNIT-CHK-LOCKER-DECL": 523,
+    "UNIT-CHK-TREND-DECL": 524,
+    "UNIT-COLD-BASE": 542,
+    "UNIT-COLD-DOOR-MENU": 552,
+    "UNIT-CONTROL-BASE": 556,
+    "UNIT-DEV-BADGE": 564,
+    "UNIT-DEV-CLO1847": 572,
+    "UNIT-DEV-EXIT": 577,
+    "UNIT-DEV-SESSION": 591,
+    "UNIT-DOCK-BASE": 592,
+    "UNIT-DOCK-BASE-RESTRICTED": 607,
+    "UNIT-DOCK-BASE-SURVEYED": 609,
+    "UNIT-DOCK-BRIEFING-MENU": 618,
+    "UNIT-DOCK-ELENA-HUB": 630,
+    "UNIT-DOCK-VIEW": 631,
+    "UNIT-DOCK-WORKER-HUB": 657,
+    "UNIT-ELENA-BEGIN": 684,
+    "UNIT-ELENA-MAP": 698,
+    "UNIT-ELENA-RESTRICT": 701,
+    "UNIT-ELENA-STAFF": 735,
+    "UNIT-ELENA-URGENCY": 738,
+    "UNIT-ESCORT-GRANTED": 743,
+    "UNIT-EXIT-SCAN": 749,
+    "UNIT-IT-ARCHIVE-POLICY": 753,
+    "UNIT-LABEL-DETAIL": 756,
+    "UNIT-LABEL-FAIL": 775,
+    "UNIT-LABEL-SUCCESS": 779,
+    "UNIT-LATCH-FAIL": 783,
+    "UNIT-LATCH-SUCCESS": 784,
+    "UNIT-LOCKER-FAIL": 786,
+    "UNIT-LOCKER-MENU": 792,
+    "UNIT-LOCKER-SUCCESS": 794,
+    "UNIT-LORI-CONTROL-MIN": 804,
+    "UNIT-LORI-DENY-COLD": 818,
+    "UNIT-LORI-LABEL": 823,
+    "UNIT-LORI-PRESSURE": 859,
+    "UNIT-MAINT-TICKET": 874,
+    "UNIT-MANAGER-BASE": 897,
+    "UNIT-MANIFEST-GAP": 900,
+    "UNIT-MANIFEST-MENU": 902,
+    "UNIT-MARCUS-ALARM": 903,
+    "UNIT-MARCUS-GAP": 912,
+    "UNIT-MARCUS-LATCH": 914,
+    "UNIT-PAT-DOOR": 921,
+    "UNIT-PAT-SIL": 924,
+    "UNIT-POD-CROSSREF": 931,
+    "UNIT-SECURITY-BASE": 937,
+    "UNIT-STAGING-PANEL": 942,
+    "UNIT-TEMP-LIVE": 971,
+    "UNIT-TERM-02-MENU": 973,
+    "UNIT-TREND-FAIL": 976,
+    "UNIT-TREND-SUCCESS": 992,
+    "UNIT-WORKER-LOCAL": 994,
+    "UNIT-WORKER-ROLE": 998,
+    "UNIT-WORKER-TENURE": 999
   },
   "static_book": {
     "gamebook_path": "PLAYER/GAMEBOOK.md",
     "start_unit_id": "UNIT-DOCK-BASE",
-    "start_section": 636,
+    "start_section": 592,
     "numbering_seed": "The_Cold_Storage_Alarm",
     "delivery_mode": "static_book"
   },
   "gamebook_validation": {
-    "adventure_root": "/workspace/adventures/The_Cold_Storage_Alarm/adventure",
+    "adventure_root": "D:\\Repositories\\IDNE\\Interactive-Detective-Narrative-Engine\\IDNE-conversation-fix\\adventures\\The_Cold_Storage_Alarm\\adventure",
     "status": "PASS",
     "errors": [],
     "warnings": [],

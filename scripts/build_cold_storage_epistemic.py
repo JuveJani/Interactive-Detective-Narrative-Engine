@@ -126,6 +126,26 @@ DOCK_DEFERRED = {
 
 INFERENCE_PREFIX = "Open inference worksheet:"
 
+DEFAULT_TOPIC_TIME_MIN = 2
+
+# Conversation hub return profiles: (unit prefix, hub_id, hub_label, exit_dest, exit_label)
+TOPIC_RETURN_PROFILES: tuple[tuple[str, str, str, str, str], ...] = (
+    ("UNIT-ELENA-", "UNIT-DOCK-ELENA-HUB", "Return to the Elena conversation menu.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-WORKER-", "UNIT-DOCK-WORKER-HUB", "Return to the dock worker conversation menu.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-PAT-", "UNIT-DOCK-WORKER-HUB", "Return to the dock worker conversation menu.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-DEV-", "UNIT-DOCK-WORKER-HUB", "Return to the dock worker conversation menu.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-MARCUS-", "UNIT-SECURITY-BASE", "Return to the security office.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+    ("UNIT-LORI-", "UNIT-MANAGER-BASE", "Return to the manager office.", "UNIT-DOCK-BASE", "Return to the loading dock."),
+)
+
+TOPIC_KNOWLEDGE_GRANTS: dict[str, list[str]] = {
+    "UNIT-ELENA-MAP": ["KNOW-OPEN-ORIENT"],
+}
+
+TOPIC_ORIENTED_EXIT: dict[str, str] = {
+    "UNIT-ELENA-MAP": "UNIT-DOCK-BASE-SURVEYED",
+}
+
 
 def _norm(label: str) -> str:
     return re.sub(r"\s+", " ", label.strip().lower())
@@ -189,6 +209,55 @@ def _guess_kind(label: str, uid: str, choice_map: dict) -> str:
     return "action"
 
 
+def _load_npc_metadata() -> tuple[dict[str, int], dict[str, str]]:
+    npc = json.loads((DNR / "npc_investigation_package.json").read_text(encoding="utf-8"))
+    times: dict[str, int] = {}
+    grants: dict[str, str] = {}
+    for conv in npc.get("conversation_graph", []) or []:
+        for node in conv.get("nodes", []) or []:
+            uid = node.get("npc_response_unit", "")
+            if not uid:
+                continue
+            if node.get("time_cost_minutes") is not None:
+                times[uid] = int(node["time_cost_minutes"])
+            kid = node.get("grants_knowledge_id")
+            if kid:
+                grants[uid] = kid
+    return times, grants
+
+
+def _topic_return_actions(unit_id: str, *, knowledge: list[str] | None = None) -> list[dict]:
+    knowledge = list(knowledge or TOPIC_KNOWLEDGE_GRANTS.get(unit_id, []))
+    exit_override = TOPIC_ORIENTED_EXIT.get(unit_id)
+    for prefix, hub, hub_label, exit_dest, exit_label in TOPIC_RETURN_PROFILES:
+        if unit_id.startswith(prefix):
+            exit_unit = exit_override or exit_dest
+            actions = [
+                {
+                    "action_id": f"ACT-{unit_id}-HUB",
+                    "action_type": "return",
+                    "label": hub_label,
+                    "destination_unit_id": hub,
+                    "investigative": False,
+                },
+                {
+                    "action_id": f"ACT-{unit_id}-EXIT",
+                    "action_type": "return",
+                    "label": exit_label,
+                    "destination_unit_id": exit_unit,
+                    "investigative": False,
+                },
+            ]
+            if knowledge:
+                for action in actions:
+                    action["knowledge_delta"] = knowledge
+                    if exit_override and action["destination_unit_id"] == exit_override:
+                        action["investigative"] = True
+                        action["purpose"] = "site orientation"
+            return actions
+    return []
+
+
 def _load_manifest() -> dict:
     return json.loads((ADV / "player_mapping_manifest.json").read_text(encoding="utf-8"))
 
@@ -237,6 +306,8 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
     events: list[dict] = []
     player_units = parse_player_units(ADVENTURE / "PLAYER")
     choice_map = _load_canonical_choice_map()
+    _topic_times, npc_grants = _load_npc_metadata()
+    TOPIC_KNOWLEDGE_GRANTS.update({uid: [kid] for uid, kid in npc_grants.items() if uid not in TOPIC_KNOWLEDGE_GRANTS})
 
     events.append(
         _event(
@@ -354,29 +425,33 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
             kind = "npc_interaction"
         elif uid.startswith("UNIT-ELENA") or uid.startswith("UNIT-DEV") or uid.startswith("UNIT-PAT") or uid.startswith("UNIT-LORI") or uid.startswith("UNIT-MARCUS") or uid.startswith("UNIT-WORKER"):
             kind = "dialogue_topic"
-        actions = []
-        for label in choices:
-            dest = _guess_dest(label, uid, manifest, choice_map)
-            ck = _guess_kind(label, uid, choice_map)
-            req: list[str] = []
-            refs: list[str] = []
-            if INFERENCE_PREFIX in label:
-                req = _inference_gate_requirements(label)
-            if "CLO-1847" in label:
-                req = ["KNOW-MAINT-SESSION"]
-            if "contractor badge" in label.lower():
-                req = ["KNOW-EXIT-SCAN"]
-            if "CTRL-TERM-02" in label or "maintenance session" in label.lower():
-                req = ["KNOW-MAINT-SESSION"]
-            if "manifest exception" in label.lower():
-                req = ["KNOW-MANIFEST-GAP"]
-            if "label residue" in label.lower():
-                req = ["KNOW-LABEL-RESIDUE"]
-            if "dock access restriction" in label.lower():
-                req = ["KNOW-DOCK-RESTRICT"]
-            if "escort clearance" in label.lower():
-                req = ["KNOW-OPEN-ORIENT"]
-            actions.append(_action_from_choice(label, dest, ck, requires=req, refs=refs, inv=False))
+        topic_returns = _topic_return_actions(uid)
+        if topic_returns and kind == "dialogue_topic":
+            actions = topic_returns
+        else:
+            actions = []
+            for label in choices:
+                dest = _guess_dest(label, uid, manifest, choice_map)
+                ck = _guess_kind(label, uid, choice_map)
+                req: list[str] = []
+                refs: list[str] = []
+                if INFERENCE_PREFIX in label:
+                    req = _inference_gate_requirements(label)
+                if "CLO-1847" in label:
+                    req = ["KNOW-MAINT-SESSION"]
+                if "contractor badge" in label.lower():
+                    req = ["KNOW-EXIT-SCAN"]
+                if "CTRL-TERM-02" in label or "maintenance session" in label.lower():
+                    req = ["KNOW-MAINT-SESSION"]
+                if "manifest exception" in label.lower():
+                    req = ["KNOW-MANIFEST-GAP"]
+                if "label residue" in label.lower():
+                    req = ["KNOW-LABEL-RESIDUE"]
+                if "dock access restriction" in label.lower():
+                    req = ["KNOW-DOCK-RESTRICT"]
+                if "escort clearance" in label.lower():
+                    req = ["KNOW-OPEN-ORIENT"]
+                actions.append(_action_from_choice(label, dest, ck, requires=req, refs=refs, inv=False))
         extra: dict = {}
         if uid.endswith("-BASE") or "DOCK-BASE" in uid:
             extra["relevant_knowledge_dependencies"] = _infer_relevant_knowledge(actions)
@@ -387,6 +462,8 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
                 action["world_state_delta"] = {"investigation_phase": 1}
                 action["investigative"] = True
                 action["purpose"] = "initial orientation"
+                if action.get("destination_unit_id") == "UNIT-DOCK-BASE":
+                    action["destination_unit_id"] = "UNIT-DOCK-BASE-SURVEYED"
         if uid == "SC-DOCK-ARRIVAL":
             for action in actions:
                 if "Return" in action.get("label", ""):
@@ -394,6 +471,8 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
                 action["knowledge_delta"] = list(set(list(action.get("knowledge_delta", [])) + ["KNOW-OPEN-ORIENT"]))
                 action["investigative"] = True
                 action["purpose"] = "supervisor briefing"
+                if action.get("destination_unit_id") == "UNIT-DOCK-BASE":
+                    action["destination_unit_id"] = "UNIT-DOCK-BASE-SURVEYED"
         if uid == "SC-IT-RECORDS-POLICY":
             actions.append(
                 _action_from_choice(
@@ -420,48 +499,19 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
     )
     handled.add("SC-IT-RECORDS-POLICY")
 
-    # New general topic units referenced by hubs
-    for uid, body, title in [
-        (
-            "UNIT-ELENA-BEGIN",
-            "Elena taps the incident timeline on her clipboard. "
-            '"Start with cold storage and staging control. Security can pull badge records after the archive sync if you need access history."',
-            "Where to begin",
-        ),
-        (
-            "UNIT-ELENA-MAP",
-            "Elena pulls a folded site map from the briefing table and marks the cold hall, security office, and manager wing. "
-            '"Use this for corridors you have not walked yet. I can escort you to control if engineering access is required."',
-            "Site overview",
-        ),
-        (
-            "UNIT-WORKER-ROLE",
-            "Pat Nguyen sets the mop cart aside. "
-            '"Pat Nguyen — dock sanitation and floor prep. I am on the late crew when receiving runs long."',
-            "Name and role",
-        ),
-        (
-            "UNIT-WORKER-TENURE",
-            "Pat thinks for a moment. "
-            '"About three years on this dock. I know the cold hall doors and which bays stay open after midnight."',
-            "Time on site",
-        ),
-        (
-            "UNIT-WORKER-LOCAL",
-            "Pat nods toward the office wing and the break room corridor. "
-            '"Elena runs the shift. Lori stays at receiving when manifests jam. Marcus does rounds from security."',
-            "Local contacts",
-        ),
-    ]:
+    # New general topic units referenced by hubs (player prose generated in build_cold_storage_player.py)
+    for uid in (
+        "UNIT-ELENA-BEGIN",
+        "UNIT-ELENA-MAP",
+        "UNIT-WORKER-ROLE",
+        "UNIT-WORKER-TENURE",
+        "UNIT-WORKER-LOCAL",
+    ):
         if uid not in handled:
-            events.append(
-                _event(
-                    uid,
-                    "dialogue_topic",
-                    [{"action_id": f"ACT-{uid}-RET", "action_type": "return", "label": "Return to the dock worker conversation menu.", "destination_unit_id": "UNIT-DOCK-WORKER-HUB"}],
-                )
-            )
-            handled.add(uid)
+            returns = _topic_return_actions(uid)
+            if returns:
+                events.append(_event(uid, "dialogue_topic", returns))
+                handled.add(uid)
 
     return events
 

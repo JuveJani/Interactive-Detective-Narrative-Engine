@@ -69,6 +69,25 @@ class TestGamebookNav(unittest.TestCase):
         self.assertEqual(res.status, "SKIP")
 
     @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
+    def test_cold_storage_epistemic_conversation_flow_passes(self):
+        from idne.epistemic_progression_validate import validate_epistemic_progression
+
+        root = COLD / "adventure"
+        res = validate_epistemic_progression(root)
+        self.assertEqual(res.status, "PASS")
+        self.assertEqual(res.checks.get("EP-CONVERSATION-FLOW"), "PASS")
+        self.assertEqual(res.checks.get("EP-VARIANT-DEST"), "PASS")
+
+    @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
+    def test_cold_storage_map_exit_targets_oriented_dock(self):
+        manifest = json.loads((COLD / "player_mapping_manifest.json").read_text(encoding="utf-8"))
+        map_choices = manifest["units"]["UNIT-ELENA-MAP"]["choices"]
+        dests = {c["destination_unit_id"] for c in map_choices}
+        self.assertIn("UNIT-DOCK-ELENA-HUB", dests)
+        self.assertIn("UNIT-DOCK-BASE-SURVEYED", dests)
+        self.assertNotIn("UNIT-DOCK-BASE", dests)
+
+    @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
     def test_cold_storage_gamebook_build_passes(self):
         ws = Path(tempfile.mkdtemp(prefix="gb_cold_"))
         shutil.copytree(COLD, ws / "The_Cold_Storage_Alarm")

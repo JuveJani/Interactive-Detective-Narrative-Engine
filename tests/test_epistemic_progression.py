@@ -267,7 +267,20 @@ class TestEpistemicProgression(unittest.TestCase):
                         }
                     ],
                 },
-                {"event_id": "EVT-B", "unit_id": "UNIT-ELENA-BEGIN", "location_id": "LOC-DOCK", "event_kind": "dialogue_topic", "structured_actions": []},
+                {"event_id": "EVT-B", "unit_id": "UNIT-ELENA-BEGIN", "location_id": "LOC-DOCK", "event_kind": "dialogue_topic", "structured_actions": [
+                    {
+                        "action_id": "ACT-HUB",
+                        "action_type": "return",
+                        "label": "Return to the Elena conversation menu.",
+                        "destination_unit_id": "UNIT-ELENA-HUB",
+                    },
+                    {
+                        "action_id": "ACT-EXIT",
+                        "action_type": "return",
+                        "label": "Return to the loading dock.",
+                        "destination_unit_id": "UNIT-DOCK-BASE",
+                    },
+                ]},
             ],
         }
         res = validate_epistemic_progression(_minimal_workspace(ws, ep))
@@ -522,6 +535,265 @@ class TestEpistemicProgression(unittest.TestCase):
         self.assertIn("epistemic_progression", res.validators)
         self.assertEqual(res.validators["epistemic_progression"]["status"], "FAIL")
         self.assertEqual(res.status, "FAIL")
+
+    def test_single_target_pseudo_choice_fails(self):
+        ws = Path(tempfile.mkdtemp(prefix="ep_"))
+        ep = {
+            "schema_version": "1.0",
+            "adventure_id": "ep_test",
+            "initial_player_knowledge": [],
+            "initial_world_state": {},
+            "initial_observable_entities": ["NPC-ELENA"],
+            "playable_events": [
+                {
+                    "event_id": "EVT-HUB",
+                    "unit_id": "UNIT-DOCK-ELENA-HUB",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "npc_interaction",
+                    "structured_actions": [
+                        {
+                            "action_id": "ACT-TOPIC",
+                            "action_type": "dialogue_topic",
+                            "label": "Ask a question.",
+                            "destination_unit_id": "UNIT-TOPIC",
+                        }
+                    ],
+                },
+                {
+                    "event_id": "EVT-TOPIC",
+                    "unit_id": "UNIT-TOPIC",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "dialogue_topic",
+                    "structured_actions": [
+                        {
+                            "action_id": "ACT-RET",
+                            "action_type": "return",
+                            "label": "Return to your current location menu or continue the conversation.",
+                            "destination_unit_id": "UNIT-DOCK-BASE",
+                        }
+                    ],
+                },
+                {"event_id": "EVT-BASE", "unit_id": "UNIT-DOCK-BASE", "location_id": "LOC-DOCK", "event_kind": "location_hub", "structured_actions": []},
+            ],
+        }
+        adv = _minimal_workspace(ws, ep)
+        res = validate_epistemic_progression(adv)
+        self.assertEqual(res.status, "FAIL")
+        self.assertTrue(any(f.finding_id == "EP-PSEUDO-CHOICE" for f in res.findings))
+
+    def test_dialogue_topic_requires_hub_return(self):
+        ws = Path(tempfile.mkdtemp(prefix="ep_"))
+        ep = {
+            "schema_version": "1.0",
+            "adventure_id": "ep_test",
+            "initial_player_knowledge": [],
+            "initial_world_state": {},
+            "playable_events": [
+                {
+                    "event_id": "EVT-TOPIC",
+                    "unit_id": "UNIT-TOPIC",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "dialogue_topic",
+                    "structured_actions": [
+                        {
+                            "action_id": "ACT-EXIT",
+                            "action_type": "return",
+                            "label": "Return to the loading dock.",
+                            "destination_unit_id": "UNIT-DOCK-BASE",
+                        },
+                        {
+                            "action_id": "ACT-OTHER",
+                            "action_type": "return",
+                            "label": "Leave entirely.",
+                            "destination_unit_id": "UNIT-BREAK-BASE",
+                        },
+                    ],
+                },
+                {"event_id": "EVT-BASE", "unit_id": "UNIT-DOCK-BASE", "location_id": "LOC-DOCK", "event_kind": "location_hub", "structured_actions": []},
+                {"event_id": "EVT-BREAK", "unit_id": "UNIT-BREAK-BASE", "location_id": "LOC-BREAK", "event_kind": "location_hub", "structured_actions": []},
+            ],
+        }
+        res = validate_epistemic_progression(_minimal_workspace(ws, ep))
+        self.assertEqual(res.status, "FAIL")
+        self.assertTrue(any(f.finding_id == "EP-CONVERSATION-NO-HUB-RETURN" for f in res.findings))
+
+    def test_unresolved_topic_time_cost_fails(self):
+        ws = Path(tempfile.mkdtemp(prefix="ep_"))
+        ep = {
+            "schema_version": "1.0",
+            "adventure_id": "ep_test",
+            "initial_player_knowledge": [],
+            "initial_world_state": {},
+            "initial_observable_entities": ["NPC-ELENA"],
+            "playable_events": [
+                {
+                    "event_id": "EVT-HUB",
+                    "unit_id": "UNIT-DOCK-ELENA-HUB",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "npc_interaction",
+                    "structured_actions": [
+                        {
+                            "action_id": "ACT-TOPIC",
+                            "action_type": "dialogue_topic",
+                            "label": "Ask a question.",
+                            "destination_unit_id": "UNIT-TOPIC",
+                        },
+                        {
+                            "action_id": "ACT-RET",
+                            "action_type": "return",
+                            "label": "Return to the loading dock.",
+                            "destination_unit_id": "UNIT-DOCK-BASE",
+                        },
+                    ],
+                },
+                {
+                    "event_id": "EVT-TOPIC",
+                    "unit_id": "UNIT-TOPIC",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "dialogue_topic",
+                    "_player_body": "Answer text.",
+                    "structured_actions": [
+                        {
+                            "action_id": "ACT-HUB",
+                            "action_type": "return",
+                            "label": "Return to the Elena conversation menu.",
+                            "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+                        },
+                        {
+                            "action_id": "ACT-EXIT",
+                            "action_type": "return",
+                            "label": "Return to the loading dock.",
+                            "destination_unit_id": "UNIT-DOCK-BASE",
+                        },
+                    ],
+                },
+                {"event_id": "EVT-BASE", "unit_id": "UNIT-DOCK-BASE", "location_id": "LOC-DOCK", "event_kind": "location_hub", "structured_actions": []},
+            ],
+        }
+        adv = _minimal_workspace(ws, ep)
+        play = adv / "PLAYER" / "PLAY.md"
+        text = play.read_text(encoding="utf-8")
+        text = text.replace("Answer text.", "Answer text.\n\n**Time cost:** varies by topic")
+        play.write_text(text, encoding="utf-8")
+        res = validate_epistemic_progression(adv)
+        self.assertEqual(res.status, "FAIL")
+        self.assertTrue(any(f.finding_id == "EP-TIME-COST-UNRESOLVED" for f in res.findings))
+
+    def test_knowledge_map_returns_oriented_variant(self):
+        ws = Path(tempfile.mkdtemp(prefix="ep_"))
+        ep = {
+            "schema_version": "1.0",
+            "adventure_id": "ep_test",
+            "initial_player_knowledge": [],
+            "initial_world_state": {},
+            "initial_observable_entities": ["NPC-ELENA"],
+            "playable_events": [
+                {
+                    "event_id": "EVT-OPEN",
+                    "unit_id": "UNIT-DOCK-BASE",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "location_hub",
+                    "structured_actions": [
+                        {
+                            "action_id": "ACT-HUB",
+                            "action_type": "approach_npc",
+                            "label": "Talk to Elena.",
+                            "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+                        }
+                    ],
+                },
+                {
+                    "event_id": "EVT-HUB",
+                    "unit_id": "UNIT-DOCK-ELENA-HUB",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "npc_interaction",
+                    "structured_actions": [
+                        {
+                            "action_id": "ACT-MAP",
+                            "action_type": "dialogue_topic",
+                            "label": "Ask for a map.",
+                            "destination_unit_id": "UNIT-ELENA-MAP",
+                        }
+                    ],
+                },
+                {
+                    "event_id": "EVT-MAP",
+                    "unit_id": "UNIT-ELENA-MAP",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "dialogue_topic",
+                    "structured_actions": [
+                        {
+                            "action_id": "ACT-HUB",
+                            "action_type": "return",
+                            "label": "Return to the Elena conversation menu.",
+                            "destination_unit_id": "UNIT-DOCK-ELENA-HUB",
+                            "knowledge_delta": ["KNOW-OPEN-ORIENT"],
+                        },
+                        {
+                            "action_id": "ACT-EXIT",
+                            "action_type": "return",
+                            "label": "Return to the loading dock.",
+                            "destination_unit_id": "UNIT-DOCK-BASE-SURVEYED",
+                            "knowledge_delta": ["KNOW-OPEN-ORIENT"],
+                        },
+                    ],
+                },
+                {
+                    "event_id": "EVT-SURVEYED",
+                    "unit_id": "UNIT-DOCK-BASE-SURVEYED",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "location_hub",
+                    "variant_of": "UNIT-DOCK-BASE",
+                    "required_knowledge_ids": ["KNOW-OPEN-ORIENT"],
+                    "structured_actions": [
+                        {
+                            "action_id": "ACT-NAV",
+                            "action_type": "nav",
+                            "label": "Go to security.",
+                            "destination_unit_id": "UNIT-SECURITY-BASE",
+                        }
+                    ],
+                },
+                {"event_id": "EVT-SEC", "unit_id": "UNIT-SECURITY-BASE", "location_id": "LOC-SECURITY", "event_kind": "location_hub", "structured_actions": []},
+            ],
+        }
+        res = validate_epistemic_progression(_minimal_workspace(ws, ep))
+        self.assertEqual(res.status, "PASS")
+
+    def test_resolve_playable_unit_picks_surveyed_variant(self):
+        from idne.epistemic_progression.loader import load_epistemic_package, initial_epistemic_state
+        from idne.epistemic_progression.resolve import resolve_playable_unit
+
+        ws = Path(tempfile.mkdtemp(prefix="ep_"))
+        ep = {
+            "schema_version": "1.0",
+            "adventure_id": "ep_test",
+            "initial_player_knowledge": ["KNOW-OPEN-ORIENT"],
+            "initial_world_state": {},
+            "playable_events": [
+                {
+                    "event_id": "EVT-OPEN",
+                    "unit_id": "UNIT-DOCK-BASE",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "location_hub",
+                    "structured_actions": [],
+                },
+                {
+                    "event_id": "EVT-SURVEYED",
+                    "unit_id": "UNIT-DOCK-BASE-SURVEYED",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "location_hub",
+                    "variant_of": "UNIT-DOCK-BASE",
+                    "supersedes_unit_id": "UNIT-DOCK-BASE",
+                    "required_knowledge_ids": ["KNOW-OPEN-ORIENT"],
+                    "structured_actions": [],
+                },
+            ],
+        }
+        adv = _minimal_workspace(ws, ep)
+        pkg = load_epistemic_package(adv)
+        state = initial_epistemic_state(pkg)
+        self.assertEqual(resolve_playable_unit(pkg, state, "UNIT-DOCK-BASE"), "UNIT-DOCK-BASE-SURVEYED")
 
 
 if __name__ == "__main__":

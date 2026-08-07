@@ -8,6 +8,7 @@ from typing import Any
 from idne.epistemic_progression.eligibility import action_eligible, event_enterable, filter_eligible_actions
 from idne.epistemic_progression.loader import initial_epistemic_state, load_epistemic_package
 from idne.epistemic_progression.model import EpistemicState, StructuredAction
+from idne.epistemic_progression.resolve import resolve_playable_unit
 from idne.epistemic_progression.signatures import knowledge_signature, world_state_signature
 
 
@@ -118,6 +119,7 @@ def apply_chosen_action(
             if not ok:
                 return state, None, reason
             next_state = state.apply_action_deltas(action)
-            next_state.current_unit_id = action.destination_unit_id
+            dest = resolve_playable_unit(package, next_state, action.destination_unit_id)
+            next_state.current_unit_id = dest
             return next_state, action, "PASS"
     return state, None, "action not in structured set or ineligible"

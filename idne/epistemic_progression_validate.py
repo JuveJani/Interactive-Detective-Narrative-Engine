@@ -16,17 +16,31 @@ from idne.epistemic_progression.loader import (
 )
 from idne.epistemic_progression.model import (
     DIALOGUE_TOPIC_KINDS,
+    ENDING_KINDS,
     HUB_KINDS,
+    LOCATION_HUB_KINDS,
     NPC_INTERACTION_KINDS,
     EpistemicState,
     PlayableEvent,
     StructuredAction,
 )
+from idne.epistemic_progression.resolve import resolve_playable_unit
 from idne.epistemic_progression.signatures import reuse_signature
 from idne.gamebook_nav.extract import parse_player_units
 
 DIALOGUE_TOPIC_ACTION_TYPES = frozenset({"dialogue_topic", "npc_topic", "topic"})
 NPC_APPROACH_TYPES = frozenset({"approach_npc", "npc_interaction", "talk_npc"})
+PSEUDO_RETURN_PHRASE = re.compile(
+    r"return to your current location menu or continue the conversation",
+    re.I,
+)
+UNRESOLVED_TIME_COST = re.compile(r"varies by topic", re.I)
+TERMINAL_EVENT_KINDS = frozenset({"ending", "recovery"})
+
+LOCATION_NPC_CONVERSATION_HUBS: dict[str, str] = {
+    "UNIT-MARCUS-": "UNIT-SECURITY-BASE",
+    "UNIT-LORI-": "UNIT-MANAGER-BASE",
+}
 
 
 @dataclass
@@ -445,6 +459,109 @@ def _validate_impossible_prerequisites(result: ValidationResult, package, all_kn
             )
 
 
+def _validate_pseudo_choices(result: ValidationResult, package) -> None:
+    for event in package.events.values():
+        if event.event_kind in ENDING_KINDS or event.event_kind in TERMINAL_EVENT_KINDS:
+            continue
+        actions = event.structured_actions
+        if not actions:
+            continue
+        dests = {a.destination_unit_id for a in actions}
+        if len(dests) >= 2:
+            continue
+        if event.event_kind in DIALOGUE_TOPIC_KINDS:
+            _add(
+                result,
+                "EP-PSEUDO-CHOICE",
+                event.unit_id,
+                "dialogue topic response must offer genuine branching (hub return and explicit exit)",
+                f"only one destination: {sorted(dests)}",
+            )
+            continue
+        for action in actions:
+            if PSEUDO_RETURN_PHRASE.search(action.label):
+                _add(
+                    result,
+                    "EP-PSEUDO-CHOICE",
+                    event.unit_id,
+                    "choice must not use pseudo-branch wording for a single target",
+                    action.label[:80],
+                )
+
+
+def _validate_conversation_returns(result: ValidationResult, package) -> None:
+    for event in package.events.values():
+        if event.event_kind not in DIALOGUE_TOPIC_KINDS:
+            continue
+        hub_returns: list[str] = []
+        location_hub = next(
+            (hub for prefix, hub in LOCATION_NPC_CONVERSATION_HUBS.items() if event.unit_id.startswith(prefix)),
+            None,
+        )
+        for action in event.structured_actions:
+            dest = package.events_by_unit.get(action.destination_unit_id)
+            if dest and dest.event_kind in NPC_INTERACTION_KINDS:
+                hub_returns.append(action.destination_unit_id)
+            elif (
+                location_hub
+                and action.destination_unit_id == location_hub
+                and dest
+                and dest.event_kind in LOCATION_HUB_KINDS
+            ):
+                hub_returns.append(action.destination_unit_id)
+        if not hub_returns:
+            _add(
+                result,
+                "EP-CONVERSATION-NO-HUB-RETURN",
+                event.unit_id,
+                "dialogue topic response must return to a conversation hub or hosting location menu",
+                "no structured action targets npc_interaction or hosting location hub",
+            )
+
+
+def _validate_knowledge_destination_variants(result: ValidationResult, package) -> None:
+    for event in package.events.values():
+        for action in event.structured_actions:
+            if not action.knowledge_delta:
+                continue
+            probe = initial_epistemic_state(package).apply_action_deltas(action)
+            resolved = resolve_playable_unit(package, probe, action.destination_unit_id)
+            if resolved != action.destination_unit_id:
+                _add(
+                    result,
+                    "EP-DEST-VARIANT-MISMATCH",
+                    action.action_id,
+                    "knowledge-changing action must target enterable scene variant after deltas",
+                    f"declared {action.destination_unit_id}, expected {resolved} after {sorted(action.knowledge_delta)}",
+                )
+
+
+def _validate_resolved_time_costs(
+    result: ValidationResult,
+    root: Path,
+    package,
+) -> None:
+    player_root = root / "PLAYER"
+    known = {e.unit_id for e in package.events.values()}
+    player_units = parse_player_units(player_root, known or None)
+    for event in package.events.values():
+        if event.event_kind not in DIALOGUE_TOPIC_KINDS:
+            continue
+        pu = player_units.get(event.unit_id)
+        if not pu:
+            continue
+        for meta in pu.meta_lines:
+            if UNRESOLVED_TIME_COST.search(meta):
+                _add(
+                    result,
+                    "EP-TIME-COST-UNRESOLVED",
+                    event.unit_id,
+                    "resolved dialogue topic must not use unresolved time-cost placeholder",
+                    meta,
+                    source=str(pu.file),
+                )
+
+
 def _simulate_routes(result: ValidationResult, package, manifest: dict[str, Any]) -> None:
     """Bounded route check from opening state."""
     start = manifest.get("static_book", {}).get("start_unit_id", "")
@@ -503,6 +620,10 @@ def validate_epistemic_progression(adventure_root: str | Path) -> ValidationResu
     _validate_event_reuse(result, package)
     _validate_exhausted_actions(result, package)
     _validate_content_blocks(result, package, state)
+    _validate_pseudo_choices(result, package)
+    _validate_conversation_returns(result, package)
+    _validate_knowledge_destination_variants(result, package)
+    _validate_resolved_time_costs(result, root, package)
     _validate_player_delivery_alignment(result, root, package, player_manifest)
     _simulate_routes(result, package, player_manifest)
 
@@ -519,6 +640,17 @@ def validate_epistemic_progression(adventure_root: str | Path) -> ValidationResu
         "FAIL"
         if any(f.finding_id.startswith("EP-SCENE-REUSE") or f.finding_id == "EP-ONETIME-STILL-VISIBLE" for f in result.findings)
         else "PASS"
+    )
+    result.checks["EP-CONVERSATION-FLOW"] = (
+        "FAIL"
+        if any(
+            f.finding_id in ("EP-PSEUDO-CHOICE", "EP-CONVERSATION-NO-HUB-RETURN", "EP-TIME-COST-UNRESOLVED")
+            for f in result.findings
+        )
+        else "PASS"
+    )
+    result.checks["EP-VARIANT-DEST"] = (
+        "FAIL" if any(f.finding_id == "EP-DEST-VARIANT-MISMATCH" for f in result.findings) else "PASS"
     )
     result.checks["EP-DELIVERY-ALIGN"] = (
         "FAIL"

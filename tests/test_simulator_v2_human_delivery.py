@@ -23,6 +23,11 @@ COLD = Path(__file__).resolve().parents[1] / "adventures" / "The_Cold_Storage_Al
 SOLO = FIXTURES / "sim_v2_solo"
 
 
+def _cold_start_section() -> int:
+    manifest = json.loads((COLD / "player_mapping_manifest.json").read_text(encoding="utf-8"))
+    return int(manifest["static_book"]["start_section"])
+
+
 def _write_minimal_workspace(
     ws: Path,
     *,
@@ -272,7 +277,7 @@ Terminal ending content.
         result = out["result"]
         self.assertIn(result["status"], ("COMPLETED", "INCOMPLETE"))
         self.assertGreater(len(result["steps"]), 0)
-        self.assertEqual(result["start_section"], 636)
+        self.assertEqual(result["start_section"], _cold_start_section())
 
     def test_canonical_public_route_equivalence(self):
         if not COLD.exists():
@@ -326,7 +331,7 @@ See DO_NOT_READ/story.md for answers.
     def test_cold_storage_delivery_validate_passes(self):
         out = cmd_delivery_validate(COLD)
         self.assertEqual(out["status"], "PASS")
-        self.assertEqual(out["start_section"], 636)
+        self.assertEqual(out["start_section"], _cold_start_section())
         self.assertEqual(out["start_file"], "PLAYER/GAMEBOOK.md")
 
     @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
