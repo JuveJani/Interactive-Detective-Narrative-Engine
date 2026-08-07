@@ -87,6 +87,21 @@ def validate_gamebook(adventure_root: str | Path) -> ValidationResult:
     out.checks["GB-PRESENT"] = "PASS"
     gamebook_text = gamebook_path.read_text(encoding="utf-8")
 
+    player_json_path = root / "PLAYER" / "gamebook.json"
+    if not player_json_path.exists():
+        out.status = "FAIL"
+        out.errors.append("structured player delivery not built — missing PLAYER/gamebook.json")
+        out.checks["PD-PRESENT"] = "FAIL"
+    else:
+        from idne.player_delivery_validate import validate_player_delivery
+
+        pd = validate_player_delivery(root)
+        out.checks.update({f"player_{k}": v for k, v in pd.checks.items()})
+        out.errors.extend(pd.errors)
+        out.warnings.extend(pd.warnings)
+        if pd.status == "FAIL":
+            out.status = "FAIL"
+
     player_units = None
     graph = None
     section_map = manifest.get("public_sections")

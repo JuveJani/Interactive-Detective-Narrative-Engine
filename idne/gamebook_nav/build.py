@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import time
 from pathlib import Path
 from typing import Any
@@ -12,6 +13,11 @@ from idne.gamebook_nav.extract import load_opening, parse_player_units
 from idne.gamebook_nav.graph import build_navigation_graph
 from idne.gamebook_nav.numbering import assign_public_sections
 from idne.gamebook_nav.constants import DEFAULT_START_UNIT
+from idne.gamebook_nav.player_json import (
+    PLAYER_GAMEBOOK_PATH,
+    build_player_gamebook,
+    write_player_gamebook,
+)
 from idne.gamebook_nav.sections import section_heading, section_link
 from idne.gamebook_nav.validate import validate_gamebook_navigation
 
@@ -88,6 +94,30 @@ def render_gamebook(
     return "\n".join(lines).rstrip() + "\n"
 
 
+def _resolve_adventure_title(adventure_id: str, adventure_root: Path) -> str:
+    workspace = adventure_root.parent
+    brief: dict[str, Any] = {}
+    for candidate in (
+        workspace / "pack_spec.json",
+        workspace / "brief" / "adventure_brief.json",
+        workspace / "adventure_brief.json",
+    ):
+        if not candidate.exists():
+            continue
+        raw = json.loads(candidate.read_text(encoding="utf-8"))
+        brief = raw.get("brief", raw) if candidate.name == "pack_spec.json" else raw
+        break
+    if brief.get("working_title"):
+        return str(brief["working_title"])
+    notes = str(brief.get("author_notes") or "")
+    match = re.search(r"(?:Codename|Kódnév):\s*([^.\n]+)", notes, re.I)
+    if match:
+        return match.group(1).strip()
+    if workspace.name != adventure_id:
+        return workspace.name.replace("_", " ")
+    return adventure_id.replace("_", " ")
+
+
 def build_gamebook_package(
     adventure_root: Path,
     *,
@@ -111,6 +141,8 @@ def build_gamebook_package(
         manifest = json.loads(mapping_path.read_text(encoding="utf-8"))
 
     adventure_id = adventure_id or manifest.get("adventure_id") or adventure_root.name
+    if manifest.get("static_book", {}).get("start_unit_id"):
+        start_unit_id = manifest["static_book"]["start_unit_id"]
     template_units = parse_player_units(player_root, None)
     if not template_units:
         raise ValueError("no playable template units found")
@@ -200,7 +232,7 @@ def build_gamebook_package(
             manifest["delivery_projection"]["epistemic_materialization"] = mat
 
     opening = load_opening(player_root)
-    title = adventure_id.replace("_", " ")
+    title = _resolve_adventure_title(adventure_id, adventure_root)
     gamebook = render_gamebook(
         player_units,
         graph,
@@ -212,6 +244,26 @@ def build_gamebook_package(
 
     gamebook_path = player_root / "GAMEBOOK.md"
     gamebook_path.write_text(gamebook, encoding="utf-8")
+
+    player_payload = build_player_gamebook(
+        adventure_id=adventure_id,
+        adventure_title=title,
+        opening=opening,
+        start_section=section_map[start_unit_id],
+        delivery_mode=delivery_mode,
+        player_units=player_units,
+        graph=graph,
+        section_map=section_map,
+    )
+    player_json_path = player_root / "gamebook.json"
+    player_json_bytes = write_player_gamebook(player_json_path, player_payload)
+    from idne.player_delivery_validate import validate_player_gamebook_payload
+
+    player_validation = validate_player_gamebook_payload(
+        player_payload,
+        manifest=manifest,
+        gamebook_text=gamebook,
+    )
 
     t_val = time.perf_counter()
     val = validate_gamebook_navigation(
@@ -226,6 +278,8 @@ def build_gamebook_package(
     validate_ms = int((time.perf_counter() - t_val) * 1000)
 
     manifest["gamebook_validation"] = val.to_dict()
+    manifest["static_book"]["player_gamebook_path"] = PLAYER_GAMEBOOK_PATH
+    manifest["player_delivery_validation"] = player_validation.to_dict()
     mapping_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
     build_ms = int((time.perf_counter() - t0) * 1000)
@@ -234,13 +288,16 @@ def build_gamebook_package(
     return {
         "manifest_path": str(mapping_path),
         "gamebook_path": str(gamebook_path),
+        "player_gamebook_path": str(player_json_path),
         "section_count": len(section_map),
         "start_section": section_map[start_unit_id],
         "start_unit_id": start_unit_id,
         "validation": val.to_dict(),
+        "player_delivery_validation": player_validation.to_dict(),
         "delivery_mode": delivery_mode,
         "delivery_projection": delivery_stats.to_dict() if delivery_stats else None,
         "gamebook_bytes": gamebook_bytes,
+        "player_gamebook_bytes": player_json_bytes,
         "build_ms": build_ms,
         "validate_ms": validate_ms,
     }
