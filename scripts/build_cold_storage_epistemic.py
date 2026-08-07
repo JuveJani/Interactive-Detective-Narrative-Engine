@@ -117,13 +117,11 @@ WORKER_HUB_ACTIONS = [
 
 # Choices that require knowledge or world state before appearing on dock hub variants
 DOCK_DEFERRED = {
-    "Head inside to the staff break room.": ("nav", "UNIT-BREAK-BASE", []),
-    "Cut through the warehouse corridor to the security office.": ("nav", "UNIT-SECURITY-BASE", []),
-    "Take the office wing corridor to the warehouse manager office.": ("nav", "UNIT-MANAGER-BASE", []),
-    "Review the supervisor briefing area.": ("action", "UNIT-DOCK-BRIEFING-MENU", []),
+    "Head inside to the staff break room.": ("nav", "UNIT-BREAK-BASE", ["KNOW-OPEN-ORIENT"]),
+    "Cut through the warehouse corridor to the security office.": ("nav", "UNIT-SECURITY-BASE", ["KNOW-OPEN-ORIENT"]),
+    "Take the office wing corridor to the warehouse manager office.": ("nav", "UNIT-MANAGER-BASE", ["KNOW-OPEN-ORIENT"]),
+    "Review the supervisor briefing area.": ("action", "UNIT-DOCK-BRIEFING-MENU", ["KNOW-OPEN-ORIENT"]),
     "Request escort clearance to the automation control room.": ("action", "UNIT-ESCORT-GRANTED", ["KNOW-OPEN-ORIENT"]),
-    "Receive supervisor briefing at the loading dock.": ("scene", "SC-DOCK-ARRIVAL", []),
-    "Survey the dock and adjacent corridors.": ("scene", "SC-DOCK-INITIAL-SURVEY", []),
     "Work under supervisor dock restriction enforcement.": ("scene", "SC-DOCK-RESTRICTED", [], {"dock_restricted_active": True}),
     "Prepare final accountability documentation before the compliance threshold.": ("scene", "SC-ACCUSATION-PREP", [], {"ready_to_accuse": True}),
 }

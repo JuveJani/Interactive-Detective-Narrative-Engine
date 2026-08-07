@@ -86,9 +86,28 @@ def validate_gamebook(adventure_root: str | Path) -> ValidationResult:
 
     out.checks["GB-PRESENT"] = "PASS"
     gamebook_text = gamebook_path.read_text(encoding="utf-8")
+
+    player_units = None
+    graph = None
+    section_map = manifest.get("public_sections")
+    delivery_mode = (manifest.get("static_book") or {}).get("delivery_mode")
+    if delivery_mode == "materialized_static_book":
+        from idne.gamebook_nav.delivery import load_materialized_delivery
+        from idne.gamebook_nav.extract import parse_player_units
+
+        template_units = parse_player_units(root / "PLAYER", None)
+        _, player_units, graph, _ = load_materialized_delivery(
+            root,
+            template_units,
+            manifest_units=manifest.get("units") or {},
+        )
+
     res: GamebookValidationResult = validate_gamebook_navigation(
         root,
         manifest=manifest,
+        player_units=player_units,
+        graph=graph,
+        section_map=section_map,
         gamebook_text=gamebook_text,
     )
     out.checks.update(res.checks)

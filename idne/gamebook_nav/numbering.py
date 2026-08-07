@@ -14,9 +14,9 @@ def assign_public_sections(
     seed_override: str | None = None,
     existing_map: dict[str, int] | None = None,
     min_section: int = 101,
-    max_section: int = 999,
+    max_section: int | None = None,
 ) -> dict[str, int]:
-    """Assign stable three-digit public section numbers without chronological order."""
+    """Assign stable opaque public section numbers without chronological order."""
     units = sorted(set(unit_ids))
     if not units:
         return {}
@@ -27,9 +27,12 @@ def assign_public_sections(
     if not new_units and len(retained) == len(units):
         return retained
 
+    if max_section is None:
+        max_section = max(999, min_section + len(units) + 50)
     span = max_section - min_section + 1
     if len(units) > span:
-        raise ValueError(f"too many units ({len(units)}) for section range {min_section}-{max_section}")
+        max_section = min_section + len(units) - 1
+        span = max_section - min_section + 1
 
     seed_material = seed_override or adventure_id
     digest = hashlib.sha256(f"{seed_material}:{'|'.join(units)}".encode()).hexdigest()

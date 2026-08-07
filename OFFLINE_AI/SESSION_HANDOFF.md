@@ -1,38 +1,49 @@
 # Session Handoff
 
-**Updated:** 2026-08-07 — Conversation state/progression fix
+**Updated:** 2026-08-07 — Episodic static delivery (Phase 3)
 
 ## Branch and commit
 
 - **Branch:** `cursor/fix-conversation-state-progression`
-- **Commit:** _(pending)_
+- **PR:** #55 (draft, unmerged)
+- **Commit:** _(pending push — episodic static delivery)_
 
-## Completed work
+## Completed work (Phase 3)
 
-- Epistemic progression validator extended: pseudo-choice, unresolved topic time cost, conversation hub returns, knowledge→variant destination checks
-- Added `resolve_playable_unit()` for scene-variant resolution in Simulator v2 epistemic tracking
-- Regenerated Cold Storage PLAYER/NPCS, epistemic package, GAMEBOOK, and player mapping manifest
-- NPC topic responses now return to conversation hubs with explicit location exit; map acquisition grants orientation knowledge and routes to surveyed dock variant
-- Regression tests added; 491 tests OK
+- Added normative spec `EPISODIC_STATIC_DELIVERY_SPEC.md`
+- New `idne/gamebook_nav/delivery.py`: materialized snapshot → delivery projection; closure-based template supplement; check success/failure branches
+- `build.py` uses materialized delivery when package has state snapshots; reports `delivery_projection`, build/validate timing
+- Removed template-union validation; per-snapshot `EP-DELIVERY-*` checks + check-decl branch validation
+- `gamebook_validate.py` loads materialized graph for `materialized_static_book` re-validation
+- Cold Storage: removed survey/arrival from dock hub (opening invariant = 3 choices); DOCK_DEFERRED nav gated behind `KNOW-OPEN-ORIENT`
+- Regenerated epistemic + GAMEBOOK artifacts; **502 tests OK**
 
-## Commands and tests actually run
+## Root cause fixed
+
+Static delivery collapsed materialized snapshots into template-level PLAYER supersets via heuristic graph supplement and template-union validator.
+
+## Delivery metrics (fact)
+
+| Metric | Value |
+|--------|-------|
+| Materialized epistemic events | 1,375 |
+| Public delivery sections | 1,383 |
+| Supplemental template-only units | 8 (check results) |
+| GAMEBOOK size | ~663 KB |
+| Build time | ~600 ms |
+| Validator time | ~700 ms |
+
+## Commands run
 
 ```bash
-python scripts/build_cold_storage_player.py
-python scripts/build_cold_storage_epistemic.py
-python -c "from pathlib import Path; from idne.gamebook_nav.build import build_gamebook_package; build_gamebook_package(Path('adventures/The_Cold_Storage_Alarm/adventure'), adventure_id='The_Cold_Storage_Alarm')"
-python -m idne.validate_adventure adventures/The_Cold_Storage_Alarm/adventure
-python -m unittest tests.test_epistemic_progression tests.test_gamebook_nav tests.test_simulator_v2_human_delivery -v
-python -m unittest discover -s tests
+python3 scripts/build_cold_storage_epistemic.py
+python3 scripts/build_cold_storage_player.py
+python3 -c "from pathlib import Path; from idne.gamebook_nav.build import build_gamebook_package; build_gamebook_package(Path('adventures/The_Cold_Storage_Alarm/adventure'))"
+python3 -m unittest tests.test_gamebook_nav.TestColdStorageEpisodicDelivery -v
+python3 -m unittest discover -s tests
 ```
-
-## Decisions
-
-- Topic exhaustion deferred (lower priority; architecture supports it via existing `exhaustion` field but not enabled for Cold Storage)
-- Location-hosted NPC topics (Marcus/Lori) may return to hosting `location_hub` menus as conversation context
-- PR #54 / `cursor/offline-local-ai-core` untouched
 
 ## Exact next safe action
 
-1. Merge PR after review
-2. Human playtest Elena conversation + map path on regenerated GAMEBOOK (start section 592)
+1. Human playtest opening dock (3 choices) and Elena map → post-orient dock unlock path on regenerated GAMEBOOK
+2. Review PR #55; keep PR #54 (Local AI) untouched

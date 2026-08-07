@@ -956,6 +956,55 @@ class TestEpistemicProgression(unittest.TestCase):
         self.assertEqual(resolved, expected)
         self.assertIn(STATE_SUFFIX, resolved)
 
+    def test_validator_rejects_template_superset_delivery(self):
+        ep = {
+            "schema_version": "1.0",
+            "adventure_id": "ep_test",
+            "initial_player_knowledge": [],
+            "initial_world_state": {},
+            "playable_events": [
+                {
+                    "event_id": "EVT-DOCK-K0",
+                    "unit_id": "UNIT-DOCK-BASE",
+                    "template_unit_id": "UNIT-DOCK-BASE",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "location_hub",
+                    "state_snapshot": {"player_knowledge": [], "completed_topics": [], "world_state": {}},
+                    "structured_actions": [
+                        {
+                            "action_id": "ACT-ONE",
+                            "action_type": "nav",
+                            "label": "Only opening choice.",
+                            "destination_unit_id": "UNIT-NEXT",
+                        }
+                    ],
+                },
+                {
+                    "event_id": "EVT-NEXT",
+                    "unit_id": "UNIT-NEXT",
+                    "template_unit_id": "UNIT-NEXT",
+                    "location_id": "LOC-DOCK",
+                    "event_kind": "action",
+                    "state_snapshot": {"player_knowledge": [], "completed_topics": [], "world_state": {}},
+                    "structured_actions": [],
+                },
+            ],
+        }
+        ws = Path(tempfile.mkdtemp(prefix="ep_super_"))
+        root = _minimal_workspace(ws, ep)
+        player = root / "PLAYER" / "PLAY.md"
+        player.write_text(
+            player.read_text(encoding="utf-8")
+            + "\n<!-- unit:unit-dock-base -->\n### UNIT-DOCK-BASE\n\nHub.\n\n**What do you do?**\n\n"
+            + "- Only opening choice.\n- Future choice not yet unlocked.\n- Another future choice.\n",
+            encoding="utf-8",
+        )
+        res = validate_epistemic_progression(root)
+        self.assertTrue(
+            any(f.finding_id == "EP-DELIVERY-TEMPLATE-SUPERSET" for f in res.findings),
+            msg=[f.finding_id for f in res.findings],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -4,22 +4,13 @@
 
 **Location:** Loading dock | **Time cost:** 0 min
 
-The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. Cold rolls off the bay in waves whenever a door cycles, and the smell of diesel and refrigerant hangs in the air. Somewhere past 1:00 a.m., the building has settled into the strange quiet of a shift that has already gone wrong. As you learn the site layout and supervisor constraints, additional routes and briefing options become available here.
+The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. Cold rolls off the bay in waves whenever a door cycles, and the smell of diesel and refrigerant hangs in the air. Somewhere past 1:00 a.m., the building has settled into the strange quiet of a shift that has already gone wrong.
 
 **What do you do?**
 
 - Talk to Elena Morales.
 - Walk through the dock corridor to the cold storage hall.
 - Talk to a dock worker.
-- Head inside to the staff break room.
-- Cut through the warehouse corridor to the security office.
-- Take the office wing corridor to the warehouse manager office.
-- Review the supervisor briefing area.
-- Request escort clearance to the automation control room.
-- Receive supervisor briefing at the loading dock.
-- Survey the dock and adjacent corridors.
-- Prepare final accountability documentation before the compliance threshold.
-- Work under supervisor dock restriction enforcement.
 
 <!-- unit:unit-cold-base -->
 ### Cold storage hall

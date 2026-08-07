@@ -383,40 +383,196 @@ def _validate_exhausted_actions(result: ValidationResult, package) -> None:
                 )
 
 
+def _load_check_dests(root: Path) -> dict[str, tuple[str, str]]:
+    path = root / "DO_NOT_READ" / "capability_check_package.json"
+    if not path.exists():
+        return {}
+    pkg = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[str, tuple[str, str]] = {}
+    for chk in pkg.get("checks", []) or []:
+        dest = chk.get("destinations", {}) or {}
+        decl = dest.get("action_unit_id", "")
+        ok = dest.get("success_destination", "")
+        fail = dest.get("failure_destination", "")
+        if decl and ok and fail:
+            out[decl] = (ok, fail)
+    return out
+
+
+def _is_check_decl_unit(unit_id: str) -> bool:
+    tpl = template_unit_id(unit_id)
+    return tpl.startswith("UNIT-CHK-") and tpl.endswith("-DECL")
+
+
+def _is_check_placeholder_label(label: str) -> bool:
+    return "success or failure" in label.lower()
+
+
+def _validate_check_snapshot_delivery(
+    result: ValidationResult,
+    unit_id: str,
+    entry: dict[str, Any],
+    check_dests: dict[str, tuple[str, str]],
+) -> None:
+    tpl = template_unit_id(unit_id)
+    pair = check_dests.get(tpl)
+    if not pair:
+        return
+    ok_dest, fail_dest = pair
+    by_kind: dict[str, str] = {}
+    for choice in entry.get("choices") or []:
+        kind = str(choice.get("kind", ""))
+        if kind in {"check_success", "check_failure"}:
+            by_kind[kind] = str(choice.get("destination_unit_id", ""))
+    if "check_success" not in by_kind or "check_failure" not in by_kind:
+        _add(
+            result,
+            "EP-DELIVERY-MISSING-CHOICE",
+            unit_id,
+            "check declaration must deliver success and failure branches",
+            "missing check_success/check_failure manifest choices",
+        )
+        return
+    if by_kind["check_success"] != ok_dest:
+        _add(
+            result,
+            "EP-DELIVERY-WRONG-DEST",
+            unit_id,
+            "check success branch must target capability success destination",
+            f"manifest {by_kind['check_success']} != {ok_dest}",
+        )
+    if by_kind["check_failure"] != fail_dest:
+        _add(
+            result,
+            "EP-DELIVERY-WRONG-DEST",
+            unit_id,
+            "check failure branch must target capability failure destination",
+            f"manifest {by_kind['check_failure']} != {fail_dest}",
+        )
+
+
+def _validate_snapshot_delivery(
+    result: ValidationResult,
+    package,
+    manifest: dict[str, Any],
+) -> None:
+    """Validate each materialized event against exact delivered manifest choices."""
+    manifest_units = manifest.get("units") or {}
+    check_dests = _load_check_dests(result.adventure_root)
+    if not manifest_units:
+        _add(
+            result,
+            "EP-DELIVERY-MANIFEST-MISSING",
+            "manifest",
+            "materialized delivery requires player_mapping_manifest units",
+            "no manifest units",
+        )
+        return
+
+    for unit_id, event in package.events_by_unit.items():
+        if not event.state_snapshot:
+            continue
+        entry = manifest_units.get(unit_id)
+        if not entry:
+            _add(
+                result,
+                "EP-DELIVERY-MISSING-SECTION",
+                unit_id,
+                "every materialized snapshot must have a delivered public section",
+                "no manifest entry for materialized unit",
+            )
+            continue
+
+        if _is_check_decl_unit(unit_id):
+            _validate_check_snapshot_delivery(result, unit_id, entry, check_dests)
+            continue
+
+        delivered_labels: dict[str, str] = {}
+        for choice in entry.get("choices") or []:
+            label = _norm_label(choice.get("label", ""))
+            if label:
+                delivered_labels[label] = str(choice.get("destination_unit_id", ""))
+
+        structured: dict[str, str] = {
+            _norm_label(a.label): a.destination_unit_id
+            for a in event.structured_actions
+            if a.label and not _is_check_placeholder_label(a.label)
+        }
+
+        for label, dest in structured.items():
+            if label not in delivered_labels:
+                _add(
+                    result,
+                    "EP-DELIVERY-MISSING-CHOICE",
+                    unit_id,
+                    "delivered section must expose every structured action for this snapshot",
+                    f"missing choice: {label[:80]}",
+                )
+            elif delivered_labels[label] != dest:
+                _add(
+                    result,
+                    "EP-DELIVERY-WRONG-DEST",
+                    unit_id,
+                    "delivered choice must target exact materialized destination unit",
+                    f"{label[:40]}: manifest {delivered_labels[label]} != structured {dest}",
+                )
+
+        for label, dest in delivered_labels.items():
+            if label not in structured:
+                _add(
+                    result,
+                    "EP-DELIVERY-EXTRA-CHOICE",
+                    unit_id,
+                    "delivered section must not expose choices from another state snapshot",
+                    f"extra choice: {label[:80]} -> {dest}",
+                )
+
+        if event.event_kind in LOCATION_HUB_KINDS:
+            for action in event.structured_actions:
+                if action.action_type in DIALOGUE_TOPIC_ACTION_TYPES:
+                    _add(
+                        result,
+                        "EP-HUB-FLATTENED-DIALOGUE",
+                        unit_id,
+                        "location hub must not flatten NPC dialogue topics into location menu",
+                        f"topic action {action.action_id} on location hub",
+                    )
+
+    # Reject template-union PLAYER prose used as delivery authority
+    player_root = result.adventure_root / "PLAYER"
+    template_units = parse_player_units(player_root, None)
+    for tpl_id, pu in template_units.items():
+        if not pu.choices:
+            continue
+        union = _structured_labels_for_template(package, tpl_id)
+        if not union:
+            continue
+        player_labels = {_norm_label(c) for c in pu.choices if c}
+        if len(player_labels) > len(union) and player_labels >= union:
+            _add(
+                result,
+                "EP-DELIVERY-TEMPLATE-SUPERSET",
+                tpl_id,
+                "template PLAYER unit must not author a superset of materialized snapshot choices",
+                f"template lists {len(player_labels)} choices; union across snapshots is {len(union)}",
+            )
+
+
 def _validate_player_delivery_alignment(
     result: ValidationResult,
     root: Path,
     package,
     manifest: dict[str, Any],
 ) -> None:
-    player_root = root / "PLAYER"
-    known = set(manifest.get("units", {}).keys())
-    player_units = parse_player_units(player_root, known or None)
     materialized = _is_materialized_package(package)
 
     if materialized:
-        for tpl_id, pu in player_units.items():
-            structured = _structured_labels_for_template(package, tpl_id)
-            if not structured:
-                continue
-            player_labels = {_norm_label(c) for c in pu.choices}
-            return_aliases = {
-                _norm_label("Return to your current location menu or continue the conversation."),
-                _norm_label("Return to the Elena conversation menu."),
-                _norm_label("Return to the dock worker conversation menu."),
-            }
-            for label in structured:
-                if label and label not in player_labels and label not in return_aliases:
-                    _add(
-                        result,
-                        "EP-STRUCT-MISSING-CHOICE",
-                        tpl_id,
-                        "structured eligible action must appear in PLAYER delivery",
-                        f"missing choice: {label[:80]}",
-                        source=str(pu.file),
-                    )
+        _validate_snapshot_delivery(result, package, manifest)
         return
 
+    player_root = root / "PLAYER"
+    known = set(manifest.get("units", {}).keys())
+    player_units = parse_player_units(player_root, known or None)
     structured_by_unit: dict[str, set[str]] = {}
     for event in package.events.values():
         structured_by_unit[event.unit_id] = {_norm_label(a.label) for a in event.structured_actions}
@@ -907,7 +1063,12 @@ def validate_epistemic_progression(adventure_root: str | Path) -> ValidationResu
     )
     result.checks["EP-DELIVERY-ALIGN"] = (
         "FAIL"
-        if any(f.finding_id.startswith("EP-PROSE") or f.finding_id.startswith("EP-STRUCT") for f in result.findings)
+        if any(
+            f.finding_id.startswith("EP-DELIVERY")
+            or f.finding_id.startswith("EP-PROSE")
+            or f.finding_id.startswith("EP-STRUCT")
+            for f in result.findings
+        )
         else "PASS"
     )
     result.checks["EP-ROUTE-PREREQ"] = (

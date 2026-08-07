@@ -55,7 +55,7 @@ def resolve_manifest_aliases(
                     title=source.title,
                     body=source.body,
                     meta_lines=list(source.meta_lines),
-                    choices=list(source.choices),
+                    choices=[],
                 )
                 break
     return out
