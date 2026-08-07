@@ -17,6 +17,7 @@ from idne.local_ai.model_adapter import create_adapter, execute_with_retries, se
 from idne.local_ai.output_paths import DEFAULT_BRIEF_OUTPUT
 from idne.local_ai.paths import find_repo_root
 from idne.local_ai.process import process_task
+from idne.local_ai.support_bundle import generate_support_bundle
 from idne.local_ai.proposal_builder import build_proposal
 from idne.local_ai.proposal_validate import validate_proposal
 from idne.local_ai.response_parser import ParseError, parse_response
@@ -258,6 +259,21 @@ def cmd_process(args: argparse.Namespace) -> int:
     return 0 if result.success else 1
 
 
+def cmd_support_bundle(args: argparse.Namespace) -> int:
+    task_dir = Path(args.task_directory).resolve() if args.task_directory else None
+    try:
+        bundle_dir = generate_support_bundle(
+            task_dir,
+            config_path=args.config,
+            mock=args.mock,
+        )
+    except Exception as exc:
+        print(f"Support bundle failed: {exc}", file=sys.stderr)
+        return 1
+    print(f"Support bundle written to: {bundle_dir}")
+    return 0
+
+
 def cmd_apply(args: argparse.Namespace) -> int:
     run_dir = Path(args.task_directory)
     try:
@@ -407,6 +423,20 @@ def build_parser() -> argparse.ArgumentParser:
     attempts = sub.add_parser("attempts", help="List preserved model attempts")
     attempts.add_argument("task_directory")
     attempts.set_defaults(func=cmd_attempts)
+
+    bundle = sub.add_parser(
+        "support-bundle",
+        help="Generate offline diagnostic bundle under .local_ai_support/",
+    )
+    bundle.add_argument(
+        "task_directory",
+        nargs="?",
+        default=None,
+        help="Task run directory (optional; environment-only bundle if omitted)",
+    )
+    _add_config_arg(bundle)
+    _add_mock_arg(bundle)
+    bundle.set_defaults(func=cmd_support_bundle)
 
     return parser
 
