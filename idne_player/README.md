@@ -29,7 +29,32 @@ If an adventure is not bundled, use **Load adventure file…** and select its `P
 
 ## Structured delivery format
 
-Player runtime data lives at `PLAYER/gamebook.json`, generated from the same public delivery graph as `PLAYER/GAMEBOOK.md`.
+Player runtime data lives at `PLAYER/gamebook.json`, generated from the same public
+delivery projection as `PLAYER/GAMEBOOK.md`.
+
+### Authority direction (no reverse dependency)
+
+```text
+canonical adventure logic (DO_NOT_READ/*.json)
+        ↓
+epistemic / materialized public delivery state
+  (epistemic_progression_package.json + PLAYER template prose)
+        ↓
+player delivery projection (build_gamebook_package)
+        ↓
+generated artifacts:
+  - player_mapping_manifest.json
+  - PLAYER/GAMEBOOK.md
+  - PLAYER/gamebook.json
+```
+
+`player_mapping_manifest.json`, `GAMEBOOK.md`, and `gamebook.json` are **downstream
+projections only**. Canonical and epistemic generation do not read them.
+
+The common build-time representation is the in-memory delivery graph produced by
+`load_materialized_delivery()` / `build_navigation_graph()` from canonical packages
+and epistemic snapshots. Both markdown and JSON artifacts are rendered from that
+graph plus template prose.
 
 ## Save / resume
 

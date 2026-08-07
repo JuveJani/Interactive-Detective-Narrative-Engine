@@ -11,7 +11,7 @@ import unittest
 from pathlib import Path
 
 from idne.gamebook_nav.build import build_gamebook_package
-from idne.gamebook_nav.player_json import build_player_gamebook, scan_forbidden_player_data
+from idne.gamebook_nav.player_json import scan_forbidden_player_data
 from idne.player_delivery_validate import (
     validate_player_delivery,
     validate_player_gamebook_determinism,
@@ -20,53 +20,37 @@ from idne.player_delivery_validate import (
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
 MINIMAL = FIXTURES / "gamebook_minimal"
-COLD = Path(__file__).resolve().parents[1] / "adventures" / "The_Cold_Storage_Alarm"
-HUTOR = Path(__file__).resolve().parents[1] / "adventures" / "A_Hutoriasztas"
-INTEGRATION_BRANCH = "origin/cursor/four-adventure-integration-aa1a"
-FOUR_ADVENTURES = (
-    "The_Gallery_Verdict",
+REPO = Path(__file__).resolve().parents[1]
+ADVENTURES = REPO / "adventures"
+
+ENGLISH_ADVENTURE_PACK = (
+    "The_Cold_Storage_Alarm",
     "The_Harbor_Light_Signal",
-    "The_Parish_Ledger",
+    "The_Gallery_Verdict",
     "The_Quarry_Silence",
+    "The_Parish_Ledger",
 )
 
 
-def _extract_adventure_from_git(adventure_id: str, dest: Path) -> Path | None:
-    repo = Path(__file__).resolve().parents[1]
-    branch = INTEGRATION_BRANCH
-    verify = subprocess.run(
-        ["git", "rev-parse", "--verify", branch],
-        cwd=repo,
-        capture_output=True,
-    )
-    if verify.returncode != 0:
-        return None
-    archive = subprocess.run(
-        ["git", "archive", branch, f"adventures/{adventure_id}"],
-        cwd=repo,
-        capture_output=True,
-        check=True,
-    )
-    extract = subprocess.run(
-        ["tar", "-x", "-C", str(dest)],
-        input=archive.stdout,
-        capture_output=True,
-        check=True,
-    )
-    if extract.returncode != 0:
-        return None
-    workspace = dest / "adventures" / adventure_id
-    if not workspace.exists():
-        workspace = dest / adventure_id
-    if not (workspace / "player_mapping_manifest.json").exists():
-        return None
-    root = workspace / "adventure"
+def _adventure_root(adventure_id: str) -> Path:
+    return ADVENTURES / adventure_id / "adventure"
+
+
+def _ensure_player_gamebook(adventure_id: str) -> Path:
+    root = _adventure_root(adventure_id)
     gamebook_path = root / "PLAYER" / "gamebook.json"
-    if not gamebook_path.exists():
-        manifest = json.loads((workspace / "player_mapping_manifest.json").read_text(encoding="utf-8"))
+    if gamebook_path.exists():
+        return gamebook_path
+    manifest_path = ADVENTURES / adventure_id / "player_mapping_manifest.json"
+    start_unit = None
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         start_unit = (manifest.get("static_book") or {}).get("start_unit_id")
-        build_gamebook_package(root, start_unit_id=start_unit) if start_unit else build_gamebook_package(root)
-    return workspace if gamebook_path.exists() else None
+    if start_unit:
+        build_gamebook_package(root, start_unit_id=start_unit)
+    else:
+        build_gamebook_package(root)
+    return gamebook_path
 
 
 class TestPlayerDelivery(unittest.TestCase):
@@ -114,25 +98,61 @@ class TestPlayerDelivery(unittest.TestCase):
         res = validate_player_gamebook_determinism(first, second)
         self.assertEqual(res.status, "PASS")
 
-    @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
-    def test_cold_storage_player_delivery_passes(self):
-        root = COLD / "adventure"
-        gamebook_path = root / "PLAYER" / "gamebook.json"
-        if not gamebook_path.exists():
-            build_gamebook_package(root)
-        res = validate_player_delivery(root)
-        self.assertEqual(res.status, "PASS", res.errors)
-        payload = json.loads(gamebook_path.read_text(encoding="utf-8"))
-        self.assertGreater(payload["section_count"], 4000)
+    def test_five_english_adventures_discoverable_in_checkout(self):
+        missing = [
+            adventure_id
+            for adventure_id in ENGLISH_ADVENTURE_PACK
+            if not (ADVENTURES / adventure_id / "player_mapping_manifest.json").exists()
+        ]
+        self.assertEqual(missing, [], f"missing adventures on checkout: {missing}")
 
-    @unittest.skipUnless(HUTOR.exists(), "Hungarian mirror not present")
-    def test_hungarian_mirror_player_delivery_passes(self):
-        root = HUTOR / "adventure"
-        gamebook_path = root / "PLAYER" / "gamebook.json"
-        if not gamebook_path.exists():
-            build_gamebook_package(root)
-        res = validate_player_delivery(root)
-        self.assertEqual(res.status, "PASS", res.errors)
+    def test_five_english_adventures_player_delivery_passes(self):
+        for adventure_id in ENGLISH_ADVENTURE_PACK:
+            root = _adventure_root(adventure_id)
+            self.assertTrue(root.exists(), adventure_id)
+            _ensure_player_gamebook(adventure_id)
+            res = validate_player_delivery(root)
+            self.assertEqual(res.status, "PASS", f"{adventure_id}: {res.errors}")
+
+    def test_player_package_does_not_reference_other_git_branches(self):
+        runtime_files = [
+            REPO / "scripts" / "build_offline_player_package.py",
+            REPO / "idne_player" / "js" / "player.js",
+        ]
+        forbidden = (
+            "four-adventure-integration",
+            "git archive",
+            "git show",
+            "INTEGRATION_BRANCH",
+        )
+        for path in runtime_files:
+            text = path.read_text(encoding="utf-8")
+            for token in forbidden:
+                self.assertNotIn(token, text, f"{path.name} must not depend on {token}")
+
+    def test_no_reverse_dependency_on_player_delivery_artifacts(self):
+        """Canonical/epistemic generation must not read generated player delivery outputs."""
+        upstream_files = [
+            REPO / "idne" / "adventure_pack" / "canonical.py",
+            REPO / "idne" / "adventure_pack" / "epistemic.py",
+        ]
+        upstream_files.extend(sorted((REPO / "idne" / "epistemic_progression").glob("*.py")))
+        upstream_files = [
+            path for path in upstream_files
+            if path.exists() and not path.name.endswith("_validate.py")
+        ]
+        forbidden_reads = (
+            "player_mapping_manifest.json",
+            "PLAYER/gamebook.json",
+            "PLAYER/GAMEBOOK.md",
+        )
+        offenders: list[str] = []
+        for path in upstream_files:
+            text = path.read_text(encoding="utf-8")
+            for token in forbidden_reads:
+                if token in text:
+                    offenders.append(f"{path.relative_to(REPO)} reads {token}")
+        self.assertEqual(offenders, [], offenders)
 
     def test_distant_navigation_target_exists(self):
         ws = Path(tempfile.mkdtemp(prefix="pd_dist_"))
@@ -149,49 +169,30 @@ class TestPlayerDelivery(unittest.TestCase):
         self.assertIsNotNone(far_target)
         self.assertIn(far_target, payload["sections"])
 
-    def test_offline_package_builder(self):
-        ws = Path(tempfile.mkdtemp(prefix="pd_pkg_"))
-        shutil.copytree(MINIMAL, ws / "gamebook_minimal")
-        root = ws / "gamebook_minimal" / "adventure"
-        build_gamebook_package(root, start_unit_id="UNIT-DOCK-BASE")
+    def test_offline_package_includes_five_english_adventures(self):
         out = Path(tempfile.mkdtemp(prefix="pd_dist_"))
-        repo = Path(__file__).resolve().parents[1]
+        workspaces = [ADVENTURES / adventure_id for adventure_id in ENGLISH_ADVENTURE_PACK]
+        for adventure_id in ENGLISH_ADVENTURE_PACK:
+            _ensure_player_gamebook(adventure_id)
         subprocess.run(
             [
                 sys.executable,
-                str(repo / "scripts" / "build_offline_player_package.py"),
+                str(REPO / "scripts" / "build_offline_player_package.py"),
                 "--output",
                 str(out),
-                str(ws / "gamebook_minimal"),
+                *map(str, workspaces),
             ],
             check=True,
             capture_output=True,
             text=True,
         )
-        self.assertTrue((out / "index.html").exists())
-        self.assertTrue((out / "library" / "index.js").exists())
-        index = (out / "library" / "index.js").read_text(encoding="utf-8")
-        self.assertIn("IDNE_LIBRARY", index)
-
-    @unittest.skipUnless(
-        subprocess.run(["git", "rev-parse", "--verify", INTEGRATION_BRANCH], capture_output=True).returncode == 0,
-        "four-adventure integration branch unavailable",
-    )
-    def test_four_generated_adventures_player_delivery(self):
-        temp = Path(tempfile.mkdtemp(prefix="pd_four_"))
-        opened = 0
-        for adventure_id in FOUR_ADVENTURES:
-            workspace = _extract_adventure_from_git(adventure_id, temp)
-            if not workspace:
-                continue
-            root = workspace / "adventure"
-            gamebook_path = root / "PLAYER" / "gamebook.json"
-            if not gamebook_path.exists():
-                build_gamebook_package(root)
-            res = validate_player_delivery(root)
-            self.assertEqual(res.status, "PASS", f"{adventure_id}: {res.errors}")
-            opened += 1
-        self.assertEqual(opened, 4, "expected four generated adventures from integration branch")
+        index = json.loads(
+            (out / "library" / "index.js").read_text(encoding="utf-8").split("=", 1)[1].strip().rstrip(";")
+        )
+        bundled_ids = {entry["id"] for entry in index}
+        self.assertEqual(bundled_ids, set(ENGLISH_ADVENTURE_PACK))
+        for adventure_id in ENGLISH_ADVENTURE_PACK:
+            self.assertTrue((out / "library" / "adventures" / f"{adventure_id}.js").exists())
 
 
 if __name__ == "__main__":

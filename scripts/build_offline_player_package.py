@@ -13,6 +13,15 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 PLAYER_SRC = REPO_ROOT / "idne_player"
 DEFAULT_OUT = REPO_ROOT / "dist" / "idne-player"
 
+# Required English player pack (Hungarian mirror and legacy adventures excluded).
+ENGLISH_ADVENTURE_PACK = (
+    "The_Cold_Storage_Alarm",
+    "The_Harbor_Light_Signal",
+    "The_Gallery_Verdict",
+    "The_Quarry_Silence",
+    "The_Parish_Ledger",
+)
+
 
 def _read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -151,10 +160,16 @@ def main() -> None:
     workspaces = [Path(p) for p in args.adventures]
     if not workspaces:
         adventures_root = REPO_ROOT / "adventures"
-        workspaces = sorted(
-            p for p in adventures_root.iterdir()
-            if p.is_dir() and (p / "adventure" / "PLAYER" / "gamebook.json").exists()
-        )
+        workspaces = [
+            adventures_root / adventure_id
+            for adventure_id in ENGLISH_ADVENTURE_PACK
+            if (adventures_root / adventure_id / "adventure" / "PLAYER" / "gamebook.json").exists()
+        ]
+        if not workspaces:
+            workspaces = sorted(
+                p for p in adventures_root.iterdir()
+                if p.is_dir() and (p / "adventure" / "PLAYER" / "gamebook.json").exists()
+            )
 
     summary = build_package(output_dir=args.output.resolve(), adventure_workspaces=workspaces)
     print(json.dumps(summary, indent=2))
