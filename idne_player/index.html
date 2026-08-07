@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IDNE Player</title>
+  <link rel="stylesheet" href="css/player.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="app-header">
+      <h1 class="app-title">IDNE Player</h1>
+      <p class="app-subtitle">Offline interactive detective gamebook reader</p>
+    </header>
+
+    <main id="screen-library" class="screen">
+      <section class="panel">
+        <h2>Choose an adventure</h2>
+        <p class="hint">Select a bundled adventure below, or load your own <code>gamebook.json</code> file.</p>
+        <div id="adventure-list" class="adventure-list" aria-live="polite"></div>
+        <div class="actions-row">
+          <label class="file-button">
+            Load adventure file…
+            <input id="file-picker" type="file" accept=".json,application/json">
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <main id="screen-opening" class="screen hidden">
+      <section class="panel">
+        <h2 id="opening-title"></h2>
+        <div id="opening-body" class="prose"></div>
+        <div class="actions-row">
+          <button id="btn-start" type="button" class="primary">Start</button>
+          <button id="btn-continue" type="button" class="secondary">Continue</button>
+          <button id="btn-back-library" type="button">Back</button>
+        </div>
+        <div class="save-slots">
+          <h3>Save slots</h3>
+          <div id="save-slot-list" class="slot-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <main id="screen-play" class="screen hidden">
+      <section class="panel play-panel">
+        <div class="play-header">
+          <div>
+            <p class="eyebrow" id="play-adventure-title"></p>
+            <h2 id="section-heading"></h2>
+          </div>
+          <div class="play-tools">
+            <button id="btn-restart" type="button" class="secondary">Restart</button>
+            <button id="btn-save" type="button" class="secondary">Save</button>
+            <button id="btn-quit" type="button">Library</button>
+          </div>
+        </div>
+        <div id="section-meta" class="section-meta"></div>
+        <div id="section-body" class="prose"></div>
+        <div class="choices-block">
+          <h3>What do you do?</h3>
+          <div id="choice-list" class="choice-list"></div>
+        </div>
+        <p id="play-error" class="error hidden" role="alert"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/player.js"></script>
+  <script src="library/index.js"></script>
+  <script src="js/bootstrap.js"></script>
+</body>
+</html>
