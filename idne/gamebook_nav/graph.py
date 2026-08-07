@@ -9,6 +9,7 @@ from pathlib import Path
 
 from idne.gamebook_nav.extract import PlayerUnit
 from idne.epistemic_progression.loader import load_epistemic_package
+from idne.epistemic_progression.fingerprint import template_unit_id
 from idne.gamebook_nav.resolve import (
     build_action_index,
     build_nav_index,
@@ -335,16 +336,25 @@ def _graph_from_epistemic_package(
     package = load_epistemic_package(adventure_root)
     if not package:
         return None
+    materialized = any(e.state_snapshot for e in package.events.values())
     graph: dict[str, UnitNavigation] = {}
     for uid, entry in manifest_units.items():
         event = package.events_by_unit.get(uid)
+        if not event and materialized:
+            for ev in package.events_by_unit.values():
+                tpl = ev.template_unit_id or template_unit_id(ev.unit_id)
+                if tpl == uid:
+                    event = ev
+                    break
         if event:
             graph[uid] = UnitNavigation(
                 unit_id=uid,
                 choices=[
                     ChoiceEdge(
                         label=a.label,
-                        destination_unit_id=a.destination_unit_id,
+                        destination_unit_id=template_unit_id(a.destination_unit_id)
+                        if materialized
+                        else a.destination_unit_id,
                         edge_kind=a.action_type,
                     )
                     for a in event.structured_actions
@@ -396,47 +406,10 @@ def build_navigation_graph(
     npc_labels = build_npc_index(npc_pkg)
     revisit_labels = build_revisit_index(flow_pkg)
     scene_entries = _scene_chain_entries(flow_pkg)
+    ep_graph: dict[str, UnitNavigation] | None = None
 
     if manifest_units:
         ep_graph = _graph_from_epistemic_package(adventure_root, player_units, manifest_units)
-        if ep_graph is not None:
-            return ep_graph
-
-        explicit: dict[str, UnitNavigation] = {}
-        complete = True
-        for uid, entry in manifest_units.items():
-            raw_choices = entry.get("choices") or []
-            pu = player_units.get(uid)
-            if pu and pu.choices and len(raw_choices) < len(pu.choices):
-                complete = False
-                break
-            if raw_choices and all(isinstance(c, dict) and c.get("destination_unit_id") for c in raw_choices):
-                explicit[uid] = UnitNavigation(
-                    unit_id=uid,
-                    choices=[
-                        ChoiceEdge(
-                            label=c.get("label", ""),
-                            destination_unit_id=c["destination_unit_id"],
-                            edge_kind=c.get("kind", "navigate"),
-                        )
-                        for c in raw_choices
-                    ],
-                )
-            elif pu and pu.choices:
-                complete = False
-                break
-        if complete and len(explicit) == len(manifest_units):
-            graph = explicit
-            _add_inference_access(graph, player_units, loc_bases)
-            _add_inference_recovery(graph, flow_pkg)
-            _add_opening_scenes(graph, flow_pkg, loc_bases)
-            _add_timeline_scene_access(graph, flow_pkg, loc_bases)
-            _add_npc_conversation_access(graph, npc_pkg, npc_homes)
-            _add_scene_revisit_access(graph, flow_pkg, loc_bases)
-            _add_world_state_scene_variants(graph, flow_pkg, loc_bases)
-            _add_content_alias_links(graph)
-            _add_accusation_endings(flow_pkg, graph)
-            return graph
 
     graph: dict[str, UnitNavigation] = {}
 
@@ -572,6 +545,11 @@ def build_navigation_graph(
                     continue
 
         graph[uid] = UnitNavigation(unit_id=uid, choices=edges)
+
+    if ep_graph is not None:
+        for uid, nav in ep_graph.items():
+            if nav.choices:
+                graph[uid] = nav
 
     _add_inference_access(graph, player_units, loc_bases)
     _add_inference_recovery(graph, flow_pkg)

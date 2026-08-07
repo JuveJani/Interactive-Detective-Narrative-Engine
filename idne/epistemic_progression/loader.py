@@ -82,7 +82,7 @@ def initial_epistemic_state(package: EpistemicPackage) -> "EpistemicState":
     return EpistemicState(
         player_knowledge=package.initial_player_knowledge,
         world_state=dict(package.initial_world_state),
-        interaction_state={"exhausted_actions": []},
+        interaction_state={"exhausted_actions": [], "completed_topics": []},
         observable_entities=package.initial_observable_entities,
         observable_objects=package.initial_observable_objects,
     )

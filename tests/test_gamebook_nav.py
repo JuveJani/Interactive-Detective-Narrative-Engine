@@ -79,13 +79,31 @@ class TestGamebookNav(unittest.TestCase):
         self.assertEqual(res.checks.get("EP-VARIANT-DEST"), "PASS")
 
     @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
-    def test_cold_storage_map_exit_targets_oriented_dock(self):
-        manifest = json.loads((COLD / "player_mapping_manifest.json").read_text(encoding="utf-8"))
-        map_choices = manifest["units"]["UNIT-ELENA-MAP"]["choices"]
-        dests = {c["destination_unit_id"] for c in map_choices}
-        self.assertIn("UNIT-DOCK-ELENA-HUB", dests)
-        self.assertIn("UNIT-DOCK-BASE-SURVEYED", dests)
-        self.assertNotIn("UNIT-DOCK-BASE", dests)
+    def test_cold_storage_map_exit_targets_post_knowledge_dock(self):
+        from idne.epistemic_progression.loader import load_epistemic_package, initial_epistemic_state
+        from idne.epistemic_progression.eligibility import filter_eligible_actions
+        from idne.epistemic_progression.resolve import resolve_playable_unit
+        from idne.epistemic_progression.fingerprint import STATE_SUFFIX
+
+        root = COLD / "adventure"
+        pkg = load_epistemic_package(root)
+        state = initial_epistemic_state(pkg)
+        for unit, label in (
+            ("UNIT-DOCK-BASE", "Talk to Elena Morales."),
+            ("UNIT-DOCK-ELENA-HUB", "Ask whether a map or site overview is available."),
+            ("UNIT-ELENA-MAP", "Return to the loading dock."),
+        ):
+            cur = resolve_playable_unit(pkg, state, unit)
+            event = pkg.events_by_unit[cur]
+            action = next(a for a, ok, _ in filter_eligible_actions(event, state) if ok and a.label == label)
+            state = state.apply_action_deltas(action)
+            state.current_unit_id = resolve_playable_unit(pkg, state, action.destination_unit_id)
+
+        self.assertIn("KNOW-OPEN-ORIENT", state.player_knowledge)
+        self.assertIn(STATE_SUFFIX, state.current_unit_id)
+        dock = pkg.events_by_unit[state.current_unit_id]
+        labels = {a.label for a, ok, _ in filter_eligible_actions(dock, state) if ok}
+        self.assertIn("Request escort clearance to the automation control room.", labels)
 
     @unittest.skipUnless(COLD.exists(), "Cold Storage adventure not present")
     def test_cold_storage_gamebook_build_passes(self):
@@ -93,7 +111,7 @@ class TestGamebookNav(unittest.TestCase):
         shutil.copytree(COLD, ws / "The_Cold_Storage_Alarm")
         root = ws / "The_Cold_Storage_Alarm" / "adventure"
         result = build_gamebook_package(root, adventure_id="The_Cold_Storage_Alarm")
-        self.assertEqual(result["section_count"], 105)
+        self.assertEqual(result["section_count"], 103)
         self.assertEqual(result["validation"]["status"], "PASS")
         self.assertTrue(requires_static_gamebook(root))
         gb = validate_gamebook(root)

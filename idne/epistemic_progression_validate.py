@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import json
 import re
+from collections import deque
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 from idne.epistemic_progression.eligibility import action_eligible, event_enterable
+from idne.epistemic_progression.fingerprint import StateFingerprint, template_unit_id
 from idne.epistemic_progression.loader import (
     initial_epistemic_state,
     load_epistemic_manifest,
@@ -144,14 +146,42 @@ def _all_knowledge_ids(root: Path) -> set[str]:
     return ids
 
 
+def _is_materialized_package(package) -> bool:
+    return any(e.state_snapshot for e in package.events.values())
+
+
+def _state_from_event_snapshot(event: PlayableEvent, package) -> EpistemicState:
+    if not event.state_snapshot:
+        return initial_epistemic_state(package)
+    snap = event.state_snapshot
+    return EpistemicState(
+        player_knowledge=frozenset(snap.get("player_knowledge") or []),
+        world_state=dict(snap.get("world_state") or {}),
+        interaction_state={
+            "completed_topics": list(snap.get("completed_topics") or []),
+            "exhausted_actions": [],
+        },
+        observable_entities=package.initial_observable_entities,
+        observable_objects=package.initial_observable_objects,
+    )
+
+
+def _structured_labels_for_template(package, template_id: str) -> set[str]:
+    labels: set[str] = set()
+    for event in package.events.values():
+        if _prose_template_id(event) == template_id:
+            labels.update(_norm_label(a.label) for a in event.structured_actions if a.label)
+    return labels
+
+
 def _validate_event_prerequisites(result: ValidationResult, package) -> None:
     for event in package.events.values():
+        probe_base = _state_from_event_snapshot(event, package)
         for action in event.structured_actions:
             dest = package.events_by_unit.get(action.destination_unit_id)
             if not dest:
                 continue
-            probe = initial_epistemic_state(package)
-            probe = probe.apply_action_deltas(action)
+            probe = probe_base.apply_action_deltas(action)
             ok, reason = event_enterable(dest, probe)
             if not ok:
                 _add(
@@ -362,17 +392,42 @@ def _validate_player_delivery_alignment(
     player_root = root / "PLAYER"
     known = set(manifest.get("units", {}).keys())
     player_units = parse_player_units(player_root, known or None)
+    materialized = _is_materialized_package(package)
+
+    if materialized:
+        for tpl_id, pu in player_units.items():
+            structured = _structured_labels_for_template(package, tpl_id)
+            if not structured:
+                continue
+            player_labels = {_norm_label(c) for c in pu.choices}
+            return_aliases = {
+                _norm_label("Return to your current location menu or continue the conversation."),
+                _norm_label("Return to the Elena conversation menu."),
+                _norm_label("Return to the dock worker conversation menu."),
+            }
+            for label in structured:
+                if label and label not in player_labels and label not in return_aliases:
+                    _add(
+                        result,
+                        "EP-STRUCT-MISSING-CHOICE",
+                        tpl_id,
+                        "structured eligible action must appear in PLAYER delivery",
+                        f"missing choice: {label[:80]}",
+                        source=str(pu.file),
+                    )
+        return
+
     structured_by_unit: dict[str, set[str]] = {}
     for event in package.events.values():
         structured_by_unit[event.unit_id] = {_norm_label(a.label) for a in event.structured_actions}
 
     for uid, event in package.events_by_unit.items():
-        pu = player_units.get(uid)
+        prose_id = _prose_template_id(event)
+        pu = player_units.get(prose_id)
         if not pu:
             continue
         structured = structured_by_unit.get(uid, set())
         player_labels = {_norm_label(c) for c in pu.choices}
-        # Allow generic return phrasing variants used in PLAYER prose.
         return_aliases = {
             _norm_label("Return to your current location menu or continue the conversation."),
             _norm_label("Return to the Elena conversation menu."),
@@ -519,7 +574,186 @@ def _validate_conversation_returns(result: ValidationResult, package) -> None:
             )
 
 
+def _prose_template_id(event: PlayableEvent) -> str:
+    return event.template_unit_id or template_unit_id(event.unit_id)
+
+
+def _snapshot_knowledge(event: PlayableEvent) -> frozenset[str]:
+    if not event.state_snapshot:
+        return frozenset()
+    return frozenset(event.state_snapshot.get("player_knowledge") or [])
+
+
+def _snapshot_completed_topics(event: PlayableEvent) -> frozenset[str]:
+    if not event.state_snapshot:
+        return frozenset()
+    return frozenset(str(x) for x in (event.state_snapshot.get("completed_topics") or []))
+
+
+def _validate_materialized_state_graph(
+    result: ValidationResult,
+    package,
+    *,
+    start_unit_id: str = "UNIT-DOCK-BASE",
+    max_states: int = 500_000,
+) -> dict[str, int]:
+    """BFS reachable materialized states; reject stale or missing post-change snapshots."""
+    initial = initial_epistemic_state(package)
+    if start_unit_id not in package.events_by_unit:
+        for uid in package.events_by_unit:
+            if template_unit_id(uid) == uid and uid.endswith("-BASE"):
+                start_unit_id = uid
+                break
+
+    stats = {
+        "reachable_states": 0,
+        "attempted_transitions": 0,
+        "regressions": 0,
+        "missing_snapshots": 0,
+    }
+    if start_unit_id not in package.events_by_unit:
+        return stats
+
+    q: deque[tuple[str, EpistemicState]] = deque([(start_unit_id, initial)])
+    seen: set[tuple[str, StateFingerprint]] = set()
+
+    while q:
+        if stats["reachable_states"] >= max_states:
+            result.warnings.append(f"state graph BFS truncated at {max_states} states")
+            break
+
+        cur_id, state = q.popleft()
+        fp = StateFingerprint.from_state(state)
+        visit_key = (cur_id, fp)
+        if visit_key in seen:
+            continue
+        seen.add(visit_key)
+        stats["reachable_states"] += 1
+
+        event = package.events_by_unit.get(cur_id)
+        if not event:
+            stats["missing_snapshots"] += 1
+            _add(
+                result,
+                "EP-MISSING-STATE-SNAPSHOT",
+                cur_id,
+                "reachable state must have a materialized event snapshot",
+                f"no event for state {fp.key()}",
+            )
+            continue
+
+        if event.state_snapshot:
+            enterable, reason = event_enterable(event, state)
+            if not enterable:
+                _add(
+                    result,
+                    "EP-SNAPSHOT-MISMATCH",
+                    cur_id,
+                    "materialized event snapshot must match player epistemic state",
+                    reason,
+                )
+
+        pre_knowledge = state.player_knowledge
+        pre_topics = frozenset(str(x) for x in (state.interaction_state.get("completed_topics") or []))
+
+        for action in event.structured_actions:
+            eligible, _ = action_eligible(action, state)
+            if not eligible:
+                continue
+
+            stats["attempted_transitions"] += 1
+            next_state = state.apply_action_deltas(action)
+            post_knowledge = next_state.player_knowledge
+            post_topics = frozenset(str(x) for x in (next_state.interaction_state.get("completed_topics") or []))
+            knowledge_changed = post_knowledge != pre_knowledge
+            topics_changed = post_topics != pre_topics
+            state_changed = knowledge_changed or topics_changed or bool(action.world_state_delta)
+
+            dest_id = action.destination_unit_id
+            dest = package.events_by_unit.get(dest_id)
+            if not dest:
+                stats["missing_snapshots"] += 1
+                _add(
+                    result,
+                    "EP-MISSING-STATE-SNAPSHOT",
+                    dest_id,
+                    "action destination must reference an existing materialized event",
+                    f"{action.action_id} from {cur_id} targets missing {dest_id}",
+                )
+                continue
+
+            dest_topics = _snapshot_completed_topics(dest)
+
+            if state_changed and dest.state_snapshot:
+                dest_know = _snapshot_knowledge(dest)
+                if dest_know != post_knowledge:
+                    stats["regressions"] += 1
+                    _add(
+                        result,
+                        "EP-STATE-REGRESSION",
+                        action.action_id,
+                        "post-change destination must represent full acquired knowledge",
+                        f"dest {dest_id} knowledge {sorted(dest_know)} != post-action {sorted(post_knowledge)}",
+                    )
+                if dest_topics != post_topics:
+                    stats["regressions"] += 1
+                    _add(
+                        result,
+                        "EP-TOPIC-HUB-NOT-UPDATED",
+                        action.action_id,
+                        "post-topic destination must record completed conversation topics",
+                        f"dest {dest_id} topics {sorted(dest_topics)} != post-action {sorted(post_topics)}",
+                    )
+
+            if event.event_kind in DIALOGUE_TOPIC_KINDS and topics_changed:
+                dest_tpl = template_unit_id(dest_id)
+                if dest_id == cur_id:
+                    _add(
+                        result,
+                        "EP-TOPIC-SAME-HUB",
+                        action.action_id,
+                        "completed conversation topic must not return to the same pre-topic event",
+                        f"topic {cur_id} returns to itself",
+                    )
+                elif dest.event_kind in NPC_INTERACTION_KINDS and dest.state_snapshot and dest_topics == pre_topics:
+                    _add(
+                        result,
+                        "EP-TOPIC-SAME-HUB",
+                        action.action_id,
+                        "completed conversation topic must transition to an updated conversation hub",
+                        f"hub {dest_id} still represents pre-topic state",
+                    )
+
+            if knowledge_changed and dest.state_snapshot:
+                if _snapshot_knowledge(dest) == pre_knowledge:
+                    stats["regressions"] += 1
+                    _add(
+                        result,
+                        "EP-STATE-REGRESSION",
+                        action.action_id,
+                        "knowledge-changing action must not target a pre-knowledge event snapshot",
+                        f"dest {dest_id} still at {sorted(pre_knowledge)} after gaining {sorted(action.knowledge_delta)}",
+                    )
+
+            expected = resolve_playable_unit(package, next_state, template_unit_id(dest_id), initial_state=initial)
+            if expected != dest_id:
+                _add(
+                    result,
+                    "EP-DEST-VARIANT-MISMATCH",
+                    action.action_id,
+                    "action destination must be the exact post-state materialized unit",
+                    f"declared {dest_id}, expected {expected}",
+                )
+
+            q.append((dest_id, next_state))
+
+    return stats
+
+
 def _validate_knowledge_destination_variants(result: ValidationResult, package) -> None:
+    """Legacy hand-crafted variant check — skipped when package uses state snapshots."""
+    if any(e.state_snapshot for e in package.events.values()):
+        return
     for event in package.events.values():
         for action in event.structured_actions:
             if not action.knowledge_delta:
@@ -547,7 +781,7 @@ def _validate_resolved_time_costs(
     for event in package.events.values():
         if event.event_kind not in DIALOGUE_TOPIC_KINDS:
             continue
-        pu = player_units.get(event.unit_id)
+        pu = player_units.get(_prose_template_id(event))
         if not pu:
             continue
         for meta in pu.meta_lines:
@@ -623,6 +857,12 @@ def validate_epistemic_progression(adventure_root: str | Path) -> ValidationResu
     _validate_pseudo_choices(result, package)
     _validate_conversation_returns(result, package)
     _validate_knowledge_destination_variants(result, package)
+    graph_stats = _validate_materialized_state_graph(
+        result,
+        package,
+        start_unit_id=player_manifest.get("static_book", {}).get("start_unit_id", "UNIT-DOCK-BASE"),
+    )
+    result.checks["EP-STATE-GRAPH-REACHABLE"] = str(graph_stats.get("reachable_states", 0))
     _validate_resolved_time_costs(result, root, package)
     _validate_player_delivery_alignment(result, root, package, player_manifest)
     _simulate_routes(result, package, player_manifest)
@@ -650,7 +890,20 @@ def validate_epistemic_progression(adventure_root: str | Path) -> ValidationResu
         else "PASS"
     )
     result.checks["EP-VARIANT-DEST"] = (
-        "FAIL" if any(f.finding_id == "EP-DEST-VARIANT-MISMATCH" for f in result.findings) else "PASS"
+        "FAIL"
+        if any(
+            f.finding_id
+            in (
+                "EP-DEST-VARIANT-MISMATCH",
+                "EP-STATE-REGRESSION",
+                "EP-MISSING-STATE-SNAPSHOT",
+                "EP-TOPIC-SAME-HUB",
+                "EP-TOPIC-HUB-NOT-UPDATED",
+                "EP-SNAPSHOT-MISMATCH",
+            )
+            for f in result.findings
+        )
+        else "PASS"
     )
     result.checks["EP-DELIVERY-ALIGN"] = (
         "FAIL"

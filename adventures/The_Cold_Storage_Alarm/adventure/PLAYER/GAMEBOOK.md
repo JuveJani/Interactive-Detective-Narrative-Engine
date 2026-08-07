@@ -10,11 +10,11 @@ Supervisor **Elena Morales** called you in as the on-call **refrigeration techni
 
 Your job tonight is to find why staging control failed, who had access, and whether receiving records explain any discrepancies—before the compliance deadline closes the shift.
 
-**Starting section: 592** — turn to section **592** to begin your investigation.
+**Starting section: 583** — turn to section **583** to begin your investigation.
 
 ---
 
-## Section 104
+## Section 101
 
 ### Hidden records
 
@@ -22,7 +22,7 @@ You used the records-only archive policy route instead of pressing further into 
 
 ---
 
-## Section 106
+## Section 109
 
 ### Narrative continue
 
@@ -30,7 +30,7 @@ You defer final accountability while the clock still runs. Whatever you have lea
 
 ---
 
-## Section 108
+## Section 117
 
 ### Partial incomplete
 
@@ -38,7 +38,7 @@ Compliance documents operational response gaps — the alarm history, supervisor
 
 ---
 
-## Section 110
+## Section 118
 
 ### Partial motive gap
 
@@ -46,7 +46,7 @@ Receiving discrepancy records are noted in your statement, and the manifest exce
 
 ---
 
-## Section 138
+## Section 126
 
 ### Partial tech only
 
@@ -54,7 +54,7 @@ Your statement explains staging suspension and command timing in enough detail t
 
 ---
 
-## Section 139
+## Section 128
 
 ### Partial wrong culprit
 
@@ -62,7 +62,7 @@ Your statement centers on the contractor exit record, and Elena forwards it up t
 
 ---
 
-## Section 140
+## Section 130
 
 ### Perfect
 
@@ -70,7 +70,7 @@ Your accountability statement matches independent badge, manifest, physical, and
 
 ---
 
-## Section 154
+## Section 150
 
 ### Timeout
 
@@ -78,7 +78,7 @@ Your accountability statement matches independent badge, manifest, physical, and
 
 ---
 
-## Section 160
+## Section 151
 
 ### Badge misattributed
 
@@ -93,12 +93,14 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 **What do you do?**
 
-- Mark synthesis complete if your answer is supported. Turn to section **106**.
-- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **225**.
+- Mark synthesis complete if your answer is supported. Turn to section **109**.
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **253**.
+- Follow recovery route REC-SECURITY-ARCHIVE after incomplete synthesis. Turn to section **256**.
+- Follow recovery route REC-BREAK-LOCKER after incomplete synthesis. Turn to section **183**.
 
 ---
 
-## Section 168
+## Section 158
 
 ### Control access mismatch
 
@@ -112,12 +114,14 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 **What do you do?**
 
-- Mark synthesis complete if your answer is supported. Turn to section **106**.
-- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **225**.
+- Mark synthesis complete if your answer is supported. Turn to section **109**.
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **253**.
+- Follow recovery route REC-SECURITY-ARCHIVE after incomplete synthesis. Turn to section **256**.
+- Follow recovery route REC-CONTROL-TERM after incomplete synthesis. Turn to section **220**.
 
 ---
 
-## Section 176
+## Section 167
 
 ### Culprit supported
 
@@ -131,12 +135,14 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 **What do you do?**
 
-- Mark synthesis complete if your answer is supported. Turn to section **106**.
-- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **225**.
+- Mark synthesis complete if your answer is supported. Turn to section **109**.
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **253**.
+- Follow recovery route REC-MANAGER-INTERVIEW after incomplete synthesis. Turn to section **223**.
+- Follow recovery route REC-SECURITY-CROSSREF after incomplete synthesis. Turn to section **270**.
 
 ---
 
-## Section 185
+## Section 169
 
 ### Perfect reconstruction
 
@@ -150,12 +156,12 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 **What do you do?**
 
-- Mark synthesis complete if your answer is supported. Turn to section **106**.
-- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **225**.
+- Mark synthesis complete if your answer is supported. Turn to section **109**.
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **253**.
 
 ---
 
-## Section 186
+## Section 174
 
 ### Relabel fraud
 
@@ -170,12 +176,14 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 **What do you do?**
 
-- Mark synthesis complete if your answer is supported. Turn to section **106**.
-- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **225**.
+- Mark synthesis complete if your answer is supported. Turn to section **109**.
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **253**.
+- Follow recovery route REC-COLD-AISLE after incomplete synthesis. Turn to section **189**.
+- Follow recovery route REC-MANAGER-MANIFEST after incomplete synthesis. Turn to section **251**.
 
 ---
 
-## Section 187
+## Section 180
 
 ### Staging root cause
 
@@ -190,12 +198,14 @@ Record the records you used. If synthesis fails, note which locations you will r
 
 **What do you do?**
 
-- Mark synthesis complete if your answer is supported. Turn to section **106**.
-- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **225**.
+- Mark synthesis complete if your answer is supported. Turn to section **109**.
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section **253**.
+- Follow recovery route REC-CONTROL-TERM after incomplete synthesis. Turn to section **220**.
+- Follow recovery route REC-COLD-DISPLAY after incomplete synthesis. Turn to section **194**.
 
 ---
 
-## Section 188
+## Section 183
 
 ### Break locker
 
@@ -203,7 +213,7 @@ Head to the staff break room and walk the locker bank. If you have not already c
 
 **What do you do?**
 
-- Go to the named location and take the action described above. Turn to section **481**.
+- Go to the named location and take the action described above. Turn to section **523**.
 
 ---
 
@@ -215,11 +225,11 @@ Return to the cold storage hall and walk the length of aisle C. Search the floor
 
 **What do you do?**
 
-- Go to the named location and take the action described above. Turn to section **542**.
+- Go to the named location and take the action described above. Turn to section **561**.
 
 ---
 
-## Section 193
+## Section 194
 
 ### Cold display
 
@@ -227,11 +237,11 @@ Go back into the cold storage hall and read the live CZ-1 supply air display. It
 
 **What do you do?**
 
-- Go to the named location and take the action described above. Turn to section **542**.
+- Go to the named location and take the action described above. Turn to section **561**.
 
 ---
 
-## Section 195
+## Section 220
 
 ### Control term
 
@@ -239,11 +249,11 @@ Return to the automation control room and approach engineering workstation CTRL-
 
 **What do you do?**
 
-- Go to the named location and take the action described above. Turn to section **556**.
+- Go to the named location and take the action described above. Turn to section **571**.
 
 ---
 
-## Section 201
+## Section 223
 
 ### Manager interview
 
@@ -251,11 +261,11 @@ Go to the warehouse manager office and raise the receiving exception directly wi
 
 **What do you do?**
 
-- Go to the named location and take the action described above. Turn to section **897**.
+- Go to the named location and take the action described above. Turn to section **853**.
 
 ---
 
-## Section 219
+## Section 251
 
 ### Manager manifest
 
@@ -263,11 +273,11 @@ Go to the warehouse manager office and compare manifest MNF-IN-4471 to the carri
 
 **What do you do?**
 
-- Go to the named location and take the action described above. Turn to section **897**.
+- Go to the named location and take the action described above. Turn to section **853**.
 
 ---
 
-## Section 225
+## Section 253
 
 ### Revisit any unresolved source
 
@@ -275,7 +285,7 @@ Return to the loading dock and choose whichever location still has a record, a c
 
 **What do you do?**
 
-- Go to the named location and take the action described above. Turn to section **592**.
+- Go to the named location and take the action described above. Turn to section **583**.
 
 ---
 
@@ -287,11 +297,11 @@ Return to the security office and open the badge access archive terminal. From i
 
 **What do you do?**
 
-- Go to the named location and take the action described above. Turn to section **937**.
+- Go to the named location and take the action described above. Turn to section **902**.
 
 ---
 
-## Section 265
+## Section 270
 
 ### Security crossref
 
@@ -299,11 +309,11 @@ Return to the security office and cross-reference the alarm history against the 
 
 **What do you do?**
 
-- Go to the named location and take the action described above. Turn to section **937**.
+- Go to the named location and take the action described above. Turn to section **902**.
 
 ---
 
-## Section 267
+## Section 271
 
 **Scene transition**
 
@@ -315,12 +325,12 @@ You spread your notes across the briefing table and start organizing them into a
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **592**.
-- Return to the location base section for this area. Turn to section **592**.
+- Continue this scene thread. Turn to section **583**.
+- Return to the location base section for this area. Turn to section **583**.
 
 ---
 
-## Section 270
+## Section 274
 
 **Scene transition**
 
@@ -332,12 +342,12 @@ The break room locker row is still available whenever you want it. Nothing about
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **792**.
-- Return to the location base section for this area. Turn to section **481**.
+- Continue this scene thread. Turn to section **808**.
+- Return to the location base section for this area. Turn to section **523**.
 
 ---
 
-## Section 273
+## Section 276
 
 **Scene transition**
 
@@ -349,12 +359,12 @@ Now that you have seen the manifest gap, aisle C reads differently. You are not 
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **542**.
-- Return to the location base section for this area. Turn to section **542**.
+- Continue this scene thread. Turn to section **561**.
+- Return to the location base section for this area. Turn to section **561**.
 
 ---
 
-## Section 278
+## Section 282
 
 **Scene transition**
 
@@ -366,8 +376,8 @@ With the recovered label backing already in your case file, you can go back and 
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **756**.
-- Return to the location base section for this area. Turn to section **542**.
+- Continue this scene thread. Turn to section **749**.
+- Return to the location base section for this area. Turn to section **561**.
 
 ---
 
@@ -383,12 +393,14 @@ The control room door has a badge reader you are not cleared to use on your own.
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **556**.
-- Return to the location base section for this area. Turn to section **556**.
+- Continue this scene thread. Turn to section **571**.
+- Return to the location base section for this area. Turn to section **571**.
+- Continue to scene SC-CONTROL-CLEARED. Turn to section **297**.
+- Continue to scene SC-CONTROL-ESCORT-REQUIRED. Turn to section **298**.
 
 ---
 
-## Section 290
+## Section 291
 
 **Scene transition**
 
@@ -400,12 +412,12 @@ Having read the command log once, you can now set the staging suspension and the
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **556**.
-- Return to the location base section for this area. Turn to section **556**.
+- Continue this scene thread. Turn to section **571**.
+- Return to the location base section for this area. Turn to section **571**.
 
 ---
 
-## Section 316
+## Section 297
 
 **Scene transition**
 
@@ -417,12 +429,12 @@ The door unlocks without complaint. With escort clearance on record, the enginee
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **556**.
-- Return to the location base section for this area. Turn to section **556**.
+- Continue this scene thread. Turn to section **571**.
+- Return to the location base section for this area. Turn to section **571**.
 
 ---
 
-## Section 322
+## Section 298
 
 **Scene transition**
 
@@ -434,12 +446,12 @@ The reader blinks red. You will need to go back to the dock and have Elena sign 
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **556**.
-- Return to the location base section for this area. Turn to section **556**.
+- Continue this scene thread. Turn to section **571**.
+- Return to the location base section for this area. Turn to section **571**.
 
 ---
 
-## Section 357
+## Section 313
 
 **Scene transition**
 
@@ -451,12 +463,12 @@ Elena walks you through the timeline at the briefing table: the 11:30 p.m. alarm
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **609**.
-- Return to the location base section for this area. Turn to section **592**.
+- Continue this scene thread. Turn to section **583**.
+- Return to the location base section for this area. Turn to section **583**.
 
 ---
 
-## Section 361
+## Section 322
 
 **Scene transition**
 
@@ -468,12 +480,14 @@ Nothing is roped off yet. You walk the dock's open floor and note which corridor
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **609**.
-- Return to the location base section for this area. Turn to section **609**.
+- Continue this scene thread. Turn to section **583**.
+- Return to the location base section for this area. Turn to section **583**.
+- Continue to scene SC-DOCK-RESTRICTED. Turn to section **351**.
+- Continue to scene SC-DOCK-INITIAL-SURVEY. Turn to section **322**.
 
 ---
 
-## Section 371
+## Section 351
 
 **Scene transition**
 
@@ -485,12 +499,12 @@ Tape now runs across two of the bay lanes, and Elena is enforcing it herself. No
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **592**.
-- Return to the location base section for this area. Turn to section **592**.
+- Continue this scene thread. Turn to section **583**.
+- Return to the location base section for this area. Turn to section **583**.
 
 ---
 
-## Section 373
+## Section 365
 
 ### Archive sync policy notice
 
@@ -504,11 +518,12 @@ There is no one to argue with about it — the schedule runs whether you are wai
 
 **What do you do?**
 
-- Review the archive sync policy notice. Turn to section **753**.
+- Return to the security office. Turn to section **902**.
+- Review the archive sync policy notice. Turn to section **717**.
 
 ---
 
-## Section 374
+## Section 370
 
 **Scene transition**
 
@@ -520,12 +535,12 @@ Physical trace from aisle C or the manifest exception itself gives you something
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **897**.
-- Return to the location base section for this area. Turn to section **897**.
+- Continue this scene thread. Turn to section **853**.
+- Return to the location base section for this area. Turn to section **853**.
 
 ---
 
-## Section 379
+## Section 382
 
 **Scene transition**
 
@@ -537,12 +552,14 @@ The archive terminal chimes once, right on schedule, and the sync-pending banner
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **937**.
-- Return to the location base section for this area. Turn to section **937**.
+- Continue this scene thread. Turn to section **902**.
+- Return to the location base section for this area. Turn to section **902**.
+- Continue to scene SC-SECURITY-ARCHIVE-READY. Turn to section **415**.
+- Continue to scene SC-SECURITY-ARCHIVE-PENDING. Turn to section **409**.
 
 ---
 
-## Section 383
+## Section 409
 
 **Scene transition**
 
@@ -554,12 +571,12 @@ A small sync-in-progress icon sits over half the query menu. Some badge fields a
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **937**.
-- Return to the location base section for this area. Turn to section **937**.
+- Continue this scene thread. Turn to section **902**.
+- Return to the location base section for this area. Turn to section **902**.
 
 ---
 
-## Section 425
+## Section 415
 
 **Scene transition**
 
@@ -571,12 +588,12 @@ Every query field on the archive terminal is live now. Cold storage entries, con
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **937**.
-- Return to the location base section for this area. Turn to section **937**.
+- Continue this scene thread. Turn to section **902**.
+- Return to the location base section for this area. Turn to section **902**.
 
 ---
 
-## Section 436
+## Section 417
 
 **Scene transition**
 
@@ -588,12 +605,12 @@ With a badge record finally in hand, you lay it next to the alarm history and st
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **937**.
-- Return to the location base section for this area. Turn to section **937**.
+- Continue this scene thread. Turn to section **902**.
+- Return to the location base section for this area. Turn to section **902**.
 
 ---
 
-## Section 439
+## Section 418
 
 **Scene transition**
 
@@ -605,12 +622,12 @@ Marcus's chair is empty — mandatory break, the schedule says — but the archi
 
 **What do you do?**
 
-- Continue this scene thread. Turn to section **937**.
-- Return to the location base section for this area. Turn to section **937**.
+- Continue this scene thread. Turn to section **902**.
+- Return to the location base section for this area. Turn to section **902**.
 
 ---
 
-## Section 443
+## Section 426
 
 **Time cost:** 2 min
 
@@ -622,12 +639,12 @@ Pallet shrink-wrap crinkles under the cold air draft as you step into the row. A
 
 **What do you do?**
 
-- Search the floor and pallet faces for label adhesive residue. Turn to section **485**.
-- Return to the cold storage hall. Turn to section **542**.
+- Search the floor and pallet faces for label adhesive residue. Turn to section **524**.
+- Return to the cold storage hall. Turn to section **561**.
 
 ---
 
-## Section 455
+## Section 437
 
 **Time cost:** 3 min
 
@@ -639,11 +656,11 @@ You scroll the alarm panel's history back past the noise of tonight's other noti
 
 **What do you do?**
 
-- Return to the security office. Turn to section **937**.
+- Return to the security office. Turn to section **902**.
 
 ---
 
-## Section 456
+## Section 464
 
 **Time cost:** 2 min
 
@@ -655,14 +672,14 @@ The archive terminal's status field is the first thing you check before running 
 
 **What do you do?**
 
-- Query cold storage inbound badge entries for tonight. Turn to section **465**.
-- Query control room door entries for tonight. Turn to section **467**.
-- Pull the contractor outbound dock scan record. Turn to section **749**.
-- Return to the security office. Turn to section **937**.
+- Query cold storage inbound badge entries for tonight. Turn to section **470**.
+- Query control room door entries for tonight. Turn to section **502**.
+- Pull the contractor outbound dock scan record. Turn to section **698**.
+- Return to the security office. Turn to section **902**.
 
 ---
 
-## Section 465
+## Section 470
 
 **Time cost:** 4 min
 
@@ -674,11 +691,11 @@ You filter the badge archive down to cold storage entries for tonight's shift. C
 
 **What do you do?**
 
-- Return to the badge archive menu. Turn to section **456**.
+- Return to the badge archive menu. Turn to section **464**.
 
 ---
 
-## Section 467
+## Section 502
 
 **Time cost:** 3 min
 
@@ -690,11 +707,11 @@ You switch the filter to control room door entries for the same window. Control 
 
 **What do you do?**
 
-- Return to the badge archive menu. Turn to section **456**.
+- Return to the badge archive menu. Turn to section **464**.
 
 ---
 
-## Section 469
+## Section 515
 
 **Time cost:** 4 min
 
@@ -706,11 +723,11 @@ You open the command history and scroll back to the window around the first alar
 
 **What do you do?**
 
-- Return to the engineering workstation menu. Turn to section **973**.
+- Return to the engineering workstation menu. Turn to section **942**.
 
 ---
 
-## Section 481
+## Section 523
 
 **Location:** Staff break room | **Time cost:** 0 min
 
@@ -722,16 +739,25 @@ The staff break room has vending machines, lockers, and a window toward the dock
 
 **What do you do?**
 
-- Walk along the staff locker bank. Turn to section **792**.
-- Look out toward the dock loading area. Turn to section **631**.
-- Return to the loading dock. Turn to section **481**.
-- Walk to the manager office through the staff corridor. Turn to section **897**.
-- Follow the interior hallway to the security office. Turn to section **937**.
-- Take the side passage toward the cold storage hall. Turn to section **542**.
+- Walk along the staff locker bank. Turn to section **808**.
+- Look out toward the dock loading area. Turn to section **619**.
+- Return to the loading dock. Turn to section **523**.
+- Walk to the manager office through the staff corridor. Turn to section **853**.
+- Follow the interior hallway to the security office. Turn to section **902**.
+- Take the side passage toward the cold storage hall. Turn to section **561**.
+- Open inference worksheet: Badge misattributed. Turn to section **151**.
+- Open inference worksheet: Control access mismatch. Turn to section **158**.
+- Open inference worksheet: Culprit supported. Turn to section **167**.
+- Open inference worksheet: Perfect reconstruction. Turn to section **169**.
+- Open inference worksheet: Relabel fraud. Turn to section **174**.
+- Open inference worksheet: Staging root cause. Turn to section **180**.
+- Ask about unusual activity near the dock and cold hall. Turn to section **893**.
+- Ask whether you could identify the person you saw. Turn to section **897**.
+- Optionally inspect the staff locker bank. Turn to section **274**.
 
 ---
 
-## Section 485
+## Section 524
 
 **Check:** one attempt
 
@@ -743,11 +769,11 @@ You commit to a close search of the aisle floor and pallet faces — one pass, n
 
 **What do you do?**
 
-- Proceed to the success or failure section indicated by your roll. Turn to section **485**.
+- Proceed to the success or failure section indicated by your roll. Turn to section **524**.
 
 ---
 
-## Section 513
+## Section 534
 
 **Check:** one attempt
 
@@ -759,11 +785,11 @@ You commit to a single careful look at the latch — there is no redoing this on
 
 **What do you do?**
 
-- Proceed to the success or failure section indicated by your roll. Turn to section **513**.
+- Proceed to the success or failure section indicated by your roll. Turn to section **534**.
 
 ---
 
-## Section 523
+## Section 555
 
 **Check:** one attempt
 
@@ -775,11 +801,11 @@ You commit to checking inside the ajar locker properly — one look, not a quick
 
 **What do you do?**
 
-- Proceed to the success or failure section indicated by your roll. Turn to section **523**.
+- Proceed to the success or failure section indicated by your roll. Turn to section **555**.
 
 ---
 
-## Section 524
+## Section 560
 
 **Check:** one attempt
 
@@ -791,11 +817,11 @@ You commit to running the export through the BMS menus — one attempt, and the 
 
 **What do you do?**
 
-- Proceed to the success or failure section indicated by your roll. Turn to section **524**.
+- Proceed to the success or failure section indicated by your roll. Turn to section **560**.
 
 ---
 
-## Section 542
+## Section 561
 
 **Location:** Cold storage hall | **Time cost:** 0 min
 
@@ -807,16 +833,24 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 
 **What do you do?**
 
-- Examine the cold storage door latch and reader. Turn to section **552**.
-- Walk the length of aisle C between the pallet rows. Turn to section **443**.
-- Read the live CZ-1 supply air temperature display. Turn to section **971**.
+- Examine the cold storage door latch and reader. Turn to section **562**.
+- Walk the length of aisle C between the pallet rows. Turn to section **426**.
+- Read the live CZ-1 supply air temperature display. Turn to section **928**.
 - Follow the engineering passage to the automation control room. Turn to section **289**.
-- Return to the loading dock. Turn to section **542**.
-- Return toward the break room corridor. Turn to section **542**.
+- Return to the loading dock. Turn to section **561**.
+- Return toward the break room corridor. Turn to section **561**.
+- Open inference worksheet: Badge misattributed. Turn to section **151**.
+- Open inference worksheet: Control access mismatch. Turn to section **158**.
+- Open inference worksheet: Culprit supported. Turn to section **167**.
+- Open inference worksheet: Perfect reconstruction. Turn to section **169**.
+- Open inference worksheet: Relabel fraud. Turn to section **174**.
+- Open inference worksheet: Staging root cause. Turn to section **180**.
+- Continue scene SC-COLD-AISLE-FOCUSED. Turn to section **276**.
+- Continue scene SC-COLD-LABEL-DETAIL. Turn to section **282**.
 
 ---
 
-## Section 552
+## Section 562
 
 **Time cost:** 3 min
 
@@ -828,12 +862,12 @@ Frost rimes the frame where the cold storage door meets the corridor air. The co
 
 **What do you do?**
 
-- Check the latch hardware for recent disturbance. Turn to section **513**.
-- Return to the cold storage hall. Turn to section **542**.
+- Check the latch hardware for recent disturbance. Turn to section **534**.
+- Return to the cold storage hall. Turn to section **561**.
 
 ---
 
-## Section 556
+## Section 571
 
 **Location:** Automation control room | **Time cost:** 0 min
 
@@ -845,15 +879,23 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 
 **What do you do?**
 
-- Approach the engineering workstation. Turn to section **973**.
-- Inspect the CZ-1 staging indicator panel. Turn to section **942**.
-- Return to the cold storage hall. Turn to section **556**.
-- Return to the loading dock with the supervisor. Turn to section **556**.
-- Return to the security office. Turn to section **556**.
+- Approach the engineering workstation. Turn to section **942**.
+- Inspect the CZ-1 staging indicator panel. Turn to section **910**.
+- Return to the cold storage hall. Turn to section **571**.
+- Return to the loading dock with the supervisor. Turn to section **571**.
+- Return to the security office. Turn to section **571**.
+- Open inference worksheet: Badge misattributed. Turn to section **151**.
+- Open inference worksheet: Control access mismatch. Turn to section **158**.
+- Open inference worksheet: Culprit supported. Turn to section **167**.
+- Open inference worksheet: Perfect reconstruction. Turn to section **169**.
+- Open inference worksheet: Relabel fraud. Turn to section **174**.
+- Open inference worksheet: Staging root cause. Turn to section **180**.
+- Enter the control room after escort clearance. Turn to section **297**.
+- Continue scene SC-CONTROL-BMS-REVIEW. Turn to section **291**.
 
 ---
 
-## Section 564
+## Section 573
 
 **Time cost:** 2 min
 
@@ -871,12 +913,11 @@ He says it like he is hoping you will tell him it does not matter.
 
 **What do you do?**
 
-- Return to the dock worker conversation menu. Turn to section **657**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 572
+## Section 575
 
 **Time cost:** 2 min
 
@@ -892,8 +933,7 @@ He pulls up the closed ticket on his phone without being asked, like a contracto
 
 **What do you do?**
 
-- Return to the dock worker conversation menu. Turn to section **657**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
@@ -913,12 +953,11 @@ Dev arrives at the dock still buttoning his coveralls, tool bag over one shoulde
 
 **What do you do?**
 
-- Return to the dock worker conversation menu. Turn to section **657**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 591
+## Section 578
 
 **Time cost:** 2 min
 
@@ -934,12 +973,11 @@ By now he has stopped defending himself and started just answering — the kind 
 
 **What do you do?**
 
-- Return to the dock worker conversation menu. Turn to section **657**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 592
+## Section 583
 
 **Location:** Loading dock | **Time cost:** 0 min
 
@@ -947,75 +985,38 @@ By now he has stopped defending himself and started just answering — the kind 
 
 
 
-The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. Cold rolls off the bay in waves whenever a door cycles, and the smell of diesel and refrigerant hangs in the air. Somewhere past 1:00 a.m., the building has settled into the strange quiet of a shift that has already gone wrong.
+The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. Cold rolls off the bay in waves whenever a door cycles, and the smell of diesel and refrigerant hangs in the air. Somewhere past 1:00 a.m., the building has settled into the strange quiet of a shift that has already gone wrong. As you learn the site layout and supervisor constraints, additional routes and briefing options become available here.
 
 **What do you do?**
 
-- Talk to Elena Morales. Turn to section **630**.
-- Walk through the dock corridor to the cold storage hall. Turn to section **542**.
-- Talk to a dock worker. Turn to section **657**.
+- Talk to Elena Morales. Turn to section **615**.
+- Walk through the dock corridor to the cold storage hall. Turn to section **561**.
+- Talk to a dock worker. Turn to section **623**.
+- Head inside to the staff break room. Turn to section **523**.
+- Cut through the warehouse corridor to the security office. Turn to section **902**.
+- Take the office wing corridor to the warehouse manager office. Turn to section **853**.
+- Review the supervisor briefing area. Turn to section **587**.
+- Receive supervisor briefing at the loading dock. Turn to section **313**.
+- Survey the dock and adjacent corridors. Turn to section **322**.
+- Open inference worksheet: Badge misattributed. Turn to section **151**.
+- Open inference worksheet: Control access mismatch. Turn to section **158**.
+- Open inference worksheet: Culprit supported. Turn to section **167**.
+- Open inference worksheet: Perfect reconstruction. Turn to section **169**.
+- Open inference worksheet: Relabel fraud. Turn to section **174**.
+- Open inference worksheet: Staging root cause. Turn to section **180**.
+- Work under supervisor dock restriction enforcement. Turn to section **351**.
+- Prepare final accountability documentation before the compliance threshold. Turn to section **271**.
+- Confirm when you left the site tonight. Turn to section **577**.
+- Ask about CLO-1847 closeout details. Turn to section **575**.
+- Press about whether your contractor badge left the building with you. Turn to section **573**.
+- Ask whether any maintenance session was left active on CTRL-TERM-02. Turn to section **578**.
+- Ask what operational steps you ordered after the alarm. Turn to section **683**.
+- Ask who was still on site working late. Turn to section **678**.
+- Ask about dock access restrictions. Turn to section **668**.
 
 ---
 
-## Section 607
-
-**Location:** Loading dock (restricted) | **Time cost:** 0 min
-
-### Loading dock — restricted
-
-
-
-Tape marks restricted lanes across the loading dock. Elena stands at the boundary while essential movement continues under her supervision.
-
-**What do you do?**
-
-- Talk to Elena Morales. Turn to section **630**.
-- Walk through the dock corridor to the cold storage hall. Turn to section **542**.
-- Talk to a dock worker. Turn to section **657**.
-- Head inside to the staff break room. Turn to section **481**.
-- Cut through the warehouse corridor to the security office. Turn to section **937**.
-- Take the office wing corridor to the warehouse manager office. Turn to section **897**.
-- Review the supervisor briefing area. Turn to section **618**.
-- Request escort clearance to the automation control room. Turn to section **743**.
-- Receive supervisor briefing at the loading dock. Turn to section **357**.
-- Survey the dock and adjacent corridors. Turn to section **361**.
-- Prepare final accountability documentation before the compliance threshold. Turn to section **267**.
-- Review the supervisor briefing area. Turn to section **618**.
-- Request escort clearance to the automation control room. Turn to section **743**.
-- Receive supervisor briefing at the loading dock. Turn to section **357**.
-- Survey the dock and adjacent corridors. Turn to section **361**.
-- Prepare final accountability documentation before the compliance threshold. Turn to section **267**.
-- Work under supervisor dock restriction enforcement. Turn to section **371**.
-
----
-
-## Section 609
-
-**Location:** Loading dock | **Time cost:** 0 min
-
-### Loading dock — after orientation
-
-
-
-The loading dock is lit by sodium fixtures. Forklifts sit idle. Elena Morales watches the bay doors while staff move between the dock and the office wing. You have oriented yourself to the site layout and the supervisor briefing area.
-
-**What do you do?**
-
-- Talk to Elena Morales. Turn to section **630**.
-- Walk through the dock corridor to the cold storage hall. Turn to section **542**.
-- Talk to a dock worker. Turn to section **657**.
-- Head inside to the staff break room. Turn to section **481**.
-- Cut through the warehouse corridor to the security office. Turn to section **937**.
-- Take the office wing corridor to the warehouse manager office. Turn to section **897**.
-- Review the supervisor briefing area. Turn to section **618**.
-- Request escort clearance to the automation control room. Turn to section **743**.
-- Receive supervisor briefing at the loading dock. Turn to section **357**.
-- Survey the dock and adjacent corridors. Turn to section **361**.
-- Prepare final accountability documentation before the compliance threshold. Turn to section **267**.
-
----
-
-## Section 618
+## Section 587
 
 **Time cost:** 2 min
 
@@ -1027,11 +1028,11 @@ You step up to the briefing table where Elena has laid out everything she has ga
 
 **What do you do?**
 
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 630
+## Section 615
 
 **Location:** Loading dock | **Time cost:** 1 min
 
@@ -1043,14 +1044,14 @@ Elena Morales meets you at the briefing table near the bay doors. Her clipboard 
 
 **What do you do?**
 
-- Ask where the investigation should begin. Turn to section **684**.
-- Ask whether a map or site overview is available. Turn to section **698**.
-- Ask who was still on site working late. Turn to section **735**.
-- Return to the loading dock. Turn to section **592**.
+- Ask where the investigation should begin. Turn to section **625**.
+- Ask whether a map or site overview is available. Turn to section **634**.
+- Ask who was still on site working late. Turn to section **678**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 631
+## Section 619
 
 **Time cost:** 1 min
 
@@ -1062,11 +1063,11 @@ You glance out the break room window toward the dock you just came from. Through
 
 **What do you do?**
 
-- Return to the break room. Turn to section **481**.
+- Return to the break room. Turn to section **523**.
 
 ---
 
-## Section 657
+## Section 623
 
 **Location:** Loading dock | **Time cost:** 1 min
 
@@ -1078,15 +1079,15 @@ A dock worker pauses between the idle forklifts — Pat Nguyen with a mop cart, 
 
 **What do you do?**
 
-- Ask what they know about the incident. Turn to section **921**.
-- Ask their name and role on site. Turn to section **998**.
-- Ask how long they have worked here. Turn to section **999**.
-- Ask who or what they know locally. Turn to section **994**.
-- Return to the loading dock. Turn to section **592**.
+- Ask what they know about the incident. Turn to section **893**.
+- Ask their name and role on site. Turn to section **971**.
+- Ask how long they have worked here. Turn to section **997**.
+- Ask who or what they know locally. Turn to section **957**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 684
+## Section 625
 
 **Time cost:** 2 min
 
@@ -1098,12 +1099,12 @@ Elena taps the incident timeline on her clipboard. "Start with cold storage and 
 
 **What do you do?**
 
-- Return to the Elena conversation menu. Turn to section **630**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the Elena conversation menu. Turn to section **615**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 698
+## Section 634
 
 **Time cost:** 2 min
 
@@ -1115,12 +1116,12 @@ Elena pulls a folded site map from the briefing table and marks the cold hall, s
 
 **What do you do?**
 
-- Return to the Elena conversation menu. Turn to section **630**.
-- Return to the loading dock. Turn to section **609**.
+- Return to the Elena conversation menu. Turn to section **615**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 701
+## Section 668
 
 **Time cost:** 2 min
 
@@ -1136,12 +1137,11 @@ By now the dock has tape across two of the bay lanes, and Elena stands at the bo
 
 **What do you do?**
 
-- Return to the Elena conversation menu. Turn to section **630**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 735
+## Section 678
 
 **Time cost:** 2 min
 
@@ -1157,12 +1157,12 @@ She takes a beat on this one, running the shift roster in her head before answer
 
 **What do you do?**
 
-- Return to the Elena conversation menu. Turn to section **630**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the Elena conversation menu. Turn to section **615**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 738
+## Section 683
 
 **Time cost:** 2 min
 
@@ -1178,12 +1178,11 @@ Elena has a phone in one hand and a clipboard in the other, and she answers you 
 
 **What do you do?**
 
-- Return to the Elena conversation menu. Turn to section **630**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 743
+## Section 687
 
 **Time cost:** 3 min
 
@@ -1195,11 +1194,11 @@ Elena does not argue when you ask for control room access — she just reaches f
 
 **What do you do?**
 
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 749
+## Section 698
 
 **Time cost:** 3 min
 
@@ -1211,11 +1210,11 @@ You pull the outbound dock scan log to check the contractor's departure. Outboun
 
 **What do you do?**
 
-- Return to the badge archive menu. Turn to section **456**.
+- Return to the badge archive menu. Turn to section **464**.
 
 ---
 
-## Section 753
+## Section 717
 
 ### Archive sync policy notice
 
@@ -1229,11 +1228,11 @@ There is no one to argue with about it — the schedule runs whether you are wai
 
 **What do you do?**
 
-- Return to the security office. Turn to section **937**.
+- Return to the security office. Turn to section **902**.
 
 ---
 
-## Section 756
+## Section 749
 
 **Time cost:** 4 min
 
@@ -1245,11 +1244,11 @@ With the backing strip in hand, you lay it next to the pallet receipt printout. 
 
 **What do you do?**
 
-- Return to aisle C menu. Turn to section **443**.
+- Return to aisle C menu. Turn to section **426**.
 
 ---
 
-## Section 775
+## Section 753
 
 **Time cost:** 5 min
 
@@ -1261,11 +1260,11 @@ You go over the floor and pallet faces as closely as you can manage. The floor a
 
 **What do you do?**
 
-- Return to aisle C menu. Turn to section **443**.
+- Return to aisle C menu. Turn to section **426**.
 
 ---
 
-## Section 779
+## Section 758
 
 **Time cost:** 5 min
 
@@ -1277,11 +1276,11 @@ You go over the floor and pallet faces inch by inch, ignoring the cold in your f
 
 **What do you do?**
 
-- Return to aisle C menu. Turn to section **443**.
+- Return to aisle C menu. Turn to section **426**.
 
 ---
 
-## Section 783
+## Section 779
 
 **Time cost:** 4 min
 
@@ -1293,11 +1292,11 @@ You crouch and check the latch plate as carefully as the light allows. The latch
 
 **What do you do?**
 
-- Return to the cold storage door menu. Turn to section **552**.
+- Return to the cold storage door menu. Turn to section **562**.
 
 ---
 
-## Section 784
+## Section 794
 
 **Time cost:** 4 min
 
@@ -1309,11 +1308,11 @@ You crouch and run a light along the latch plate, looking past the obvious. Unde
 
 **What do you do?**
 
-- Return to the cold storage door menu. Turn to section **552**.
+- Return to the cold storage door menu. Turn to section **562**.
 
 ---
 
-## Section 786
+## Section 799
 
 **Time cost:** 3 min
 
@@ -1325,11 +1324,11 @@ You ease the ajar door open and check what is inside. The locker interior looks 
 
 **What do you do?**
 
-- Return to the locker menu. Turn to section **792**.
+- Return to the locker menu. Turn to section **808**.
 
 ---
 
-## Section 792
+## Section 808
 
 **Time cost:** 2 min
 
@@ -1341,12 +1340,12 @@ The locker row smells like cold coffee and cleaning solution, mostly undisturbed
 
 **What do you do?**
 
-- Inspect the ajar contractor locker. Turn to section **523**.
-- Return to the break room. Turn to section **481**.
+- Inspect the ajar contractor locker. Turn to section **555**.
+- Return to the break room. Turn to section **523**.
 
 ---
 
-## Section 794
+## Section 815
 
 **Time cost:** 3 min
 
@@ -1358,11 +1357,11 @@ You ease the ajar door open and check past the folded coveralls inside. Inside t
 
 **What do you do?**
 
-- Return to the locker menu. Turn to section **792**.
+- Return to the locker menu. Turn to section **808**.
 
 ---
 
-## Section 804
+## Section 821
 
 **Time cost:** 2 min
 
@@ -1380,12 +1379,12 @@ She makes it sound smaller than a badge log will.
 
 **What do you do?**
 
-- Return to the manager office. Turn to section **897**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the manager office. Turn to section **902**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 818
+## Section 824
 
 **Time cost:** 2 min
 
@@ -1401,12 +1400,12 @@ Lori does not look up from the reconciliation screen when you come in. Her answe
 
 **What do you do?**
 
-- Return to the manager office. Turn to section **897**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the manager office. Turn to section **583**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 823
+## Section 831
 
 **Time cost:** 2 min
 
@@ -1424,12 +1423,11 @@ It is the closest she comes to sounding sorry.
 
 **What do you do?**
 
-- Return to the manager office. Turn to section **897**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 859
+## Section 845
 
 **Time cost:** 2 min
 
@@ -1445,12 +1443,11 @@ You lay the manifest exception in front of her. For a moment she just looks at t
 
 **What do you do?**
 
-- Return to the manager office. Turn to section **897**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 874
+## Section 850
 
 **Time cost:** 3 min
 
@@ -1462,11 +1459,11 @@ You pull up the maintenance ticket queue and find the most recently closed entry
 
 **What do you do?**
 
-- Return to the engineering workstation menu. Turn to section **973**.
+- Return to the engineering workstation menu. Turn to section **942**.
 
 ---
 
-## Section 897
+## Section 853
 
 **Location:** Warehouse manager office | **Time cost:** 0 min
 
@@ -1478,14 +1475,25 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 
 **What do you do?**
 
-- Review the open receiving reconciliation screen. Turn to section **902**.
-- Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section **897**.
-- Return to the loading dock. Turn to section **897**.
-- Return to the break room. Turn to section **897**.
+- Review the open receiving reconciliation screen. Turn to section **876**.
+- Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section **853**.
+- Return to the loading dock. Turn to section **853**.
+- Return to the break room. Turn to section **853**.
+- Open inference worksheet: Badge misattributed. Turn to section **151**.
+- Open inference worksheet: Control access mismatch. Turn to section **158**.
+- Open inference worksheet: Culprit supported. Turn to section **167**.
+- Open inference worksheet: Perfect reconstruction. Turn to section **169**.
+- Open inference worksheet: Relabel fraud. Turn to section **174**.
+- Open inference worksheet: Staging root cause. Turn to section **180**.
+- Ask whether you entered cold storage after hours. Turn to section **824**.
+- Ask about your control room visit around 23:20. Turn to section **821**.
+- Confront with manifest exception evidence from MNF-IN-4471. Turn to section **845**.
+- Press about label residue found in aisle C. Turn to section **831**.
+- Continue scene SC-MANAGER-PRESSURE-TOPIC. Turn to section **370**.
 
 ---
 
-## Section 900
+## Section 860
 
 **Time cost:** 5 min
 
@@ -1497,11 +1505,11 @@ You pull the manifest up side by side with the scanned delivery record. Manifest
 
 **What do you do?**
 
-- Return to the manifest menu. Turn to section **902**.
+- Return to the manifest menu. Turn to section **876**.
 
 ---
 
-## Section 902
+## Section 876
 
 **Time cost:** 2 min
 
@@ -1513,13 +1521,13 @@ The reconciliation screen is exactly how it was left, exception flag still lit. 
 
 **What do you do?**
 
-- Compare manifest MNF-IN-4471 to the carrier delivery record. Turn to section **900**.
-- Cross-reference the signed carrier POD against bay assignments. Turn to section **931**.
-- Return to the manager office. Turn to section **897**.
+- Compare manifest MNF-IN-4471 to the carrier delivery record. Turn to section **860**.
+- Cross-reference the signed carrier POD against bay assignments. Turn to section **899**.
+- Return to the manager office. Turn to section **853**.
 
 ---
 
-## Section 903
+## Section 877
 
 **Time cost:** 2 min
 
@@ -1535,12 +1543,12 @@ Back at the panel, Marcus points to a line of red text still sitting in the alar
 
 **What do you do?**
 
-- Return to the security office. Turn to section **937**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the security office. Turn to section **902**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 912
+## Section 879
 
 **Time cost:** 2 min
 
@@ -1558,12 +1566,12 @@ It is not a confession — just an admission that his rounds and the record syst
 
 **What do you do?**
 
-- Return to the security office. Turn to section **937**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the security office. Turn to section **902**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 914
+## Section 887
 
 **Time cost:** 8 min
 
@@ -1581,12 +1589,12 @@ He taps the time into the air like it settles the matter.
 
 **What do you do?**
 
-- Return to the security office. Turn to section **937**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the security office. Turn to section **902**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 921
+## Section 893
 
 **Time cost:** 2 min
 
@@ -1602,12 +1610,12 @@ Pat is still pushing a mop cart when you catch them near the break room. They an
 
 **What do you do?**
 
-- Return to the dock worker conversation menu. Turn to section **657**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the dock worker conversation menu. Turn to section **623**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 924
+## Section 897
 
 **Time cost:** 2 min
 
@@ -1623,12 +1631,11 @@ You push for more, and Pat actually thinks about it instead of just shrugging yo
 
 **What do you do?**
 
-- Return to the dock worker conversation menu. Turn to section **657**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 931
+## Section 899
 
 **Time cost:** 3 min
 
@@ -1640,11 +1647,11 @@ You flip open the carrier POD binder to check the bay assignment against what wa
 
 **What do you do?**
 
-- Return to the manifest menu. Turn to section **902**.
+- Return to the manifest menu. Turn to section **876**.
 
 ---
 
-## Section 937
+## Section 902
 
 **Location:** Security office | **Time cost:** 0 min
 
@@ -1656,14 +1663,28 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 
 **What do you do?**
 
-- Review recent alarm history on the security panel. Turn to section **455**.
-- Open the badge access archive terminal. Turn to section **456**.
-- Return to the loading dock. Turn to section **937**.
-- Return to the break room. Turn to section **937**.
+- Review recent alarm history on the security panel. Turn to section **437**.
+- Open the badge access archive terminal. Turn to section **464**.
+- Return to the loading dock. Turn to section **902**.
+- Return to the break room. Turn to section **902**.
+- Open inference worksheet: Badge misattributed. Turn to section **151**.
+- Open inference worksheet: Control access mismatch. Turn to section **158**.
+- Open inference worksheet: Culprit supported. Turn to section **167**.
+- Open inference worksheet: Perfect reconstruction. Turn to section **169**.
+- Open inference worksheet: Relabel fraud. Turn to section **174**.
+- Open inference worksheet: Staging root cause. Turn to section **180**.
+- Return to security after the badge archive sync completes. Turn to section **382**.
+- Use the security office while the guard is on mandatory break. Turn to section **418**.
+- Review the records-only archive sync policy. Turn to section **365**.
+- Ask what you checked on the cold storage door during rounds. Turn to section **887**.
+- Ask whether the badge reader log could differ from a latch check. Turn to section **879**.
+- Ask when the high-temperature alarm first appeared on your panel. Turn to section **877**.
+- Return to query the synced badge archive. Turn to section **415**.
+- Continue scene SC-SECURITY-CROSSREF. Turn to section **417**.
 
 ---
 
-## Section 942
+## Section 910
 
 **Time cost:** 3 min
 
@@ -1675,11 +1696,11 @@ A single amber indicator on the staging panel is the only thing not blinking in 
 
 **What do you do?**
 
-- Return to the control room. Turn to section **556**.
+- Return to the control room. Turn to section **571**.
 
 ---
 
-## Section 971
+## Section 928
 
 **Time cost:** 1 min
 
@@ -1691,11 +1712,11 @@ You wipe frost off the sensor display to get a clean reading. The live display r
 
 **What do you do?**
 
-- Return to the cold storage hall. Turn to section **542**.
+- Return to the cold storage hall. Turn to section **561**.
 
 ---
 
-## Section 973
+## Section 942
 
 **Time cost:** 1 min
 
@@ -1707,14 +1728,14 @@ The workstation screen is still lit, exactly the way someone left it hours ago. 
 
 **What do you do?**
 
-- Review the BMS command log on this terminal. Turn to section **469**.
-- Open the closed maintenance ticket for CZ-1. Turn to section **874**.
-- Export the CZ-1 supply air temperature trend. Turn to section **524**.
-- Return to the control room. Turn to section **556**.
+- Review the BMS command log on this terminal. Turn to section **515**.
+- Open the closed maintenance ticket for CZ-1. Turn to section **850**.
+- Export the CZ-1 supply air temperature trend. Turn to section **560**.
+- Return to the control room. Turn to section **571**.
 
 ---
 
-## Section 976
+## Section 944
 
 **Time cost:** 5 min
 
@@ -1726,11 +1747,11 @@ You start the export and wait through the progress bar. The export wizard closes
 
 **What do you do?**
 
-- Return to the engineering workstation menu. Turn to section **973**.
+- Return to the engineering workstation menu. Turn to section **942**.
 
 ---
 
-## Section 992
+## Section 946
 
 **Time cost:** 5 min
 
@@ -1742,11 +1763,11 @@ You start the export and wait through the progress bar, watching it climb. The t
 
 **What do you do?**
 
-- Return to the engineering workstation menu. Turn to section **973**.
+- Return to the engineering workstation menu. Turn to section **942**.
 
 ---
 
-## Section 994
+## Section 957
 
 **Time cost:** 2 min
 
@@ -1758,12 +1779,12 @@ Pat nods toward the office wing and the break room corridor. "Elena runs the shi
 
 **What do you do?**
 
-- Return to the dock worker conversation menu. Turn to section **657**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the dock worker conversation menu. Turn to section **623**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 998
+## Section 971
 
 **Time cost:** 2 min
 
@@ -1775,12 +1796,12 @@ Pat Nguyen sets the mop cart aside. "Pat Nguyen — dock sanitation and floor pr
 
 **What do you do?**
 
-- Return to the dock worker conversation menu. Turn to section **657**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the dock worker conversation menu. Turn to section **623**.
+- Return to the loading dock. Turn to section **583**.
 
 ---
 
-## Section 999
+## Section 997
 
 **Time cost:** 2 min
 
@@ -1792,7 +1813,7 @@ Pat thinks for a moment. "About three years on this dock. I know the cold hall d
 
 **What do you do?**
 
-- Return to the dock worker conversation menu. Turn to section **657**.
-- Return to the loading dock. Turn to section **592**.
+- Return to the dock worker conversation menu. Turn to section **623**.
+- Return to the loading dock. Turn to section **583**.
 
 ---

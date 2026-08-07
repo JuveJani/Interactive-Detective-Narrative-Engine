@@ -12,6 +12,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from idne.gamebook_nav.extract import parse_player_units
+from idne.epistemic_progression.loader import initial_epistemic_state
+from idne.epistemic_progression.materialize import MaterializeStats, materialize_package
+from idne.epistemic_progression.model import EpistemicState, PlayableEvent
+from idne.epistemic_progression.serialize import event_to_dict
 
 ADV = ROOT / "adventures" / "The_Cold_Storage_Alarm"
 ADVENTURE = ADV / "adventure"
@@ -142,9 +146,9 @@ TOPIC_KNOWLEDGE_GRANTS: dict[str, list[str]] = {
     "UNIT-ELENA-MAP": ["KNOW-OPEN-ORIENT"],
 }
 
-TOPIC_ORIENTED_EXIT: dict[str, str] = {
-    "UNIT-ELENA-MAP": "UNIT-DOCK-BASE-SURVEYED",
-}
+
+def _topic_interaction_delta(unit_id: str) -> dict:
+    return {"completed_topics": [unit_id]}
 
 
 def _norm(label: str) -> str:
@@ -168,10 +172,20 @@ def _load_canonical_choice_map() -> dict[tuple[str, str], tuple[str, str]]:
     return out
 
 
+DESTINATION_ALIASES = {
+    "UNIT-DOCK-BASE-SURVEYED": "UNIT-DOCK-BASE",
+    "UNIT-DOCK-BASE-RESTRICTED": "UNIT-DOCK-BASE",
+}
+
+
+def _normalize_dest(dest: str) -> str:
+    return DESTINATION_ALIASES.get(dest, dest)
+
+
 def _guess_dest(label: str, uid: str, manifest: dict, choice_map: dict) -> str:
     key = (uid, _norm(label))
     if key in choice_map:
-        return choice_map[key][0]
+        return _normalize_dest(choice_map[key][0])
     # New opening hub routes
     local = {
         _norm("Talk to Elena Morales."): "UNIT-DOCK-ELENA-HUB",
@@ -188,7 +202,7 @@ def _guess_dest(label: str, uid: str, manifest: dict, choice_map: dict) -> str:
         _norm("Return to the dock worker conversation menu."): "UNIT-DOCK-WORKER-HUB",
     }
     if _norm(label) in local:
-        return local[_norm(label)]
+        return _normalize_dest(local[_norm(label)])
     if "return" in label.lower():
         return uid
     return uid
@@ -228,10 +242,8 @@ def _load_npc_metadata() -> tuple[dict[str, int], dict[str, str]]:
 
 def _topic_return_actions(unit_id: str, *, knowledge: list[str] | None = None) -> list[dict]:
     knowledge = list(knowledge or TOPIC_KNOWLEDGE_GRANTS.get(unit_id, []))
-    exit_override = TOPIC_ORIENTED_EXIT.get(unit_id)
     for prefix, hub, hub_label, exit_dest, exit_label in TOPIC_RETURN_PROFILES:
         if unit_id.startswith(prefix):
-            exit_unit = exit_override or exit_dest
             actions = [
                 {
                     "action_id": f"ACT-{unit_id}-HUB",
@@ -239,21 +251,22 @@ def _topic_return_actions(unit_id: str, *, knowledge: list[str] | None = None) -
                     "label": hub_label,
                     "destination_unit_id": hub,
                     "investigative": False,
+                    "interaction_delta": _topic_interaction_delta(unit_id),
                 },
                 {
                     "action_id": f"ACT-{unit_id}-EXIT",
                     "action_type": "return",
                     "label": exit_label,
-                    "destination_unit_id": exit_unit,
+                    "destination_unit_id": exit_dest,
                     "investigative": False,
+                    "interaction_delta": _topic_interaction_delta(unit_id),
                 },
             ]
             if knowledge:
                 for action in actions:
-                    action["knowledge_delta"] = knowledge
-                    if exit_override and action["destination_unit_id"] == exit_override:
-                        action["investigative"] = True
-                        action["purpose"] = "site orientation"
+                    action["knowledge_delta"] = list(knowledge)
+                    action["investigative"] = True
+                    action["purpose"] = "conversation testimony"
             return actions
     return []
 
@@ -302,6 +315,16 @@ def _event(unit_id: str, kind: str, actions: list, **extra) -> dict:
     }
 
 
+def _build_consolidated_dock_actions() -> list[dict]:
+    """Single dock template: actions gated by knowledge/world-state prerequisites."""
+    actions = list(OPENING_HUB_ACTIONS)
+    for label, spec in DOCK_DEFERRED.items():
+        kind, dest, req = spec[0], spec[1], spec[2]
+        world = spec[3] if len(spec) > 3 else {}
+        actions.append(_action_from_choice(label, dest, kind, requires=req, world=world))
+    return actions
+
+
 def build_epistemic_events(manifest: dict) -> list[dict]:
     events: list[dict] = []
     player_units = parse_player_units(ADVENTURE / "PLAYER")
@@ -313,94 +336,21 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
         _event(
             "UNIT-DOCK-BASE",
             "location_hub",
-            OPENING_HUB_ACTIONS,
+            _build_consolidated_dock_actions(),
             required_knowledge_ids=[],
-            relevant_knowledge_dependencies=[],
-            relevant_world_state_dependencies=["dock_restricted_active", "ready_to_accuse"],
+            relevant_knowledge_dependencies=["KNOW-OPEN-ORIENT", "KNOW-BMS-COMMAND"],
+            relevant_world_state_dependencies=["dock_restricted_active", "ready_to_accuse", "control_escort_cleared"],
             observable_entities=["NPC-ELENA", "NPC-DEV", "NPC-PAT"],
+            physical_location_id="LOC-DOCK",
         )
     )
     events.append(_event("UNIT-DOCK-ELENA-HUB", "npc_interaction", ELENA_HUB_ACTIONS, observable_entities=["NPC-ELENA"]))
     events.append(_event("UNIT-DOCK-WORKER-HUB", "npc_interaction", WORKER_HUB_ACTIONS, observable_entities=["NPC-PAT", "NPC-DEV"]))
 
-    # Expanded dock hub after initial survey / briefing
-    survey_actions = list(OPENING_HUB_ACTIONS)
-    for label, spec in DOCK_DEFERRED.items():
-        if "restriction" in label.lower():
-            continue
-        kind, dest, req = spec[0], spec[1], spec[2]
-        world = spec[3] if len(spec) > 3 else {}
-        survey_actions.append(_action_from_choice(label, dest, kind, requires=req, world=world))
-    events.append(
-        _event(
-            "UNIT-DOCK-BASE-SURVEYED",
-            "location_hub",
-            survey_actions,
-            variant_of="UNIT-DOCK-BASE",
-            supersedes_unit_id="UNIT-DOCK-BASE",
-            required_knowledge_ids=["KNOW-OPEN-ORIENT"],
-            relevant_knowledge_dependencies=["KNOW-OPEN-ORIENT", "KNOW-BMS-COMMAND"],
-            relevant_world_state_dependencies=["dock_restricted_active", "control_escort_cleared"],
-            physical_location_id="LOC-DOCK",
-        )
-    )
-
-    dock_restricted_actions = [a for a in survey_actions if "restriction" not in a["label"].lower()]
-    dock_restricted_actions.extend(
-        [
-            _action_from_choice(
-                "Review the supervisor briefing area.",
-                "UNIT-DOCK-BRIEFING-MENU",
-                "action",
-            ),
-            _action_from_choice(
-                "Request escort clearance to the automation control room.",
-                "UNIT-ESCORT-GRANTED",
-                "action",
-                requires=["KNOW-OPEN-ORIENT"],
-            ),
-            _action_from_choice(
-                "Receive supervisor briefing at the loading dock.",
-                "SC-DOCK-ARRIVAL",
-                "scene",
-            ),
-            _action_from_choice(
-                "Survey the dock and adjacent corridors.",
-                "SC-DOCK-INITIAL-SURVEY",
-                "scene",
-            ),
-            _action_from_choice(
-                "Prepare final accountability documentation before the compliance threshold.",
-                "SC-ACCUSATION-PREP",
-                "scene",
-                world={"ready_to_accuse": True},
-            ),
-            _action_from_choice(
-                "Work under supervisor dock restriction enforcement.",
-                "SC-DOCK-RESTRICTED",
-                "scene",
-                world={"dock_restricted_active": True},
-            ),
-        ]
-    )
-    events.append(
-        _event(
-            "UNIT-DOCK-BASE-RESTRICTED",
-            "location_hub",
-            dock_restricted_actions,
-            variant_of="UNIT-DOCK-BASE",
-            required_world_state={"dock_restricted_active": True},
-            relevant_world_state_dependencies=["dock_restricted_active"],
-            physical_location_id="LOC-DOCK",
-        )
-    )
-
     handled = {
         "UNIT-DOCK-BASE",
         "UNIT-DOCK-ELENA-HUB",
         "UNIT-DOCK-WORKER-HUB",
-        "UNIT-DOCK-BASE-SURVEYED",
-        "UNIT-DOCK-BASE-RESTRICTED",
     }
 
     for uid in sorted(player_units.keys()):
@@ -431,7 +381,7 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
         else:
             actions = []
             for label in choices:
-                dest = _guess_dest(label, uid, manifest, choice_map)
+                dest = _normalize_dest(_guess_dest(label, uid, manifest, choice_map))
                 ck = _guess_kind(label, uid, choice_map)
                 req: list[str] = []
                 refs: list[str] = []
@@ -462,8 +412,6 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
                 action["world_state_delta"] = {"investigation_phase": 1}
                 action["investigative"] = True
                 action["purpose"] = "initial orientation"
-                if action.get("destination_unit_id") == "UNIT-DOCK-BASE":
-                    action["destination_unit_id"] = "UNIT-DOCK-BASE-SURVEYED"
         if uid == "SC-DOCK-ARRIVAL":
             for action in actions:
                 if "Return" in action.get("label", ""):
@@ -471,8 +419,6 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
                 action["knowledge_delta"] = list(set(list(action.get("knowledge_delta", [])) + ["KNOW-OPEN-ORIENT"]))
                 action["investigative"] = True
                 action["purpose"] = "supervisor briefing"
-                if action.get("destination_unit_id") == "UNIT-DOCK-BASE":
-                    action["destination_unit_id"] = "UNIT-DOCK-BASE-SURVEYED"
         if uid == "SC-IT-RECORDS-POLICY":
             actions.append(
                 _action_from_choice(
@@ -539,22 +485,43 @@ def _infer_relevant_knowledge(actions: list) -> list[str]:
     return sorted(deps)
 
 
-def write_epistemic_package(events: list[dict]) -> None:
+def write_epistemic_package(events: list[dict]) -> MaterializeStats:
     flow = _load_flow()
-    initial_state = dict(flow.get("state_model", {}).get("initial_state") or {})
+    initial_world = dict(flow.get("state_model", {}).get("initial_state") or {})
+    templates: dict[str, PlayableEvent] = {}
+    for raw in events:
+        raw.setdefault("template_unit_id", raw["unit_id"])
+        templates[raw["unit_id"]] = PlayableEvent.from_dict(raw)
+
+    initial = EpistemicState(
+        player_knowledge=frozenset(INITIAL_KNOWLEDGE),
+        world_state=initial_world,
+        interaction_state={"exhausted_actions": [], "completed_topics": []},
+        observable_entities=frozenset(INITIAL_OBSERVABLE),
+        observable_objects=frozenset(),
+    )
+    materialized, stats = materialize_package(
+        templates,
+        start_template_unit="UNIT-DOCK-BASE",
+        initial_state=initial,
+    )
+    materialized.adventure_id = "The_Cold_Storage_Alarm"
+
     pkg = {
         "schema_version": "1.0",
         "adventure_id": "The_Cold_Storage_Alarm",
         "initial_player_knowledge": INITIAL_KNOWLEDGE,
-        "initial_world_state": initial_state,
+        "initial_world_state": initial_world,
         "initial_observable_entities": INITIAL_OBSERVABLE,
-        "playable_events": events,
+        "materialization": stats.to_dict(),
+        "playable_events": [event_to_dict(e) for e in sorted(materialized.events_by_unit.values(), key=lambda e: e.unit_id)],
     }
     (DNR / "epistemic_progression_package.json").write_text(json.dumps(pkg, indent=2) + "\n", encoding="utf-8")
     manifest = {
         "schema_version": "1.0",
         "epistemic_progression_method": "canonical",
         "package_path": "DO_NOT_READ/epistemic_progression_package.json",
+        "materialization": stats.to_dict(),
     }
     (ADVENTURE / "epistemic_progression_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     gen_path = ADV / ".generation" / "generation_state.json"
@@ -562,13 +529,18 @@ def write_epistemic_package(events: list[dict]) -> None:
         gen = json.loads(gen_path.read_text(encoding="utf-8"))
         gen.setdefault("validator_results", {})["epistemic_progression"] = {"status": "PENDING"}
         gen_path.write_text(json.dumps(gen, indent=2) + "\n", encoding="utf-8")
+    return stats
 
 
 def main() -> None:
     manifest = _load_manifest()
     events = build_epistemic_events(manifest)
-    write_epistemic_package(events)
-    print(f"Wrote epistemic package with {len(events)} playable events")
+    stats = write_epistemic_package(events)
+    print(
+        f"Wrote materialized epistemic package: "
+        f"{stats.template_count} templates -> {stats.materialized_count} events, "
+        f"{stats.reachable_states} reachable states, peak queue {stats.peak_queue_size}"
+    )
 
 
 if __name__ == "__main__":

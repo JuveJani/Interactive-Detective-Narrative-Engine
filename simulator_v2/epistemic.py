@@ -86,13 +86,14 @@ def reachable_units_from_start(adventure_root: Path, *, start_unit_id: str = "UN
         return {start_unit_id}
     q: deque[tuple[str, EpistemicState]] = deque([(start_unit_id, initial_epistemic_state(package))])
     reachable = {start_unit_id}
-    seen: set[tuple[str, frozenset[str], frozenset[tuple[str, Any]]]] = set()
+    seen: set[tuple[str, frozenset[str], frozenset[tuple[str, Any]], frozenset[str]]] = set()
     while q:
         cur, state = q.popleft()
         event = package.events_by_unit.get(cur)
         if not event:
             continue
-        state_key = (cur, state.player_knowledge, frozenset(state.world_state.items()))
+        completed = frozenset(str(x) for x in (state.interaction_state.get("completed_topics") or []))
+        state_key = (cur, state.player_knowledge, frozenset(state.world_state.items()), completed)
         if state_key in seen:
             continue
         seen.add(state_key)
