@@ -1,83 +1,96 @@
-# A hűtőriasztás — Statikus játékkönyv
+# A hűtőriasztás — Static Gamebook
 
-Olvasd el az alábbi nyitót, majd **kezdd a kezdő szakasznál**. Csak az egyes választásokban megadott szakaszszámokat kövesd. Ne keress belső kódokat, és ne lapozz előre.
+Read the opening below, then **begin at the starting section**. Follow only the section numbers given in each choice. Do not look up internal codes or browse ahead.
 
-## Nyitó
+## Opening
 
-Március 13-án, pénteken **1:00 a.m.**-kor érsz meg a Northline hidegláncos raktár **rakodó dokkjába**.
+# A hűtőriasztás — Nyitó
 
-**Elena Morales** felügyelő behívta téged, mint ügyeletes **hűtőtechnikust**. A hideg zónában CZ-1 magas hőmérsékleti riasztás **11:30 p.m.**-kor szólalt meg. A hűtőcsarnok befúvott levegője továbbra is emelkedik. Ha az CZ-1 a megfelelőségi küszöb felett marad **5:00 a.m.**-ig, a létesítménynek meg kell kezdenie a termékleírást, és értesítenie kell az egészségügyi szabályozó hatóságokat.
+Március 13-án, pénteken **1:00 a.m.**-kor érkezel a Northline hideglánc raktár **loading dock** rakodópartjára.
 
-Ma éjjel a dolgod, hogy kiderítsd, miért hibásodott meg a staging szabályozás, kinek volt hozzáférése, és magyaráznak-e valamit a bevételezési nyilvántartások az eltérésekre — mielőtt a megfelelőségi határidő lezárja a műszakot.
+**Elena Morales** felügyelő behívott téged **on-call refrigeration technician** / ügyeletes hűtőtechnikusként. **high-temperature alarm on cold zone CZ-1**: a CZ-1 hideg zónában magas hőmérséklet-riasztás szólt **11:30 p.m.**-kor. A hűtőtár csarnok befúvott levegőjének hőmérséklete még mindig emelkedik. Ha a CZ-1 **5:00 a.m.**-ig a megfelelőségi küszöb felett marad, a létesítménynek termék-selejtezést kell kezdenie, és értesítenie kell az egészségügyi hatóságokat.
 
-**Kezdő szakasz: 636** — turn to section **636** a nyomozás megkezdéséhez.
+Ma éjjel a feladatod: kideríteni, miért hibásodott meg a staging szabályozás, kinek volt hozzáférése, és magyaráznak-e valamit a bevételezési nyilvántartások az eltérésekre — mielőtt a megfelelőségi határidő lezárja a műszakot.
+
+**Kezdd a `PLAYER/GAMEBOOK.md` fájlban a 636. szakasznál.**
+
+**Starting section: 636** — turn to section [**636**](#section-636) to begin your investigation.
 
 ---
 
+<a id="section-105"></a>
 ## Section 105
 
-### Rejtett rekordok
+### Hidden records
 
-A csak rekordokat tartalmazó archívum házirend-útvonalat használtad ahelyett, hogy tovább nyomta volna a működési riasztást. Az IT szinkronizálási ütemezése pontosan a dokumentált módon kerül be az ellenőrzési nyomvonalba – rutin 2:30 a.m. kötegelt feltöltés, semmi több. Ez egy tiszta lábjegyzet, de nem ad választ arra, hogy a CZ-1 miért emelkedett tovább a riasztás megszólalása után.
+You used the records-only archive policy route instead of pressing further into the operational alarm. IT's sync schedule goes into the audit trail exactly as documented — a routine 2:30 a.m. batch upload, nothing more. It is a clean footnote to file, but it does not answer why CZ-1 kept climbing after the alarm sounded.
 
 ---
 
+<a id="section-111"></a>
 ## Section 111
 
-### A narratíva folytatása
+### Narrative continue
 
-Elhalasztod a végső elszámoltatást, amíg az óra még jár. Amit eddig tanult, az áttekintésre nyitva marad, bárhol is áll a létesítményben. Az éjszaka még nem ért véget, és a nyomozás sem.
+You defer final accountability while the clock still runs. Whatever you have learned so far stays open for revision from wherever you are standing in the facility. The night is not over, and neither is the investigation.
 
 ---
 
+<a id="section-112"></a>
 ## Section 112
 
-### Részben hiányos
+### Partial incomplete
 
-A megfelelőség dokumentálja a működési válaszreakciók hiányosságait – a riasztási előzmények, a felügyelői műveletek és a hőmérsékleti értékek a fájlban vannak, de számos rekordszál soha nem került be a nyilatkozatába. Befejezett szintézis nélkül a leírás felülvizsgálata kizárólag a működési tényeken alapul, és az a kérdés, hogy pontosan ki okozta a ma esti kudarcot, nyitva marad a műszakon túl is.
+Compliance documents operational response gaps — the riasztástörténet, supervisor actions, and temperature readings are on file, but several record threads never made it into your statement. Without a completed synthesis, the selejtezés review proceeds on the operational facts alone, and the question of exactly who caused tonight's failure stays open past your shift.
 
 ---
 
+<a id="section-121"></a>
 ## Section 121
 
-### Részleges indítékhiány
+### Partial motive gap
 
 Receiving discrepancy records are noted in your statement, and the bevételezési jegyzék exception on MNF-IN-4471 goes into the audit file as-is. The label residue and the relabeling it points to never quite connect into a finished synthesis. Someone will have to reopen the paperwork later to finish what your shift left half-drawn.
 
 ---
 
+<a id="section-154"></a>
 ## Section 154
 
-### Csak részben műszaki
+### Partial tech only
 
-Az te nyilatkozata elég részletesen magyarázza a felfüggesztés és a parancsok időzítését, hogy a mérnökök aláírják a mechanizmust. A Compliance megjegyzi, hogy a felügyelet nélküli karbantartási munkamenet a műszaki kiváltó ok, és nincs megnevezése annak, aki ténylegesen használtad. A ma esti történetben szereplő fogadó szó soha nem kerül be a rekordba.
+Your statement explains staging suspension and command timing in enough detail that engineering signs off on the mechanism. Compliance notes the unattended maintenance session as the technical root cause, with no name attached to who actually used it. The receiving floor's part in tonight's story never makes it into the record.
 
 ---
 
+<a id="section-158"></a>
 ## Section 158
 
-### Részlegesen rossz tettes
+### Partial wrong culprit
 
-A nyilatkozata középpontjában a vállalkozó kilépési rekordja áll, és Elena továbbítja a láncon feljebb a iktatott állapotban. Fejlesztő szerződés-ellenőrzését egy jelvényeltérés miatt jelölik meg, amelyet nem tud teljes mértékben megmagyarázni, még akkor is, ha az te által felépített idővonal nem egészen áll össze a vizsgálat alatt. Bármi is nyúlt bele abba a felügyelet nélküli ülésbe CTRL-TERM-02-n, az ma este nem kerül megvizsgálásra.
+Your statement centers on the contractor exit record, and Elena forwards it up the chain as filed. Dev's contract review gets flagged over a belépőkártya discrepancy he cannot fully explain away, even though the timeline you built does not quite hold together under scrutiny. Whatever actually reached into that unattended session on CTRL-TERM-02 goes unexamined tonight.
 
 ---
 
+<a id="section-181"></a>
 ## Section 181
 
-### Tökéletes
+### Perfect
 
-Az elszámoltathatósági nyilatkozat megfelel a független jelvény-, jegyzék-, fizikai- és BMS-rekordoknak. A megfelelőség elfogadja a teljes rekonstrukciós idővonalat: Lori Okonkwo kölcsönkérte Fejlesztő elfelejtett jelvényét, hogy beléphessen a hűtőházba, lecserélte a raklapcímkéket, hogy elrejtse a rövid hajót, és a felügyelet nélküli karbantartási munkamenettel kiadta a némítási parancsot, amely felfüggesztette a CZ-1 szakaszolást. A Northline úgy zárja le a műszakot, hogy elkerülték a leírást, és dokumentálják a személyi felülvizsgálatot és a fuvarozói vitát is.
+Your accountability statement matches independent belépőkártya, bevételezési jegyzék, physical, and BMS records. Compliance accepts a full reconstruction timeline: Lori Okonkwo borrowed Dev's forgotten belépőkártya to enter hűtőtár, swapped raklap labels to hide the short-ship, and used his unattended maintenance session to issue the mute command that suspended CZ-1 staging. Northline closes the shift with the selejtezés avoided and a documented case for both personnel review and the carrier dispute.
 
 ---
 
+<a id="section-186"></a>
 ## Section 186
 
-### Időtúllépés
+### Timeout
 
-5:00 a.m. megérkezik, mielőtt befejezné. Megkezdődnek a megfelelőségi leírási eljárások, és az egészségügyi értesítés ütemezetten jelenik meg, függetlenül attól, hogy mit talált. A vizsgálati ablak bezárul a vészhelyzeti protokoll alatt, bármilyen ügyet is épített, ami befejezetlen maradt.
+5:00 a.m. arrives before you finish. Compliance selejtezés procedures begin, and the health notification goes out on schedule regardless of what you found. Your investigation window closes under emergency protocol, whatever case you were building left unfinished.
 
 ---
 
+<a id="section-195"></a>
 ## Section 195
 
 ### A jelvény helytelenül van feltüntetve
@@ -93,13 +106,14 @@ Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mel
 
 **What do you do?**
 
-- Jelölje meg a szintézist befejezettnek, ha a válasz támogatott . Turn to section **111**.
-- Jelölje meg a szintézist befejezetlennek, és kövesd a helyreállítási fájlban megjelenő helyreállítási felszólítást . Turn to section **297**.
-- Kövesse a REC-SECURITY-ARCHIVE helyreállítási utat a hiányos szintézis után . Turn to section **304**.
-- Kövesse a REC-BREAK-LOCKER helyreállítási utat a hiányos szintézis után . Turn to section **258**.
+- Mark synthesis complete if your answer is supported. Turn to section [**111**](#section-111).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**297**](#section-297).
+- Follow recovery route REC-SECURITY-ARCHIVE after incomplete synthesis. Turn to section [**304**](#section-304).
+- Follow recovery route REC-BREAK-LOCKER after incomplete synthesis. Turn to section [**258**](#section-258).
 
 ---
 
+<a id="section-214"></a>
 ## Section 214
 
 ### Ellenőrzési hozzáférési eltérés
@@ -107,20 +121,21 @@ Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mel
 **Kérdés:** Ki adhatná ki a BMS némítási parancsot hűtésmérnöki jogosultság nélkül?
 
 **A konzultálandó rekordtípusok:**
-- Vezérlőterem ajtajának jelvénye (biztonsági iroda archívuma)
-- BMS parancsnapló és munkamenet azonosító (vezérlőterem munkaállomás)
+- Control room door badge entry (security office archive)
+- BMS command log and session identifier (control room workstation)
 
 Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.
 
 **What do you do?**
 
-- Jelölje meg a szintézist befejezettnek, ha a válasz támogatott . Turn to section **111**.
-- Jelölje meg a szintézist befejezetlennek, és kövesd a helyreállítási fájlban megjelenő helyreállítási felszólítást . Turn to section **297**.
-- Kövesse a REC-SECURITY-ARCHIVE helyreállítási utat a hiányos szintézis után . Turn to section **304**.
-- Kövesse a REC-CONTROL-TERM helyreállítási utat a hiányos szintézis után . Turn to section **291**.
+- Mark synthesis complete if your answer is supported. Turn to section [**111**](#section-111).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**297**](#section-297).
+- Follow recovery route REC-SECURITY-ARCHIVE after incomplete synthesis. Turn to section [**304**](#section-304).
+- Follow recovery route REC-CONTROL-TERM after incomplete synthesis. Turn to section [**291**](#section-291).
 
 ---
 
+<a id="section-218"></a>
 ## Section 218
 
 ### Bűnös támogatott
@@ -128,20 +143,21 @@ Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mel
 **Kérdés:** Melyik szerepkört támogatják a független hozzáférés, a csalás és a vezérlőterem nyilvántartása?
 
 **A konzultálandó rekordtípusok:**
-- Minden, amit összegyűjtött a jelvényhez való hozzáférésről, a vezérlőterembe való belépésről és a nyilvánvaló csalásról
-- Kereszthivatkozott időbélyegek a biztonsági hivataltól
+- Everything you have gathered on badge access, control room entry, and manifest fraud
+- Cross-referenced timestamps from the security office
 
 Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.
 
 **What do you do?**
 
-- Jelölje meg a szintézist befejezettnek, ha a válasz támogatott . Turn to section **111**.
-- Jelölje meg a szintézist befejezetlennek, és kövesd a helyreállítási fájlban megjelenő helyreállítási felszólítást . Turn to section **297**.
-- Kövesse a REC-MANAGER-INTERVIEW helyreállítási utat a hiányos szintézis után . Turn to section **292**.
-- Kövesse a REC-SECURITY-CROSSREF helyreállítási utat a hiányos szintézis után . Turn to section **305**.
+- Mark synthesis complete if your answer is supported. Turn to section [**111**](#section-111).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**297**](#section-297).
+- Follow recovery route REC-MANAGER-INTERVIEW after incomplete synthesis. Turn to section [**292**](#section-292).
+- Follow recovery route REC-SECURITY-CROSSREF after incomplete synthesis. Turn to section [**305**](#section-305).
 
 ---
 
+<a id="section-224"></a>
 ## Section 224
 
 ### Tökéletes rekonstrukció
@@ -149,18 +165,19 @@ Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mel
 **Kérdés:** Összekapcsolhatja a csalás eltitkolását, a jogosulatlan hozzáférést és a felfüggesztést egy támogatott idővonalon?
 
 **A konzultálandó rekordtípusok:**
-- A fenti munkalapokon felsorolt ​​minden rekordszál
-- Karbantartási jegy és résnyitó riasztás története (irányítóterem és biztonsági iroda)
+- Every record thread listed in the worksheets above
+- The maintenance ticket and door-ajar alarm history (control room and security office)
 
 Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.
 
 **What do you do?**
 
-- Jelölje meg a szintézist befejezettnek, ha a válasz támogatott . Turn to section **111**.
-- Jelölje meg a szintézist befejezetlennek, és kövesd a helyreállítási fájlban megjelenő helyreállítási felszólítást . Turn to section **297**.
+- Mark synthesis complete if your answer is supported. Turn to section [**111**](#section-111).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**297**](#section-297).
 
 ---
 
+<a id="section-231"></a>
 ## Section 231
 
 ### Újracímkézési csalás
@@ -168,21 +185,22 @@ Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mel
 **Kérdés:** Használták a raklap átcímkézését a bejövő mennyiség elrejtésére?
 
 **A konzultálandó rekordtípusok:**
-- Címkeragasztó-maradványok és időbélyeg összehasonlítása (C folyosó)
-- bevételezési jegyzék MNF-IN-4471 versus szolgáltató POD-4471 (vezetői iroda)
-- Koordinátor beszámolója a fogadó kivételről (vezetői irodai interjú)
+- Label adhesive residue and timestamp comparison (aisle C)
+- Manifest MNF-IN-4471 versus carrier POD-4471 (manager office)
+- Coordinator's account of the receiving exception (manager office interview)
 
 Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.
 
 **What do you do?**
 
-- Jelölje meg a szintézist befejezettnek, ha a válasz támogatott . Turn to section **111**.
-- Jelölje meg a szintézist befejezetlennek, és kövesd a helyreállítási fájlban megjelenő helyreállítási felszólítást . Turn to section **297**.
-- Kövesse a REC-COLD-AISLE helyreállítási utat a hiányos szintézis után . Turn to section **265**.
-- Kövesse a REC-MANAGER-bevételezési jegyzék helyreállítási utat a hiányos szintézis után . Turn to section **294**.
+- Mark synthesis complete if your answer is supported. Turn to section [**111**](#section-111).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**297**](#section-297).
+- Follow recovery route REC-COLD-AISLE after incomplete synthesis. Turn to section [**265**](#section-265).
+- Follow recovery route REC-MANAGER-MANIFEST after incomplete synthesis. Turn to section [**294**](#section-294).
 
 ---
 
+<a id="section-237"></a>
 ## Section 237
 
 ### A kiváltó ok megszakítása
@@ -190,21 +208,22 @@ Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mel
 **Kérdés:** A felfüggesztés – nem egyedül az ajtóriasztó – okozta a tartós hőmérséklet-emelkedést?
 
 **A konzultálandó rekordtípusok:**
-- BMS parancsnapló (vezérlőterem munkaállomás)
-- CZ-1 állomásjelző panel (vezérlőterem)
-- CZ-1 befújt levegő hőmérsékleti trend exportálás (vezérlőterem munkaállomás)
+- BMS command log (control room workstation)
+- CZ-1 staging indicator panel (control room)
+- CZ-1 supply air temperature trend export (control room workstation)
 
 Jegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.
 
 **What do you do?**
 
-- Jelölje meg a szintézist befejezettnek, ha a válasz támogatott . Turn to section **111**.
-- Jelölje meg a szintézist befejezetlennek, és kövesd a helyreállítási fájlban megjelenő helyreállítási felszólítást . Turn to section **297**.
-- Kövesse a REC-CONTROL-TERM helyreállítási utat a hiányos szintézis után . Turn to section **291**.
-- Kövesse a REC-COLD-DISPLAY helyreállítási utat a hiányos szintézis után . Turn to section **288**.
+- Mark synthesis complete if your answer is supported. Turn to section [**111**](#section-111).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**297**](#section-297).
+- Follow recovery route REC-CONTROL-TERM after incomplete synthesis. Turn to section [**291**](#section-291).
+- Follow recovery route REC-COLD-DISPLAY after incomplete synthesis. Turn to section [**288**](#section-288).
 
 ---
 
+<a id="section-258"></a>
 ## Section 258
 
 ### Break szekrény
@@ -213,10 +232,11 @@ Menjen a személyzet pihenőszobájába, és sétáljon a szekrény mellett. Ha 
 
 **What do you do?**
 
-- Menjen a megnevezett helyre, és hajtsa végre a fent leírt műveletet . Turn to section **547**.
+- Go to the named location and take the action described above. Turn to section [**547**](#section-547).
 
 ---
 
+<a id="section-265"></a>
 ## Section 265
 
 ### Hideg folyosó
@@ -225,10 +245,11 @@ Térjen vissza a hűtőcsarnokba, és sétáljon végig a C folyosón. Ha még n
 
 **What do you do?**
 
-- Menjen a megnevezett helyre, és hajtsa végre a fent leírt műveletet . Turn to section **598**.
+- Go to the named location and take the action described above. Turn to section [**598**](#section-598).
 
 ---
 
+<a id="section-288"></a>
 ## Section 288
 
 ### Hideg kijelző
@@ -237,10 +258,11 @@ Menjen vissza a hűtőcsarnokba, és olvasd el az élő CZ-1 befúvott levegő k
 
 **What do you do?**
 
-- Menjen a megnevezett helyre, és hajtsa végre a fent leírt műveletet . Turn to section **598**.
+- Go to the named location and take the action described above. Turn to section [**598**](#section-598).
 
 ---
 
+<a id="section-291"></a>
 ## Section 291
 
 ### Ellenőrző kifejezés
@@ -249,10 +271,11 @@ Térjen vissza az automatizálási vezérlőterembe, és közelítse meg a mérn
 
 **What do you do?**
 
-- Menjen a megnevezett helyre, és hajtsa végre a fent leírt műveletet . Turn to section **619**.
+- Go to the named location and take the action described above. Turn to section [**619**](#section-619).
 
 ---
 
+<a id="section-292"></a>
 ## Section 292
 
 ### Menedzserinterjú
@@ -261,22 +284,24 @@ Menjen a raktárvezetői irodába, és közvetlenül Lori Okonkwónak adja fel a
 
 **What do you do?**
 
-- Menjen a megnevezett helyre, és hajtsa végre a fent leírt műveletet . Turn to section **891**.
+- Go to the named location and take the action described above. Turn to section [**891**](#section-891).
 
 ---
 
+<a id="section-294"></a>
 ## Section 294
 
 ### Kezelői jegyzék
 
-Menjen a raktárkezelő irodájába, és hasonlítsa össze a MNF-IN-4471 jegyzéket a fogadó munkaállomás szállítói kézbesítési rekordjával.
+Menjen a raktárkezelő irodájába, és hasonlítsa össze a MNF-IN-4471 jegyzéket a fogadó munkaállomáson lévő szállítói kézbesítési rekorddal.
 
 **What do you do?**
 
-- Menjen a megnevezett helyre, és hajtsa végre a fent leírt műveletet . Turn to section **891**.
+- Go to the named location and take the action described above. Turn to section [**891**](#section-891).
 
 ---
 
+<a id="section-297"></a>
 ## Section 297
 
 ### Keresse fel újra a feltáratlan forrásokat
@@ -285,10 +310,11 @@ Térjen vissza a rakodódokkhoz, és válassz ki azt a helyet, amelyiken van mé
 
 **What do you do?**
 
-- Menjen a megnevezett helyre, és hajtsa végre a fent leírt műveletet . Turn to section **636**.
+- Go to the named location and take the action described above. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-304"></a>
 ## Section 304
 
 ### Biztonsági archívum
@@ -297,10 +323,11 @@ Térjen vissza a biztonsági irodába, és nyisd meg a jelvény-hozzáférési a
 
 **What do you do?**
 
-- Menjen a megnevezett helyre, és hajtsa végre a fent leírt műveletet . Turn to section **963**.
+- Go to the named location and take the action described above. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-305"></a>
 ## Section 305
 
 ### Biztonsági kereszthivatkozás
@@ -309,15 +336,16 @@ Térjen vissza a biztonsági irodába, és hasonlítsa össze a riasztási előz
 
 **What do you do?**
 
-- Menjen a megnevezett helyre, és hajtsa végre a fent leírt műveletet . Turn to section **963**.
+- Go to the named location and take the action described above. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-326"></a>
 ## Section 326
 
-**Jeleet átmenet**
+**Scene transition**
 
-### Az elszámoltathatóság előkészítése
+### Az elszámoltatás előkészítése
 
 
 
@@ -325,16 +353,17 @@ A jegyzeteit szétteríti az eligazító asztalon, és elkezdi őket egy négyr�
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **636**.
-- Térjen vissza a terület alapszakaszához . Turn to section **636**.
+- Continue this scene thread. Turn to section [**636**](#section-636).
+- Return to the location base section for this area. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-327"></a>
 ## Section 327
 
-**Jeleet átmenet**
+**Scene transition**
 
-### Választható szekrény ág
+### Opcionális szekrény ág
 
 
 
@@ -342,14 +371,15 @@ A pihenőszoba öltözősora továbbra is elérhető, amikor csak akarja. Semmi 
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **813**.
-- Térjen vissza a terület alapszakaszához . Turn to section **547**.
+- Continue this scene thread. Turn to section [**813**](#section-813).
+- Return to the location base section for this area. Turn to section [**547**](#section-547).
 
 ---
 
+<a id="section-355"></a>
 ## Section 355
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### Fókuszált folyosói újralátogatás
 
@@ -359,14 +389,15 @@ Most, hogy látta a nyilvánvaló rést, a C folyosó másképp olvas. te már n
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **598**.
-- Térjen vissza a terület alapszakaszához . Turn to section **598**.
+- Continue this scene thread. Turn to section [**598**](#section-598).
+- Return to the location base section for this area. Turn to section [**598**](#section-598).
 
 ---
 
+<a id="section-373"></a>
 ## Section 373
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### A címke részleteinek újralátogatása
 
@@ -376,14 +407,15 @@ Mivel a helyreállított címkeháttér már megtalálható az ügyiratban, viss
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **701**.
-- Térjen vissza a terület alapszakaszához . Turn to section **598**.
+- Continue this scene thread. Turn to section [**701**](#section-701).
+- Return to the location base section for this area. Turn to section [**598**](#section-598).
 
 ---
 
+<a id="section-376"></a>
 ## Section 376
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### Vezérlőterem megközelítés
 
@@ -393,16 +425,17 @@ A vezérlőterem ajtaján van egy jelvényolvasó, amelyet nem használhat öná
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **619**.
-- Térjen vissza a terület alapszakaszához . Turn to section **619**.
-- Tovább az SC-CONTROL-CLEARED jelenethez . Turn to section **400**.
-- Tovább az SC-CONTROL-ESCORT-REQUIRED jelenethez . Turn to section **403**.
+- Continue this scene thread. Turn to section [**619**](#section-619).
+- Return to the location base section for this area. Turn to section [**619**](#section-619).
+- Continue to scene SC-CONTROL-CLEARED. Turn to section [**400**](#section-400).
+- Continue to scene SC-CONTROL-ESCORT-REQUIRED. Turn to section [**403**](#section-403).
 
 ---
 
+<a id="section-388"></a>
 ## Section 388
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### BMS felülvizsgálati jelenet
 
@@ -412,14 +445,15 @@ Miután egyszer elolvasta a parancsnaplót, most beállíthatja egymás mellett 
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **619**.
-- Térjen vissza a terület alapszakaszához . Turn to section **619**.
+- Continue this scene thread. Turn to section [**619**](#section-619).
+- Return to the location base section for this area. Turn to section [**619**](#section-619).
 
 ---
 
+<a id="section-400"></a>
 ## Section 400
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### A vezérlőterem törölve
 
@@ -429,14 +463,15 @@ Az ajtó panasz nélkül kinyílik. A feljegyzett kísérőengedélynek köszön
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **619**.
-- Térjen vissza a terület alapszakaszához . Turn to section **619**.
+- Continue this scene thread. Turn to section [**619**](#section-619).
+- Return to the location base section for this area. Turn to section [**619**](#section-619).
 
 ---
 
+<a id="section-403"></a>
 ## Section 403
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### Escort szükséges
 
@@ -446,14 +481,15 @@ Az olvasó pirosan villog. Vissza kell mennie a dokkba, és meg kell kérnie Ele
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **619**.
-- Térjen vissza a terület alapszakaszához . Turn to section **619**.
+- Continue this scene thread. Turn to section [**619**](#section-619).
+- Return to the location base section for this area. Turn to section [**619**](#section-619).
 
 ---
 
+<a id="section-413"></a>
 ## Section 413
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### Dokk érkezési eligazítás
 
@@ -463,14 +499,15 @@ Elena végigvezeti az idővonalon az eligazító asztalnál: a 11:30 p.m. riaszt
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **636**.
-- Térjen vissza a terület alapszakaszához . Turn to section **636**.
+- Continue this scene thread. Turn to section [**636**](#section-636).
+- Return to the location base section for this area. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-429"></a>
 ## Section 429
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### Első dokkfelmérés
 
@@ -480,16 +517,17 @@ Még semmi sem dőlt el. Sétál a dokk nyitott padlóján, és megjegyzi, hogy 
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **636**.
-- Térjen vissza a terület alapszakaszához . Turn to section **636**.
-- Folytassa az SC-DOKKOLÁS KORLÁTOZOTT jelenethez . Turn to section **434**.
-- Folytassa az SC-DOKK-KEZDETI-FELMÉRÉS jelenetével . Turn to section **429**.
+- Continue this scene thread. Turn to section [**636**](#section-636).
+- Return to the location base section for this area. Turn to section [**636**](#section-636).
+- Continue to scene SC-DOCK-RESTRICTED. Turn to section [**434**](#section-434).
+- Continue to scene SC-DOCK-INITIAL-SURVEY. Turn to section [**429**](#section-429).
 
 ---
 
+<a id="section-434"></a>
 ## Section 434
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### Dokk korlátozás aktív
 
@@ -499,11 +537,12 @@ A szalag most két öbölsávon fut át, és Elena maga hajtja végre. A dokkol�
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **636**.
-- Térjen vissza a terület alapszakaszához . Turn to section **636**.
+- Continue this scene thread. Turn to section [**636**](#section-636).
+- Return to the location base section for this area. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-435"></a>
 ## Section 435
 
 ### Archív szinkronizálási szabályzat
@@ -518,14 +557,14 @@ Nincs kivel vitatkozni rajta – a menetrend attól függ, hogy vár-e rá, vagy
 
 **What do you do?**
 
-- Vissza a biztonsági irodába . Turn to section **963**.
-- Tekintse át az archívum szinkronizálási szabályzatát . Turn to section **697**.
+- Review the archive sync policy notice. Turn to section [**697**](#section-697).
 
 ---
 
+<a id="section-436"></a>
 ## Section 436
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### Menedzser interjú nyomás
 
@@ -535,14 +574,15 @@ A C folyosóból származó fizikai nyomok vagy maga a nyilvánvaló kivétel va
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **891**.
-- Térjen vissza a terület alapszakaszához . Turn to section **891**.
+- Continue this scene thread. Turn to section [**891**](#section-891).
+- Return to the location base section for this area. Turn to section [**891**](#section-891).
 
 ---
 
+<a id="section-448"></a>
 ## Section 448
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### Az archívum szinkronizálása befejeződött
 
@@ -552,18 +592,19 @@ Az archív terminál egyszer csenget, pontosan az ütemezés szerint, és a szin
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **963**.
-- Térjen vissza a terület alapszakaszához . Turn to section **963**.
-- Tovább az SC-SECURITY-ARCHÍV-KÉSZ jelenethez . Turn to section **474**.
-- Tovább az SC-SECURITY-ARCHÍV-FÜGGŐBEN jelenethez . Turn to section **457**.
+- Continue this scene thread. Turn to section [**963**](#section-963).
+- Return to the location base section for this area. Turn to section [**963**](#section-963).
+- Continue to scene SC-SECURITY-ARCHIVE-READY. Turn to section [**474**](#section-474).
+- Continue to scene SC-SECURITY-ARCHIVE-PENDING. Turn to section [**457**](#section-457).
 
 ---
 
+<a id="section-457"></a>
 ## Section 457
 
-**Jeleet átmenet**
+**Scene transition**
 
-### Archívum függőben
+### Az archívum függőben van
 
 
 
@@ -571,14 +612,15 @@ Egy kis szinkronizálási ikon található a lekérdezési menü felében. Egyes
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **963**.
-- Térjen vissza a terület alapszakaszához . Turn to section **963**.
+- Continue this scene thread. Turn to section [**963**](#section-963).
+- Return to the location base section for this area. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-474"></a>
 ## Section 474
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### Az archívum készen áll
 
@@ -588,14 +630,15 @@ Az archív terminál minden lekérdezési mezője aktív. A hűtőház-bejegyzé
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **963**.
-- Térjen vissza a terület alapszakaszához . Turn to section **963**.
+- Continue this scene thread. Turn to section [**963**](#section-963).
+- Return to the location base section for this area. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-477"></a>
 ## Section 477
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### Biztonsági kereszthivatkozás
 
@@ -605,14 +648,15 @@ Ha végre a kezében van egy jelvényrekord, az ébresztési előzmények mellé
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **963**.
-- Térjen vissza a terület alapszakaszához . Turn to section **963**.
+- Continue this scene thread. Turn to section [**963**](#section-963).
+- Return to the location base section for this area. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-484"></a>
 ## Section 484
 
-**Jeleet átmenet**
+**Scene transition**
 
 ### A biztonsági pult személyzet nélkül
 
@@ -622,114 +666,121 @@ Marcus széke üres – a menetrend szerint kötelező szünet –, de az archí
 
 **What do you do?**
 
-- Folytasd ezt a jelenetszálat . Turn to section **963**.
-- Térjen vissza a terület alapszakaszához . Turn to section **963**.
+- Continue this scene thread. Turn to section [**963**](#section-963).
+- Return to the location base section for this area. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-503"></a>
 ## Section 503
 
-**Időköltség:** 2 perc
+**Time cost:** 2 min
 
-### C folyosó
+### Aisle C
 
 
 
-A raklap zsugorfólia meggyűrődik a hideg léghuzat alatt, ahogy belép a sorba. A C folyosó a magas raklapsorok között fut. A folyosó mozdulatlanul tart körülötted, és arra vár, hogy átkutassanak vagy békén hagyjanak.
+raklap shrink-wrap crinkles under the cold air draft as you step into the row. Aisle C runs between high raklap rows. The aisle holds still around you, waiting to be searched or left alone.
 
 **What do you do?**
 
-- Keresse meg a padlón és a raklap felületén címkeragasztó-maradványokat . Turn to section **553**.
-- Vissza a hűtőcsarnokba . Turn to section **598**.
+- Search the floor and pallet faces for label adhesive residue. Turn to section [**553**](#section-553).
+- Return to the cold storage hall. Turn to section [**598**](#section-598).
 
 ---
 
+<a id="section-514"></a>
 ## Section 514
 
-**Időköltség:** 3 perc
+**Time cost:** 3 min
 
-### Riasztási előzmények
+### riasztástörténet
 
 
 
-Visszagörgeted a riasztópanel előzményeit a ma esti egyéb értesítések zaján túl. A ALM-COLD-DOOR-AJAR riasztási előzmények listája 11:18 p.m. és ALM-COLD-HIGH a 11:30 p.m. helyen Mindkét időbélyeget lemásolja, mielőtt visszalép a panelről.
+You scroll the alarm panel's history back past the noise of tonight's other notifications. riasztástörténet lists ALM-COLD-DOOR-AJAR at 11:18 p.m. and ALM-COLD-HIGH at 11:30 p.m. You copy both timestamps down before stepping back from the panel.
 
 **What do you do?**
 
-- Vissza a biztonsági irodába . Turn to section **963**.
+- Return to the security office. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-519"></a>
 ## Section 519
 
-**Időköltség:** 2 perc
+**Time cost:** 2 min
 
-### Jelvényarchívum terminál
+### belépőkártya archive terminal
 
 
 
-Az archív terminál állapotmezője az első dolog, amit ellenőrizni kell a lekérdezés futtatása előtt. A jelvényarchívum terminál mutatja, hogy a ma esti kötegelt feltöltés befejeződött-e. Bármit is mond a szinkronizálási állapot, a lekérdezési menü továbbra is te előtt van.
+The archive terminal's status field is the first thing you check before running any query. The belépőkártya archive terminal shows whether tonight's batch upload has finished. Whatever the sync status says, the query menu is still in front of you.
 
 **What do you do?**
 
-- Lekérdezheti a hűtőházi bejövő jelvény bejegyzéseit ma estére . Turn to section **522**.
-- Kérdezze le a vezérlőterem ajtaját a ma estére . Turn to section **544**.
-- Húzza ki a vállalkozó kimenő dokkoló szkennelési rekordját . Turn to section **679**.
-- Vissza a biztonsági irodába . Turn to section **963**.
+- Query cold storage inbound badge entries for tonight. Turn to section [**522**](#section-522).
+- Query control room door entries for tonight. Turn to section [**544**](#section-544).
+- Pull the contractor outbound dock scan record. Turn to section [**679**](#section-679).
+- Return to the security office. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-522"></a>
 ## Section 522
 
-**Időköltség:** 4 perc
+**Time cost:** 4 min
 
-### Hűtőtároló jelvény lekérdezése
+### hűtőtár belépőkártya query
 
 
 
-Leszűri a jelvényarchívumot a ma esti műszak hűtőházi bejegyzéseire. hűtőtár inbound log shows credential belépőkártya-DEV-TEMP at 11:14 p.m. You note the credential and timestamp before returning to the archive menu.
+You filter the belépőkártya archive down to hűtőtár entries for tonight's shift. hűtőtár inbound log shows credential belépőkártya-DEV-TEMP at 11:14 p.m. You note the credential and timestamp before returning to the archive menu.
 
 **What do you do?**
 
-- Visszatérés a jelvényarchívum menühöz . Turn to section **519**.
+- Return to the badge archive menu. Turn to section [**519**](#section-519).
 
 ---
 
+<a id="section-544"></a>
 ## Section 544
 
-**Időköltség:** 3 perc
+**Time cost:** 3 min
 
-### A vezérlőterem jelvényének lekérdezése
+### automatika vezérlő belépőkártya query
 
 
 
-A szűrőt átkapcsolja ugyanahhoz az ablakhoz a vezérlőterem ajtóbemeneteire. automatika vezérlő entry log shows belépőkártya belépőkártya-LORI at 11:20 p.m. You note the belépőkártya and timestamp before returning to the archive menu.
+You switch the filter to automatika vezérlő door entries for the same window. automatika vezérlő entry log shows belépőkártya belépőkártya-LORI at 11:20 p.m. You note the belépőkártya and timestamp before returning to the archive menu.
 
 **What do you do?**
 
-- Visszatérés a jelvényarchívum menühöz . Turn to section **519**.
+- Return to the badge archive menu. Turn to section [**519**](#section-519).
 
 ---
 
+<a id="section-545"></a>
 ## Section 545
 
-**Időköltség:** 4 perc
+**Time cost:** 4 min
 
-### BMS parancsnapló
+### BMS command log
 
 
 
-Megnyitja a parancselőzményeket, és visszagörget az első riasztás körüli ablakhoz. A parancsnaplóban megjelenik a CMD-CZ1-MUTE-STAGE, amelyet a 11:22 p.m. időpontban adtak ki az SVC-REFRG-MAINT karbantartási munkamenet alatt. Másolja a bejegyzést a jegyzeteibe, és visszalép a munkaállomás menüjébe.
+You open the command history and scroll back to the window around the first alarm. The command log shows CMD-CZ1-MUTE-STAGE issued at 11:22 p.m. under maintenance session SVC-REFRG-MAINT. You copy the entry into your notes and back out to the workstation menu.
 
 **What do you do?**
 
-- Visszatérés a mérnöki munkaállomás menühöz . Turn to section **985**.
+- Return to the engineering workstation menu. Turn to section [**985**](#section-985).
 
 ---
 
+<a id="section-547"></a>
 ## Section 547
 
-**Helyszín:** A személyzet pihenőszobája | **Időköltség:** 0 perc
+**Location:** A személyzet pihenőszobája | **Time cost:** 0 perc
 
 ### A személyzet pihenőszobája
 
@@ -739,95 +790,100 @@ A személyzeti pihenőhelyiségben automaták, zárható szekrények és a kikö
 
 **What do you do?**
 
-- Sétáljon a személyzeti szekrény mellett . Turn to section **813**.
-- Nézzen a dokk rakodóterülete felé . Turn to section **641**.
-- Térjen vissza a rakodó dokkhoz . Turn to section **547**.
-- Sétáljon a vezetői irodába a személyzeti folyosón . Turn to section **891**.
-- Kövesse a belső folyosót a biztonsági iroda felé . Turn to section **963**.
-- Menjen az oldalsó átjárón a hűtőcsarnok felé . Turn to section **598**.
-- Következtetési munkalap megnyitása: A jelvény rosszul van hozzárendelve . Turn to section **195**.
-- Következtetési munkalap megnyitása: A hozzáférési eltérések szabályozása . Turn to section **214**.
-- Következtetési munkalap megnyitása: Culprit támogatott . Turn to section **218**.
-- Következtetési munkalap megnyitása: Tökéletes rekonstrukció . Turn to section **224**.
-- Következtetési munkalap megnyitása: Csalás újracímkézése . Turn to section **231**.
-- Következtetési munkalap megnyitása: A kiváltó ok megszakítása . Turn to section **237**.
-- Kérdezzen a dokk és a hűtőcsarnok közelében végzett szokatlan tevékenységekről . Turn to section **935**.
-- Kérdezze meg, hogy be tudja-e azonosítani a látott személyt . Turn to section **943**.
-- Opcionálisan ellenőrizze a személyzeti szekrény bankját . Turn to section **327**.
+- Walk along the staff locker bank. Turn to section [**813**](#section-813).
+- Look out toward the dock loading area. Turn to section [**641**](#section-641).
+- Return to the loading dock. Turn to section [**636**](#section-636).
+- Walk to the manager office through the staff corridor. Turn to section [**891**](#section-891).
+- Follow the interior hallway to the security office. Turn to section [**963**](#section-963).
+- Take the side passage toward the cold storage hall. Turn to section [**598**](#section-598).
+- Open inference worksheet: A jelvény helytelenül van feltüntetve. Turn to section [**195**](#section-195).
+- Open inference worksheet: Ellenőrzési hozzáférési eltérés. Turn to section [**214**](#section-214).
+- Open inference worksheet: Bűnös támogatott. Turn to section [**218**](#section-218).
+- Open inference worksheet: Tökéletes rekonstrukció. Turn to section [**224**](#section-224).
+- Open inference worksheet: Újracímkézési csalás. Turn to section [**231**](#section-231).
+- Open inference worksheet: A kiváltó ok megszakítása. Turn to section [**237**](#section-237).
+- Ask about unusual activity near the dock and cold hall. Turn to section [**935**](#section-935).
+- Ask whether you could identify the person you saw. Turn to section [**943**](#section-943).
+- Optionally inspect the staff locker bank. Turn to section [**327**](#section-327).
 
 ---
 
+<a id="section-553"></a>
 ## Section 553
 
-**Ellenőrzés:** egy kísérlet
+**Check:** one attempt
 
-### Címkekeresés ellenőrzése
+### Label search check
 
 
 
-Elkötelezi magát a folyosó padlójának és a raklapfelületek alapos átvizsgálására – egy menet, nincs második pillantás. Ehhez a művelethez dobj egyszer d20-at és a felsorolt ​​módosítót.
+You commit to a close search of the aisle floor and raklap faces — one pass, no second look. Roll d20 plus your listed modifier once for this action.
 
 **What do you do?**
 
-- If your roll **succeeds**, turn to section **749**.
-- If your roll **fails**, turn to section **736**.
+- If your roll **succeeds**, turn to section [**749**](#section-749).
+- If your roll **fails**, turn to section [**736**](#section-736).
 
 ---
 
+<a id="section-556"></a>
 ## Section 556
 
-**Ellenőrzés:** egy kísérlet
+**Check:** one attempt
 
-### Reteszészlelés ellenőrzése
+### Latch észlelési ellenőrzés
 
 
 
-Elkötelezi magát, hogy egyetlen alapos pillantást vet a reteszre – ha már eldöntötte, ezt nem lehet újra megtenni. Ehhez a művelethez dobj egyszer d20-at és a felsorolt ​​módosítót.
+You commit to a single careful look at the latch — there is no redoing this once you have decided. Roll d20 plus your listed modifier once for this action.
 
 **What do you do?**
 
-- If your roll **succeeds**, turn to section **783**.
-- If your roll **fails**, turn to section **761**.
+- If your roll **succeeds**, turn to section [**783**](#section-783).
+- If your roll **fails**, turn to section [**761**](#section-761).
 
 ---
 
+<a id="section-576"></a>
 ## Section 576
 
-**Ellenőrzés:** egy kísérlet
+**Check:** one attempt
 
-### Locker észlelés ellenőrzése
+### Locker észlelési ellenőrzés
 
 
 
-te vállalja, hogy megfelelően ellenőrzi a nyitott szekrény belsejét – egy pillantás, nem egy gyors pillantás. Ehhez a művelethez dobj egyszer d20-at és a felsorolt ​​módosítót.
+You commit to checking inside the ajar locker properly — one look, not a quick glance. Roll d20 plus your listed modifier once for this action.
 
 **What do you do?**
 
-- If your roll **succeeds**, turn to section **817**.
-- If your roll **fails**, turn to section **798**.
+- If your roll **succeeds**, turn to section [**817**](#section-817).
+- If your roll **fails**, turn to section [**798**](#section-798).
 
 ---
 
+<a id="section-590"></a>
 ## Section 590
 
-**Ellenőrzés:** egy kísérlet
+**Check:** one attempt
 
-### Trend export ellenőrzés
+### Trend export check
 
 
 
-te vállalja, hogy az exportálást a BMS-menükön keresztül futtatja – egy próbálkozás, és a felület nem bocsát meg egy rossz kattintást. Ehhez a művelethez dobj egyszer d20-at és a felsorolt ​​módosítót.
+You commit to running the export through the BMS menus — one attempt, and the interface will not be forgiving of a wrong click. Roll d20 plus your listed modifier once for this action.
 
 **What do you do?**
 
-- If your roll **succeeds**, turn to section **994**.
-- If your roll **fails**, turn to section **990**.
+- If your roll **succeeds**, turn to section [**994**](#section-994).
+- If your roll **fails**, turn to section [**990**](#section-990).
 
 ---
 
+<a id="section-598"></a>
 ## Section 598
 
-**Helyszín:** Hűtőcsarnok | **Időköltség:** 0 perc
+**Location:** Hűtőcsarnok | **Time cost:** 0 perc
 
 ### Hűtőcsarnok
 
@@ -837,75 +893,76 @@ Hideg levegő árad az előszoba ajtajából. A raklapsorok a CZ-1 zóna felé n
 
 **What do you do?**
 
-- Vizsgálja meg a hűtőház ajtajának reteszét és az olvasót . Turn to section **607**.
-- Járja be a C folyosó hosszát a raklapsorok között . Turn to section **503**.
-- Olvasd el az élő CZ-1 befúvott levegő hőmérséklet kijelzőjét . Turn to section **972**.
-- Kövesse a mérnöki átjárót az automatizálási vezérlőterembe . Turn to section **376**.
-- Térjen vissza a rakodó dokkhoz . Turn to section **598**.
-- Menjen vissza a pihenőszoba folyosója felé . Turn to section **598**.
-- Következtetési munkalap megnyitása: A jelvény rosszul van hozzárendelve . Turn to section **195**.
-- Következtetési munkalap megnyitása: A hozzáférési eltérések szabályozása . Turn to section **214**.
-- Következtetési munkalap megnyitása: Culprit támogatott . Turn to section **218**.
-- Következtetési munkalap megnyitása: Tökéletes rekonstrukció . Turn to section **224**.
-- Következtetési munkalap megnyitása: Csalás újracímkézése . Turn to section **231**.
-- Következtetési munkalap megnyitása: A kiváltó ok megszakítása . Turn to section **237**.
-- Jelenet folytatása: SC-COLD-AISLE-FOCUSED . Turn to section **355**.
-- Jelenet folytatása: SC-COLD-LABEL-DETAIL . Turn to section **373**.
+- Examine the cold storage door latch and reader. Turn to section [**607**](#section-607).
+- Walk the length of aisle C between the pallet rows. Turn to section [**503**](#section-503).
+- Read the live CZ-1 supply air temperature display. Turn to section [**972**](#section-972).
+- Follow the engineering passage to the automation control room. Turn to section [**376**](#section-376).
+- Return to the loading dock. Turn to section [**636**](#section-636).
+- Return toward the break room corridor. Turn to section [**547**](#section-547).
+- Open inference worksheet: A jelvény helytelenül van feltüntetve. Turn to section [**195**](#section-195).
+- Open inference worksheet: Ellenőrzési hozzáférési eltérés. Turn to section [**214**](#section-214).
+- Open inference worksheet: Bűnös támogatott. Turn to section [**218**](#section-218).
+- Open inference worksheet: Tökéletes rekonstrukció. Turn to section [**224**](#section-224).
+- Open inference worksheet: Újracímkézési csalás. Turn to section [**231**](#section-231).
+- Open inference worksheet: A kiváltó ok megszakítása. Turn to section [**237**](#section-237).
+- Continue scene SC-COLD-AISLE-FOCUSED. Turn to section [**355**](#section-355).
+- Continue scene SC-COLD-LABEL-DETAIL. Turn to section [**373**](#section-373).
 
 ---
 
+<a id="section-607"></a>
 ## Section 607
 
-**Időköltség:** 3 perc
+**Time cost:** 3 min
 
-### Hűtőszekrény ajtaja
+### hűtőtár door
 
 
 
-Dér szegélyezi a keretet, ahol a hűtőház ajtaja találkozik a folyosó levegőjével. A hűtőkamra ajtaján jelvényolvasó és nehéz retesz található. Bármit is dönt az ellenőrzés mellett, maga az ajtó nem vezet sehova.
+Frost rimes the frame where the hűtőtár door meets the corridor air. The hűtőtár door has a belépőkártya-olvasó and a heavy latch. Whatever you decide to check, the door itself is not going anywhere.
 
 **What do you do?**
 
-- Ellenőrizze a retesz hardverét, hogy nem észlelték-e a közelmúltbeli zavarokat . Turn to section **556**.
-- Vissza a hűtőcsarnokba . Turn to section **598**.
+- Check the latch hardware for recent disturbance. Turn to section [**556**](#section-556).
+- Return to the cold storage hall. Turn to section [**598**](#section-598).
 
 ---
 
+<a id="section-619"></a>
 ## Section 619
 
-**Helyszín:** Automatizálási vezérlőterem | **Időköltség:** 0 perc
+**Location:** Automatizálási vezérlőterem | **Time cost:** 0 perc
 
 ### Automatizálási vezérlőterem
 
 
 
-Az automatizálási vezérlőteremben mérnöki munkaállomások és egy CZ-1 jelzőtábla található. A szerverventilátorok folyamatosan zúgnak a fluoreszkáló fény alatt, és az állapotjelző LED-ek sorai villognak a szokásos mintájukban – kivéve egy panelt, amely egyáltalán nem villog.
+Az automatizálási vezérlőteremben mérnöki munkaállomások és egy CZ-1 állomásjelző panel található. A szerverventilátorok folyamatosan zúgnak a fluoreszkáló fény alatt, és az állapotjelző LED-ek sorai villognak a szokásos mintájukban – kivéve egy panelt, amely egyáltalán nem villog.
 
 **What do you do?**
 
-- Közelítse meg a mérnöki munkaállomást . Turn to section **985**.
-- Ellenőrizze a CZ-1 szakaszolásjelző panelt . Turn to section **968**.
-- Vissza a hűtőcsarnokba . Turn to section **619**.
-- Térjen vissza a rakodó dokkhoz a felügyelővel . Turn to section **619**.
-- Vissza a biztonsági irodába . Turn to section **619**.
-- Következtetési munkalap megnyitása: A jelvény rosszul van hozzárendelve . Turn to section **195**.
-- Következtetési munkalap megnyitása: A hozzáférési eltérések szabályozása . Turn to section **214**.
-- Következtetési munkalap megnyitása: Culprit támogatott . Turn to section **218**.
-- Következtetési munkalap megnyitása: Tökéletes rekonstrukció . Turn to section **224**.
-- Következtetési munkalap megnyitása: Csalás újracímkézése . Turn to section **231**.
-- Következtetési munkalap megnyitása: A kiváltó ok megszakítása . Turn to section **237**.
-- A kísérő engedélye után lépjen be a vezérlőterembe . Turn to section **400**.
-- SC-CONTROL-BMS-REVIEW jelenet folytatása . Turn to section **388**.
+- Approach the engineering workstation. Turn to section [**985**](#section-985).
+- Inspect the CZ-1 staging indicator panel. Turn to section [**968**](#section-968).
+- Return to the cold storage hall. Turn to section [**598**](#section-598).
+- Return to the loading dock with the supervisor. Turn to section [**636**](#section-636).
+- Return to the security office. Turn to section [**963**](#section-963).
+- Open inference worksheet: A jelvény helytelenül van feltüntetve. Turn to section [**195**](#section-195).
+- Open inference worksheet: Ellenőrzési hozzáférési eltérés. Turn to section [**214**](#section-214).
+- Open inference worksheet: Bűnös támogatott. Turn to section [**218**](#section-218).
+- Open inference worksheet: Tökéletes rekonstrukció. Turn to section [**224**](#section-224).
+- Open inference worksheet: Újracímkézési csalás. Turn to section [**231**](#section-231).
+- Open inference worksheet: A kiváltó ok megszakítása. Turn to section [**237**](#section-237).
+- Enter the control room after escort clearance. Turn to section [**400**](#section-400).
+- Continue scene SC-CONTROL-BMS-REVIEW. Turn to section [**388**](#section-388).
 
 ---
 
+<a id="section-623"></a>
 ## Section 623
-
-**Időköltség:** témánként változik
 
 ### Fejlesztői jelvény
 
-
+**Időköltség:** témánként változik
 
 Ez kerül neki valamibe. Dev megdörzsöli a tarkóját, és nem fog egészen találkozni a szemével.
 
@@ -917,17 +974,16 @@ Ez kerül neki valamibe. Dev megdörzsöli a tarkóját, és nem fog egészen ta
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **636**.
+- Return to your current location menu or continue the conversation. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-625"></a>
 ## Section 625
 
+### Fejlesztő clo1847
+
 **Időköltség:** témánként változik
-
-### Dev clo1847
-
-
 
 Kérdés nélkül előhúzza a telefonján a lezárt jegyet, mint egy vállalkozó, aki a saját papírjait védi.
 
@@ -937,17 +993,16 @@ Kérdés nélkül előhúzza a telefonján a lezárt jegyet, mint egy vállalkoz
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **636**.
+- Return to your current location menu or continue the conversation. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-626"></a>
 ## Section 626
-
-**Időköltség:** témánként változik
 
 ### Fejlesztői kilépés
 
-
+**Időköltség:** témánként változik
 
 Dev még mindig kezeslábasát gombolva, szerszámos táskával a vállán, láthatóan kihúzta az ágyból Elena hívására érkezik a dokkba. Gyorsan válaszol, alig várja, hogy elszámoljon az estéjével.
 
@@ -957,17 +1012,16 @@ Dev még mindig kezeslábasát gombolva, szerszámos táskával a vállán, lát
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **636**.
+- Return to your current location menu or continue the conversation. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-629"></a>
 ## Section 629
-
-**Időköltség:** témánként változik
 
 ### Fejlesztői munkamenet
 
-
+**Időköltség:** témánként változik
 
 Mostanra felhagyott a védekezéssel, és csak válaszolni kezdett – az a fajta fáradt őszinteség, amely azután jön, hogy már elvesztetted a vitát önmagával.
 
@@ -977,13 +1031,14 @@ Mostanra felhagyott a védekezéssel, és csak válaszolni kezdett – az a fajt
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **636**.
+- Return to your current location menu or continue the conversation. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-636"></a>
 ## Section 636
 
-**Helyszín:** Rakodási dokk | **Időköltség:** 0 perc
+**Location:** Rakodási dokk | **Time cost:** 0 perc
 
 ### Dokk betöltése
 
@@ -993,71 +1048,72 @@ A rakodó dokkolót nátrium-lámpatestek világítják meg. A targoncák tétle
 
 **What do you do?**
 
-- Menjen át a dokkfolyosón a hűtőcsarnokba . Turn to section **598**.
-- Menj be a személyzeti pihenőszobába . Turn to section **547**.
-- A raktár folyosóján át a biztonsági irodába . Turn to section **963**.
-- Az irodaszárny folyosóján menj a raktárvezető irodájába . Turn to section **891**.
-- Tekintse át a felügyelői eligazítási területet . Turn to section **638**.
-- Kérjen kísérő engedélyt az automatizálási vezérlőterembe . Turn to section **661**.
-- Következtetési munkalap megnyitása: A jelvény rosszul van hozzárendelve . Turn to section **195**.
-- Következtetési munkalap megnyitása: A hozzáférési eltérések szabályozása . Turn to section **214**.
-- Következtetési munkalap megnyitása: Culprit támogatott . Turn to section **218**.
-- Következtetési munkalap megnyitása: Tökéletes rekonstrukció . Turn to section **224**.
-- Következtetési munkalap megnyitása: Csalás újracímkézése . Turn to section **231**.
-- Következtetési munkalap megnyitása: A kiváltó ok megszakítása . Turn to section **237**.
-- Vegyen felügyelői eligazítást a rakodókon . Turn to section **413**.
-- Munkavégzés a felügyelő dokk korlátozásának végrehajtása alatt . Turn to section **434**.
-- Mérje fel a dokkot és a szomszédos folyosókat . Turn to section **429**.
-- A megfelelőségi küszöb előtt készítse el a végső elszámoltathatósági dokumentációt . Turn to section **326**.
-- Erősítse meg, mikor hagyta el ma este a webhelyet . Turn to section **626**.
-- Kérdezzen a CLO-1847 bezárási részleteiről . Turn to section **625**.
-- Nyomd meg, hogy a vállalkozói jelvényed elhagyta-e az épületet . Turn to section **623**.
-- Kérdezze meg, hogy maradt-e aktív karbantartási munkamenet CTRL-TERM-02 . Turn to section **629**.
-- Kérdezze meg, milyen műveleti lépéseket rendelt el a riasztás után . Turn to section **660**.
-- Kérdezd meg, hogy ki dolgozott még a helyszínen későn . Turn to section **656**.
-- Kérdezzen a dokkoló hozzáférési korlátozásairól . Turn to section **650**.
+- Walk through the dock corridor to the cold storage hall. Turn to section [**598**](#section-598).
+- Head inside to the staff break room. Turn to section [**547**](#section-547).
+- Cut through the warehouse corridor to the security office. Turn to section [**963**](#section-963).
+- Take the office wing corridor to the warehouse manager office. Turn to section [**891**](#section-891).
+- Review the supervisor briefing area. Turn to section [**638**](#section-638).
+- Request escort clearance to the automation control room. Turn to section [**661**](#section-661).
+- Open inference worksheet: A jelvény helytelenül van feltüntetve. Turn to section [**195**](#section-195).
+- Open inference worksheet: Ellenőrzési hozzáférési eltérés. Turn to section [**214**](#section-214).
+- Open inference worksheet: Bűnös támogatott. Turn to section [**218**](#section-218).
+- Open inference worksheet: Tökéletes rekonstrukció. Turn to section [**224**](#section-224).
+- Open inference worksheet: Újracímkézési csalás. Turn to section [**231**](#section-231).
+- Open inference worksheet: A kiváltó ok megszakítása. Turn to section [**237**](#section-237).
+- Receive supervisor briefing at the loading dock. Turn to section [**413**](#section-413).
+- Work under supervisor dock restriction enforcement. Turn to section [**434**](#section-434).
+- Survey the dock and adjacent corridors. Turn to section [**429**](#section-429).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**326**](#section-326).
+- Confirm when you left the site tonight. Turn to section [**626**](#section-626).
+- Ask about CLO-1847 closeout details. Turn to section [**625**](#section-625).
+- Press about whether your contractor badge left the building with you. Turn to section [**623**](#section-623).
+- Ask whether any maintenance session was left active on CTRL-TERM-02. Turn to section [**629**](#section-629).
+- Ask what operational steps you ordered after the alarm. Turn to section [**660**](#section-660).
+- Ask who was still on site working late. Turn to section [**656**](#section-656).
+- Ask about dock access restrictions. Turn to section [**650**](#section-650).
 
 ---
 
+<a id="section-638"></a>
 ## Section 638
 
-**Időköltség:** 2 perc
+**Time cost:** 2 min
 
-### Felügyelői tájékoztató
+### Supervisor briefing
 
 
 
-Odalépsz az eligazító asztalhoz, ahol Elena mindent lefektetett, amit eddig összegyűjtött. Elena az incidensek nyomtatott idővonalára mutat az eligazító asztalon. Jegyezd fel az idővonalat, mielőtt visszalép az ablakajtó felé.
+You step up to the briefing table where Elena has laid out everything she has gathered so far. Elena points to a printed incident timeline on the briefing table. You note the timeline before stepping back toward the bay doors.
 
 **What do you do?**
 
-- Térjen vissza a rakodó dokkhoz . Turn to section **636**.
+- Return to the loading dock. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-641"></a>
 ## Section 641
 
-**Időköltség:** 1 perc
+**Time cost:** 1 min
 
-### Kilátás a kikötőből a pihenőből
+### Dock view from break room
 
 
 
-Kinézel a pihenőszoba ablakán a dokk felé, ahonnan most jöttél. Az ablakon keresztül a dokk-öböl látható nátriumlámpák alatt. Visszafordulsz a szobába, ha már eleget láttál.
+You glance out the break room window toward the dock you just came from. Through the window you see the dock bay under sodium lights. You turn back into the room once you have seen enough.
 
 **What do you do?**
 
-- Vissza a pihenőszobába . Turn to section **547**.
+- Return to the break room. Turn to section [**547**](#section-547).
 
 ---
 
+<a id="section-650"></a>
 ## Section 650
-
-**Időköltség:** témánként változik
 
 ### Elena korlátozza
 
-
+**Időköltség:** témánként változik
 
 Mostanra a dokk két öbölsávon át van szalaggal, Elena pedig úgy áll a határon, mintha bárkit is ok nélkül át akarna kelni rajta.
 
@@ -1067,17 +1123,16 @@ Mostanra a dokk két öbölsávon át van szalaggal, Elena pedig úgy áll a hat
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **636**.
+- Return to your current location menu or continue the conversation. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-656"></a>
 ## Section 656
 
+### Elena személyzet
+
 **Időköltség:** témánként változik
-
-### Elena személyzete
-
-
 
 Megérzi ezt, végigfutja a műszak beosztását a fejében, mielőtt válaszolna.
 
@@ -1087,17 +1142,16 @@ Megérzi ezt, végigfutja a műszak beosztását a fejében, mielőtt válaszoln
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **636**.
+- Return to your current location menu or continue the conversation. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-660"></a>
 ## Section 660
-
-**Időköltség:** témánként változik
 
 ### Elena sürgős
 
-
+**Időköltség:** témánként változik
 
 Elenának egyik kezében egy telefon, a másikban egy vágólap van, és úgy válaszol, ahogy ma este már három másik embernek válaszolt – gyorsan, lassítás nélkül.
 
@@ -1107,42 +1161,45 @@ Elenának egyik kezében egy telefon, a másikban egy vágólap van, és úgy v�
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **636**.
+- Return to your current location menu or continue the conversation. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-661"></a>
 ## Section 661
 
-**Időköltség:** 3 perc
+**Time cost:** 3 min
 
-### A kíséret megadva
+### Escort granted
 
 
 
-Elena nem vitatkozik, amikor belépést kér a vezérlőterembe – csak a kísérőnaplóért nyúl. Elena aláír egy kísérőnaplót, és elkísér a mérnöki átjáró felé. Az aláírásával feljogosíthatja, hogy innen egyedül induljon el.
+Elena does not argue when you ask for automatika vezérlő access — she just reaches for the escort log. Elena signs an escort log and walks you toward the engineering passage. With her signature down, you are cleared to make the walk on your own from here.
 
 **What do you do?**
 
-- Térjen vissza a rakodó dokkhoz . Turn to section **636**.
+- Return to the loading dock. Turn to section [**636**](#section-636).
 
 ---
 
+<a id="section-679"></a>
 ## Section 679
 
-**Időköltség:** 3 perc
+**Time cost:** 3 min
 
-### Vállalkozó kilépési vizsgálata
+### Contractor exit scan
 
 
 
-Lehúzza a kimenő dokk vizsgálati naplót, hogy ellenőrizze a vállalkozó távozását. A kimenő dokkellenőrzés azt mutatja, hogy Dev Santos 7:02 p.m.-kor kilépett. Az archív menübe való visszatérés előtt jegyezd fel a kilépési időt.
+You pull the outbound dock scan log to check the contractor's departure. Outbound dock scan shows Dev Santos exited at 7:02 p.m. You note the exit time before returning to the archive menu.
 
 **What do you do?**
 
-- Visszatérés a jelvényarchívum menühöz . Turn to section **519**.
+- Return to the badge archive menu. Turn to section [**519**](#section-519).
 
 ---
 
+<a id="section-697"></a>
 ## Section 697
 
 ### Archív szinkronizálási szabályzat
@@ -1157,146 +1214,153 @@ Nincs kivel vitatkozni rajta – a menetrend attól függ, hogy vár-e rá, vagy
 
 **What do you do?**
 
-- Vissza a biztonsági irodába . Turn to section **963**.
+- Return to the security office. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-701"></a>
 ## Section 701
 
-**Időköltség:** 4 perc
+**Time cost:** 4 min
 
-### Címke időbélyegének összehasonlítása
+### Label timestamp comparison
 
 
 
-A hátlappal a kezében fektesse a raklap nyugtanyomat mellé. Összehasonlítja a visszaállított háttérnyomtatási időbélyeget a raklapbevételi rekordokkal. Az időbélyeg nem egyezik az eredeti részleges raklap helyével. Mielőtt visszatérne a folyosóra, megjegyzi az eltérést az ügy aktájában.
+With the backing strip in hand, you lay it next to the raklap receipt printout. You compare the recovered backing print timestamp to raklap receipt records. The timestamp does not match the original partial-raklap location. You note the mismatch in your case file before returning to the aisle.
 
 **What do you do?**
 
-- Visszatérés a C folyosó menüjéhez . Turn to section **503**.
+- Return to aisle C menu. Turn to section [**503**](#section-503).
 
 ---
 
+<a id="section-736"></a>
 ## Section 736
 
-**Időköltség:** 5 perc
+**Time cost:** 5 min
 
-### Címkekeresés – hiba
+### Label search — failure
 
 
 
-Olyan közel megy át a padlón és a raklap felületén, amennyire csak tudja. A padló és a raklap felülete rutinszerű raktári kopást mutat; semmi jellegzetes nyoma nem látszik. Üresen feljössz, és visszalépsz a folyosó bejárata felé.
+You go over the floor and raklap faces as closely as you can manage. The floor and raklap faces show routine warehouse wear; no distinctive trace stands out. You come up empty and step back toward the aisle entrance.
 
 **What do you do?**
 
-- Visszatérés a C folyosó menüjéhez . Turn to section **503**.
+- Return to aisle C menu. Turn to section [**503**](#section-503).
 
 ---
 
+<a id="section-749"></a>
 ## Section 749
 
-**Időköltség:** 5 perc
+**Time cost:** 5 min
 
-### Címkekeresés – siker
+### Label search — success
 
 
 
-Átmész a padlón, és a raklapok hüvelykről hüvelykre néznek, figyelmen kívül hagyva az ujjaid hidegét. Friss ragasztónyomokkal visszanyerheti a címke hátlapját. Óvatosan csomagolja be a csíkot, és induljon vissza a folyosó bejárata felé.
+You go over the floor and raklap faces inch by inch, ignoring the cold in your fingers. You recover a strip of label backing with fresh adhesive trace. You bag the strip carefully and head back toward the aisle entrance.
 
 **What do you do?**
 
-- Visszatérés a C folyosó menüjéhez . Turn to section **503**.
+- Return to aisle C menu. Turn to section [**503**](#section-503).
 
 ---
 
+<a id="section-761"></a>
 ## Section 761
 
-**Időköltség:** 4 perc
+**Time cost:** 4 min
 
-### Reteszellenőrzés – hiba
+### Latch check — failure
 
 
 
-Leguggolsz, és olyan gondosan ellenőrizd a reteszlemezt, ahogy a fény engedi. Ebből a szögből a reteszelő hardver közönségesnek tűnik; semmi hasznos nem tűnik ki. Itt semmi sem változtat azon, amit eddig is tudtál, ezért menj vissza az ajtóhoz.
+You crouch and check the latch plate as carefully as the light allows. The latch hardware looks ordinary from this angle; nothing useful stands out. Nothing here changes what you already knew, so you head back to the door.
 
 **What do you do?**
 
-- Térjen vissza a hűtőház ajtó menüjéhez . Turn to section **607**.
+- Return to the cold storage door menu. Turn to section [**607**](#section-607).
 
 ---
 
+<a id="section-783"></a>
 ## Section 783
 
-**Időköltség:** 4 perc
+**Time cost:** 4 min
 
-### Reteszellenőrzés – siker
+### Latch check — success
 
 
 
-Leguggolsz, és egy lámpát vezetsz a reteszlapon, elnézve a nyilvánvalót. A reteszlemez alatt friss kopást észlel azon a helyen, ahol nemrégiben a hardvert kezelték. Jegyezd fel a kopásmintát, mielőtt felegyenesedne és visszatérne az ajtóhoz.
+You crouch and run a light along the latch plate, looking past the obvious. Under the latch plate you notice fresh scuffing where hardware was recently handled. You note the wear pattern before straightening up and returning to the door.
 
 **What do you do?**
 
-- Térjen vissza a hűtőház ajtó menüjéhez . Turn to section **607**.
+- Return to the cold storage door menu. Turn to section [**607**](#section-607).
 
 ---
 
+<a id="section-798"></a>
 ## Section 798
 
-**Időköltség:** 3 perc
+**Time cost:** 3 min
 
-### A szekrény ellenőrzése – hiba
+### Locker inspect — failure
 
 
 
-Kinyitja a résnyire nyitott ajtót, és megnézi, mi van benne. A szekrény belseje első pillantásra figyelemre méltónak tűnik. Semmi sem tűnik fel, így hátrébb lépsz a szekrényből.
+You ease the ajar door open and check what is inside. The locker interior looks unremarkable at a glance. Nothing stands out, so you step back from the locker bank.
 
 **What do you do?**
 
-- Térjen vissza a szekrény menüjéhez . Turn to section **813**.
+- Return to the locker menu. Turn to section [**813**](#section-813).
 
 ---
 
+<a id="section-813"></a>
 ## Section 813
 
-**Időköltség:** 2 perc
+**Time cost:** 2 min
 
-### Személyzeti szekrény bank
+### Staff locker bank
 
 
 
-A szekrénysor hideg kávé- és tisztítószer-szagú, többnyire háborítatlanul. Több szekrény zárva van. Az egyik vállalkozó szekrény ajtaja kissé nyitva van. A nyitott szekrény ajtaja nem fog becsukódni, amíg te dönt.
+The locker row smells like cold coffee and cleaning solution, mostly undisturbed. Several lockers are closed. One contractor locker door sits slightly open. The open locker door is not going to close itself while you decide.
 
 **What do you do?**
 
-- Vizsgálja meg a nyitott vállalkozói szekrényt . Turn to section **576**.
-- Vissza a pihenőszobába . Turn to section **547**.
+- Inspect the ajar contractor locker. Turn to section [**576**](#section-576).
+- Return to the break room. Turn to section [**547**](#section-547).
 
 ---
 
+<a id="section-817"></a>
 ## Section 817
 
-**Időköltség:** 3 perc
+**Time cost:** 3 min
 
-### A szekrény ellenőrzése – siker
+### Locker inspect — success
 
 
 
-Kinyitja a résnyire nyitott ajtót, és átnézi a benne lévő összehajtott kezeslábast. A szekrény belsejében egy ideiglenes vállalkozói jelvényt talál, amelyet nem adtak vissza a kilépéskor. Megjegyzi a jelvényt, és hátralép a szekrényből.
+You ease the ajar door open and check past the folded coveralls inside. Inside the locker you find a contractor temporary belépőkártya that was not returned at exit. You note the belépőkártya and step back from the locker bank.
 
 **What do you do?**
 
-- Térjen vissza a szekrény menüjéhez . Turn to section **813**.
+- Return to the locker menu. Turn to section [**813**](#section-813).
 
 ---
 
+<a id="section-842"></a>
 ## Section 842
-
-**Időköltség:** témánként változik
 
 ### Lori vezérlés min
 
-
+**Időköltség:** témánként változik
 
 Amikor megemlíti a vezérlőszobát, végre rád néz – röviden –, mielőtt visszafordulna a képernyőjéhez.
 
@@ -1308,17 +1372,16 @@ Kisebbnek hangzik, mint egy jelvénynapló.
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **891**.
+- Return to your current location menu or continue the conversation. Turn to section [**891**](#section-891).
 
 ---
 
+<a id="section-847"></a>
 ## Section 847
-
-**Időköltség:** témánként változik
 
 ### Lori tagadja a hideget
 
-
+**Időköltség:** témánként változik
 
 Lori nem néz fel az egyeztető képernyőről, amikor belépsz. Válasza azonnali, lapos, és egyértelműen elhangzott, mielőtt még megkérdezted.
 
@@ -1328,17 +1391,16 @@ Lori nem néz fel az egyeztető képernyőről, amikor belépsz. Válasza azonna
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **891**.
+- Return to your current location menu or continue the conversation. Turn to section [**891**](#section-891).
 
 ---
 
+<a id="section-852"></a>
 ## Section 852
-
-**Időköltség:** témánként változik
 
 ### Lori címke
 
-
+**Időköltség:** témánként változik
 
 A címkemaradvány az, amivel nem tud vitatkozni. Bármilyen higgadtság is volt, végül elmegy.
 
@@ -1350,17 +1412,16 @@ Ez van a legközelebb ahhoz, hogy sajnálja.
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **891**.
+- Return to your current location menu or continue the conversation. Turn to section [**891**](#section-891).
 
 ---
 
+<a id="section-855"></a>
 ## Section 855
-
-**Időköltség:** témánként változik
 
 ### Lori nyomás
 
-
+**Időköltség:** témánként változik
 
 A nyilvánvaló kivételt maga elé tárja. Egy pillanatig csak nézi a számokat, és a megkomponált hang elcsúszik.
 
@@ -1370,29 +1431,31 @@ A nyilvánvaló kivételt maga elé tárja. Egy pillanatig csak nézi a számoka
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **891**.
+- Return to your current location menu or continue the conversation. Turn to section [**891**](#section-891).
 
 ---
 
+<a id="section-881"></a>
 ## Section 881
 
-**Időköltség:** 3 perc
+**Time cost:** 3 min
 
-### Karbantartási jegy
+### Maintenance ticket
 
 
 
-Felhúzza a karbantartási jegyek sorát, és megtalálja a legutóbb bezárt bejegyzést a CZ-1 számára. Az CLO-1847 jegyet 6:30 p.m.-kor zártuk, azzal a megjegyzéssel, hogy a SVC-REFRG-MAINT munkamenet zárolva maradt. Megjegyzi a lezárási megjegyzést, és visszatér a munkaállomás menüjébe.
+You pull up the maintenance ticket queue and find the most recently closed entry for CZ-1. Ticket CLO-1847 closed at 6:30 p.m. with a note that session SVC-REFRG-MAINT was left unlocked. You note the closeout comment and return to the workstation menu.
 
 **What do you do?**
 
-- Visszatérés a mérnöki munkaállomás menühöz . Turn to section **985**.
+- Return to the engineering workstation menu. Turn to section [**985**](#section-985).
 
 ---
 
+<a id="section-891"></a>
 ## Section 891
 
-**Helyszín:** Raktárvezető iroda | **Időköltség:** 0 perc
+**Location:** Raktárvezető iroda | **Time cost:** 0 perc
 
 ### Raktárvezetői iroda
 
@@ -1402,64 +1465,65 @@ A raktárvezetői iroda vészhelyzetre nyitva tart. Lori Okonkwo fogadó munkaá
 
 **What do you do?**
 
-- Tekintse át a nyitott fogadási egyeztetési képernyőt . Turn to section **901**.
-- Térjen vissza a rakodó dokkhoz . Turn to section **891**.
-- Vissza a pihenőszobába . Turn to section **891**.
-- Következtetési munkalap megnyitása: A jelvény rosszul van hozzárendelve . Turn to section **195**.
-- Következtetési munkalap megnyitása: A hozzáférési eltérések szabályozása . Turn to section **214**.
-- Következtetési munkalap megnyitása: Culprit támogatott . Turn to section **218**.
-- Következtetési munkalap megnyitása: Tökéletes rekonstrukció . Turn to section **224**.
-- Következtetési munkalap megnyitása: Csalás újracímkézése . Turn to section **231**.
-- Következtetési munkalap megnyitása: A kiváltó ok megszakítása . Turn to section **237**.
-- Kérdezze meg, hogy belépett-e a hűtőházba a munkaidő után . Turn to section **847**.
-- Érdeklődjön a vezérlőterem látogatásáról 23:20 körül . Turn to section **842**.
-- Szembesüljön a MNF-IN-4471 nyilvánvaló kivételes bizonyítékaival . Turn to section **855**.
-- Nyomja meg a C folyosón talált címkemaradékról . Turn to section **852**.
-- SC-MANAGER-PRESSURE-TOPIC jelenet folytatása . Turn to section **436**.
+- Review the open receiving reconciliation screen. Turn to section [**901**](#section-901).
+- Return to the loading dock. Turn to section [**636**](#section-636).
+- Return to the break room. Turn to section [**547**](#section-547).
+- Open inference worksheet: A jelvény helytelenül van feltüntetve. Turn to section [**195**](#section-195).
+- Open inference worksheet: Ellenőrzési hozzáférési eltérés. Turn to section [**214**](#section-214).
+- Open inference worksheet: Bűnös támogatott. Turn to section [**218**](#section-218).
+- Open inference worksheet: Tökéletes rekonstrukció. Turn to section [**224**](#section-224).
+- Open inference worksheet: Újracímkézési csalás. Turn to section [**231**](#section-231).
+- Open inference worksheet: A kiváltó ok megszakítása. Turn to section [**237**](#section-237).
+- Ask whether you entered cold storage after hours. Turn to section [**847**](#section-847).
+- Ask about your control room visit around 23:20. Turn to section [**842**](#section-842).
+- Confront with manifest exception evidence from MNF-IN-4471. Turn to section [**855**](#section-855).
+- Press about label residue found in aisle C. Turn to section [**852**](#section-852).
+- Continue scene SC-MANAGER-PRESSURE-TOPIC. Turn to section [**436**](#section-436).
 
 ---
 
+<a id="section-899"></a>
 ## Section 899
 
-**Időköltség:** 5 perc
+**Time cost:** 5 min
 
-### Nyilvánvaló összehasonlítás
+### bevételezési jegyzék comparison
 
 
 
-A jegyzéket egymás mellé húzza a beolvasott kézbesítési rekorddal. A MNF-IN-4471 jegyzék nyolc beérkezett esetet mutat, míg az POD-4471 szolgáltató negyvennyolcat. Jegyezd fel a mennyiségi hiányt, mielőtt visszatérne a fogadó munkaállomásra.
+You pull the bevételezési jegyzék up side by side with the scanned delivery record. bevételezési jegyzék MNF-IN-4471 shows eight cases received while carrier POD-4471 lists forty-eight. You note the quantity gap before returning to the receiving workstation.
 
 **What do you do?**
 
-- Térjen vissza a bevételezési jegyzék menübe . Turn to section **901**.
+- Return to the manifest menu. Turn to section [**901**](#section-901).
 
 ---
 
+<a id="section-901"></a>
 ## Section 901
 
-**Időköltség:** 2 perc
+**Time cost:** 2 min
 
-### Fogadó munkaállomás
+### Receiving workstation
 
 
 
-Az egyeztető képernyő pontosan olyan, ahogy hagyták, a kivételjelző továbbra is világít. A fogadó képernyő továbbra is a MNF-IN-4471-t jelzi. A kivétel továbbra is fennáll, és arra vár, hogy melyik rekordot ellenőrzi először.
+The reconciliation screen is exactly how it was left, exception flag still lit. The receiving screen still flags bevételezési jegyzék MNF-IN-4471. The exception is still open, waiting on whichever record you check first.
 
 **What do you do?**
 
-- Hasonlítsa össze a MNF-IN-4471 jegyzéket a szállítói kézbesítési rekorddal . Turn to section **899**.
-- Kereszthivatkozás az aláírt hordozó POD-ra a rekesz-hozzárendelésekkel szemben . Turn to section **958**.
-- Vissza a vezetői irodába . Turn to section **891**.
+- Compare manifest MNF-IN-4471 to the carrier delivery record. Turn to section [**899**](#section-899).
+- Cross-reference the signed carrier POD against bay assignments. Turn to section [**958**](#section-958).
+- Return to the manager office. Turn to section [**891**](#section-891).
 
 ---
 
+<a id="section-907"></a>
 ## Section 907
 
+### Marcus riasztó
+
 **Időköltség:** témánként változik
-
-### Marcus riasztás
-
-
 
 A panelnél Marcus egy piros szövegsorra mutat, amely még mindig a riasztási előzményekben található. Ebben a részben biztos, mert végignézte, ahogy történik.
 
@@ -1469,17 +1533,16 @@ A panelnél Marcus egy piros szövegsorra mutat, amely még mindig a riasztási 
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **963**.
+- Return to your current location menu or continue the conversation. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-917"></a>
 ## Section 917
-
-**Időköltség:** témánként változik
 
 ### Marcus szakadék
 
-
+**Időköltség:** témánként változik
 
 Felemeli a jelvényolvasót a fiókja ellen, és Marcus magabiztossága először megvillan. te helyett az archív terminál felé pillant.
 
@@ -1491,17 +1554,16 @@ Ez nem vallomás – csak annak beismerése, hogy a körei és a rekordrendszer 
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **963**.
+- Return to your current location menu or continue the conversation. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-934"></a>
 ## Section 934
-
-**Időköltség:** témánként változik
 
 ### Marcus retesz
 
-
+**Időköltség:** témánként változik
 
 Marcus a biztonsági iroda riasztópultja mellett áll, a kulcsok még mindig az övére vannak akasztva. Már eldöntötte, hogy ez a beszélgetés arról szól, hogy megbizonyosodjon arról, hogy helyesen végezte a munkáját, és úgy válaszol, mintha egy körnaplóból olvasna.
 
@@ -1513,17 +1575,16 @@ A levegőbe csapja az időt, mintha az megoldaná az ügyet.
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **963**.
+- Return to your current location menu or continue the conversation. Turn to section [**963**](#section-963).
 
 ---
 
+<a id="section-935"></a>
 ## Section 935
 
+### Pat ajtót
+
 **Időköltség:** témánként változik
-
-### Nyomd meg az ajtót
-
-
 
 Pat még mindig egy felmosókocsit tol, amikor elkapod őket a pihenőhelyiség közelében. Egy korty automata kávé között válaszolnak, mintha ez csak egy újabb furcsa dolog, ami műszakban történt.
 
@@ -1533,17 +1594,16 @@ Pat még mindig egy felmosókocsit tol, amikor elkapod őket a pihenőhelyiség 
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **547**.
+- Return to your current location menu or continue the conversation. Turn to section [**547**](#section-547).
 
 ---
 
+<a id="section-943"></a>
 ## Section 943
-
-**Időköltség:** témánként változik
 
 ### Pat sil
 
-
+**Időköltség:** témánként változik
 
 Többre törekszel, és Pat valójában ezen gondolkodik, ahelyett, hogy csak vállat vonna – ami azt jelzi, hogy nem titkolnak semmit, egyszerűen nincs mit találni.
 
@@ -1553,29 +1613,31 @@ Többre törekszel, és Pat valójában ezen gondolkodik, ahelyett, hogy csak v�
 
 **What do you do?**
 
-- Térjen vissza az aktuális hely menüjébe, vagy folytassa a beszélgetést . Turn to section **547**.
+- Return to your current location menu or continue the conversation. Turn to section [**547**](#section-547).
 
 ---
 
+<a id="section-958"></a>
 ## Section 958
 
-**Időköltség:** 3 perc
+**Time cost:** 3 min
 
-### Carrier POD kereszthivatkozás
+### Carrier POD cross-reference
 
 
 
-Felnyitja a hordozó POD-összekötőt, hogy ellenőrizze a rekesz hozzárendelését a ténylegesen naplózott adatokkal. Az aláírt POD a teljes szállítmányt a C3 rekeszhez rendeli, és a tétel teljes vizsgálatát várja. A fogadó munkaállomásra való visszatérés előtt jegyezd fel a hozzárendelést.
+You flip open the carrier POD binder to check the bay assignment against what was actually logged. The signed POD assigns the full shipment to bay C3 expecting a complete lot scan. You note the assignment before returning to the receiving workstation.
 
 **What do you do?**
 
-- Térjen vissza a bevételezési jegyzék menübe . Turn to section **901**.
+- Return to the manifest menu. Turn to section [**901**](#section-901).
 
 ---
 
+<a id="section-963"></a>
 ## Section 963
 
-**Helyszín:** Biztonsági iroda | **Időköltség:** 0 perc
+**Location:** Biztonsági iroda | **Time cost:** 0 perc
 
 ### Biztonsági iroda
 
@@ -1585,106 +1647,111 @@ A biztonsági iroda rendelkezik egy riasztó panellel és egy jelvényarchívum 
 
 **What do you do?**
 
-- Tekintse át a legutóbbi riasztási előzményeket a biztonsági panelen . Turn to section **514**.
-- Nyissa meg a jelvény-hozzáférési archív terminált . Turn to section **519**.
-- Térjen vissza a rakodó dokkhoz . Turn to section **963**.
-- Vissza a pihenőszobába . Turn to section **963**.
-- Következtetési munkalap megnyitása: A jelvény rosszul van hozzárendelve . Turn to section **195**.
-- Következtetési munkalap megnyitása: A hozzáférési eltérések szabályozása . Turn to section **214**.
-- Következtetési munkalap megnyitása: Culprit támogatott . Turn to section **218**.
-- Következtetési munkalap megnyitása: Tökéletes rekonstrukció . Turn to section **224**.
-- Következtetési munkalap megnyitása: Csalás újracímkézése . Turn to section **231**.
-- Következtetési munkalap megnyitása: A kiváltó ok megszakítása . Turn to section **237**.
-- A jelvényarchívum szinkronizálása után térjen vissza a biztonsághoz . Turn to section **448**.
-- Használja a biztonsági irodát, amíg az őr a kötelező szünetet tartja . Turn to section **484**.
-- Tekintse át a csak rekordokat tartalmazó archívum szinkronizálási szabályzatát . Turn to section **435**.
-- Kérdezd meg, mit ellenőriztél a hűtőkamra ajtaján a körök során . Turn to section **934**.
-- Kérdezze meg, hogy a jelvényolvasó naplója eltérhet-e a reteszellenőrzéstől . Turn to section **917**.
-- Kérdezze meg, mikor jelent meg először a magas hőmérsékleti riasztás a panelen . Turn to section **907**.
-- Térjen vissza a szinkronizált jelvényarchívum lekérdezéséhez . Turn to section **474**.
-- SC-SECURITY-CROSSREF jelenet folytatása . Turn to section **477**.
+- Review recent alarm history on the security panel. Turn to section [**514**](#section-514).
+- Open the badge access archive terminal. Turn to section [**519**](#section-519).
+- Return to the loading dock. Turn to section [**636**](#section-636).
+- Return to the break room. Turn to section [**547**](#section-547).
+- Open inference worksheet: A jelvény helytelenül van feltüntetve. Turn to section [**195**](#section-195).
+- Open inference worksheet: Ellenőrzési hozzáférési eltérés. Turn to section [**214**](#section-214).
+- Open inference worksheet: Bűnös támogatott. Turn to section [**218**](#section-218).
+- Open inference worksheet: Tökéletes rekonstrukció. Turn to section [**224**](#section-224).
+- Open inference worksheet: Újracímkézési csalás. Turn to section [**231**](#section-231).
+- Open inference worksheet: A kiváltó ok megszakítása. Turn to section [**237**](#section-237).
+- Return to security after the badge archive sync completes. Turn to section [**448**](#section-448).
+- Use the security office while the guard is on mandatory break. Turn to section [**484**](#section-484).
+- Review the records-only archive sync policy. Turn to section [**435**](#section-435).
+- Ask what you checked on the cold storage door during rounds. Turn to section [**934**](#section-934).
+- Ask whether the badge reader log could differ from a latch check. Turn to section [**917**](#section-917).
+- Ask when the high-temperature alarm first appeared on your panel. Turn to section [**907**](#section-907).
+- Return to query the synced badge archive. Turn to section [**474**](#section-474).
+- Continue scene SC-SECURITY-CROSSREF. Turn to section [**477**](#section-477).
 
 ---
 
+<a id="section-968"></a>
 ## Section 968
 
-**Időköltség:** 3 perc
+**Time cost:** 3 min
 
-### Megszakításjelző panel
+### Staging indicator panel
 
 
 
-Egyetlen borostyánsárga jelzőfény a vezérlőpanelen az egyetlen, ami nem villog egymás után. A CZ-1 fokozatjelző panelen a kompresszor felfüggesztése látható. Felírod a panel állapotát, és visszafordulsz a szoba felé.
+A single amber indicator on the staging panel is the only thing not blinking in sequence. The CZ-1 staging panel shows compressor staging suspended. You write down the panel state and turn back toward the room.
 
 **What do you do?**
 
-- Vissza a vezérlőterembe . Turn to section **619**.
+- Return to the control room. Turn to section [**619**](#section-619).
 
 ---
 
+<a id="section-972"></a>
 ## Section 972
 
-**Időköltség:** 1 perc
+**Time cost:** 1 min
 
-### Élő hőmérséklet kijelző
+### Live temperature display
 
 
 
-A tiszta leolvasás érdekében letörli a dér az érzékelő kijelzőjét. Az élő kijelzőn CZ-1 a befúvott levegő a hideglánc küszöbértéke feletti tartós emelkedésnél. Regisztrálja a számot, és visszafordul a terem többi része felé.
+You wipe frost off the sensor display to get a clean reading. The live display reads CZ-1 supply air at a sustained rise above the cold-chain threshold. You log the number and turn back toward the rest of the hall.
 
 **What do you do?**
 
-- Vissza a hűtőcsarnokba . Turn to section **598**.
+- Return to the cold storage hall. Turn to section [**598**](#section-598).
 
 ---
 
+<a id="section-985"></a>
 ## Section 985
 
-**Időköltség:** 1 perc
+**Time cost:** 1 min
 
-### Mérnöki munkaállomás
+### Engineering workstation
 
 
 
-A munkaállomás képernyője még mindig világít, pontosan úgy, ahogy valaki órákkal ezelőtt hagyta. A CTRL-TERM-02 mérnöki munkaállomás ébren van. A terminál nem záródik be, miközben te eldönti, hogy mit nyit meg először.
+The workstation screen is still lit, exactly the way someone left it hours ago. Engineering workstation CTRL-TERM-02 is awake. The terminal is not locking itself while you decide what to open first.
 
 **What do you do?**
 
-- Tekintse át a BMS parancsnaplóját ezen a terminálon . Turn to section **545**.
-- Nyissa meg a zárt karbantartási jegyet CZ-1 . Turn to section **881**.
-- Exportálja a CZ-1 befújt levegő hőmérsékleti trendjét . Turn to section **590**.
-- Vissza a vezérlőterembe . Turn to section **619**.
+- Review the BMS command log on this terminal. Turn to section [**545**](#section-545).
+- Open the closed maintenance ticket for CZ-1. Turn to section [**881**](#section-881).
+- Export the CZ-1 supply air temperature trend. Turn to section [**590**](#section-590).
+- Return to the control room. Turn to section [**619**](#section-619).
 
 ---
 
+<a id="section-990"></a>
 ## Section 990
 
-**Időköltség:** 5 perc
+**Time cost:** 5 min
 
-### Trend export — hiba
+### Trend export — failure
 
 
 
-Elindítja az exportálást, és kivárja a folyamatjelző sávot. Az exportálási varázsló hibával záródik be; nincs trendfájl mentve. Bezárja a sikertelen párbeszédablakot, és visszalép a terminálból.
+You start the export and wait through the progress bar. The export wizard closes with an error; no trend file is saved. You close the failed dialog and step back from the terminal.
 
 **What do you do?**
 
-- Visszatérés a mérnöki munkaállomás menühöz . Turn to section **985**.
+- Return to the engineering workstation menu. Turn to section [**985**](#section-985).
 
 ---
 
+<a id="section-994"></a>
 ## Section 994
 
-**Időköltség:** 5 perc
+**Time cost:** 5 min
 
-### Trendexport – siker
+### Trend export — success
 
 
 
-Elindítja az exportálást, és kivárja a folyamatjelző sávot, miközben figyeli, ahogy felmászik. A trendexportálás befejeződött. A befúvott levegő 11:27 p.m. után felfelé hajlik te elmenti az exportálást helyben, és visszalép a termináltól.
+You start the export and wait through the progress bar, watching it climb. The trend export completes. Supply air inflects upward after 11:27 p.m. You save the export locally and step back from the terminal.
 
 **What do you do?**
 
-- Visszatérés a mérnöki munkaállomás menühöz . Turn to section **985**.
+- Return to the engineering workstation menu. Turn to section [**985**](#section-985).
 
 ---

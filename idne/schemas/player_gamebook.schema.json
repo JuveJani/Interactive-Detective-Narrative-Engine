@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idne.local/schemas/player_gamebook.schema.json",
+  "title": "IDNE Player Gamebook",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "adventure_id",
+    "title",
+    "delivery_mode",
+    "opening",
+    "start_section",
+    "section_count",
+    "sections"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "adventure_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "delivery_mode": {
+      "type": "string"
+    },
+    "opening": {
+      "type": "string"
+    },
+    "start_section": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "section_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "sections": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/section"
+      }
+    }
+  },
+  "$defs": {
+    "choice": {
+      "type": "object",
+      "required": ["label", "target_section", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_section": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": ["section", "title", "body", "choices"],
+      "additionalProperties": false,
+      "properties": {
+        "section": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "choices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/choice"
+          }
+        }
+      }
+    }
+  }
+}

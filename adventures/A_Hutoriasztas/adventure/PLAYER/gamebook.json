@@ -1,0 +1,2005 @@
+{
+  "adventure_id": "The_Cold_Storage_Alarm",
+  "delivery_mode": "static_book",
+  "opening": "# A hűtőriasztás — Nyitó\n\nMárcius 13-án, pénteken **1:00 a.m.**-kor érkezel a Northline hideglánc raktár **loading dock** rakodópartjára.\n\n**Elena Morales** felügyelő behívott téged **on-call refrigeration technician** / ügyeletes hűtőtechnikusként. **high-temperature alarm on cold zone CZ-1**: a CZ-1 hideg zónában magas hőmérséklet-riasztás szólt **11:30 p.m.**-kor. A hűtőtár csarnok befúvott levegőjének hőmérséklete még mindig emelkedik. Ha a CZ-1 **5:00 a.m.**-ig a megfelelőségi küszöb felett marad, a létesítménynek termék-selejtezést kell kezdenie, és értesítenie kell az egészségügyi hatóságokat.\n\nMa éjjel a feladatod: kideríteni, miért hibásodott meg a staging szabályozás, kinek volt hozzáférése, és magyaráznak-e valamit a bevételezési nyilvántartások az eltérésekre — mielőtt a megfelelőségi határidő lezárja a műszakot.\n\n**Kezdd a `PLAYER/GAMEBOOK.md` fájlban a 636. szakasznál.**",
+  "schema_version": "1.0",
+  "section_count": 96,
+  "sections": {
+    "105": {
+      "body": "### Hidden records\n\nYou used the records-only archive policy route instead of pressing further into the operational alarm. IT's sync schedule goes into the audit trail exactly as documented — a routine 2:30 a.m. batch upload, nothing more. It is a clean footnote to file, but it does not answer why CZ-1 kept climbing after the alarm sounded.",
+      "choices": [],
+      "section": 105,
+      "title": "Hidden records"
+    },
+    "111": {
+      "body": "### Narrative continue\n\nYou defer final accountability while the clock still runs. Whatever you have learned so far stays open for revision from wherever you are standing in the facility. The night is not over, and neither is the investigation.",
+      "choices": [],
+      "section": 111,
+      "title": "Narrative continue"
+    },
+    "112": {
+      "body": "### Partial incomplete\n\nCompliance documents operational response gaps — the riasztástörténet, supervisor actions, and temperature readings are on file, but several record threads never made it into your statement. Without a completed synthesis, the selejtezés review proceeds on the operational facts alone, and the question of exactly who caused tonight's failure stays open past your shift.",
+      "choices": [],
+      "section": 112,
+      "title": "Partial incomplete"
+    },
+    "121": {
+      "body": "### Partial motive gap\n\nReceiving discrepancy records are noted in your statement, and the bevételezési jegyzék exception on MNF-IN-4471 goes into the audit file as-is. The label residue and the relabeling it points to never quite connect into a finished synthesis. Someone will have to reopen the paperwork later to finish what your shift left half-drawn.",
+      "choices": [],
+      "section": 121,
+      "title": "Partial motive gap"
+    },
+    "154": {
+      "body": "### Partial tech only\n\nYour statement explains staging suspension and command timing in enough detail that engineering signs off on the mechanism. Compliance notes the unattended maintenance session as the technical root cause, with no name attached to who actually used it. The receiving floor's part in tonight's story never makes it into the record.",
+      "choices": [],
+      "section": 154,
+      "title": "Partial tech only"
+    },
+    "158": {
+      "body": "### Partial wrong culprit\n\nYour statement centers on the contractor exit record, and Elena forwards it up the chain as filed. Dev's contract review gets flagged over a belépőkártya discrepancy he cannot fully explain away, even though the timeline you built does not quite hold together under scrutiny. Whatever actually reached into that unattended session on CTRL-TERM-02 goes unexamined tonight.",
+      "choices": [],
+      "section": 158,
+      "title": "Partial wrong culprit"
+    },
+    "181": {
+      "body": "### Perfect\n\nYour accountability statement matches independent belépőkártya, bevételezési jegyzék, physical, and BMS records. Compliance accepts a full reconstruction timeline: Lori Okonkwo borrowed Dev's forgotten belépőkártya to enter hűtőtár, swapped raklap labels to hide the short-ship, and used his unattended maintenance session to issue the mute command that suspended CZ-1 staging. Northline closes the shift with the selejtezés avoided and a documented case for both personnel review and the carrier dispute.",
+      "choices": [],
+      "section": 181,
+      "title": "Perfect"
+    },
+    "186": {
+      "body": "### Timeout\n\n5:00 a.m. arrives before you finish. Compliance selejtezés procedures begin, and the health notification goes out on schedule regardless of what you found. Your investigation window closes under emergency protocol, whatever case you were building left unfinished.",
+      "choices": [],
+      "section": 186,
+      "title": "Timeout"
+    },
+    "195": {
+      "body": "### A jelvény helytelenül van feltüntetve\n\n**Kérdés:** A hűtőházi jelvény bejegyzése a kilépési idők összehasonlítása után is érinti a vállalkozót?\n\n**A konzultálandó rekordtípusok:**\n- Hűtőszekrény bejövő jelvény bejegyzés (biztonsági iroda archívum)\n- Vállalkozó kimenő dokkoló szkennelése (biztonsági iroda archívuma)\n- A vállalkozó saját beszámolója a hátrahagyott jelvényről (szüneti szekrény vagy interjú)\n\nJegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.",
+      "choices": [
+        {
+          "kind": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "target_section": 111
+        },
+        {
+          "kind": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "target_section": 297
+        },
+        {
+          "kind": "recovery",
+          "label": "Follow recovery route REC-SECURITY-ARCHIVE after incomplete synthesis.",
+          "target_section": 304
+        },
+        {
+          "kind": "recovery",
+          "label": "Follow recovery route REC-BREAK-LOCKER after incomplete synthesis.",
+          "target_section": 258
+        }
+      ],
+      "section": 195,
+      "title": "A jelvény helytelenül van feltüntetve"
+    },
+    "214": {
+      "body": "### Ellenőrzési hozzáférési eltérés\n\n**Kérdés:** Ki adhatná ki a BMS némítási parancsot hűtésmérnöki jogosultság nélkül?\n\n**A konzultálandó rekordtípusok:**\n- Control room door badge entry (security office archive)\n- BMS command log and session identifier (control room workstation)\n\nJegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.",
+      "choices": [
+        {
+          "kind": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "target_section": 111
+        },
+        {
+          "kind": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "target_section": 297
+        },
+        {
+          "kind": "recovery",
+          "label": "Follow recovery route REC-SECURITY-ARCHIVE after incomplete synthesis.",
+          "target_section": 304
+        },
+        {
+          "kind": "recovery",
+          "label": "Follow recovery route REC-CONTROL-TERM after incomplete synthesis.",
+          "target_section": 291
+        }
+      ],
+      "section": 214,
+      "title": "Ellenőrzési hozzáférési eltérés"
+    },
+    "218": {
+      "body": "### Bűnös támogatott\n\n**Kérdés:** Melyik szerepkört támogatják a független hozzáférés, a csalás és a vezérlőterem nyilvántartása?\n\n**A konzultálandó rekordtípusok:**\n- Everything you have gathered on badge access, control room entry, and manifest fraud\n- Cross-referenced timestamps from the security office\n\nJegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.",
+      "choices": [
+        {
+          "kind": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "target_section": 111
+        },
+        {
+          "kind": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "target_section": 297
+        },
+        {
+          "kind": "recovery",
+          "label": "Follow recovery route REC-MANAGER-INTERVIEW after incomplete synthesis.",
+          "target_section": 292
+        },
+        {
+          "kind": "recovery",
+          "label": "Follow recovery route REC-SECURITY-CROSSREF after incomplete synthesis.",
+          "target_section": 305
+        }
+      ],
+      "section": 218,
+      "title": "Bűnös támogatott"
+    },
+    "224": {
+      "body": "### Tökéletes rekonstrukció\n\n**Kérdés:** Összekapcsolhatja a csalás eltitkolását, a jogosulatlan hozzáférést és a felfüggesztést egy támogatott idővonalon?\n\n**A konzultálandó rekordtípusok:**\n- Every record thread listed in the worksheets above\n- The maintenance ticket and door-ajar alarm history (control room and security office)\n\nJegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.",
+      "choices": [
+        {
+          "kind": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "target_section": 111
+        },
+        {
+          "kind": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "target_section": 297
+        }
+      ],
+      "section": 224,
+      "title": "Tökéletes rekonstrukció"
+    },
+    "231": {
+      "body": "### Újracímkézési csalás\n\n**Kérdés:** Használták a raklap átcímkézését a bejövő mennyiség elrejtésére?\n\n**A konzultálandó rekordtípusok:**\n- Label adhesive residue and timestamp comparison (aisle C)\n- Manifest MNF-IN-4471 versus carrier POD-4471 (manager office)\n- Coordinator's account of the receiving exception (manager office interview)\n\nJegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.",
+      "choices": [
+        {
+          "kind": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "target_section": 111
+        },
+        {
+          "kind": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "target_section": 297
+        },
+        {
+          "kind": "recovery",
+          "label": "Follow recovery route REC-COLD-AISLE after incomplete synthesis.",
+          "target_section": 265
+        },
+        {
+          "kind": "recovery",
+          "label": "Follow recovery route REC-MANAGER-MANIFEST after incomplete synthesis.",
+          "target_section": 294
+        }
+      ],
+      "section": 231,
+      "title": "Újracímkézési csalás"
+    },
+    "237": {
+      "body": "### A kiváltó ok megszakítása\n\n**Kérdés:** A felfüggesztés – nem egyedül az ajtóriasztó – okozta a tartós hőmérséklet-emelkedést?\n\n**A konzultálandó rekordtípusok:**\n- BMS command log (control room workstation)\n- CZ-1 staging indicator panel (control room)\n- CZ-1 supply air temperature trend export (control room workstation)\n\nJegyezd fel a használt rekordokat. Ha a szintézis sikertelen, jegyezd fel, mely helyeket fogja újra felkeresni.",
+      "choices": [
+        {
+          "kind": "inference",
+          "label": "Mark synthesis complete if your answer is supported.",
+          "target_section": 111
+        },
+        {
+          "kind": "inference",
+          "label": "Mark synthesis incomplete and follow a recovery prompt in the recovery file.",
+          "target_section": 297
+        },
+        {
+          "kind": "recovery",
+          "label": "Follow recovery route REC-CONTROL-TERM after incomplete synthesis.",
+          "target_section": 291
+        },
+        {
+          "kind": "recovery",
+          "label": "Follow recovery route REC-COLD-DISPLAY after incomplete synthesis.",
+          "target_section": 288
+        }
+      ],
+      "section": 237,
+      "title": "A kiváltó ok megszakítása"
+    },
+    "258": {
+      "body": "### Break szekrény\n\nMenjen a személyzet pihenőszobájába, és sétáljon a szekrény mellett. Ha még nem ellenőrizte a vállalkozói szekrényt, amely nyitva van, tedd meg most.",
+      "choices": [
+        {
+          "kind": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "target_section": 547
+        }
+      ],
+      "section": 258,
+      "title": "Break szekrény"
+    },
+    "265": {
+      "body": "### Hideg folyosó\n\nTérjen vissza a hűtőcsarnokba, és sétáljon végig a C folyosón. Ha még nem tette meg, keresse meg a padlón és a raklap felületén címkeragasztó-maradványokat.",
+      "choices": [
+        {
+          "kind": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "target_section": 598
+        }
+      ],
+      "section": 265,
+      "title": "Hideg folyosó"
+    },
+    "288": {
+      "body": "### Hideg kijelző\n\nMenjen vissza a hűtőcsarnokba, és olvasd el az élő CZ-1 befúvott levegő kijelzőt. Szinte nem kerül időbe, és megerősíti azt, amit egyébként egy export trend mutatna.",
+      "choices": [
+        {
+          "kind": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "target_section": 598
+        }
+      ],
+      "section": 288,
+      "title": "Hideg kijelző"
+    },
+    "291": {
+      "body": "### Ellenőrző kifejezés\n\nTérjen vissza az automatizálási vezérlőterembe, és közelítse meg a mérnöki munkaállomást CTRL-TERM-02. Tekintse át a BMS parancsnaplót, a lezárt karbantartási jegyet vagy a hőmérsékleti trend exportálását, amelyet még nem nyitott meg.",
+      "choices": [
+        {
+          "kind": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "target_section": 619
+        }
+      ],
+      "section": 291,
+      "title": "Ellenőrző kifejezés"
+    },
+    "292": {
+      "body": "### Menedzserinterjú\n\nMenjen a raktárvezetői irodába, és közvetlenül Lori Okonkwónak adja fel a fogadó kivételt. Hozd magaddal bármilyen nyilvánvaló vagy tárgyi bizonyítékot, amivel már rendelkezel – ez megváltoztatja, mennyit hajlandó elmondani.",
+      "choices": [
+        {
+          "kind": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "target_section": 891
+        }
+      ],
+      "section": 292,
+      "title": "Menedzserinterjú"
+    },
+    "294": {
+      "body": "### Kezelői jegyzék\n\nMenjen a raktárkezelő irodájába, és hasonlítsa össze a MNF-IN-4471 jegyzéket a fogadó munkaállomáson lévő szállítói kézbesítési rekorddal.",
+      "choices": [
+        {
+          "kind": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "target_section": 891
+        }
+      ],
+      "section": 294,
+      "title": "Kezelői jegyzék"
+    },
+    "297": {
+      "body": "### Keresse fel újra a feltáratlan forrásokat\n\nTérjen vissza a rakodódokkhoz, és válassz ki azt a helyet, amelyiken van még bejegyzés, csekk vagy beszélgetés, amelyet még nem fejezte be. A teljes rekonstrukcióhoz minden szálat figyelembe kell venni.",
+      "choices": [
+        {
+          "kind": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "target_section": 636
+        }
+      ],
+      "section": 297,
+      "title": "Keresse fel újra a feltáratlan forrásokat"
+    },
+    "304": {
+      "body": "### Biztonsági archívum\n\nTérjen vissza a biztonsági irodába, és nyisd meg a jelvény-hozzáférési archív terminált. A lekérdező menüből futtassa azt a jelvényrekordot, amelyet még nem húzott le – a hűtőházi bejegyzést, a vezérlőterem bejegyzését vagy a vállalkozó kimenő vizsgálatát.",
+      "choices": [
+        {
+          "kind": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "target_section": 963
+        }
+      ],
+      "section": 304,
+      "title": "Biztonsági archívum"
+    },
+    "305": {
+      "body": "### Biztonsági kereszthivatkozás\n\nTérjen vissza a biztonsági irodába, és hasonlítsa össze a riasztási előzményeket a már kihúzott jelvényrekordokkal. Sorolja egymás mellé az időbélyegeket.",
+      "choices": [
+        {
+          "kind": "recovery",
+          "label": "Go to the named location and take the action described above.",
+          "target_section": 963
+        }
+      ],
+      "section": 305,
+      "title": "Biztonsági kereszthivatkozás"
+    },
+    "326": {
+      "body": "### Az elszámoltatás előkészítése\n\n\n\nA jegyzeteit szétteríti az eligazító asztalon, és elkezdi őket egy négyrészes elszámoltathatósági nyilatkozatba rendezni: ki, hogyan, mit és miért. Írás közben nem áll meg az óra.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 636
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 636
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 326,
+      "title": "Az elszámoltatás előkészítése"
+    },
+    "327": {
+      "body": "### Opcionális szekrény ág\n\n\n\nA pihenőszoba öltözősora továbbra is elérhető, amikor csak akarja. Semmi sem jár le, és semmi sem kényszeríti arra, hogy ellenőrizze.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 813
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 547
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 327,
+      "title": "Opcionális szekrény ág"
+    },
+    "355": {
+      "body": "### Fókuszált folyosói újralátogatás\n\n\n\nMost, hogy látta a nyilvánvaló rést, a C folyosó másképp olvas. te már nem csak halad a sorban – nagyjából tudja, melyik raklapköteg érdemes egy második, közelebbi pillantást vetni.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 598
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 598
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 355,
+      "title": "Fókuszált folyosói újralátogatás"
+    },
+    "373": {
+      "body": "### A címke részleteinek újralátogatása\n\n\n\nMivel a helyreállított címkeháttér már megtalálható az ügyiratban, visszaléphet, és összehasonlíthatja a nyomtatási időbélyegét a raklap átvételi rekordjaival anélkül, hogy újból a semmiből keresne.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 701
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 598
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 373,
+      "title": "A címke részleteinek újralátogatása"
+    },
+    "376": {
+      "body": "### Vezérlőterem megközelítés\n\n\n\nA vezérlőterem ajtaján van egy jelvényolvasó, amelyet nem használhat önállóan. Az, hogy most bejut, attól függ, hogy Elena aláírta-e már a kíséretet.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 619
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 619
+        },
+        {
+          "kind": "scene_variant",
+          "label": "Continue to scene SC-CONTROL-CLEARED.",
+          "target_section": 400
+        },
+        {
+          "kind": "scene_variant",
+          "label": "Continue to scene SC-CONTROL-ESCORT-REQUIRED.",
+          "target_section": 403
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 376,
+      "title": "Vezérlőterem megközelítés"
+    },
+    "388": {
+      "body": "### BMS felülvizsgálati jelenet\n\n\n\nMiután egyszer elolvasta a parancsnaplót, most beállíthatja egymás mellett a felfüggesztési felfüggesztést és a némítási parancs időzítését, és megnézheti, milyen szorosan illeszkednek egymáshoz.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 619
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 619
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 388,
+      "title": "BMS felülvizsgálati jelenet"
+    },
+    "400": {
+      "body": "### A vezérlőterem törölve\n\n\n\nAz ajtó panasz nélkül kinyílik. A feljegyzett kísérőengedélynek köszönhetően a mérnöki munkaállomásokon és a felállítási panelen felügyelet mellett dolgozhat.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 619
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 619
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 400,
+      "title": "A vezérlőterem törölve"
+    },
+    "403": {
+      "body": "### Escort szükséges\n\n\n\nAz olvasó pirosan villog. Vissza kell mennie a dokkba, és meg kell kérnie Elenát, hogy írja alá a kísérőnaplót, mielőtt ez az ajtó kinyílik előtte.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 619
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 619
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 403,
+      "title": "Escort szükséges"
+    },
+    "413": {
+      "body": "### Dokk érkezési eligazítás\n\n\n\nElena végigvezeti az idővonalon az eligazító asztalnál: a 11:30 p.m. riasztást, az általa megrendelt állomásellenőrzéseket és a vezérlőterem kísérési szabályát. Gyorsan beszél, ahogy az emberek, amikor ma este már kétszer elmagyaráztak valamit, és arra számítanak, hogy újra elmagyarázzák.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 636
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 636
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 413,
+      "title": "Dokk érkezési eligazítás"
+    },
+    "429": {
+      "body": "### Első dokkfelmérés\n\n\n\nMég semmi sem dőlt el. Sétál a dokk nyitott padlóján, és megjegyzi, hogy mely folyosókon jut el a hűtőház, az irodák és a biztonság – ez az elrendezés, amelyen egész éjszaka át-hátra fog menni.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 636
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 636
+        },
+        {
+          "kind": "scene_variant",
+          "label": "Continue to scene SC-DOCK-RESTRICTED.",
+          "target_section": 434
+        },
+        {
+          "kind": "scene_variant",
+          "label": "Continue to scene SC-DOCK-INITIAL-SURVEY.",
+          "target_section": 429
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 429,
+      "title": "Első dokkfelmérés"
+    },
+    "434": {
+      "body": "### Dokk korlátozás aktív\n\n\n\nA szalag most két öbölsávon fut át, és Elena maga hajtja végre. A dokkolón áthaladó lényegtelen mozgás itt megáll, amíg az áttekintése be nem fejeződik.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 636
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 636
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 434,
+      "title": "Dokk korlátozás aktív"
+    },
+    "435": {
+      "body": "### Archív szinkronizálási szabályzat\n\n**Csak rekordokat tartalmazó útvonal | Időköltség:** 2 perc\n\nAz archív terminál mellé laminált hirdetmény van ragasztva, olyan kártya, amely túléli azt, aki feltette. Csak „Records Desk – J. Reeves” van aláírva, és úgy szól, mintha egy audit céljára írták volna, nem az te számára.\n\nAz archív terminálon található iratokról szóló értesítés elmagyarázza, hogy a jelvények kötegelt feltöltése rögzített éjszakai ütemezés szerint történik. A szabványos szinkronizálás 2:30 a.m.-kor fejeződik be; a teljes lekérdezési mezők feloldása szinkronizálás után.\n\nNincs kivel vitatkozni rajta – a menetrend attól függ, hogy vár-e rá, vagy sem.",
+      "choices": [
+        {
+          "kind": "alias",
+          "label": "Review the archive sync policy notice.",
+          "target_section": 697
+        }
+      ],
+      "section": 435,
+      "title": "Archív szinkronizálási szabályzat"
+    },
+    "436": {
+      "body": "### Menedzser interjú nyomás\n\n\n\nA C folyosóból származó fizikai nyomok vagy maga a nyilvánvaló kivétel valami konkrétumot ad, amit Lori elé kell helyezni – és a válaszai megváltoznak, ha megteszi.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 891
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 891
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 436,
+      "title": "Menedzser interjú nyomás"
+    },
+    "448": {
+      "body": "### Az archívum szinkronizálása befejeződött\n\n\n\nAz archív terminál egyszer csenget, pontosan az ütemezés szerint, és a szinkronizálásra váró szalaghirdetés törlődik. A ma esti jelvényes tevékenység teljes rekordja végre ott áll, és arra vár, hogy lekérdezzék.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 963
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 963
+        },
+        {
+          "kind": "scene_variant",
+          "label": "Continue to scene SC-SECURITY-ARCHIVE-READY.",
+          "target_section": 474
+        },
+        {
+          "kind": "scene_variant",
+          "label": "Continue to scene SC-SECURITY-ARCHIVE-PENDING.",
+          "target_section": 457
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 448,
+      "title": "Az archívum szinkronizálása befejeződött"
+    },
+    "457": {
+      "body": "### Az archívum függőben van\n\n\n\nEgy kis szinkronizálási ikon található a lekérdezési menü felében. Egyes jelvénymezők teljesen ki vannak szürkítve – a kötegelt feltöltés még nem fejeződött be, és egyetlen kattintás sem gyorsítja fel.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 963
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 963
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 457,
+      "title": "Az archívum függőben van"
+    },
+    "474": {
+      "body": "### Az archívum készen áll\n\n\n\nAz archív terminál minden lekérdezési mezője aktív. A hűtőház-bejegyzések, a vezérlőterem-bejegyzések és a kivitelező kilépési szkennelése mind egy választásra van.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 963
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 963
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 474,
+      "title": "Az archívum készen áll"
+    },
+    "477": {
+      "body": "### Biztonsági kereszthivatkozás\n\n\n\nHa végre a kezében van egy jelvényrekord, az ébresztési előzmények mellé helyezi, és elkezdi egymás mellé sorba állítani az időbélyegeket – ajtót, jelvényt és riasztót, mind ugyanazon az órán.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 963
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 963
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 477,
+      "title": "Biztonsági kereszthivatkozás"
+    },
+    "484": {
+      "body": "### A biztonsági pult személyzet nélkül\n\n\n\nMarcus széke üres – a menetrend szerint kötelező szünet –, de az archív terminál még mindig be van jelentkezve, és a riasztóközpont csendben végzi a dolgát nélküle.",
+      "choices": [
+        {
+          "kind": "scene_continue",
+          "label": "Continue this scene thread.",
+          "target_section": 963
+        },
+        {
+          "kind": "return",
+          "label": "Return to the location base section for this area.",
+          "target_section": 963
+        }
+      ],
+      "meta": [
+        "**Scene transition**"
+      ],
+      "section": 484,
+      "title": "A biztonsági pult személyzet nélkül"
+    },
+    "503": {
+      "body": "### Aisle C\n\n\n\nraklap shrink-wrap crinkles under the cold air draft as you step into the row. Aisle C runs between high raklap rows. The aisle holds still around you, waiting to be searched or left alone.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Search the floor and pallet faces for label adhesive residue.",
+          "target_section": 553
+        },
+        {
+          "kind": "return",
+          "label": "Return to the cold storage hall.",
+          "target_section": 598
+        }
+      ],
+      "meta": [
+        "**Time cost:** 2 min"
+      ],
+      "section": 503,
+      "title": "Aisle C"
+    },
+    "514": {
+      "body": "### riasztástörténet\n\n\n\nYou scroll the alarm panel's history back past the noise of tonight's other notifications. riasztástörténet lists ALM-COLD-DOOR-AJAR at 11:18 p.m. and ALM-COLD-HIGH at 11:30 p.m. You copy both timestamps down before stepping back from the panel.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the security office.",
+          "target_section": 963
+        }
+      ],
+      "meta": [
+        "**Time cost:** 3 min"
+      ],
+      "section": 514,
+      "title": "riasztástörténet"
+    },
+    "519": {
+      "body": "### belépőkártya archive terminal\n\n\n\nThe archive terminal's status field is the first thing you check before running any query. The belépőkártya archive terminal shows whether tonight's batch upload has finished. Whatever the sync status says, the query menu is still in front of you.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Query cold storage inbound badge entries for tonight.",
+          "target_section": 522
+        },
+        {
+          "kind": "action",
+          "label": "Query control room door entries for tonight.",
+          "target_section": 544
+        },
+        {
+          "kind": "action",
+          "label": "Pull the contractor outbound dock scan record.",
+          "target_section": 679
+        },
+        {
+          "kind": "return",
+          "label": "Return to the security office.",
+          "target_section": 963
+        }
+      ],
+      "meta": [
+        "**Time cost:** 2 min"
+      ],
+      "section": 519,
+      "title": "belépőkártya archive terminal"
+    },
+    "522": {
+      "body": "### hűtőtár belépőkártya query\n\n\n\nYou filter the belépőkártya archive down to hűtőtár entries for tonight's shift. hűtőtár inbound log shows credential belépőkártya-DEV-TEMP at 11:14 p.m. You note the credential and timestamp before returning to the archive menu.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the badge archive menu.",
+          "target_section": 519
+        }
+      ],
+      "meta": [
+        "**Time cost:** 4 min"
+      ],
+      "section": 522,
+      "title": "hűtőtár belépőkártya query"
+    },
+    "544": {
+      "body": "### automatika vezérlő belépőkártya query\n\n\n\nYou switch the filter to automatika vezérlő door entries for the same window. automatika vezérlő entry log shows belépőkártya belépőkártya-LORI at 11:20 p.m. You note the belépőkártya and timestamp before returning to the archive menu.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the badge archive menu.",
+          "target_section": 519
+        }
+      ],
+      "meta": [
+        "**Time cost:** 3 min"
+      ],
+      "section": 544,
+      "title": "automatika vezérlő belépőkártya query"
+    },
+    "545": {
+      "body": "### BMS command log\n\n\n\nYou open the command history and scroll back to the window around the first alarm. The command log shows CMD-CZ1-MUTE-STAGE issued at 11:22 p.m. under maintenance session SVC-REFRG-MAINT. You copy the entry into your notes and back out to the workstation menu.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the engineering workstation menu.",
+          "target_section": 985
+        }
+      ],
+      "meta": [
+        "**Time cost:** 4 min"
+      ],
+      "section": 545,
+      "title": "BMS command log"
+    },
+    "547": {
+      "body": "### A személyzet pihenőszobája\n\n\n\nA személyzeti pihenőhelyiségben automaták, zárható szekrények és a kikötő felé néző ablak található. Az automaták zümmögnek az egyik fal mellett, és egy félkész kávéscsésze elhagyottan hever az asztalon, ma este minden mással együtt kihűlt.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Walk along the staff locker bank.",
+          "target_section": 813
+        },
+        {
+          "kind": "action",
+          "label": "Look out toward the dock loading area.",
+          "target_section": 641
+        },
+        {
+          "kind": "return",
+          "label": "Return to the loading dock.",
+          "target_section": 636
+        },
+        {
+          "kind": "nav",
+          "label": "Walk to the manager office through the staff corridor.",
+          "target_section": 891
+        },
+        {
+          "kind": "nav",
+          "label": "Follow the interior hallway to the security office.",
+          "target_section": 963
+        },
+        {
+          "kind": "nav",
+          "label": "Take the side passage toward the cold storage hall.",
+          "target_section": 598
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A jelvény helytelenül van feltüntetve.",
+          "target_section": 195
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Ellenőrzési hozzáférési eltérés.",
+          "target_section": 214
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Bűnös támogatott.",
+          "target_section": 218
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Tökéletes rekonstrukció.",
+          "target_section": 224
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Újracímkézési csalás.",
+          "target_section": 231
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A kiváltó ok megszakítása.",
+          "target_section": 237
+        },
+        {
+          "kind": "npc",
+          "label": "Ask about unusual activity near the dock and cold hall.",
+          "target_section": 935
+        },
+        {
+          "kind": "npc",
+          "label": "Ask whether you could identify the person you saw.",
+          "target_section": 943
+        },
+        {
+          "kind": "scene",
+          "label": "Optionally inspect the staff locker bank.",
+          "target_section": 327
+        }
+      ],
+      "meta": [
+        "**Location:** A személyzet pihenőszobája | **Time cost:** 0 perc"
+      ],
+      "section": 547,
+      "title": "A személyzet pihenőszobája"
+    },
+    "553": {
+      "body": "### Label search check\n\n\n\nYou commit to a close search of the aisle floor and raklap faces — one pass, no second look. Roll d20 plus your listed modifier once for this action.",
+      "choices": [
+        {
+          "kind": "check_success",
+          "label": "If your roll succeeds",
+          "target_section": 749
+        },
+        {
+          "kind": "check_failure",
+          "label": "If your roll fails",
+          "target_section": 736
+        }
+      ],
+      "meta": [
+        "**Check:** one attempt"
+      ],
+      "section": 553,
+      "title": "Label search check"
+    },
+    "556": {
+      "body": "### Latch észlelési ellenőrzés\n\n\n\nYou commit to a single careful look at the latch — there is no redoing this once you have decided. Roll d20 plus your listed modifier once for this action.",
+      "choices": [
+        {
+          "kind": "check_success",
+          "label": "If your roll succeeds",
+          "target_section": 783
+        },
+        {
+          "kind": "check_failure",
+          "label": "If your roll fails",
+          "target_section": 761
+        }
+      ],
+      "meta": [
+        "**Check:** one attempt"
+      ],
+      "section": 556,
+      "title": "Latch észlelési ellenőrzés"
+    },
+    "576": {
+      "body": "### Locker észlelési ellenőrzés\n\n\n\nYou commit to checking inside the ajar locker properly — one look, not a quick glance. Roll d20 plus your listed modifier once for this action.",
+      "choices": [
+        {
+          "kind": "check_success",
+          "label": "If your roll succeeds",
+          "target_section": 817
+        },
+        {
+          "kind": "check_failure",
+          "label": "If your roll fails",
+          "target_section": 798
+        }
+      ],
+      "meta": [
+        "**Check:** one attempt"
+      ],
+      "section": 576,
+      "title": "Locker észlelési ellenőrzés"
+    },
+    "590": {
+      "body": "### Trend export check\n\n\n\nYou commit to running the export through the BMS menus — one attempt, and the interface will not be forgiving of a wrong click. Roll d20 plus your listed modifier once for this action.",
+      "choices": [
+        {
+          "kind": "check_success",
+          "label": "If your roll succeeds",
+          "target_section": 994
+        },
+        {
+          "kind": "check_failure",
+          "label": "If your roll fails",
+          "target_section": 990
+        }
+      ],
+      "meta": [
+        "**Check:** one attempt"
+      ],
+      "section": 590,
+      "title": "Trend export check"
+    },
+    "598": {
+      "body": "### Hűtőcsarnok\n\n\n\nHideg levegő árad az előszoba ajtajából. A raklapsorok a CZ-1 zóna felé nyúlnak. A lélegzeted bepárásodik abban a pillanatban, amikor átléped a küszöböt, és a kompresszor zümmögése egy regiszterrel alacsonyabban szól a kelleténél. Az CZ-1 befúvott levegő kijelzője a csarnok túlsó végében világít, mintha pontozná.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Examine the cold storage door latch and reader.",
+          "target_section": 607
+        },
+        {
+          "kind": "action",
+          "label": "Walk the length of aisle C between the pallet rows.",
+          "target_section": 503
+        },
+        {
+          "kind": "action",
+          "label": "Read the live CZ-1 supply air temperature display.",
+          "target_section": 972
+        },
+        {
+          "kind": "nav",
+          "label": "Follow the engineering passage to the automation control room.",
+          "target_section": 376
+        },
+        {
+          "kind": "return",
+          "label": "Return to the loading dock.",
+          "target_section": 636
+        },
+        {
+          "kind": "return",
+          "label": "Return toward the break room corridor.",
+          "target_section": 547
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A jelvény helytelenül van feltüntetve.",
+          "target_section": 195
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Ellenőrzési hozzáférési eltérés.",
+          "target_section": 214
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Bűnös támogatott.",
+          "target_section": 218
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Tökéletes rekonstrukció.",
+          "target_section": 224
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Újracímkézési csalás.",
+          "target_section": 231
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A kiváltó ok megszakítása.",
+          "target_section": 237
+        },
+        {
+          "kind": "scene",
+          "label": "Continue scene SC-COLD-AISLE-FOCUSED.",
+          "target_section": 355
+        },
+        {
+          "kind": "scene",
+          "label": "Continue scene SC-COLD-LABEL-DETAIL.",
+          "target_section": 373
+        }
+      ],
+      "meta": [
+        "**Location:** Hűtőcsarnok | **Time cost:** 0 perc"
+      ],
+      "section": 598,
+      "title": "Hűtőcsarnok"
+    },
+    "607": {
+      "body": "### hűtőtár door\n\n\n\nFrost rimes the frame where the hűtőtár door meets the corridor air. The hűtőtár door has a belépőkártya-olvasó and a heavy latch. Whatever you decide to check, the door itself is not going anywhere.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Check the latch hardware for recent disturbance.",
+          "target_section": 556
+        },
+        {
+          "kind": "return",
+          "label": "Return to the cold storage hall.",
+          "target_section": 598
+        }
+      ],
+      "meta": [
+        "**Time cost:** 3 min"
+      ],
+      "section": 607,
+      "title": "hűtőtár door"
+    },
+    "619": {
+      "body": "### Automatizálási vezérlőterem\n\n\n\nAz automatizálási vezérlőteremben mérnöki munkaállomások és egy CZ-1 állomásjelző panel található. A szerverventilátorok folyamatosan zúgnak a fluoreszkáló fény alatt, és az állapotjelző LED-ek sorai villognak a szokásos mintájukban – kivéve egy panelt, amely egyáltalán nem villog.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Approach the engineering workstation.",
+          "target_section": 985
+        },
+        {
+          "kind": "action",
+          "label": "Inspect the CZ-1 staging indicator panel.",
+          "target_section": 968
+        },
+        {
+          "kind": "return",
+          "label": "Return to the cold storage hall.",
+          "target_section": 598
+        },
+        {
+          "kind": "return",
+          "label": "Return to the loading dock with the supervisor.",
+          "target_section": 636
+        },
+        {
+          "kind": "return",
+          "label": "Return to the security office.",
+          "target_section": 963
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A jelvény helytelenül van feltüntetve.",
+          "target_section": 195
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Ellenőrzési hozzáférési eltérés.",
+          "target_section": 214
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Bűnös támogatott.",
+          "target_section": 218
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Tökéletes rekonstrukció.",
+          "target_section": 224
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Újracímkézési csalás.",
+          "target_section": 231
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A kiváltó ok megszakítása.",
+          "target_section": 237
+        },
+        {
+          "kind": "scene",
+          "label": "Enter the control room after escort clearance.",
+          "target_section": 400
+        },
+        {
+          "kind": "scene",
+          "label": "Continue scene SC-CONTROL-BMS-REVIEW.",
+          "target_section": 388
+        }
+      ],
+      "meta": [
+        "**Location:** Automatizálási vezérlőterem | **Time cost:** 0 perc"
+      ],
+      "section": 619,
+      "title": "Automatizálási vezérlőterem"
+    },
+    "623": {
+      "body": "### Fejlesztői jelvény\n\n**Időköltség:** témánként változik\n\nEz kerül neki valamibe. Dev megdörzsöli a tarkóját, és nem fog egészen találkozni a szemével.\n\n*Nyomja meg, hogy a vállalkozói jelvény elhagyta-e Önnel az épületet.*\n\n**Dev Santos** azt mondja: \"Lehet, hogy az ideiglenes jelvényemet a pihenőszoba öltözőszekrényében hagytam.\"\n\nÚgy mondja, mintha azt remélné, hogy elmondja neki, hogy ez nem számít.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 636
+        }
+      ],
+      "section": 623,
+      "title": "Fejlesztői jelvény"
+    },
+    "625": {
+      "body": "### Fejlesztő clo1847\n\n**Időköltség:** témánként változik\n\nKérdés nélkül előhúzza a telefonján a lezárt jegyet, mint egy vállalkozó, aki a saját papírjait védi.\n\n*Kérdezzen a CLO-1847 bezárási részleteiről.*\n\n**Dev Santos** azt mondja: \"A CLO-1847 jogos CZ-1 karbantartás volt. Lezártam a jegyet a mérnöki terminálon.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 636
+        }
+      ],
+      "section": 625,
+      "title": "Fejlesztő clo1847"
+    },
+    "626": {
+      "body": "### Fejlesztői kilépés\n\n**Időköltség:** témánként változik\n\nDev még mindig kezeslábasát gombolva, szerszámos táskával a vállán, láthatóan kihúzta az ágyból Elena hívására érkezik a dokkba. Gyorsan válaszol, alig várja, hogy elszámoljon az estéjével.\n\n*Erősítse meg, mikor hagyta el ma este a webhelyet.*\n\n**Dev Santos** azt mondja: \"Kicsit az 7:00 p.m. CLO-1847 befejezése után néztem ki a dokknál.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 636
+        }
+      ],
+      "section": 626,
+      "title": "Fejlesztői kilépés"
+    },
+    "629": {
+      "body": "### Fejlesztői munkamenet\n\n**Időköltség:** témánként változik\n\nMostanra felhagyott a védekezéssel, és csak válaszolni kezdett – az a fajta fáradt őszinteség, amely azután jön, hogy már elvesztetted a vitát önmagával.\n\n*Kérdezze meg, hogy maradt-e aktív karbantartási munkamenet CTRL-TERM-02-n.*\n\n**Dev Santos** azt mondja: \"Nem jelentkeztem ki a SVC-REFRG-MAINT munkamenetből a CTRL-TERM-02 napon. Ez volt a hiba a lezáráskor.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 636
+        }
+      ],
+      "section": 629,
+      "title": "Fejlesztői munkamenet"
+    },
+    "636": {
+      "body": "### Dokk betöltése\n\n\n\nA rakodó dokkolót nátrium-lámpatestek világítják meg. A targoncák tétlenül ülnek. Elena Morales az öböl ajtaját figyeli, miközben a személyzet a dokk és az irodaszárny között mozog. A hideg hullámokban gördül le az öbölről, amikor egy ajtó megfordul, és a levegőben dízel és hűtőközeg szaga száll. Valahol 1:00 a.m. után az épület beilleszkedett egy műszak furcsa csendjébe, amely már elromlott.",
+      "choices": [
+        {
+          "kind": "nav",
+          "label": "Walk through the dock corridor to the cold storage hall.",
+          "target_section": 598
+        },
+        {
+          "kind": "nav",
+          "label": "Head inside to the staff break room.",
+          "target_section": 547
+        },
+        {
+          "kind": "nav",
+          "label": "Cut through the warehouse corridor to the security office.",
+          "target_section": 963
+        },
+        {
+          "kind": "nav",
+          "label": "Take the office wing corridor to the warehouse manager office.",
+          "target_section": 891
+        },
+        {
+          "kind": "action",
+          "label": "Review the supervisor briefing area.",
+          "target_section": 638
+        },
+        {
+          "kind": "action",
+          "label": "Request escort clearance to the automation control room.",
+          "target_section": 661
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A jelvény helytelenül van feltüntetve.",
+          "target_section": 195
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Ellenőrzési hozzáférési eltérés.",
+          "target_section": 214
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Bűnös támogatott.",
+          "target_section": 218
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Tökéletes rekonstrukció.",
+          "target_section": 224
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Újracímkézési csalás.",
+          "target_section": 231
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A kiváltó ok megszakítása.",
+          "target_section": 237
+        },
+        {
+          "kind": "scene",
+          "label": "Receive supervisor briefing at the loading dock.",
+          "target_section": 413
+        },
+        {
+          "kind": "scene",
+          "label": "Work under supervisor dock restriction enforcement.",
+          "target_section": 434
+        },
+        {
+          "kind": "scene",
+          "label": "Survey the dock and adjacent corridors.",
+          "target_section": 429
+        },
+        {
+          "kind": "scene",
+          "label": "Prepare final accountability documentation before the compliance threshold.",
+          "target_section": 326
+        },
+        {
+          "kind": "npc",
+          "label": "Confirm when you left the site tonight.",
+          "target_section": 626
+        },
+        {
+          "kind": "npc",
+          "label": "Ask about CLO-1847 closeout details.",
+          "target_section": 625
+        },
+        {
+          "kind": "npc",
+          "label": "Press about whether your contractor badge left the building with you.",
+          "target_section": 623
+        },
+        {
+          "kind": "npc",
+          "label": "Ask whether any maintenance session was left active on CTRL-TERM-02.",
+          "target_section": 629
+        },
+        {
+          "kind": "npc",
+          "label": "Ask what operational steps you ordered after the alarm.",
+          "target_section": 660
+        },
+        {
+          "kind": "npc",
+          "label": "Ask who was still on site working late.",
+          "target_section": 656
+        },
+        {
+          "kind": "npc",
+          "label": "Ask about dock access restrictions.",
+          "target_section": 650
+        }
+      ],
+      "meta": [
+        "**Location:** Rakodási dokk | **Time cost:** 0 perc"
+      ],
+      "section": 636,
+      "title": "Dokk betöltése"
+    },
+    "638": {
+      "body": "### Supervisor briefing\n\n\n\nYou step up to the briefing table where Elena has laid out everything she has gathered so far. Elena points to a printed incident timeline on the briefing table. You note the timeline before stepping back toward the bay doors.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the loading dock.",
+          "target_section": 636
+        }
+      ],
+      "meta": [
+        "**Time cost:** 2 min"
+      ],
+      "section": 638,
+      "title": "Supervisor briefing"
+    },
+    "641": {
+      "body": "### Dock view from break room\n\n\n\nYou glance out the break room window toward the dock you just came from. Through the window you see the dock bay under sodium lights. You turn back into the room once you have seen enough.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the break room.",
+          "target_section": 547
+        }
+      ],
+      "meta": [
+        "**Time cost:** 1 min"
+      ],
+      "section": 641,
+      "title": "Dock view from break room"
+    },
+    "650": {
+      "body": "### Elena korlátozza\n\n**Időköltség:** témánként változik\n\nMostanra a dokk két öbölsávon át van szalaggal, Elena pedig úgy áll a határon, mintha bárkit is ok nélkül át akarna kelni rajta.\n\n*Kérdezzen a dokkoló hozzáférési korlátozásairól.*\n\n**Elena Morales** azt mondja: \"3:15 a.m.-től a dokkolóhoz való hozzáférés a felülvizsgálat befejezéséig az alapvető mozgásokra korlátozódik.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 636
+        }
+      ],
+      "section": 650,
+      "title": "Elena korlátozza"
+    },
+    "656": {
+      "body": "### Elena személyzet\n\n**Időköltség:** témánként változik\n\nMegérzi ezt, végigfutja a műszak beosztását a fejében, mielőtt válaszolna.\n\n*Kérdezd meg, hogy ki dolgozott még mindig a helyszínen.*\n\n**Elena Morales** azt mondja: \"Lori még egyeztetett a manifesztekkel, amikor megérkeztem. Marcus körözött. Pat legénysége a vádlottak padján volt.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 636
+        }
+      ],
+      "section": 656,
+      "title": "Elena személyzet"
+    },
+    "660": {
+      "body": "### Elena sürgős\n\n**Időköltség:** témánként változik\n\nElenának egyik kezében egy telefon, a másikban egy vágólap van, és úgy válaszol, ahogy ma este már három másik embernek válaszolt – gyorsan, lassítás nélkül.\n\n*Kérdezze meg, milyen műveleti lépéseket rendelt el a riasztás után.*\n\n**Elena Morales** azt mondja: \"A 11:30-as riasztás után elrendeltem az állomásellenőrzést, és visszahívtam a fejlesztőt. A leírás tervezése akkor kezdődik meg, ha átlépjük a 5:00 a.m.-t.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 636
+        }
+      ],
+      "section": 660,
+      "title": "Elena sürgős"
+    },
+    "661": {
+      "body": "### Escort granted\n\n\n\nElena does not argue when you ask for automatika vezérlő access — she just reaches for the escort log. Elena signs an escort log and walks you toward the engineering passage. With her signature down, you are cleared to make the walk on your own from here.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the loading dock.",
+          "target_section": 636
+        }
+      ],
+      "meta": [
+        "**Time cost:** 3 min"
+      ],
+      "section": 661,
+      "title": "Escort granted"
+    },
+    "679": {
+      "body": "### Contractor exit scan\n\n\n\nYou pull the outbound dock scan log to check the contractor's departure. Outbound dock scan shows Dev Santos exited at 7:02 p.m. You note the exit time before returning to the archive menu.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the badge archive menu.",
+          "target_section": 519
+        }
+      ],
+      "meta": [
+        "**Time cost:** 3 min"
+      ],
+      "section": 679,
+      "title": "Contractor exit scan"
+    },
+    "697": {
+      "body": "### Archív szinkronizálási szabályzat\n\n**Csak rekordokat tartalmazó útvonal | Időköltség:** 2 perc\n\nAz archív terminál mellé laminált hirdetmény van ragasztva, olyan kártya, amely túléli azt, aki feltette. Csak „Records Desk – J. Reeves” van aláírva, és úgy szól, mintha egy audit céljára írták volna, nem az te számára.\n\nAz archív terminálon található iratokról szóló értesítés elmagyarázza, hogy a jelvények kötegelt feltöltése rögzített éjszakai ütemezés szerint történik. A szabványos szinkronizálás 2:30 a.m.-kor fejeződik be; a teljes lekérdezési mezők feloldása szinkronizálás után.\n\nNincs kivel vitatkozni rajta – a menetrend attól függ, hogy vár-e rá, vagy sem.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the security office.",
+          "target_section": 963
+        }
+      ],
+      "section": 697,
+      "title": "Archív szinkronizálási szabályzat"
+    },
+    "701": {
+      "body": "### Label timestamp comparison\n\n\n\nWith the backing strip in hand, you lay it next to the raklap receipt printout. You compare the recovered backing print timestamp to raklap receipt records. The timestamp does not match the original partial-raklap location. You note the mismatch in your case file before returning to the aisle.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to aisle C menu.",
+          "target_section": 503
+        }
+      ],
+      "meta": [
+        "**Time cost:** 4 min"
+      ],
+      "section": 701,
+      "title": "Label timestamp comparison"
+    },
+    "736": {
+      "body": "### Label search — failure\n\n\n\nYou go over the floor and raklap faces as closely as you can manage. The floor and raklap faces show routine warehouse wear; no distinctive trace stands out. You come up empty and step back toward the aisle entrance.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to aisle C menu.",
+          "target_section": 503
+        }
+      ],
+      "meta": [
+        "**Time cost:** 5 min"
+      ],
+      "section": 736,
+      "title": "Label search — failure"
+    },
+    "749": {
+      "body": "### Label search — success\n\n\n\nYou go over the floor and raklap faces inch by inch, ignoring the cold in your fingers. You recover a strip of label backing with fresh adhesive trace. You bag the strip carefully and head back toward the aisle entrance.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to aisle C menu.",
+          "target_section": 503
+        }
+      ],
+      "meta": [
+        "**Time cost:** 5 min"
+      ],
+      "section": 749,
+      "title": "Label search — success"
+    },
+    "761": {
+      "body": "### Latch check — failure\n\n\n\nYou crouch and check the latch plate as carefully as the light allows. The latch hardware looks ordinary from this angle; nothing useful stands out. Nothing here changes what you already knew, so you head back to the door.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the cold storage door menu.",
+          "target_section": 607
+        }
+      ],
+      "meta": [
+        "**Time cost:** 4 min"
+      ],
+      "section": 761,
+      "title": "Latch check — failure"
+    },
+    "783": {
+      "body": "### Latch check — success\n\n\n\nYou crouch and run a light along the latch plate, looking past the obvious. Under the latch plate you notice fresh scuffing where hardware was recently handled. You note the wear pattern before straightening up and returning to the door.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the cold storage door menu.",
+          "target_section": 607
+        }
+      ],
+      "meta": [
+        "**Time cost:** 4 min"
+      ],
+      "section": 783,
+      "title": "Latch check — success"
+    },
+    "798": {
+      "body": "### Locker inspect — failure\n\n\n\nYou ease the ajar door open and check what is inside. The locker interior looks unremarkable at a glance. Nothing stands out, so you step back from the locker bank.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the locker menu.",
+          "target_section": 813
+        }
+      ],
+      "meta": [
+        "**Time cost:** 3 min"
+      ],
+      "section": 798,
+      "title": "Locker inspect — failure"
+    },
+    "813": {
+      "body": "### Staff locker bank\n\n\n\nThe locker row smells like cold coffee and cleaning solution, mostly undisturbed. Several lockers are closed. One contractor locker door sits slightly open. The open locker door is not going to close itself while you decide.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Inspect the ajar contractor locker.",
+          "target_section": 576
+        },
+        {
+          "kind": "return",
+          "label": "Return to the break room.",
+          "target_section": 547
+        }
+      ],
+      "meta": [
+        "**Time cost:** 2 min"
+      ],
+      "section": 813,
+      "title": "Staff locker bank"
+    },
+    "817": {
+      "body": "### Locker inspect — success\n\n\n\nYou ease the ajar door open and check past the folded coveralls inside. Inside the locker you find a contractor temporary belépőkártya that was not returned at exit. You note the belépőkártya and step back from the locker bank.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the locker menu.",
+          "target_section": 813
+        }
+      ],
+      "meta": [
+        "**Time cost:** 3 min"
+      ],
+      "section": 817,
+      "title": "Locker inspect — success"
+    },
+    "842": {
+      "body": "### Lori vezérlés min\n\n**Időköltség:** témánként változik\n\nAmikor megemlíti a vezérlőszobát, végre rád néz – röviden –, mielőtt visszafordulna a képernyőjéhez.\n\n*Érdeklődjön a vezérlőterem látogatásáról 23:20 körül.*\n\n**Lori Okonkwo** azt mondja: \"11:20 körül rövid időre beléptem a vezérlőterembe, hogy megnézzem a képernyőn megjelenő üzenetet.\"\n\nKisebbnek hangzik, mint egy jelvénynapló.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 891
+        }
+      ],
+      "section": 842,
+      "title": "Lori vezérlés min"
+    },
+    "847": {
+      "body": "### Lori tagadja a hideget\n\n**Időköltség:** témánként változik\n\nLori nem néz fel az egyeztető képernyőről, amikor belépsz. Válasza azonnali, lapos, és egyértelműen elhangzott, mielőtt még megkérdezted.\n\n*Kérdezze meg, hogy bement-e a hűtőházba a munkaidő után.*\n\n**Lori Okonkwo** azt mondja: \"Ma este nem mentem hűtőházba. A munkavégzés miatt az íróasztalnál voltam.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 891
+        }
+      ],
+      "section": 847,
+      "title": "Lori tagadja a hideget"
+    },
+    "852": {
+      "body": "### Lori címke\n\n**Időköltség:** témánként változik\n\nA címkemaradvány az, amivel nem tud vitatkozni. Bármilyen higgadtság is volt, végül elmegy.\n\n*Nyomja meg a C folyosón talált címkemaradékot.*\n\n**Lori Okonkwo** azt mondja: \"Címkemaradványt talált. A fogadó rekordok és a padlómunkák a C folyosón össze vannak kapcsolva. Nem számítottam arra, hogy a riasztás továbbra is fennáll.\"\n\nEz van a legközelebb ahhoz, hogy sajnálja.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 891
+        }
+      ],
+      "section": 852,
+      "title": "Lori címke"
+    },
+    "855": {
+      "body": "### Lori nyomás\n\n**Időköltség:** témánként változik\n\nA nyilvánvaló kivételt maga elé tárja. Egy pillanatig csak nézi a számokat, és a megkomponált hang elcsúszik.\n\n*Nézz szembe a MNF-IN-4471 nyilvánvaló kivételes bizonyítékaival.*\n\n**Lori Okonkwo** azt mondja: \"A MNF-IN-4471 nem egyezik a szolgáltató POD-jával. Megpróbáltam törölni a kivételt az ellenőrzési mintavétel előtt.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 891
+        }
+      ],
+      "section": 855,
+      "title": "Lori nyomás"
+    },
+    "881": {
+      "body": "### Maintenance ticket\n\n\n\nYou pull up the maintenance ticket queue and find the most recently closed entry for CZ-1. Ticket CLO-1847 closed at 6:30 p.m. with a note that session SVC-REFRG-MAINT was left unlocked. You note the closeout comment and return to the workstation menu.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the engineering workstation menu.",
+          "target_section": 985
+        }
+      ],
+      "meta": [
+        "**Time cost:** 3 min"
+      ],
+      "section": 881,
+      "title": "Maintenance ticket"
+    },
+    "891": {
+      "body": "### Raktárvezetői iroda\n\n\n\nA raktárvezetői iroda vészhelyzetre nyitva tart. Lori Okonkwo fogadó munkaállomása továbbra is aktív egyeztetési képernyőt mutat. Az íróasztal nagy részét a jegyzéknyomatok kötegei borítják, és a fluoreszkáló lámpa a fej fölött éppen annyira villog, hogy észrevegye. Lori nem hagyta el tovább ezt a széket, mint amennyit a ma esti ébresztő önmagában megmagyarázna.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Review the open receiving reconciliation screen.",
+          "target_section": 901
+        },
+        {
+          "kind": "return",
+          "label": "Return to the loading dock.",
+          "target_section": 636
+        },
+        {
+          "kind": "return",
+          "label": "Return to the break room.",
+          "target_section": 547
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A jelvény helytelenül van feltüntetve.",
+          "target_section": 195
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Ellenőrzési hozzáférési eltérés.",
+          "target_section": 214
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Bűnös támogatott.",
+          "target_section": 218
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Tökéletes rekonstrukció.",
+          "target_section": 224
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Újracímkézési csalás.",
+          "target_section": 231
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A kiváltó ok megszakítása.",
+          "target_section": 237
+        },
+        {
+          "kind": "npc",
+          "label": "Ask whether you entered cold storage after hours.",
+          "target_section": 847
+        },
+        {
+          "kind": "npc",
+          "label": "Ask about your control room visit around 23:20.",
+          "target_section": 842
+        },
+        {
+          "kind": "npc",
+          "label": "Confront with manifest exception evidence from MNF-IN-4471.",
+          "target_section": 855
+        },
+        {
+          "kind": "npc",
+          "label": "Press about label residue found in aisle C.",
+          "target_section": 852
+        },
+        {
+          "kind": "scene",
+          "label": "Continue scene SC-MANAGER-PRESSURE-TOPIC.",
+          "target_section": 436
+        }
+      ],
+      "meta": [
+        "**Location:** Raktárvezető iroda | **Time cost:** 0 perc"
+      ],
+      "section": 891,
+      "title": "Raktárvezetői iroda"
+    },
+    "899": {
+      "body": "### bevételezési jegyzék comparison\n\n\n\nYou pull the bevételezési jegyzék up side by side with the scanned delivery record. bevételezési jegyzék MNF-IN-4471 shows eight cases received while carrier POD-4471 lists forty-eight. You note the quantity gap before returning to the receiving workstation.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the manifest menu.",
+          "target_section": 901
+        }
+      ],
+      "meta": [
+        "**Time cost:** 5 min"
+      ],
+      "section": 899,
+      "title": "bevételezési jegyzék comparison"
+    },
+    "901": {
+      "body": "### Receiving workstation\n\n\n\nThe reconciliation screen is exactly how it was left, exception flag still lit. The receiving screen still flags bevételezési jegyzék MNF-IN-4471. The exception is still open, waiting on whichever record you check first.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Compare manifest MNF-IN-4471 to the carrier delivery record.",
+          "target_section": 899
+        },
+        {
+          "kind": "action",
+          "label": "Cross-reference the signed carrier POD against bay assignments.",
+          "target_section": 958
+        },
+        {
+          "kind": "return",
+          "label": "Return to the manager office.",
+          "target_section": 891
+        }
+      ],
+      "meta": [
+        "**Time cost:** 2 min"
+      ],
+      "section": 901,
+      "title": "Receiving workstation"
+    },
+    "907": {
+      "body": "### Marcus riasztó\n\n**Időköltség:** témánként változik\n\nA panelnél Marcus egy piros szövegsorra mutat, amely még mindig a riasztási előzményekben található. Ebben a részben biztos, mert végignézte, ahogy történik.\n\n*Kérdezze meg, mikor jelent meg először a magas hőmérsékleti riasztás a panelen.*\n\n**Marcus Hale** azt mondja: \"A magas hőmérsékletű riasztó 11:30 p.m.-kor érte el a panelemet. Közvetlenül ezután hívtam Elenát.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 963
+        }
+      ],
+      "section": 907,
+      "title": "Marcus riasztó"
+    },
+    "917": {
+      "body": "### Marcus szakadék\n\n**Időköltség:** témánként változik\n\nFelemeli a jelvényolvasót a fiókja ellen, és Marcus magabiztossága először megvillan. te helyett az archív terminál felé pillant.\n\n* Kérdezze meg, hogy a jelvényolvasó naplója eltérhet-e a reteszellenőrzéstől.*\n\n**Marcus Hale** azt mondja: \"Még nem húztam le a jelvényolvasó naplóját, amikor bejött a magas hőmérsékleti riasztás.\"\n\nEz nem vallomás – csak annak beismerése, hogy a körei és a rekordrendszer valójában soha nem beszéltek egymással ma este.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 963
+        }
+      ],
+      "section": 917,
+      "title": "Marcus szakadék"
+    },
+    "934": {
+      "body": "### Marcus retesz\n\n**Időköltség:** témánként változik\n\nMarcus a biztonsági iroda riasztópultja mellett áll, a kulcsok még mindig az övére vannak akasztva. Már eldöntötte, hogy ez a beszélgetés arról szól, hogy megbizonyosodjon arról, hogy helyesen végezte a munkáját, és úgy válaszol, mintha egy körnaplóból olvasna.\n\n*Kérdezd meg, mit ellenőriztél a hűtőkamra ajtaján a körök során.*\n\n**Marcus Hale** azt mondja: \"Megnéztem a hűtőház reteszét a 11:00 p.m.-nál, úgy tűnt, hogy be van kapcsolva.\"\n\nA levegőbe csapja az időt, mintha az megoldaná az ügyet.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 963
+        }
+      ],
+      "section": 934,
+      "title": "Marcus retesz"
+    },
+    "935": {
+      "body": "### Pat ajtót\n\n**Időköltség:** témánként változik\n\nPat még mindig egy felmosókocsit tol, amikor elkapod őket a pihenőhelyiség közelében. Egy korty automata kávé között válaszolnak, mintha ez csak egy újabb furcsa dolog, ami műszakban történt.\n\n*Kérdezzen szokatlan tevékenységről a dokk és a hűtőcsarnok közelében.*\n\n**Pat Nguyen** azt mondja: \"Kitámasztottam egy kocsi dokk ajtaját 11:40 p.m. körül. Láttam valakit a hidegcsarnok közelében, de egy arcot nem.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 547
+        }
+      ],
+      "section": 935,
+      "title": "Pat ajtót"
+    },
+    "943": {
+      "body": "### Pat sil\n\n**Időköltség:** témánként változik\n\nTöbbre törekszel, és Pat valójában ezen gondolkodik, ahelyett, hogy csak vállat vonna – ami azt jelzi, hogy nem titkolnak semmit, egyszerűen nincs mit találni.\n\n*Kérdezze meg, hogy tudja-e azonosítani a látott személyt.*\n\n**Pat Nguyen** azt mondja: \"Úgy mozogtak, mint aki ismeri az elrendezést. Nem tudom megnevezni őket.\"",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to your current location menu or continue the conversation.",
+          "target_section": 547
+        }
+      ],
+      "section": 943,
+      "title": "Pat sil"
+    },
+    "958": {
+      "body": "### Carrier POD cross-reference\n\n\n\nYou flip open the carrier POD binder to check the bay assignment against what was actually logged. The signed POD assigns the full shipment to bay C3 expecting a complete lot scan. You note the assignment before returning to the receiving workstation.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the manifest menu.",
+          "target_section": 901
+        }
+      ],
+      "meta": [
+        "**Time cost:** 3 min"
+      ],
+      "section": 958,
+      "title": "Carrier POD cross-reference"
+    },
+    "963": {
+      "body": "### Biztonsági iroda\n\n\n\nA biztonsági iroda rendelkezik egy riasztó panellel és egy jelvényarchívum terminállal. Kis monitorok fala cikázik az üres folyosókon, és a riasztópanel hangszórója időnként kattog, mintha mondani akarna valamit, mielőtt ismét elhallgat.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Review recent alarm history on the security panel.",
+          "target_section": 514
+        },
+        {
+          "kind": "action",
+          "label": "Open the badge access archive terminal.",
+          "target_section": 519
+        },
+        {
+          "kind": "return",
+          "label": "Return to the loading dock.",
+          "target_section": 636
+        },
+        {
+          "kind": "return",
+          "label": "Return to the break room.",
+          "target_section": 547
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A jelvény helytelenül van feltüntetve.",
+          "target_section": 195
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Ellenőrzési hozzáférési eltérés.",
+          "target_section": 214
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Bűnös támogatott.",
+          "target_section": 218
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Tökéletes rekonstrukció.",
+          "target_section": 224
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: Újracímkézési csalás.",
+          "target_section": 231
+        },
+        {
+          "kind": "inference_entry",
+          "label": "Open inference worksheet: A kiváltó ok megszakítása.",
+          "target_section": 237
+        },
+        {
+          "kind": "scene",
+          "label": "Return to security after the badge archive sync completes.",
+          "target_section": 448
+        },
+        {
+          "kind": "scene",
+          "label": "Use the security office while the guard is on mandatory break.",
+          "target_section": 484
+        },
+        {
+          "kind": "scene",
+          "label": "Review the records-only archive sync policy.",
+          "target_section": 435
+        },
+        {
+          "kind": "npc",
+          "label": "Ask what you checked on the cold storage door during rounds.",
+          "target_section": 934
+        },
+        {
+          "kind": "npc",
+          "label": "Ask whether the badge reader log could differ from a latch check.",
+          "target_section": 917
+        },
+        {
+          "kind": "npc",
+          "label": "Ask when the high-temperature alarm first appeared on your panel.",
+          "target_section": 907
+        },
+        {
+          "kind": "scene",
+          "label": "Return to query the synced badge archive.",
+          "target_section": 474
+        },
+        {
+          "kind": "scene",
+          "label": "Continue scene SC-SECURITY-CROSSREF.",
+          "target_section": 477
+        }
+      ],
+      "meta": [
+        "**Location:** Biztonsági iroda | **Time cost:** 0 perc"
+      ],
+      "section": 963,
+      "title": "Biztonsági iroda"
+    },
+    "968": {
+      "body": "### Staging indicator panel\n\n\n\nA single amber indicator on the staging panel is the only thing not blinking in sequence. The CZ-1 staging panel shows compressor staging suspended. You write down the panel state and turn back toward the room.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the control room.",
+          "target_section": 619
+        }
+      ],
+      "meta": [
+        "**Time cost:** 3 min"
+      ],
+      "section": 968,
+      "title": "Staging indicator panel"
+    },
+    "972": {
+      "body": "### Live temperature display\n\n\n\nYou wipe frost off the sensor display to get a clean reading. The live display reads CZ-1 supply air at a sustained rise above the cold-chain threshold. You log the number and turn back toward the rest of the hall.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the cold storage hall.",
+          "target_section": 598
+        }
+      ],
+      "meta": [
+        "**Time cost:** 1 min"
+      ],
+      "section": 972,
+      "title": "Live temperature display"
+    },
+    "985": {
+      "body": "### Engineering workstation\n\n\n\nThe workstation screen is still lit, exactly the way someone left it hours ago. Engineering workstation CTRL-TERM-02 is awake. The terminal is not locking itself while you decide what to open first.",
+      "choices": [
+        {
+          "kind": "action",
+          "label": "Review the BMS command log on this terminal.",
+          "target_section": 545
+        },
+        {
+          "kind": "action",
+          "label": "Open the closed maintenance ticket for CZ-1.",
+          "target_section": 881
+        },
+        {
+          "kind": "action",
+          "label": "Export the CZ-1 supply air temperature trend.",
+          "target_section": 590
+        },
+        {
+          "kind": "return",
+          "label": "Return to the control room.",
+          "target_section": 619
+        }
+      ],
+      "meta": [
+        "**Time cost:** 1 min"
+      ],
+      "section": 985,
+      "title": "Engineering workstation"
+    },
+    "990": {
+      "body": "### Trend export — failure\n\n\n\nYou start the export and wait through the progress bar. The export wizard closes with an error; no trend file is saved. You close the failed dialog and step back from the terminal.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the engineering workstation menu.",
+          "target_section": 985
+        }
+      ],
+      "meta": [
+        "**Time cost:** 5 min"
+      ],
+      "section": 990,
+      "title": "Trend export — failure"
+    },
+    "994": {
+      "body": "### Trend export — success\n\n\n\nYou start the export and wait through the progress bar, watching it climb. The trend export completes. Supply air inflects upward after 11:27 p.m. You save the export locally and step back from the terminal.",
+      "choices": [
+        {
+          "kind": "return",
+          "label": "Return to the engineering workstation menu.",
+          "target_section": 985
+        }
+      ],
+      "meta": [
+        "**Time cost:** 5 min"
+      ],
+      "section": 994,
+      "title": "Trend export — success"
+    }
+  },
+  "start_section": 636,
+  "title": "A hűtőriasztás"
+}
