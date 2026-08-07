@@ -1,0 +1,20 @@
+{
+  "tier_c_playtest": {
+    "required": true,
+    "completed": false,
+    "notes": "Pack spec seed \u2014 playtest pending"
+  },
+  "time_pressure": {
+    "deadline_relevant": true,
+    "forced_tradeoffs": true,
+    "waiting_dominates": false
+  },
+  "schema_version": "1.0",
+  "adventure_id": "The_Harbor_Light_Signal",
+  "play_modes": [
+    "single_investigator"
+  ],
+  "delivery_modes": [
+    "static_book"
+  ]
+}

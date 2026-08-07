@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Harbor_Light_Signal",
+  "start_location_id": "LOC-LANDING",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "locations": [
+    {
+      "location_id": "LOC-LANDING",
+      "public_name": "Supply landing",
+      "start_location": true,
+      "hub_unit_id": "UNIT-LANDING-BASE",
+      "parent_location_id": null,
+      "location_type": "exterior_dock",
+      "description_source": "DESC-LANDING",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-007",
+          "EVT-008",
+          "EVT-009",
+          "EVT-010",
+          "EVT-011"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-KEEPER",
+      "public_name": "Keeper's quarters",
+      "hub_unit_id": "UNIT-KEEPER-BASE",
+      "parent_location_id": "LOC-LANDING",
+      "location_type": "living_quarters",
+      "description_source": "DESC-KEEPER",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-004",
+          "EVT-005"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-GALLERY",
+      "public_name": "Lamp gallery",
+      "hub_unit_id": "UNIT-GALLERY-BASE",
+      "parent_location_id": "LOC-KEEPER",
+      "location_type": "lamp_room",
+      "description_source": "DESC-GALLERY",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-001",
+          "EVT-002",
+          "EVT-003"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-WORKSHOP",
+      "public_name": "Maintenance workshop",
+      "hub_unit_id": "UNIT-WORKSHOP-BASE",
+      "parent_location_id": "LOC-LANDING",
+      "location_type": "workshop",
+      "description_source": "DESC-WORKSHOP",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [],
+        "fact_ids": [],
+        "explicit_adventure_extension": true
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-OFFICE",
+      "public_name": "Station records office",
+      "hub_unit_id": "UNIT-OFFICE-BASE",
+      "parent_location_id": "LOC-LANDING",
+      "location_type": "office",
+      "description_source": "DESC-OFFICE",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-006",
+          "EVT-012",
+          "EVT-013"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    }
+  ],
+  "location_states": [
+    {
+      "state_id": "LOC-LANDING:default",
+      "location_id": "LOC-LANDING",
+      "variant_label": "investigation_start",
+      "attributes": {
+        "access": "open",
+        "storm_debris": "visible"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-010"
+      }
+    },
+    {
+      "state_id": "LOC-OFFICE:records_sync",
+      "location_id": "LOC-OFFICE",
+      "variant_label": "records_synced",
+      "attributes": {
+        "records_sync": "complete"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-012"
+      }
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "FEAT-LANDING-TRUNK",
+      "location_id": "LOC-LANDING",
+      "label": "Henry Walsh personal trunk",
+      "object_ref": "OBJ-SUPPLY-MANIFEST"
+    },
+    {
+      "feature_id": "FEAT-GALLERY-RAIL",
+      "location_id": "LOC-GALLERY",
+      "label": "Gallery safety railing",
+      "object_ref": "OBJ-GALLERY-RAILING"
+    }
+  ],
+  "navigation": [
+    {
+      "nav_id": "NAV-LANDING-KEEPER",
+      "source_location_id": "LOC-LANDING",
+      "destination_location_id": "LOC-KEEPER",
+      "player_label": "Climb to keeper's quarters",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-LANDING-GALLERY",
+      "source_location_id": "LOC-LANDING",
+      "destination_location_id": "LOC-GALLERY",
+      "player_label": "Ascend to lamp gallery",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-LANDING-WORKSHOP",
+      "source_location_id": "LOC-LANDING",
+      "destination_location_id": "LOC-WORKSHOP",
+      "player_label": "Cross to workshop",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-LANDING-OFFICE",
+      "source_location_id": "LOC-LANDING",
+      "destination_location_id": "LOC-OFFICE",
+      "player_label": "Enter records office",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-KEEPER-LANDING",
+      "source_location_id": "LOC-KEEPER",
+      "destination_location_id": "LOC-LANDING",
+      "player_label": "Return to landing",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-GALLERY-KEEPER",
+      "source_location_id": "LOC-GALLERY",
+      "destination_location_id": "LOC-KEEPER",
+      "player_label": "Descend to keeper's quarters",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-WORKSHOP-LANDING",
+      "source_location_id": "LOC-WORKSHOP",
+      "destination_location_id": "LOC-LANDING",
+      "player_label": "Return to landing",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-OFFICE-LANDING",
+      "source_location_id": "LOC-OFFICE",
+      "destination_location_id": "LOC-LANDING",
+      "player_label": "Return to landing",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    }
+  ],
+  "revisit_rules": {
+    "persist_physical_changes": true,
+    "persist_acquired_objects": true,
+    "persist_open_access": true,
+    "suppress_repeat_one_time_observations": true,
+    "allow_time_variants": true,
+    "reset_to_initial_on_revisit": false
+  },
+  "mandatory_locations": [
+    {
+      "location_id": "LOC-LANDING",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-KEEPER",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-GALLERY",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-WORKSHOP",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-OFFICE",
+      "access": "reachable",
+      "reason": "investigation"
+    }
+  ]
+}

@@ -189,7 +189,7 @@
         },
         {
           "event_id": "EVT-006",
-          "timestamp": "2026-08-04T04:10:00",
+          "timestamp": "2026-08-04T04:35:00",
           "day_label": "Night 1",
           "location_id": "LOC-OFFICE",
           "description": "Tom keys voluntary-departure radio report",
@@ -353,20 +353,12 @@
         {
           "npc_id": "NPC-TOM",
           "knows": [
-            "FACT-001",
             "FACT-002",
             "FACT-003",
             "FACT-004",
             "FACT-005",
             "FACT-006",
-            "FACT-007",
-            "FACT-008",
-            "FACT-009",
-            "FACT-010",
-            "FACT-011",
-            "FACT-012",
-            "FACT-013",
-            "FACT-014"
+            "FACT-007"
           ],
           "believes_incorrectly": [],
           "witnessed_events": [
@@ -374,7 +366,8 @@
             "EVT-003",
             "EVT-004",
             "EVT-005",
-            "EVT-006"
+            "EVT-006",
+            "EVT-007"
           ],
           "hides": [
             "FACT-002",
@@ -420,11 +413,7 @@
         },
         {
           "npc_id": "NPC-MAYA",
-          "knows": [
-            "FACT-009",
-            "FACT-011",
-            "FACT-013"
-          ],
+          "knows": [],
           "believes_incorrectly": [],
           "witnessed_events": [],
           "hides": [],
@@ -540,25 +529,39 @@
       ]
     },
     "conclusion_requirements": {
-      "perfect": {
-        "culprit_id": "NPC-TOM",
-        "required_fact_ids": [
-          "FACT-002",
-          "FACT-004",
-          "FACT-005",
-          "FACT-006",
-          "FACT-007",
-          "FACT-009",
-          "FACT-010"
-        ],
-        "required_knowledge_ids": [
-          "KNOW-PERFECT-RECON",
-          "KNOW-TOM-COVERUP",
-          "KNOW-DEPARTURE-IMPOSSIBLE",
-          "KNOW-GALLERY-FALL"
-        ]
+      "questions": [
+        {
+          "question_id": "Q-CULPRIT",
+          "answer_entity_id": "NPC-TOM",
+          "required_fact_ids": [
+            "FACT-002",
+            "FACT-004",
+            "FACT-005",
+            "FACT-006",
+            "FACT-007"
+          ]
+        },
+        {
+          "question_id": "Q-METHOD",
+          "answer_entity_id": "METHOD-COVERUP",
+          "required_fact_ids": [
+            "FACT-004",
+            "FACT-005",
+            "FACT-006"
+          ]
+        }
+      ]
+    },
+    "ending_claims": [
+      {
+        "ending_id": "END-PERFECT",
+        "asserted_fact_ids": ["FACT-002", "FACT-004", "FACT-005", "FACT-006"]
+      },
+      {
+        "ending_id": "END-TIMEOUT",
+        "asserted_fact_ids": []
       }
-    }
+    ]
   },
   "locations": [
     {
@@ -1333,8 +1336,8 @@
     {
       "check_id": "CHK-RAILING",
       "declaration_unit_id": "UNIT-CHK-RAILING-DECL",
-      "success_unit_id": "UNIT-CHK-RAILING-SUCCESS",
-      "failure_unit_id": "UNIT-CHK-RAILING-FAIL",
+      "success_unit_id": "UNIT-RAILING-SUCCESS",
+      "failure_unit_id": "UNIT-RAILING-FAIL",
       "capability": "perception",
       "capability_category": "perception_observation",
       "modifier_source_id": "MOD-PERCEPTION",
@@ -1348,8 +1351,8 @@
     {
       "check_id": "CHK-LOG",
       "declaration_unit_id": "UNIT-CHK-LOG-DECL",
-      "success_unit_id": "UNIT-CHK-LOG-SUCCESS",
-      "failure_unit_id": "UNIT-CHK-LOG-FAIL",
+      "success_unit_id": "UNIT-LOG-SUCCESS",
+      "failure_unit_id": "UNIT-LOG-FAIL",
       "capability": "reasoning",
       "capability_category": "reasoning_analysis",
       "modifier_source_id": "MOD-REASONING",
@@ -1363,8 +1366,8 @@
     {
       "check_id": "CHK-RADIO",
       "declaration_unit_id": "UNIT-CHK-RADIO-DECL",
-      "success_unit_id": "UNIT-CHK-RADIO-SUCCESS",
-      "failure_unit_id": "UNIT-CHK-RADIO-FAIL",
+      "success_unit_id": "UNIT-RADIO-SUCCESS",
+      "failure_unit_id": "UNIT-RADIO-FAIL",
       "capability": "technical",
       "capability_category": "technical_systems",
       "modifier_source_id": "MOD-TECHNICAL",
@@ -2664,11 +2667,11 @@
         "choices": [
           {
             "label": "If your roll succeeds, read the success section.",
-            "destination_unit_id": "UNIT-CHK-RAILING-SUCCESS"
+            "destination_unit_id": "UNIT-RAILING-SUCCESS"
           },
           {
             "label": "If your roll fails, read the failure section.",
-            "destination_unit_id": "UNIT-CHK-RAILING-FAIL"
+            "destination_unit_id": "UNIT-RAILING-FAIL"
           }
         ],
         "meta": {
@@ -2677,7 +2680,7 @@
         }
       },
       {
-        "unit_id": "UNIT-CHK-RAILING-SUCCESS",
+        "unit_id": "UNIT-RAILING-SUCCESS",
         "title": "Gallery railing \u2014 success",
         "player_file": "OBJECTS",
         "unit_kind": "check_success",
@@ -2692,7 +2695,7 @@
         ]
       },
       {
-        "unit_id": "UNIT-CHK-RAILING-FAIL",
+        "unit_id": "UNIT-RAILING-FAIL",
         "title": "Gallery railing \u2014 failure",
         "player_file": "OBJECTS",
         "unit_kind": "check_failure",
@@ -2719,11 +2722,11 @@
         "choices": [
           {
             "label": "If your roll succeeds, read the success section.",
-            "destination_unit_id": "UNIT-CHK-LOG-SUCCESS"
+            "destination_unit_id": "UNIT-LOG-SUCCESS"
           },
           {
             "label": "If your roll fails, read the failure section.",
-            "destination_unit_id": "UNIT-CHK-LOG-FAIL"
+            "destination_unit_id": "UNIT-LOG-FAIL"
           }
         ],
         "meta": {
@@ -2732,7 +2735,7 @@
         }
       },
       {
-        "unit_id": "UNIT-CHK-LOG-SUCCESS",
+        "unit_id": "UNIT-LOG-SUCCESS",
         "title": "Log discrepancy \u2014 success",
         "player_file": "OBJECTS",
         "unit_kind": "check_success",
@@ -2747,7 +2750,7 @@
         ]
       },
       {
-        "unit_id": "UNIT-CHK-LOG-FAIL",
+        "unit_id": "UNIT-LOG-FAIL",
         "title": "Log discrepancy \u2014 failure",
         "player_file": "OBJECTS",
         "unit_kind": "check_failure",
@@ -2774,11 +2777,11 @@
         "choices": [
           {
             "label": "If your roll succeeds, read the success section.",
-            "destination_unit_id": "UNIT-CHK-RADIO-SUCCESS"
+            "destination_unit_id": "UNIT-RADIO-SUCCESS"
           },
           {
             "label": "If your roll fails, read the failure section.",
-            "destination_unit_id": "UNIT-CHK-RADIO-FAIL"
+            "destination_unit_id": "UNIT-RADIO-FAIL"
           }
         ],
         "meta": {
@@ -2787,7 +2790,7 @@
         }
       },
       {
-        "unit_id": "UNIT-CHK-RADIO-SUCCESS",
+        "unit_id": "UNIT-RADIO-SUCCESS",
         "title": "Radio log \u2014 success",
         "player_file": "OBJECTS",
         "unit_kind": "check_success",
@@ -2802,7 +2805,7 @@
         ]
       },
       {
-        "unit_id": "UNIT-CHK-RADIO-FAIL",
+        "unit_id": "UNIT-RADIO-FAIL",
         "title": "Radio log \u2014 failure",
         "player_file": "OBJECTS",
         "unit_kind": "check_failure",
@@ -3255,8 +3258,7 @@
           {
             "label": "Review the supply manifest crate on the landing.",
             "destination_unit_id": "UNIT-OBJ-MANIFEST-MENU",
-            "action_type": "search",
-            "investigative": true
+            "action_type": "nav"
           }
         ]
       },
