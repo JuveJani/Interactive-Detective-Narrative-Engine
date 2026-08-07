@@ -1,0 +1,3476 @@
+{
+  "pack_id": "The_Harbor_Light_Signal",
+  "brief": {
+    "working_title": "The Harbor Light Signal",
+    "premise": "A Harbor Commission safety inspector investigates the reported voluntary departure of a remote lighthouse keeper, reconstructing the night from log books, weather records, supply manifests, and radio logs.",
+    "setting": "Remote coastal lighthouse station on an exposed rock station with supply landing, keeper quarters, lamp gallery, maintenance workshop, and records office",
+    "universe": "real world",
+    "genre": "detective mystery",
+    "realism_level": "grounded contemporary",
+    "player_mode": "single_investigator",
+    "investigator_character": "Harbor Commission safety inspector dispatched to verify keeper status and reconstruct the overnight timeline",
+    "opening_situation": "You arrive by rotor to find relief keeper Sarah Chen waiting on the landing. Assistant keeper Tom Reed claims head keeper Henry Walsh departed voluntarily at 0430, but the station records disagree.",
+    "initial_observable_facts": [
+      "The landing shows storm debris and an unloaded personal trunk tagged for Henry Walsh.",
+      "The lamp is operating, but keeper handover was not completed.",
+      "Tom Reed has already logged a voluntary departure in the keeper's log.",
+      "Commission radio expects your reconstruction report by 1300."
+    ],
+    "target_playtime_minutes": 120,
+    "in_world_duration": "one inspection day (approximately four in-world hours)",
+    "tone": "methodical, maritime, quietly urgent",
+    "difficulty": "standard",
+    "location_scale": "single remote lighthouse station with five primary locations",
+    "content_boundaries": "no graphic violence; no supernatural elements; workplace negligence and cover-up themes; death by accidental fall; no sexual content",
+    "required_themes": [
+      "fair-play mystery",
+      "records and timeline reconstruction",
+      "testimony versus documents",
+      "meaningful time pressure",
+      "one perfect ending and several imperfect endings"
+    ],
+    "forbidden_themes": [
+      "supernatural explanations",
+      "theft-primary plots",
+      "magic or occult resolution",
+      "direct narrator solution delivery"
+    ],
+    "deadline_or_constraint": "Commission report due at 1300; landing weather may close again",
+    "author_notes": "Codename: The Harbor Light Signal. Culprit NPC-TOM covered up keeper death during unauthorized lens repair. Emphasis on logs, weather, manifests, and radio traffic \u2014 not theft."
+  },
+  "fixed_truth": {
+    "culprit_id": "NPC-TOM",
+    "motive": "Avoid commission discipline and negligence findings after Henry died during unauthorized lens repair Tom had warned against",
+    "method": "Discovered Henry's body after a gallery fall, then falsified voluntary-departure entries in the log book and radio traffic",
+    "opportunity": "Acting keeper on watch; access to log book, radio terminal, and supply tally signatures",
+    "immutable_facts": [
+      {
+        "fact_id": "FACT-001",
+        "statement": "Head keeper Henry Walsh planned unauthorized lens shim calibration alone in the gallery at 0400"
+      },
+      {
+        "fact_id": "FACT-002",
+        "statement": "Henry Walsh fell from the gallery safety railing during lens repair"
+      },
+      {
+        "fact_id": "FACT-003",
+        "statement": "Assistant keeper Tom Reed discovered Henry's body in the gallery"
+      },
+      {
+        "fact_id": "FACT-004",
+        "statement": "Tom Reed staged a voluntary-departure narrative to avoid commission scrutiny"
+      },
+      {
+        "fact_id": "FACT-005",
+        "statement": "Tom Reed logged voluntary departure at 0430 in the keeper's log book"
+      },
+      {
+        "fact_id": "FACT-006",
+        "statement": "Tom Reed keyed a voluntary-departure radio report at 0410 under Henry's name"
+      },
+      {
+        "fact_id": "FACT-007",
+        "statement": "Landing operations were closed from 0345 to 0715 due to squall conditions"
+      },
+      {
+        "fact_id": "FACT-008",
+        "statement": "Pilot Frank Morales flew no passenger off the station during the night"
+      },
+      {
+        "fact_id": "FACT-009",
+        "statement": "Henry Walsh's personal trunk TRK-HENRY-014 never scanned outbound"
+      },
+      {
+        "fact_id": "FACT-010",
+        "statement": "Gallery railing shows fresh scrape marks and a bent rail pin at the lens access point"
+      },
+      {
+        "fact_id": "FACT-011",
+        "statement": "Lens toolkit LSK-7 was checked out to Henry for scheduled service two days earlier"
+      },
+      {
+        "fact_id": "FACT-012",
+        "statement": "Relief keeper Sarah Chen was not told the true status of Henry Walsh before arrival"
+      },
+      {
+        "fact_id": "FACT-013",
+        "statement": "Supply clerk Maya Ortiz records show Tom signed the 0430 outbound tally without Henry's signature"
+      },
+      {
+        "fact_id": "FACT-014",
+        "statement": "Weather chart CLOSED status contradicts any claimed 0430 voluntary boat or rotor departure"
+      }
+    ],
+    "causal_timeline": {
+      "clock_start": "2026-08-04T03:45:00",
+      "events": [
+        {
+          "event_id": "EVT-001",
+          "timestamp": "2026-08-04T04:00:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-GALLERY",
+          "description": "Henry begins unauthorized lens repair in the gallery",
+          "participants": [
+            "NPC-HENRY"
+          ],
+          "causes": [],
+          "reveals_facts": [
+            "FACT-001"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-002",
+          "timestamp": "2026-08-04T04:18:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-GALLERY",
+          "description": "Henry falls from the gallery railing",
+          "participants": [
+            "NPC-HENRY"
+          ],
+          "causes": [
+            "EVT-001"
+          ],
+          "reveals_facts": [
+            "FACT-002"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-003",
+          "timestamp": "2026-08-04T04:22:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-GALLERY",
+          "description": "Tom discovers Henry's body",
+          "participants": [
+            "NPC-TOM"
+          ],
+          "causes": [
+            "EVT-002"
+          ],
+          "reveals_facts": [
+            "FACT-003"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-004",
+          "timestamp": "2026-08-04T04:28:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-KEEPER",
+          "description": "Tom decides to report voluntary departure instead of the fall",
+          "participants": [
+            "NPC-TOM"
+          ],
+          "causes": [
+            "EVT-003"
+          ],
+          "reveals_facts": [
+            "FACT-004"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-005",
+          "timestamp": "2026-08-04T04:30:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-KEEPER",
+          "description": "Tom alters the keeper log with voluntary-departure entry",
+          "participants": [
+            "NPC-TOM"
+          ],
+          "causes": [
+            "EVT-004"
+          ],
+          "reveals_facts": [
+            "FACT-005"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-006",
+          "timestamp": "2026-08-04T04:10:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-OFFICE",
+          "description": "Tom keys voluntary-departure radio report",
+          "participants": [
+            "NPC-TOM"
+          ],
+          "causes": [
+            "EVT-004"
+          ],
+          "reveals_facts": [
+            "FACT-006"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-007",
+          "timestamp": "2026-08-04T03:45:00",
+          "day_label": "Night 1",
+          "location_id": "LOC-LANDING",
+          "description": "Squall closes landing operations",
+          "participants": [],
+          "causes": [],
+          "reveals_facts": [
+            "FACT-007",
+            "FACT-014"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-008",
+          "timestamp": "2026-08-04T06:00:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-LANDING",
+          "description": "Sarah Chen arrives for relief duty",
+          "participants": [
+            "NPC-SARAH"
+          ],
+          "causes": [],
+          "reveals_facts": [
+            "FACT-012"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-009",
+          "timestamp": "2026-08-04T08:30:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-LANDING",
+          "description": "Harbor Commission dispatches safety inspector",
+          "participants": [
+            "PC-INSPECTOR"
+          ],
+          "causes": [
+            "EVT-008"
+          ],
+          "reveals_facts": [],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-010",
+          "timestamp": "2026-08-04T09:00:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-LANDING",
+          "description": "Inspector arrives on station",
+          "participants": [
+            "PC-INSPECTOR"
+          ],
+          "causes": [
+            "EVT-009"
+          ],
+          "reveals_facts": [],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-011",
+          "timestamp": "2026-08-04T10:15:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-LANDING",
+          "description": "Frank returns with inbound supplies and contradicts departure story",
+          "participants": [
+            "NPC-FRANK"
+          ],
+          "causes": [
+            "EVT-010"
+          ],
+          "reveals_facts": [
+            "FACT-008",
+            "FACT-009"
+          ],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-012",
+          "timestamp": "2026-08-04T11:00:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-OFFICE",
+          "description": "Overnight records bundle finishes sync to inspector terminal",
+          "participants": [],
+          "causes": [
+            "EVT-010"
+          ],
+          "reveals_facts": [],
+          "effects": []
+        },
+        {
+          "event_id": "EVT-013",
+          "timestamp": "2026-08-04T13:00:00",
+          "day_label": "Day 1",
+          "location_id": "LOC-OFFICE",
+          "description": "Commission report deadline",
+          "participants": [],
+          "causes": [
+            "EVT-009"
+          ],
+          "reveals_facts": [],
+          "effects": []
+        }
+      ]
+    },
+    "world_state_timeline": {
+      "snapshots": [
+        {
+          "at_event_id": "EVT-007",
+          "people_locations": {},
+          "object_states": {
+            "OBJ-WEATHER-CHART": "landing_closed"
+          },
+          "access_states": {
+            "LOC-LANDING": "closed"
+          },
+          "evidence_conditions": {}
+        },
+        {
+          "at_event_id": "EVT-010",
+          "people_locations": {
+            "PC-INSPECTOR": "LOC-LANDING"
+          },
+          "object_states": {
+            "OBJ-SUPPLY-MANIFEST": "trunk_on_station"
+          },
+          "access_states": {
+            "LOC-LANDING": "open"
+          },
+          "evidence_conditions": {}
+        },
+        {
+          "at_event_id": "EVT-012",
+          "people_locations": {},
+          "object_states": {
+            "OBJ-RADIO-TERMINAL": "sync_complete"
+          },
+          "access_states": {
+            "LOC-OFFICE": "records_available"
+          },
+          "evidence_conditions": {}
+        }
+      ]
+    },
+    "npc_knowledge": {
+      "npcs": [
+        {
+          "npc_id": "NPC-TOM",
+          "knows": [
+            "FACT-001",
+            "FACT-002",
+            "FACT-003",
+            "FACT-004",
+            "FACT-005",
+            "FACT-006",
+            "FACT-007",
+            "FACT-008",
+            "FACT-009",
+            "FACT-010",
+            "FACT-011",
+            "FACT-012",
+            "FACT-013",
+            "FACT-014"
+          ],
+          "believes_incorrectly": [],
+          "witnessed_events": [
+            "EVT-002",
+            "EVT-003",
+            "EVT-004",
+            "EVT-005",
+            "EVT-006"
+          ],
+          "hides": [
+            "FACT-002",
+            "FACT-003",
+            "FACT-004",
+            "FACT-005",
+            "FACT-006"
+          ],
+          "behavior_rationale": "Conceals discovery of Henry's body and falsified departure records"
+        },
+        {
+          "npc_id": "NPC-SARAH",
+          "knows": [
+            "FACT-012"
+          ],
+          "believes_incorrectly": [
+            {
+              "belief_fact_id": "FACT-005",
+              "actual_fact_id": "FACT-004",
+              "cause": "Copied Tom's voluntary-departure narrative into relief report"
+            }
+          ],
+          "witnessed_events": [
+            "EVT-008"
+          ],
+          "hides": [],
+          "behavior_rationale": "Truthful about handover anomalies but initially trusted Tom's log entry"
+        },
+        {
+          "npc_id": "NPC-FRANK",
+          "knows": [
+            "FACT-007",
+            "FACT-008",
+            "FACT-009"
+          ],
+          "believes_incorrectly": [],
+          "witnessed_events": [
+            "EVT-007",
+            "EVT-011"
+          ],
+          "hides": [],
+          "behavior_rationale": "Cooperative pilot with precise manifest and weather memory"
+        },
+        {
+          "npc_id": "NPC-MAYA",
+          "knows": [
+            "FACT-009",
+            "FACT-011",
+            "FACT-013"
+          ],
+          "believes_incorrectly": [],
+          "witnessed_events": [],
+          "hides": [],
+          "behavior_rationale": "Records clerk who trusts paperwork over rumor"
+        }
+      ]
+    },
+    "evidence_provenance": {
+      "evidence": [
+        {
+          "evidence_id": "EVD-LOG-BOOK",
+          "source_event_id": "EVT-005",
+          "type": "document",
+          "description": "Keeper log book with lens entry and departure line",
+          "establishes_fact_ids": [
+            "FACT-001",
+            "FACT-005"
+          ],
+          "misleading": true,
+          "misleading_cause": "Departure line appears official but was written after the fall"
+        },
+        {
+          "evidence_id": "EVD-RADIO-LOG",
+          "source_event_id": "EVT-006",
+          "type": "document",
+          "description": "Radio traffic log keyed by Tom",
+          "establishes_fact_ids": [
+            "FACT-006"
+          ],
+          "misleading": true,
+          "misleading_cause": "Uses Henry's name for a voluntary departure that did not occur"
+        },
+        {
+          "evidence_id": "EVD-WEATHER-CHART",
+          "source_event_id": "EVT-007",
+          "type": "document",
+          "description": "Landing closure chart",
+          "establishes_fact_ids": [
+            "FACT-007",
+            "FACT-014"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        },
+        {
+          "evidence_id": "EVD-SUPPLY-MANIFEST",
+          "source_event_id": "EVT-011",
+          "type": "document",
+          "description": "Trunk still on station",
+          "establishes_fact_ids": [
+            "FACT-009"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        },
+        {
+          "evidence_id": "EVD-GALLERY-RAIL",
+          "source_event_id": "EVT-002",
+          "type": "physical",
+          "description": "Scrape marks and bent rail pin",
+          "establishes_fact_ids": [
+            "FACT-010"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        },
+        {
+          "evidence_id": "EVD-LENS-TOOLKIT",
+          "source_event_id": "EVT-001",
+          "type": "physical",
+          "description": "LSK-7 toolkit at gallery rail",
+          "establishes_fact_ids": [
+            "FACT-011"
+          ],
+          "misleading": false,
+          "misleading_cause": null
+        }
+      ]
+    },
+    "observable_information": {
+      "observations": [
+        {
+          "observation_id": "OBS-LOG",
+          "learnable_fact_id": "FACT-005",
+          "source_evidence_id": "EVD-LOG-BOOK",
+          "requires": {
+            "action": "review",
+            "location_id": "LOC-KEEPER"
+          },
+          "hidden_if_not_met": true
+        },
+        {
+          "observation_id": "OBS-RADIO",
+          "learnable_fact_id": "FACT-006",
+          "source_evidence_id": "EVD-RADIO-LOG",
+          "requires": {
+            "action": "review",
+            "location_id": "LOC-OFFICE"
+          },
+          "hidden_if_not_met": true
+        },
+        {
+          "observation_id": "OBS-RAIL",
+          "learnable_fact_id": "FACT-010",
+          "source_evidence_id": "EVD-GALLERY-RAIL",
+          "requires": {
+            "action": "inspect",
+            "location_id": "LOC-GALLERY",
+            "check_id": "CHK-RAILING"
+          },
+          "hidden_if_not_met": true
+        }
+      ]
+    },
+    "conclusion_requirements": {
+      "perfect": {
+        "culprit_id": "NPC-TOM",
+        "required_fact_ids": [
+          "FACT-002",
+          "FACT-004",
+          "FACT-005",
+          "FACT-006",
+          "FACT-007",
+          "FACT-009",
+          "FACT-010"
+        ],
+        "required_knowledge_ids": [
+          "KNOW-PERFECT-RECON",
+          "KNOW-TOM-COVERUP",
+          "KNOW-DEPARTURE-IMPOSSIBLE",
+          "KNOW-GALLERY-FALL"
+        ]
+      }
+    }
+  },
+  "locations": [
+    {
+      "location_id": "LOC-LANDING",
+      "public_name": "Supply landing",
+      "start_location": true,
+      "hub_unit_id": "UNIT-LANDING-BASE",
+      "parent_location_id": null,
+      "location_type": "exterior_dock",
+      "description_source": "DESC-LANDING",
+      "default_attributes": {
+        "access": "open"
+      }
+    },
+    {
+      "location_id": "LOC-KEEPER",
+      "public_name": "Keeper's quarters",
+      "hub_unit_id": "UNIT-KEEPER-BASE",
+      "parent_location_id": "LOC-LANDING",
+      "location_type": "living_quarters",
+      "description_source": "DESC-KEEPER",
+      "default_attributes": {
+        "access": "open"
+      }
+    },
+    {
+      "location_id": "LOC-GALLERY",
+      "public_name": "Lamp gallery",
+      "hub_unit_id": "UNIT-GALLERY-BASE",
+      "parent_location_id": "LOC-KEEPER",
+      "location_type": "lamp_room",
+      "description_source": "DESC-GALLERY",
+      "default_attributes": {
+        "access": "open"
+      }
+    },
+    {
+      "location_id": "LOC-WORKSHOP",
+      "public_name": "Maintenance workshop",
+      "hub_unit_id": "UNIT-WORKSHOP-BASE",
+      "parent_location_id": "LOC-LANDING",
+      "location_type": "workshop",
+      "description_source": "DESC-WORKSHOP",
+      "default_attributes": {
+        "access": "open"
+      }
+    },
+    {
+      "location_id": "LOC-OFFICE",
+      "public_name": "Station records office",
+      "hub_unit_id": "UNIT-OFFICE-BASE",
+      "parent_location_id": "LOC-LANDING",
+      "location_type": "office",
+      "description_source": "DESC-OFFICE",
+      "default_attributes": {
+        "access": "open"
+      }
+    }
+  ],
+  "location_states": [
+    {
+      "state_id": "LOC-LANDING:default",
+      "location_id": "LOC-LANDING",
+      "variant_label": "investigation_start",
+      "attributes": {
+        "access": "open",
+        "storm_debris": "visible"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-010"
+      }
+    },
+    {
+      "state_id": "LOC-OFFICE:records_sync",
+      "location_id": "LOC-OFFICE",
+      "variant_label": "records_synced",
+      "attributes": {
+        "records_sync": "complete"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-012"
+      }
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "FEAT-LANDING-TRUNK",
+      "location_id": "LOC-LANDING",
+      "label": "Henry Walsh personal trunk",
+      "object_ref": "OBJ-SUPPLY-MANIFEST"
+    },
+    {
+      "feature_id": "FEAT-GALLERY-RAIL",
+      "location_id": "LOC-GALLERY",
+      "label": "Gallery safety railing",
+      "object_ref": "OBJ-GALLERY-RAILING"
+    }
+  ],
+  "navigation": [
+    {
+      "edge_id": "NAV-LANDING-KEEPER",
+      "from_location_id": "LOC-LANDING",
+      "to_location_id": "LOC-KEEPER",
+      "direction_label": "Climb to keeper's quarters",
+      "time_cost_minutes": 3
+    },
+    {
+      "edge_id": "NAV-LANDING-GALLERY",
+      "from_location_id": "LOC-LANDING",
+      "to_location_id": "LOC-GALLERY",
+      "direction_label": "Ascend to lamp gallery",
+      "time_cost_minutes": 5
+    },
+    {
+      "edge_id": "NAV-LANDING-WORKSHOP",
+      "from_location_id": "LOC-LANDING",
+      "to_location_id": "LOC-WORKSHOP",
+      "direction_label": "Cross to workshop",
+      "time_cost_minutes": 2
+    },
+    {
+      "edge_id": "NAV-LANDING-OFFICE",
+      "from_location_id": "LOC-LANDING",
+      "to_location_id": "LOC-OFFICE",
+      "direction_label": "Enter records office",
+      "time_cost_minutes": 2
+    },
+    {
+      "edge_id": "NAV-KEEPER-LANDING",
+      "from_location_id": "LOC-KEEPER",
+      "to_location_id": "LOC-LANDING",
+      "direction_label": "Return to landing",
+      "time_cost_minutes": 3
+    },
+    {
+      "edge_id": "NAV-GALLERY-KEEPER",
+      "from_location_id": "LOC-GALLERY",
+      "to_location_id": "LOC-KEEPER",
+      "direction_label": "Descend to keeper's quarters",
+      "time_cost_minutes": 4
+    },
+    {
+      "edge_id": "NAV-WORKSHOP-LANDING",
+      "from_location_id": "LOC-WORKSHOP",
+      "to_location_id": "LOC-LANDING",
+      "direction_label": "Return to landing",
+      "time_cost_minutes": 2
+    },
+    {
+      "edge_id": "NAV-OFFICE-LANDING",
+      "from_location_id": "LOC-OFFICE",
+      "to_location_id": "LOC-LANDING",
+      "direction_label": "Return to landing",
+      "time_cost_minutes": 2
+    }
+  ],
+  "npcs": [
+    {
+      "npc_id": "NPC-SARAH",
+      "public_name": "Sarah Chen",
+      "role": "Relief keeper",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-TOM",
+          "relationship_type": "professional"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-FRANK",
+      "public_name": "Frank Morales",
+      "role": "Supply pilot",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-MAYA",
+          "relationship_type": "professional"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-MAYA",
+      "public_name": "Maya Ortiz",
+      "role": "Supply clerk",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-FRANK",
+          "relationship_type": "professional"
+        }
+      ]
+    },
+    {
+      "npc_id": "NPC-TOM",
+      "public_name": "Tom Reed",
+      "role": "Assistant keeper",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-SARAH",
+          "relationship_type": "professional"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "object_id": "OBJ-LOG-BOOK",
+      "public_name": "Keeper's log book",
+      "location_id": "LOC-KEEPER",
+      "interaction_type": "document"
+    },
+    {
+      "object_id": "OBJ-RADIO-TERMINAL",
+      "public_name": "Radio log terminal",
+      "location_id": "LOC-OFFICE",
+      "interaction_type": "terminal"
+    },
+    {
+      "object_id": "OBJ-WEATHER-CHART",
+      "public_name": "Weather chart",
+      "location_id": "LOC-WORKSHOP",
+      "interaction_type": "document"
+    },
+    {
+      "object_id": "OBJ-SUPPLY-MANIFEST",
+      "public_name": "Supply manifest",
+      "location_id": "LOC-LANDING",
+      "interaction_type": "document"
+    },
+    {
+      "object_id": "OBJ-LENS-TOOLKIT",
+      "public_name": "Lens repair toolkit",
+      "location_id": "LOC-GALLERY",
+      "interaction_type": "physical"
+    },
+    {
+      "object_id": "OBJ-GALLERY-RAILING",
+      "public_name": "Gallery safety railing",
+      "location_id": "LOC-GALLERY",
+      "interaction_type": "physical"
+    }
+  ],
+  "knowledge": {
+    "facts": [
+      {
+        "fact_id": "FACT-001",
+        "statement": "Head keeper Henry Walsh planned unauthorized lens shim calibration alone in the gallery at 0400",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-002",
+        "statement": "Henry Walsh fell from the gallery safety railing during lens repair",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-003",
+        "statement": "Assistant keeper Tom Reed discovered Henry's body in the gallery",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-004",
+        "statement": "Tom Reed staged a voluntary-departure narrative to avoid commission scrutiny",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-005",
+        "statement": "Tom Reed logged voluntary departure at 0430 in the keeper's log book",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-006",
+        "statement": "Tom Reed keyed a voluntary-departure radio report at 0410 under Henry's name",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-007",
+        "statement": "Landing operations were closed from 0345 to 0715 due to squall conditions",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-008",
+        "statement": "Pilot Frank Morales flew no passenger off the station during the night",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-009",
+        "statement": "Henry Walsh's personal trunk TRK-HENRY-014 never scanned outbound",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-010",
+        "statement": "Gallery railing shows fresh scrape marks and a bent rail pin at the lens access point",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-011",
+        "statement": "Lens toolkit LSK-7 was checked out to Henry for scheduled service two days earlier",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-012",
+        "statement": "Relief keeper Sarah Chen was not told the true status of Henry Walsh before arrival",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-013",
+        "statement": "Supply clerk Maya Ortiz records show Tom signed the 0430 outbound tally without Henry's signature",
+        "immutable": true
+      },
+      {
+        "fact_id": "FACT-014",
+        "statement": "Weather chart CLOSED status contradicts any claimed 0430 voluntary boat or rotor departure",
+        "immutable": true
+      }
+    ],
+    "observations": [
+      {
+        "observation_id": "OBS-LOG-DISCREPANCY",
+        "description": "Log departure line inconsistent with watch rhythm",
+        "establishes_knowledge_id": "KNOW-LOG-DEPARTURE-LINE"
+      },
+      {
+        "observation_id": "OBS-RADIO-TIMING",
+        "description": "Radio departure keyed during landing closure",
+        "establishes_knowledge_id": "KNOW-RADIO-DEPARTURE"
+      },
+      {
+        "observation_id": "OBS-RAIL-SCRAPE",
+        "description": "Fresh scrape on gallery rail",
+        "establishes_knowledge_id": "KNOW-RAIL-DAMAGE"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "EVD-LOG-BOOK",
+        "name": "Keeper log book",
+        "location_id": "LOC-KEEPER"
+      },
+      {
+        "evidence_id": "EVD-RADIO-LOG",
+        "name": "Radio traffic log",
+        "location_id": "LOC-OFFICE"
+      },
+      {
+        "evidence_id": "EVD-WEATHER-CHART",
+        "name": "Weather chart",
+        "location_id": "LOC-WORKSHOP"
+      },
+      {
+        "evidence_id": "EVD-SUPPLY-MANIFEST",
+        "name": "Supply manifest",
+        "location_id": "LOC-LANDING"
+      },
+      {
+        "evidence_id": "EVD-GALLERY-RAIL",
+        "name": "Gallery railing damage",
+        "location_id": "LOC-GALLERY"
+      },
+      {
+        "evidence_id": "EVD-LENS-TOOLKIT",
+        "name": "Lens toolkit trace",
+        "location_id": "LOC-GALLERY"
+      }
+    ],
+    "testimony": [
+      {
+        "testimony_id": "TEST-SARAH-SCHEDULE",
+        "npc_id": "NPC-SARAH",
+        "summary": "Expected handover at 0600",
+        "grants_knowledge_id": "KNOW-OPEN-02"
+      },
+      {
+        "testimony_id": "TEST-FRANK-NO-PASSENGER",
+        "npc_id": "NPC-FRANK",
+        "summary": "No passenger flown off",
+        "grants_knowledge_id": "KNOW-FRANK-NO-PASSENGER"
+      },
+      {
+        "testimony_id": "TEST-MAYA-TRUNK",
+        "npc_id": "NPC-MAYA",
+        "summary": "Trunk still on station",
+        "grants_knowledge_id": "KNOW-TRUNK-ON-STATION"
+      },
+      {
+        "testimony_id": "TEST-TOM-LENS",
+        "npc_id": "NPC-TOM",
+        "summary": "Henry insisted on solo lens work",
+        "grants_knowledge_id": "KNOW-TOM-LENS-ADMISSION"
+      }
+    ],
+    "knowledge_items": [
+      {
+        "knowledge_id": "KNOW-OPEN-01",
+        "summary": "Head keeper Henry Walsh is missing; Tom reported voluntary departure",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-OPEN-02",
+        "summary": "Relief keeper Sarah Chen arrived to an empty handover",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-OPEN-03",
+        "summary": "A squall closed the landing overnight",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-OPEN-04",
+        "summary": "Commission wants a timeline reconstruction from records before 1300",
+        "source_type": "briefing",
+        "tier": "A"
+      },
+      {
+        "knowledge_id": "KNOW-LOG-LENS-ENTRY",
+        "summary": "Log shows Henry planned unauthorized gallery lens work at 0400",
+        "source_type": "document",
+        "establishes_fact_ids": [
+          "FACT-001"
+        ],
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+        "summary": "Log records voluntary departure at 0430 in different handwriting pressure",
+        "source_type": "document",
+        "establishes_fact_ids": [
+          "FACT-005"
+        ],
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-RADIO-DEPARTURE",
+        "summary": "Radio log contains Tom-keyed voluntary-departure report at 0410",
+        "source_type": "document",
+        "establishes_fact_ids": [
+          "FACT-006"
+        ],
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-WEATHER-CLOSED",
+        "summary": "Weather chart shows landing CLOSED 0345-0715",
+        "source_type": "document",
+        "establishes_fact_ids": [
+          "FACT-007",
+          "FACT-014"
+        ],
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-FRANK-NO-PASSENGER",
+        "summary": "Frank flew no passenger off station",
+        "source_type": "testimony",
+        "establishes_fact_ids": [
+          "FACT-008"
+        ],
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-TRUNK-ON-STATION",
+        "summary": "Henry's trunk never scanned outbound",
+        "source_type": "document",
+        "establishes_fact_ids": [
+          "FACT-009"
+        ],
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-RAIL-DAMAGE",
+        "summary": "Gallery rail shows fresh stress marks at lens access",
+        "source_type": "physical",
+        "establishes_fact_ids": [
+          "FACT-010"
+        ],
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-TOOLKIT-OUT",
+        "summary": "LSK-7 lens toolkit checked out to Henry",
+        "source_type": "document",
+        "establishes_fact_ids": [
+          "FACT-011"
+        ],
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-TOM-SIGNED-TALLY",
+        "summary": "Tom signed outbound tally without Henry",
+        "source_type": "document",
+        "establishes_fact_ids": [
+          "FACT-013"
+        ],
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-TOM-LENS-ADMISSION",
+        "summary": "Tom admits Henry insisted on solo lens work",
+        "source_type": "testimony",
+        "establishes_fact_ids": [
+          "FACT-001"
+        ],
+        "tier": "B"
+      },
+      {
+        "knowledge_id": "KNOW-DEPARTURE-IMPOSSIBLE",
+        "summary": "Records prove 0430 voluntary departure impossible",
+        "source_type": "inference",
+        "tier": "C"
+      },
+      {
+        "knowledge_id": "KNOW-GALLERY-FALL",
+        "summary": "Evidence supports fall during lens repair",
+        "source_type": "inference",
+        "tier": "C"
+      },
+      {
+        "knowledge_id": "KNOW-TOM-COVERUP",
+        "summary": "Tom falsified departure narrative after discovering the fall",
+        "source_type": "inference",
+        "tier": "C"
+      },
+      {
+        "knowledge_id": "KNOW-PERFECT-RECON",
+        "summary": "Full reconstruction: unauthorized repair, fall, cover-up by Tom",
+        "source_type": "inference",
+        "tier": "C"
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis_id": "HYP-DEPARTURE-FALSE",
+        "statement": "Voluntary departure was falsified",
+        "related_knowledge_ids": [
+          "KNOW-WEATHER-CLOSED",
+          "KNOW-FRANK-NO-PASSENGER",
+          "KNOW-TRUNK-ON-STATION"
+        ]
+      },
+      {
+        "hypothesis_id": "HYP-GALLERY-FALL",
+        "statement": "Henry fell during unauthorized lens repair",
+        "related_knowledge_ids": [
+          "KNOW-RAIL-DAMAGE",
+          "KNOW-LOG-LENS-ENTRY",
+          "KNOW-TOOLKIT-OUT"
+        ]
+      },
+      {
+        "hypothesis_id": "HYP-TOM-COVERUP",
+        "statement": "Tom covered up the fall with false records",
+        "related_knowledge_ids": [
+          "KNOW-LOG-DEPARTURE-LINE",
+          "KNOW-RADIO-DEPARTURE",
+          "KNOW-TOM-SIGNED-TALLY"
+        ]
+      },
+      {
+        "hypothesis_id": "HYP-PERFECT-RECON",
+        "statement": "Full timeline reconstruction is possible from records",
+        "related_knowledge_ids": [
+          "KNOW-DEPARTURE-IMPOSSIBLE",
+          "KNOW-GALLERY-FALL",
+          "KNOW-TOM-COVERUP"
+        ]
+      }
+    ],
+    "conclusions": [
+      {
+        "conclusion_id": "CONC-WHO",
+        "question": "Who is accountable for the falsified departure?",
+        "correct_answer": "NPC-TOM"
+      },
+      {
+        "conclusion_id": "CONC-WHAT",
+        "question": "What happened to Henry Walsh?",
+        "correct_answer": "Accidental fall during unauthorized lens repair"
+      },
+      {
+        "conclusion_id": "CONC-HOW",
+        "question": "How was the cover-up executed?",
+        "correct_answer": "False log and radio departure entries"
+      },
+      {
+        "conclusion_id": "CONC-WHEN",
+        "question": "When did the fall occur?",
+        "correct_answer": "Approximately 0418 during gallery lens work"
+      }
+    ],
+    "proofs": [
+      {
+        "proof_id": "PROOF-PERFECT",
+        "conclusion_id": "CONC-WHO",
+        "required_knowledge_ids": [
+          "KNOW-PERFECT-RECON",
+          "KNOW-TOM-COVERUP",
+          "KNOW-GALLERY-FALL",
+          "KNOW-DEPARTURE-IMPOSSIBLE"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "relationship_id": "REL-TOM-HENRY",
+        "from_entity": "NPC-TOM",
+        "to_entity": "NPC-HENRY",
+        "relationship_type": "assistant_to_head_keeper"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "conversation_id": "CONV-SARAH",
+      "npc_id": "NPC-SARAH",
+      "hub_unit_id": "UNIT-NPC-SARAH-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-SARAH-SCHEDULE",
+          "player_label": "Ask about the expected handover schedule.",
+          "response_unit_id": "UNIT-TOPIC-SARAH-SCHEDULE",
+          "grants_knowledge_id": "KNOW-OPEN-02",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-SARAH-ARRIVAL",
+          "player_label": "Ask what she noticed on arrival.",
+          "response_unit_id": "UNIT-TOPIC-SARAH-ARRIVAL",
+          "grants_knowledge_id": "KNOW-OPEN-02",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-SARAH-RADIO",
+          "player_label": "Ask about the last radio check.",
+          "response_unit_id": "UNIT-TOPIC-SARAH-RADIO",
+          "grants_knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+          "time_cost_minutes": 2
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-FRANK",
+      "npc_id": "NPC-FRANK",
+      "hub_unit_id": "UNIT-NPC-FRANK-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-FRANK-PASSENGER",
+          "player_label": "Ask whether he flew anyone off station.",
+          "response_unit_id": "UNIT-TOPIC-FRANK-PASSENGER",
+          "grants_knowledge_id": "KNOW-FRANK-NO-PASSENGER",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-FRANK-WEATHER",
+          "player_label": "Ask about storm timing.",
+          "response_unit_id": "UNIT-TOPIC-FRANK-WEATHER",
+          "grants_knowledge_id": "KNOW-WEATHER-CLOSED",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-FRANK-CARGO",
+          "player_label": "Ask about Henry's trunk.",
+          "response_unit_id": "UNIT-TOPIC-FRANK-CARGO",
+          "grants_knowledge_id": "KNOW-TRUNK-ON-STATION",
+          "time_cost_minutes": 2
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-MAYA",
+      "npc_id": "NPC-MAYA",
+      "hub_unit_id": "UNIT-NPC-MAYA-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-MAYA-TRUNK",
+          "player_label": "Ask about the personal trunk.",
+          "response_unit_id": "UNIT-TOPIC-MAYA-TRUNK",
+          "grants_knowledge_id": "KNOW-TRUNK-ON-STATION",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-MAYA-TALLY",
+          "player_label": "Ask who signed the outbound tally.",
+          "response_unit_id": "UNIT-TOPIC-MAYA-TALLY",
+          "grants_knowledge_id": "KNOW-TOM-SIGNED-TALLY",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-MAYA-PARTS",
+          "player_label": "Ask about lens repair parts.",
+          "response_unit_id": "UNIT-TOPIC-MAYA-PARTS",
+          "grants_knowledge_id": "KNOW-TOOLKIT-OUT",
+          "time_cost_minutes": 2
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-TOM",
+      "npc_id": "NPC-TOM",
+      "hub_unit_id": "UNIT-NPC-TOM-HUB",
+      "topics": [
+        {
+          "topic_id": "TOPIC-TOM-DEPARTURE",
+          "player_label": "Ask why Henry left early.",
+          "response_unit_id": "UNIT-TOPIC-TOM-DEPARTURE",
+          "grants_knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-TOM-LENS",
+          "player_label": "Ask about unauthorized lens work.",
+          "response_unit_id": "UNIT-TOPIC-TOM-LENS",
+          "grants_knowledge_id": "KNOW-TOM-LENS-ADMISSION",
+          "time_cost_minutes": 2
+        },
+        {
+          "topic_id": "TOPIC-TOM-LOG",
+          "player_label": "Ask who made the final log entries.",
+          "response_unit_id": "UNIT-TOPIC-TOM-LOG",
+          "grants_knowledge_id": "KNOW-LOG-DEPARTURE-LINE",
+          "time_cost_minutes": 2
+        }
+      ]
+    }
+  ],
+  "object_actions": [
+    {
+      "action_id": "ACT-LOG-BOOK",
+      "object_id": "OBJ-LOG-BOOK",
+      "menu_unit_id": "UNIT-OBJ-LOG-MENU",
+      "result_unit_id": "UNIT-OBJ-LOG-RESULT",
+      "grants_knowledge_ids": [
+        "KNOW-LOG-LENS-ENTRY"
+      ]
+    },
+    {
+      "action_id": "ACT-RADIO-TERMINAL",
+      "object_id": "OBJ-RADIO-TERMINAL",
+      "menu_unit_id": "UNIT-OBJ-RADIO-MENU",
+      "result_unit_id": "UNIT-OBJ-RADIO-RESULT",
+      "grants_knowledge_ids": [
+        "KNOW-RADIO-DEPARTURE"
+      ]
+    },
+    {
+      "action_id": "ACT-WEATHER-CHART",
+      "object_id": "OBJ-WEATHER-CHART",
+      "menu_unit_id": "UNIT-OBJ-WEATHER-MENU",
+      "result_unit_id": "UNIT-OBJ-WEATHER-RESULT",
+      "grants_knowledge_ids": [
+        "KNOW-WEATHER-CLOSED"
+      ]
+    },
+    {
+      "action_id": "ACT-SUPPLY-MANIFEST",
+      "object_id": "OBJ-SUPPLY-MANIFEST",
+      "menu_unit_id": "UNIT-OBJ-MANIFEST-MENU",
+      "result_unit_id": "UNIT-OBJ-MANIFEST-RESULT",
+      "grants_knowledge_ids": [
+        "KNOW-TRUNK-ON-STATION"
+      ]
+    },
+    {
+      "action_id": "ACT-GALLERY-RAILING",
+      "object_id": "OBJ-GALLERY-RAILING",
+      "menu_unit_id": "UNIT-CHK-RAILING-DECL",
+      "check_id": "CHK-RAILING"
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "CHK-RAILING",
+      "declaration_unit_id": "UNIT-CHK-RAILING-DECL",
+      "success_unit_id": "UNIT-CHK-RAILING-SUCCESS",
+      "failure_unit_id": "UNIT-CHK-RAILING-FAIL",
+      "capability": "perception",
+      "capability_category": "perception_observation",
+      "modifier_source_id": "MOD-PERCEPTION",
+      "dc": 12,
+      "parent_action_id": "ACT-GALLERY-RAILING",
+      "success_grants_knowledge_ids": [
+        "KNOW-RAIL-DAMAGE"
+      ],
+      "player_action_label": "Examine the gallery railing closely."
+    },
+    {
+      "check_id": "CHK-LOG",
+      "declaration_unit_id": "UNIT-CHK-LOG-DECL",
+      "success_unit_id": "UNIT-CHK-LOG-SUCCESS",
+      "failure_unit_id": "UNIT-CHK-LOG-FAIL",
+      "capability": "reasoning",
+      "capability_category": "reasoning_analysis",
+      "modifier_source_id": "MOD-REASONING",
+      "dc": 11,
+      "parent_action_id": "ACT-LOG-BOOK",
+      "success_grants_knowledge_ids": [
+        "KNOW-LOG-DEPARTURE-LINE"
+      ],
+      "player_action_label": "Analyze the log discrepancy."
+    },
+    {
+      "check_id": "CHK-RADIO",
+      "declaration_unit_id": "UNIT-CHK-RADIO-DECL",
+      "success_unit_id": "UNIT-CHK-RADIO-SUCCESS",
+      "failure_unit_id": "UNIT-CHK-RADIO-FAIL",
+      "capability": "technical",
+      "capability_category": "technical_systems",
+      "modifier_source_id": "MOD-TECHNICAL",
+      "dc": 12,
+      "parent_action_id": "ACT-RADIO-TERMINAL",
+      "success_grants_knowledge_ids": [
+        "KNOW-RADIO-DEPARTURE"
+      ],
+      "player_action_label": "Decode the radio log timestamps."
+    }
+  ],
+  "flow": {
+    "placeholder_resolution": {},
+    "state_model": {
+      "flags": [
+        "records_sync_complete",
+        "manifest_reviewed",
+        "log_reviewed",
+        "radio_reviewed",
+        "rail_examined",
+        "weather_reviewed",
+        "ready_to_accuse",
+        "accusation_complete",
+        "inference_departure_resolved",
+        "inference_fall_resolved",
+        "inference_coverup_resolved",
+        "inference_perfect_resolved",
+        "check_railing_failed",
+        "check_log_failed",
+        "check_radio_failed"
+      ],
+      "counters": [
+        "investigation_phase"
+      ],
+      "initial_state": {
+        "records_sync_complete": false,
+        "manifest_reviewed": false,
+        "log_reviewed": false,
+        "radio_reviewed": false,
+        "rail_examined": false,
+        "weather_reviewed": false,
+        "ready_to_accuse": false,
+        "accusation_complete": false,
+        "inference_departure_resolved": false,
+        "inference_fall_resolved": false,
+        "inference_coverup_resolved": false,
+        "inference_perfect_resolved": false,
+        "check_railing_failed": false,
+        "check_log_failed": false,
+        "check_radio_failed": false,
+        "investigation_phase": 0
+      }
+    },
+    "time_model": {
+      "clocks": [
+        "T_ARRIVAL",
+        "T_RECORDS_SYNC",
+        "T_FRANK_RETURN",
+        "T_DEADLINE"
+      ],
+      "clock_event_map": {
+        "T_ARRIVAL": "EVT-010",
+        "T_RECORDS_SYNC": "EVT-012",
+        "T_FRANK_RETURN": "EVT-011",
+        "T_DEADLINE": "EVT-013"
+      },
+      "deadline_clock": "T_DEADLINE",
+      "scene_time_cost_default_minutes": 5,
+      "no_earlier_time_travel": true
+    },
+    "scene_chains": [
+      {
+        "chain_id": "CHAIN-OPENING",
+        "active_from_clock": "T_ARRIVAL",
+        "active_until_clock": "T_FRANK_RETURN",
+        "steps": [
+          {
+            "step_id": "SC-LANDING-ARRIVAL",
+            "scene_unit_id": "SC-LANDING-ARRIVAL",
+            "player_label": "Receive arrival briefing.",
+            "location_id": "LOC-LANDING"
+          },
+          {
+            "step_id": "SC-KEEPER-HANDOVER",
+            "scene_unit_id": "SC-KEEPER-HANDOVER",
+            "player_label": "Witness handover tension.",
+            "location_id": "LOC-KEEPER"
+          }
+        ]
+      },
+      {
+        "chain_id": "CHAIN-RECORDS",
+        "active_from_clock": "T_FRANK_RETURN",
+        "active_until_clock": "T_RECORDS_SYNC",
+        "steps": [
+          {
+            "step_id": "SC-LANDING-STORM",
+            "scene_unit_id": "SC-LANDING-STORM",
+            "player_label": "Review storm after-action with Frank.",
+            "location_id": "LOC-LANDING"
+          },
+          {
+            "step_id": "SC-OFFICE-RECORDS",
+            "scene_unit_id": "SC-OFFICE-RECORDS",
+            "player_label": "Pull overnight records.",
+            "location_id": "LOC-OFFICE",
+            "state_updates": {
+              "records_sync_complete": true
+            }
+          }
+        ]
+      },
+      {
+        "chain_id": "CHAIN-FINAL",
+        "active_from_clock": "T_RECORDS_SYNC",
+        "active_until_clock": "T_DEADLINE",
+        "steps": [
+          {
+            "step_id": "SC-GALLERY-ACCESS",
+            "scene_unit_id": "SC-GALLERY-ACCESS",
+            "player_label": "Ascend to the lamp gallery.",
+            "location_id": "LOC-GALLERY"
+          },
+          {
+            "step_id": "SC-WORKSHOP-WEATHER",
+            "scene_unit_id": "SC-WORKSHOP-WEATHER",
+            "player_label": "Confirm weather timeline.",
+            "location_id": "LOC-WORKSHOP",
+            "state_updates": {
+              "weather_reviewed": true
+            }
+          },
+          {
+            "step_id": "SC-ACCUSATION-PREP",
+            "scene_unit_id": "SC-ACCUSATION-PREP",
+            "player_label": "Prepare final report.",
+            "location_id": "LOC-OFFICE",
+            "requires_state": {
+              "ready_to_accuse": true
+            }
+          },
+          {
+            "step_id": "SC-DEADLINE-WARN",
+            "scene_unit_id": "SC-DEADLINE-WARN",
+            "player_label": "Hear deadline warning.",
+            "location_id": "LOC-LANDING"
+          }
+        ]
+      }
+    ],
+    "world_state_variants": [
+      {
+        "variant_id": "VAR-OFFICE-RECORDS",
+        "base_scene_unit_id": "SC-OFFICE-RECORDS",
+        "variants": [
+          {
+            "when_state": {
+              "flag": "records_sync_complete",
+              "value": true
+            },
+            "scene_unit_id": "SC-OFFICE-RECORDS"
+          },
+          {
+            "when_state": {
+              "flag": "records_sync_complete",
+              "value": false
+            },
+            "scene_unit_id": "SC-OFFICE-RECORDS"
+          }
+        ]
+      }
+    ],
+    "location_revisits": [
+      {
+        "location_id": "LOC-OFFICE",
+        "revisit_rules": [
+          {
+            "rule_id": "REV-RADIO",
+            "when_clock_at_least": "T_RECORDS_SYNC",
+            "unlocks_scene_unit_id": "SC-OFFICE-RECORDS",
+            "state_updates": {
+              "radio_reviewed": true
+            }
+          }
+        ]
+      },
+      {
+        "location_id": "LOC-GALLERY",
+        "revisit_rules": [
+          {
+            "rule_id": "REV-RAIL",
+            "when_knowledge_held": [
+              "KNOW-LOG-LENS-ENTRY"
+            ],
+            "unlocks_scene_unit_id": "SC-GALLERY-ACCESS",
+            "state_updates": {
+              "rail_examined": true
+            }
+          }
+        ]
+      }
+    ],
+    "inference_flow_gates": [
+      {
+        "inference_id": "INF-DEPARTURE-IMPOSSIBLE",
+        "hypothesis_id": "HYP-DEPARTURE-FALSE",
+        "required_knowledge_ids": [
+          "KNOW-WEATHER-CLOSED",
+          "KNOW-FRANK-NO-PASSENGER",
+          "KNOW-TRUNK-ON-STATION"
+        ],
+        "success_state_updates": {
+          "inference_departure_resolved": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-LANDING-MANIFEST"
+        ]
+      },
+      {
+        "inference_id": "INF-GALLERY-FALL",
+        "hypothesis_id": "HYP-GALLERY-FALL",
+        "required_knowledge_ids": [
+          "KNOW-RAIL-DAMAGE",
+          "KNOW-LOG-LENS-ENTRY",
+          "KNOW-TOOLKIT-OUT"
+        ],
+        "success_state_updates": {
+          "inference_fall_resolved": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-GALLERY-RAIL",
+          "REC-KEEPER-LOG"
+        ]
+      },
+      {
+        "inference_id": "INF-TOM-COVERUP",
+        "hypothesis_id": "HYP-TOM-COVERUP",
+        "required_knowledge_ids": [
+          "KNOW-LOG-DEPARTURE-LINE",
+          "KNOW-RADIO-DEPARTURE",
+          "KNOW-TOM-SIGNED-TALLY"
+        ],
+        "success_state_updates": {
+          "inference_coverup_resolved": true,
+          "ready_to_accuse": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-OFFICE-RADIO",
+          "REC-KEEPER-LOG"
+        ]
+      },
+      {
+        "inference_id": "INF-PERFECT-RECON",
+        "hypothesis_id": "HYP-PERFECT-RECON",
+        "required_knowledge_ids": [
+          "KNOW-DEPARTURE-IMPOSSIBLE",
+          "KNOW-GALLERY-FALL",
+          "KNOW-TOM-COVERUP"
+        ],
+        "success_state_updates": {
+          "inference_perfect_resolved": true
+        },
+        "failure_preserves_investigation": true,
+        "recovery_routes": [
+          "REC-OFFICE-RADIO",
+          "REC-GALLERY-RAIL"
+        ]
+      }
+    ],
+    "recovery_routes": [
+      {
+        "route_id": "REC-OFFICE-RADIO",
+        "player_action_label": "Return to the radio log terminal.",
+        "destination_ref": "LOC-OFFICE",
+        "action_ref": "ACT-RADIO-TERMINAL"
+      },
+      {
+        "route_id": "REC-GALLERY-RAIL",
+        "player_action_label": "Re-examine the gallery railing.",
+        "destination_ref": "LOC-GALLERY",
+        "action_ref": "ACT-GALLERY-RAILING"
+      },
+      {
+        "route_id": "REC-KEEPER-LOG",
+        "player_action_label": "Re-read the keeper's log book.",
+        "destination_ref": "LOC-KEEPER",
+        "action_ref": "ACT-LOG-BOOK"
+      },
+      {
+        "route_id": "REC-LANDING-MANIFEST",
+        "player_action_label": "Check the supply manifest again.",
+        "destination_ref": "LOC-LANDING",
+        "action_ref": "ACT-SUPPLY-MANIFEST"
+      }
+    ],
+    "accusation_questionnaire": {
+      "questionnaire_id": "ACC-HARBOR-LIGHT",
+      "required_before_ending_eval": true,
+      "multi_component": true,
+      "questions": [
+        {
+          "question_id": "Q-WHO",
+          "conclusion_id": "CONC-WHO",
+          "answer_type": "npc_id",
+          "player_label": "Who falsified the departure narrative?"
+        },
+        {
+          "question_id": "Q-WHAT",
+          "conclusion_id": "CONC-WHAT",
+          "answer_type": "text",
+          "player_label": "What happened to Henry Walsh?"
+        },
+        {
+          "question_id": "Q-HOW",
+          "conclusion_id": "CONC-HOW",
+          "answer_type": "text",
+          "player_label": "How was the cover-up executed?"
+        },
+        {
+          "question_id": "Q-WHEN",
+          "conclusion_id": "CONC-WHEN",
+          "answer_type": "text",
+          "player_label": "When did the fall occur?"
+        }
+      ],
+      "accusation_complete_state_flag": "accusation_complete"
+    },
+    "deadline": {
+      "enabled": true,
+      "deadline_clock": "T_DEADLINE",
+      "deadline_ending_id": "END-TIMEOUT",
+      "blocks_accusation_after": true
+    },
+    "endings": [
+      {
+        "ending_id": "END-PERFECT",
+        "ending_type": "perfect",
+        "priority": 100,
+        "unit_id": "END-PERFECT",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true,
+            "inference_perfect_resolved": true
+          },
+          "required_accusation": {
+            "Q-WHO": "NPC-TOM"
+          }
+        }
+      },
+      {
+        "ending_id": "END-PARTIAL-CULPRIT",
+        "ending_type": "partial",
+        "priority": 50,
+        "unit_id": "END-PARTIAL-CULPRIT",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true,
+            "inference_coverup_resolved": true
+          }
+        }
+      },
+      {
+        "ending_id": "END-PARTIAL-TIMELINE",
+        "ending_type": "partial",
+        "priority": 40,
+        "unit_id": "END-PARTIAL-TIMELINE",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true,
+            "inference_departure_resolved": true
+          }
+        }
+      },
+      {
+        "ending_id": "END-PARTIAL-WRONG",
+        "ending_type": "partial",
+        "priority": 30,
+        "unit_id": "END-PARTIAL-WRONG",
+        "trigger": {
+          "type": "state_driven",
+          "required_state": {
+            "accusation_complete": true
+          },
+          "wrong_accusation_allowed": true
+        }
+      },
+      {
+        "ending_id": "END-TIMEOUT",
+        "ending_type": "timeout",
+        "priority": 10,
+        "unit_id": "END-TIMEOUT",
+        "trigger": {
+          "type": "deadline",
+          "deadline_clock": "T_DEADLINE"
+        }
+      }
+    ]
+  },
+  "player_units": {
+    "shell": {
+      "opening": {
+        "prose": "Rotor wash beats against the supply landing as Sarah Chen meets you at the crate line. Tom Reed stays uphill, already defending a story written in ink and radio traffic."
+      },
+      "how_to_play": {
+        "sections": [
+          {
+            "heading": "Your role",
+            "body": "You are a Harbor Commission safety inspector reconstructing the overnight timeline from records and testimony."
+          },
+          {
+            "heading": "Time",
+            "body": "Track in-world time. Your report is due at 1300."
+          },
+          {
+            "heading": "Checks",
+            "body": "Roll d20 plus the modifier on your character sheet when prompted."
+          }
+        ]
+      },
+      "readme": {
+        "body": "Fair-play mystery at a remote lighthouse station. Reconstruct events from logs, weather, manifests, and radio records."
+      },
+      "character_sheet": {
+        "role": "Harbor Commission safety inspector",
+        "intro": "You audit station safety and keeper accountability.",
+        "modifiers": [
+          {
+            "capability": "perception",
+            "modifier": 2,
+            "when_applies": "Physical inspection and observation checks"
+          },
+          {
+            "capability": "reasoning",
+            "modifier": 2,
+            "when_applies": "Timeline and document discrepancy checks"
+          },
+          {
+            "capability": "technical",
+            "modifier": 1,
+            "when_applies": "Radio and systems log checks"
+          }
+        ],
+        "equipment": "Commission tablet, checkpoint camera, pocket rulebook.",
+        "stakes": "File a supported reconstruction before the 1300 deadline."
+      },
+      "case_file": "# Case file \u2014 The Harbor Light Signal\n\n## Timeline notes\n\n## Record cross-reference\n\n## Final accusation\n",
+      "navigation_index": {
+        "entries": [
+          {
+            "label": "Locations",
+            "file_ref": "PLAYER/LOCATIONS.md"
+          },
+          {
+            "label": "NPCs",
+            "file_ref": "PLAYER/NPCS.md"
+          },
+          {
+            "label": "Objects",
+            "file_ref": "PLAYER/OBJECTS.md"
+          },
+          {
+            "label": "Scenes",
+            "file_ref": "PLAYER/SCENES.md"
+          },
+          {
+            "label": "Inference",
+            "file_ref": "PLAYER/INFERENCE.md"
+          },
+          {
+            "label": "Recovery",
+            "file_ref": "PLAYER/RECOVERY.md"
+          },
+          {
+            "label": "Endings",
+            "file_ref": "PLAYER/ENDINGS.md"
+          }
+        ]
+      }
+    },
+    "units": [
+      {
+        "unit_id": "UNIT-LANDING-BASE",
+        "title": "Supply landing",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-LANDING",
+        "prose": {
+          "body": "You are at the supply landing. Salt air, diesel, and lamp oil mix in the narrow station passages."
+        },
+        "choices": [
+          {
+            "label": "Climb the service stairs to the keeper's quarters.",
+            "destination_unit_id": "UNIT-KEEPER-BASE"
+          },
+          {
+            "label": "Take the interior ladder to the lamp gallery.",
+            "destination_unit_id": "UNIT-GALLERY-BASE"
+          },
+          {
+            "label": "Cross to the maintenance workshop.",
+            "destination_unit_id": "UNIT-WORKSHOP-BASE"
+          },
+          {
+            "label": "Enter the station records office.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          },
+          {
+            "label": "Speak with relief keeper Sarah Chen.",
+            "destination_unit_id": "UNIT-NPC-SARAH-HUB"
+          },
+          {
+            "label": "Speak with pilot Frank Morales.",
+            "destination_unit_id": "UNIT-NPC-FRANK-HUB"
+          },
+          {
+            "label": "Review the supply manifest crate on the landing.",
+            "destination_unit_id": "UNIT-OBJ-MANIFEST-MENU"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-LANDING",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-KEEPER-BASE",
+        "title": "Keeper's quarters",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-KEEPER",
+        "prose": {
+          "body": "You are at the keeper's quarters. Salt air, diesel, and lamp oil mix in the narrow station passages."
+        },
+        "choices": [
+          {
+            "label": "Inspect the keeper's log book on the desk.",
+            "destination_unit_id": "UNIT-OBJ-LOG-MENU"
+          },
+          {
+            "label": "Speak with assistant keeper Tom Reed.",
+            "destination_unit_id": "UNIT-NPC-TOM-HUB"
+          },
+          {
+            "label": "Return to the supply landing.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          },
+          {
+            "label": "Go to the lamp gallery.",
+            "destination_unit_id": "UNIT-GALLERY-BASE"
+          },
+          {
+            "label": "Go to the station office.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-KEEPER",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-GALLERY-BASE",
+        "title": "Lamp gallery",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-GALLERY",
+        "prose": {
+          "body": "You are at the lamp gallery. Salt air, diesel, and lamp oil mix in the narrow station passages."
+        },
+        "choices": [
+          {
+            "label": "Examine the gallery safety railing closely.",
+            "destination_unit_id": "UNIT-CHK-RAILING-DECL"
+          },
+          {
+            "label": "Return to keeper's quarters.",
+            "destination_unit_id": "UNIT-KEEPER-BASE"
+          },
+          {
+            "label": "Descend to the supply landing.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-GALLERY",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-WORKSHOP-BASE",
+        "title": "Maintenance workshop",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-WORKSHOP",
+        "prose": {
+          "body": "You are at the maintenance workshop. Salt air, diesel, and lamp oil mix in the narrow station passages."
+        },
+        "choices": [
+          {
+            "label": "Review the posted weather chart.",
+            "destination_unit_id": "UNIT-OBJ-WEATHER-MENU"
+          },
+          {
+            "label": "Return to the supply landing.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          },
+          {
+            "label": "Go to the station office.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-WORKSHOP",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-OFFICE-BASE",
+        "title": "Station records office",
+        "player_file": "LOCATIONS",
+        "unit_kind": "location_hub",
+        "linked_location_id": "LOC-OFFICE",
+        "prose": {
+          "body": "You are at the station records office. Salt air, diesel, and lamp oil mix in the narrow station passages."
+        },
+        "choices": [
+          {
+            "label": "Use the radio log terminal.",
+            "destination_unit_id": "UNIT-OBJ-RADIO-MENU"
+          },
+          {
+            "label": "Speak with supply clerk Maya Ortiz.",
+            "destination_unit_id": "UNIT-NPC-MAYA-HUB"
+          },
+          {
+            "label": "Return to the supply landing.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          },
+          {
+            "label": "Go to keeper's quarters.",
+            "destination_unit_id": "UNIT-KEEPER-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-OFFICE",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-SARAH-HUB",
+        "title": "Relief keeper Sarah Chen",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-LANDING",
+        "prose": {
+          "body": "Relief keeper Sarah Chen meets you here. Their answers may not match the station records."
+        },
+        "choices": [
+          {
+            "label": "Ask when she expected the head keeper to depart.",
+            "destination_unit_id": "UNIT-TOPIC-SARAH-SCHEDULE"
+          },
+          {
+            "label": "Ask what she noticed on arrival.",
+            "destination_unit_id": "UNIT-TOPIC-SARAH-ARRIVAL"
+          },
+          {
+            "label": "Ask about the last radio check with the keeper.",
+            "destination_unit_id": "UNIT-TOPIC-SARAH-RADIO"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-LANDING",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-FRANK-HUB",
+        "title": "Pilot Frank Morales",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-LANDING",
+        "prose": {
+          "body": "Pilot Frank Morales meets you here. Their answers may not match the station records."
+        },
+        "choices": [
+          {
+            "label": "Ask whether he flew anyone off the station last night.",
+            "destination_unit_id": "UNIT-TOPIC-FRANK-PASSENGER"
+          },
+          {
+            "label": "Ask about storm timing versus the claimed departure.",
+            "destination_unit_id": "UNIT-TOPIC-FRANK-WEATHER"
+          },
+          {
+            "label": "Ask about cargo loaded for the mainland.",
+            "destination_unit_id": "UNIT-TOPIC-FRANK-CARGO"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-LANDING",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-MAYA-HUB",
+        "title": "Supply clerk Maya Ortiz",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-OFFICE",
+        "prose": {
+          "body": "Supply clerk Maya Ortiz meets you here. Their answers may not match the station records."
+        },
+        "choices": [
+          {
+            "label": "Ask about the keeper's personal trunk on the manifest.",
+            "destination_unit_id": "UNIT-TOPIC-MAYA-TRUNK"
+          },
+          {
+            "label": "Ask who signed the outbound supply tally.",
+            "destination_unit_id": "UNIT-TOPIC-MAYA-TALLY"
+          },
+          {
+            "label": "Ask about lens repair parts requisitioned.",
+            "destination_unit_id": "UNIT-TOPIC-MAYA-PARTS"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-OFFICE",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-NPC-TOM-HUB",
+        "title": "Assistant keeper Tom Reed",
+        "player_file": "NPCS",
+        "unit_kind": "npc_interaction",
+        "linked_location_id": "LOC-KEEPER",
+        "prose": {
+          "body": "Assistant keeper Tom Reed meets you here. Their answers may not match the station records."
+        },
+        "choices": [
+          {
+            "label": "Ask why the head keeper left without waiting for relief.",
+            "destination_unit_id": "UNIT-TOPIC-TOM-DEPARTURE"
+          },
+          {
+            "label": "Ask about unauthorized lens work in the gallery.",
+            "destination_unit_id": "UNIT-TOPIC-TOM-LENS"
+          },
+          {
+            "label": "Ask who made the final log entries.",
+            "destination_unit_id": "UNIT-TOPIC-TOM-LOG"
+          },
+          {
+            "label": "End this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "location_id": "LOC-KEEPER",
+          "time_cost_minutes": 0
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-SARAH-SCHEDULE",
+        "title": "Topic Sarah Schedule",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Sarah checks the duty roster on her clipboard.",
+            "speaker": "Sarah Chen",
+            "prompt": "says",
+            "quote": "Henry was supposed to hand over at 0600. Tom radioed that Henry chose to leave early on my inbound hop window, but I never spoke to Henry myself.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Chen.",
+            "destination_unit_id": "UNIT-NPC-SARAH-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-SARAH-ARRIVAL",
+        "title": "Topic Sarah Arrival",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Sarah speaks quietly, glancing toward the gallery stairs.",
+            "speaker": "Sarah Chen",
+            "prompt": "says",
+            "quote": "The gallery lamp was running, but Henry's bunk was already stripped and his seabag was gone from the locker room. That felt wrong for a man who lived for his routines.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Chen.",
+            "destination_unit_id": "UNIT-NPC-SARAH-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-SARAH-RADIO",
+        "title": "Topic Sarah Radio",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Sarah taps the copied radio summary sheet.",
+            "speaker": "Sarah Chen",
+            "prompt": "says",
+            "quote": "Tom's 0410 weather log says Henry departed voluntary at 0430. I copied that into my relief report because it was the only narrative on record.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Chen.",
+            "destination_unit_id": "UNIT-NPC-SARAH-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-FRANK-PASSENGER",
+        "title": "Topic Frank Passenger",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Frank spreads the flight clipboard on a cargo crate.",
+            "speaker": "Frank Morales",
+            "prompt": "says",
+            "quote": "I did not fly a passenger off this rock last night. My manifest shows only inbound diesel and mail pouches.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Morales.",
+            "destination_unit_id": "UNIT-NPC-FRANK-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-FRANK-WEATHER",
+        "title": "Topic Frank Weather",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Frank points at the annotated weather strip.",
+            "speaker": "Frank Morales",
+            "prompt": "says",
+            "quote": "Squall line closed the landing from 0345 until 0715. Nobody was taking a voluntary boat or rotor off in that window.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Morales.",
+            "destination_unit_id": "UNIT-NPC-FRANK-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-FRANK-CARGO",
+        "title": "Topic Frank Cargo",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Frank highlights a line on the cargo list.",
+            "speaker": "Frank Morales",
+            "prompt": "says",
+            "quote": "Henry's marked personal trunk is still listed on my inbound manifest as awaiting outbound load. If he left, he did it without his gear.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Morales.",
+            "destination_unit_id": "UNIT-NPC-FRANK-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-MAYA-TRUNK",
+        "title": "Topic Maya Trunk",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Maya pulls the supply manifest binder open.",
+            "speaker": "Maya Ortiz",
+            "prompt": "says",
+            "quote": "Trunk tag TRK-HENRY-014 is still in the landing inventory. It never scanned outbound.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Ortiz.",
+            "destination_unit_id": "UNIT-NPC-MAYA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-MAYA-TALLY",
+        "title": "Topic Maya Tally",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Maya traces the signature column with her pencil.",
+            "speaker": "Maya Ortiz",
+            "prompt": "says",
+            "quote": "Tom signed the 0430 departure tally as acting keeper. Henry's signature is absent from every outbound line.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Ortiz.",
+            "destination_unit_id": "UNIT-NPC-MAYA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-MAYA-PARTS",
+        "title": "Topic Maya Parts",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Maya finds the requisition card.",
+            "speaker": "Maya Ortiz",
+            "prompt": "says",
+            "quote": "Lens shim kit LSK-7 was checked out to Henry two days ago for scheduled service, not emergency repair.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Ortiz.",
+            "destination_unit_id": "UNIT-NPC-MAYA-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-TOM-DEPARTURE",
+        "title": "Topic Tom Departure",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Tom keeps his eyes on the log book.",
+            "speaker": "Tom Reed",
+            "prompt": "says",
+            "quote": "Henry got restless after the storm forecast. He said he would catch the early window and left me to finish the watch.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Reed.",
+            "destination_unit_id": "UNIT-NPC-TOM-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-TOM-LENS",
+        "title": "Topic Tom Lens",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Tom's voice tightens when he mentions the gallery.",
+            "speaker": "Tom Reed",
+            "prompt": "says",
+            "quote": "Henry insisted on calibrating the Fresnel segments alone. I told him the gallery rail was slick after the salt spray, but he went up anyway.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Reed.",
+            "destination_unit_id": "UNIT-NPC-TOM-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-TOPIC-TOM-LOG",
+        "title": "Topic Tom Log",
+        "player_file": "NPCS",
+        "unit_kind": "dialogue_topic",
+        "prose": {
+          "dialogue": {
+            "scene": "Tom closes the log book with deliberate care.",
+            "speaker": "Tom Reed",
+            "prompt": "says",
+            "quote": "I logged his voluntary departure at 0430 so the commission would not panic before relief arrived. That is standard when a keeper abandons post.",
+            "coda": "You note the answer in your case file."
+          }
+        },
+        "choices": [
+          {
+            "label": "Return to speaking with Reed.",
+            "destination_unit_id": "UNIT-NPC-TOM-HUB"
+          },
+          {
+            "label": "Leave this conversation.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-LOG-MENU",
+        "title": "Keeper's log book",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "The log book lies open on Henry's desk."
+        },
+        "choices": [
+          {
+            "label": "Compare the handwriting in the final watch entries.",
+            "destination_unit_id": "UNIT-CHK-LOG-DECL"
+          },
+          {
+            "label": "Note the planned lens repair entry and return.",
+            "destination_unit_id": "UNIT-OBJ-LOG-RESULT"
+          },
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-KEEPER-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-LOG-RESULT",
+        "title": "Log book entries",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "The final entry reads: '0400 \u2014 proceeding to gallery for unauthorized lens shim calibration before relief.' The next line, in different pressure, records voluntary departure at 0430."
+        },
+        "choices": [
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-KEEPER-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-RADIO-MENU",
+        "title": "Radio log terminal",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "The terminal shows overnight transmission records."
+        },
+        "choices": [
+          {
+            "label": "Decode the departure message timestamps.",
+            "destination_unit_id": "UNIT-CHK-RADIO-DECL"
+          },
+          {
+            "label": "Print the raw overnight traffic log.",
+            "destination_unit_id": "UNIT-OBJ-RADIO-RESULT"
+          },
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-RADIO-RESULT",
+        "title": "Radio traffic log",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "At 0410 Tom keyed a voluntary-departure report for Henry. No inbound acknowledgment from the mainland appears before the storm window closed."
+        },
+        "choices": [
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-WEATHER-MENU",
+        "title": "Weather chart",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "The chart tracks wind, visibility, and landing status through the night."
+        },
+        "choices": [
+          {
+            "label": "Correlate storm closure with the claimed departure time.",
+            "destination_unit_id": "UNIT-OBJ-WEATHER-RESULT"
+          },
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-WORKSHOP-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-WEATHER-RESULT",
+        "title": "Weather correlation",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Landing status shows CLOSED from 0345 to 0715 due to squall. Any 0430 voluntary departure by boat or aircraft was physically impossible."
+        },
+        "choices": [
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-WORKSHOP-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-MANIFEST-MENU",
+        "title": "Supply manifest",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "The manifest lists inbound freight and outbound backlog."
+        },
+        "choices": [
+          {
+            "label": "Check whether Henry's personal trunk scanned outbound.",
+            "destination_unit_id": "UNIT-OBJ-MANIFEST-RESULT"
+          },
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-OBJ-MANIFEST-RESULT",
+        "title": "Manifest trunk status",
+        "player_file": "OBJECTS",
+        "unit_kind": "object_interaction",
+        "prose": {
+          "body": "Trunk TRK-HENRY-014 remains on station. The outbound column is blank."
+        },
+        "choices": [
+          {
+            "label": "Return to the location.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-CHK-RAILING-DECL",
+        "title": "Gallery railing",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_declaration",
+        "prose": {
+          "setup": "You kneel along the gallery rail, looking for anything the storm might have hidden.",
+          "fact": "Roll d20 plus your modifier.",
+          "coda": "Compare your result to the difficulty."
+        },
+        "choices": [
+          {
+            "label": "If your roll succeeds, read the success section.",
+            "destination_unit_id": "UNIT-CHK-RAILING-SUCCESS"
+          },
+          {
+            "label": "If your roll fails, read the failure section.",
+            "destination_unit_id": "UNIT-CHK-RAILING-FAIL"
+          }
+        ],
+        "meta": {
+          "check": "perception",
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-CHK-RAILING-SUCCESS",
+        "title": "Gallery railing \u2014 success",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_success",
+        "prose": {
+          "body": "Fresh scrape marks and a bent rail pin show recent stress at the lens access point."
+        },
+        "choices": [
+          {
+            "label": "Continue investigating.",
+            "destination_unit_id": "UNIT-GALLERY-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-CHK-RAILING-FAIL",
+        "title": "Gallery railing \u2014 failure",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_failure",
+        "prose": {
+          "body": "The rail looks weathered, but nothing obvious stands out yet."
+        },
+        "choices": [
+          {
+            "label": "Try another route.",
+            "destination_unit_id": "UNIT-GALLERY-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-CHK-LOG-DECL",
+        "title": "Log discrepancy",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_declaration",
+        "prose": {
+          "setup": "You line up the watch schedule, handwriting, and departure note.",
+          "fact": "Roll d20 plus your modifier.",
+          "coda": "Compare your result to the difficulty."
+        },
+        "choices": [
+          {
+            "label": "If your roll succeeds, read the success section.",
+            "destination_unit_id": "UNIT-CHK-LOG-SUCCESS"
+          },
+          {
+            "label": "If your roll fails, read the failure section.",
+            "destination_unit_id": "UNIT-CHK-LOG-FAIL"
+          }
+        ],
+        "meta": {
+          "check": "reasoning",
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-CHK-LOG-SUCCESS",
+        "title": "Log discrepancy \u2014 success",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_success",
+        "prose": {
+          "body": "The voluntary-departure line breaks the watch rhythm and uses a different pen pressure than Henry's lens note."
+        },
+        "choices": [
+          {
+            "label": "Continue investigating.",
+            "destination_unit_id": "UNIT-KEEPER-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-CHK-LOG-FAIL",
+        "title": "Log discrepancy \u2014 failure",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_failure",
+        "prose": {
+          "body": "The entries blur together without a clear inconsistency."
+        },
+        "choices": [
+          {
+            "label": "Try another route.",
+            "destination_unit_id": "UNIT-KEEPER-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-CHK-RADIO-DECL",
+        "title": "Radio log",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_declaration",
+        "prose": {
+          "setup": "You reconcile timestamps, signal strength, and landing closure records.",
+          "fact": "Roll d20 plus your modifier.",
+          "coda": "Compare your result to the difficulty."
+        },
+        "choices": [
+          {
+            "label": "If your roll succeeds, read the success section.",
+            "destination_unit_id": "UNIT-CHK-RADIO-SUCCESS"
+          },
+          {
+            "label": "If your roll fails, read the failure section.",
+            "destination_unit_id": "UNIT-CHK-RADIO-FAIL"
+          }
+        ],
+        "meta": {
+          "check": "technical",
+          "time_cost_minutes": 2
+        }
+      },
+      {
+        "unit_id": "UNIT-CHK-RADIO-SUCCESS",
+        "title": "Radio log \u2014 success",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_success",
+        "prose": {
+          "body": "The departure report was keyed during landing closure with no mainland acknowledgment logged."
+        },
+        "choices": [
+          {
+            "label": "Continue investigating.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "UNIT-CHK-RADIO-FAIL",
+        "title": "Radio log \u2014 failure",
+        "player_file": "OBJECTS",
+        "unit_kind": "check_failure",
+        "prose": {
+          "body": "The terminal codes remain ambiguous without cross-reference."
+        },
+        "choices": [
+          {
+            "label": "Try another route.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ]
+      },
+      {
+        "unit_id": "SC-LANDING-ARRIVAL",
+        "title": "Arrival briefing",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Commission dispatch meets you on the landing as rotor wash dies down."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-LANDING-STORM",
+        "title": "Storm after-action",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Frank walks you through the closed landing window."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-OFFICE-RECORDS",
+        "title": "Records pull",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Maya unlocks the overnight supply and radio binders."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-GALLERY-ACCESS",
+        "title": "Gallery ascent",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "You climb into the lamp room as the Fresnel beam sweeps the fog."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-GALLERY-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-GALLERY-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-KEEPER-HANDOVER",
+        "title": "Handover tension",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "Sarah and Tom disagree quietly about when Henry left."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-KEEPER-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-KEEPER-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-WORKSHOP-WEATHER",
+        "title": "Weather board review",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "The workshop chart confirms the squall timeline."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-WORKSHOP-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-WORKSHOP-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-ACCUSATION-PREP",
+        "title": "Final report prep",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "You assemble the timeline for the commission questionnaire."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "SC-DEADLINE-WARN",
+        "title": "Deadline warning",
+        "player_file": "SCENES",
+        "unit_kind": "scene",
+        "prose": {
+          "body": "The commission radio warns that your report window is closing."
+        },
+        "choices": [
+          {
+            "label": "Continue.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          },
+          {
+            "label": "Return to the location base.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 5
+        }
+      },
+      {
+        "unit_id": "INF-DEPARTURE-IMPOSSIBLE",
+        "title": "Departure impossible",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "Which records prove Henry could not have left voluntarily at 0430?",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "INF-GALLERY-FALL",
+        "title": "Gallery fall",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "What physical evidence suggests Henry fell during lens work?",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-GALLERY-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "INF-TOM-COVERUP",
+        "title": "Cover-up by Tom",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "Who had opportunity and motive to falsify the departure narrative?",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-KEEPER-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "INF-PERFECT-RECON",
+        "title": "Full reconstruction",
+        "player_file": "INFERENCE",
+        "unit_kind": "inference",
+        "prose": {
+          "setup": "Reconstruct the night: unauthorized repair, fall, and cover-up.",
+          "fact": "Record your conclusion in the case file before proceeding."
+        },
+        "choices": [
+          {
+            "label": "My conclusion matches the evidence.",
+            "destination_unit_id": "UNIT-OFFICE-BASE"
+          },
+          {
+            "label": "I need more information.",
+            "destination_unit_id": "UNIT-LANDING-BASE"
+          }
+        ],
+        "meta": {
+          "time_cost_minutes": 3
+        }
+      },
+      {
+        "unit_id": "REC-OFFICE-RADIO",
+        "title": "Office Radio",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Return to the radio log terminal."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-OBJ-RADIO-MENU"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-GALLERY-RAIL",
+        "title": "Gallery Rail",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Re-examine the gallery railing."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-CHK-RAILING-DECL"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-KEEPER-LOG",
+        "title": "Keeper Log",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Re-read the keeper's log book."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-OBJ-LOG-MENU"
+          }
+        ]
+      },
+      {
+        "unit_id": "REC-LANDING-MANIFEST",
+        "title": "Landing Manifest",
+        "player_file": "RECOVERY",
+        "unit_kind": "recovery",
+        "prose": {
+          "body": "Check the supply manifest again."
+        },
+        "choices": [
+          {
+            "label": "Follow this recovery route.",
+            "destination_unit_id": "UNIT-OBJ-MANIFEST-MENU"
+          }
+        ]
+      },
+      {
+        "unit_id": "END-PERFECT",
+        "title": "Perfect reconstruction",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "You document unauthorized lens repair, Henry's fall, and Tom's falsified departure before the commission deadline."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-PARTIAL-CULPRIT",
+        "title": "Partial \u2014 culprit named",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "You identify Tom as accountable but miss part of the timeline reconstruction."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-PARTIAL-TIMELINE",
+        "title": "Partial \u2014 timeline only",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "You disprove voluntary departure but stop short of naming the cover-up."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-PARTIAL-WRONG",
+        "title": "Partial \u2014 wrong accusation",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "Your report reaches the commission on time but misassigns accountability."
+        },
+        "choices": []
+      },
+      {
+        "unit_id": "END-TIMEOUT",
+        "title": "Deadline timeout",
+        "player_file": "ENDINGS",
+        "unit_kind": "ending",
+        "prose": {
+          "body": "The commission closes the window before you can file a supported reconstruction."
+        },
+        "choices": []
+      }
+    ]
+  },
+  "epistemic": {
+    "start_template_unit_id": "UNIT-LANDING-BASE",
+    "initial_player_knowledge": [
+      "KNOW-OPEN-01",
+      "KNOW-OPEN-02",
+      "KNOW-OPEN-03",
+      "KNOW-OPEN-04"
+    ],
+    "initial_observable_entities": [
+      "NPC-SARAH",
+      "NPC-FRANK",
+      "NPC-TOM"
+    ],
+    "initial_observable_objects": [
+      "OBJ-SUPPLY-MANIFEST"
+    ],
+    "hub_definitions": [
+      {
+        "hub_unit_id": "UNIT-LANDING-BASE",
+        "event_kind": "location_hub",
+        "physical_location_id": "LOC-LANDING",
+        "observable_entities": [
+          "NPC-SARAH",
+          "NPC-FRANK"
+        ],
+        "actions": [
+          {
+            "label": "Climb the service stairs to the keeper's quarters.",
+            "destination_unit_id": "UNIT-KEEPER-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Take the interior ladder to the lamp gallery.",
+            "destination_unit_id": "UNIT-GALLERY-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Cross to the maintenance workshop.",
+            "destination_unit_id": "UNIT-WORKSHOP-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Enter the station records office.",
+            "destination_unit_id": "UNIT-OFFICE-BASE",
+            "action_type": "nav"
+          },
+          {
+            "label": "Speak with relief keeper Sarah Chen.",
+            "destination_unit_id": "UNIT-NPC-SARAH-HUB",
+            "action_type": "conversation"
+          },
+          {
+            "label": "Speak with pilot Frank Morales.",
+            "destination_unit_id": "UNIT-NPC-FRANK-HUB",
+            "action_type": "conversation"
+          },
+          {
+            "label": "Review the supply manifest crate on the landing.",
+            "destination_unit_id": "UNIT-OBJ-MANIFEST-MENU",
+            "action_type": "search",
+            "investigative": true
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-SARAH-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-LANDING",
+        "actions": [
+          {
+            "label": "Ask when she expected the head keeper to depart.",
+            "destination_unit_id": "UNIT-TOPIC-SARAH-SCHEDULE",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask what she noticed on arrival.",
+            "destination_unit_id": "UNIT-TOPIC-SARAH-ARRIVAL",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about the last radio check with the keeper.",
+            "destination_unit_id": "UNIT-TOPIC-SARAH-RADIO",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-FRANK-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-LANDING",
+        "actions": [
+          {
+            "label": "Ask whether he flew anyone off the station last night.",
+            "destination_unit_id": "UNIT-TOPIC-FRANK-PASSENGER",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about storm timing versus the claimed departure.",
+            "destination_unit_id": "UNIT-TOPIC-FRANK-WEATHER",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about cargo loaded for the mainland.",
+            "destination_unit_id": "UNIT-TOPIC-FRANK-CARGO",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-MAYA-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-OFFICE",
+        "actions": [
+          {
+            "label": "Ask about the keeper's personal trunk on the manifest.",
+            "destination_unit_id": "UNIT-TOPIC-MAYA-TRUNK",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask who signed the outbound supply tally.",
+            "destination_unit_id": "UNIT-TOPIC-MAYA-TALLY",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about lens repair parts requisitioned.",
+            "destination_unit_id": "UNIT-TOPIC-MAYA-PARTS",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      },
+      {
+        "hub_unit_id": "UNIT-NPC-TOM-HUB",
+        "event_kind": "npc_interaction",
+        "physical_location_id": "LOC-KEEPER",
+        "actions": [
+          {
+            "label": "Ask why the head keeper left without waiting for relief.",
+            "destination_unit_id": "UNIT-TOPIC-TOM-DEPARTURE",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask about unauthorized lens work in the gallery.",
+            "destination_unit_id": "UNIT-TOPIC-TOM-LENS",
+            "action_type": "conversation",
+            "investigative": true
+          },
+          {
+            "label": "Ask who made the final log entries.",
+            "destination_unit_id": "UNIT-TOPIC-TOM-LOG",
+            "action_type": "conversation",
+            "investigative": true
+          }
+        ]
+      }
+    ],
+    "topic_return_profiles": [
+      {
+        "unit_prefix": "UNIT-TOPIC-SARAH",
+        "hub_unit_id": "UNIT-NPC-SARAH-HUB",
+        "hub_label": "Return to Sarah.",
+        "exit_unit_id": "UNIT-LANDING-BASE",
+        "exit_label": "Leave the conversation."
+      },
+      {
+        "unit_prefix": "UNIT-TOPIC-FRANK",
+        "hub_unit_id": "UNIT-NPC-FRANK-HUB",
+        "hub_label": "Return to Frank.",
+        "exit_unit_id": "UNIT-LANDING-BASE",
+        "exit_label": "Leave the conversation."
+      },
+      {
+        "unit_prefix": "UNIT-TOPIC-MAYA",
+        "hub_unit_id": "UNIT-NPC-MAYA-HUB",
+        "hub_label": "Return to Maya.",
+        "exit_unit_id": "UNIT-OFFICE-BASE",
+        "exit_label": "Leave the conversation."
+      },
+      {
+        "unit_prefix": "UNIT-TOPIC-TOM",
+        "hub_unit_id": "UNIT-NPC-TOM-HUB",
+        "hub_label": "Return to Tom.",
+        "exit_unit_id": "UNIT-KEEPER-BASE",
+        "exit_label": "Leave the conversation."
+      }
+    ],
+    "topic_knowledge_grants": {
+      "UNIT-TOPIC-SARAH-SCHEDULE": [
+        "KNOW-OPEN-02"
+      ],
+      "UNIT-TOPIC-FRANK-PASSENGER": [
+        "KNOW-FRANK-NO-PASSENGER"
+      ],
+      "UNIT-TOPIC-FRANK-WEATHER": [
+        "KNOW-WEATHER-CLOSED"
+      ],
+      "UNIT-TOPIC-MAYA-TRUNK": [
+        "KNOW-TRUNK-ON-STATION"
+      ],
+      "UNIT-TOPIC-MAYA-TALLY": [
+        "KNOW-TOM-SIGNED-TALLY"
+      ],
+      "UNIT-TOPIC-TOM-LENS": [
+        "KNOW-TOM-LENS-ADMISSION"
+      ]
+    },
+    "inference_choice_gates": [
+      {
+        "label_contains": "My conclusion matches the evidence",
+        "requires_knowledge_ids": [
+          "KNOW-DEPARTURE-IMPOSSIBLE"
+        ]
+      }
+    ],
+    "materialization": {
+      "max_states": 500000
+    }
+  },
+  "gamebook": {
+    "enabled": true,
+    "start_template_unit_id": "UNIT-LANDING-BASE"
+  },
+  "validator_seeds": {
+    "story": {
+      "story_frame": {
+        "investigation_starts_where": "remote lighthouse supply landing",
+        "investigation_starts_when": "morning after reported voluntary keeper departure",
+        "incident_description": "missing head keeper with falsified voluntary departure records",
+        "incident_when": "overnight watch ending 0430",
+        "investigator_involvement": "Harbor Commission safety inspector dispatched to reconstruct timeline",
+        "deadline_or_constraint": "commission report due at 1300"
+      },
+      "timeline": {
+        "investigation_confused_with_incident": false,
+        "impossible_ordering": false,
+        "events": []
+      }
+    },
+    "dm_feeling": {
+      "tier_c_playtest": {
+        "required": true,
+        "completed": false,
+        "notes": "Pack spec seed \u2014 playtest pending"
+      },
+      "time_pressure": {
+        "deadline_relevant": true,
+        "forced_tradeoffs": true,
+        "waiting_dominates": false
+      }
+    }
+  },
+  "modifier_sources": [
+    {
+      "modifier_id": "MOD-PERCEPTION",
+      "capability_category": "perception_observation",
+      "source": "character_sheet.perception"
+    },
+    {
+      "modifier_id": "MOD-REASONING",
+      "capability_category": "reasoning_analysis",
+      "source": "character_sheet.reasoning"
+    },
+    {
+      "modifier_id": "MOD-TECHNICAL",
+      "capability_category": "technical_systems",
+      "source": "character_sheet.technical"
+    }
+  ]
+}
