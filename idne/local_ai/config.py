@@ -74,6 +74,7 @@ class LocalAIConfig:
     retry_count: int = 2
     temperature: float = 0.1
     max_output_tokens: int = 2048
+    doctor_probe_max_tokens: int = 256
     seed: int | None = None
     context_budget: int = 12000
     allow_remote_endpoint: bool = False
@@ -92,6 +93,7 @@ class LocalAIConfig:
             "retry_count": self.retry_count,
             "temperature": self.temperature,
             "max_output_tokens": self.max_output_tokens,
+            "doctor_probe_max_tokens": self.doctor_probe_max_tokens,
             "seed": self.seed,
             "context_budget": self.context_budget,
             "allow_remote_endpoint": self.allow_remote_endpoint,
@@ -161,6 +163,8 @@ def _merge_section(data: dict[str, Any], cfg: LocalAIConfig) -> LocalAIConfig:
         cfg.temperature = float(transport["temperature"])
     if "max_output_tokens" in transport:
         cfg.max_output_tokens = int(transport["max_output_tokens"])
+    if "doctor_probe_max_tokens" in transport:
+        cfg.doctor_probe_max_tokens = int(transport["doctor_probe_max_tokens"])
     if "seed" in transport:
         seed = transport["seed"]
         cfg.seed = int(seed) if seed is not None else None

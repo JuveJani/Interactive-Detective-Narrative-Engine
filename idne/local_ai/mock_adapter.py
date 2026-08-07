@@ -17,6 +17,7 @@ from idne.local_ai.errors import (
     MalformedJsonTransportError,
     ModelNotFoundTransportError,
     ModelSelectionError,
+    ReasoningWithoutContentTransportError,
     ResponseTimeoutTransportError,
     UnsupportedResponseTransportError,
 )
@@ -24,10 +25,14 @@ from idne.local_ai.lm_studio_client import CompletionResult, ModelDescriptor
 from idne.local_ai.model_adapter import ModelAdapter
 
 
+def _default_models() -> list[ModelDescriptor]:
+    return [ModelDescriptor(model_id="mock-model", display_identifier="mock-model", owner="mock")]
+
+
 @dataclass
 class MockAdapterState:
     scenario: str = "success"
-    models: list[ModelDescriptor] = field(default_factory=list)
+    models: list[ModelDescriptor] = field(default_factory=_default_models)
     configured_model: str | None = None
     http_status: int = 200
 
@@ -113,14 +118,26 @@ class MockAdapter(ModelAdapter):
             raise MalformedJsonTransportError("malformed JSON response")
         if scenario == "http_error":
             raise HttpTransportError("HTTP 500", status=500, retryable=True)
+        if scenario == "reasoning_blank_content":
+            raise ReasoningWithoutContentTransportError(
+                "reasoning produced but no final content before output limit",
+                reasoning_character_count=len(
+                    "Extended internal reasoning consumed the output budget."
+                ),
+                finish_reason="length",
+            )
 
         digest = hashlib.sha256(user_prompt.encode("utf-8")).hexdigest()[:12]
         content = self._build_response_content(scenario, digest)
+        reasoning = None
+        if scenario == "reasoning_with_content":
+            reasoning = "Thinking step by step about the model response."
         raw = self._raw_response(
             content,
             usage={"prompt_tokens": 100, "completion_tokens": 50, "total_tokens": 150},
+            reasoning_content=reasoning,
         )
-        return self._wrap(raw, content, finish_reason="stop")
+        return self._wrap(raw, content, finish_reason="stop", reasoning_content=reasoning)
 
     def _build_response_content(self, scenario: str, digest: str) -> str:
         if scenario == "duplicate_key":
@@ -179,27 +196,44 @@ class MockAdapter(ModelAdapter):
         if scenario == "missing_configured_model" and phase == "list":
             return
 
-    def _raw_response(self, content: str, usage: dict[str, int] | None = None) -> dict[str, Any]:
+    def _raw_response(
+        self,
+        content: str,
+        usage: dict[str, int] | None = None,
+        *,
+        reasoning_content: str | None = None,
+    ) -> dict[str, Any]:
+        message: dict[str, Any] = {"role": "assistant", "content": content}
+        if reasoning_content is not None:
+            message["reasoning_content"] = reasoning_content
         return {
             "id": "mock-completion",
             "object": "chat.completion",
             "choices": [
                 {
                     "index": 0,
-                    "message": {"role": "assistant", "content": content},
+                    "message": message,
                     "finish_reason": "stop",
                 }
             ],
             "usage": usage or {},
         }
 
-    def _wrap(self, raw: dict[str, Any], content: str, *, finish_reason: str | None) -> CompletionResult:
+    def _wrap(
+        self,
+        raw: dict[str, Any],
+        content: str,
+        *,
+        finish_reason: str | None,
+        reasoning_content: str | None = None,
+    ) -> CompletionResult:
         usage_raw = raw.get("usage") if isinstance(raw.get("usage"), dict) else {}
         usage = {
             "prompt_tokens": usage_raw.get("prompt_tokens"),
             "completion_tokens": usage_raw.get("completion_tokens"),
             "total_tokens": usage_raw.get("total_tokens"),
         }
+        reasoning_present = bool(reasoning_content and reasoning_content.strip())
         return CompletionResult(
             content=content,
             finish_reason=finish_reason,
@@ -207,6 +241,9 @@ class MockAdapter(ModelAdapter):
             http_status=self.state.http_status,
             raw_response=raw,
             duration_seconds=0.01,
+            reasoning_content=reasoning_content,
+            reasoning_present=reasoning_present,
+            reasoning_character_count=len(reasoning_content) if reasoning_content else 0,
         )
 
 
@@ -221,6 +258,6 @@ def doctor_completion(cfg: LocalAIConfig, *, mock: bool = False) -> CompletionRe
         cfg,
         model=selection.model_id,
         user_prompt=prompt,
-        max_output_tokens=32,
+        max_output_tokens=cfg.doctor_probe_max_tokens,
         temperature=0.0,
     )

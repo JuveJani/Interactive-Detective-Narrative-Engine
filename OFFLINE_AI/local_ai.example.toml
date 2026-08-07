@@ -14,6 +14,7 @@ response_timeout_seconds = 300.0
 retry_count = 2
 temperature = 0.1
 max_output_tokens = 2048
+doctor_probe_max_tokens = 256
 # seed = 42  # optional deterministic seed
 
 [runtime]

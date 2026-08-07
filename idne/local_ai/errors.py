@@ -79,6 +79,21 @@ class EmptyCompletionTransportError(TransportError):
         super().__init__(message, retryable=False)
 
 
+class ReasoningWithoutContentTransportError(EmptyCompletionTransportError):
+    classification = "reasoning_without_content"
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        reasoning_character_count: int = 0,
+        finish_reason: str | None = None,
+    ) -> None:
+        super().__init__(message)
+        self.reasoning_character_count = reasoning_character_count
+        self.finish_reason = finish_reason
+
+
 class InterruptedTransportError(TransportError):
     classification = "interrupted_request"
 

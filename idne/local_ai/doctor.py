@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from idne.local_ai.config import LocalAIConfig, endpoint_for_display, load_config
-from idne.local_ai.errors import ModelSelectionError, TransportError
+from idne.local_ai.errors import ModelSelectionError, ReasoningWithoutContentTransportError, TransportError
 from idne.local_ai.mock_adapter import doctor_completion
 from idne.local_ai.model_adapter import create_adapter, select_model
 from idne.local_ai.paths import find_repo_root, normalize_allowlist
@@ -212,19 +212,26 @@ def run_doctor(
                     "completion_successful": True,
                     "duration_seconds": time.perf_counter() - start_time,
                     "response_character_count": len(result.content),
+                    "reasoning_present": result.reasoning_present,
+                    "reasoning_character_count": result.reasoning_character_count,
+                    "finish_reason": result.finish_reason,
+                    "doctor_probe_max_tokens": cfg.doctor_probe_max_tokens,
                 }
             )
         except TransportError as exc:
-            completion_check.update(
-                {
-                    "server_reachable": exc.classification
-                    not in {"endpoint_rejected", "configuration_error"},
-                    "model_available": exc.classification != "model_selection_blocked",
-                    "completion_successful": False,
-                    "error": str(exc),
-                    "classification": exc.classification,
-                }
-            )
+            failure: dict[str, Any] = {
+                "server_reachable": exc.classification
+                not in {"endpoint_rejected", "configuration_error"},
+                "model_available": exc.classification != "model_selection_blocked",
+                "completion_successful": False,
+                "error": str(exc),
+                "classification": exc.classification,
+            }
+            if isinstance(exc, ReasoningWithoutContentTransportError):
+                failure["reasoning_present"] = True
+                failure["reasoning_character_count"] = exc.reasoning_character_count
+                failure["finish_reason"] = exc.finish_reason
+            completion_check.update(failure)
             blocked_reasons.append(f"doctor completion failed: {exc}")
         checks["completion_test"] = completion_check
 

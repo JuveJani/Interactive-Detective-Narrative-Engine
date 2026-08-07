@@ -18,6 +18,7 @@ from idne.local_ai.errors import (
     HttpTransportError,
     InterruptedTransportError,
     MalformedJsonTransportError,
+    ReasoningWithoutContentTransportError,
     ResponseTimeoutTransportError,
     UnsupportedResponseTransportError,
 )
@@ -47,6 +48,24 @@ class ModelDescriptor:
 
 
 @dataclass
+class ParsedCompletion:
+    content: str
+    finish_reason: str | None
+    usage: dict[str, int | None]
+    reasoning_content: str | None = None
+
+    @property
+    def reasoning_present(self) -> bool:
+        return bool(self.reasoning_content and self.reasoning_content.strip())
+
+    @property
+    def reasoning_character_count(self) -> int:
+        if not self.reasoning_content:
+            return 0
+        return len(self.reasoning_content)
+
+
+@dataclass
 class CompletionResult:
     content: str
     finish_reason: str | None
@@ -54,6 +73,9 @@ class CompletionResult:
     http_status: int
     raw_response: dict[str, Any]
     duration_seconds: float
+    reasoning_content: str | None = None
+    reasoning_present: bool = False
+    reasoning_character_count: int = 0
 
 
 def _build_headers(cfg: LocalAIConfig) -> dict[str, str]:
@@ -163,7 +185,14 @@ def list_models(cfg: LocalAIConfig) -> list[ModelDescriptor]:
     return parse_models_response(data)
 
 
-def extract_completion_content(data: dict[str, Any]) -> tuple[str, str | None, dict[str, int | None]]:
+def _extract_reasoning_content(message: dict[str, Any]) -> str | None:
+    reasoning = message.get("reasoning_content")
+    if isinstance(reasoning, str) and reasoning.strip():
+        return reasoning
+    return None
+
+
+def parse_completion_response(data: dict[str, Any]) -> ParsedCompletion:
     choices = data.get("choices")
     if not isinstance(choices, list) or not choices:
         raise UnsupportedResponseTransportError("missing choices array")
@@ -175,13 +204,9 @@ def extract_completion_content(data: dict[str, Any]) -> tuple[str, str | None, d
         raise UnsupportedResponseTransportError("missing message in first choice")
     if message.get("tool_calls"):
         raise UnsupportedResponseTransportError("tool-call-only response not supported")
-    content = message.get("content")
-    if content is None:
-        raise EmptyCompletionTransportError("completion content is null")
-    if not isinstance(content, str):
-        raise UnsupportedResponseTransportError("completion content is not a string")
-    if not content.strip():
-        raise EmptyCompletionTransportError("completion content is blank")
+
+    reasoning_content = _extract_reasoning_content(message)
+    content_raw = message.get("content")
     finish_reason = first.get("finish_reason")
     finish = str(finish_reason) if finish_reason is not None else None
     usage_raw = data.get("usage") if isinstance(data.get("usage"), dict) else {}
@@ -190,7 +215,37 @@ def extract_completion_content(data: dict[str, Any]) -> tuple[str, str | None, d
         "completion_tokens": usage_raw.get("completion_tokens"),
         "total_tokens": usage_raw.get("total_tokens"),
     }
-    return content, finish, usage
+
+    if content_raw is None:
+        if reasoning_content:
+            raise ReasoningWithoutContentTransportError(
+                "reasoning produced but no final content before output limit",
+                reasoning_character_count=len(reasoning_content),
+                finish_reason=finish,
+            )
+        raise EmptyCompletionTransportError("completion content is null")
+    if not isinstance(content_raw, str):
+        raise UnsupportedResponseTransportError("completion content is not a string")
+    if not content_raw.strip():
+        if reasoning_content:
+            raise ReasoningWithoutContentTransportError(
+                "reasoning produced but no final content before output limit",
+                reasoning_character_count=len(reasoning_content),
+                finish_reason=finish,
+            )
+        raise EmptyCompletionTransportError("completion content is blank")
+
+    return ParsedCompletion(
+        content=content_raw,
+        finish_reason=finish,
+        usage=usage,
+        reasoning_content=reasoning_content,
+    )
+
+
+def extract_completion_content(data: dict[str, Any]) -> tuple[str, str | None, dict[str, int | None]]:
+    parsed = parse_completion_response(data)
+    return parsed.content, parsed.finish_reason, parsed.usage
 
 
 def chat_completion(
@@ -214,12 +269,15 @@ def chat_completion(
     if cfg.seed is not None:
         payload["seed"] = cfg.seed
     status, data, duration = _request_json(cfg, "POST", "/chat/completions", payload)
-    content, finish_reason, usage = extract_completion_content(data)
+    parsed = parse_completion_response(data)
     return CompletionResult(
-        content=content,
-        finish_reason=finish_reason,
-        usage=usage,
+        content=parsed.content,
+        finish_reason=parsed.finish_reason,
+        usage=parsed.usage,
         http_status=status,
         raw_response=data,
         duration_seconds=duration,
+        reasoning_content=parsed.reasoning_content,
+        reasoning_present=parsed.reasoning_present,
+        reasoning_character_count=parsed.reasoning_character_count,
     )

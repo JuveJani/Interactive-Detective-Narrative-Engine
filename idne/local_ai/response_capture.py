@@ -26,6 +26,8 @@ class TransportReport:
     finish_reason: str | None
     usage: dict[str, int | None]
     response_character_count: int
+    reasoning_present: bool
+    reasoning_character_count: int
     task_content_identity: dict[str, str]
     prompt_sha256: str
     classification: str
@@ -71,6 +73,8 @@ def save_transport_artifacts(
         finish_reason=result.finish_reason,
         usage=result.usage,
         response_character_count=len(result.content),
+        reasoning_present=result.reasoning_present,
+        reasoning_character_count=result.reasoning_character_count,
         task_content_identity=task.source_content_identity.to_dict(),
         prompt_sha256=prompt_sha256,
         classification="success",
