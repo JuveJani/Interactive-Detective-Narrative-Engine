@@ -1,44 +1,36 @@
 # Session Handoff
 
-**Updated:** 2026-08-06 — Local AI Step 3 (validation, proposal, apply)
+**Updated:** 2026-08-07 — Offline IDNE Player / structured player delivery
 
 ## Branch and commit
 
-- **Branch:** `cursor/offline-local-ai-core`
-- **PR:** #54 (unmerged)
+- **Branch:** `cursor/offline-idne-player-af97`
+- **PR:** (draft, unmerged)
 
-## Completed work (Step 3)
+## Completed work
 
-- Semantic response schema: `idne/schemas/local_ai_adventure_brief_response.schema.json`
-- Response parser with duplicate-key detection and safe repairs
-- Response validation (schema, protected values, semantic boundaries)
-- Canonical proposal builder mapping to Adventure Generator v2 brief
-- Proposal validation (canonical brief validator, identity checks, path allowlist)
-- Explicit `apply` with atomic write to draft destinations
-- CLI: `parse`, `validate-response`, `build-proposal`, `validate-proposal`, `process`, `apply`, `review`, `attempts`
-- Attempt preservation on `run --force`
-- Mock end-to-end workflow to `APPLIED`
-- 38+ Step 3 regression tests (590 total)
+- Structured player artifact: `PLAYER/gamebook.json` generated alongside `PLAYER/GAMEBOOK.md`
+- Player delivery validation (`idne/player_delivery_validate.py`) integrated into gamebook validator
+- Static offline player app in `idne_player/` (HTML/CSS/JS, no framework, no CDN)
+- Offline package builder: `scripts/build_offline_player_package.py` → `dist/idne-player/`
+- Tests: `tests/test_player_delivery.py`, `tests/test_player_delivery_performance.py`
+- Regenerated `gamebook.json` for `The_Cold_Storage_Alarm` and `A_Hutoriasztas`
 
 ## Commands run
 
 ```bash
-python -m idne.local_ai prepare --task-type adventure_brief \
-  --input OFFLINE_AI/examples/adventure_brief_input.md \
-  --output adventures/_local_ai_drafts/example_offline_brief/adventure_brief.json
-python -m idne.local_ai run .local_ai_runs/<task-id> --mock
-python -m idne.local_ai process .local_ai_runs/<task-id>
-python -m idne.local_ai apply .local_ai_runs/<task-id>
-python -m unittest discover -s tests
+python3 -c "from pathlib import Path; from idne.gamebook_nav.build import build_gamebook_package as b; b(Path('adventures/The_Cold_Storage_Alarm/adventure'))"
+python3 scripts/build_offline_player_package.py
+python3 -m unittest discover -s tests
 ```
 
-## Windows / offline verification
+## Test status
 
-Not performed in CI Linux environment. Use `OFFLINE_AI/OFFLINE_CHECKLIST.md` on Windows with LM Studio.
+681 tests passing after player delivery work.
 
 ## Next safe action
 
-Real-model Windows/offline verification per checklist. No AI repair loop yet.
+Merge after review. Build offline player package for four integration-branch adventures once that branch lands on `main`.
 
 ## Cline
 

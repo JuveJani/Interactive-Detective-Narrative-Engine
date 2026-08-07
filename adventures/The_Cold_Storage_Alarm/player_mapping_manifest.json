@@ -99529,7 +99529,8 @@
     "start_unit_id": "UNIT-DOCK-BASE",
     "start_section": 1572,
     "numbering_seed": "The_Cold_Storage_Alarm",
-    "delivery_mode": "materialized_static_book"
+    "delivery_mode": "materialized_static_book",
+    "player_gamebook_path": "PLAYER/gamebook.json"
   },
   "delivery_projection": {
     "materialized_events": 4567,
@@ -99569,5 +99570,22 @@
       "GB-CLICKABLE": "PASS"
     },
     "findings": []
+  },
+  "player_delivery_validation": {
+    "adventure_root": ".",
+    "status": "PASS",
+    "errors": [],
+    "warnings": [],
+    "checks": {
+      "PD-SCHEMA": "PASS",
+      "PD-SECTIONS": "PASS",
+      "PD-UNIQUE": "PASS",
+      "PD-START": "PASS",
+      "PD-TARGETS": "PASS",
+      "PD-SELF-LOOP": "PASS",
+      "PD-LEAK": "PASS",
+      "PD-MANIFEST-PARITY": "PASS",
+      "PD-GAMEBOOK-PARITY": "PASS"
+    }
   }
 }
