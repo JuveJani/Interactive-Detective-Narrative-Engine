@@ -1,0 +1,585 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Gallery_Verdict",
+  "investigation_core_links": {
+    "package_path": "DO_NOT_READ/investigation_core_package.json"
+  },
+  "npcs": [
+    {
+      "npc_id": "NPC-VERA",
+      "public_name": "Vera Okonkwo",
+      "role": "Gallery director",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-LINA",
+          "relationship_type": "professional"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-JAMES",
+      "public_name": "James Holt",
+      "role": "Head of security",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-VERA",
+          "relationship_type": "professional"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-LINA",
+      "public_name": "Lina Morales",
+      "role": "Lead curator",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-VERA",
+          "relationship_type": "professional"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    },
+    {
+      "npc_id": "NPC-OTTO",
+      "public_name": "Otto Weiss",
+      "role": "Insured collector",
+      "relationships": [
+        {
+          "target_npc_id": "NPC-VERA",
+          "relationship_type": "patron"
+        }
+      ],
+      "static_properties": {
+        "motivation": "Protect personal interests during the investigation",
+        "honesty": 0.55,
+        "deception": 0.35,
+        "manipulation": 0.25,
+        "loyalty": "employer",
+        "fear": "disciplinary_action"
+      },
+      "initial_dynamic_state": {
+        "trust": 50,
+        "information_known": [],
+        "revealed_topics": [],
+        "suspicion": 30,
+        "pressure": 40
+      }
+    }
+  ],
+  "npc_graph": {
+    "nodes": [
+      "NPC-VERA",
+      "NPC-JAMES",
+      "NPC-LINA",
+      "NPC-OTTO"
+    ],
+    "edges": [
+      {
+        "from_npc_id": "NPC-VERA",
+        "to_npc_id": "NPC-LINA",
+        "relationship_type": "professional"
+      },
+      {
+        "from_npc_id": "NPC-JAMES",
+        "to_npc_id": "NPC-VERA",
+        "relationship_type": "professional"
+      },
+      {
+        "from_npc_id": "NPC-LINA",
+        "to_npc_id": "NPC-VERA",
+        "relationship_type": "professional"
+      },
+      {
+        "from_npc_id": "NPC-OTTO",
+        "to_npc_id": "NPC-VERA",
+        "relationship_type": "patron"
+      }
+    ]
+  },
+  "information_known_model": [
+    {
+      "info_id": "INFO-TOPIC-VERA-ALIBI",
+      "npc_id": "NPC-VERA",
+      "knowledge_id": "KNOW-VERA-OFFICE",
+      "topic_id": "TOPIC-VERA-ALIBI"
+    },
+    {
+      "info_id": "INFO-TOPIC-VERA-CLAIM",
+      "npc_id": "NPC-VERA",
+      "knowledge_id": "KNOW-OPEN-01",
+      "topic_id": "TOPIC-VERA-CLAIM"
+    },
+    {
+      "info_id": "INFO-TOPIC-VERA-INSURANCE",
+      "npc_id": "NPC-VERA",
+      "knowledge_id": "KNOW-INSURANCE-RIDER",
+      "topic_id": "TOPIC-VERA-INSURANCE"
+    },
+    {
+      "info_id": "INFO-TOPIC-JAMES-VAULT",
+      "npc_id": "NPC-JAMES",
+      "knowledge_id": "KNOW-JAMES-VAULT",
+      "topic_id": "TOPIC-JAMES-VAULT"
+    },
+    {
+      "info_id": "INFO-TOPIC-JAMES-CRATE",
+      "npc_id": "NPC-JAMES",
+      "knowledge_id": "KNOW-JAMES-AUTH",
+      "topic_id": "TOPIC-JAMES-CRATE"
+    },
+    {
+      "info_id": "INFO-TOPIC-JAMES-LINA",
+      "npc_id": "NPC-JAMES",
+      "knowledge_id": "KNOW-JAMES-VAULT",
+      "topic_id": "TOPIC-JAMES-LINA"
+    },
+    {
+      "info_id": "INFO-TOPIC-LINA-PODIUM",
+      "npc_id": "NPC-LINA",
+      "knowledge_id": "KNOW-LINA-PODIUM",
+      "topic_id": "TOPIC-LINA-PODIUM"
+    },
+    {
+      "info_id": "INFO-TOPIC-LINA-WALL",
+      "npc_id": "NPC-LINA",
+      "knowledge_id": "KNOW-LINA-PODIUM",
+      "topic_id": "TOPIC-LINA-WALL"
+    },
+    {
+      "info_id": "INFO-TOPIC-LINA-JAMES",
+      "npc_id": "NPC-LINA",
+      "knowledge_id": "KNOW-LINA-PODIUM",
+      "topic_id": "TOPIC-LINA-JAMES"
+    },
+    {
+      "info_id": "INFO-TOPIC-OTTO-PHOTO",
+      "npc_id": "NPC-OTTO",
+      "knowledge_id": "KNOW-OTTO-PHOTO",
+      "topic_id": "TOPIC-OTTO-PHOTO"
+    },
+    {
+      "info_id": "INFO-TOPIC-OTTO-SIGHTLINE",
+      "npc_id": "NPC-OTTO",
+      "knowledge_id": "KNOW-OTTO-PHOTO",
+      "topic_id": "TOPIC-OTTO-SIGHTLINE"
+    },
+    {
+      "info_id": "INFO-TOPIC-OTTO-INSURED",
+      "npc_id": "NPC-OTTO",
+      "knowledge_id": "KNOW-INSURANCE-RIDER",
+      "topic_id": "TOPIC-OTTO-INSURED"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "TOPIC-VERA-ALIBI",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-VERA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-VERA-CLAIM",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-VERA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-VERA-INSURANCE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-VERA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-JAMES-VAULT",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-JAMES",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-JAMES-CRATE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-JAMES",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-JAMES-LINA",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-JAMES",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-LINA-PODIUM",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-LINA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-LINA-WALL",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-LINA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-LINA-JAMES",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-LINA",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-OTTO-PHOTO",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-OTTO",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-OTTO-SIGHTLINE",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-OTTO",
+          "min": 0
+        }
+      ]
+    },
+    {
+      "topic_id": "TOPIC-OTTO-INSURED",
+      "unlock_conditions": [
+        {
+          "type": "trust_threshold",
+          "npc_id": "NPC-OTTO",
+          "min": 0
+        }
+      ]
+    }
+  ],
+  "conversation_graph": [
+    {
+      "conversation_id": "CONV-VERA",
+      "npc_id": "NPC-VERA",
+      "entry_topic_id": "TOPIC-VERA-ALIBI",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-VERA",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-VERA-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-VERA-ALIBI",
+          "player_label": "Ask about her whereabouts after 2030.",
+          "npc_response_unit": "UNIT-TOPIC-VERA-ALIBI",
+          "grants_knowledge_id": "KNOW-VERA-OFFICE",
+          "topic_id": "TOPIC-VERA-ALIBI",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-VERA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-VERA-CLAIM",
+          "player_label": "Ask why she reported a theft.",
+          "npc_response_unit": "UNIT-TOPIC-VERA-CLAIM",
+          "grants_knowledge_id": "KNOW-OPEN-01",
+          "topic_id": "TOPIC-VERA-CLAIM",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-VERA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-VERA-INSURANCE",
+          "player_label": "Ask about the insurance appraisal.",
+          "npc_response_unit": "UNIT-TOPIC-VERA-INSURANCE",
+          "grants_knowledge_id": "KNOW-INSURANCE-RIDER",
+          "topic_id": "TOPIC-VERA-INSURANCE",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-VERA",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-JAMES",
+      "npc_id": "NPC-JAMES",
+      "entry_topic_id": "TOPIC-JAMES-VAULT",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-JAMES",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-JAMES-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-JAMES-VAULT",
+          "player_label": "Ask whether the painting was in the vault.",
+          "npc_response_unit": "UNIT-TOPIC-JAMES-VAULT",
+          "grants_knowledge_id": "KNOW-JAMES-VAULT",
+          "topic_id": "TOPIC-JAMES-VAULT",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-JAMES",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-JAMES-CRATE",
+          "player_label": "Ask about crate movement during the opening.",
+          "npc_response_unit": "UNIT-TOPIC-JAMES-CRATE",
+          "grants_knowledge_id": "KNOW-JAMES-AUTH",
+          "topic_id": "TOPIC-JAMES-CRATE",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-JAMES",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-JAMES-LINA",
+          "player_label": "Ask where Lina Morales was at 2045.",
+          "npc_response_unit": "UNIT-TOPIC-JAMES-LINA",
+          "grants_knowledge_id": "KNOW-JAMES-VAULT",
+          "topic_id": "TOPIC-JAMES-LINA",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-JAMES",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-LINA",
+      "npc_id": "NPC-LINA",
+      "entry_topic_id": "TOPIC-LINA-PODIUM",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-LINA",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-LINA-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-LINA-PODIUM",
+          "player_label": "Ask where she was during the disappearance window.",
+          "npc_response_unit": "UNIT-TOPIC-LINA-PODIUM",
+          "grants_knowledge_id": "KNOW-LINA-PODIUM",
+          "topic_id": "TOPIC-LINA-PODIUM",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-LINA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-LINA-WALL",
+          "player_label": "Ask when she first noticed the empty wall.",
+          "npc_response_unit": "UNIT-TOPIC-LINA-WALL",
+          "grants_knowledge_id": "KNOW-LINA-PODIUM",
+          "topic_id": "TOPIC-LINA-WALL",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-LINA",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-LINA-JAMES",
+          "player_label": "Ask whether James could see the vault from the hall.",
+          "npc_response_unit": "UNIT-TOPIC-LINA-JAMES",
+          "grants_knowledge_id": "KNOW-LINA-PODIUM",
+          "topic_id": "TOPIC-LINA-JAMES",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-LINA",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-OTTO",
+      "npc_id": "NPC-OTTO",
+      "entry_topic_id": "TOPIC-OTTO-PHOTO",
+      "route_conditions": [
+        {
+          "type": "trust",
+          "npc_id": "NPC-OTTO",
+          "min": 0
+        }
+      ],
+      "hub_unit_id": "UNIT-NPC-OTTO-HUB",
+      "nodes": [
+        {
+          "node_id": "CN-TOPIC-OTTO-PHOTO",
+          "player_label": "Ask about photos taken near the painting.",
+          "npc_response_unit": "UNIT-TOPIC-OTTO-PHOTO",
+          "grants_knowledge_id": "KNOW-OTTO-PHOTO",
+          "topic_id": "TOPIC-OTTO-PHOTO",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-OTTO",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-OTTO-SIGHTLINE",
+          "player_label": "Ask what he saw from the patron rail.",
+          "npc_response_unit": "UNIT-TOPIC-OTTO-SIGHTLINE",
+          "grants_knowledge_id": "KNOW-OTTO-PHOTO",
+          "topic_id": "TOPIC-OTTO-SIGHTLINE",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-OTTO",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "node_id": "CN-TOPIC-OTTO-INSURED",
+          "player_label": "Ask about his insurance interest in the piece.",
+          "npc_response_unit": "UNIT-TOPIC-OTTO-INSURED",
+          "grants_knowledge_id": "KNOW-INSURANCE-RIDER",
+          "topic_id": "TOPIC-OTTO-INSURED",
+          "time_cost_minutes": 2,
+          "unlock_conditions": [
+            {
+              "type": "trust_threshold",
+              "npc_id": "NPC-OTTO",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testimony_links": [],
+  "trust_model": {
+    "default_trust_delta_per_topic": 2
+  }
+}

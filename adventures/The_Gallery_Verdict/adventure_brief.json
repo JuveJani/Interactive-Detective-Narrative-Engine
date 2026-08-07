@@ -1,0 +1,38 @@
+{
+  "working_title": "The Gallery Verdict",
+  "premise": "An independent insurance adjuster investigates the disappearance of a featured painting during a private gallery opening, reconstructing the evening from conflicting witness accounts, security logs, and sightline evidence.",
+  "setting": "Contemporary urban art gallery during a private exhibition opening \u2014 main hall, secure vault, director's office, lobby, and rooftop terrace",
+  "universe": "real world",
+  "genre": "detective mystery",
+  "realism_level": "grounded contemporary",
+  "player_mode": "single_investigator",
+  "investigator_character": "Independent insurance adjuster retained to determine whether the loss was theft or a staged claim",
+  "opening_situation": "You arrive at the Meridian Contemporary after the opening-night alarm. Gallery director Vera Okonkwo reports a theft; curator Lina Morales and security chief James Holt give accounts that do not align.",
+  "initial_observable_facts": [
+    "The featured painting Midnight Verdict is missing from its wall mount in the main hall.",
+    "Head of security James Holt claims the piece was secured in the vault until the 2100 alarm.",
+    "Curator Lina Morales says she noticed the empty wall during her podium remarks around 2055.",
+    "Collector Otto Weiss photographed activity near the painting shortly before the alarm."
+  ],
+  "target_playtime_minutes": 120,
+  "in_world_duration": "one opening night (approximately three in-world hours)",
+  "tone": "urban, polished, quietly tense",
+  "difficulty": "standard",
+  "location_scale": "single urban gallery with five primary locations",
+  "content_boundaries": "no graphic violence; no supernatural elements; insurance fraud and witness contradiction themes; no sexual content",
+  "required_themes": [
+    "fair-play mystery",
+    "witness and NPC contradiction",
+    "alibis and sightlines",
+    "meaningful time pressure",
+    "one perfect ending and several imperfect endings"
+  ],
+  "forbidden_themes": [
+    "supernatural explanations",
+    "theft-primary plots",
+    "magic or occult resolution",
+    "direct narrator solution delivery"
+  ],
+  "deadline_or_constraint": "Carrier claim filing deadline at 2300; witnesses dispersing after midnight",
+  "author_notes": "Codename: The Gallery Verdict. Culprit NPC-VERA staged removal for insurance fraud after private sale. Emphasis on contradictory testimony, alibis, and sightlines \u2014 not burglary mechanics."
+}

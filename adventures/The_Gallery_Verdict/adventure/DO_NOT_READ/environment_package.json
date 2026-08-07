@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "adventure_id": "The_Gallery_Verdict",
+  "start_location_id": "LOC-LOBBY",
+  "world_first_links": {
+    "truth_package_path": "DO_NOT_READ/world_truth_package.json"
+  },
+  "locations": [
+    {
+      "location_id": "LOC-LOBBY",
+      "public_name": "Gallery lobby",
+      "start_location": true,
+      "hub_unit_id": "UNIT-LOBBY-BASE",
+      "parent_location_id": null,
+      "location_type": "gallery_lobby",
+      "description_source": "DESC-LOBBY",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-010"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-MAIN-HALL",
+      "public_name": "Main exhibition hall",
+      "hub_unit_id": "UNIT-MAIN-HALL-BASE",
+      "parent_location_id": "LOC-LOBBY",
+      "location_type": "exhibition_hall",
+      "description_source": "DESC-MAIN-HALL",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-001",
+          "EVT-003",
+          "EVT-006",
+          "EVT-007",
+          "EVT-009"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-VAULT",
+      "public_name": "Secure vault",
+      "hub_unit_id": "UNIT-VAULT-BASE",
+      "parent_location_id": "LOC-LOBBY",
+      "location_type": "secure_storage",
+      "description_source": "DESC-VAULT",
+      "default_attributes": {
+        "access": "restricted"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-008"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-OFFICE",
+      "public_name": "Director's office",
+      "hub_unit_id": "UNIT-OFFICE-BASE",
+      "parent_location_id": "LOC-LOBBY",
+      "location_type": "office",
+      "description_source": "DESC-OFFICE",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-002",
+          "EVT-004",
+          "EVT-005",
+          "EVT-011",
+          "EVT-013"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    },
+    {
+      "location_id": "LOC-TERRACE",
+      "public_name": "Rooftop terrace",
+      "hub_unit_id": "UNIT-TERRACE-BASE",
+      "parent_location_id": "LOC-LOBBY",
+      "location_type": "terrace",
+      "description_source": "DESC-TERRACE",
+      "default_attributes": {
+        "access": "open"
+      },
+      "world_first_provenance": {
+        "event_ids": [
+          "EVT-012"
+        ],
+        "fact_ids": []
+      },
+      "state_owner": "environment_package"
+    }
+  ],
+  "location_states": [
+    {
+      "state_id": "LOC-LOBBY:default",
+      "location_id": "LOC-LOBBY",
+      "variant_label": "investigation_start",
+      "attributes": {
+        "access": "open",
+        "crowd_level": "dispersing"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-010"
+      }
+    },
+    {
+      "state_id": "LOC-OFFICE:camera_sync",
+      "location_id": "LOC-OFFICE",
+      "variant_label": "camera_synced",
+      "attributes": {
+        "camera_sync": "complete"
+      },
+      "cause": {
+        "type": "timeline_event",
+        "ref": "EVT-011"
+      }
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "FEAT-EMPTY-FRAME",
+      "location_id": "LOC-MAIN-HALL",
+      "label": "Empty wall mount for Midnight Verdict",
+      "object_ref": "OBJ-PAINTING-FRAME"
+    },
+    {
+      "feature_id": "FEAT-CRATE-LABEL",
+      "location_id": "LOC-MAIN-HALL",
+      "label": "Archived crate shipping label",
+      "object_ref": "OBJ-CRATE-LABEL"
+    }
+  ],
+  "navigation": [
+    {
+      "nav_id": "NAV-LOBBY-MAIN",
+      "source_location_id": "LOC-LOBBY",
+      "destination_location_id": "LOC-MAIN-HALL",
+      "player_label": "Enter the main exhibition hall",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-LOBBY-VAULT",
+      "source_location_id": "LOC-LOBBY",
+      "destination_location_id": "LOC-VAULT",
+      "player_label": "Descend to the secure vault",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-LOBBY-OFFICE",
+      "source_location_id": "LOC-LOBBY",
+      "destination_location_id": "LOC-OFFICE",
+      "player_label": "Take the corridor to the director's office",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-LOBBY-TERRACE",
+      "source_location_id": "LOC-LOBBY",
+      "destination_location_id": "LOC-TERRACE",
+      "player_label": "Ride the elevator to the rooftop terrace",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-MAIN-LOBBY",
+      "source_location_id": "LOC-MAIN-HALL",
+      "destination_location_id": "LOC-LOBBY",
+      "player_label": "Return to the lobby",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-VAULT-LOBBY",
+      "source_location_id": "LOC-VAULT",
+      "destination_location_id": "LOC-LOBBY",
+      "player_label": "Return to the lobby",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-OFFICE-LOBBY",
+      "source_location_id": "LOC-OFFICE",
+      "destination_location_id": "LOC-LOBBY",
+      "player_label": "Return to the lobby",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    },
+    {
+      "nav_id": "NAV-TERRACE-LOBBY",
+      "source_location_id": "LOC-TERRACE",
+      "destination_location_id": "LOC-LOBBY",
+      "player_label": "Return to the lobby",
+      "travel_cost_minutes": 2,
+      "access_condition": {
+        "type": "always"
+      },
+      "return_nav_id": null,
+      "hidden_destination_id": null
+    }
+  ],
+  "revisit_rules": {
+    "persist_physical_changes": true,
+    "persist_acquired_objects": true,
+    "persist_open_access": true,
+    "suppress_repeat_one_time_observations": true,
+    "allow_time_variants": true,
+    "reset_to_initial_on_revisit": false
+  },
+  "mandatory_locations": [
+    {
+      "location_id": "LOC-LOBBY",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-MAIN-HALL",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-VAULT",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-OFFICE",
+      "access": "reachable",
+      "reason": "investigation"
+    },
+    {
+      "location_id": "LOC-TERRACE",
+      "access": "reachable",
+      "reason": "investigation"
+    }
+  ]
+}
