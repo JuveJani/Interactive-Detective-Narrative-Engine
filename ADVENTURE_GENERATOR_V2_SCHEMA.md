@@ -21,7 +21,14 @@
 | `content_boundaries` | string | yes |
 | `required_themes` | string[] | optional |
 | `forbidden_themes` | string[] | optional |
+| `working_title` | string | optional |
+| `premise` | string | optional |
+| `setting` | string | optional |
+| `opening_situation` | string | optional |
+| `initial_observable_facts` | string[] | optional |
 | `author_notes` | string | optional |
+
+Structured narrative fields (`premise`, `setting`, `opening_situation`, `initial_observable_facts`, `working_title`) are first-class when present. Legacy briefs may store narrative context only in `author_notes`.
 
 ---
 

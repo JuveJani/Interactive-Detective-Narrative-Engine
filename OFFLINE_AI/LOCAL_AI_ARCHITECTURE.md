@@ -32,7 +32,8 @@ Model-facing schema: `idne/schemas/local_ai_adventure_brief_response.schema.json
 Fields include premise, opening_situation, initial_observable_facts, and canonical brief parameters. Python maps this into Adventure Generator v2 `adventure_brief.json` via `proposal_builder.map_semantic_to_canonical()`:
 
 - Direct copy: universe, genre, realism_level, player_mode, investigator_character, target_playtime_minutes, in_world_duration, tone, difficulty, location_scale, content_boundaries, theme arrays
-- Composed into `author_notes`: working_title, premise, setting, opening_situation, initial_observable_facts, author_notes
+- Direct structured narrative fields: working_title, premise, setting, opening_situation, initial_observable_facts
+- `author_notes` receives only semantic `author_notes` (no prose composition)
 
 ## Safe structural repairs (`structural_repair.py`)
 

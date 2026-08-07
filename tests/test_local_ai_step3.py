@@ -272,7 +272,9 @@ class TestProposalAndApply(unittest.TestCase):
     def test_canonical_proposal_generation(self):
         canonical = map_semantic_to_canonical(_valid_semantic())
         self.assertEqual(validate_brief(canonical), [])
-        self.assertIn("Opening situation:", canonical["author_notes"])
+        self.assertIn("premise", canonical)
+        self.assertIn("opening_situation", canonical)
+        self.assertNotIn("Premise:", canonical.get("author_notes", ""))
 
     def test_deterministic_brief_id(self):
         _task, _, _, _, run_dir = _fresh_prepare()
