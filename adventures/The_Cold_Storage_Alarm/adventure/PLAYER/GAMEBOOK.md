@@ -1346,6 +1346,15 @@ The control room door has a badge reader you are not cleared to use on your own.
 
 ---
 
+<a id="section-175"></a>
+## Section 175
+
+### Hidden records
+
+You used the records-only archive policy route instead of pressing further into the operational alarm. IT's sync schedule goes into the audit trail exactly as documented — a routine 2:30 a.m. batch upload, nothing more. It is a clean footnote to file, but it does not answer why CZ-1 kept climbing after the alarm sounded.
+
+---
+
 <a id="section-176"></a>
 ## Section 176
 
@@ -2894,6 +2903,15 @@ Pallet shrink-wrap crinkles under the cold air draft as you step into the row. A
 
 ---
 
+<a id="section-263"></a>
+## Section 263
+
+### Narrative continue
+
+You defer final accountability while the clock still runs. Whatever you have learned so far stays open for revision from wherever you are standing in the facility. The night is not over, and neither is the investigation.
+
+---
+
 <a id="section-264"></a>
 ## Section 264
 
@@ -3931,6 +3949,15 @@ You scroll the alarm panel's history back past the noise of tonight's other noti
 
 ---
 
+<a id="section-324"></a>
+## Section 324
+
+### Partial incomplete
+
+Compliance documents operational response gaps — the alarm history, supervisor actions, and temperature readings are on file, but several record threads never made it into your statement. Without a completed synthesis, the write-off review proceeds on the operational facts alone, and the question of exactly who caused tonight's failure stays open past your shift.
+
+---
+
 <a id="section-325"></a>
 ## Section 325
 
@@ -4438,6 +4465,15 @@ You scroll the alarm panel's history back past the noise of tonight's other noti
 **What do you do?**
 
 - Return to the security office. Turn to section [**3935**](#section-3935).
+
+---
+
+<a id="section-355"></a>
+## Section 355
+
+### Partial motive gap
+
+Receiving discrepancy records are noted in your statement, and the manifest exception on MNF-IN-4471 goes into the audit file as-is. The label residue and the relabeling it points to never quite connect into a finished synthesis. Someone will have to reopen the paperwork later to finish what your shift left half-drawn.
 
 ---
 
@@ -9594,6 +9630,15 @@ You switch the filter to control room door entries for the same window. Control 
 
 ---
 
+<a id="section-643"></a>
+## Section 643
+
+### Partial tech only
+
+Your statement explains staging suspension and command timing in enough detail that engineering signs off on the mechanism. Compliance notes the unattended maintenance session as the technical root cause, with no name attached to who actually used it. The receiving floor's part in tonight's story never makes it into the record.
+
+---
+
 <a id="section-644"></a>
 ## Section 644
 
@@ -12061,6 +12106,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3302**](#section-3302).
 - Follow the interior hallway to the security office. Turn to section [**3880**](#section-3880).
 - Take the side passage toward the cold storage hall. Turn to section [**1280**](#section-1280).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12083,6 +12134,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3303**](#section-3303).
 - Follow the interior hallway to the security office. Turn to section [**3881**](#section-3881).
 - Take the side passage toward the cold storage hall. Turn to section [**1281**](#section-1281).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12105,6 +12162,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3304**](#section-3304).
 - Follow the interior hallway to the security office. Turn to section [**3882**](#section-3882).
 - Take the side passage toward the cold storage hall. Turn to section [**1282**](#section-1282).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12127,6 +12190,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3305**](#section-3305).
 - Follow the interior hallway to the security office. Turn to section [**3883**](#section-3883).
 - Take the side passage toward the cold storage hall. Turn to section [**1283**](#section-1283).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12149,6 +12218,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3306**](#section-3306).
 - Follow the interior hallway to the security office. Turn to section [**3884**](#section-3884).
 - Take the side passage toward the cold storage hall. Turn to section [**1284**](#section-1284).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12171,6 +12246,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3307**](#section-3307).
 - Follow the interior hallway to the security office. Turn to section [**3885**](#section-3885).
 - Take the side passage toward the cold storage hall. Turn to section [**1285**](#section-1285).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12193,6 +12274,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3308**](#section-3308).
 - Follow the interior hallway to the security office. Turn to section [**3886**](#section-3886).
 - Take the side passage toward the cold storage hall. Turn to section [**1286**](#section-1286).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12215,6 +12302,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3309**](#section-3309).
 - Follow the interior hallway to the security office. Turn to section [**3887**](#section-3887).
 - Take the side passage toward the cold storage hall. Turn to section [**1287**](#section-1287).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12237,6 +12330,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3310**](#section-3310).
 - Follow the interior hallway to the security office. Turn to section [**3888**](#section-3888).
 - Take the side passage toward the cold storage hall. Turn to section [**1288**](#section-1288).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12259,6 +12358,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3311**](#section-3311).
 - Follow the interior hallway to the security office. Turn to section [**3889**](#section-3889).
 - Take the side passage toward the cold storage hall. Turn to section [**1289**](#section-1289).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12281,6 +12386,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3312**](#section-3312).
 - Follow the interior hallway to the security office. Turn to section [**3890**](#section-3890).
 - Take the side passage toward the cold storage hall. Turn to section [**1290**](#section-1290).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12303,6 +12414,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3313**](#section-3313).
 - Follow the interior hallway to the security office. Turn to section [**3891**](#section-3891).
 - Take the side passage toward the cold storage hall. Turn to section [**1291**](#section-1291).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12325,6 +12442,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3314**](#section-3314).
 - Follow the interior hallway to the security office. Turn to section [**3892**](#section-3892).
 - Take the side passage toward the cold storage hall. Turn to section [**1292**](#section-1292).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12347,6 +12470,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3315**](#section-3315).
 - Follow the interior hallway to the security office. Turn to section [**3893**](#section-3893).
 - Take the side passage toward the cold storage hall. Turn to section [**1293**](#section-1293).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12369,6 +12498,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3316**](#section-3316).
 - Follow the interior hallway to the security office. Turn to section [**3894**](#section-3894).
 - Take the side passage toward the cold storage hall. Turn to section [**1294**](#section-1294).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12391,6 +12526,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3317**](#section-3317).
 - Follow the interior hallway to the security office. Turn to section [**3895**](#section-3895).
 - Take the side passage toward the cold storage hall. Turn to section [**1295**](#section-1295).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12413,6 +12554,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3318**](#section-3318).
 - Follow the interior hallway to the security office. Turn to section [**3896**](#section-3896).
 - Take the side passage toward the cold storage hall. Turn to section [**1296**](#section-1296).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12435,6 +12582,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3319**](#section-3319).
 - Follow the interior hallway to the security office. Turn to section [**3898**](#section-3898).
 - Take the side passage toward the cold storage hall. Turn to section [**1297**](#section-1297).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12457,6 +12610,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3320**](#section-3320).
 - Follow the interior hallway to the security office. Turn to section [**3899**](#section-3899).
 - Take the side passage toward the cold storage hall. Turn to section [**1298**](#section-1298).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12479,6 +12638,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3321**](#section-3321).
 - Follow the interior hallway to the security office. Turn to section [**3900**](#section-3900).
 - Take the side passage toward the cold storage hall. Turn to section [**1299**](#section-1299).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12501,6 +12666,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3322**](#section-3322).
 - Follow the interior hallway to the security office. Turn to section [**3901**](#section-3901).
 - Take the side passage toward the cold storage hall. Turn to section [**1300**](#section-1300).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12523,6 +12694,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3323**](#section-3323).
 - Follow the interior hallway to the security office. Turn to section [**3902**](#section-3902).
 - Take the side passage toward the cold storage hall. Turn to section [**1301**](#section-1301).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12545,6 +12722,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3324**](#section-3324).
 - Follow the interior hallway to the security office. Turn to section [**3903**](#section-3903).
 - Take the side passage toward the cold storage hall. Turn to section [**1302**](#section-1302).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12567,6 +12750,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3325**](#section-3325).
 - Follow the interior hallway to the security office. Turn to section [**3904**](#section-3904).
 - Take the side passage toward the cold storage hall. Turn to section [**1303**](#section-1303).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12589,6 +12778,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3326**](#section-3326).
 - Follow the interior hallway to the security office. Turn to section [**3905**](#section-3905).
 - Take the side passage toward the cold storage hall. Turn to section [**1304**](#section-1304).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12611,6 +12806,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3327**](#section-3327).
 - Follow the interior hallway to the security office. Turn to section [**3906**](#section-3906).
 - Take the side passage toward the cold storage hall. Turn to section [**1305**](#section-1305).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12633,6 +12834,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3328**](#section-3328).
 - Follow the interior hallway to the security office. Turn to section [**3907**](#section-3907).
 - Take the side passage toward the cold storage hall. Turn to section [**1306**](#section-1306).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12655,6 +12862,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3329**](#section-3329).
 - Follow the interior hallway to the security office. Turn to section [**3908**](#section-3908).
 - Take the side passage toward the cold storage hall. Turn to section [**1307**](#section-1307).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12677,6 +12890,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3330**](#section-3330).
 - Follow the interior hallway to the security office. Turn to section [**3909**](#section-3909).
 - Take the side passage toward the cold storage hall. Turn to section [**1308**](#section-1308).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12699,6 +12918,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3331**](#section-3331).
 - Follow the interior hallway to the security office. Turn to section [**3910**](#section-3910).
 - Take the side passage toward the cold storage hall. Turn to section [**1309**](#section-1309).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12721,6 +12946,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3332**](#section-3332).
 - Follow the interior hallway to the security office. Turn to section [**3911**](#section-3911).
 - Take the side passage toward the cold storage hall. Turn to section [**1310**](#section-1310).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12743,6 +12974,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3333**](#section-3333).
 - Follow the interior hallway to the security office. Turn to section [**3912**](#section-3912).
 - Take the side passage toward the cold storage hall. Turn to section [**1311**](#section-1311).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12765,6 +13002,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3334**](#section-3334).
 - Follow the interior hallway to the security office. Turn to section [**3913**](#section-3913).
 - Take the side passage toward the cold storage hall. Turn to section [**1312**](#section-1312).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12787,6 +13030,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3335**](#section-3335).
 - Follow the interior hallway to the security office. Turn to section [**3914**](#section-3914).
 - Take the side passage toward the cold storage hall. Turn to section [**1313**](#section-1313).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12809,6 +13058,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3336**](#section-3336).
 - Follow the interior hallway to the security office. Turn to section [**3915**](#section-3915).
 - Take the side passage toward the cold storage hall. Turn to section [**1314**](#section-1314).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12831,6 +13086,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3337**](#section-3337).
 - Follow the interior hallway to the security office. Turn to section [**3916**](#section-3916).
 - Take the side passage toward the cold storage hall. Turn to section [**1315**](#section-1315).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12853,6 +13114,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3338**](#section-3338).
 - Follow the interior hallway to the security office. Turn to section [**3917**](#section-3917).
 - Take the side passage toward the cold storage hall. Turn to section [**1316**](#section-1316).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12875,6 +13142,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3339**](#section-3339).
 - Follow the interior hallway to the security office. Turn to section [**3918**](#section-3918).
 - Take the side passage toward the cold storage hall. Turn to section [**1317**](#section-1317).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12897,6 +13170,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3340**](#section-3340).
 - Follow the interior hallway to the security office. Turn to section [**3919**](#section-3919).
 - Take the side passage toward the cold storage hall. Turn to section [**1318**](#section-1318).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12919,6 +13198,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3341**](#section-3341).
 - Follow the interior hallway to the security office. Turn to section [**3920**](#section-3920).
 - Take the side passage toward the cold storage hall. Turn to section [**1319**](#section-1319).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12941,6 +13226,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3342**](#section-3342).
 - Follow the interior hallway to the security office. Turn to section [**3921**](#section-3921).
 - Take the side passage toward the cold storage hall. Turn to section [**1320**](#section-1320).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12963,6 +13254,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3343**](#section-3343).
 - Follow the interior hallway to the security office. Turn to section [**3922**](#section-3922).
 - Take the side passage toward the cold storage hall. Turn to section [**1321**](#section-1321).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -12985,6 +13282,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3344**](#section-3344).
 - Follow the interior hallway to the security office. Turn to section [**3923**](#section-3923).
 - Take the side passage toward the cold storage hall. Turn to section [**1322**](#section-1322).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13007,6 +13310,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3345**](#section-3345).
 - Follow the interior hallway to the security office. Turn to section [**3924**](#section-3924).
 - Take the side passage toward the cold storage hall. Turn to section [**1323**](#section-1323).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13029,6 +13338,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3346**](#section-3346).
 - Follow the interior hallway to the security office. Turn to section [**3925**](#section-3925).
 - Take the side passage toward the cold storage hall. Turn to section [**1324**](#section-1324).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13051,6 +13366,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3347**](#section-3347).
 - Follow the interior hallway to the security office. Turn to section [**3926**](#section-3926).
 - Take the side passage toward the cold storage hall. Turn to section [**1326**](#section-1326).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13073,6 +13394,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3348**](#section-3348).
 - Follow the interior hallway to the security office. Turn to section [**3927**](#section-3927).
 - Take the side passage toward the cold storage hall. Turn to section [**1327**](#section-1327).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13095,6 +13422,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3349**](#section-3349).
 - Follow the interior hallway to the security office. Turn to section [**3928**](#section-3928).
 - Take the side passage toward the cold storage hall. Turn to section [**1328**](#section-1328).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13117,6 +13450,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3350**](#section-3350).
 - Follow the interior hallway to the security office. Turn to section [**3929**](#section-3929).
 - Take the side passage toward the cold storage hall. Turn to section [**1329**](#section-1329).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13139,6 +13478,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3351**](#section-3351).
 - Follow the interior hallway to the security office. Turn to section [**3930**](#section-3930).
 - Take the side passage toward the cold storage hall. Turn to section [**1330**](#section-1330).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13161,6 +13506,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3352**](#section-3352).
 - Follow the interior hallway to the security office. Turn to section [**3931**](#section-3931).
 - Take the side passage toward the cold storage hall. Turn to section [**1331**](#section-1331).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13183,6 +13534,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3353**](#section-3353).
 - Follow the interior hallway to the security office. Turn to section [**3932**](#section-3932).
 - Take the side passage toward the cold storage hall. Turn to section [**1332**](#section-1332).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13205,6 +13562,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3354**](#section-3354).
 - Follow the interior hallway to the security office. Turn to section [**3933**](#section-3933).
 - Take the side passage toward the cold storage hall. Turn to section [**1333**](#section-1333).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13227,6 +13590,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3355**](#section-3355).
 - Follow the interior hallway to the security office. Turn to section [**3934**](#section-3934).
 - Take the side passage toward the cold storage hall. Turn to section [**1334**](#section-1334).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13249,6 +13618,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3356**](#section-3356).
 - Follow the interior hallway to the security office. Turn to section [**3935**](#section-3935).
 - Take the side passage toward the cold storage hall. Turn to section [**1335**](#section-1335).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13271,6 +13646,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3357**](#section-3357).
 - Follow the interior hallway to the security office. Turn to section [**3936**](#section-3936).
 - Take the side passage toward the cold storage hall. Turn to section [**1336**](#section-1336).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13293,6 +13674,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3358**](#section-3358).
 - Follow the interior hallway to the security office. Turn to section [**3937**](#section-3937).
 - Take the side passage toward the cold storage hall. Turn to section [**1337**](#section-1337).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13315,6 +13702,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3359**](#section-3359).
 - Follow the interior hallway to the security office. Turn to section [**3938**](#section-3938).
 - Take the side passage toward the cold storage hall. Turn to section [**1338**](#section-1338).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13337,6 +13730,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3360**](#section-3360).
 - Follow the interior hallway to the security office. Turn to section [**3939**](#section-3939).
 - Take the side passage toward the cold storage hall. Turn to section [**1339**](#section-1339).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13359,6 +13758,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3361**](#section-3361).
 - Follow the interior hallway to the security office. Turn to section [**3940**](#section-3940).
 - Take the side passage toward the cold storage hall. Turn to section [**1340**](#section-1340).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13381,6 +13786,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3362**](#section-3362).
 - Follow the interior hallway to the security office. Turn to section [**3941**](#section-3941).
 - Take the side passage toward the cold storage hall. Turn to section [**1341**](#section-1341).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13403,6 +13814,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3363**](#section-3363).
 - Follow the interior hallway to the security office. Turn to section [**3942**](#section-3942).
 - Take the side passage toward the cold storage hall. Turn to section [**1342**](#section-1342).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13425,6 +13842,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3364**](#section-3364).
 - Follow the interior hallway to the security office. Turn to section [**3943**](#section-3943).
 - Take the side passage toward the cold storage hall. Turn to section [**1343**](#section-1343).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13447,6 +13870,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3365**](#section-3365).
 - Follow the interior hallway to the security office. Turn to section [**3944**](#section-3944).
 - Take the side passage toward the cold storage hall. Turn to section [**1344**](#section-1344).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13469,6 +13898,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3366**](#section-3366).
 - Follow the interior hallway to the security office. Turn to section [**3945**](#section-3945).
 - Take the side passage toward the cold storage hall. Turn to section [**1345**](#section-1345).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13491,6 +13926,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3367**](#section-3367).
 - Follow the interior hallway to the security office. Turn to section [**3946**](#section-3946).
 - Take the side passage toward the cold storage hall. Turn to section [**1346**](#section-1346).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13513,6 +13954,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3368**](#section-3368).
 - Follow the interior hallway to the security office. Turn to section [**3947**](#section-3947).
 - Take the side passage toward the cold storage hall. Turn to section [**1347**](#section-1347).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13535,6 +13982,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3369**](#section-3369).
 - Follow the interior hallway to the security office. Turn to section [**3948**](#section-3948).
 - Take the side passage toward the cold storage hall. Turn to section [**1348**](#section-1348).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13557,6 +14010,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3370**](#section-3370).
 - Follow the interior hallway to the security office. Turn to section [**3949**](#section-3949).
 - Take the side passage toward the cold storage hall. Turn to section [**1349**](#section-1349).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13579,6 +14038,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3371**](#section-3371).
 - Follow the interior hallway to the security office. Turn to section [**3950**](#section-3950).
 - Take the side passage toward the cold storage hall. Turn to section [**1350**](#section-1350).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13601,6 +14066,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3372**](#section-3372).
 - Follow the interior hallway to the security office. Turn to section [**3951**](#section-3951).
 - Take the side passage toward the cold storage hall. Turn to section [**1351**](#section-1351).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13623,6 +14094,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3373**](#section-3373).
 - Follow the interior hallway to the security office. Turn to section [**3952**](#section-3952).
 - Take the side passage toward the cold storage hall. Turn to section [**1352**](#section-1352).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13645,6 +14122,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3374**](#section-3374).
 - Follow the interior hallway to the security office. Turn to section [**3953**](#section-3953).
 - Take the side passage toward the cold storage hall. Turn to section [**1353**](#section-1353).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13667,6 +14150,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3375**](#section-3375).
 - Follow the interior hallway to the security office. Turn to section [**3954**](#section-3954).
 - Take the side passage toward the cold storage hall. Turn to section [**1354**](#section-1354).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13689,6 +14178,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3376**](#section-3376).
 - Follow the interior hallway to the security office. Turn to section [**3955**](#section-3955).
 - Take the side passage toward the cold storage hall. Turn to section [**1355**](#section-1355).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13711,6 +14206,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3377**](#section-3377).
 - Follow the interior hallway to the security office. Turn to section [**3956**](#section-3956).
 - Take the side passage toward the cold storage hall. Turn to section [**1356**](#section-1356).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13733,6 +14234,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3378**](#section-3378).
 - Follow the interior hallway to the security office. Turn to section [**3957**](#section-3957).
 - Take the side passage toward the cold storage hall. Turn to section [**1357**](#section-1357).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13755,6 +14262,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3379**](#section-3379).
 - Follow the interior hallway to the security office. Turn to section [**3958**](#section-3958).
 - Take the side passage toward the cold storage hall. Turn to section [**1358**](#section-1358).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13777,6 +14290,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3380**](#section-3380).
 - Follow the interior hallway to the security office. Turn to section [**3959**](#section-3959).
 - Take the side passage toward the cold storage hall. Turn to section [**1359**](#section-1359).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13799,6 +14318,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3381**](#section-3381).
 - Follow the interior hallway to the security office. Turn to section [**3960**](#section-3960).
 - Take the side passage toward the cold storage hall. Turn to section [**1360**](#section-1360).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13821,6 +14346,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3382**](#section-3382).
 - Follow the interior hallway to the security office. Turn to section [**3961**](#section-3961).
 - Take the side passage toward the cold storage hall. Turn to section [**1361**](#section-1361).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13843,6 +14374,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3383**](#section-3383).
 - Follow the interior hallway to the security office. Turn to section [**3962**](#section-3962).
 - Take the side passage toward the cold storage hall. Turn to section [**1362**](#section-1362).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13865,6 +14402,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3384**](#section-3384).
 - Follow the interior hallway to the security office. Turn to section [**3963**](#section-3963).
 - Take the side passage toward the cold storage hall. Turn to section [**1363**](#section-1363).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13887,6 +14430,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3385**](#section-3385).
 - Follow the interior hallway to the security office. Turn to section [**3964**](#section-3964).
 - Take the side passage toward the cold storage hall. Turn to section [**1364**](#section-1364).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13909,6 +14458,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3386**](#section-3386).
 - Follow the interior hallway to the security office. Turn to section [**3965**](#section-3965).
 - Take the side passage toward the cold storage hall. Turn to section [**1365**](#section-1365).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13931,6 +14486,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3387**](#section-3387).
 - Follow the interior hallway to the security office. Turn to section [**3966**](#section-3966).
 - Take the side passage toward the cold storage hall. Turn to section [**1366**](#section-1366).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13953,6 +14514,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3388**](#section-3388).
 - Follow the interior hallway to the security office. Turn to section [**3967**](#section-3967).
 - Take the side passage toward the cold storage hall. Turn to section [**1367**](#section-1367).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13975,6 +14542,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3389**](#section-3389).
 - Follow the interior hallway to the security office. Turn to section [**3968**](#section-3968).
 - Take the side passage toward the cold storage hall. Turn to section [**1368**](#section-1368).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -13997,6 +14570,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3390**](#section-3390).
 - Follow the interior hallway to the security office. Turn to section [**3969**](#section-3969).
 - Take the side passage toward the cold storage hall. Turn to section [**1369**](#section-1369).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -14019,6 +14598,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3391**](#section-3391).
 - Follow the interior hallway to the security office. Turn to section [**3970**](#section-3970).
 - Take the side passage toward the cold storage hall. Turn to section [**1370**](#section-1370).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -14041,6 +14626,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3392**](#section-3392).
 - Follow the interior hallway to the security office. Turn to section [**3971**](#section-3971).
 - Take the side passage toward the cold storage hall. Turn to section [**1371**](#section-1371).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -14063,6 +14654,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3393**](#section-3393).
 - Follow the interior hallway to the security office. Turn to section [**3972**](#section-3972).
 - Take the side passage toward the cold storage hall. Turn to section [**1372**](#section-1372).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -14085,6 +14682,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3394**](#section-3394).
 - Follow the interior hallway to the security office. Turn to section [**3973**](#section-3973).
 - Take the side passage toward the cold storage hall. Turn to section [**1373**](#section-1373).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -14107,6 +14710,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3395**](#section-3395).
 - Follow the interior hallway to the security office. Turn to section [**3974**](#section-3974).
 - Take the side passage toward the cold storage hall. Turn to section [**1374**](#section-1374).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -14129,6 +14738,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3396**](#section-3396).
 - Follow the interior hallway to the security office. Turn to section [**3975**](#section-3975).
 - Take the side passage toward the cold storage hall. Turn to section [**1375**](#section-1375).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -14151,6 +14766,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3397**](#section-3397).
 - Follow the interior hallway to the security office. Turn to section [**3976**](#section-3976).
 - Take the side passage toward the cold storage hall. Turn to section [**1376**](#section-1376).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -14173,6 +14794,12 @@ The staff break room has vending machines, lockers, and a window toward the dock
 - Walk to the manager office through the staff corridor. Turn to section [**3398**](#section-3398).
 - Follow the interior hallway to the security office. Turn to section [**3977**](#section-3977).
 - Take the side passage toward the cold storage hall. Turn to section [**1377**](#section-1377).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -18190,6 +18817,15 @@ You commit to checking inside the ajar locker properly — one look, not a quick
 
 ---
 
+<a id="section-1111"></a>
+## Section 1111
+
+### Partial wrong culprit
+
+Your statement centers on the contractor exit record, and Elena forwards it up the chain as filed. Dev's contract review gets flagged over a badge discrepancy he cannot fully explain away, even though the timeline you built does not quite hold together under scrutiny. Whatever actually reached into that unattended session on CTRL-TERM-02 goes unexamined tonight.
+
+---
+
 <a id="section-1112"></a>
 ## Section 1112
 
@@ -21179,6 +21815,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**101**](#section-101).
 - Return to the loading dock. Turn to section [**1572**](#section-1572).
 - Return toward the break room corridor. Turn to section [**789**](#section-789).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21201,6 +21843,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**102**](#section-102).
 - Return to the loading dock. Turn to section [**1573**](#section-1573).
 - Return toward the break room corridor. Turn to section [**790**](#section-790).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21223,6 +21871,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**103**](#section-103).
 - Return to the loading dock. Turn to section [**1574**](#section-1574).
 - Return toward the break room corridor. Turn to section [**791**](#section-791).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21245,6 +21899,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**104**](#section-104).
 - Return to the loading dock. Turn to section [**1575**](#section-1575).
 - Return toward the break room corridor. Turn to section [**792**](#section-792).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21267,6 +21927,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**105**](#section-105).
 - Return to the loading dock. Turn to section [**1576**](#section-1576).
 - Return toward the break room corridor. Turn to section [**793**](#section-793).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21289,6 +21955,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**106**](#section-106).
 - Return to the loading dock. Turn to section [**1577**](#section-1577).
 - Return toward the break room corridor. Turn to section [**794**](#section-794).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21311,6 +21983,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**107**](#section-107).
 - Return to the loading dock. Turn to section [**1578**](#section-1578).
 - Return toward the break room corridor. Turn to section [**795**](#section-795).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21333,6 +22011,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**108**](#section-108).
 - Return to the loading dock. Turn to section [**1579**](#section-1579).
 - Return toward the break room corridor. Turn to section [**796**](#section-796).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21355,6 +22039,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**109**](#section-109).
 - Return to the loading dock. Turn to section [**1580**](#section-1580).
 - Return toward the break room corridor. Turn to section [**797**](#section-797).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21377,6 +22067,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**110**](#section-110).
 - Return to the loading dock. Turn to section [**1581**](#section-1581).
 - Return toward the break room corridor. Turn to section [**798**](#section-798).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21399,6 +22095,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**111**](#section-111).
 - Return to the loading dock. Turn to section [**1582**](#section-1582).
 - Return toward the break room corridor. Turn to section [**799**](#section-799).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21421,6 +22123,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**112**](#section-112).
 - Return to the loading dock. Turn to section [**1583**](#section-1583).
 - Return toward the break room corridor. Turn to section [**800**](#section-800).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21443,6 +22151,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**113**](#section-113).
 - Return to the loading dock. Turn to section [**1584**](#section-1584).
 - Return toward the break room corridor. Turn to section [**801**](#section-801).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21465,6 +22179,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**114**](#section-114).
 - Return to the loading dock. Turn to section [**1585**](#section-1585).
 - Return toward the break room corridor. Turn to section [**802**](#section-802).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21487,6 +22207,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**115**](#section-115).
 - Return to the loading dock. Turn to section [**1586**](#section-1586).
 - Return toward the break room corridor. Turn to section [**803**](#section-803).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21509,6 +22235,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**116**](#section-116).
 - Return to the loading dock. Turn to section [**1587**](#section-1587).
 - Return toward the break room corridor. Turn to section [**804**](#section-804).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21531,6 +22263,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**117**](#section-117).
 - Return to the loading dock. Turn to section [**1588**](#section-1588).
 - Return toward the break room corridor. Turn to section [**805**](#section-805).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21553,6 +22291,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**118**](#section-118).
 - Return to the loading dock. Turn to section [**1589**](#section-1589).
 - Return toward the break room corridor. Turn to section [**806**](#section-806).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21575,6 +22319,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**119**](#section-119).
 - Return to the loading dock. Turn to section [**1590**](#section-1590).
 - Return toward the break room corridor. Turn to section [**807**](#section-807).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21597,6 +22347,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**120**](#section-120).
 - Return to the loading dock. Turn to section [**1591**](#section-1591).
 - Return toward the break room corridor. Turn to section [**808**](#section-808).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21619,6 +22375,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**121**](#section-121).
 - Return to the loading dock. Turn to section [**1592**](#section-1592).
 - Return toward the break room corridor. Turn to section [**809**](#section-809).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21641,6 +22403,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**122**](#section-122).
 - Return to the loading dock. Turn to section [**1593**](#section-1593).
 - Return toward the break room corridor. Turn to section [**810**](#section-810).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21663,6 +22431,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**123**](#section-123).
 - Return to the loading dock. Turn to section [**1594**](#section-1594).
 - Return toward the break room corridor. Turn to section [**811**](#section-811).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21685,6 +22459,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**124**](#section-124).
 - Return to the loading dock. Turn to section [**1595**](#section-1595).
 - Return toward the break room corridor. Turn to section [**812**](#section-812).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21707,6 +22487,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**125**](#section-125).
 - Return to the loading dock. Turn to section [**1596**](#section-1596).
 - Return toward the break room corridor. Turn to section [**813**](#section-813).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21729,6 +22515,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**126**](#section-126).
 - Return to the loading dock. Turn to section [**1597**](#section-1597).
 - Return toward the break room corridor. Turn to section [**814**](#section-814).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21751,6 +22543,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**127**](#section-127).
 - Return to the loading dock. Turn to section [**1598**](#section-1598).
 - Return toward the break room corridor. Turn to section [**815**](#section-815).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21773,6 +22571,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**128**](#section-128).
 - Return to the loading dock. Turn to section [**1599**](#section-1599).
 - Return toward the break room corridor. Turn to section [**816**](#section-816).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21795,6 +22599,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**129**](#section-129).
 - Return to the loading dock. Turn to section [**1600**](#section-1600).
 - Return toward the break room corridor. Turn to section [**817**](#section-817).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21817,6 +22627,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**130**](#section-130).
 - Return to the loading dock. Turn to section [**1601**](#section-1601).
 - Return toward the break room corridor. Turn to section [**818**](#section-818).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21839,6 +22655,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**131**](#section-131).
 - Return to the loading dock. Turn to section [**1602**](#section-1602).
 - Return toward the break room corridor. Turn to section [**819**](#section-819).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21861,6 +22683,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**132**](#section-132).
 - Return to the loading dock. Turn to section [**1603**](#section-1603).
 - Return toward the break room corridor. Turn to section [**820**](#section-820).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21883,6 +22711,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**133**](#section-133).
 - Return to the loading dock. Turn to section [**1604**](#section-1604).
 - Return toward the break room corridor. Turn to section [**821**](#section-821).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21905,6 +22739,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**134**](#section-134).
 - Return to the loading dock. Turn to section [**1605**](#section-1605).
 - Return toward the break room corridor. Turn to section [**822**](#section-822).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21927,6 +22767,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**135**](#section-135).
 - Return to the loading dock. Turn to section [**1606**](#section-1606).
 - Return toward the break room corridor. Turn to section [**823**](#section-823).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21949,6 +22795,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**136**](#section-136).
 - Return to the loading dock. Turn to section [**1607**](#section-1607).
 - Return toward the break room corridor. Turn to section [**824**](#section-824).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21971,6 +22823,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**137**](#section-137).
 - Return to the loading dock. Turn to section [**1608**](#section-1608).
 - Return toward the break room corridor. Turn to section [**825**](#section-825).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -21993,6 +22851,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**138**](#section-138).
 - Return to the loading dock. Turn to section [**1609**](#section-1609).
 - Return toward the break room corridor. Turn to section [**826**](#section-826).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22015,6 +22879,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**139**](#section-139).
 - Return to the loading dock. Turn to section [**1610**](#section-1610).
 - Return toward the break room corridor. Turn to section [**827**](#section-827).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22037,6 +22907,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**140**](#section-140).
 - Return to the loading dock. Turn to section [**1611**](#section-1611).
 - Return toward the break room corridor. Turn to section [**828**](#section-828).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22059,6 +22935,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**141**](#section-141).
 - Return to the loading dock. Turn to section [**1612**](#section-1612).
 - Return toward the break room corridor. Turn to section [**829**](#section-829).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22081,6 +22963,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**142**](#section-142).
 - Return to the loading dock. Turn to section [**1613**](#section-1613).
 - Return toward the break room corridor. Turn to section [**830**](#section-830).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22103,6 +22991,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**143**](#section-143).
 - Return to the loading dock. Turn to section [**1614**](#section-1614).
 - Return toward the break room corridor. Turn to section [**831**](#section-831).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22125,6 +23019,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**144**](#section-144).
 - Return to the loading dock. Turn to section [**1615**](#section-1615).
 - Return toward the break room corridor. Turn to section [**832**](#section-832).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22147,6 +23047,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**145**](#section-145).
 - Return to the loading dock. Turn to section [**1616**](#section-1616).
 - Return toward the break room corridor. Turn to section [**833**](#section-833).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22169,6 +23075,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**146**](#section-146).
 - Return to the loading dock. Turn to section [**1617**](#section-1617).
 - Return toward the break room corridor. Turn to section [**834**](#section-834).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22191,6 +23103,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**147**](#section-147).
 - Return to the loading dock. Turn to section [**1618**](#section-1618).
 - Return toward the break room corridor. Turn to section [**835**](#section-835).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22213,6 +23131,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**148**](#section-148).
 - Return to the loading dock. Turn to section [**1619**](#section-1619).
 - Return toward the break room corridor. Turn to section [**836**](#section-836).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22235,6 +23159,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**149**](#section-149).
 - Return to the loading dock. Turn to section [**1620**](#section-1620).
 - Return toward the break room corridor. Turn to section [**837**](#section-837).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22257,6 +23187,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**150**](#section-150).
 - Return to the loading dock. Turn to section [**1621**](#section-1621).
 - Return toward the break room corridor. Turn to section [**838**](#section-838).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22279,6 +23215,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**151**](#section-151).
 - Return to the loading dock. Turn to section [**1622**](#section-1622).
 - Return toward the break room corridor. Turn to section [**839**](#section-839).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22301,6 +23243,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**152**](#section-152).
 - Return to the loading dock. Turn to section [**1623**](#section-1623).
 - Return toward the break room corridor. Turn to section [**840**](#section-840).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22323,6 +23271,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**153**](#section-153).
 - Return to the loading dock. Turn to section [**1624**](#section-1624).
 - Return toward the break room corridor. Turn to section [**841**](#section-841).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22345,6 +23299,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**154**](#section-154).
 - Return to the loading dock. Turn to section [**1625**](#section-1625).
 - Return toward the break room corridor. Turn to section [**842**](#section-842).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22367,6 +23327,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**155**](#section-155).
 - Return to the loading dock. Turn to section [**1626**](#section-1626).
 - Return toward the break room corridor. Turn to section [**843**](#section-843).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22389,6 +23355,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**156**](#section-156).
 - Return to the loading dock. Turn to section [**1627**](#section-1627).
 - Return toward the break room corridor. Turn to section [**844**](#section-844).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22411,6 +23383,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**157**](#section-157).
 - Return to the loading dock. Turn to section [**1628**](#section-1628).
 - Return toward the break room corridor. Turn to section [**845**](#section-845).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22433,6 +23411,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**158**](#section-158).
 - Return to the loading dock. Turn to section [**1629**](#section-1629).
 - Return toward the break room corridor. Turn to section [**846**](#section-846).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22455,6 +23439,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**159**](#section-159).
 - Return to the loading dock. Turn to section [**1630**](#section-1630).
 - Return toward the break room corridor. Turn to section [**847**](#section-847).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22477,6 +23467,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**160**](#section-160).
 - Return to the loading dock. Turn to section [**1631**](#section-1631).
 - Return toward the break room corridor. Turn to section [**848**](#section-848).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22499,6 +23495,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**161**](#section-161).
 - Return to the loading dock. Turn to section [**1632**](#section-1632).
 - Return toward the break room corridor. Turn to section [**849**](#section-849).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22521,6 +23523,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**162**](#section-162).
 - Return to the loading dock. Turn to section [**1633**](#section-1633).
 - Return toward the break room corridor. Turn to section [**850**](#section-850).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22543,6 +23551,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**163**](#section-163).
 - Return to the loading dock. Turn to section [**1634**](#section-1634).
 - Return toward the break room corridor. Turn to section [**851**](#section-851).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22565,6 +23579,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**164**](#section-164).
 - Return to the loading dock. Turn to section [**1635**](#section-1635).
 - Return toward the break room corridor. Turn to section [**852**](#section-852).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22587,6 +23607,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**165**](#section-165).
 - Return to the loading dock. Turn to section [**1636**](#section-1636).
 - Return toward the break room corridor. Turn to section [**853**](#section-853).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22609,6 +23635,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**166**](#section-166).
 - Return to the loading dock. Turn to section [**1637**](#section-1637).
 - Return toward the break room corridor. Turn to section [**854**](#section-854).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22631,6 +23663,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**167**](#section-167).
 - Return to the loading dock. Turn to section [**1638**](#section-1638).
 - Return toward the break room corridor. Turn to section [**855**](#section-855).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22653,6 +23691,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**168**](#section-168).
 - Return to the loading dock. Turn to section [**1639**](#section-1639).
 - Return toward the break room corridor. Turn to section [**856**](#section-856).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22675,6 +23719,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**169**](#section-169).
 - Return to the loading dock. Turn to section [**1640**](#section-1640).
 - Return toward the break room corridor. Turn to section [**857**](#section-857).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22697,6 +23747,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**170**](#section-170).
 - Return to the loading dock. Turn to section [**1641**](#section-1641).
 - Return toward the break room corridor. Turn to section [**858**](#section-858).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22719,6 +23775,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**171**](#section-171).
 - Return to the loading dock. Turn to section [**1642**](#section-1642).
 - Return toward the break room corridor. Turn to section [**859**](#section-859).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22741,6 +23803,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**172**](#section-172).
 - Return to the loading dock. Turn to section [**1644**](#section-1644).
 - Return toward the break room corridor. Turn to section [**860**](#section-860).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22763,6 +23831,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**173**](#section-173).
 - Return to the loading dock. Turn to section [**1645**](#section-1645).
 - Return toward the break room corridor. Turn to section [**861**](#section-861).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22785,6 +23859,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**174**](#section-174).
 - Return to the loading dock. Turn to section [**1646**](#section-1646).
 - Return toward the break room corridor. Turn to section [**862**](#section-862).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22807,6 +23887,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**176**](#section-176).
 - Return to the loading dock. Turn to section [**1647**](#section-1647).
 - Return toward the break room corridor. Turn to section [**863**](#section-863).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22829,6 +23915,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**177**](#section-177).
 - Return to the loading dock. Turn to section [**1648**](#section-1648).
 - Return toward the break room corridor. Turn to section [**864**](#section-864).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22851,6 +23943,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**178**](#section-178).
 - Return to the loading dock. Turn to section [**1649**](#section-1649).
 - Return toward the break room corridor. Turn to section [**865**](#section-865).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22873,6 +23971,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**179**](#section-179).
 - Return to the loading dock. Turn to section [**1650**](#section-1650).
 - Return toward the break room corridor. Turn to section [**866**](#section-866).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22895,6 +23999,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**180**](#section-180).
 - Return to the loading dock. Turn to section [**1651**](#section-1651).
 - Return toward the break room corridor. Turn to section [**867**](#section-867).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22917,6 +24027,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**181**](#section-181).
 - Return to the loading dock. Turn to section [**1652**](#section-1652).
 - Return toward the break room corridor. Turn to section [**868**](#section-868).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22939,6 +24055,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**183**](#section-183).
 - Return to the loading dock. Turn to section [**1653**](#section-1653).
 - Return toward the break room corridor. Turn to section [**869**](#section-869).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22961,6 +24083,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**184**](#section-184).
 - Return to the loading dock. Turn to section [**1654**](#section-1654).
 - Return toward the break room corridor. Turn to section [**870**](#section-870).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -22983,6 +24111,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**185**](#section-185).
 - Return to the loading dock. Turn to section [**1655**](#section-1655).
 - Return toward the break room corridor. Turn to section [**871**](#section-871).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23005,6 +24139,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**186**](#section-186).
 - Return to the loading dock. Turn to section [**1656**](#section-1656).
 - Return toward the break room corridor. Turn to section [**872**](#section-872).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23027,6 +24167,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**187**](#section-187).
 - Return to the loading dock. Turn to section [**1657**](#section-1657).
 - Return toward the break room corridor. Turn to section [**873**](#section-873).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23049,6 +24195,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**188**](#section-188).
 - Return to the loading dock. Turn to section [**1658**](#section-1658).
 - Return toward the break room corridor. Turn to section [**874**](#section-874).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23071,6 +24223,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**189**](#section-189).
 - Return to the loading dock. Turn to section [**1659**](#section-1659).
 - Return toward the break room corridor. Turn to section [**875**](#section-875).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23093,6 +24251,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**190**](#section-190).
 - Return to the loading dock. Turn to section [**1660**](#section-1660).
 - Return toward the break room corridor. Turn to section [**876**](#section-876).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23115,6 +24279,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**191**](#section-191).
 - Return to the loading dock. Turn to section [**1661**](#section-1661).
 - Return toward the break room corridor. Turn to section [**877**](#section-877).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23137,6 +24307,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**192**](#section-192).
 - Return to the loading dock. Turn to section [**1662**](#section-1662).
 - Return toward the break room corridor. Turn to section [**878**](#section-878).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23159,6 +24335,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**193**](#section-193).
 - Return to the loading dock. Turn to section [**1663**](#section-1663).
 - Return toward the break room corridor. Turn to section [**879**](#section-879).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23181,6 +24363,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**194**](#section-194).
 - Return to the loading dock. Turn to section [**1664**](#section-1664).
 - Return toward the break room corridor. Turn to section [**880**](#section-880).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23203,6 +24391,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**195**](#section-195).
 - Return to the loading dock. Turn to section [**1665**](#section-1665).
 - Return toward the break room corridor. Turn to section [**881**](#section-881).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23225,6 +24419,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**196**](#section-196).
 - Return to the loading dock. Turn to section [**1666**](#section-1666).
 - Return toward the break room corridor. Turn to section [**882**](#section-882).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23247,6 +24447,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**197**](#section-197).
 - Return to the loading dock. Turn to section [**1667**](#section-1667).
 - Return toward the break room corridor. Turn to section [**883**](#section-883).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23269,6 +24475,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**198**](#section-198).
 - Return to the loading dock. Turn to section [**1668**](#section-1668).
 - Return toward the break room corridor. Turn to section [**884**](#section-884).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -23291,6 +24503,12 @@ Cold air rolls from the hall doors. Pallet rows stretch toward zone CZ-1. Your b
 - Follow the engineering passage to the automation control room. Turn to section [**199**](#section-199).
 - Return to the loading dock. Turn to section [**1669**](#section-1669).
 - Return toward the break room corridor. Turn to section [**885**](#section-885).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25058,6 +26276,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1280**](#section-1280).
 - Return to the loading dock with the supervisor. Turn to section [**1572**](#section-1572).
 - Return to the security office. Turn to section [**3880**](#section-3880).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25079,6 +26303,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1281**](#section-1281).
 - Return to the loading dock with the supervisor. Turn to section [**1573**](#section-1573).
 - Return to the security office. Turn to section [**3881**](#section-3881).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25100,6 +26330,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1282**](#section-1282).
 - Return to the loading dock with the supervisor. Turn to section [**1574**](#section-1574).
 - Return to the security office. Turn to section [**3882**](#section-3882).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25121,6 +26357,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1283**](#section-1283).
 - Return to the loading dock with the supervisor. Turn to section [**1575**](#section-1575).
 - Return to the security office. Turn to section [**3883**](#section-3883).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25142,6 +26384,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1284**](#section-1284).
 - Return to the loading dock with the supervisor. Turn to section [**1576**](#section-1576).
 - Return to the security office. Turn to section [**3884**](#section-3884).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25163,6 +26411,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1285**](#section-1285).
 - Return to the loading dock with the supervisor. Turn to section [**1577**](#section-1577).
 - Return to the security office. Turn to section [**3885**](#section-3885).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25184,6 +26438,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1286**](#section-1286).
 - Return to the loading dock with the supervisor. Turn to section [**1578**](#section-1578).
 - Return to the security office. Turn to section [**3886**](#section-3886).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25205,6 +26465,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1287**](#section-1287).
 - Return to the loading dock with the supervisor. Turn to section [**1579**](#section-1579).
 - Return to the security office. Turn to section [**3887**](#section-3887).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25226,6 +26492,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1288**](#section-1288).
 - Return to the loading dock with the supervisor. Turn to section [**1580**](#section-1580).
 - Return to the security office. Turn to section [**3888**](#section-3888).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25247,6 +26519,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1289**](#section-1289).
 - Return to the loading dock with the supervisor. Turn to section [**1581**](#section-1581).
 - Return to the security office. Turn to section [**3889**](#section-3889).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25268,6 +26546,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1290**](#section-1290).
 - Return to the loading dock with the supervisor. Turn to section [**1582**](#section-1582).
 - Return to the security office. Turn to section [**3890**](#section-3890).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25289,6 +26573,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1291**](#section-1291).
 - Return to the loading dock with the supervisor. Turn to section [**1583**](#section-1583).
 - Return to the security office. Turn to section [**3891**](#section-3891).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25310,6 +26600,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1292**](#section-1292).
 - Return to the loading dock with the supervisor. Turn to section [**1584**](#section-1584).
 - Return to the security office. Turn to section [**3892**](#section-3892).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25331,6 +26627,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1293**](#section-1293).
 - Return to the loading dock with the supervisor. Turn to section [**1585**](#section-1585).
 - Return to the security office. Turn to section [**3893**](#section-3893).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25352,6 +26654,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1294**](#section-1294).
 - Return to the loading dock with the supervisor. Turn to section [**1586**](#section-1586).
 - Return to the security office. Turn to section [**3894**](#section-3894).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25373,6 +26681,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1295**](#section-1295).
 - Return to the loading dock with the supervisor. Turn to section [**1587**](#section-1587).
 - Return to the security office. Turn to section [**3895**](#section-3895).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25394,6 +26708,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1296**](#section-1296).
 - Return to the loading dock with the supervisor. Turn to section [**1588**](#section-1588).
 - Return to the security office. Turn to section [**3896**](#section-3896).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25415,6 +26735,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1297**](#section-1297).
 - Return to the loading dock with the supervisor. Turn to section [**1589**](#section-1589).
 - Return to the security office. Turn to section [**3898**](#section-3898).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25436,6 +26762,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1298**](#section-1298).
 - Return to the loading dock with the supervisor. Turn to section [**1590**](#section-1590).
 - Return to the security office. Turn to section [**3899**](#section-3899).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25457,6 +26789,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1299**](#section-1299).
 - Return to the loading dock with the supervisor. Turn to section [**1591**](#section-1591).
 - Return to the security office. Turn to section [**3900**](#section-3900).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25478,6 +26816,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1300**](#section-1300).
 - Return to the loading dock with the supervisor. Turn to section [**1592**](#section-1592).
 - Return to the security office. Turn to section [**3901**](#section-3901).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25499,6 +26843,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1301**](#section-1301).
 - Return to the loading dock with the supervisor. Turn to section [**1593**](#section-1593).
 - Return to the security office. Turn to section [**3902**](#section-3902).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25520,6 +26870,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1302**](#section-1302).
 - Return to the loading dock with the supervisor. Turn to section [**1594**](#section-1594).
 - Return to the security office. Turn to section [**3903**](#section-3903).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25541,6 +26897,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1303**](#section-1303).
 - Return to the loading dock with the supervisor. Turn to section [**1595**](#section-1595).
 - Return to the security office. Turn to section [**3904**](#section-3904).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25562,6 +26924,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1304**](#section-1304).
 - Return to the loading dock with the supervisor. Turn to section [**1596**](#section-1596).
 - Return to the security office. Turn to section [**3905**](#section-3905).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25583,6 +26951,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1305**](#section-1305).
 - Return to the loading dock with the supervisor. Turn to section [**1597**](#section-1597).
 - Return to the security office. Turn to section [**3906**](#section-3906).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25604,6 +26978,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1306**](#section-1306).
 - Return to the loading dock with the supervisor. Turn to section [**1598**](#section-1598).
 - Return to the security office. Turn to section [**3907**](#section-3907).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25625,6 +27005,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1307**](#section-1307).
 - Return to the loading dock with the supervisor. Turn to section [**1599**](#section-1599).
 - Return to the security office. Turn to section [**3908**](#section-3908).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25646,6 +27032,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1308**](#section-1308).
 - Return to the loading dock with the supervisor. Turn to section [**1600**](#section-1600).
 - Return to the security office. Turn to section [**3909**](#section-3909).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25667,6 +27059,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1309**](#section-1309).
 - Return to the loading dock with the supervisor. Turn to section [**1601**](#section-1601).
 - Return to the security office. Turn to section [**3910**](#section-3910).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25688,6 +27086,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1310**](#section-1310).
 - Return to the loading dock with the supervisor. Turn to section [**1602**](#section-1602).
 - Return to the security office. Turn to section [**3911**](#section-3911).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25709,6 +27113,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1311**](#section-1311).
 - Return to the loading dock with the supervisor. Turn to section [**1603**](#section-1603).
 - Return to the security office. Turn to section [**3912**](#section-3912).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25730,6 +27140,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1312**](#section-1312).
 - Return to the loading dock with the supervisor. Turn to section [**1604**](#section-1604).
 - Return to the security office. Turn to section [**3913**](#section-3913).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25751,6 +27167,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1313**](#section-1313).
 - Return to the loading dock with the supervisor. Turn to section [**1605**](#section-1605).
 - Return to the security office. Turn to section [**3914**](#section-3914).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25772,6 +27194,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1314**](#section-1314).
 - Return to the loading dock with the supervisor. Turn to section [**1606**](#section-1606).
 - Return to the security office. Turn to section [**3915**](#section-3915).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25793,6 +27221,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1315**](#section-1315).
 - Return to the loading dock with the supervisor. Turn to section [**1607**](#section-1607).
 - Return to the security office. Turn to section [**3916**](#section-3916).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25814,6 +27248,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1316**](#section-1316).
 - Return to the loading dock with the supervisor. Turn to section [**1608**](#section-1608).
 - Return to the security office. Turn to section [**3917**](#section-3917).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25835,6 +27275,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1317**](#section-1317).
 - Return to the loading dock with the supervisor. Turn to section [**1609**](#section-1609).
 - Return to the security office. Turn to section [**3918**](#section-3918).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25856,6 +27302,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1318**](#section-1318).
 - Return to the loading dock with the supervisor. Turn to section [**1610**](#section-1610).
 - Return to the security office. Turn to section [**3919**](#section-3919).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25877,6 +27329,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1319**](#section-1319).
 - Return to the loading dock with the supervisor. Turn to section [**1611**](#section-1611).
 - Return to the security office. Turn to section [**3920**](#section-3920).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25898,6 +27356,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1320**](#section-1320).
 - Return to the loading dock with the supervisor. Turn to section [**1612**](#section-1612).
 - Return to the security office. Turn to section [**3921**](#section-3921).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25919,6 +27383,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1321**](#section-1321).
 - Return to the loading dock with the supervisor. Turn to section [**1613**](#section-1613).
 - Return to the security office. Turn to section [**3922**](#section-3922).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25940,6 +27410,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1322**](#section-1322).
 - Return to the loading dock with the supervisor. Turn to section [**1614**](#section-1614).
 - Return to the security office. Turn to section [**3923**](#section-3923).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25961,6 +27437,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1323**](#section-1323).
 - Return to the loading dock with the supervisor. Turn to section [**1615**](#section-1615).
 - Return to the security office. Turn to section [**3924**](#section-3924).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -25982,6 +27464,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1324**](#section-1324).
 - Return to the loading dock with the supervisor. Turn to section [**1616**](#section-1616).
 - Return to the security office. Turn to section [**3925**](#section-3925).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26003,6 +27491,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1326**](#section-1326).
 - Return to the loading dock with the supervisor. Turn to section [**1617**](#section-1617).
 - Return to the security office. Turn to section [**3926**](#section-3926).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26024,6 +27518,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1327**](#section-1327).
 - Return to the loading dock with the supervisor. Turn to section [**1618**](#section-1618).
 - Return to the security office. Turn to section [**3927**](#section-3927).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26045,6 +27545,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1328**](#section-1328).
 - Return to the loading dock with the supervisor. Turn to section [**1619**](#section-1619).
 - Return to the security office. Turn to section [**3928**](#section-3928).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26066,6 +27572,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1329**](#section-1329).
 - Return to the loading dock with the supervisor. Turn to section [**1620**](#section-1620).
 - Return to the security office. Turn to section [**3929**](#section-3929).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26087,6 +27599,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1330**](#section-1330).
 - Return to the loading dock with the supervisor. Turn to section [**1621**](#section-1621).
 - Return to the security office. Turn to section [**3930**](#section-3930).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26108,6 +27626,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1331**](#section-1331).
 - Return to the loading dock with the supervisor. Turn to section [**1622**](#section-1622).
 - Return to the security office. Turn to section [**3931**](#section-3931).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26129,6 +27653,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1332**](#section-1332).
 - Return to the loading dock with the supervisor. Turn to section [**1623**](#section-1623).
 - Return to the security office. Turn to section [**3932**](#section-3932).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26150,6 +27680,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1333**](#section-1333).
 - Return to the loading dock with the supervisor. Turn to section [**1624**](#section-1624).
 - Return to the security office. Turn to section [**3933**](#section-3933).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26171,6 +27707,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1334**](#section-1334).
 - Return to the loading dock with the supervisor. Turn to section [**1625**](#section-1625).
 - Return to the security office. Turn to section [**3934**](#section-3934).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26192,6 +27734,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1335**](#section-1335).
 - Return to the loading dock with the supervisor. Turn to section [**1626**](#section-1626).
 - Return to the security office. Turn to section [**3935**](#section-3935).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26213,6 +27761,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1336**](#section-1336).
 - Return to the loading dock with the supervisor. Turn to section [**1627**](#section-1627).
 - Return to the security office. Turn to section [**3936**](#section-3936).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26234,6 +27788,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1337**](#section-1337).
 - Return to the loading dock with the supervisor. Turn to section [**1628**](#section-1628).
 - Return to the security office. Turn to section [**3937**](#section-3937).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26255,6 +27815,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1338**](#section-1338).
 - Return to the loading dock with the supervisor. Turn to section [**1629**](#section-1629).
 - Return to the security office. Turn to section [**3938**](#section-3938).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26276,6 +27842,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1339**](#section-1339).
 - Return to the loading dock with the supervisor. Turn to section [**1630**](#section-1630).
 - Return to the security office. Turn to section [**3939**](#section-3939).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26297,6 +27869,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1340**](#section-1340).
 - Return to the loading dock with the supervisor. Turn to section [**1631**](#section-1631).
 - Return to the security office. Turn to section [**3940**](#section-3940).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26318,6 +27896,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1341**](#section-1341).
 - Return to the loading dock with the supervisor. Turn to section [**1632**](#section-1632).
 - Return to the security office. Turn to section [**3941**](#section-3941).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26339,6 +27923,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1342**](#section-1342).
 - Return to the loading dock with the supervisor. Turn to section [**1633**](#section-1633).
 - Return to the security office. Turn to section [**3942**](#section-3942).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26360,6 +27950,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1343**](#section-1343).
 - Return to the loading dock with the supervisor. Turn to section [**1634**](#section-1634).
 - Return to the security office. Turn to section [**3943**](#section-3943).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26381,6 +27977,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1344**](#section-1344).
 - Return to the loading dock with the supervisor. Turn to section [**1635**](#section-1635).
 - Return to the security office. Turn to section [**3944**](#section-3944).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26402,6 +28004,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1345**](#section-1345).
 - Return to the loading dock with the supervisor. Turn to section [**1636**](#section-1636).
 - Return to the security office. Turn to section [**3945**](#section-3945).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26423,6 +28031,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1346**](#section-1346).
 - Return to the loading dock with the supervisor. Turn to section [**1637**](#section-1637).
 - Return to the security office. Turn to section [**3946**](#section-3946).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26444,6 +28058,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1347**](#section-1347).
 - Return to the loading dock with the supervisor. Turn to section [**1638**](#section-1638).
 - Return to the security office. Turn to section [**3947**](#section-3947).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26465,6 +28085,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1348**](#section-1348).
 - Return to the loading dock with the supervisor. Turn to section [**1639**](#section-1639).
 - Return to the security office. Turn to section [**3948**](#section-3948).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26486,6 +28112,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1349**](#section-1349).
 - Return to the loading dock with the supervisor. Turn to section [**1640**](#section-1640).
 - Return to the security office. Turn to section [**3949**](#section-3949).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26507,6 +28139,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1350**](#section-1350).
 - Return to the loading dock with the supervisor. Turn to section [**1641**](#section-1641).
 - Return to the security office. Turn to section [**3950**](#section-3950).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26528,6 +28166,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1351**](#section-1351).
 - Return to the loading dock with the supervisor. Turn to section [**1642**](#section-1642).
 - Return to the security office. Turn to section [**3951**](#section-3951).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26549,6 +28193,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1352**](#section-1352).
 - Return to the loading dock with the supervisor. Turn to section [**1644**](#section-1644).
 - Return to the security office. Turn to section [**3952**](#section-3952).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26570,6 +28220,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1353**](#section-1353).
 - Return to the loading dock with the supervisor. Turn to section [**1645**](#section-1645).
 - Return to the security office. Turn to section [**3953**](#section-3953).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26591,6 +28247,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1354**](#section-1354).
 - Return to the loading dock with the supervisor. Turn to section [**1646**](#section-1646).
 - Return to the security office. Turn to section [**3954**](#section-3954).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26612,6 +28274,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1355**](#section-1355).
 - Return to the loading dock with the supervisor. Turn to section [**1647**](#section-1647).
 - Return to the security office. Turn to section [**3955**](#section-3955).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26633,6 +28301,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1356**](#section-1356).
 - Return to the loading dock with the supervisor. Turn to section [**1648**](#section-1648).
 - Return to the security office. Turn to section [**3956**](#section-3956).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26654,6 +28328,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1357**](#section-1357).
 - Return to the loading dock with the supervisor. Turn to section [**1649**](#section-1649).
 - Return to the security office. Turn to section [**3957**](#section-3957).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26675,6 +28355,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1358**](#section-1358).
 - Return to the loading dock with the supervisor. Turn to section [**1650**](#section-1650).
 - Return to the security office. Turn to section [**3958**](#section-3958).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26696,6 +28382,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1359**](#section-1359).
 - Return to the loading dock with the supervisor. Turn to section [**1651**](#section-1651).
 - Return to the security office. Turn to section [**3959**](#section-3959).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26717,6 +28409,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1360**](#section-1360).
 - Return to the loading dock with the supervisor. Turn to section [**1652**](#section-1652).
 - Return to the security office. Turn to section [**3960**](#section-3960).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26738,6 +28436,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1361**](#section-1361).
 - Return to the loading dock with the supervisor. Turn to section [**1653**](#section-1653).
 - Return to the security office. Turn to section [**3961**](#section-3961).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26759,6 +28463,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1362**](#section-1362).
 - Return to the loading dock with the supervisor. Turn to section [**1654**](#section-1654).
 - Return to the security office. Turn to section [**3962**](#section-3962).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26780,6 +28490,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1363**](#section-1363).
 - Return to the loading dock with the supervisor. Turn to section [**1655**](#section-1655).
 - Return to the security office. Turn to section [**3963**](#section-3963).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26801,6 +28517,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1364**](#section-1364).
 - Return to the loading dock with the supervisor. Turn to section [**1656**](#section-1656).
 - Return to the security office. Turn to section [**3964**](#section-3964).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26822,6 +28544,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1365**](#section-1365).
 - Return to the loading dock with the supervisor. Turn to section [**1657**](#section-1657).
 - Return to the security office. Turn to section [**3965**](#section-3965).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26843,6 +28571,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1366**](#section-1366).
 - Return to the loading dock with the supervisor. Turn to section [**1658**](#section-1658).
 - Return to the security office. Turn to section [**3966**](#section-3966).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26864,6 +28598,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1367**](#section-1367).
 - Return to the loading dock with the supervisor. Turn to section [**1659**](#section-1659).
 - Return to the security office. Turn to section [**3967**](#section-3967).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26885,6 +28625,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1368**](#section-1368).
 - Return to the loading dock with the supervisor. Turn to section [**1660**](#section-1660).
 - Return to the security office. Turn to section [**3968**](#section-3968).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26906,6 +28652,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1369**](#section-1369).
 - Return to the loading dock with the supervisor. Turn to section [**1661**](#section-1661).
 - Return to the security office. Turn to section [**3969**](#section-3969).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26927,6 +28679,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1370**](#section-1370).
 - Return to the loading dock with the supervisor. Turn to section [**1662**](#section-1662).
 - Return to the security office. Turn to section [**3970**](#section-3970).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26948,6 +28706,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1371**](#section-1371).
 - Return to the loading dock with the supervisor. Turn to section [**1663**](#section-1663).
 - Return to the security office. Turn to section [**3971**](#section-3971).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26969,6 +28733,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1372**](#section-1372).
 - Return to the loading dock with the supervisor. Turn to section [**1664**](#section-1664).
 - Return to the security office. Turn to section [**3972**](#section-3972).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -26990,6 +28760,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1373**](#section-1373).
 - Return to the loading dock with the supervisor. Turn to section [**1665**](#section-1665).
 - Return to the security office. Turn to section [**3973**](#section-3973).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27011,6 +28787,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1374**](#section-1374).
 - Return to the loading dock with the supervisor. Turn to section [**1666**](#section-1666).
 - Return to the security office. Turn to section [**3974**](#section-3974).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27032,6 +28814,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1375**](#section-1375).
 - Return to the loading dock with the supervisor. Turn to section [**1667**](#section-1667).
 - Return to the security office. Turn to section [**3975**](#section-3975).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27053,6 +28841,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1376**](#section-1376).
 - Return to the loading dock with the supervisor. Turn to section [**1668**](#section-1668).
 - Return to the security office. Turn to section [**3976**](#section-3976).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27074,6 +28868,12 @@ The automation control room holds engineering workstations and a CZ-1 staging in
 - Return to the cold storage hall. Turn to section [**1377**](#section-1377).
 - Return to the loading dock with the supervisor. Turn to section [**1669**](#section-1669).
 - Return to the security office. Turn to section [**3977**](#section-3977).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27095,6 +28895,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1723**](#section-1723).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1280**](#section-1280).
 - Talk to a dock worker. Turn to section [**1917**](#section-1917).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27121,6 +28928,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3303**](#section-3303).
 - Review the supervisor briefing area. Turn to section [**1670**](#section-1670).
 - Request escort clearance to the automation control room. Turn to section [**2277**](#section-2277).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27147,6 +28961,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3304**](#section-3304).
 - Review the supervisor briefing area. Turn to section [**1671**](#section-1671).
 - Request escort clearance to the automation control room. Turn to section [**2278**](#section-2278).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27168,6 +28989,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1726**](#section-1726).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1283**](#section-1283).
 - Talk to a dock worker. Turn to section [**1920**](#section-1920).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27189,6 +29017,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1727**](#section-1727).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1284**](#section-1284).
 - Talk to a dock worker. Turn to section [**1921**](#section-1921).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27215,6 +29050,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3307**](#section-3307).
 - Review the supervisor briefing area. Turn to section [**1672**](#section-1672).
 - Request escort clearance to the automation control room. Turn to section [**2279**](#section-2279).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27236,6 +29078,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1729**](#section-1729).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1286**](#section-1286).
 - Talk to a dock worker. Turn to section [**1923**](#section-1923).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27257,6 +29106,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1730**](#section-1730).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1287**](#section-1287).
 - Talk to a dock worker. Turn to section [**1924**](#section-1924).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27278,6 +29134,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1731**](#section-1731).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1288**](#section-1288).
 - Talk to a dock worker. Turn to section [**1925**](#section-1925).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27304,6 +29167,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3311**](#section-3311).
 - Review the supervisor briefing area. Turn to section [**1673**](#section-1673).
 - Request escort clearance to the automation control room. Turn to section [**2280**](#section-2280).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27325,6 +29195,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1733**](#section-1733).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1290**](#section-1290).
 - Talk to a dock worker. Turn to section [**1927**](#section-1927).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27346,6 +29223,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1734**](#section-1734).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1291**](#section-1291).
 - Talk to a dock worker. Turn to section [**1928**](#section-1928).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27367,6 +29251,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1735**](#section-1735).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1292**](#section-1292).
 - Talk to a dock worker. Turn to section [**1929**](#section-1929).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27393,6 +29284,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3315**](#section-3315).
 - Review the supervisor briefing area. Turn to section [**1674**](#section-1674).
 - Request escort clearance to the automation control room. Turn to section [**2281**](#section-2281).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27419,6 +29317,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3316**](#section-3316).
 - Review the supervisor briefing area. Turn to section [**1675**](#section-1675).
 - Request escort clearance to the automation control room. Turn to section [**2282**](#section-2282).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27445,6 +29350,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3317**](#section-3317).
 - Review the supervisor briefing area. Turn to section [**1676**](#section-1676).
 - Request escort clearance to the automation control room. Turn to section [**2283**](#section-2283).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27466,6 +29378,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1739**](#section-1739).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1296**](#section-1296).
 - Talk to a dock worker. Turn to section [**1933**](#section-1933).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27487,6 +29406,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1740**](#section-1740).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1297**](#section-1297).
 - Talk to a dock worker. Turn to section [**1934**](#section-1934).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27513,6 +29439,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3320**](#section-3320).
 - Review the supervisor briefing area. Turn to section [**1678**](#section-1678).
 - Request escort clearance to the automation control room. Turn to section [**2284**](#section-2284).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27539,6 +29472,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3321**](#section-3321).
 - Review the supervisor briefing area. Turn to section [**1679**](#section-1679).
 - Request escort clearance to the automation control room. Turn to section [**2285**](#section-2285).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27565,6 +29505,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3322**](#section-3322).
 - Review the supervisor briefing area. Turn to section [**1680**](#section-1680).
 - Request escort clearance to the automation control room. Turn to section [**2286**](#section-2286).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27586,6 +29533,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1744**](#section-1744).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1301**](#section-1301).
 - Talk to a dock worker. Turn to section [**1938**](#section-1938).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27612,6 +29566,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3324**](#section-3324).
 - Review the supervisor briefing area. Turn to section [**1681**](#section-1681).
 - Request escort clearance to the automation control room. Turn to section [**2287**](#section-2287).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27638,6 +29599,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3325**](#section-3325).
 - Review the supervisor briefing area. Turn to section [**1682**](#section-1682).
 - Request escort clearance to the automation control room. Turn to section [**2288**](#section-2288).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27664,6 +29632,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3326**](#section-3326).
 - Review the supervisor briefing area. Turn to section [**1683**](#section-1683).
 - Request escort clearance to the automation control room. Turn to section [**2289**](#section-2289).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27690,6 +29665,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3327**](#section-3327).
 - Review the supervisor briefing area. Turn to section [**1684**](#section-1684).
 - Request escort clearance to the automation control room. Turn to section [**2290**](#section-2290).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27716,6 +29698,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3328**](#section-3328).
 - Review the supervisor briefing area. Turn to section [**1685**](#section-1685).
 - Request escort clearance to the automation control room. Turn to section [**2291**](#section-2291).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27737,6 +29726,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1750**](#section-1750).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1307**](#section-1307).
 - Talk to a dock worker. Turn to section [**1944**](#section-1944).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27758,6 +29754,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1751**](#section-1751).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1308**](#section-1308).
 - Talk to a dock worker. Turn to section [**1945**](#section-1945).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27784,6 +29787,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3331**](#section-3331).
 - Review the supervisor briefing area. Turn to section [**1686**](#section-1686).
 - Request escort clearance to the automation control room. Turn to section [**2292**](#section-2292).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27805,6 +29815,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1753**](#section-1753).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1310**](#section-1310).
 - Talk to a dock worker. Turn to section [**1948**](#section-1948).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27831,6 +29848,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3333**](#section-3333).
 - Review the supervisor briefing area. Turn to section [**1687**](#section-1687).
 - Request escort clearance to the automation control room. Turn to section [**2293**](#section-2293).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27852,6 +29876,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1755**](#section-1755).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1312**](#section-1312).
 - Talk to a dock worker. Turn to section [**1950**](#section-1950).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27873,6 +29904,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1756**](#section-1756).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1313**](#section-1313).
 - Talk to a dock worker. Turn to section [**1951**](#section-1951).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27894,6 +29932,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1757**](#section-1757).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1314**](#section-1314).
 - Talk to a dock worker. Turn to section [**1952**](#section-1952).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27920,6 +29965,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3337**](#section-3337).
 - Review the supervisor briefing area. Turn to section [**1688**](#section-1688).
 - Request escort clearance to the automation control room. Turn to section [**2294**](#section-2294).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27946,6 +29998,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3338**](#section-3338).
 - Review the supervisor briefing area. Turn to section [**1689**](#section-1689).
 - Request escort clearance to the automation control room. Turn to section [**2295**](#section-2295).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27967,6 +30026,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1760**](#section-1760).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1317**](#section-1317).
 - Talk to a dock worker. Turn to section [**1955**](#section-1955).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -27993,6 +30059,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3340**](#section-3340).
 - Review the supervisor briefing area. Turn to section [**1690**](#section-1690).
 - Request escort clearance to the automation control room. Turn to section [**2296**](#section-2296).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28019,6 +30092,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3341**](#section-3341).
 - Review the supervisor briefing area. Turn to section [**1691**](#section-1691).
 - Request escort clearance to the automation control room. Turn to section [**2297**](#section-2297).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28045,6 +30125,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3342**](#section-3342).
 - Review the supervisor briefing area. Turn to section [**1692**](#section-1692).
 - Request escort clearance to the automation control room. Turn to section [**2298**](#section-2298).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28066,6 +30153,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1764**](#section-1764).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1321**](#section-1321).
 - Talk to a dock worker. Turn to section [**1959**](#section-1959).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28087,6 +30181,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1765**](#section-1765).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1322**](#section-1322).
 - Talk to a dock worker. Turn to section [**1960**](#section-1960).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28113,6 +30214,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3345**](#section-3345).
 - Review the supervisor briefing area. Turn to section [**1693**](#section-1693).
 - Request escort clearance to the automation control room. Turn to section [**2299**](#section-2299).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28139,6 +30247,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3346**](#section-3346).
 - Review the supervisor briefing area. Turn to section [**1694**](#section-1694).
 - Request escort clearance to the automation control room. Turn to section [**2300**](#section-2300).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28165,6 +30280,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3347**](#section-3347).
 - Review the supervisor briefing area. Turn to section [**1695**](#section-1695).
 - Request escort clearance to the automation control room. Turn to section [**2301**](#section-2301).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28186,6 +30308,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1769**](#section-1769).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1327**](#section-1327).
 - Talk to a dock worker. Turn to section [**1964**](#section-1964).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28207,6 +30336,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1770**](#section-1770).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1328**](#section-1328).
 - Talk to a dock worker. Turn to section [**1965**](#section-1965).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28233,6 +30369,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3350**](#section-3350).
 - Review the supervisor briefing area. Turn to section [**1696**](#section-1696).
 - Request escort clearance to the automation control room. Turn to section [**2302**](#section-2302).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28254,6 +30397,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1772**](#section-1772).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1330**](#section-1330).
 - Talk to a dock worker. Turn to section [**1967**](#section-1967).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28275,6 +30425,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1773**](#section-1773).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1331**](#section-1331).
 - Talk to a dock worker. Turn to section [**1968**](#section-1968).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28296,6 +30453,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1774**](#section-1774).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1332**](#section-1332).
 - Talk to a dock worker. Turn to section [**1969**](#section-1969).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28317,6 +30481,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1775**](#section-1775).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1333**](#section-1333).
 - Talk to a dock worker. Turn to section [**1970**](#section-1970).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28343,6 +30514,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3355**](#section-3355).
 - Review the supervisor briefing area. Turn to section [**1697**](#section-1697).
 - Request escort clearance to the automation control room. Turn to section [**2303**](#section-2303).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28369,6 +30547,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3356**](#section-3356).
 - Review the supervisor briefing area. Turn to section [**1698**](#section-1698).
 - Request escort clearance to the automation control room. Turn to section [**2304**](#section-2304).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28395,6 +30580,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3357**](#section-3357).
 - Review the supervisor briefing area. Turn to section [**1699**](#section-1699).
 - Request escort clearance to the automation control room. Turn to section [**2305**](#section-2305).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28421,6 +30613,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3358**](#section-3358).
 - Review the supervisor briefing area. Turn to section [**1700**](#section-1700).
 - Request escort clearance to the automation control room. Turn to section [**2306**](#section-2306).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28442,6 +30641,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1780**](#section-1780).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1338**](#section-1338).
 - Talk to a dock worker. Turn to section [**1975**](#section-1975).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28463,6 +30669,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1781**](#section-1781).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1339**](#section-1339).
 - Talk to a dock worker. Turn to section [**1976**](#section-1976).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28484,6 +30697,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1782**](#section-1782).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1340**](#section-1340).
 - Talk to a dock worker. Turn to section [**1977**](#section-1977).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28505,6 +30725,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1783**](#section-1783).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1341**](#section-1341).
 - Talk to a dock worker. Turn to section [**1978**](#section-1978).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28526,6 +30753,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1784**](#section-1784).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1342**](#section-1342).
 - Talk to a dock worker. Turn to section [**1979**](#section-1979).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28552,6 +30786,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3364**](#section-3364).
 - Review the supervisor briefing area. Turn to section [**1701**](#section-1701).
 - Request escort clearance to the automation control room. Turn to section [**2307**](#section-2307).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28578,6 +30819,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3365**](#section-3365).
 - Review the supervisor briefing area. Turn to section [**1702**](#section-1702).
 - Request escort clearance to the automation control room. Turn to section [**2308**](#section-2308).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28599,6 +30847,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1787**](#section-1787).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1345**](#section-1345).
 - Talk to a dock worker. Turn to section [**1982**](#section-1982).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28625,6 +30880,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3367**](#section-3367).
 - Review the supervisor briefing area. Turn to section [**1703**](#section-1703).
 - Request escort clearance to the automation control room. Turn to section [**2309**](#section-2309).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28651,6 +30913,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3368**](#section-3368).
 - Review the supervisor briefing area. Turn to section [**1704**](#section-1704).
 - Request escort clearance to the automation control room. Turn to section [**2310**](#section-2310).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28672,6 +30941,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1790**](#section-1790).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1348**](#section-1348).
 - Talk to a dock worker. Turn to section [**1985**](#section-1985).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28698,6 +30974,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3370**](#section-3370).
 - Review the supervisor briefing area. Turn to section [**1705**](#section-1705).
 - Request escort clearance to the automation control room. Turn to section [**2311**](#section-2311).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28724,6 +31007,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3371**](#section-3371).
 - Review the supervisor briefing area. Turn to section [**1706**](#section-1706).
 - Request escort clearance to the automation control room. Turn to section [**2312**](#section-2312).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28745,6 +31035,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1793**](#section-1793).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1351**](#section-1351).
 - Talk to a dock worker. Turn to section [**1988**](#section-1988).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28766,6 +31063,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1794**](#section-1794).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1352**](#section-1352).
 - Talk to a dock worker. Turn to section [**1989**](#section-1989).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28787,6 +31091,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1795**](#section-1795).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1353**](#section-1353).
 - Talk to a dock worker. Turn to section [**1990**](#section-1990).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28808,6 +31119,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1796**](#section-1796).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1354**](#section-1354).
 - Talk to a dock worker. Turn to section [**1991**](#section-1991).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28834,6 +31152,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3376**](#section-3376).
 - Review the supervisor briefing area. Turn to section [**1707**](#section-1707).
 - Request escort clearance to the automation control room. Turn to section [**2313**](#section-2313).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28860,6 +31185,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3377**](#section-3377).
 - Review the supervisor briefing area. Turn to section [**1708**](#section-1708).
 - Request escort clearance to the automation control room. Turn to section [**2314**](#section-2314).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28886,6 +31218,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3378**](#section-3378).
 - Review the supervisor briefing area. Turn to section [**1709**](#section-1709).
 - Request escort clearance to the automation control room. Turn to section [**2315**](#section-2315).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28912,6 +31251,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3379**](#section-3379).
 - Review the supervisor briefing area. Turn to section [**1710**](#section-1710).
 - Request escort clearance to the automation control room. Turn to section [**2316**](#section-2316).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28938,6 +31284,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3380**](#section-3380).
 - Review the supervisor briefing area. Turn to section [**1711**](#section-1711).
 - Request escort clearance to the automation control room. Turn to section [**2317**](#section-2317).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28959,6 +31312,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1802**](#section-1802).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1360**](#section-1360).
 - Talk to a dock worker. Turn to section [**1997**](#section-1997).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -28980,6 +31340,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1803**](#section-1803).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1361**](#section-1361).
 - Talk to a dock worker. Turn to section [**1998**](#section-1998).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29006,6 +31373,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3383**](#section-3383).
 - Review the supervisor briefing area. Turn to section [**1712**](#section-1712).
 - Request escort clearance to the automation control room. Turn to section [**2318**](#section-2318).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29032,6 +31406,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3384**](#section-3384).
 - Review the supervisor briefing area. Turn to section [**1713**](#section-1713).
 - Request escort clearance to the automation control room. Turn to section [**2319**](#section-2319).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29058,6 +31439,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3385**](#section-3385).
 - Review the supervisor briefing area. Turn to section [**1714**](#section-1714).
 - Request escort clearance to the automation control room. Turn to section [**2320**](#section-2320).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29084,6 +31472,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3386**](#section-3386).
 - Review the supervisor briefing area. Turn to section [**1715**](#section-1715).
 - Request escort clearance to the automation control room. Turn to section [**2321**](#section-2321).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29110,6 +31505,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3387**](#section-3387).
 - Review the supervisor briefing area. Turn to section [**1716**](#section-1716).
 - Request escort clearance to the automation control room. Turn to section [**2322**](#section-2322).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29136,6 +31538,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3388**](#section-3388).
 - Review the supervisor briefing area. Turn to section [**1717**](#section-1717).
 - Request escort clearance to the automation control room. Turn to section [**2323**](#section-2323).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29157,6 +31566,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1810**](#section-1810).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1368**](#section-1368).
 - Talk to a dock worker. Turn to section [**2005**](#section-2005).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29183,6 +31599,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3390**](#section-3390).
 - Review the supervisor briefing area. Turn to section [**1718**](#section-1718).
 - Request escort clearance to the automation control room. Turn to section [**2324**](#section-2324).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29204,6 +31627,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1812**](#section-1812).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1370**](#section-1370).
 - Talk to a dock worker. Turn to section [**2007**](#section-2007).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29230,6 +31660,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3392**](#section-3392).
 - Review the supervisor briefing area. Turn to section [**1719**](#section-1719).
 - Request escort clearance to the automation control room. Turn to section [**2325**](#section-2325).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29256,6 +31693,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3393**](#section-3393).
 - Review the supervisor briefing area. Turn to section [**1720**](#section-1720).
 - Request escort clearance to the automation control room. Turn to section [**2326**](#section-2326).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29282,6 +31726,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3394**](#section-3394).
 - Review the supervisor briefing area. Turn to section [**1721**](#section-1721).
 - Request escort clearance to the automation control room. Turn to section [**2327**](#section-2327).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29303,6 +31754,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1816**](#section-1816).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1374**](#section-1374).
 - Talk to a dock worker. Turn to section [**2011**](#section-2011).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29324,6 +31782,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1817**](#section-1817).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1375**](#section-1375).
 - Talk to a dock worker. Turn to section [**2012**](#section-2012).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29350,6 +31815,13 @@ The folded site map is in your notes, and the corridors to the break room, secur
 - Take the office wing corridor to the warehouse manager office. Turn to section [**3397**](#section-3397).
 - Review the supervisor briefing area. Turn to section [**1722**](#section-1722).
 - Request escort clearance to the automation control room. Turn to section [**2328**](#section-2328).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -29371,6 +31843,13 @@ Beyond the immediate dock and cold corridor, the office wing and warehouse route
 - Talk to Elena Morales. Turn to section [**1819**](#section-1819).
 - Walk through the dock corridor to the cold storage hall. Turn to section [**1377**](#section-1377).
 - Talk to a dock worker. Turn to section [**2014**](#section-2014).
+- Prepare final accountability documentation before the compliance threshold. Turn to section [**4740**](#section-4740).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -36293,6 +38772,15 @@ Elena taps the incident timeline on her clipboard. "Start with cold storage and 
 
 - Return to the Elena conversation menu. Turn to section [**1761**](#section-1761).
 - Return to the loading dock. Turn to section [**1610**](#section-1610).
+
+---
+
+<a id="section-2033"></a>
+## Section 2033
+
+### Perfect
+
+Your accountability statement matches independent badge, manifest, physical, and BMS records. Compliance accepts a full reconstruction timeline: Lori Okonkwo borrowed Dev's forgotten badge to enter cold storage, swapped pallet labels to hide the short-ship, and used his unattended maintenance session to issue the mute command that suspended CZ-1 staging. Northline closes the shift with the write-off avoided and a documented case for both personnel review and the carrier dispute.
 
 ---
 
@@ -45258,6 +47746,15 @@ You go over the floor and pallet faces inch by inch, ignoring the cold in your f
 
 ---
 
+<a id="section-2528"></a>
+## Section 2528
+
+### Timeout
+
+5:00 a.m. arrives before you finish. Compliance write-off procedures begin, and the health notification goes out on schedule regardless of what you found. Your investigation window closes under emergency protocol, whatever case you were building left unfinished.
+
+---
+
 <a id="section-2529"></a>
 ## Section 2529
 
@@ -51562,6 +54059,27 @@ You ease the ajar door open and check what is inside. The locker interior looks 
 **What do you do?**
 
 - Return to the locker menu. Turn to section [**3001**](#section-3001).
+
+---
+
+<a id="section-2903"></a>
+## Section 2903
+
+### Badge misattributed
+
+**Question:** Does the cold-storage badge entry still implicate the contractor after comparing exit timing?
+
+**Record types to consult:**
+- Cold storage inbound badge entry (security office archive)
+- Contractor outbound dock scan (security office archive)
+- Contractor's own account of the badge left behind (break room locker or interview)
+
+Record the records you used. If synthesis fails, note which locations you will revisit.
+
+**What do you do?**
+
+- Mark synthesis complete if your answer is supported. Turn to section [**3880**](#section-3880).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**4736**](#section-4736).
 
 ---
 
@@ -58805,6 +61323,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3399**](#section-3399).
 - Return to the loading dock. Turn to section [**1572**](#section-1572).
 - Return to the break room. Turn to section [**789**](#section-789).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -58825,6 +61349,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3400**](#section-3400).
 - Return to the loading dock. Turn to section [**1573**](#section-1573).
 - Return to the break room. Turn to section [**790**](#section-790).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -58845,6 +61375,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3401**](#section-3401).
 - Return to the loading dock. Turn to section [**1574**](#section-1574).
 - Return to the break room. Turn to section [**791**](#section-791).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -58865,6 +61401,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3402**](#section-3402).
 - Return to the loading dock. Turn to section [**1575**](#section-1575).
 - Return to the break room. Turn to section [**792**](#section-792).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -58885,6 +61427,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3403**](#section-3403).
 - Return to the loading dock. Turn to section [**1576**](#section-1576).
 - Return to the break room. Turn to section [**793**](#section-793).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -58905,6 +61453,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3404**](#section-3404).
 - Return to the loading dock. Turn to section [**1577**](#section-1577).
 - Return to the break room. Turn to section [**794**](#section-794).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -58925,6 +61479,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3405**](#section-3405).
 - Return to the loading dock. Turn to section [**1578**](#section-1578).
 - Return to the break room. Turn to section [**795**](#section-795).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -58945,6 +61505,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3406**](#section-3406).
 - Return to the loading dock. Turn to section [**1579**](#section-1579).
 - Return to the break room. Turn to section [**796**](#section-796).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -58965,6 +61531,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3407**](#section-3407).
 - Return to the loading dock. Turn to section [**1580**](#section-1580).
 - Return to the break room. Turn to section [**797**](#section-797).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -58985,6 +61557,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3408**](#section-3408).
 - Return to the loading dock. Turn to section [**1581**](#section-1581).
 - Return to the break room. Turn to section [**798**](#section-798).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59005,6 +61583,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3409**](#section-3409).
 - Return to the loading dock. Turn to section [**1582**](#section-1582).
 - Return to the break room. Turn to section [**799**](#section-799).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59025,6 +61609,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3410**](#section-3410).
 - Return to the loading dock. Turn to section [**1583**](#section-1583).
 - Return to the break room. Turn to section [**800**](#section-800).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59045,6 +61635,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3412**](#section-3412).
 - Return to the loading dock. Turn to section [**1584**](#section-1584).
 - Return to the break room. Turn to section [**801**](#section-801).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59065,6 +61661,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3413**](#section-3413).
 - Return to the loading dock. Turn to section [**1585**](#section-1585).
 - Return to the break room. Turn to section [**802**](#section-802).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59085,6 +61687,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3414**](#section-3414).
 - Return to the loading dock. Turn to section [**1586**](#section-1586).
 - Return to the break room. Turn to section [**803**](#section-803).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59105,6 +61713,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3415**](#section-3415).
 - Return to the loading dock. Turn to section [**1587**](#section-1587).
 - Return to the break room. Turn to section [**804**](#section-804).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59125,6 +61739,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3416**](#section-3416).
 - Return to the loading dock. Turn to section [**1588**](#section-1588).
 - Return to the break room. Turn to section [**805**](#section-805).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59145,6 +61765,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3417**](#section-3417).
 - Return to the loading dock. Turn to section [**1589**](#section-1589).
 - Return to the break room. Turn to section [**806**](#section-806).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59165,6 +61791,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3418**](#section-3418).
 - Return to the loading dock. Turn to section [**1590**](#section-1590).
 - Return to the break room. Turn to section [**807**](#section-807).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59185,6 +61817,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3419**](#section-3419).
 - Return to the loading dock. Turn to section [**1591**](#section-1591).
 - Return to the break room. Turn to section [**808**](#section-808).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59205,6 +61843,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3420**](#section-3420).
 - Return to the loading dock. Turn to section [**1592**](#section-1592).
 - Return to the break room. Turn to section [**809**](#section-809).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59225,6 +61869,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3421**](#section-3421).
 - Return to the loading dock. Turn to section [**1593**](#section-1593).
 - Return to the break room. Turn to section [**810**](#section-810).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59245,6 +61895,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3422**](#section-3422).
 - Return to the loading dock. Turn to section [**1594**](#section-1594).
 - Return to the break room. Turn to section [**811**](#section-811).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59265,6 +61921,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3423**](#section-3423).
 - Return to the loading dock. Turn to section [**1595**](#section-1595).
 - Return to the break room. Turn to section [**812**](#section-812).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59285,6 +61947,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3424**](#section-3424).
 - Return to the loading dock. Turn to section [**1596**](#section-1596).
 - Return to the break room. Turn to section [**813**](#section-813).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59305,6 +61973,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3425**](#section-3425).
 - Return to the loading dock. Turn to section [**1597**](#section-1597).
 - Return to the break room. Turn to section [**814**](#section-814).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59325,6 +61999,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3426**](#section-3426).
 - Return to the loading dock. Turn to section [**1598**](#section-1598).
 - Return to the break room. Turn to section [**815**](#section-815).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59345,6 +62025,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3427**](#section-3427).
 - Return to the loading dock. Turn to section [**1599**](#section-1599).
 - Return to the break room. Turn to section [**816**](#section-816).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59365,6 +62051,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3428**](#section-3428).
 - Return to the loading dock. Turn to section [**1600**](#section-1600).
 - Return to the break room. Turn to section [**817**](#section-817).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59385,6 +62077,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3429**](#section-3429).
 - Return to the loading dock. Turn to section [**1601**](#section-1601).
 - Return to the break room. Turn to section [**818**](#section-818).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59405,6 +62103,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3430**](#section-3430).
 - Return to the loading dock. Turn to section [**1602**](#section-1602).
 - Return to the break room. Turn to section [**819**](#section-819).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59425,6 +62129,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3431**](#section-3431).
 - Return to the loading dock. Turn to section [**1603**](#section-1603).
 - Return to the break room. Turn to section [**820**](#section-820).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59445,6 +62155,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3432**](#section-3432).
 - Return to the loading dock. Turn to section [**1604**](#section-1604).
 - Return to the break room. Turn to section [**821**](#section-821).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59465,6 +62181,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3433**](#section-3433).
 - Return to the loading dock. Turn to section [**1605**](#section-1605).
 - Return to the break room. Turn to section [**822**](#section-822).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59485,6 +62207,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3434**](#section-3434).
 - Return to the loading dock. Turn to section [**1606**](#section-1606).
 - Return to the break room. Turn to section [**823**](#section-823).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59505,6 +62233,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3435**](#section-3435).
 - Return to the loading dock. Turn to section [**1607**](#section-1607).
 - Return to the break room. Turn to section [**824**](#section-824).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59525,6 +62259,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3436**](#section-3436).
 - Return to the loading dock. Turn to section [**1608**](#section-1608).
 - Return to the break room. Turn to section [**825**](#section-825).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59545,6 +62285,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3437**](#section-3437).
 - Return to the loading dock. Turn to section [**1609**](#section-1609).
 - Return to the break room. Turn to section [**826**](#section-826).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59565,6 +62311,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3438**](#section-3438).
 - Return to the loading dock. Turn to section [**1610**](#section-1610).
 - Return to the break room. Turn to section [**827**](#section-827).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59585,6 +62337,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3439**](#section-3439).
 - Return to the loading dock. Turn to section [**1611**](#section-1611).
 - Return to the break room. Turn to section [**828**](#section-828).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59605,6 +62363,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3440**](#section-3440).
 - Return to the loading dock. Turn to section [**1612**](#section-1612).
 - Return to the break room. Turn to section [**829**](#section-829).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59625,6 +62389,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3441**](#section-3441).
 - Return to the loading dock. Turn to section [**1613**](#section-1613).
 - Return to the break room. Turn to section [**830**](#section-830).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59645,6 +62415,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3442**](#section-3442).
 - Return to the loading dock. Turn to section [**1614**](#section-1614).
 - Return to the break room. Turn to section [**831**](#section-831).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59665,6 +62441,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3444**](#section-3444).
 - Return to the loading dock. Turn to section [**1615**](#section-1615).
 - Return to the break room. Turn to section [**832**](#section-832).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59685,6 +62467,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3445**](#section-3445).
 - Return to the loading dock. Turn to section [**1616**](#section-1616).
 - Return to the break room. Turn to section [**833**](#section-833).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59705,6 +62493,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3446**](#section-3446).
 - Return to the loading dock. Turn to section [**1617**](#section-1617).
 - Return to the break room. Turn to section [**834**](#section-834).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59725,6 +62519,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3447**](#section-3447).
 - Return to the loading dock. Turn to section [**1618**](#section-1618).
 - Return to the break room. Turn to section [**835**](#section-835).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59745,6 +62545,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3448**](#section-3448).
 - Return to the loading dock. Turn to section [**1619**](#section-1619).
 - Return to the break room. Turn to section [**836**](#section-836).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59765,6 +62571,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3449**](#section-3449).
 - Return to the loading dock. Turn to section [**1620**](#section-1620).
 - Return to the break room. Turn to section [**837**](#section-837).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59785,6 +62597,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3450**](#section-3450).
 - Return to the loading dock. Turn to section [**1621**](#section-1621).
 - Return to the break room. Turn to section [**838**](#section-838).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59805,6 +62623,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3451**](#section-3451).
 - Return to the loading dock. Turn to section [**1622**](#section-1622).
 - Return to the break room. Turn to section [**839**](#section-839).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59825,6 +62649,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3452**](#section-3452).
 - Return to the loading dock. Turn to section [**1623**](#section-1623).
 - Return to the break room. Turn to section [**840**](#section-840).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59845,6 +62675,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3453**](#section-3453).
 - Return to the loading dock. Turn to section [**1624**](#section-1624).
 - Return to the break room. Turn to section [**841**](#section-841).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59865,6 +62701,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3454**](#section-3454).
 - Return to the loading dock. Turn to section [**1625**](#section-1625).
 - Return to the break room. Turn to section [**842**](#section-842).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59885,6 +62727,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3455**](#section-3455).
 - Return to the loading dock. Turn to section [**1626**](#section-1626).
 - Return to the break room. Turn to section [**843**](#section-843).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59905,6 +62753,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3456**](#section-3456).
 - Return to the loading dock. Turn to section [**1627**](#section-1627).
 - Return to the break room. Turn to section [**844**](#section-844).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59925,6 +62779,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3457**](#section-3457).
 - Return to the loading dock. Turn to section [**1628**](#section-1628).
 - Return to the break room. Turn to section [**845**](#section-845).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59945,6 +62805,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3458**](#section-3458).
 - Return to the loading dock. Turn to section [**1629**](#section-1629).
 - Return to the break room. Turn to section [**846**](#section-846).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59965,6 +62831,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3459**](#section-3459).
 - Return to the loading dock. Turn to section [**1630**](#section-1630).
 - Return to the break room. Turn to section [**847**](#section-847).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -59985,6 +62857,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3460**](#section-3460).
 - Return to the loading dock. Turn to section [**1631**](#section-1631).
 - Return to the break room. Turn to section [**848**](#section-848).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60005,6 +62883,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3461**](#section-3461).
 - Return to the loading dock. Turn to section [**1632**](#section-1632).
 - Return to the break room. Turn to section [**849**](#section-849).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60025,6 +62909,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3462**](#section-3462).
 - Return to the loading dock. Turn to section [**1633**](#section-1633).
 - Return to the break room. Turn to section [**850**](#section-850).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60045,6 +62935,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3463**](#section-3463).
 - Return to the loading dock. Turn to section [**1634**](#section-1634).
 - Return to the break room. Turn to section [**851**](#section-851).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60065,6 +62961,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3464**](#section-3464).
 - Return to the loading dock. Turn to section [**1635**](#section-1635).
 - Return to the break room. Turn to section [**852**](#section-852).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60085,6 +62987,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3465**](#section-3465).
 - Return to the loading dock. Turn to section [**1636**](#section-1636).
 - Return to the break room. Turn to section [**853**](#section-853).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60105,6 +63013,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3466**](#section-3466).
 - Return to the loading dock. Turn to section [**1637**](#section-1637).
 - Return to the break room. Turn to section [**854**](#section-854).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60125,6 +63039,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3467**](#section-3467).
 - Return to the loading dock. Turn to section [**1638**](#section-1638).
 - Return to the break room. Turn to section [**855**](#section-855).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60145,6 +63065,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3468**](#section-3468).
 - Return to the loading dock. Turn to section [**1639**](#section-1639).
 - Return to the break room. Turn to section [**856**](#section-856).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60165,6 +63091,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3469**](#section-3469).
 - Return to the loading dock. Turn to section [**1640**](#section-1640).
 - Return to the break room. Turn to section [**857**](#section-857).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60185,6 +63117,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3470**](#section-3470).
 - Return to the loading dock. Turn to section [**1641**](#section-1641).
 - Return to the break room. Turn to section [**858**](#section-858).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60205,6 +63143,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3471**](#section-3471).
 - Return to the loading dock. Turn to section [**1642**](#section-1642).
 - Return to the break room. Turn to section [**859**](#section-859).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60225,6 +63169,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3472**](#section-3472).
 - Return to the loading dock. Turn to section [**1644**](#section-1644).
 - Return to the break room. Turn to section [**860**](#section-860).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60245,6 +63195,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3473**](#section-3473).
 - Return to the loading dock. Turn to section [**1645**](#section-1645).
 - Return to the break room. Turn to section [**861**](#section-861).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60265,6 +63221,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3474**](#section-3474).
 - Return to the loading dock. Turn to section [**1646**](#section-1646).
 - Return to the break room. Turn to section [**862**](#section-862).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60285,6 +63247,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3475**](#section-3475).
 - Return to the loading dock. Turn to section [**1647**](#section-1647).
 - Return to the break room. Turn to section [**863**](#section-863).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60305,6 +63273,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3476**](#section-3476).
 - Return to the loading dock. Turn to section [**1648**](#section-1648).
 - Return to the break room. Turn to section [**864**](#section-864).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60325,6 +63299,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3477**](#section-3477).
 - Return to the loading dock. Turn to section [**1649**](#section-1649).
 - Return to the break room. Turn to section [**865**](#section-865).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60345,6 +63325,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3478**](#section-3478).
 - Return to the loading dock. Turn to section [**1650**](#section-1650).
 - Return to the break room. Turn to section [**866**](#section-866).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60365,6 +63351,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3479**](#section-3479).
 - Return to the loading dock. Turn to section [**1651**](#section-1651).
 - Return to the break room. Turn to section [**867**](#section-867).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60385,6 +63377,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3480**](#section-3480).
 - Return to the loading dock. Turn to section [**1652**](#section-1652).
 - Return to the break room. Turn to section [**868**](#section-868).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60405,6 +63403,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3481**](#section-3481).
 - Return to the loading dock. Turn to section [**1653**](#section-1653).
 - Return to the break room. Turn to section [**869**](#section-869).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60425,6 +63429,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3482**](#section-3482).
 - Return to the loading dock. Turn to section [**1654**](#section-1654).
 - Return to the break room. Turn to section [**870**](#section-870).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60445,6 +63455,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3483**](#section-3483).
 - Return to the loading dock. Turn to section [**1655**](#section-1655).
 - Return to the break room. Turn to section [**871**](#section-871).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60465,6 +63481,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3484**](#section-3484).
 - Return to the loading dock. Turn to section [**1656**](#section-1656).
 - Return to the break room. Turn to section [**872**](#section-872).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60485,6 +63507,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3485**](#section-3485).
 - Return to the loading dock. Turn to section [**1657**](#section-1657).
 - Return to the break room. Turn to section [**873**](#section-873).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60505,6 +63533,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3486**](#section-3486).
 - Return to the loading dock. Turn to section [**1658**](#section-1658).
 - Return to the break room. Turn to section [**874**](#section-874).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60525,6 +63559,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3487**](#section-3487).
 - Return to the loading dock. Turn to section [**1659**](#section-1659).
 - Return to the break room. Turn to section [**875**](#section-875).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60545,6 +63585,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3488**](#section-3488).
 - Return to the loading dock. Turn to section [**1660**](#section-1660).
 - Return to the break room. Turn to section [**876**](#section-876).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60565,6 +63611,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3489**](#section-3489).
 - Return to the loading dock. Turn to section [**1661**](#section-1661).
 - Return to the break room. Turn to section [**877**](#section-877).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60585,6 +63637,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3490**](#section-3490).
 - Return to the loading dock. Turn to section [**1662**](#section-1662).
 - Return to the break room. Turn to section [**878**](#section-878).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60605,6 +63663,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3491**](#section-3491).
 - Return to the loading dock. Turn to section [**1663**](#section-1663).
 - Return to the break room. Turn to section [**879**](#section-879).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60625,6 +63689,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3492**](#section-3492).
 - Return to the loading dock. Turn to section [**1664**](#section-1664).
 - Return to the break room. Turn to section [**880**](#section-880).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60645,6 +63715,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3493**](#section-3493).
 - Return to the loading dock. Turn to section [**1665**](#section-1665).
 - Return to the break room. Turn to section [**881**](#section-881).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60665,6 +63741,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3494**](#section-3494).
 - Return to the loading dock. Turn to section [**1666**](#section-1666).
 - Return to the break room. Turn to section [**882**](#section-882).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60685,6 +63767,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3495**](#section-3495).
 - Return to the loading dock. Turn to section [**1667**](#section-1667).
 - Return to the break room. Turn to section [**883**](#section-883).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60705,6 +63793,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3496**](#section-3496).
 - Return to the loading dock. Turn to section [**1668**](#section-1668).
 - Return to the break room. Turn to section [**884**](#section-884).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -60725,6 +63819,12 @@ The warehouse manager office is open for the emergency. Lori Okonkwo's receiving
 - Speak with Lori Okonkwo about receiving and access topics you have unlocked. Turn to section [**3497**](#section-3497).
 - Return to the loading dock. Turn to section [**1669**](#section-1669).
 - Return to the break room. Turn to section [**885**](#section-885).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -67950,6 +71050,26 @@ You flip open the carrier POD binder to check the bay assignment against what wa
 
 ---
 
+<a id="section-3784"></a>
+## Section 3784
+
+### Control access mismatch
+
+**Question:** Who could issue the BMS mute command without refrigeration engineering privilege?
+
+**Record types to consult:**
+- Control room door badge entry (security office archive)
+- BMS command log and session identifier (control room workstation)
+
+Record the records you used. If synthesis fails, note which locations you will revisit.
+
+**What do you do?**
+
+- Mark synthesis complete if your answer is supported. Turn to section [**3880**](#section-3880).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**4736**](#section-4736).
+
+---
+
 <a id="section-3785"></a>
 ## Section 3785
 
@@ -69582,6 +72702,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**398**](#section-398).
 - Return to the loading dock. Turn to section [**1572**](#section-1572).
 - Return to the break room. Turn to section [**789**](#section-789).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69604,6 +72730,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**399**](#section-399).
 - Return to the loading dock. Turn to section [**1573**](#section-1573).
 - Return to the break room. Turn to section [**790**](#section-790).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69626,6 +72758,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**400**](#section-400).
 - Return to the loading dock. Turn to section [**1574**](#section-1574).
 - Return to the break room. Turn to section [**791**](#section-791).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69646,6 +72784,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**401**](#section-401).
 - Return to the loading dock. Turn to section [**1575**](#section-1575).
 - Return to the break room. Turn to section [**792**](#section-792).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69666,6 +72810,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**402**](#section-402).
 - Return to the loading dock. Turn to section [**1576**](#section-1576).
 - Return to the break room. Turn to section [**793**](#section-793).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69688,6 +72838,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**403**](#section-403).
 - Return to the loading dock. Turn to section [**1577**](#section-1577).
 - Return to the break room. Turn to section [**794**](#section-794).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69708,6 +72864,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**404**](#section-404).
 - Return to the loading dock. Turn to section [**1578**](#section-1578).
 - Return to the break room. Turn to section [**795**](#section-795).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69728,6 +72890,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**405**](#section-405).
 - Return to the loading dock. Turn to section [**1579**](#section-1579).
 - Return to the break room. Turn to section [**796**](#section-796).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69748,6 +72916,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**406**](#section-406).
 - Return to the loading dock. Turn to section [**1580**](#section-1580).
 - Return to the break room. Turn to section [**797**](#section-797).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69770,6 +72944,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**407**](#section-407).
 - Return to the loading dock. Turn to section [**1581**](#section-1581).
 - Return to the break room. Turn to section [**798**](#section-798).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69790,6 +72970,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**408**](#section-408).
 - Return to the loading dock. Turn to section [**1582**](#section-1582).
 - Return to the break room. Turn to section [**799**](#section-799).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69810,6 +72996,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**409**](#section-409).
 - Return to the loading dock. Turn to section [**1583**](#section-1583).
 - Return to the break room. Turn to section [**800**](#section-800).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69830,6 +73022,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**410**](#section-410).
 - Return to the loading dock. Turn to section [**1584**](#section-1584).
 - Return to the break room. Turn to section [**801**](#section-801).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69852,6 +73050,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**411**](#section-411).
 - Return to the loading dock. Turn to section [**1585**](#section-1585).
 - Return to the break room. Turn to section [**802**](#section-802).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69874,6 +73078,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**412**](#section-412).
 - Return to the loading dock. Turn to section [**1586**](#section-1586).
 - Return to the break room. Turn to section [**803**](#section-803).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69896,6 +73106,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**413**](#section-413).
 - Return to the loading dock. Turn to section [**1587**](#section-1587).
 - Return to the break room. Turn to section [**804**](#section-804).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69916,6 +73132,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**414**](#section-414).
 - Return to the loading dock. Turn to section [**1588**](#section-1588).
 - Return to the break room. Turn to section [**805**](#section-805).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69936,6 +73158,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**415**](#section-415).
 - Return to the loading dock. Turn to section [**1589**](#section-1589).
 - Return to the break room. Turn to section [**806**](#section-806).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69958,6 +73186,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**416**](#section-416).
 - Return to the loading dock. Turn to section [**1590**](#section-1590).
 - Return to the break room. Turn to section [**807**](#section-807).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -69980,6 +73214,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**417**](#section-417).
 - Return to the loading dock. Turn to section [**1591**](#section-1591).
 - Return to the break room. Turn to section [**808**](#section-808).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70002,6 +73242,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**418**](#section-418).
 - Return to the loading dock. Turn to section [**1592**](#section-1592).
 - Return to the break room. Turn to section [**809**](#section-809).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70022,6 +73268,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**419**](#section-419).
 - Return to the loading dock. Turn to section [**1593**](#section-1593).
 - Return to the break room. Turn to section [**810**](#section-810).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70044,6 +73296,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**420**](#section-420).
 - Return to the loading dock. Turn to section [**1594**](#section-1594).
 - Return to the break room. Turn to section [**811**](#section-811).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70066,6 +73324,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**421**](#section-421).
 - Return to the loading dock. Turn to section [**1595**](#section-1595).
 - Return to the break room. Turn to section [**812**](#section-812).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70088,6 +73352,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**422**](#section-422).
 - Return to the loading dock. Turn to section [**1596**](#section-1596).
 - Return to the break room. Turn to section [**813**](#section-813).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70110,6 +73380,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**423**](#section-423).
 - Return to the loading dock. Turn to section [**1597**](#section-1597).
 - Return to the break room. Turn to section [**814**](#section-814).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70132,6 +73408,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**424**](#section-424).
 - Return to the loading dock. Turn to section [**1598**](#section-1598).
 - Return to the break room. Turn to section [**815**](#section-815).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70152,6 +73434,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**425**](#section-425).
 - Return to the loading dock. Turn to section [**1599**](#section-1599).
 - Return to the break room. Turn to section [**816**](#section-816).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70172,6 +73460,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**426**](#section-426).
 - Return to the loading dock. Turn to section [**1600**](#section-1600).
 - Return to the break room. Turn to section [**817**](#section-817).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70194,6 +73488,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**427**](#section-427).
 - Return to the loading dock. Turn to section [**1601**](#section-1601).
 - Return to the break room. Turn to section [**818**](#section-818).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70214,6 +73514,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**428**](#section-428).
 - Return to the loading dock. Turn to section [**1602**](#section-1602).
 - Return to the break room. Turn to section [**819**](#section-819).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70236,6 +73542,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**429**](#section-429).
 - Return to the loading dock. Turn to section [**1603**](#section-1603).
 - Return to the break room. Turn to section [**820**](#section-820).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70256,6 +73568,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**430**](#section-430).
 - Return to the loading dock. Turn to section [**1604**](#section-1604).
 - Return to the break room. Turn to section [**821**](#section-821).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70276,6 +73594,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**431**](#section-431).
 - Return to the loading dock. Turn to section [**1605**](#section-1605).
 - Return to the break room. Turn to section [**822**](#section-822).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70296,6 +73620,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**432**](#section-432).
 - Return to the loading dock. Turn to section [**1606**](#section-1606).
 - Return to the break room. Turn to section [**823**](#section-823).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70318,6 +73648,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**433**](#section-433).
 - Return to the loading dock. Turn to section [**1607**](#section-1607).
 - Return to the break room. Turn to section [**824**](#section-824).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70340,6 +73676,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**434**](#section-434).
 - Return to the loading dock. Turn to section [**1608**](#section-1608).
 - Return to the break room. Turn to section [**825**](#section-825).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70360,6 +73702,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**435**](#section-435).
 - Return to the loading dock. Turn to section [**1609**](#section-1609).
 - Return to the break room. Turn to section [**826**](#section-826).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70382,6 +73730,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**436**](#section-436).
 - Return to the loading dock. Turn to section [**1610**](#section-1610).
 - Return to the break room. Turn to section [**827**](#section-827).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70404,6 +73758,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**437**](#section-437).
 - Return to the loading dock. Turn to section [**1611**](#section-1611).
 - Return to the break room. Turn to section [**828**](#section-828).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70426,6 +73786,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**438**](#section-438).
 - Return to the loading dock. Turn to section [**1612**](#section-1612).
 - Return to the break room. Turn to section [**829**](#section-829).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70446,6 +73812,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**439**](#section-439).
 - Return to the loading dock. Turn to section [**1613**](#section-1613).
 - Return to the break room. Turn to section [**830**](#section-830).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70466,6 +73838,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**440**](#section-440).
 - Return to the loading dock. Turn to section [**1614**](#section-1614).
 - Return to the break room. Turn to section [**831**](#section-831).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70488,6 +73866,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**441**](#section-441).
 - Return to the loading dock. Turn to section [**1615**](#section-1615).
 - Return to the break room. Turn to section [**832**](#section-832).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70510,6 +73894,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**442**](#section-442).
 - Return to the loading dock. Turn to section [**1616**](#section-1616).
 - Return to the break room. Turn to section [**833**](#section-833).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70532,6 +73922,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**443**](#section-443).
 - Return to the loading dock. Turn to section [**1617**](#section-1617).
 - Return to the break room. Turn to section [**834**](#section-834).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70552,6 +73948,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**444**](#section-444).
 - Return to the loading dock. Turn to section [**1618**](#section-1618).
 - Return to the break room. Turn to section [**835**](#section-835).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70572,6 +73974,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**445**](#section-445).
 - Return to the loading dock. Turn to section [**1619**](#section-1619).
 - Return to the break room. Turn to section [**836**](#section-836).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70594,6 +74002,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**446**](#section-446).
 - Return to the loading dock. Turn to section [**1620**](#section-1620).
 - Return to the break room. Turn to section [**837**](#section-837).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70614,6 +74028,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**447**](#section-447).
 - Return to the loading dock. Turn to section [**1621**](#section-1621).
 - Return to the break room. Turn to section [**838**](#section-838).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70634,6 +74054,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**448**](#section-448).
 - Return to the loading dock. Turn to section [**1622**](#section-1622).
 - Return to the break room. Turn to section [**839**](#section-839).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70654,6 +74080,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**449**](#section-449).
 - Return to the loading dock. Turn to section [**1623**](#section-1623).
 - Return to the break room. Turn to section [**840**](#section-840).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70674,6 +74106,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**450**](#section-450).
 - Return to the loading dock. Turn to section [**1624**](#section-1624).
 - Return to the break room. Turn to section [**841**](#section-841).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70696,6 +74134,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**451**](#section-451).
 - Return to the loading dock. Turn to section [**1625**](#section-1625).
 - Return to the break room. Turn to section [**842**](#section-842).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70718,6 +74162,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**452**](#section-452).
 - Return to the loading dock. Turn to section [**1626**](#section-1626).
 - Return to the break room. Turn to section [**843**](#section-843).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70740,6 +74190,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**453**](#section-453).
 - Return to the loading dock. Turn to section [**1627**](#section-1627).
 - Return to the break room. Turn to section [**844**](#section-844).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70762,6 +74218,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**454**](#section-454).
 - Return to the loading dock. Turn to section [**1628**](#section-1628).
 - Return to the break room. Turn to section [**845**](#section-845).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70782,6 +74244,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**455**](#section-455).
 - Return to the loading dock. Turn to section [**1629**](#section-1629).
 - Return to the break room. Turn to section [**846**](#section-846).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70802,6 +74270,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**456**](#section-456).
 - Return to the loading dock. Turn to section [**1630**](#section-1630).
 - Return to the break room. Turn to section [**847**](#section-847).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70822,6 +74296,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**457**](#section-457).
 - Return to the loading dock. Turn to section [**1631**](#section-1631).
 - Return to the break room. Turn to section [**848**](#section-848).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70842,6 +74322,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**458**](#section-458).
 - Return to the loading dock. Turn to section [**1632**](#section-1632).
 - Return to the break room. Turn to section [**849**](#section-849).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70862,6 +74348,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**459**](#section-459).
 - Return to the loading dock. Turn to section [**1633**](#section-1633).
 - Return to the break room. Turn to section [**850**](#section-850).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70884,6 +74376,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**460**](#section-460).
 - Return to the loading dock. Turn to section [**1634**](#section-1634).
 - Return to the break room. Turn to section [**851**](#section-851).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70906,6 +74404,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**461**](#section-461).
 - Return to the loading dock. Turn to section [**1635**](#section-1635).
 - Return to the break room. Turn to section [**852**](#section-852).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70926,6 +74430,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**462**](#section-462).
 - Return to the loading dock. Turn to section [**1636**](#section-1636).
 - Return to the break room. Turn to section [**853**](#section-853).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70948,6 +74458,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**464**](#section-464).
 - Return to the loading dock. Turn to section [**1637**](#section-1637).
 - Return to the break room. Turn to section [**854**](#section-854).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70970,6 +74486,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**465**](#section-465).
 - Return to the loading dock. Turn to section [**1638**](#section-1638).
 - Return to the break room. Turn to section [**855**](#section-855).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -70990,6 +74512,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**466**](#section-466).
 - Return to the loading dock. Turn to section [**1639**](#section-1639).
 - Return to the break room. Turn to section [**856**](#section-856).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71012,6 +74540,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**467**](#section-467).
 - Return to the loading dock. Turn to section [**1640**](#section-1640).
 - Return to the break room. Turn to section [**857**](#section-857).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71034,6 +74568,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**468**](#section-468).
 - Return to the loading dock. Turn to section [**1641**](#section-1641).
 - Return to the break room. Turn to section [**858**](#section-858).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71054,6 +74594,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**469**](#section-469).
 - Return to the loading dock. Turn to section [**1642**](#section-1642).
 - Return to the break room. Turn to section [**859**](#section-859).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71074,6 +74620,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**470**](#section-470).
 - Return to the loading dock. Turn to section [**1644**](#section-1644).
 - Return to the break room. Turn to section [**860**](#section-860).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71094,6 +74646,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**471**](#section-471).
 - Return to the loading dock. Turn to section [**1645**](#section-1645).
 - Return to the break room. Turn to section [**861**](#section-861).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71114,6 +74672,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**472**](#section-472).
 - Return to the loading dock. Turn to section [**1646**](#section-1646).
 - Return to the break room. Turn to section [**862**](#section-862).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71136,6 +74700,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**473**](#section-473).
 - Return to the loading dock. Turn to section [**1647**](#section-1647).
 - Return to the break room. Turn to section [**863**](#section-863).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71158,6 +74728,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**474**](#section-474).
 - Return to the loading dock. Turn to section [**1648**](#section-1648).
 - Return to the break room. Turn to section [**864**](#section-864).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71180,6 +74756,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**475**](#section-475).
 - Return to the loading dock. Turn to section [**1649**](#section-1649).
 - Return to the break room. Turn to section [**865**](#section-865).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71202,6 +74784,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**476**](#section-476).
 - Return to the loading dock. Turn to section [**1650**](#section-1650).
 - Return to the break room. Turn to section [**866**](#section-866).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71224,6 +74812,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**477**](#section-477).
 - Return to the loading dock. Turn to section [**1651**](#section-1651).
 - Return to the break room. Turn to section [**867**](#section-867).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71244,6 +74838,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**478**](#section-478).
 - Return to the loading dock. Turn to section [**1652**](#section-1652).
 - Return to the break room. Turn to section [**868**](#section-868).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71264,6 +74864,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**479**](#section-479).
 - Return to the loading dock. Turn to section [**1653**](#section-1653).
 - Return to the break room. Turn to section [**869**](#section-869).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71286,6 +74892,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**480**](#section-480).
 - Return to the loading dock. Turn to section [**1654**](#section-1654).
 - Return to the break room. Turn to section [**870**](#section-870).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71308,6 +74920,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**481**](#section-481).
 - Return to the loading dock. Turn to section [**1655**](#section-1655).
 - Return to the break room. Turn to section [**871**](#section-871).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71330,6 +74948,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**482**](#section-482).
 - Return to the loading dock. Turn to section [**1656**](#section-1656).
 - Return to the break room. Turn to section [**872**](#section-872).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71352,6 +74976,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**483**](#section-483).
 - Return to the loading dock. Turn to section [**1657**](#section-1657).
 - Return to the break room. Turn to section [**873**](#section-873).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71374,6 +75004,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**484**](#section-484).
 - Return to the loading dock. Turn to section [**1658**](#section-1658).
 - Return to the break room. Turn to section [**874**](#section-874).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71396,6 +75032,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**485**](#section-485).
 - Return to the loading dock. Turn to section [**1659**](#section-1659).
 - Return to the break room. Turn to section [**875**](#section-875).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71416,6 +75058,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**486**](#section-486).
 - Return to the loading dock. Turn to section [**1660**](#section-1660).
 - Return to the break room. Turn to section [**876**](#section-876).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71438,6 +75086,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**487**](#section-487).
 - Return to the loading dock. Turn to section [**1661**](#section-1661).
 - Return to the break room. Turn to section [**877**](#section-877).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71458,6 +75112,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**488**](#section-488).
 - Return to the loading dock. Turn to section [**1662**](#section-1662).
 - Return to the break room. Turn to section [**878**](#section-878).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71480,6 +75140,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**489**](#section-489).
 - Return to the loading dock. Turn to section [**1663**](#section-1663).
 - Return to the break room. Turn to section [**879**](#section-879).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71502,6 +75168,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**490**](#section-490).
 - Return to the loading dock. Turn to section [**1664**](#section-1664).
 - Return to the break room. Turn to section [**880**](#section-880).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71524,6 +75196,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**491**](#section-491).
 - Return to the loading dock. Turn to section [**1665**](#section-1665).
 - Return to the break room. Turn to section [**881**](#section-881).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71544,6 +75222,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**492**](#section-492).
 - Return to the loading dock. Turn to section [**1666**](#section-1666).
 - Return to the break room. Turn to section [**882**](#section-882).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71564,6 +75248,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**493**](#section-493).
 - Return to the loading dock. Turn to section [**1667**](#section-1667).
 - Return to the break room. Turn to section [**883**](#section-883).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71586,6 +75276,12 @@ With the site layout noted, the warehouse corridors back toward the dock and man
 - Open the badge access archive terminal. Turn to section [**494**](#section-494).
 - Return to the loading dock. Turn to section [**1668**](#section-1668).
 - Return to the break room. Turn to section [**884**](#section-884).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -71606,6 +75302,12 @@ The security office holds an alarm panel and a badge archive terminal. A wall of
 - Open the badge access archive terminal. Turn to section [**495**](#section-495).
 - Return to the loading dock. Turn to section [**1669**](#section-1669).
 - Return to the break room. Turn to section [**885**](#section-885).
+- Open inference worksheet: Badge misattributed. Turn to section [**2903**](#section-2903).
+- Open inference worksheet: Staging root cause. Turn to section [**4141**](#section-4141).
+- Open inference worksheet: Relabel fraud. Turn to section [**4095**](#section-4095).
+- Open inference worksheet: Control access mismatch. Turn to section [**3784**](#section-3784).
+- Open inference worksheet: Culprit supported. Turn to section [**4006**](#section-4006).
+- Open inference worksheet: Perfect reconstruction. Turn to section [**4018**](#section-4018).
 
 ---
 
@@ -72085,6 +75787,26 @@ A single amber indicator on the staging panel is the only thing not blinking in 
 
 ---
 
+<a id="section-4006"></a>
+## Section 4006
+
+### Culprit supported
+
+**Question:** Which role is supported by independent access, fraud, and control-room records?
+
+**Record types to consult:**
+- Everything you have gathered on badge access, control room entry, and manifest fraud
+- Cross-referenced timestamps from the security office
+
+Record the records you used. If synthesis fails, note which locations you will revisit.
+
+**What do you do?**
+
+- Mark synthesis complete if your answer is supported. Turn to section [**3302**](#section-3302).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**4732**](#section-4732).
+
+---
+
 <a id="section-4007"></a>
 ## Section 4007
 
@@ -72269,6 +75991,26 @@ A single amber indicator on the staging panel is the only thing not blinking in 
 **What do you do?**
 
 - Return to the control room. Turn to section [**1513**](#section-1513).
+
+---
+
+<a id="section-4018"></a>
+## Section 4018
+
+### Perfect reconstruction
+
+**Question:** Can you connect fraud concealment, unauthorized access, and staging suspension into one supported timeline?
+
+**Record types to consult:**
+- Every record thread listed in the worksheets above
+- The maintenance ticket and door-ajar alarm history (control room and security office)
+
+Record the records you used. If synthesis fails, note which locations you will revisit.
+
+**What do you do?**
+
+- Mark synthesis complete if your answer is supported. Turn to section [**1572**](#section-1572).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**4734**](#section-4734).
 
 ---
 
@@ -73547,6 +77289,27 @@ You wipe frost off the sensor display to get a clean reading. The live display r
 
 ---
 
+<a id="section-4095"></a>
+## Section 4095
+
+### Relabel fraud
+
+**Question:** Was pallet relabeling used to hide the inbound quantity short-ship?
+
+**Record types to consult:**
+- Label adhesive residue and timestamp comparison (aisle C)
+- Manifest MNF-IN-4471 versus carrier POD-4471 (manager office)
+- Coordinator's account of the receiving exception (manager office interview)
+
+Record the records you used. If synthesis fails, note which locations you will revisit.
+
+**What do you do?**
+
+- Mark synthesis complete if your answer is supported. Turn to section [**1280**](#section-1280).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**4638**](#section-4638).
+
+---
+
 <a id="section-4096"></a>
 ## Section 4096
 
@@ -74309,6 +78072,27 @@ You wipe frost off the sensor display to get a clean reading. The live display r
 **What do you do?**
 
 - Return to the cold storage hall. Turn to section [**1342**](#section-1342).
+
+---
+
+<a id="section-4141"></a>
+## Section 4141
+
+### Staging root cause
+
+**Question:** Did staging suspension—not the door alarm alone—drive the sustained temperature rise?
+
+**Record types to consult:**
+- BMS command log (control room workstation)
+- CZ-1 staging indicator panel (control room)
+- CZ-1 supply air temperature trend export (control room workstation)
+
+Record the records you used. If synthesis fails, note which locations you will revisit.
+
+**What do you do?**
+
+- Mark synthesis complete if your answer is supported. Turn to section [**1475**](#section-1475).
+- Mark synthesis incomplete and follow a recovery prompt in the recovery file. Turn to section [**4726**](#section-4726).
 
 ---
 
@@ -81081,6 +84865,19 @@ Pat nods toward the office wing and the break room corridor. "Elena runs the shi
 
 ---
 
+<a id="section-4524"></a>
+## Section 4524
+
+### Break locker
+
+Head to the staff break room and walk the locker bank. If you have not already checked the contractor locker that sits ajar, do that now.
+
+**What do you do?**
+
+- Go to the named location and take the action described above. Turn to section [**789**](#section-789).
+
+---
+
 <a id="section-4525"></a>
 ## Section 4525
 
@@ -83097,6 +86894,19 @@ Pat thinks for a moment. "About three years on this dock. I know the cold hall d
 
 ---
 
+<a id="section-4638"></a>
+## Section 4638
+
+### Cold aisle
+
+Return to the cold storage hall and walk the length of aisle C. Search the floor and pallet faces for label adhesive residue if you have not already.
+
+**What do you do?**
+
+- Go to the named location and take the action described above. Turn to section [**1280**](#section-1280).
+
+---
+
 <a id="section-4639"></a>
 ## Section 4639
 
@@ -84516,5 +88326,138 @@ Pat thinks for a moment. "About three years on this dock. I know the cold hall d
 
 - Return to the dock worker conversation menu. Turn to section [**1938**](#section-1938).
 - Return to the loading dock. Turn to section [**1593**](#section-1593).
+
+---
+
+<a id="section-4723"></a>
+## Section 4723
+
+### Cold display
+
+Go back into the cold storage hall and read the live CZ-1 supply air display. It costs almost no time and confirms what a trend export would otherwise show.
+
+**What do you do?**
+
+- Go to the named location and take the action described above. Turn to section [**1280**](#section-1280).
+
+---
+
+<a id="section-4726"></a>
+## Section 4726
+
+### Control term
+
+Return to the automation control room and approach engineering workstation CTRL-TERM-02. Review whichever of the BMS command log, the closed maintenance ticket, or the temperature trend export you have not yet opened.
+
+**What do you do?**
+
+- Go to the named location and take the action described above. Turn to section [**1475**](#section-1475).
+
+---
+
+<a id="section-4732"></a>
+## Section 4732
+
+### Manager interview
+
+Go to the warehouse manager office and raise the receiving exception directly with Lori Okonkwo. Bring whatever manifest or physical evidence you already have — it changes how much she is willing to say.
+
+**What do you do?**
+
+- Go to the named location and take the action described above. Turn to section [**3302**](#section-3302).
+
+---
+
+<a id="section-4733"></a>
+## Section 4733
+
+### Manager manifest
+
+Go to the warehouse manager office and compare manifest MNF-IN-4471 to the carrier delivery record at the receiving workstation.
+
+**What do you do?**
+
+- Go to the named location and take the action described above. Turn to section [**3302**](#section-3302).
+
+---
+
+<a id="section-4734"></a>
+## Section 4734
+
+### Revisit any unresolved source
+
+Return to the loading dock and choose whichever location still has a record, a check, or a conversation you have not finished. A full reconstruction needs every thread accounted for.
+
+**What do you do?**
+
+- Go to the named location and take the action described above. Turn to section [**1572**](#section-1572).
+
+---
+
+<a id="section-4736"></a>
+## Section 4736
+
+### Security archive
+
+Return to the security office and open the badge access archive terminal. From its query menu, run whichever badge record you have not pulled yet — cold storage entry, control room entry, or the contractor's outbound scan.
+
+**What do you do?**
+
+- Go to the named location and take the action described above. Turn to section [**3880**](#section-3880).
+
+---
+
+<a id="section-4737"></a>
+## Section 4737
+
+### Security crossref
+
+Return to the security office and cross-reference the alarm history against the badge records you have already pulled. Line the timestamps up side by side.
+
+**What do you do?**
+
+- Go to the named location and take the action described above. Turn to section [**3880**](#section-3880).
+
+---
+
+<a id="section-4740"></a>
+## Section 4740
+
+**Scene transition**
+
+### Accountability preparation
+
+
+
+You spread your notes across the briefing table and start organizing them into a four-part accountability statement: who, how, what, and why. The clock does not stop while you write.
+
+**What do you do?**
+
+- Continue this scene thread. Turn to section [**4743**](#section-4743).
+- Return to the location base section for this area. Turn to section [**1572**](#section-1572).
+
+---
+
+<a id="section-4743"></a>
+## Section 4743
+
+**Scene transition**
+
+### Accountability submission
+
+
+
+Your four-part statement is drafted. Choose how to file it with compliance before the deadline closes the shift.
+
+**What do you do?**
+
+- Submit your full supported accountability statement. Turn to section [**2033**](#section-2033).
+- Submit the best statement you can with incomplete proof. Turn to section [**324**](#section-324).
+- Submit a statement centering on the contractor exit record. Turn to section [**1111**](#section-1111).
+- Submit a technical mechanism statement without naming personnel. Turn to section [**643**](#section-643).
+- Submit receiving discrepancy findings without full relabel synthesis. Turn to section [**355**](#section-355).
+- Defer final accountability and continue investigating. Turn to section [**263**](#section-263).
+- Close the case using the records-only archive route. Turn to section [**175**](#section-175).
+- Return to the location base section for this area. Turn to section [**1572**](#section-1572).
 
 ---
