@@ -14,6 +14,10 @@ from idne.epistemic_progression.model import EpistemicPackage, PlayableEvent
 from idne.gamebook_nav.extract import PlayerUnit
 from idne.gamebook_nav.graph import ChoiceEdge, UnitNavigation, build_navigation_graph
 from idne.gamebook_nav.narrative import render_event_body
+from idne.gamebook_nav.progression_merge import (
+    merge_progression_into_materialized_graph,
+    supplement_progression_units,
+)
 
 # Scene/content aliases: delivery id -> template prose unit.
 CONTENT_ALIASES: dict[str, str] = {
@@ -285,6 +289,12 @@ def load_materialized_delivery(
         template_units,
         delivery_units,
         graph,
+    )
+    graph = merge_progression_into_materialized_graph(
+        adventure_root, package, graph, template_units
+    )
+    delivery_units, graph = supplement_progression_units(
+        adventure_root, template_units, delivery_units, graph
     )
     stats.supplemental_templates = len(delivery_units) - before
     stats.delivery_units = len(delivery_units)

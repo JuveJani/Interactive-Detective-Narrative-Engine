@@ -71,6 +71,13 @@ You spread your notes across the briefing table and start organizing them into a
 - Continue this scene thread.
 - Return to the location base section for this area.
 
+<!-- unit:sc-accusation-submit -->
+### Accountability submission
+
+**Scene transition**
+
+Your four-part statement is drafted. Choose how to file it with compliance before the deadline closes the shift.
+
 <!-- unit:sc-security-archive-ready -->
 ### Archive ready
 

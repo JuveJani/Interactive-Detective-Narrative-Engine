@@ -562,6 +562,7 @@ def build_epistemic_events(manifest: dict) -> list[dict]:
         "UNIT-DOCK-WORKER-HUB",
         "UNIT-MANAGER-BASE",
         "UNIT-MANAGER-LORI-HUB",
+        "SC-ACCUSATION-SUBMIT",
     }
 
     for uid in sorted(player_units.keys()):
@@ -724,6 +725,11 @@ def write_epistemic_package(events: list[dict]) -> MaterializeStats:
         start_template_unit="UNIT-DOCK-BASE",
         initial_state=initial,
     )
+    if stats.truncated:
+        raise RuntimeError(
+            f"epistemic materialization truncated at {stats.materialized_count} states "
+            f"(max {stats.max_states}); refusing to write partial package"
+        )
     materialized.adventure_id = "The_Cold_Storage_Alarm"
 
     template_menu_catalog = {

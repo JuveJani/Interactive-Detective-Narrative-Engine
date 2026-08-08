@@ -323,8 +323,28 @@ def _add_content_alias_links(graph: dict[str, UnitNavigation]) -> None:
 
 
 def _add_accusation_endings(flow_pkg: dict, graph: dict[str, UnitNavigation]) -> None:
-    """Endings are resolved from accusation questionnaire state, not direct menu picks."""
-    return
+    """Wire accusation prep to submission menu and gated endings."""
+    from idne.ending_resolution import ending_submit_actions
+
+    prep = graph.get("SC-ACCUSATION-PREP")
+    if prep:
+        existing = {e.destination_unit_id for e in prep.choices}
+        if "SC-ACCUSATION-SUBMIT" not in existing:
+            prep.choices.append(
+                ChoiceEdge("Continue this scene thread.", "SC-ACCUSATION-SUBMIT", "scene")
+            )
+    submit_actions = ending_submit_actions(flow_pkg)
+    graph["SC-ACCUSATION-SUBMIT"] = UnitNavigation(
+        unit_id="SC-ACCUSATION-SUBMIT",
+        choices=[
+            ChoiceEdge(a["label"], a["destination_unit_id"], a.get("action_type", "ending_submit"))
+            for a in submit_actions
+        ],
+    )
+    for action in submit_actions:
+        eid = action.get("destination_unit_id", "")
+        if eid.startswith("END-") and eid not in graph:
+            graph[eid] = UnitNavigation(unit_id=eid, choices=[])
 
 
 def _graph_from_epistemic_package(
@@ -463,7 +483,8 @@ def build_navigation_graph(
                 continue
 
             if nchoice.startswith("mark synthesis complete"):
-                edges.append(ChoiceEdge(choice, "END-NARRATIVE-CONTINUE", "inference"))
+                base = loc_bases.get("LOC-DOCK", "UNIT-DOCK-BASE")
+                edges.append(ChoiceEdge(choice, base, "inference"))
                 continue
 
             if nchoice.startswith("mark synthesis incomplete"):
